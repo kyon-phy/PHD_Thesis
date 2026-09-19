@@ -1,0 +1,19 @@
+# Keep Codex scripts local, including copies under output/ and tmp/.
+/codex/**/scripts/
+/codex/**/*.py
+/codex/**/*.sh
+/codex/**/*.bash
+/codex/**/*.zsh
+/codex/**/*.js
+/codex/**/*.mjs
+/codex/**/*.cjs
+/codex/**/*.ts
+/codex/**/*.tsx
+/codex/**/*.ipynb
+/codex/**/*.R
+/codex/**/*.r
+/codex/**/*.C
+
+# Compiled Python scripts and script caches.
+/codex/**/*.py[cod]
+/codex/**/__pycache__/
