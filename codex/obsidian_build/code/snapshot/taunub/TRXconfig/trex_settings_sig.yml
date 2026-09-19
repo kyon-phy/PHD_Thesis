@@ -1,0 +1,309 @@
+# --------------- %
+# ---  JOB    --- %
+# --------------- %
+
+Job:
+  Name: "fit_taunub_SR"
+  # # CmeLabel: "13 TeV"
+  POI: "SigXsecOverSM"
+  # ReadFrom: NTUP
+  # NtuplePaths: XXX_NtuplePaths
+  # Label: "tau+x"
+  LumiLabel: "140 fb^{-1}"
+  # Lumi: XXX_LUMI
+  PlotOptions: "YIELDS" #,"CHI2","NOXERR","PREFITONPOSTFIT" #"NORMSIG","NOSIG"
+  # NtupleName: "nominal"
+  MCstatThreshold: 0.01
+  # #UseGammasForCorr: TRUE
+  # #GuessMCStatEmptyBins: FALSE
+  # #SystErrorBars: TRUE
+  # #SystControlPlots: TRUE
+  # #SystPruningShape: 0.01
+  # #SystPruningNorm: 0.01
+  # #SystLarge: 0.90
+  # #SystCategoryTables: TRUE
+  # #CorrelationThreshold: 0.20
+  # HistoChecks: NOCRASH
+  PrePostFitCanvasSize: 800,700
+  # PrePostFitCanvasSize: 1100,950
+  LegendX1: 0.46
+  # #SplitHistoFiles: TRUE   # set this in order to have separated .root files in Histograms/ for different regions
+  ImageFormat: "png" #,"eps","pdf"
+  DoSummaryPlot: TRUE
+  DoTables: TRUE
+  # DoSignalRegionsPlot: TRUE
+  DoPieChartPlot: TRUE
+  # SummaryPlotYmin: 1
+  SummaryPlotYmax: 1e3 #CRs
+  # SummaryPlotYmax: 4e3 #SRs
+  RatioType: "DATAOVERBKG"
+  RatioYmin: 0 #0.5
+  RatioYmax: 2 #1.5
+  # # RatioYtitle: "S/(S+B)"
+  # BlindingThreshold: 0.05
+  # BlindingType: SOVERB
+  # ReplacementFile: /afs/cern.ch/work/z/zang/LQanalysis/TRExFitter_xTAU/TRExFitter/config/replacement_TauX_jiaqi.txt
+  # RankingMaxNP: 15
+  # DebugLevel: 2
+  # #RemoveSystOnEmptySample: TRUE
+  # #RemoveLargeSyst: TRUE
+  # BlindingThreshold: 0.05
+  # GetChi2: STAT
+  # UseATLASRoundingTex: TRUE
+  # AddAliases: "flag_MET:(flag_passMETtrig == 1 && met_met*1e-3 >= 200); flag_nJets_wFwd_init:jets_wFwd_init(jets_pt*1e-3,jets_eta,jets_phi,jets_btagFlag_GN2v00LegacyWP_ContinuousBin,nJets_OR); flag_nJets_woFwd_init:jets_woFwd_init(jets_pt*1e-3,jets_eta,jets_phi,jets_btagFlag_GN2v00LegacyWP_ContinuousBin,nJets_OR); flag_single_tight_tau_init:single_tau_init(nTaus_OR_Tight, tau_Pt_0*1e-3, tau_Phi_0, taus_JetRNNSigTight_0, tau_Pt_1*1e-3, tau_Phi_1, taus_JetRNNSigTight_1); flag_met_init:met_init(met_met*1e-3, met_phi); flag_metjet_minDPhi_init:metjet_minDPhi_init(); nJets:countNJets(); nBJets_GN2v00LegacyWP_85:countNBJets_85(); nJets_OR_GN2v00LegacyWP_70:countNBJets_70(); nJets_OR_GN2v00LegacyWP_60:countNBJets_60(); nLightJets_GN2v00LegacyWP_85:countNLightJets_85(); nLightJets_OR_GN2v00LegacyWP_70:countNLightJets_70(); leading_bjet_pt_85:get_leading_bjet_pt_85(); leading_bjet_pt_70:get_leading_bjet_pt_70; leading_bjet_pt_60:get_leading_bjet_pt_60; subleading_bjet_pt_85:get_subleading_bjet_pt_85(); subleading_bjet_pt_70:get_subleading_bjet_pt_70; subleading_bjet_pt_60:get_subleading_bjet_pt_60; tau_met_mT:get_taumet_mT(); tau_met_DPhi:get_taumet_DPhi(); tau_met_ratio:get_taumet_ratio();metjet_ratio:get_metjet_ratio(); metjet_minDPhi:get_metjet_minDPhi(); tight_tau_pt:get_tau_pt();
+  BlindSRs: TRUE
+  RatioYminPostFit: 0 #0.5
+  RatioYmaxPostFit: 2 #1.5
+  # OutputDir: /afs/cern.ch/work/z/zang/LQanalysis/TRExFitter_xTAU/TRExFitter/output/
+  # CustomFunctions: "/afs/cern.ch/work/z/zang/LQanalysis/TRExFitter_xTAU/TRExFitter/scripts/taunubVars.C"
+  StatOnly: True
+  # # test options
+  # #HideNP: SigXsecOverSM
+
+# --------------- %
+# ---  FIT    --- %
+# --------------- %
+
+Fit:
+   FitType: BONLY
+   FitRegion: CRONLY
+   FitBlind: True
+   POIAsimov: 1
+   UseMinos: SigXsecOverSM
+   #NumCPU: 8
+   doLHscan: all
+   #DoNonProfileFit: True
+
+# --------------- %
+# ---  LIMIT  --- %
+# --------------- %
+
+#  Limit: "limit"
+#    LimitType: ASYMPTOTIC
+#    LimitBlind: FALSE
+#    SignalInjection: TRUE
+
+# --------------- %
+# --- REGIONS --- %
+# --------------- %
+
+Regions:
+  - name: "SR_*sch*"
+    Type: SIGNAL
+    # Variable: 1,1,0,1
+    Label: "Resonance SR"
+    Ymax: 1e2
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: ASIMOV
+
+  - name: "SR_*tch*"
+    Type: SIGNAL
+    # Variable: 1,1,0,1
+    Label: "Non-Resonance SR"
+    Ymax: 1e2
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: ASIMOV
+
+
+# --------------- %
+# --- SAMPLES --- %
+# --------------- %
+
+## Signal samples ##
+# Sample: "Signal_BSM_M1500_U1_LQtaunu_BF"
+#   Type: SIGNAL
+#   Title: "LQ (U1, 1.5 TeV), BF"
+#   TexTitle: $LQ$ (U1, 1.5 TeV), BF
+#   Group: "M_{LQ}=1.5 TeV, BSM+Interference"
+#   FillColor: 2
+#   LineColor: 2
+#   NtupleFiles: XXX_Signal_LQtau_bsm_U1_M1500_BQuarkFilter_samples
+#   Regions: "SR_1tau_1b_0l_MET"
+#   MCweight: "XXX_MC_WEIGHT"
+
+# Sample: "Signal_BSM_M1500_U1_LQtaunu_BVeto"
+#   Type: SIGNAL
+#   Title: "LQ (U1, 1.5 TeV), BVeto"
+#   TexTitle: $LQ$ (U1, 1.5 TeV), BVeto
+#   Group: "M_{LQ}=1.5 TeV, BSM+Interference"
+#   FillColor: 2
+#   LineColor: 2
+#   NtupleFiles: XXX_Signal_LQtau_bsm_U1_M1500_BQuarkVeto_samples
+#   Regions: "SR_1tau_1b_0l_MET"
+#   MCweight: "XXX_MC_WEIGHT"
+
+# Sample: "Signal_inf_M1500_U1_LQtaunu_NET150"
+#   Type: SIGNAL
+#   Title: "LQ (U1, 1.5 TeV), NET150"
+#   TexTitle: $LQ$ (U1, 1.5 TeV), NET150
+#   Group: "M_{LQ}=1.5 TeV, BSM+Interference"
+#   FillColor: 2
+#   LineColor: 2
+#   NtupleFiles: XXX_Signal_LQtau_inf_U1_M1500_NET150_samples
+#   Regions: "SR_1tau_1b_0l_MET"
+#   MCweight: "XXX_MC_WEIGHT"
+
+# Sample: "Signal_inf_M1500_U1_LQtaunu_NETMAX150"
+#   Type: SIGNAL
+#   Title: "LQ (U1, 1.5 TeV), NETMAX150"
+#   TexTitle: $LQ$ (U1, 1.5 TeV), NETMAX150
+#   Group: "M_{LQ}=1.5 TeV, BSM+Interference"
+#   FillColor: 2
+#   LineColor: 2
+#   NtupleFiles: XXX_Signal_LQtau_inf_U1_M1500_NETMAX150_samples
+#   Regions: "SR_1tau_1b_0l_MET"
+#   MCweight: "XXX_MC_WEIGHT"
+
+## Background samples ##
+
+samples:
+  - name: "LQ_taunub_M1500"
+    Type: SIGNAL
+    Title: "LQ_taunub_M1500"
+    TexTitle: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{L}^{23}=0.2"
+    Group: "LQ_taunub_M1500"
+    FillColor: 2
+    LineColor: 2
+
+  - name: "LQ_taunub_M2500"
+    Type: SIGNAL
+    Title: "LQ_taunub_M2500"
+    TexTitle: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{L}^{23}=1.0"
+    Group: "LQ_taunub_M2500"
+    FillColor: 2
+    LineColor: 2
+
+  - name: "Data"
+    Type: DATA
+    Title: "Data"
+    TexTitle: Data
+  
+  - name: "ttbar"
+    Type: BACKGROUND
+    Title: "t#bar{t}"
+    # Group: "Top"
+    #Smooth: TRUE
+  
+  - name: "SingleTop"
+    Type: BACKGROUND
+    Title: "Single Top"
+    # Group: "Top"
+  
+  
+  - name: "ttZ"
+    Type: BACKGROUND
+    Title: "ttZ"
+    # Group: "Top"
+  
+  - name: "Zll"
+    Type: BACKGROUND
+    Title: "Zll+j"
+    Group: "Zll+j"
+    # Group: "Z+jets"
+  
+  - name: "Znunu"
+    Type: BACKGROUND
+    Title: "Z#nu#nu+j"
+    Group: "Z#nu#nu+j"
+    # Group: "Z+jets"
+  
+  - name: "Ztautau"
+    Type: BACKGROUND
+    Title: "Z#tau#tau+j"
+    Group: "Z#tau#tau+j"
+    # Group: "Z+jets"
+  
+  - name: "Zjet_EWK"
+    Type: BACKGROUND
+    Title: "Zjet_EWK"
+    Group: "Zjet_EWK"
+    # Group: "Z+jets"
+    FillColor: 432
+    LineColor: 432
+  
+  - name: "Wtaunu_METTAU"
+    Type: BACKGROUND
+    Title: "W#tau#nu+j"
+    Group: "W#tau#nu+j"
+    # Group: "W+jets"
+    FillColor: 416
+    LineColor: 416
+  
+  - name: "Wtaunu_HF"
+    Type: BACKGROUND
+    Title: "W#tau#nu+j"
+    Group: "W#tau#nu+j"
+    # Group: "W+jets"
+    FillColor: 416
+    LineColor: 416
+
+  - name: "Wlnu"
+    Type: BACKGROUND
+    Title: "Wl#nu+j"
+    # Group: "W+jets"
+    FillColor: 800
+    LineColor: 800
+  
+  - name: "VV"
+    Type: BACKGROUND
+    Title: "VV"
+    # Group: "Diboson"
+    FillColor: 419
+    LineColor: 419
+
+  
+  - name: "VV_semilep"
+    Type: BACKGROUND
+    Title: "VV_semilep"
+    # Group: "Diboson"
+    FillColor: 225
+    LineColor: 225
+
+
+
+# --------------- %
+# - NORMFACTORS - %
+# --------------- %
+
+NormFactors:
+   - name: "SigXsecOverSM"
+     Title: "#mu(signal)"
+     Nominal: 1
+     Min: 0
+     Max: 10
+     Samples: "ttbar"
+     # Constant: True
+     # Category: Theory
+
+   - name: "top_Norm"
+     Title: "#mu(top)"
+     Nominal: 1
+     Min: 0
+     Max: 3
+    #  Samples: "'ttbar','SingleTop','ttZ'"
+     Samples: '"ttbar","SingleTop","ttZ"'
+
+   - name: "Wjets_Norm"
+     Title: "#mu(Wjets)"
+     Nominal: 1
+     Min: 0
+     Max: 3
+     Samples: "W*"
+
+
+  #- name: "Znunu"
+  #  Title: "#mu(Znunu)"
+  #  Nominal: 1.
+  #  Min: 0
+  #  Max: 5
+  #  Samples: Znunu_2211
+
+  #- name: "muLumi"
+  #  Title: "#mu(Lumi)"
+  #  Nominal: 1
+  #  Min: 0.
+  #  Max: 100
+  #  Samples: all
+  #  Constant: TRUE

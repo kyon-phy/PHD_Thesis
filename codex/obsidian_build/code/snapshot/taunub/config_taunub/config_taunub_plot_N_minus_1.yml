@@ -1,0 +1,464 @@
+general:
+  debug_level: DEBUG
+
+  # paths
+  input_filelist_path: "../input/filelist_v03.txt"
+  input_sumweights_path: "../input/sum_of_weights_v03.txt"
+  output_path_histograms: "./output_plots/taunub_CRs_N_minus_1"
+
+  # weights
+  default_sumweights: "NOSYS"
+  # default_event_weights: "weight_mc_NOSYS * weight_pileup_NOSYS"
+  default_event_weights: "weight_mc_NOSYS * weight_pileup_NOSYS * tauSF_NOSYS * elSF_NOSYS * muonSF_NOSYS * jetSF_NOSYS * weight_ftag_effSF_GN2v01_Continuous_NOSYS * globalTriggerEffSFSLT_wpSet0_NOSYS"
+
+  # overwrite_event_weights: True
+  default_reco_tree_name: "reco"
+
+  # path to the file with cross-sections
+  xsection_files:
+    - files: ["/cvmfs/atlas.cern.ch/repo/sw/database/GroupData/dev/PMGTools/PMGxsecDB_mc16.txt"]
+      campaigns: ["mc20a","mc20d","mc20e"]
+
+  # # name of the custom class
+  custom_frame_name: "TauXFastFrame"
+
+  # automatic systematics?
+  automatic_systematics: False
+  nominal_only: True
+
+  # # which objects to create lorentz vectors for
+  create_tlorentz_vectors_for: ["jet","mu","el","tau"]
+
+  number_of_cpus: 10
+
+  custom_options:
+    # https://gitlab.cern.ch/atlas-phys/exot/lpx/exot-2022-34/taux_fastframes/-/blob/master/TauXFastFrame/TauXFastFrame/WorkingPointMap.h
+    wpSet: "wpSet0" # LooseRNN
+    # wpSet: "" 
+    # wpElectron: "TightLH_Loose_VarRad"
+    # wpMuon: "Loose_Loose_VarRad"
+    # wpTau: "TightRNN"
+    # presel_el: "el_select_TightLH_HighPtCaloOnly_NOSYS && el_pt_NOSYS > 10000" # tight electron id and high pt calo only iso
+    presel_el: "el_select_TightLH_Loose_VarRad_NOSYS && el_pt_NOSYS > 10000" # tight electron id and high pt calo only iso
+    # presel_mu: "mu_select_Loose_Tight_VarRad_NOSYS && mu_pt_NOSYS > 10000"
+    presel_mu: "mu_select_Loose_Loose_VarRad_NOSYS && mu_pt_NOSYS > 10000"
+    # presel_tau: "tau_select_TightRNN_NOSYS" 
+    # presel_tau: "tau_select_TightRNN_noElVeto_NOSYS && tau_pt_NOSYS > 20000" 
+    presel_tau: "tau_select_LooseRNN_NOSYS && tau_pt_NOSYS > 20000" 
+    presel_jet: "abs(jet_eta) < 2.5 && jet_pt_NOSYS > 20000"
+    # presel_el: ""
+    # presel_mu: ""
+    # presel_tau: "" 
+    # presel_jet: ""
+
+
+# define regions
+  # jet pt cut N-1
+regions:
+  - name: "WCR_0tau1e0b_tch_jet_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"   # wo jet pT cut
+    variables: &var_WCR_jet_pt_N_minus_1
+      - name: "jet_pt_0"
+        title : ";p_{T}^{jet0} [GeV];Events"
+        definition: "Jets_NOSYS.size()>0 ? Jets_NOSYS[0].Pt() * 1e-3 : 0"
+        type: "double"
+        binning:
+          bin_edges: [0, 50, 150, 250, 350, 450, 550, 650, 750, 1000]
+  - name: "WCR_0tau1mu0b_tch_jet_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2" # wo jet pt cut
+    variables: 
+      - *var_WCR_jet_pt_N_minus_1
+  - name: "WCR_0tau1e0b_sch_jet_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800" # wo jet pt cut
+    variables: 
+      - *var_WCR_jet_pt_N_minus_1
+  - name: "WCR_0tau1mu0b_sch_jet_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800" # wo jet pT cut
+    variables: 
+      - *var_WCR_jet_pt_N_minus_1
+
+  # mT N-1
+  - name: "WCR_0tau1e0b_tch_mT_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: &var_WCR_mT_N_minus_1
+      - name: "mT_lep0_met"
+        title : ";m_{T}(l, met) [GeV];Events"
+        definition: "Leptons_NOSYS.size()>0 ? Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 : 0"
+        type: "double"
+        binning:
+          bin_edges: [0, 100, 200, 300, 400, 500, 600, 700, 900, 1100, 1300, 1500, 1700, 2000.]
+  - name: "WCR_0tau1mu0b_tch_mT_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: 
+      - *var_WCR_mT_N_minus_1
+  - name: "WCR_0tau1e0b_sch_mT_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: 
+      - *var_WCR_mT_N_minus_1
+  - name: "WCR_0tau1mu0b_sch_mT_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: 
+      - *var_WCR_mT_N_minus_1
+
+  # met N-1
+  - name: "WCR_0tau1e0b_tch_met_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: &var_WCR_met_N_minus_1
+      - name: "met"
+        title : ";E_{T}^{miss} [GeV];Events"
+        definition: "MET_wpSet0_met_NOSYS * 0.001"
+        type: "double"
+        binning:
+          bin_edges: [200, 300, 400, 500, 600, 1200]
+  - name: "WCR_0tau1mu0b_tch_met_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: 
+      - *var_WCR_met_N_minus_1
+  - name: "WCR_0tau1e0b_sch_met_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: 
+      - *var_WCR_met_N_minus_1
+  - name: "WCR_0tau1mu0b_sch_met_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: 
+      - *var_WCR_met_N_minus_1
+
+ # lep pT N-1
+  - name: "WCR_0tau1e0b_tch_lep0_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: &var_WCR_lep0_pt_N_minus_1
+      - name: "lep_pt_0"
+        title : ";p_{T}^{l} [GeV];Events"
+        definition: "Leptons_NOSYS.size()>0 ? Leptons_NOSYS[0].Pt() * 0.001 : 0"
+        type: "double"
+        binning:
+          bin_edges: [100, 200, 300, 500, 600, 1200]
+  - name: "WCR_0tau1mu0b_tch_lep0_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: 
+      - *var_WCR_lep0_pt_N_minus_1
+  - name: "WCR_0tau1e0b_sch_lep0_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: 
+      - *var_WCR_lep0_pt_N_minus_1
+  - name: "WCR_0tau1mu0b_sch_lep0_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: 
+      - *var_WCR_lep0_pt_N_minus_1
+
+# Nbjets N-1
+  - name: "WCR_0tau1e0b_tch_Nbjets_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: &var_WCR_Nbjet_N_minus_1
+      - name: "nbJets85"
+        title : ";Number of b-jets;Events"
+        definition: "nbJets85_NOSYS"
+        type: "unsigned int"
+        binning:
+          min: 0
+          max: 6
+          number_of_bins: 6
+  - name: "WCR_0tau1mu0b_tch_Nbjets_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: 
+      - *var_WCR_Nbjet_N_minus_1
+  - name: "WCR_0tau1e0b_sch_Nbjets_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: 
+      - *var_WCR_Nbjet_N_minus_1
+  - name: "WCR_0tau1mu0b_sch_Nbjets_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: 
+      - *var_WCR_Nbjet_N_minus_1
+
+# lep met deltaphi / Mlep0Jet N-1
+  - name: "WCR_0tau1e0b_tch_lep_met_deltaphi_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: &var_WCR_lep_met_deltaphi_N_minus_1
+      - name: "lep0_met_deltaphi"
+        title : ";#Delta#phi(lep0, met);Events"
+        definition: "Leptons_NOSYS.size()>0 ? abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) : 0"
+        type: "double"
+        binning:
+          bin_edges: [2, 2.4, 2.6, 2.8, 3.0, 3.2]
+  - name: "WCR_0tau1mu0b_tch_lep_met_deltaphi_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+    variables: 
+      - *var_WCR_lep_met_deltaphi_N_minus_1
+  - name: "WCR_0tau1e0b_sch_lep_met_deltaphi_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: &var_WCR_Mlepjet_N_minus_1
+      - name: "Mlep0Jet"
+        title : ";M_{l+jet0} [GeV];Events"
+        definition: "Jets_NOSYS.size() > 0 && Leptons_NOSYS.size()>0 ? Jets_NOSYS[0].InvM(Leptons_NOSYS[0])*0.001 : 0"
+        type: "double"
+        binning:
+          bin_edges: [400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1400, 1700, 2000, 2500.]
+
+  - name: "WCR_0tau1mu0b_sch_lep_met_deltaphi_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: 
+      - *var_WCR_Mlepjet_N_minus_1
+
+    # wo mT, bjet pt, tau pT cut
+
+  - name: "topCR_1tau1e_sch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    variables: &var_taunub_TopCR
+      - name: "lep_pt_0"
+        title : ";p_{T}^{l} [GeV];Events"
+        definition: "Leptons_NOSYS.size()>0 ? Leptons_NOSYS[0].Pt() * 0.001 : 0"
+        type: "double"
+        binning:
+          bin_edges: [0, 100, 200, 300, 600.]
+      - name: "met"
+        title : ";E_{T}^{miss} [GeV];Events"
+        definition: "MET_wpSet0_met_NOSYS * 0.001"
+        type: "double"
+        binning:
+          bin_edges: [0, 50, 100, 150, 200, 400, 700.]
+      - name: "jet_pt_0"
+        title : ";p_{T}^{jet0} [GeV];Events"
+        definition: "Jets_NOSYS.size()>0 ? Jets_NOSYS[0].Pt() * 1e-3 : 0"
+        type: "double"
+        binning:
+          bin_edges: [0, 100, 200, 300, 400, 600, 800, 1000.]
+      - name: "mT_tau_met"
+        title : ";m_{T}(#tau, met) [GeV];Events"
+        definition: "Taus_NOSYS.size()>0 ? Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 : 0"
+        type: "double"
+        binning:
+          bin_edges: [0, 100, 200, 300, 400, 500, 700, 1000.]
+      - name: "Mbtau"
+        title : ";M_(#tau+b) [GeV];Events"
+        definition: "Taus_NOSYS.size()>0 && nbJets85_NOSYS > 0 ? Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 : 0"
+        type: "double"
+        binning:
+          bin_edges: [0., 100., 200., 400., 800., 1500.]
+      - name: "nbJets85"
+        title : ";Number of b jets;Events"
+        definition: "nbJets85_NOSYS"
+        type: "unsigned int"
+        binning:
+          min: 0
+          max: 6
+          number_of_bins: 6
+      - name: "nJets"
+        title : ";Number of jets;Events"
+        definition: "Jets_NOSYS.size()"
+        type: "unsigned long"
+        binning:
+          min: 0
+          max: 6
+          number_of_bins: 6
+      - name: "tau_met_deltaphi"
+        title : ";#Delta#phi(#tau, met);Events"
+        definition: "Taus_NOSYS.size()>0 ? abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) : 0"
+        type: "double"
+        binning:
+          bin_edges: [0, 0.3, 0.7, 1.2, 1.7, 2.3, 2.6, 2.9, 3.2]
+  - name: "topCR_1tau1mu_sch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    variables: 
+      - *var_taunub_TopCR
+  - name: "topCR_1tau1e_tch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    variables: 
+      - *var_taunub_TopCR
+  - name: "topCR_1tau1mu_tch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    variables: 
+      - *var_taunub_TopCR
+
+# mT N-1
+  - name: "topCR_1tau1e_sch_mT_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    variables: 
+    variables: &var_TopCR_mT_N_minus_1
+      - name: "mT_tau_met"
+        title : ";m_{T}(#tau, met) [GeV];Events"
+        definition: "Taus_NOSYS.size()>0 ? Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 : 0"
+        type: "double"
+        binning:
+          bin_edges: [0, 100, 200, 300, 400, 500, 700, 1000.]
+  - name: "topCR_1tau1mu_sch_mT_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    variables: 
+      - *var_TopCR_mT_N_minus_1
+  - name: "topCR_1tau1e_tch_mT_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    variables: 
+      - *var_TopCR_mT_N_minus_1
+  - name: "topCR_1tau1mu_tch_mT_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    variables: 
+      - *var_TopCR_mT_N_minus_1
+
+# bjet pT N-1
+  - name: "topCR_1tau1e_sch_bjet_pt_0_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100"
+    variables: 
+    variables: &var_TopCR_bjet_pt_0_N_minus_1
+      - name: "bjet_pt_0"
+        title : ";p_{T}^{b} [GeV];Events"
+        definition: "nbJets85_NOSYS>0 ? bJets85_pt_0_NOSYS * 1e-3 : 0"
+        type: "double"
+        binning:
+          bin_edges: [0, 50, 100, 150, 200, 250, 300, 500, 700.]
+  - name: "topCR_1tau1mu_sch_bjet_pt_0_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100"
+    variables: 
+      - *var_TopCR_bjet_pt_0_N_minus_1
+  - name: "topCR_1tau1e_tch_bjet_pt_0_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    variables: 
+      - *var_TopCR_bjet_pt_0_N_minus_1
+  - name: "topCR_1tau1mu_tch_bjet_pt_0_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    variables: 
+      - *var_TopCR_bjet_pt_0_N_minus_1
+
+# tau pT N-1
+  - name: "topCR_1tau1e_sch_tau_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    variables: 
+    variables: &var_TopCR_tau_pt_N_minus_1
+      - name: "tau_pt_0"
+        title : ";p_{T}^{#tau} [GeV];Events"
+        definition: "Taus_NOSYS.size()>0 ? Taus_NOSYS[0].Pt() * 0.001 : 0"
+        type: "double"
+        binning:
+          bin_edges: [0, 100, 200, 300, 500, 800.]
+  - name: "topCR_1tau1mu_sch_tau_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    variables: 
+      - *var_TopCR_tau_pt_N_minus_1
+  - name: "topCR_1tau1e_tch_tau_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    variables: 
+      - *var_TopCR_tau_pt_N_minus_1
+  - name: "topCR_1tau1mu_tch_tau_pt_N_minus_1"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_NonIso_NOSYS() == 1 && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    variables: 
+      - *var_TopCR_tau_pt_N_minus_1
+
+
+# define samples
+samples:
+  # # LQ->taunub signal
+  # - name: "LQ_taunub_M1500_BSM"
+  #   dsids: [537131, 537132]
+  #   campaigns: ["mc20a", "mc20d", "mc20e"]
+  #   simulation_type: "fastsim"
+  #   event_weights: "weight_mc_GEN_MU1500_gU1_5_23L0_2 * weight_pileup_NOSYS * tauSF_NOSYS * elSF_NOSYS * muonSF_NOSYS * jetSF_NOSYS * weight_ftag_effSF_GN2v01_Continuous_NOSYS * globalTriggerEffSFSLT_wpSet0_NOSYS"
+  #   # selection_suffix: "Taus_NOSYS[0].truth_IsHadronicTau()"
+
+  # - name: "LQ_taunub_M1500_Inf"
+  #   dsids: [537133]
+  #   campaigns: ["mc20a", "mc20d", "mc20e"]
+  #   simulation_type: "fastsim"
+  #   event_weights: "weight_mc_GEN_MU1500_gU1_5_23L0_2 * weight_pileup_NOSYS * tauSF_NOSYS * elSF_NOSYS * muonSF_NOSYS * jetSF_NOSYS * weight_ftag_effSF_GN2v01_Continuous_NOSYS * globalTriggerEffSFSLT_wpSet0_NOSYS"
+  #   # selection_suffix: "Taus_NOSYS[0].truth_IsHadronicTau()"
+
+  # - name: "LQ_taunub_M2500_BSM"
+  #   dsids: [537137, 537138]
+  #   campaigns: ["mc20a", "mc20d", "mc20e"]
+  #   simulation_type: "fastsim"
+  #   event_weights: "weight_mc_GEN_MU2500_gU2_5_23L1_0 * weight_pileup_NOSYS * tauSF_NOSYS * elSF_NOSYS * muonSF_NOSYS * jetSF_NOSYS * weight_ftag_effSF_GN2v01_Continuous_NOSYS * globalTriggerEffSFSLT_wpSet0_NOSYS"
+  #   # selection_suffix: "Taus_NOSYS[0].truth_IsHadronicTau()"
+
+  # - name: "LQ_taunub_M2500_Inf"
+  #   dsids: [537139]
+  #   campaigns: ["mc20a", "mc20d", "mc20e"]
+  #   simulation_type: "fastsim"
+  #   event_weights: "weight_mc_GEN_MU2500_gU2_5_23L1_0 * weight_pileup_NOSYS * tauSF_NOSYS * elSF_NOSYS * muonSF_NOSYS * jetSF_NOSYS * weight_ftag_effSF_GN2v01_Continuous_NOSYS * globalTriggerEffSFSLT_wpSet0_NOSYS"
+  #   # selection_suffix: "Taus_NOSYS[0].truth_IsHadronicTau()"
+
+
+  # Seperate jobs for each year
+  - name: "Data"
+    campaigns: ["2015", "2016", "2017", "2018"]
+    simulation_type: "data"
+    # exclude_regions: ["SR_1tau0l1b_tch", "SR_1tau0l1b_tch"]
+
+  # nominal backgrounds
+  # - name: "ttbar_nonallhad"
+  #   dsids: [410470]
+  #   campaigns: ["mc20a", "mc20d", "mc20e"]
+  #   simulation_type: "fullsim"
+  #   # event_weights: "weight_mc_NOSYS * weight_pileup_NOSYS * tauSF_NOSYS * elSF_NOSYS * muonSF_NOSYS * jetSF_NOSYS * weight_ftag_effSF_GN2v01_Continuous_NOSYS * globalTriggerEffSFSLT_wpSet0_NOSYS * weight_NNLO_3D_NOSYS"
+
+  - name: "ttbar_dilep"
+    dsids: [410472]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+  - name: "ttZ"
+    dsids: [504330, 504334, 504338, 504342, 504346] # 700706 (ttW) is deleted since no fullsim sample available
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+  - name: "SingleTop"
+    dsids: [410658, 410659, 410644, 410645, 601353, 601354]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+ 
+  - name: "Zll"
+    dsids: [700320, 700321, 700322, 700323, 700324, 700325]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+  - name: "Znunu"
+    dsids: [700335, 700336, 700337]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+  - name: "Ztautau"
+    dsids: [700792, 700793, 700794]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+  - name: "Zjet_EWK"
+    dsids: [700358, 700359, 700360, 700361, 700362, 700363, 700364]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+  - name: "Wlnu"
+    dsids: [700338, 700339, 700340, 700341, 700342, 700343]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+  - name: "Wtaunu_METTAU"
+    dsids: [700543, 700544]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+    selection_suffix: "Taus_NOSYS.size() > 0 && (Taus_NOSYS[0].Pt() * 1e-3 > 200 || MET_wpSet0_met_NOSYS * 1e-3 > 100)"
+
+  - name: "Wtaunu_HF"
+    dsids: [700347, 700348, 700349]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+    selection_suffix: "Taus_NOSYS.size() > 0 && (Taus_NOSYS[0].Pt() * 1e-3 < 200 && MET_wpSet0_met_NOSYS * 1e-3 < 100)"
+
+  - name: "Diboson"
+    dsids: [700587, 700588, 700589, 700590, 700591, 700592, 700593, 700594, 700600, 700601, 700602, 700603, 700604, 700605]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+  - name: "Diboson_semiLep"
+    dsids: [700488, 700489, 700491, 700492, 700493, 700495]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+  - name: "Dijet"
+    dsids: [364701, 364702, 364703, 364704, 364705, 364706, 364707, 364708, 364709, 364710, 364711, 364712]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+
+  # Systematics background
+
+  # - name: "Hdamp_tW"
+  #   dsids: [601462]
+  #   campaigns: ["mc20a", "mc20d", "mc20e"]
+  #   simulation_type: "fullsim"

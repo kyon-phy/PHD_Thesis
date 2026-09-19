@@ -1,0 +1,330 @@
+=== PDF PAGE 1 ===
+If you are experiencing TWiki instability from outside the CERN network, please connect via the CERN internal network - see KB0010688
+  for details
+JetUncertaintiesRel22
+R22 JES Pre-RecommendationsHow to correlate Run2 and Run3 pre-recommendationsHow to correlate small-R and large-R pre-recommendationsR=0.4 particle-flow JES/JER uncertainties for R22 data and MC20+MC21 simulationFullSim and AtlFast3 ("Phase-1")R=0.4 particle-flow JES/JER uncertainties for R22 Run-3 data and MC23 simulationFullSim and AtlFast3 ("Phase-2")R=0.4 EMTopo JES/JER uncertainties for R22 Run-2 data and MC20R=1.0 unified flow object (UFO) jet calibration for R22+ data and MC20+MC23 simulationFullSim and AtlFast3Choosing the right configuration fileJet energy scale (JES) uncertainties : background informationOverviewJet energy resolution (JER) uncertainties : background informationOverviewDifferent smearing optionsUsing the JetUncertainties toolGetting the JetUncertainties tool codeConfiguring and initializing the toolRunning the tool on a jetTool requirements and assumptions
+This page details the recommended Jet Energy Scale (JES) and Resolution (JER) uncertainty schemes available for use in R22 physics analyses.
+Below, many details about specific aspects of the JES and JER uncertainties are provided in order to help users avoid common problems.
+ We recommend strongly that everyone performing ATLAS physics analyses with jets reads this page before starting their analysis!
+R22 JES Pre-Recommendations
+Preliminary jet calibrations and uncertainties are available for EMPFlow jets in R22 data and simulation. Different calibrations are available for Run 2 conditions(2015/16/17/18 data and MC20a/d/e) and Run 3 conditions (2022/23 and MC23a/c) high-µ data (re)processed with R22.
+This 'pre-recommendation' consists of a dedicated MC20 (MC23)-based calibration for Run-2 (Run-3) (area subtraction, pileup residual, absolute JES and GlobalSequential Calibration) and applies the R21 in situ calibration to all data reprocessed with R22+. The uncertainties associated with that calibration are provided to the user,in the CategoryReduction and either SimpleJER or FullJER scheme.
+ These uncertainties are only supported in Release 22.2.108+
+ There are presently no calibrations or uncertainties for LCTopoJets or CSSKUFOJets reconstructed in R22 with any jet radius parameter. For EMTopoJets a dedicated setof recommendations was derived by Long Lived Particles physics analyses team members. The calibration strategy does not include the Global Sequential Calibration stepand the uncertainties were derived following a similar procedure as the one used for R=0.4 particle-flow jet.
+JetEtMiss does not currently support MC2MC corrections or per-jet flavour treatment for R22 pre-recommendations, but hopes to include these improvements again in futurecalibrations. If the sensitivity of your analysis is limited by JES/JER/JMS/JMR performance, we encourage analysis teams to study the JetEtmissHighPriorityTasks page and
+ contact the JetEtMiss conveners to get involved!
+How to correlate Run2 and Run3 pre-recommendations
+For pre-recommendations, the NPs are mostly coming from the same in-situ measurement performed with Run2 data, so NPs with the same name should be treated as fullycorrelated. The only exceptions are:InSitu _NonClosure_PreRecEtaIntercalibration _NonClosure_R10_PreRecInSitu _NonClosure_R10_PreRecAF3 components
+Only the Category scheme is available for pre-recommendations, so this scheme should be used consistently in the input results. More schemes are foreseen to be availablein the next set of recommendations.
+How to correlate small-R and large-R pre-recommendations
+The method to correlate small-R and large-R JES/JER is the same as in release 21, documented in this Twiki.
+R=0.4 particle-flow JES/JER uncertainties for R22 data and MC20+MC21 simulation
+FullSim and AtlFast3 ("Phase-1")
+The same JetUncertainties config file should be used for both MC20 and MC21 FullSim samples and MC20 AtlasFast3, but please note that the user must specify correctlywhich type of sample they are processing: if this is not specified correctly, the resulting uncertainties will be incorrect!
+TWiki > AtlasProtected Web>AtlasPhysics>JetEtMiss>ApplyJetCalibrationR21>ApplyJetCalibrationR22>JetUncertaintiesRel22 (2025-08-22, FabriceBalli)
+07/09/2026, 19:32 JetUncertaintiesRel22 < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/JetUncertaintiesRel22#Jet_energy_scale_JES_uncertainti 1/9
+
+=== PDF PAGE 2 ===
+Check the Run2 JES/JER paper for more information on the in-situ NPs (see e.g. Table 2):On Inspire: https://inspirehep.net/literature/1805279
+On arXiv: https://arxiv.org/abs/2007.02645
+ Jet energy scale (JES) uncertainties Jet energy resolution (JER) uncertainties
+Jet collection AntiKt4EMPFlowJets
+MCType MC20 or MC21 or AF3 (required!)
+Minimumrelease 22.2.108+
+Methodology The current JES uncertainties were derived in R21 Run 2 data using thefollowing methods:Relative in situdijet eta-intercalibrationAbsolute in situZ+jet balance (Zee, Zµµ)Gamma+jet balanceMulti-jet balance (high-pT regime)
+The highest jet pT's are covered using single-hadron response
+measurements from low-µ LHC data and the combined test beam.
+The current jet energy resolution uncertainties were derived using thefollowing methods:Noise term using random cones in zero bias dataDijet asymmetry across pT and eta
+ Extra uncertainties 'bootstrap' both the R21 in situ calibration for Run 2 and 3 data reprocessed with R22, and the MC20-based JES calibration when it isapplied to MC21 samples by accounting for calibration non-closure across conditions. These uncertainties are described below.
+Pre-RecUncertainties In situ non-closure (R21 vs. R22)
+EtaIntercalibration_NonClosure_PreRec
+InSitu_NonClosure_PreRec
+Changes in vertexing algorithm and calorimeter noise thresholds
+JESUnc_VertexingAlg_PreRec
+JESUnc_Noise_PreRec
+MC20 vs. MC21 non-closure (non-zero in MC21 only)
+JESUnc_mc20vsmc21_MCTYPE_PreRec
+AF3 non closure (non-zero in AF3 only)
+RelativeNonClosure_MCTYPE
+In situ non-closure (R21 vs. R22)
+JERUnc_Noise_PreRec
+MC20 vs. MC21 non-closure (non-zero in MC21 only)
+JERUnc_mc20vsmc21_MCTYPE_PreRec
+FullSim vs. AF3 non-closure (non-zero in AF3 only)
+JERUnc_AF3vsFullSim_MCTYPE_PreRec
+Schemes
+  CategoryReduction (~30+5 NPs)Aimed at analyses which intend to perform combinations(combined limits, PDF fits, MC tunes, etc., especially withCMS)
+ FullJER (13+2 NPs)Smears both (pseudo-)data and MCAimed at analyses that are sensitive to the JER correlations⚠  Read carefully the section "Different smearing options" tolearn how to produce the FullJER templates from(pseudo-)data and MC smearing NPs.
+Configurationfiles rel22/Spring2025_PreRec/R4_CategoryReduction_FullJER_MC20_MC21.config 
+rel22/Spring2025_PreRec/R4_CategoryReduction_SimpleJER_MC20_MC21.config 
+MinimumCalibArea Default (CalibArea-08) or newer
+R=0.4 particle-flow JES/JER uncertainties for R22 Run-3 data and MC23 simulation
+FullSim and AtlFast3 ("Phase-2")
+ Important update, Dec 19th 2024: a new calibration is now available, including a data correction due to substantial differences between data and MC23 in theFCAL region (see ApplyJetCalibrationR22 TWiki). This is only affects those analyses that care a bout jets with |eta| > 3.2. Analyses sensitive to the energy scale oryield of these forward jets should update their calibration and uncertainty configuration files and re-run over both data and MC. The uncertainty config file should beupdated from rel22/Summer2024_PreRec/R4_CategoryReduction_FullJER.config (previous config file) to rel22/Winter2025_PreRec/R4_CategoryReduction_FullJER.configor later version (Spring2025_PreRec). More information about the fix can be found in these slides
+ .
+Check the Run2 JES/JER paper for more information on the in-situ NPs (see e.g. Table 2):On Inspire: https://inspirehep.net/literature/1805279
+On arXiv: https://arxiv.org/abs/2007.02645
+07/09/2026, 19:32 JetUncertaintiesRel22 < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/JetUncertaintiesRel22#Jet_energy_scale_JES_uncertainti 2/9
+
+=== PDF PAGE 3 ===
+ Jet energy scale (JES) uncertainties Jet energy resolution (JER) uncertainties
+Jet collection AntiKt4EMPFlowJets
+MCType MC23 or MC23AF3 (required!)
+Minimumrelease 22.2.108+
+Methodology The current JES uncertainties were derived in R21 Run 2 data using thefollowing methods:Relative in situdijet eta-intercalibrationAbsolute in situZ+jet balance (Zee, Zµµ)Gamma+jet balanceMulti-jet balance (high-pT regime)
+The highest jet pT's are covered using single-hadron response
+measurements from low-µ LHC data and the combined test beam.
+The current jet energy resolution uncertainties were derived using thefollowing methods:Noise term using random cones in zero bias dataDijet asymmetry across pT and eta
+ Extra uncertainties 'bootstrap' both the R21 in situ calibration for Run-3 data. These uncertainties are described below.
+Pre-RecUncertainties In situ non-closure (R21 vs. R22) using Run-3 data
+EtaIntercalibration_NonClosure_0p2_PreRec
+InSitu_NonClosure_PreRec
+Changes in vertexing algorithm and calorimeter noise thresholds
+JESUnc_VertexingAlg_PreRec
+JESUnc_Noise_PreRec
+FullSim vs. AF3 non-closure (non-zero in AF3 only)
+JESUnc_mc23AF3vsmc23FS_MCTYPE_PreRec
+Changes in simulation in the FCAL region
+FCal_MC23_NonClosure_PreRec
+In situ non-closure (R21 vs. R22)
+JERUnc_Noise_PreRec
+FullSim vs. AF3 non-closure (non-zero in AF3 only)
+JERUnc_mc23AF3vsmc23FS_MCTYPE_PreRec
+Schemes
+  CategoryReduction (~30+4 NPs)Aimed at analyses which intend to perform combinations(combined limits, PDF fits, MC tunes, etc., especially withCMS)
+ FullJER (13+1 NPs)Smears both (pseudo-)data and MCAimed at analyses that are sensitive to the JER correlations⚠  Read carefully the section "Different smearing options" tolearn how to produce the FullJER templates from(pseudo-)data and MC smearing NPs.
+Configurationfiles rel22/Spring2025_PreRec/R4_CategoryReduction_FullJER_MC23.config 
+rel22/Spring2025_PreRec/R4_CategoryReduction_SimpleJER_MC23.config 
+MinimumCalibArea Default (CalibArea-08) or newer
+Please cite the following results in your analysis if you use these uncertainties:
+PERF-2014-07
+  : "Topological cell clustering in the ATLAS calorimeters and its performance in LHC Run 1"
+PERF-2015-09
+  : " Jet reconstruction and performance using particle flow with the ATLAS Detector"
+JETM-2018-05
+  : "Jet energy scale and resolution measured in proton-proton collisions at sqrt(s)=13 TeV with the ATLAS detector"
+R=0.4 EMTopo JES/JER uncertainties for R22 Run-2 data and MC20
+ This calibration is adapted to R22 Run-2 data and MC20 FullSim samples and was derived by Long Lived Particles physics analyses team members. Thecalibration strategy does not include the Global Sequential Calibration step. 
+  _Any physics analysis interested in using this calibration should 
+  contact theJetEtMiss conveners to discuss._
+The methodology and Pre-Rec Uncertainties description are the same as the ones described for R=0.4 particle-flow jets in the previous section.
+ Jet energy scale (JES) uncertainties Jet energy resolution (JER) uncertainties
+Jet collection AntiKt4EMTopoJets
+MCType MC20 (required!)
+Minimumrelease 22.2.108+
+Schemes
+  StrongReduction (Multiple sets of 7 or 8 NPseach, varies between sets)Aimed at analyses that are not sensitive to theJES correlations
+ SimpleJER (8 NPs)Smears only MCAimed at analyses that are not sensitive to the JER correlations and thatdo not intend to perform combinations
+Configurationfiles rel22/Winter2024_PrePreRecsNoGSC_EMTopo_ANAEXOT202132/R4_SR_Scenario1_SimpleJER.config
+MinimumCalibArea Default (CalibArea-08) or newer
+R=1.0 unified flow object (UFO) jet calibration for R22+ data and MC20+MC23 simulation
+07/09/2026, 19:32 JetUncertaintiesRel22 < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/JetUncertaintiesRel22#Jet_energy_scale_JES_uncertainti 3/9
+
+=== PDF PAGE 4 ===
+FullSim and AtlFast3
+For details on the R22 recommended JES and JMS calibrations for AntiKt10UFOCSSKSoftDropBeta100Zcut10, please see ApplyJetCalibrationR22-R10UFOCSSKjets. Thesame JetUncertainties config file should be used for all the MCTypes supported: MC20 and MC23 FullSim and MC20AF3 / MC23AF3 for the MC20/MC23 AtlasFast3 samples. Please
+note that the user must specify correctly which type of sample they are processing: if this is not specified correctly, the resulting uncertainties will be incorrect!
+ Update in MC20 AF3 uncertainties. A bug was found in the MC20 AF3 uncertainty of the Fall2024_PreRec files, making it larger than what it should be. If youworry about the size of this uncertainty, you should update to Summer2025_PreRec (currently recommended). More details can be found in s.15-17 of theseslides
+ .
+A subset of the JES and JMS uncertainties depend on the truth-labels of a given simulated jet. This label defines whether or not a jet is (at truth level) consistent with a QCDjet (light quarks and gluons) or a hadronically-decaying massive particle (W/Z/top). Any relatively recent derivation should have this truth label already decorated to eachlarge-R jet. You can confirm by looking for the attribute "R10TruthLabel_R21Precision_2022v1" on your jets.
+07/09/2026, 19:32 JetUncertaintiesRel22 < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/JetUncertaintiesRel22#Jet_energy_scale_JES_uncertainti 4/9
+
+=== PDF PAGE 5 ===
+ Jet energy scale (JES) uncertainties Jet energy resolution (JER) uncertainties Jet mass scale (JMS) uncertaintie
+Jet collection AntiKt10UFOCSSKSoftDropBeta100Zcut10
+MCType MC20, MC21, MC23, MC20AF3 or MC23AF3 (required!)
+Minimumrelease 22.2.108+
+Validity range The recommendations are fully supported in the kinematic regime of:200 GeV < pT < 3000 GeVmass < 600 GeV (Note: jets with mass below 40 GeV can be used only for counting. You should not rely on the shape of the low-mass distribution)ABS(eta) < 2.0
+Methodology The current JES uncertainties were derived in R21 Run 2data using the following methods:Relative in situDijet eta intercalibration (extends to eta >0.8)Absolute in situZ+jet balance (Zee, Zµµ, lower pT, eta < 0.8)Gamma+jet balance (medium pT, eta < 0.8)Multi-jet balance (highest pT, eta < 0.8)
+The current jet energy resolution uncertainties werederived using the following methods:Dijet asymmetry across pT and eta
+The current JMS uncertainties werefollowing methods:Forward folding (W from ttbarRtrk method, double-ratio of (quantities vs track-only quantsimulation)
+ Extra uncertainties 'bootstrap' both the R21 in situ calibration (more information in JetUncertaintiesRel21ConsolidatedLargeRScaleRes) for Run 3 and 2 datR22, and the MC20-based JES calibration when it is applied to MC23 samples by accounting for calibration non-closure across conditions. These uncertainbelow.
+Pre-RecUncertainties In situ non-closure (R21 vs. R22)
+EtaIntercalibration_NonClosure_R10_PreRec
+InSitu_NonClosure_R10_PreRec
+Changes in vertexing algorithm and calorimeternoise thresholds
+JESUnc_VertexingAlg_PreRec
+JESUnc_Noise_R10_PreRec
+MC21 non-closure (non-zero in MC21 only)
+JESUnc_mc20vsmc21_MCTYPE_R10_PreRec
+MC23 non-closure (non-zero in MC23 only)
+JESUnc_mc20vsmc23_MCTYPE_R10_PreRec
+MC20AF3 non-closure (non-zero in MC20AF3 only)
+JESUnc_mc20AF3vsmc20FS_MCTYPE_R10_PreRec
+MC23AF3 non-closure (non-zero in MC23AF3 only)
+JESUnc_mc23vsmc23AF3_MCTYPE_R10_PreRec
+Changes in calorimeter noise thresholds
+JERUnc_Noise_R10_PreRec
+MC20 UFO vs MC16 LCTopo closure (since R21Consolidated MC16 LCTopo Trimmeduncertainties are applied)
+JERUnc_mc20UFOvsmc16LCTopo_R10_PreRec
+MC21 non-closure (non-zero in MC21 only)
+JERUnc_mc20vsmc21_MCTYPE_R10_PreRec
+MC23 non-closure (non-zero in MC23 only)
+JERUnc_mc20vsmc23_MCTYPE_R10_PreRec
+MC20AF3 non-closure (non-zero in MC20AF3 only)
+JERUnc_mc20AF3vsmc20FS_MCTYPE_R10_PreRec
+MC23AF3 non-closure (non-zero in MC23AF3 only)
+JERUnc_mc23vsmc23AF3_MCTYPE_R10_PreRec
+Changes in calorimeter noise
+JMSUnc_Noise_PreRec
+MC20 Generator difference: Hpartially cover difference in mbetween LCTopoTrimmed jetsand UFO jets mass)
+JMSUnc_Modelling_PreR
+MC20 UFO vs MC16 UFO clonominal JMS R21 Precision Mcalibration and uncertainties a
+JMSUnc_mc20vsmc16_UFO
+MC21 non-closure (non-zero 
+JMSUnc_mc20vsmc21_MCT
+MC23 non-closure (non-zero 
+MC23AF3 only)
+JMSUnc_mc20vsmc23_MCT
+MC20AF3 non-closure (non-z
+only)
+JMSUnc_mc20AF3vsmc20
+MC23AF3 non-closure (non-zonly)
+JMSUnc_mc23vsmc23AF3_
+Schemes
+  CategoryReduction (27+7 NPs)Aimed at analyses which intend to performcombinations (combined limits, PDF fits, MCtunes, etc., especially with CMS)
+ FullJER (12+5 NPs)Smears both (pseudo-)data and MCAimed at analyses that are sensitive to theJER correlations⚠  Read carefully the section "Differentsmearing options" to learn how to producethe FullJER templates from (pseudo-)dataand MC smearing NPs.
+ SimpleJER (12+5 NPs)Smears only MC, discarding JER anti-correlationsAimed at analyses that are not sensitive tothe JER and do not intend to combineCombinations are explicitly not supported
+ FullJMS (25+6 NPs)Aimed at the typical anFully supported for ana
+ SimpleJMS (2+6 NPs)Aimed at analyses onlymass below 300 GeVSupported for combinaanalyses use only jets 300 GeV
+Configurationfiles There is a single configuration file per combination of supported JES, JER, and JMS variation:R10_CategoryJES_FullJER_FullJMS.configR10_CategoryJES_FullJER_SimpleJMS.configR10_CategoryJES_SimpleJER_FullJMS.configR10_CategoryJES_SimpleJER_SimpleJMS.config
+All of the above files are located in the "rel22/Summer2025_PreRec" directory of the JetUncertainties CalibArea 
+As you can see, the config files thus follow the name pattern of:"rel22/Summer2025_PreRec/R10_<JESTYPE>JES_<JERTYPE>JER_<JMSTYPE>JMS.config" 
+07/09/2026, 19:32 JetUncertaintiesRel22 < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/JetUncertaintiesRel22#Jet_energy_scale_JES_uncertainti 5/9
+
+=== PDF PAGE 6 ===
+MinimumCalibArea Default (CalibArea-08) or newer   
+⚠  JMR uncertainties are handled via the FFJetSmearingTool, see TWiki: FFJetSmearingToolRel22.
+Jet energy scale (JES) uncertainties : background information
+Overview
+The JES uncertainties come from several primary sources. They are:Relative in situDijet eta-intercalibration: calibrate the scale of forward jets with respect to central jetsDepends on jet pT and eta
+More relevant for more forward jetsAbsolute in situZ+jet balance: calibrate the scale of jets with respect to a well understood object (Zee, Zµµ)Ddepends on jet pT
+Mostly relevant for low pT (below roughly 100 GeV)
+Photon+jet balance: calibrate the scale of jets with respect to a well understood object (photon)Depends on jet pT
+Mostly relevant for medium pT (from roughly 100 GeV to 1 TeV)
+Multijet balance: calibrate the scale of jets with respect to a well understood object (a recoil system of lower-pT, calibrated jets)
+Depends on jet pT
+Mostly relevant for high jet pT (from roughly 1 TeV to 2 TeV)
+Single-hadron response and test beam uncertaintiesDepends on jet pT
+Mostly relevant for extremely high jet pT (above the end of the multi-jet balance, ~2 TeV)
+Pileup uncertaintiesDepend on jet pT, jet eta, NPV and mu (exact variables depend on the uncertainty component)
+Mostly relevant for low jet pT (below roughly 50 GeV)
+Flavour-related uncertaintiesDepend on at least jet pT and jet eta, perhaps more
+Depends on whether or not the user identifies b-jetsDepends on whether or not the user specifies their own flavour composition ()Depends on whether or not that flavour composition is specified by jet multiplicity ()Depends on whether or not that jet multiplicity flavour composition is specified by process ()Potentially relevant for low-to-medium jet pT (below several hundred GeV)
+Punch-through uncertaintyDepends on jet pT, jet eta, and the number of muon segments behind the jet
+Potentially relevant for analyses which are sensitive to muon spectrometer activity close to jetsOtherwise, limited relevant to the high-jet pT regime (above 1 TeV)
+MC non-closure uncertaintyDepends on jet pT and jet etaThis term is zero if you are using full simulationThis term is non-zero if you are using fast simulation (AtlasFast3)
+-->
+Jet energy resolution (JER) uncertainties : background information
+Overview
+The JER uncertainties come from a few primary sources. They are:Data vs MC differenceDepends on pT and etaDerived to account for differences between the nominal MC and data JERIf MC is better than data, we smear the MC to match dataIf data is better than MC, we don't want to degrade the data to match a given MCThis uncertainty is only non-zero when the nominal data resolution is superior to the nominal MC resolutionThis uncertainty differs depending on if you have configured the tool using MC20 or MC21 (fullsim) or AFII (fastsim)The resulting uncertainty name also differs to reflect this (e.g. JET_JER_DataVsMC_MC20 vs JET_JER_DataVsMC_AFII)If you are using both fullsim and fastsim samples, then these two components should be treated separatelyNoise term evaluation from random cones in zero bias dataDepends on pT and etaMostly relevant for low pT (below 100 GeV)In situ dijet pT balance asymmetryDepends on pT and etaRelevant almost everywhere (from a few tens of GeV to the highest pT)
+A description and plots related to the preliminary JER recommendation released at the end of August 2018 can be found here
+ .
+Different smearing options
+07/09/2026, 19:32 JetUncertaintiesRel22 < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/JetUncertaintiesRel22#Jet_energy_scale_JES_uncertainti 6/9
+
+=== PDF PAGE 7 ===
+There are three types of smearing configurations, as mentioned earlier. They are named either "AllJERNP", "FullJER", or "SimpleJER". For the first two cases, theuncertainties smear both (pseudo-)data and MC events. In the latter case of the "SimpleJER", only the MC is smeared. The implications are as follows:(Pseudo-)data and MC smearingThis is the most correct thing to do, and should be the default for any analysis where the JER is a non-negligible uncertainty.Shifting a given NP by +1 sigma will correspond with smearing either the (pseudo-)data or MC, while shifting the same NP by -1 sigma will correspond withsmearing the MC or (pseudo-)data.If the uncertainty for a given component crosses zero, then this will change whether (pseudo)-data or MC is smeared, thus properly retaining the anti-correlatedbehaviour implied by the uncertainty, rather than enforcing a correlated behaviour.MC-only smearingThis is an approximation, and is acceptable for analyses where the JER is a negligible uncertainty.Shifting a given NP by +1 sigma or -1 sigma will return the same result, where the MC is smeared in both cases by the same factor. The analysis musttherefore manually symmetrize the uncertainty.If the uncertainty for a given component crosses zero, then this will force a correlated behaviour, thus ignoring the anti-correlation implied by crossing zero. Theanalysis therefore is changing the correlation structure of the JER uncertainties.
+To repeat, if the JER is a non-negligible uncertainty, you should use the full (pseudo-)data and MC smearing configurations. The MC-only smearing variant is asimplification for analyses which are not sensitive to the JER.
+In some cases, an analysis may be sensitive to the JER, but it may not be possible to smear the data. For example, if the analysis has a very small number of data events,then smearing the data can lead to arbitrarily large fluctuations that have to deal with the statistics of the sample rather than the JER. In such cases, pseudo-data can be usedinstead of data. Examples of pseudo-data techniques and where they are relevant can be found on this twiki.
+A detailed description about how to use the fullJER uncertainties can be found in this presenation
+ .
+⚠  For analyses using the fullJER: pay special attention to slides 7-11 of the presentation above
+  where it is explained how to construct the JER systematics in youranalysis from the combination of (pseudo-)data and MC smearing NPs provided by the JetUncertainties tool. To be clear, one should not propagate independently theseNPs but build templates using them.
+Using the JetUncertainties tool
+Getting the JetUncertainties tool code
+The JetUncertainties package and associated tool should already be included in the (Ath)Analysis* release that you are using. In case you are not using such a release,you likely already know how to check it out. The tool lives in the directory Reconstruction/Jet/JetUncertainties ( link
+ ).
+Configuring and initializing the tool
+The tool has four mandatory parameters that you must specify:
+JetDefinition, a string
+AntiKt4EMPFlow for R=0.4 jets built from particle-flow objects
+MCType, a stringMC20 or MC21 for full simulation samples
+ConfigFile, a stringThe name of the config file, including the relevant folders. See above for the available config files.
+IsData, a booleanYou can skip this if you only use the JES, but this is a new parameter that is strictly necessary for the JERThis flag should be "true" if you are running over data (or pseudo-data) and "false" if you are running over MCThis has zero impact on the JES uncertainties, but controls how the JER uncertainties are applied
+The tool has a few optional parameters that are not normally relevant but which may be useful in specific circumstances:
+CalibArea, a stringIf the tool default is not pointing to the CalibArea version that you want, you can force the tool to look at a different CalibArea version by setting this flag
+Path, a stringIf you want to read config files from an area other than the CalibArea, then this option can be specified, pointing to the directory to read from instead. Note that ifthe tool fails to find the specified files in this directory, it will fall back on CalibArea.
+AnalysisFile, a string
+If you are specifying the flavour composition for your analysis, this should be the full path to the relevant root file to read the composition histograms from.
+Athena example:
+ToolSvc += CfgMgr.JetUncertaintiesTool ("JESProv", JetDefinition ="AntiKt4EMPFlow", MCType="MC20", ConfigFile ="rel22/Summer2023_PreRec/R4_CategoryReduction_
+Get a ToolHandle to the tool you have created:
+#include "JetCPInterfaces/ICPJetUncertaintiesTool.h"
+#include "GaudiKernel/ToolHandle.h"
+ToolHandle &lt;ICPJetUncertaintiesTool&gt; jesProv("JESprov");
+CHECK(jesProv.retrieve());
+Standalone example:
+07/09/2026, 19:32 JetUncertaintiesRel22 < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/JetUncertaintiesRel22#Jet_energy_scale_JES_uncertainti 7/9
+
+=== PDF PAGE 8 ===
+// Include the necessary header
+#include "JetUncertainties/JetUncertaintiesTool.h"
+// Create the tool
+JetUncertaintiesTool jesProv("JESProvider");
+// Set the properties, note the use of the CHECK macro to ensure nothing failed
+CHECK(jesProv.setProperty("JetDefinition","AntiKt4EMPFlow"));
+CHECK(jesProv.setProperty("MCType","MC20"));
+CHECK(jesProv.setProperty("ConfigFile","rel22/Summer2023_PreRec/R4_CategoryReduction_FullJER.config"));
+CHECK(jesProv.setProperty("IsData",false));
+// Initialize the tool
+CHECK(jesProv.initialize());
+Running the tool on a jet
+The JetUncertaintiesTool implements the ASG-specified CP::ISystematicsTool interface in the form of continuous uncertainties. That means that you can request anyvariation, rather than just plus or minus one sigma. However, note that assumptions are built into the tool in order to do this. If you request a -4.2 sigma variation, this is just-4.2 times the one sigma variation. If you wish to use a different scheme, you are recommended to retrieve the shifts directly as mentioned above and proceed from there.
+The signatures supported are:
+CP::CorrectionCode applyCorrection(xAOD::Jet& input);
+CP::CorrectionCode correctedCopy(const xAOD::Jet& input, xAOD::Jet*& output);
+CP::CorrectionCode applyContainerCorrection(xAOD::JetContainer& inputs);<br />
+As the names imply, the first takes a jet and changes the scale, the second creates a new copy of the jet at a new scale, and the third changes the scale of all jets in a givencontainer. Note that a version of each of the above methods with on extra (final) argument of xAOD::EventInfo exists for supporting rare use cases, as will be discussed later.
+The most common example of how to use the tool (retrieving the list of systematics automatically and shifting by +/- 1 sigma) is:
+const CP::SystematicRegistry& registry = CP::SystematicRegistry::getInstance();
+const CP::SystematicSet& recommendedSystematics = registry.recommendedSystematics();
+std::vector sysList = CP::make_systematics_vector(recommendedSystematics);
+std::vector::const_iterator sysListItr;
+for (sysListItr = sysList.begin(); sysListItr != sysList.end(); ++sysListItr) {
+xAOD::JetContainer* jets = ; // Get the jets here or re-set them to the nominal scale (avoid applying systematic variations to an already varied jet)
+if (jetUncTool.applySystematicVariation(*sysListitr) != CP::SystematicCode::Ok) {
+   ERROR("execute()","Cannot configure jet uncertainties tool for systematic");
+   continue; // skip this systematic
+}
+for (size_t iJet = 0; iJet &lt; jets.size(); ++iJet) {
+   if (jetUncTool.applyCorrection(*jets.at(iJet)) != CP::CorrectionCode::Ok) {
+     ERROR("execute()","Cannot apply systematic variation to the jet");
+     continue; // skip this jet
+   }
+   INFO("Successfully applied systematic variation to the jet");
+}
+}
+07/09/2026, 19:32 JetUncertaintiesRel22 < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/JetUncertaintiesRel22#Jet_energy_scale_JES_uncertainti 8/9
+
+=== PDF PAGE 9 ===
+Copyright &© 2008-2026 by the contributing authors. All material on this collaboration platform is the property of the contributing authors.or Ideas, requests, problems regarding TWiki? use Discourse or Send feedback
+Tool requirements and assumptions
+For the most part, the above instructions should work without problem for users. However, in some cases, additional user-specified data is required. In particular, the
+xAOD::Jet and xAOD::EventInfo objects are expected to contain certain variables. Below is a list of these assumptions:
+xAOD::Jet variables:
+GhostMuonSegmentCount: The number of muon segments associated to the jet. This should be part of the Jet without any user input, so long as the user has notremoved this information from their xAOD file.
+IsBjet: Whether the user considers the jet as a b-jet (true) or light quark/gluon jet (false) for the flavour uncertainties. This is expected to be the most commonreason for the user to modify a jet before asking for its uncertainty. If the user does not specify this variable, it is assumed that it is a light quark/gluon jet, as hasbeen done in the past. This is generally conservative for b-jets on the per-jet level, but not necessarily once correlations are considered between the flavour andb-jet terms in events containing both b-tagged and non-b-tagged jets. Profiling may also change this picture. (NOTE: this is to be done using truth-labelling(PartonTruthLabelID moment) plus any analysis-specific kinematic selections used to define b-jets applied to the nominally calibrated kinematic values.)
+xAOD::EventInfo variables:
+NPV: The number of primary vertices is expected to be specified within this object. Users should not have to worry about this as it is done automatically, so long
+as the user does not specify the EventInfo object directly, and so long as the "PrimaryVertices" collection has not been removed from the xAOD file. For non-standard use cases, it is important that this variable is set by the user.
+Njet: The number of user-selected good jets in the event. This is only necessary for users who provide their own flavour composition files, and divide thecomposition in bins of jet multiplicity. If the user is performing such an analysis, they need to fill this variable within EventInfo.
+An example of how to set the IsBjet moment :
+xAOD::Jet* jet = ; // get the jet you want to modify
+bool isBjet = ; // decide whether or not the jet is a b-jet (truth-labelling + kinematic selections)
+SG::AuxElement::Accessor&lt;char&gt; accIsBjet("IsBjet"); // char due to limitations of ROOT I/O, still treat it as a boolean value
+accIsBjet(*jet) = isBjet;
+Major updates:-- FabriceBalli - 2025-05-05 -- FabriceBalli - 2025-02-14
+-- ReinaCamacho - 2024-06-27
+Responsible: MatthewLeBlancLast reviewed by: Never reviewed
+Topic revision: r37 - 2025-08-22 - FabriceBalli
+07/09/2026, 19:32 JetUncertaintiesRel22 < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/view/AtlasProtected/JetUncertaintiesRel22#Jet_energy_scale_JES_uncertainti 9/9

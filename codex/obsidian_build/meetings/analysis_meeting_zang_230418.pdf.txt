@@ -1,0 +1,157 @@
+### PAGE 1
+Non-resonant search in LHC-ATLAS motivated by B anomalyD2Jiaqi Zang18/04/2023
+1
+Based on https://arxiv.org/abs/2111.04748
+NOTES: 
+
+### PAGE 2
+Physicsmotivation –Banomaly
+2
+•SignsofLFUviolationintheBmesondecaysarereported. –B anomalyin𝐵→𝐷(∗)𝑙𝜈supportsnewphysics!
+•Lepton Flavor Universality (LFU) –The weak interaction between different generations of leptons should be the same.
+3.0𝜎
+Latestresult(2023.03.08)SM
+LQ
+•Leptoquark(LQ)isacandidatemodeltoexplainsuchanomaly.
+NOTES: 
+
+### PAGE 3
+New Physics scenario –Leptoquark (LQ) model
+3
+•WhatisLQ?-Leptoquarks arehypothetical bosonscarrying both baryon number (B) and lepton number (L).
+•Parameter:(𝑚", g#)CouplingconstantMassof𝑈$LQ
+•𝑈$LQarepickedasthebenchmarkincurrentstage.
+•Why LQ?-It can couple to different generations of leptons in a non-universal way and lead to different decay rate (violation of LFU) for B meson decay.
+•Signalscenario:VLQBM1Ø𝛽%&'=1Ø𝛽%('=0.19Ø𝛽)&'=𝛽%*'=𝛽%(+=𝛽%&+=0ØSame as CMS 𝜏𝜏search
+Left-handedcouplingRight-handedcoupling
+NOTES: 
+
+### PAGE 4
+4CMS, CMS-HIG-21-001
+•Pairproduction§Searchisnotdependedonthecouplingconstant.§LQmasslessthan~1.5TeVarealreadyexcludedbyCMSandALTAS.•Singleproductionandt-channelproduction§Searchstronglydependsonthecouplingconstantandcanreachhigh-massregion.§Run-2datacanaccesstotheregionconsistentwithR(D*).àallregioninHL-LHC§SuggestedbypaperEndoM,etal.:2111.04748,searchof𝜏𝜈𝑏finalstatemayreachthesimilarsensitivitytoCMS𝜏𝜏searchresult.§Currently𝜏𝜈𝑏finalstateisnotstudiedinATLAS.àworthatry!
+Target:Back-to-back𝜏𝜈+soft𝑏jet
+Analysisoverview
+1.5
+NOTES: 
+
+### PAGE 5
+5
+Analysisoverview
+•Background (detector + pileup).ØMajorbackgroundsource:𝑊→𝜏̅𝜈,𝑍→𝜈𝜈,𝑡→𝑏𝑊→𝑏𝜏𝜈ØATLASMCsamples:§W/Z+ jets(Sherpa)ßlightflavoredjetsmis-taggedasbjets§QCDmulti-jet(Pythia8)ßfake𝜏jets§𝑡̅𝑡andsingletop(Powheg+Phytia8).§𝑆=13TeV, Run-2 realistic pileup files are included.
+•Signalsamples (truth level).ØGeneratedbyMG5_aMC@NLO+Pythia8.ØUsingVLQBM1scenarioofsingletvectorLQ(U1).ØTaggerefficiencyareemulated.ØLQ mass = 1.5 TeV,𝑔%=1.5is used for optimization.•Expecting data-set:ØFull Run-2 + partial Run-3 dataset(300fb-1intotal).
+NOTES: 
+
+### PAGE 6
+6
+•Analysismember:§Jiaqi Zang: 80%§WaiYuan(Alan)Chan: 50% (?)§Shigeki Hirose: 5%§Takuya Nobe: 5%§Junichi Tanaka: 5%
+Currentstatus•Analysis framework§xTauFramework(Jiaqi)àProvided by the TauCPgroupàCurrentlyusedforMCsampleprocessing.àAlreadyworkwithrelease22.§AnalysisTop(Alan)àDevelopmenttargetwithintheExotics-LPXsubgroup.àCanbeusedforcross-checkwiththexTAUFramework.•AnalysisactivityisreportedatLPXsubgroupmeeting(Exotics).•SignalMCsamplegeneration§CurrentlynoofficialMCsamplesfort-channelLQwith𝜏𝜈𝑏finalstate.§4MCsamplesareproposedtobegeneratedwithMadGraph+Pythia8atLPXmeeting.(bquarkfilter/vetoformass=1.5/20TeV).
+NOTES: 
+
+### PAGE 7
+Signal kinematics•SamplesofATLASUFOwithCMS:VLQBM1.•Kinematicsof different mass point afterpre-selection(normalized):
+7
+Fort-channelprocess, kinematicsdon’tchangebyLQmass!
+•𝑚!=1.5TeVisusedforcutscan.
+
+NOTES: 
+
+### PAGE 8
+8
+Eventselection•Pre-selection(foreventskimming):Ø𝐸&'())>200GeV(triggeremulation)Ø𝑝&*>80GeV, 𝜂*<2.5ØSingleloose𝜏-taggedjet.ØNumberofisolated𝑒/𝜇=0•BGandsignalsafterpre-selection:Needmorevariables to separateBG!
+•To study the feasibility, sensitivityestimationis conducted.
+
+NOTES: 
+
+### PAGE 9
+9
+•Variablesusedincutscan(basedon2111.04748):ØTransversemass𝑚,Ø𝐸,-.((Ø𝑝,'ØΔ𝜙(𝑝,',𝑝,-.((./0)Ø𝑝,'/𝐸,-.((Ø𝑝,&ØNumberoflightflavorjetsØNumberofbjets
+ØWorkingpointo𝜏id(RNN):loose,medium,tightoBtagging:85,70,60ScanallvariablestomaximizeZvalue(𝑏≥1)
+•𝑍=2(𝑛ln/&12!&!1/2!−&!2!ln&!1/2!&&12!)•Backgrounduncertainty=30%
+CutScansettings
+NOTES: 
+
+### PAGE 10
+10
+𝜏identification•BaselinetauselectionrecommendationØ𝑝,>20𝐺𝑒𝑉Ø𝜂<2.5(excluding1.37<𝜂<1.52)Ø1or3tracks
+* FromATL-PHYS-PUB-2019-033
+•Workingpointefficiency•Backgroundrejection
+
+NOTES: 
+
+### PAGE 11
+Cutscanresult•Kinematicsandselectionafterpre-selection:
+11
+Variablesscan(GeV):Ø𝑝!">100/150/200/250/300Ø𝑝!#>25/50/75Ø𝑚!>500/700/1000Ø𝐸!$%&&>200/250/300/350/400
+NOTES: 
+
+### PAGE 12
+12
+•Kinematicsandselectionafterpre-selection:Variablesscan:ØΔ𝜙𝑝!",𝑝!$%&&%'(>1.5/2/2.5Ø𝑝!"/𝐸!$%&&%'(
+ØNumberoflightflavorjets
+ØNumberofbjets=1
+∈[0.7,1.3]∈[0.6,1.4]∈[0.5,1.5]
+≤1/2/3
+Cutscanresult
+NOTES: 
+
+### PAGE 13
+13
+•Optimizedvariablecut:Ø𝑚&>1000GeVØ𝐸&'())>200GeVØ𝑝&*>100GeV
+ØNumberoflightflavorjets≤2ØNumberofbjets=1ØTau-idworkingpoint:mediumØb-taggingworkingpoint:60
+W+jetsZ+jets𝒕̅𝒕SingletopBGSignalEvents0.77±0.560.31±0.31001.08±0.640.68±0.30
+•Numberofeventsafteroptimizedselection(300fb-1)(onlylookingatregionwhereBG>1)
+Cutscanresult
+•Searchlimit(2𝜎):
+(1.5,2.05)
+(3,4.90)
+(5,7.40)
+Ø𝑝&+>75GeVØΔ𝜙(𝑝&*,𝑝&'())(,-)>1.5Ø𝑝&*/𝐸&'())(,-∈[0.5,1.5]
+𝑅𝐷∗,𝑅𝐾∗preferred
+𝑔!=1.5𝑚!=1.5TeV
+àVeryroughresultàPlantoreprocesstheMCsamplesusinglatestp-tagp5511àStartwithstatisticinvestigation
+NOTES: 
+
+### PAGE 14
+14
+Statisticsinvestigation•Datasetsonlinestatusischecked. (googlesheet)ØAfewMC20datasetofp-tagp5511 areonlypartiallyavailable.ØTheeffectofmissingfilesisnotyetknown.ØNeedtofindouthowmanyfilesaremissing.
+
+NOTES: 
+
+### PAGE 15
+15
+Statisticsinvestigation•Offlinestatisticsisalsochecked.
+W+jetsZ+jets𝒕̅𝒕SingletopMulti-jetsSumofinitialevents282259836351273925797791362415960362936Sumofweights817066363042563923492727908599.74e+08WeightperMCevent2.890.480.910.05816.13
+•Eventweightsandeventnumbersafterpreselection.(300fb-1)
+•Pre-selection:Ø𝐸&'())>200GeV(triggeremulation)Ø𝑝&*>80GeV, 𝜂*<2.5ØSingleloose𝜏-taggedjet.ØNumberofisolated𝑒/𝜇=0•Z+jetsandttbararenotfullyprocessed.
+NOTES: 
+
+### PAGE 16
+16
+Statisticsinvestigation(p5511)•Event weightarecomputed as1000*integratedluminosity*pileupW*CrossSection*kFactor*FilterEfficiency*MCweight/SumOfWeight•Statistics of Wtaunuand dijetsare notasmuchasSingleTop,Znunuorttbar.
+
+NOTES: 
+
+### PAGE 17
+17
+Triggermenu for Run-2 dataprocess
+•met,singletau,singleelectron,singlemuontriggerareusedaccordingtoATLASrecommendation(TWiki).•Encountered an issue of broken GRID jobs recently àtryingtofixit
+NOTES: 
+
+### PAGE 18
+18
+SummaryandOutlook
+•Asearchfort-channelLeptoquarkprocesswith𝜏𝜈+𝑏finalstateatALTASisraised.•ThesearchwillusefullRun-2dataandpartialRun-3data.•PreliminarysensitivityestimationwithMCsamplesisconducted.•FirstresultusedATLASsimulationshowsthatthesearchsensitivitycanreachtheR(D*)95%CLpreferredregion,whichmeansthestudyisfeasible.•ValidationofMC20samplesoflatestp-tagandATLASofficialsignalsamplesgenerationison-going.Outlook
+Summary
+•Reprocessthecutoptimizationwithnewp-tagdatasetsaftertheyareallvalidated.•ValidatethebackgroundMCsamplesusingRun-2data(data/MC).•MaystartwithZàee/mumu+1tauascontrolregiontoevaluateZànunu+1tau.
+NOTES: 
+
+### PAGE 19
+19
+Backup
+NOTES: 
+
+### PAGE 20
+20
+Signalsamplesanalysis•SignalMCsampleswithvarioussettingarecompared.ØTau-id(loose)andBtagger(60)arealsoemulated.ØEvent_weight= lumi(300 fb-1) *Xsec/Number_of_Events.ØATLASUFOKrdurhamremainshalflessthanTheoryMLMwithpapercutflow.
+
+NOTES: 

@@ -1,0 +1,54 @@
+--- CH7_event_selection.tex (before)
++++ Chapters/CH7_event_selection.tex
+@@ -29,10 +29,11 @@
+ \subsection{Multijet suppression and Preselection}
+ \label{subsec:ch7_multijet}
+ 
+-Multijet events can enter the SR and CR selections due to the mis-identified $\tau$ and $\met$ due to the poor jet resolution.
+-Although a high $\met$ threshold rejects most of these events, the futher suppression is necessary due to their large cross section.
+-As mentioned above, the high $\met$ is produced when an energetic jet is mismeasured. In this case, the direction of $\mpt$ is approximately towards that jet. Therefore a small $\Delta\phi$ between jet and $\mpt$ is expected.
+-This contribution is referred to as fake $\met$. On the other hand, in signal events, the $\mpt$ from neutrinos have no such tendency.
++Multijet events can be selected in the SRs and CRs when a jet is misidentified as a $\tau$ and large $\met$ is produced by a jet-energy mismeasurement.
++Although most of these events are rejected by a high $\met$ threshold, further suppression is needed because of the large multijet cross section.
++When the $\pT$ of an energetic jet is underestimated, $\mpt$ points approximately towards that jet, so a small $\Delta\phi$ between the jet and $\mpt$ is expected.
++This contribution is referred to as fake $\met$.
++In signal events, no such tendency to align with a jet is expected for $\mpt$ from neutrinos.
+ Figure~\ref{fig:ch7_fake_met} illustrates this difference.
+ 
+ \begin{figure}[htbp]
+@@ -45,26 +46,27 @@
+         \includegraphics[width=\linewidth]{Figs/CH7/QCD/fake_met_multijets.pdf}
+         \caption{Multijet background.}
+     \end{subfigure}
+-    \caption[Missing momentum in signal and multijet events]{Schematic diagram of (a) $\met$ from neutrinos in signal events and (b) fake $\met$ from a mis-measured enegetic jet in multijet events.}
++    \caption[Missing momentum in signal and multijet events]{Schematic diagrams of (a) $\met$ from neutrinos in signal events and (b) fake $\met$ from the mismeasurement of an energetic jet in multijet events.}
+     \label{fig:ch7_fake_met}
+ \end{figure}
+ 
+-The minimum jet--$\mpt$ separation in $\phi$, and the ratio $\met/\minDphiJetPt$ are used as discriminating variables.
++The minimum jet--$\mpt$ separation in $\phi$ and the ratio $\met/\minDphiJetPt$ are used as discriminating variables.
+ Here $\minDphiJetPt$ is the $\pT$ of the jet with the smallest $\Delta\phi(j,\met)$.
+-Since fake $\met$ is calcuated from mis-measured jet, multijet events tend to have small $\min\Delta\phi(j,\met)$ and $\met/\minDphiJetPt$.
+-By contrast, the neutrinos in signal events can produce large $\met$ even when a much softer jet happens to lie nearby in $\phi$.
++Small values of both variables are typically found in simulated multijet events.
++In signal events, large $\met$ can be produced by neutrinos even when a much softer jet lies nearby in $\phi$.
+ 
+ Events are therefore retained if
+ \begin{equation}
+     \min\Delta\phi(j,\met)>0.4 \quad\text{or}\quad \frac{\met}{\minDphiJetPt}>6.
+     \label{eq:ch7_qcd_cut}
+ \end{equation}
+-A detailed study are introduced in Appendix~\ref{App:QCD_bkg_study}.
++A detailed study is presented in Appendix~\ref{App:QCD_bkg_study}.
+ 
+ The preselection is applied before the SR optimisation.
+-Events must pass the lowest-threshold unprescaled $\met$ trigger, requiring $\met>200~\GeV$ for full efficiency.
+-Exactly one signal $\tau$ and electron/muon-veto is also required, along with multijet suppression requirement in Eq.~\ref{eq:ch7_qcd_cut}.
+-For one b-jet signal region ($\bTagSR$), exactly one $b$-tagged jet is required, while at least one untagged jet is required in $\bVetoSR$.
++Events are required to pass the lowest-threshold unprescaled $\met$ trigger, with $\met>200~\GeV$ imposed offline to ensure full trigger efficiency.
++Exactly one signal $\tau$ is required, and events with a selected electron or muon are vetoed.
++The multijet suppression requirement in Eq.~\ref{eq:ch7_qcd_cut} is also applied.
++For the one-$b$-jet signal regions ($\bTagSR$), exactly one $b$-tagged jet is required, while at least one jet and no $b$-tagged jets are required in $\bVetoSR$.
+ 
+ \section[SR1b optimisation and definition]{$\bTagSR$ optimisation and definition}
+ \label{sec:ch7_sr1b}

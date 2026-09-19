@@ -1,0 +1,2649 @@
+                                                                          ATLAS CONF Note
+                                                                            ATLAS-CONF-2017-029
+                                                                                       1st May 2017
+
+
+
+
+                                     Measurement of the tau lepton reconstruction and
+                                        identification performance in the
+                                                                        √ ATLAS
+                                      experiment using p p collisions at s = 13 TeV
+
+                                                                           The ATLAS Collaboration
+
+
+                                           This document details measurements of the performance of the reconstruction and identific-
+                                           ation of hadronic tau lepton decays using the ATLAS detector. The performance of these
+                                           algorithms is measured with Z boson or top quark decays to tau leptons and uses the full 2015
+                                           dataset of pp collisions collected at the LHC, corresponding to an integrated luminosity of
+                                                                                   √
+                                           3.2 fb−1 and a centre-of-mass energy s = 13 TeV. The measurements include the perform-
+
+
+
+
+ATLAS-CONF-2017-029
+                                           ance of the identification, trigger, energy calibration, and electron discrimination algorithms
+                                           for reconstructed tau candidates. The simulation to data correction factor on the offline tau
+                                           identification efficiency is measured with a relative precision of 5% (6%) for one (three) track
+                                           reconstructed tau candidates. For hadronic tau lepton decays selected by offline algorithms,
+
+
+                      01 May 2017
+                                           the correction factor on the tau trigger identification efficiency is measured with a relative
+                                           precision of 3–8% for pT (τhad ) < 100 GeV and 8–14% for 100 < pT (τhad ) < 300 GeV,
+                                           depending on the transverse energy and the number of associated tracks. The correction
+                                           factor on the tau energy scale is measured with a relative precision of 2% (3%) for one (three)
+                                           track reconstructed tau candidates. The correction factor on the probability of misidentifying
+                                           an electron as a hadronic tau lepton decay is measured with a relative precision of between
+                                           3–14%, depending on the pseudorapidity of the reconstructed tau candidate.
+
+
+
+
+                                    © 2017 CERN for the benefit of the ATLAS Collaboration.
+                                    Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+Contents
+1   Introduction                                                                    3
+
+2   ATLAS detector                                                                  4
+
+3   Data and simulation samples                                                     4
+
+4   Object selection                                                                5
+
+5   Reconstruction, energy calibration and identification of hadronic tau decays    6
+    5.1 Tau reconstruction                                                          6
+    5.2 Tau energy calibration                                                      7
+    5.3 Tau identification                                                          8
+    5.4 Electron discrimination                                                    10
+    5.5 Tau trigger identification                                                 10
+
+6   Z → τ µ τhad tag–and–probe analyses                                            11
+    6.1 Common event selection                                                     11
+    6.2 Offline tau identification efficiency measurement                          13
+        6.2.1 Signal and background estimation                                     13
+        6.2.2 Results                                                              15
+    6.3 Trigger efficiency measurement                                             20
+        6.3.1 Signal and background estimation                                     20
+        6.3.2 Results                                                              20
+    6.4 Offline τhad−vis in-situ energy scale measurement                          23
+        6.4.1 Energy scale extraction                                              23
+        6.4.2 Results                                                              24
+
+7   t t̄ tag-and-probe trigger efficiency measurement                              25
+    7.1 Event selection                                                            25
+    7.2 Signal and background processes                                            25
+    7.3 Results                                                                    26
+
+8   Z → ee tag-and-probe analysis                                                  28
+    8.1 Event selection                                                            28
+    8.2 Signal and background processes                                            28
+    8.3 Results                                                                    29
+
+9   Summary and conclusions                                                        30
+
+
+Appendix                                                                           35
+
+A Tau Identification input variables of Z → τ µ τhad tag-and-probe analysis        35
+
+
+
+
+                                                  2
+1 Introduction
+
+With a mass of 1.777 GeV and a proper decay length of 87 µm [1], tau leptons decay either leptonically
+(τ → `ν` ντ , ` = e, µ) or hadronically (τ → hadrons ντ , labelled as τhad ) and do so typically before reaching
+active regions of the ATLAS detector. In this note, only hadronic tau lepton decays are considered. The
+hadronic tau lepton decays represent 65% of all possible decay modes. The hadronic decay products
+contain one or three charged pions in 72% and 22% of all cases, respectively. In 68% of all hadronic
+decays, at least one associated neutral pion is also produced. The neutral and charged hadrons stemming
+from the tau lepton decay make up the visible part of the tau lepton, and in the following are referred to
+as τhad−vis .
+The main background to hadronic tau lepton decays is from jets of energetic hadrons produced via the
+fragmentation of quarks and gluons; Both are present at trigger level (also referred to as online in the
+following) as well as during the event reconstruction (referred to as offline). Discriminating variables based
+on the narrow shower in the calorimeter, the distinct number of tracks and the displaced tau lepton decay
+vertex are used to distinguish τhad−vis candidates from jets. Electrons also form an important background
+for τhad−vis containing one charged hadron. Therefore a specific method to suppress this background is
+devised too.
+Final states with hadronic tau lepton decays are an important part of the ATLAS physics program. This
+places strong requirements on both τhad−vis reconstruction and identification algorithms, as well as the
+performance measurements of the algorithms. The algorithms involved in triggering, reconstructing and
+                                                                                       √
+identifying tau leptons during proton-proton collisions with a centre-of-mass energy s = 8 TeV are
+                                                               √
+described in Ref. [2], and the updates to these algorithms for s = 13 TeV data collected in 2015 are
+described in Ref. [3].
+This note first gives an overview of the tau reconstruction, energy calibration and identification algorithms
+and describes further updates to these algorithms for 2016 data-taking. The performance measurements
+of the triggering, energy calibration and identification algorithms using the 2015 data are described in
+the remaining sections. The performance of online and offline tau identification, and the tau energy
+scale calibration are measured using a tag-and-probe method applied to events enriched in the Z → ττ
+process, with one tau lepton decaying to muon and neutrinos, τµ (tag), and the other decaying to hadrons
+and neutrino, τhad (probe). The performance of the online and offline tau identification algorithms in
+simulation and in recorded data are measured and correction factors are derived. For the tau energy scale
+measurement, the reconstructed visible mass distribution of the muon and τhad−vis system is determined
+in both data and simulation, and the energy calibration required to obtain agreement is calculated.
+In order to extend the range of the pT spectrum of tau candidates, the performance of the online tau
+identification algorithm is also measured using events enriched in the t t¯ process. This measurement
+similarly uses the tag-and-probe method with a muon (tag) and a hadronic tau lepton decay (probe).
+Finally, the performance of the electron rejection algorithm is measured. The tag-and-probe method is
+used in events enriched in Z → ee decays featuring at least one electron (tag) and a tau candidate (probe),
+and the efficiency of the electron rejection algorithm is measured and correction factors are derived.
+This note is organised as follows. After a description of the ATLAS detector in section 2, the data and
+simulation samples used in the studies presented are described in section 3. The reconstruction and
+requirements on the objects used in this note are described in section 4, with the tau reconstruction,
+energy calibration, identification, electron discrimination and trigger algorithms described separately in
+more detail in section 5. The tau identification, trigger and energy scale performance measurements using
+
+
+
+                                                       3
+the tag-and-probe method in Z → τµ τhad events are described in section 6. Similarly the tag-and-probe
+studies carried out using t t¯ and Z → ee events are described in sections 7 and 8 respectively. Finally, a
+summary of the measurements is given and their use in physics analyses detailed.
+
+
+2 ATLAS detector
+
+The ATLAS detector [4] consists of an inner tracking system surrounded by a superconducting solenoid,
+electromagnetic (EM) and hadronic (HAD) calorimeters, and a muon spectrometer (MS).
+The inner detector is immersed in a 2 T axial magnetic field, and consists of silicon pixel and microstrip
+(SCT) detectors inside a transition radiation tracker (TRT), providing charged particle tracking in the
+                             √
+region |η| < 2.5 1. For the s = 13 TeV run, a fourth layer of the pixel detector, the Insertable B-Layer
+(IBL) [5], has been inserted at an average radius of 33.2 mm, providing an additional position measurement
+with 8 µm resolution in the (x, y) plane and 40 µm along z.
+The EM calorimeter uses lead and liquid argon (LAr) as absorber and active materials, respectively. In
+the central rapidity region, the EM calorimeter is divided in three layers, one of them segmented in thin
+η strips for optimal γ/π 0 separation, completed by a presampler layer for |η| < 1.8. Hadron calorimetry
+is based on different detector technologies, with scintillator tiles (|η| < 1.7) or LAr (1.5 < |η| < 4.9)
+as active media, and uses steel, copper, or tungsten as the absorber material. The calorimeters provide
+coverage within |η| < 4.9. The MS consists of superconducting air-core toroids, a system of trigger
+chambers covering the range |η| < 2.4, and high-precision tracking chambers allowing muon momentum
+measurements within |η| < 2.7.
+The ATLAS trigger system consists of two levels which reduce the initial bunch crossing rate to a
+manageable rate for disk storage while keeping interesting physics events. The first level (L1) is hardware-
+based and uses a subset of the detector information to reduce the accepted event rate to 100 kHz [6].
+This is followed by a software-based High Level Trigger (HLT) that further reduces the average recorded
+collision rate to around 1 kHz.
+
+
+3 Data and simulation samples
+
+The data used in this note were recorded by the ATLAS experiment during the 2015 LHC run with
+                                                          √
+proton-proton collisions at a centre-of-mass energy of s = 13 TeV. They correspond to an integrated
+luminosity of 3.2 fb−1 . To ensure good data quality, the inner-detector tracking systems, calorimeters and
+muon spectrometer are required to be fully operational.
+The simulated background processes consist of the production of Z+jets, W +jets, single top quarks and
+t t¯ pairs. They are modelled with several event generators as described below, while contributions from
+multi-jet production are estimated with data-driven techniques as described in each section.
+
+1 ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) in the centre of the detector
+  and the z-axis along the beam direction. The x-axis points from the IP to the centre of the LHC ring, and the y-axis points
+  upward. Cylindrical coordinates (r, φ) are used in the transverse (x, y) plane, φ being the azimuthal angle around the beam
+  direction. The pseudorapidity
+                     q          is defined in terms of the polar angle θ as η = − ln tan(θ/2). The distance ∆R in the η − φ space
+  is defined as ∆R =   (∆η) 2 + (∆φ) 2 .
+
+
+
+
+                                                               4
+Simulated samples of Z+jets events and W +jets events are produced using POWHEG-BOX v2 [7–9] inter-
+faced to PYTHIA 8.186 [10] with the AZNLO tune [11]. In this sample, PHOTOS++ v3.52 [12, 13] is
+used for photon radiation from electroweak vertices and charged leptons. All W /Z+jets samples use the
+CT10 PDF set and are normalised to the next-to-next-to-leading-order (NNLO) cross sections calculated
+using FEWZ [14, 15].
+The POWHEG-BOX v2 program with the CT10 PDF set is used for the generation of t t¯ pairs and single
+top quarks in the Wt- and s-channels. Samples of t-channel single-top-quark events are produced with
+the POWHEG-BOX v1 [7, 8] generator employing the four-flavour scheme for the NLO matrix element
+calculations together with the fixed four-flavour scheme PDF set CT10f4; the top-quark decay is simulated
+with MadSpin [16]. For all samples of top-quark production, the spin correlations are preserved and
+the parton shower, fragmentation and underlying event are simulated using PYTHIA 6.428 [17] with the
+CTQ6L1 PDF set and the corresponding Perugia 2012 tune [18]. Photon radiation from charged leptons
+and electroweak vertices is simulated using PHOTOS++ v3.52. The top-quark mass is set to 172.5 GeV.
+The t t¯ production sample is normalised to the NNLO cross section, including soft-gluon resummation to
+next-to-next-to-leading-logarithm accuracy (Ref. [19] and references therein). The normalisation of the
+single top quark event samples uses an approximate NNLO calculation from Refs. [20–22].
+The effect of multiple proton (pp) interactions, referred to as pile-up, is simulated by overlaying minimum-
+bias interactions on the generated events. The simulated events are reweighted such that the average number
+of pp interactions per bunch crossing has the same distribution in data and simulation.
+
+
+4 Object selection
+
+Muons are reconstructed by combining an inner detector track with a track from the MS [23], and must
+lie within |η| < 2.5, with a transverse momentum requirement of pT > 10 GeV for the Z → ee analysis
+and pT > 7 GeV for all other analyses. Corrections to simulated reconstruction efficiencies, derived
+from the data, are applied to the simulated samples. The muon candidates have to pass a “loose” muon
+identification requirement, which corresponds to a 98% efficiency.
+Electrons are reconstructed by matching clustered energy deposits in the electromagnetic calorimeter
+to tracks reconstructed in the inner detector, and are required to have pT > 15 GeV and |η| < 2.47
+(excluding the transition region between the barrel and end-cap calorimeters, corresponding to the region
+1.37 < |η| < 1.52). Electrons are identified using the signal and background probability density functions
+for several discriminating variables detailed in Ref. [24, 25]. A likelihood (LLH) function is constructed
+with several working points available, corresponding to cuts on the likelihood score with different levels
+of signal efficiency and background rejection. For the studies in this document, the medium identification
+working point is required to select electron candidates and the very loose working point is used for vetoing
+electrons faking taus. Corrections to the reconstruction and identification efficiencies derived from the
+data are applied to the simulated samples.
+For muons and electrons, the scalar sum of the transverse momenta of tracks within a cone of pT -dependent
+size, ∆R <min (10 GeV/pT, 0.3), centred on the lepton candidate track and excluding the lepton track,
+is required to be less than a pT -dependent fraction of the lepton transverse momentum. Additionally, the
+sum of the calorimeter energy deposits in a cone of size ∆R < 0.2 around the lepton, excluding energy
+associated with the lepton candidate, must be less than a pT dependent percentage of the lepton energy.
+
+
+
+
+                                                     5
+This requirement, referred to as gradient isolation, is used in the electron rejection and trigger efficiency
+measurements, and has a 90 (99)% efficiency at 25 (60) GeV.
+Another isolation criterion uses a similar definition, except with a fixed cone size of ∆R < 0.4 for tracks
+and with the threshold values fixed at 1% and 4% for the sum of track momenta, and the sum of the
+calorimeter energy deposits respectively. This isolation, referred to as fixed-threshold isolation, provides
+a stronger multi-jet rejection. Fixed-threshold isolation is used to select electrons and muons in the offline
+tau identification and tau energy scale measurements.
+Jets are constructed using the anti-k t algorithm [26], with a distance parameter R = 0.4. Three-
+dimensional clusters of calorimeter cells called TopoClusters [27], calibrated using a local hadronic
+calibration (LC) [28], serve as inputs to the jet algorithm. Jets are required to be within |η| < 4.5. A
+dedicated b-tagging algorithm described in Ref. [29, 30] is used to identify jets associated with the decay
+of a b-quark in the range |η| < 2.5, and has a 77% efficiency.
+The reconstruction, energy calibration and identification of the hadronic decays of tau leptons are described
+in the next section whilst the geometric overlap of objects with ∆R < 0.2 is resolved by selecting only one
+of the overlapping objects in the following order of priority: muons, electrons, τhad−vis candidates, and
+jets. The missing transverse momentum, with magnitude ETmiss , is calculated from the vector sum of the
+transverse momenta of all reconstructed electrons, muons, τhad−vis and jets in the event, as well as a term
+for the remaining tracks [31].
+
+
+5 Reconstruction, energy calibration and identification of hadronic tau
+  decays
+
+This section gives an overview of the online and offline algorithms used in the reconstruction, energy
+calibration and identification of the hadronic decays of tau leptons. A detailed description of the offline
+algorithms used in the reconstruction, baseline energy calibration and identification of hadronic tau decays
+during the 2015 data-taking period of Run 2, as well as the expected performance of the reconstruction
+algorithms and associated systematic uncertainties can be found in Ref. [3].
+
+
+5.1 Tau reconstruction
+
+Tau candidates are seeded by jets formed using the procedure described in Section 4. Jets seeding tau
+candidates are additionally required to have pT > 10 GeV and |η| < 2.5. Tau candidates in the transition
+region between the barrel and forward calorimeters, 1.37 < |η| < 1.52, are vetoed.
+A tau vertex is chosen as the candidate track vertex with the largest fraction of momentum from tracks
+associated (∆R < 0.2) with the jet. The tracks must pass requirements on the number of hits in the tracker
+and have pT > 1 GeV. Additional requirements are placed on the shortest distance from the track to
+the tau vertex in the transverse plane, |d 0 | < 1 mm, and the shortest distance in the longitudinal plane,
+|∆z0 sin(θ)| < 1.5 mm where θ is the polar angle of the track and z0 is the point of closest approach
+along the longitudinal axis. Provided these requirements are passed the tracks are then associated to core
+(0 < ∆R < 0.2) and isolation (0.2 < ∆R < 0.4) regions around the tau candidate.
+The direction (eta/phi) of the tau candidate is calculated using the vectorial sum of the TopoClusters within
+∆R < 0.2 of the seed jet barycenter, using the tau vertex as the origin. The mass of the tau candidate
+
+
+
+                                                      6
+is defined to be zero and consequently the transverse momentum, pT , and the transverse energy, ET are
+identical. The energy of the tau is obtained through dedicated calibration schemes, described in the
+following section.
+
+
+5.2 Tau energy calibration
+
+A tau-specific energy calibration is applied to the tau candidate in order to correct the energy deposition
+measured in the detector to the average value of the energy carried by the measured decay products at
+the generator level. Two calibrations are available, known as the baseline calibration, and the boosted
+regression tree (BRT) based calibration. With the exception of the BRT-specific tau energy scale meas-
+urement presented in section 6.4, all measurements performed in this note use the baseline calibrated tau
+candidates.
+The baseline correction to the tau energy is calculated as:
+                                                     ELC − Epileup
+                                    Ecalib =                                  .                          (1)
+                                               R ELC − Epileup, |η| , n p
+
+First, a correction to the LC-calibrated sum of the energy of all TopoClusters within ∆R < 0.2 of the tau
+candidate, ELC , is applied for the energy contribution, Epile−up , from multiple interactions occurring in the
+same bunch crossing (referred to as pileup). It is found that Epile−up increases linearly with the number of
+primary vertices NPV . Thus, the pile-up correction is derived as:
+
+                            Epileup (NPV, |η| , n p ) = A(|η| , n p ) × (NPV − hNPV i),                    (2)
+
+and calculated separately for 1-track and 3-track tau candidates, denoted by n p . Following the Run 1
+convention, the pile-up correction, A(|η| , n p ) × (NPV − hNPV i), vanishes for a value of NPV equal to the
+average pile-up conditions of the MC samples, e.g. NPV ≈ 14. The linear coefficient A is extracted from
+a linear fit of ELC from simulated samples as a function of (NPV − hNPV i) in bins of |η|. The detector
+response calibration, R, extracted as the Gaussian mean of the ELC − Epileup /Etrue  vis distribution, is then
+                  vis
+applied. Here, Etrue is the energy of the generated tau decay products, including final state radiation, but
+excluding the contribution of the neutrinos
+The energy resolution of the baseline method is excellent at high pT but quickly degrades at low pT .
+A method of reconstructing the individual charged and neutral hadrons in tau decays has recently been
+developed by the ATLAS experiment and is known as "Tau Particle Flow" (TPF) [32]. The method
+significantly improves the tau energy resolution at low pT due to the superior measurement of the charged
+pion momentum from the tracking system. An improved energy calibration has therefore been introduced
+which combines the information from the baseline and TPF methods together with additional calorimeter
+and tracking information via a multivariate-analysis technique. This technique is referred to as a BRT
+method, and is implemented using the TMVA package [33].
+To train the BRT, tau candidates satisfying the medium tau identification requirement, which is described
+in Section 5.3, coming from simulated Z/γ ∗ → ττ events are used. The two figures of merit, used to
+determine which input variables and BRT tuning parameters are optimal, are defined as follows: the
+resolution is defined as half of the 68% central interval of the ratio of the calibrated τhad−vis transverse
+momentum to the generated τhad−vis transverse momentum, pTtrue,vis , whilst the non-closure is the offset of
+the most probable value of that ratio from unity. The most probable value is used instead of the arithmetic
+
+
+
+                                                         7
+mean in this case to reduce the impact of the asymmetric tails of the distribution. The transverse component
+of the sum of the momenta of the reconstructed charged hadron and neutral pion constituents is referred
+to as pTTPF , and the transverse momentum at LC-scale is pTLC . As the resolution of pTTPF is better than pTLC
+                                                                                       interp
+at low pT , and vice-versa at higher pT , the interpolated transverse momentum, pT , is defined in the
+following equation:
+                                            = f x × pTLC + (1 − f x ) × pTTPF,
+                                     interp
+                                    pT                                                                     (3)
+where f x is a weight between zero and one and is a function of pTLC :
+
+                                                 1            pTLC − x GeV
+                                    f x (pTLC ) = *1 + tanh                  +.                                 (4)
+                                                 2,              20 GeV      -
+The symbol x defines the point where the transition from low pT to high pT occurs, and is chosen to
+be x = 250. The regression target of the BRT training is the ratio of the generated τhad−vis transverse
+              interp
+momentum to pT .
+The final input variables used in the BRT are listed and described in Table 1. The transverse momenta pTLC
+and pTTPF provide basic knowledge about the τhad−vis energy. The BRT is less powerful when two variables
+are highly correlated and so to reduce the correlation, ratios of these variables pTLC /pT        and pTTPF /pT
+                                                                                           interp             interp
+
+are used instead of the raw values.
+                                                                                                        D E
+The moments of the individual TopoCluster constituents of the tau candidates, such as λ centre , λ 2 , hρi,
+ f presampler , and PEM , used in the LC calibration as described in Ref. [28], are found to be powerful inputs
+to the BRT-based tau energy calibration. In order to simplify the use of these variables, they are re-defined
+at the per-tau level, as the energy-weighted average of these moments for all constituent TopoClusters.
+The variables µ and nPV are included to provide information about multiple interactions occurring in the
+same bunch crossing, whilst γπ and nπ 0 are variables that provide information about the decay modes of
+the tau candidate and improve the resolution at low pT .
+Figure 1 shows the τhad−vis energy resolution of baseline, TPF-based and BRT-based calibrations. In the
+region pT < 100 GeV, the BRT-based tau energy calibration improves on the baseline resolution by a
+factor of two, while at high pT the performance is comparable.
+
+
+5.3 Tau identification
+
+The tau identification algorithm is designed to reject backgrounds from quark- and gluon-initiated jets.
+The identification uses Boosted Decision Tree (BDT) based methods [34, 35]. As described in Ref. [3],
+the BDT for tau candidates associated with one and three tracks are trained separately with simulated
+Z/γ ∗ → ττ for signal and dijet events (selected from data) for background. Three working points labelled
+loose, medium and tight are provided, and correspond to different tau identification efficiency values, with
+the efficiency designed to be independent of pT . The target efficiencies are 0.6, 0.55 and 0.45 for the
+generated 1-track loose, medium and tight working points, and 0.5, 0.4 and 0.3 for the corresponding
+generated 3-track target efficiencies. The input variables to the BDT are corrected such that the mean of
+their distribution for signal samples is constant as a function of pile-up. This ensures that the efficiency
+for each working point does not depend strongly on the pile-up conditions. The figures of all the input
+variables can be found in Appendix A
+
+
+
+
+                                                         8
+           Number of primary vertices, nPV
+           Number of primary vertices in the event.
+           Average interactions per crossing, µ
+           Average number of interactions per bunch crossing.
+           Cluster shower depth, λcentre
+           Distance of the cluster shower centre from the calorimeter front face measured along
+           the shower axis.
+                                           D E
+           Cluster second moment in λ, λ 2
+           Second moment of the distance of a cell, λ, from the shower centre along the shower
+           axis.
+           Cluster first moment in energy density, hρi
+           Cluster first moment in energy density ρ = E/V , where E and V represent the energy
+           and volume of the cluster, respectively.
+           Cluster presampler fraction, fpresampler
+           Fraction of cluster energy deposited in the barrel and endcap presamplers.
+           Cluster EM-like probability, PEM
+           Classification probability of the cluster to be EM-like, as described in Ref. [28].
+           Number of associated tracks, ntrack
+           Number of tracks associated with the τhad−vis .
+           Number of reconstructed neutral pions, nπ 0
+           Number of reconstructed neutral pions associated with the τhad−vis .
+           Relative difference of pion energies, γπ
+           Relative difference of the total charged pion energy, Echarged , and the total neutral
+           pion energy, Eneutral : γπ = (Echarged − Eneutral )/(Echarged + Eneutral ).
+           Calorimeter-based pseudorapidity, ηcalo
+           Calorimeter-based (baseline) pseudorapidity.
+                                                            interp
+           Interpolated transverse momentum, p
+                                                T
+           Transverse momentum interpolated from calorimetric corrections to energy meas-
+           urement and TPF reconstruction.
+                                interp
+           Ratio of p LC to p          , p LC /p
+                                                 interp
+                       T        T          T     T
+                                                                                 interp
+           Ratio of the local hadron calibration transverse momentum to pT                .
+                                 interp
+           Ratio of p TPF to p          , p TPF /p
+                                                   interp
+                       T         T          T      T
+                                                                                   interp
+           Ratio of the TPF reconstruction transverse momentum, pTTPF , to pT                 .
+
+Table 1: List of input variables used in the boosted regression tree for τhad−vis energy calibration. The cluster
+variables are defined as the energy-weighted average of the moments for all constituents TopoClusters, as described
+in detail in Ref. [28].
+
+
+
+
+                                                            9
+                                                               20
+
+
+
+
+                                 p (τhad-vis) resolution [%]
+                                                                    ATLAS Preliminary     Baseline
+                                                                    Simulation
+                                                                                          BRT
+                                                               15
+
+
+
+                                                               10
+                                                  T
+
+
+
+
+                                                               5
+
+
+                                                                      50     100        150     200      250
+                                                                                              p (τhad-vis) [GeV]
+                                                                                                T
+
+
+
+
+Figure 1: The resolution of the baseline and the BRT-based τhad−vis energy calibration. The resolution, shown as a
+function of the generated tau pT , is defined as half of the 68% central intervals of the ratio of the calibrated pT to
+the true visible pT .
+
+
+5.4 Electron discrimination
+
+In order to reduce the electron background, reconstructed tau candidates associated with a single track
+and within a distance of ∆R < 0.4 of a reconstructed electron are rejected if the electron passes a very
+loose working point of the electron likelihood identification algorithm, as mentioned in Section 4. This
+electron likelihood score cut is tuned to yield a 95% efficiency for hadronically decaying taus, and the cut
+on the electron identification likelihood score is dependent on the pT and |η| of the tau candidate. The cut
+value on the electron identification likelihood has been updated in comparison to Ref. [3] to reflect the
+2015 data-taking conditions [25].
+
+
+5.5 Tau trigger identification
+
+Due to the technical limitations of the ATLAS trigger system [36], the online reconstruction of hadronic
+tau lepton decays is modified compared to the offline reconstruction. At L1, trigger towers are defined in
+the EM and hadronic calorimeters with a granularity of ∆η × ∆φ = 0.1 × 0.1. A core region is made up
+of a set of 2 × 2 trigger towers and a requirement is placed on the transverse energy sum of the two most
+energetic adjacent EM calorimeter towers. A requirement can also be placed on the transverse energy
+deposited in an isolation region of calorimeter towers around the core.
+At HLT, the energy is recalculated using LC-calibrated TopoClusters of calorimeter cells contained in a
+∆R = 0.2 cone around the L1 tau direction. The energy is calibrated using the baseline method described
+in Section 5.2, using dedicated factors derived to account for the different LC calibration constants and
+pile-up correction scheme used at trigger level. Additionally, the pile-up subtraction term in the baseline
+calibration is calculated using the average number of interactions per crossing instead of the number of
+primary vertices, as the latter is not available at trigger level. A minimum transverse energy requirement
+is placed on the online tau candidate.
+A multi-stage tracking algorithm is then used to reconstruct tracks in a sufficiently large ∆R cone around
+the tau candidate. The first stage, referred to as fast-tracking, reconstructs tracks using trigger-specific
+
+
+
+
+                                                                                   10
+pattern recognition algorithms in two steps. In the first step the highest-pT track is identified in a narrow
+cone (∆R < 0.1) around the tau direction and along the direction of the beam in the range |z| < 255 mm.
+The second step reruns the fast-tracking software in an extended cone (∆R < 0.4) around the tau direction
+but with the tracks required to emanate from the same position along the beamline as the leading track.
+A requirement is made on the number of tracks within a core (∆R < 0.2) and isolation (0.2 < ∆R < 0.4)
+                 tracks < 4 and N tracks < 2, respectively. Finally, the detector hits and tracks identified in
+region of 0 < Ncore              iso
+the fast-tracking stages are used as seeds in an HLT-tracking stage. HLT-tracking refers to the precision
+reconstruction of tracks with algorithms similar to those used in the offline reconstruction.
+The HLT precision track and calorimeter information is used to calculate a number of pileup corrected
+variables which are then input into an online tau BDT. The variables used in the online BDT are the
+same as those used in the offline BDT, with the exception that the lifetime variables are calculated with
+respect to the beamspot instead of the tau vertex, as full event vertex reconstruction is not available at the
+HLT. The offline BDT training is used directly at trigger level, as it was found to provide good rejection
+while minimizing the orthogonality between the trigger and offline selection. As in the case of offline
+tau identification, three identification working points are available for online tau candidates with one or
+three associated tracks: loose, medium and tight. These working points were tuned to provide target
+efficiencies of approximately 0.95 (0.70) after their offline counterpart identification is applied for taus
+with one (three) associated tracks
+
+
+6 Z → τ µ τhad tag–and–probe analyses
+
+In this section, the performance of the identification, trigger and energy reconstruction algorithms are
+evaluated with a data sample enriched in Z → τµ τhad events where one tau lepton decays to a muon and
+the other decays hadronically, with associated neutrinos. The chosen tag-and-probe approach consists
+of selecting events triggered by the presence of a muon (tag) and containing a hadronically decaying
+tau lepton candidate (probe) in the final state and studying the performance of the identification, trigger
+and energy reconstruction algorithms. In this section signal refers to a τhad−vis candidate geometrically
+matched with a generated τhad−vis or the Z → τµ τhad event containing such tau candidates.
+
+
+6.1 Common event selection
+
+To select Z → τµ τhad events, a single-muon trigger with the threshold of pT > 20 GeV is used. The
+offline reconstructed muon candidate must have pT > 22 GeV and be geometrically matched to the online
+muon. Events are required to have no additional electrons or muons and at least one τhad−vis candidate
+with 1 or 3 tracks. If there are multiple τhad−vis candidates, only the leading pT candidate is considered. In
+addition, a very loose requirement on the tau identification BDT output (> 0.3) is made which suppresses
+jets while being more than 99% efficient for the generated τhad−vis . The muon and τhad−vis candidates are
+required to have opposite-sign electric charges (OS). Events with b-tagged jets are rejected, after which
+the contribution from top quark backgrounds is reduced from 1-3% to 0.3-0.8%, depending on the analysis
+and the number of charged tracks associated to the tau candidate. The associated b-tagging systematic
+uncertainty is found to be negligible, since the probability of passing the b-jet veto is very high (> 99%)
+for jets that do not originate from a b-quark.
+
+
+
+
+                                                      11
+A series of selection requirements is used to suppress W + jets (mainly W → µνµ ) events. The transverse
+                                               q
+                                                   µ
+mass of the muon and ETmiss system, mT = 2pT · ETmiss (1 − cos ∆φ(µ, ETmiss )), is required to be less
+                         µ
+than 50 GeV, where pT is the transverse momentum of the muon, and ∆φ(µ, ETmiss ) is the ∆φ separation
+between the muon and the missing transverse momentum. The quantity Σ cos ∆φ = cos ∆φ(µ, ETmiss ) +
+cos ∆φ(τhad−vis, ETmiss ) is required to be greater than −0.5, where ∆φ(τhad−vis, ETmiss ) is the ∆φ separation
+between the τhad−vis and the missing transverse momentum.
+In addition to the above common selection, the medium offline tau identification requirement is applied in
+the energy scale measurement. Several offline working points, i.e. loose, medium and tight, are applied in
+the online tau identification efficiency to derive the corresponding trigger efficiencies. A requirement on
+the invariant mass of the muon and tau candidate, 45 GeV < mvis (µ, τhad−vis ) < 80 GeV, is applied in both
+online and offline tau identification efficiency measurements, but not in the energy scale measurement
+since the mvis (µ, τhad−vis ) distribution is used to constrain the tau energy scale. To reduce the large
+contamination from misidentified jets in the offline tau identification efficiency measurement, in which the
+medium tau identification requirement is not applied, the lower threshold on Σ cos ∆φ is tightened to −0.1.
+The detailed event selections and the signal purity, i.e. the estimated fraction of generated tau leptons
+to the total predicted number of events after applying the signal selection requirements listed above, are
+summarised in Table 2.
+
+               Analyses               Offline Identification     Online Identification        TES
+               mT                           < 50 GeV                  < 50 GeV              < 50 GeV
+               Σ cos ∆φ                      > −0.1                    > −0.5                > −0.5
+               mvis                       (45–80 GeV)               (45–80 GeV)                 –
+               Tau Identification               –                      various               medium
+               Purity                   20% (before ID)            73% (medium)                65%
+
+
+Table 2: Summary of the Z → τµ τhad event selections and purities in the online and offline tau identification, as well
+as the tau energy scale measurement.
+
+After the final selection, besides a small fraction of muons misidentified as hadronic tau lepton decays
+(which are modelled via simulation), the main background for the probe τhad−vis candidates are jets
+misidentified as hadronic tau lepton decays from W +jets and multi-jet events. In these jet to τ fake
+events, especially multi-jet events, the correlation of the charge sign between misidentified jets and the
+muon is not as strong as in the case of Z → τµ τhad signal events. Therefore, the events with same sign
+(SS) charge are used to model the jet to τ fake background. Due to the residual charge correlation,
+there are more background events with opposite sign charge than with same sign. To take this charge
+correlation into account, a normalisation factor on multi-jet events is measured from the multi-jet control
+region, defined below, by comparing events with opposite sign charge and same sign charge. For the
+W +jets events, the trigger and energy scale measurements use simulated events to model the difference
+between opposite sign events and same sign events, the so called ‘OS–SS’ method, with the correction
+factors derived from W +jets control region events with opposite sign charge and the same sign charge
+requirements, respectively. The offline identification measurement follows the same principle but takes a
+slightly different approach, as discussed in section 6.2.1.
+To improve the modelling of the jet background, two control regions enriched in specific background
+processes are used. A W +jets control region, as shown in Figure 2, is selected by requiring ETmiss > 30 GeV
+and mT > 60 GeV, and a multi-jet control region, as shown in Figure 3, is selected by inverting the muon
+
+
+
+                                                          12
+isolation requirement. The identification is applied in the control regions for the energy scale and the
+trigger measurements, while the offline identification measurement has the control regions both with and
+without the tau identification requirement, in order to extract the yield in both cases.
+
+
+                          ×103
+
+
+
+
+  Events / 10 GeV                                                              Events / 20 GeV
+                    1.6    ATLAS Preliminary             Data                                            ATLAS Preliminary             Data
+                                                         W→ lν                                   900                                   W→ lν
+                            s = 13 TeV, 3.2 fb-1         Z→ττ                                             s = 13 TeV, 3.2 fb-1         Z→ττ
+                    1.4    Wjets CR, 1-track             Z→ ee/µµ
+                                                                                                 800     Wjets CR, 3-track             Z→ ee/µµ
+                                                         tt, single top                          700                                   tt, single top
+                    1.2                                  Uncertainty                                                                   Uncertainty
+                      1                                                                          600
+                                                                                                 500
+                    0.8
+                                                                                                 400
+                    0.6
+                                                                                                 300
+                    0.4                                                                          200
+                    0.2                                                                          100
+
+                    1.5                                                                          1.5
+
+  Data/Pred                                                                    Data/Pred
+                      1                                                                            1
+                    0.5                                                                          0.5
+                                   50              100        150                                    0             50            100        150
+                                                     mvis(µ, τ ) [GeV]                                                             mvis(µ, τ ) [GeV]
+                                                              had                                                                           had
+                                         (a) 1-track                                                                    (b) 3-track
+
+Figure 2: The distribution of mvis , the invariant mass of the τhad−vis and muon system, in the W +jet control region.
+The tau candidate is required to pass medium identification. The error band contains only the statistical uncertainty.
+
+
+
+6.2 Offline tau identification efficiency measurement
+
+In the offline tau identification efficiency measurement, the contamination from jet backgrounds before the
+application of the tau identification poses the greatest challenge. To estimate the background contamination
+in data, a template fit is performed using a variable with high separation between signal and background, to
+estimate the normalisation factors for both signal and background. The signal contribution to data before
+the application of the tau identification requirement is estimated directly from the fit, whilst the signal
+contribution to data after the application of the various tau identification working points is extracted by
+subtracting the estimated backgrounds from the data, after applying the same background normalisation
+factors as those before the identification is applied.
+The variable used is the track multiplicity, defined as the sum of the number of core (∆R < 0.2) and outer
+(0.2 < ∆R < 0.6) tracks associated to the τhad−vis candidate. Outer tracks are only considered if they fulfil
+the track separation requirement, D outer = min([ pTcore /pTouter ] · ∆R(core, outer)) < 4, where pTcore refers to
+any track in the core region, and ∆R(core, outer) refers to the distance between the candidate outer track
+and any track in the core region. More details can be found in Section 4 of Ref. [2].
+
+
+6.2.1 Signal and background estimation
+
+This section describes how the templates for the signal and the background are constructed and how the
+tau identification efficiency is measured. The tau candidate track multiplicity distribution of signal events
+
+
+
+
+                                                                          13
+                          ×103                                                                        ×103
+
+
+
+
+  Events / 10 GeV                                                             Events / 10 GeV
+                                              ATLAS Preliminary
+                                                                                                1.8                       ATLAS Preliminary
+                    3.5
+                                               s = 13 TeV, 3.2 fb-1                             1.6                        s = 13 TeV, 3.2 fb-1
+                      3                       Multi-jets CR, 1-track
+                                                                                                1.4                       Multi-jets CR, 3-track
+
+                                                     Data                                                                        Data
+                    2.5                              Jet→l,τ fakes                              1.2                              Jet→l,τ fakes
+                                                     Z→ ee/µµ                                                                    Z→ ee/µµ
+                      2                              tt, single top                               1                              tt, single top
+                                                     W→ lν                                                                       W→ lν
+                                                                                                0.8
+                    1.5                              Z→ττ                                                                        Z→ττ
+                                                     Uncertainty                                                                 Uncertainty
+                                                                                                0.6
+                      1
+                                                                                                0.4
+                    0.5                                                                         0.2
+
+                    1.5                                                                         1.5
+
+  Data/Pred                                                                   Data/Pred
+                      1                                                                           1
+                    0.5                                                                         0.5
+                                 50      100             150       200                                       50      100             150       200
+                                                    mvis(µ, τ ) [GeV]                                                           mvis(µ, τ ) [GeV]
+                                                             had                                                                         had
+                                      (a) 1-track                                                                 (b) 3-track
+
+Figure 3: The distribution of mvis , the invariant mass of the τhad−vis and muon system, in the multi-jet control region.
+The tau candidate is required to pass medium identification. The error band contains only the statistical uncertainty.
+
+
+is modelled using simulated Z → τµ τhad events with a small contribution from t t¯ events. Two signal
+templates are obtained by requiring exactly one or three tracks reconstructed in the core region of the
+τhad−vis candidate. To improve the fit stability, a combined template is used to model both the one track
+τhad−vis and the three track τhad−vis which are shown in separated colors in Figure 4. A single template is
+used to model the background from quark- and gluon-initiated jets that are misidentified as hadronic tau
+lepton decays:
+
+                            bkg                    W +jets C R    W +jets MC      W +jets C R    W +jets MC
+                                                                            
+                           FOS = r QCD · FSS
+                                          dat a
+                                                − FSS          · TSS           + FOS          · TOS         ,                                      (5)
+where F terms represent the template in data and the W + jets control region for OS and SS, and T terms
+represent transfer factors, which are measured as the ratio of the simulated events with the signal region
+selection to simulated events with the W +jets control region selection for the OS and SS requirements, as
+a function of the track multiplicity. The background is mainly composed of multi-jet and W +jets events
+with a minor contribution from Z+jets events. Jet to tau fakes in t t¯ events is included in the analysis
+and covered together as W +  jets. The jet template is constructed starting with data events in the same
+sign control region FSS dat a , a region enriched in events with jets misidentified as tau candidates. The
+                                                                 W +jets C R W +jets MC 
+contributions from W +jets and Z+jets in the SS control region FSS            · TSS          are subtracted
+to yield the multi-jet only contribution. Then, to correct for the difference in normalisation between
+                                                                                                          
+the same sign multi-jet events and the opposite sign ones, the template is scaled by the ratio r QCD
+of OS/SS multi-jet events. To reduce the Z → ττ signal contamination in the multi-jet control region,
+events with 45 GeV < mvis (`, τhad−vis ) < 80 GeV in the multi-jet control region are rejected. Finally,
+the OS contributions from W +jets events are added to complete the template. The shape of the W +jets
+                                                            W +jets C R
+contribution is estimated from the W +jets control region FOS            and normalised to the signal region
+                        W +jets MC 
+using transfer factors TOS             derived using simulated W +jets events. The jet templates both with
+and without the identification requirements are built with this procedure.
+
+
+
+
+                                                                         14
+An additional background is the contamination due to the misidentification of muons and electrons as tau
+candidates, and comes mainly from Z → µµ processes. This small background contribution is modelled
+by simulated Z → ee/µµ, t t¯, Z → ττ, diboson events where the reconstructed tau candidate probe is
+matched to a generated muon or electron. The yield of events where the lepton is misidentified as a tau
+candidate is typically less than 1% of the total signal yield.
+With the normalisation factor of the signal and jet templates allowed to float, the signal plus background
+model of the track multiplicity is fitted to the data without identification. The normalisation factor of the
+jet template obtained from this fit is applied to the jet templates both before and after each tau identification
+working point is applied. The yield of the τ signal both before and after the application of each working
+point is obtained from the data subtracted by the estimated backgrounds from simulated muons and the
+jet template with the normalisation factor applied.
+The efficiency for a given identification working point is calculated by taking the ratio of the extracted
+number of signal events before and after the identification criteria is applied.
+
+
+6.2.2 Results
+
+Figure 4 shows the track multiplicity distributions before and after applying the medium tau identification
+requirement. To account for the small differences between data and simulation, correction factors (also
+referred to as scale factors), defined as the ratio of the efficiency in data (ε Data ) to the efficiency in
+simulation (ε MC ) for τhad−vis signal to pass a certain level of identification, are derived. The results are
+shown in Figure 5 and found to be compatible with unity.
+
+
+                    ×103                                                         ×103
+
+  Events                                                       Events
+                                 ATLAS Preliminary                                                    ATLAS Preliminary
+               10                 s = 13 TeV, 3.2 fb-1                       7                         s = 13 TeV, 3.2 fb-1
+                                 Z→τµ τhad                                                            Z→τµ τhad, Medium tau ID
+                                                                             6
+                8                          Data                                                               Data
+                                           l→ τ fakes                        5                                l→ τ fakes
+                                           Jet→ τ fakes                                                       Jet→ τ fakes
+                6                          3-track τ                         4                                3-track τ
+                                           1-track τ                                                          1-track τ
+
+                4
+                                           Uncertainty                       3                                Uncertainty
+
+
+                                                                             2
+                2
+                                                                             1
+
+
+
+
+  Data/Pred                                                    Data/Pred
+              1.5                                                          1.5
+                1                                                            1
+              0.5                                                          0.5
+                           5            10          15                                  2         4         6     8        10
+                                       Number of tracks                                                     Number of tracks
+                           (a) Before ID                                                    (b) Passed medium ID
+
+Figure 4: Track multiplicity: the sum of the number of core tracks and the outer tracks in 0.2 < ∆R < 0.6 that fulfil
+the requirement D outer < 4, as defined in the text and Ref. [2]. The true tau and ‘Jet → τ fakes’ component are fitted
+to data while ‘lepton (l) → τ fakes’ component is fixed to the simulation prediction. The uncertainty band contains
+only the statistical uncertainty. Note: the track multiplicity included in the fit is up to 15, as shown in (a).
+
+
+
+
+                                                          15
+Figure 5: The scale factors (ε Data /ε MC ) needed to bring the offline tau identification efficiency in simulation (ε MC ) to
+the level observed in data (ε Data ) for one track and three track τhad−vis candidates with pT > 20 GeV. The combined
+systematic and statistical uncertainties are shown.
+
+
+
+The sources of uncertainty on the scale factors are summarised in Table 3. The uncertainty on the signal
+template is estimated by comparing simulated signal generated with different configurations, such as
+variations on the amount of detector material, and the hadronic interaction model, e.g. QGSP_BIC and
+FTFP_BERT models [37–40]. These comparisons are used to evaluate the effect of different simulation
+models on the relative normalisation of the 1-track to 3-track templates which are fixed to the simulated
+values in the fit. The uncertainty on the jet template accounts for differences between the W +jets shape
+in the signal and control regions and is derived from comparisons to simulated W +jets events, as well as
+the differences between the multi-jet template shape in the opposite sign and same sign region derived
+by varying the multi-jet control region selections. The uncertainty due to the normalisation of the
+misidentified muon background is estimated conservatively by varying the normalisation up and down by
+50%.
+Figure 6 shows the jet BDT score distribution, while Figures 7 to 10 show some of the input variables to
+the jet discriminant BDT. The figures of all the input variables can be found in Appendix A whilst the
+definition of the input variables can be found in Section 5 of Ref. [3]. For both the jet BDT score figure
+and the input variable figures, the distributions for the signal and background are obtained using the same
+methods as for the efficiency measurement. Some of the input variables comparisons show discrepancies;
+these are globally accounted for by the scale factors derived in the efficiency measurements.
+
+
+
+
+                                                             16
+                                                 Uncertainty source                            Uncertainty [%]
+                                                                                               1-track 3-track
+                                                 Jet template modelling                            1.5         1.5
+                                                 Tau template modelling                            4.4         4.3
+                                                 Lepton template modelling                         1.7         1.7
+                                                 Statistics                                        1.7         2.8
+                                                 Total                                             5.2         5.6
+
+
+Table 3: Dominant uncertainties on the tau identification efficiency scale factors estimated with the Z boson tag-and-
+probe method, and the total uncertainty, which combines systematic and statistical uncertainties. These uncertainties
+apply to τhad−vis candidates passing the medium tau identification algorithm with pT > 20 GeV. The uncertainties
+for other tau identification working points are similar.
+
+
+
+
+                            ×103                                                                   ×103
+
+
+
+      Events / 0.05                                                          Events / 0.05
+                             ATLAS Preliminary             Data                                                              Data
+                      3.5                                  l→ τ fakes                        4.5 ATLAS Preliminary           l→ τ fakes
+                              s = 13 TeV, 3.2 fb-1         Jet→ τ fakes
+                                                                                                  s = 13 TeV, 3.2 fb-1       Jet→ τ fakes
+                             Z→τµ τhad, 1-track                                                4 Z→τ τ , 3-track
+                        3                                  τ                                          µ had                  τ
+                                                           Uncertainty                       3.5                             Uncertainty
+
+                      2.5                                                                      3
+                        2                                                                    2.5
+                      1.5                                                                      2
+                                                                                             1.5
+                        1
+                                                                                               1
+                      0.5                                                                    0.5
+
+
+
+      Data/Pred                                                              Data/Pred
+                      1.2                                                                    1.2
+                        1                                                                      1
+                      0.8                                                                    0.8
+                                0.4            0.6          0.8         1                                0.4         0.6      0.8         1
+                                                         τ jet BDT score                                                   τ jet BDT score
+
+Figure 6: The jet discriminant BDT output distribution for one track (left) and three track (right) τhad−vis candidates.
+The uncertainty band contains only the statistical uncertainty.
+
+
+
+
+                                                                            17
+                            ×103                                                                                ×103
+
+
+
+      Events / 0.2                                                                        Events / 0.2
+                        8      ATLAS Preliminary                 Data                                     3.5      ATLAS Preliminary                 Data
+                                                                 l→ τ fakes                                                                          l→ τ fakes
+                                s = 13 TeV, 3.2 fb-1             Jet→ τ fakes
+                                                                                                                    s = 13 TeV, 3.2 fb-1             Jet→ τ fakes
+                        7      Z→τµ τhad, 1-track                τ
+                                                                                                            3      Z→τµ τhad, 1-track                τ
+                                                                 Uncertainty                                                                         Uncertainty
+                        6                                                                                 2.5
+                        5                                                                                   2
+                        4
+                                                                                                          1.5
+                        3
+                                                                                                               1
+                        2
+                           1                                                                              0.5
+
+
+
+
+      Data/Pred                                                                           Data/Pred
+                      1.2                                                                                 1.2
+                        1                                                                                   1
+                      0.8                                                                                 0.8
+                         −1           −0.5             0           0.5             1                         −1           −0.5             0           0.5             1
+                                                                         ftrack-HAD
+                                                                          EM                                                                                 ftrack-HAD
+                                                                                                                                                              EM
+
+
+Figure 7: Fraction of EM energy from charged pions fEM   track−HAD for one track τ
+                                                                                    had−vis candidates before (left) and
+                                                      track−HAD
+after (right) the medium identification requirement. fEM         is defined as the fraction of the energy, deposited in
+the electromagnetic calorimeter, of tracks associated with the τhad−vis candidate in the core region. The uncertainty
+band contains only the statistical uncertainty.
+
+
+
+
+                      106                                                                                 106
+
+
+
+      Events / 0.05                                                                       Events / 0.05
+                               ATLAS Preliminary                 Data                                              ATLAS Preliminary                 Data
+                                                                 l→ τ fakes                                                                          l→ τ fakes
+                        5       s = 13 TeV, 3.2 fb-1                                                        5       s = 13 TeV, 3.2 fb-1
+                      10                                         Jet→ τ fakes                             10                                         Jet→ τ fakes
+                               Z→τµ τhad, 1-track                τ                                                 Z→τµ τhad, 1-track                τ
+                                                                 Uncertainty                                                                         Uncertainty
+                      104                                                                                 104
+
+                      103                                                                                 103
+
+                      102                                                                                 102
+
+                       10                                                                                  10
+
+                        1                                                                                   1
+
+
+      Data/Pred                                                                           Data/Pred
+                      1.5                                                                                 1.5
+                        1                                                                                   1
+                      0.5                                                                                 0.5
+                          0          0.2       0.4         0.6       0.8             1                        0          0.2       0.4         0.6       0.8             1
+                                                                                ftrack
+                                                                                 iso                                                                                ftrack
+                                                                                                                                                                     iso
+
+                                                           track for one track τ
+Figure 8: Fraction of tracks pT in the isolation region fiso                    had−vis candidates before (left) and after
+                                                 track is defined as the scalar sum of the p of tracks associated with
+(right) the medium identification requirement. fiso                                           T
+the τhad−vis candidate in the region 0.2 < ∆R < 0.4 divided by the sum of the pT of all tracks associated with the
+τhad−vis candidate. The uncertainty band contains only the statistical uncertainty.
+
+
+
+
+                                                                                         18
+                           ×103                                                                          ×103
+
+
+
+      Events / 0.1                                                                  Events / 0.1
+                             ATLAS Preliminary                                                     1.4     ATLAS Preliminary
+                       5
+                              s = 13 TeV, 3.2 fb-1                                                          s = 13 TeV, 3.2 fb-1
+                             Z→τµ τhad, 3-track                                                    1.2     Z→τµ τhad, 3-track
+                       4
+                                   Data                                                               1          Data
+                                   l→ τ fakes                                                                    l→ τ fakes
+                                   Jet→ τ fakes                                                                  Jet→ τ fakes
+                       3           τ                                                               0.8           τ
+                                   Uncertainty                                                                   Uncertainty
+                                                                                                   0.6
+                       2
+                                                                                                   0.4
+                        1
+                                                                                                   0.2
+
+
+
+
+      Data/Pred                                                                     Data/Pred
+                     1.5                                                                           1.5
+                       1                                                                             1
+                     0.5                                                                           0.5
+                         0         0.2       0.4     0.6       0.8            1                        0         0.2       0.4     0.6       0.8            1
+                                                                          fcent                                                                         fcent
+
+Figure 9: Central energy fraction f cent for three track τhad−vis candidates before (left) and after (right) the medium
+identification requirement. f cent is defined as the fraction of the calorimeter transverse energy deposited in the
+region ∆R < 0.1 with respect to all energy deposited in the region ∆R < 0.2 around the τhad−vis candidate. The
+uncertainty band contains only the statistical uncertainty.
+
+
+
+
+                           ×103
+
+     Events                                                                         Events
+                             ATLAS Preliminary             Data                                            ATLAS Preliminary             Data
+                       6                                   l→ τ fakes                              600                                   l→ τ fakes
+                              s = 13 TeV, 3.2 fb-1         Jet→ τ fakes
+                                                                                                            s = 13 TeV, 3.2 fb-1         Jet→ τ fakes
+                             Z→τµ τhad, 3-track            τ                                               Z→τµ τhad, 3-track            τ
+                       5                                   Uncertainty                             500                                   Uncertainty
+
+
+                       4                                                                           400
+
+                       3                                                                           300
+
+                       2                                                                           200
+
+                        1                                                                          100
+
+
+
+
+     Data/Pred                                                                      Data/Pred
+                     1.5                                                                           1.5
+                       1                                                                             1
+                     0.5                                                                           0.5
+                                  0                  5                       10                                 0                  5                       10
+                                                                          flight                                                                        flight
+                                                                      ST                                                                            ST
+
+Figure 10: Transverse flight path significance ST for three track τhad−vis candidates before (left) and after (right)
+                                                                    flight
+
+                                          flight
+the medium identification requirement. ST is defined as the decay length of the secondary vertex, reconstructed
+from the tracks associated with the core region of the τhad−vis candidate, in the transverse plane, divided by its
+estimated uncertainty. The uncertainty band contains only the statistical uncertainty.
+
+
+
+
+                                                                                   19
+6.3 Trigger efficiency measurement
+
+This section describes the trigger efficiency measurement in data using the tag-and-probe method, after
+the corresponding offline identification criteria is applied. The selection of Z → τµ τhad events used in this
+measurement is described in section 6.1.
+
+
+6.3.1 Signal and background estimation
+
+The dominant background contributions come from the misidentification of jets as τhad−vis candidates in
+multi-jet and W +jets events which are estimated via data-driven methods using dedicated control regions.
+The multi-jet background is fully taken from the same sign control region with a normalisation factor
+(r QCD ) used to correct the difference between the same charge event and opposite charge events. The same
+sign component of other backgrounds, estimated from simulation, is subtracted to avoid double counting.
+The r QCD normalisation factor is derived in the multi-jet control region as the ratio of the opposite charge
+yield to same charge yield.
+The overall background in the signal region is given by:
+                        bkg                                             W +jets      top
+                      NOS = r QCD · NSS
+                                     dat a
+                                           + NMC
+                                              Z→ττ
+                                                   + NMC
+                                                      Z→``
+                                                           + NMC                  + NMC ,                  (6)
+
+
+                                with      X
+                                         NMC = NMC,
+                                                X
+                                                    OS − r QCD · N MC, SS,
+                                                                   X
+                                                                                                           (7)
+          dat a is the number of data events from the same sign control region, and N X                X
+where, NSS                                                                                 MC, OS (N MC, SS )
+represents the number of simulated events for a given background, X, with the opposite (same) sign charge.
+To correct for the discrepancy between data and simulation in the W + jets background, a normalisation
+factor, kOS (k SS ), is defined as the ratio of data to simulated W +jets events in the W + jets control region
+with the opposite (same) sign charge requirement. The number of W + jets events is thus given by:
+                              W +jets             W +jets                  W +jets
+                           NMC          = kOS · NMC, OS − r QCD · k SS · NMC, SS .                         (8)
+
+The r QCD and kOS (k SS ) normalisation factors are derived separately for high pT (> 40 GeV) and low pT
+(< 40 GeV) tau candidates, as well as 1-track and 3-track tau candidates.
+Figure 11 shows the signal region offline tau candidate pT distributions before and after the application of
+the tau trigger.
+
+
+6.3.2 Results
+
+The tau trigger efficiency is measured with respect to tau candidates reconstructed and identified offline
+as a function of both the reconstructed transverse momentum of the tau candidate, and the number of
+reconstructed event vertices in the event. At L1, the tau trigger has requirements of pT > 12 GeV and
+calorimetric isolation, whereby energy deposited in a ring surrounding the L1 tau object is required to
+be lower than a threshold dependent on the L1 tau energy. At HLT, the trigger has requirements of
+pT > 25 GeV, the number of associated charged tracks restricted to three or less, and a medium working
+point selection on the online BDT score. Figure 12 shows the tau trigger efficiency measured in data (with
+estimated backgrounds subtracted) for the different levels of the trigger.
+
+
+
+
+                                                       20
+                              ×103                                                                        4.5 ×10
+                                                                                                                   3
+
+
+
+
+     Events / 2.5 GeV                                                                  Events / 2.5 GeV
+                               ATLAS Preliminary                    Data                                         ATLAS Preliminary                    Data
+                          6     s = 13 TeV, 3.2 fb-1
+                                                                    Z→ττ                                    4     s = 13 TeV, 3.2 fb-1
+                                                                                                                                                      Z→ττ
+                                                                    Z→ ee/µµ                                                                          Z→ ee/µµ
+                               Z→τµ τhad                            W→ lν                                 3.5    Z→τµ τhad                            W→ lν
+                          5                                         tt
+                                                                                                                 HLT tau25 medium trigger
+                                                                                                                                                      tt
+                                                                    Same Sign Data                          3                                         Same Sign Data
+                                                                    Uncertainty                                                                       Uncertainty
+                          4                                                                               2.5
+                          3                                                                                 2
+                                                                                                          1.5
+                          2
+                                                                                                            1
+                          1                                                                               0.5
+
+                        1.5                                                                               1.5
+
+     Data/Pred                                                                         Data/Pred
+                          1                                                                                 1
+                        0.5                                                                               0.5
+                                 30         40            50      60        70                                     30          40           50      60        70
+                                                            p (τhad-vis) [GeV]                                                                p (τhad-vis) [GeV]
+                                                                T                                                                                 T
+                                                 (a)                                                                                (b)
+
+Figure 11: Offline pT distribution of the tau candidate passing the offline medium tau identification (a) before, and
+(b) after the application of the tau trigger. The tau trigger has an online pT requirement of 25 GeV, and a medium
+online identification. The events are from a selection designed to be enriched in the process Z → τµ τhad . The
+uncertainty band contains only the statistical uncertainty.
+
+
+
+
+           Efficiency                                                                        Efficiency
+                          1                                                                                 1
+
+
+
+
+                                                   ATLAS Preliminary                                                                 ATLAS Preliminary
+                                                                          -1
+                                                       s = 13 TeV, 3.2 fb                                                                s = 13 TeV, 3.2 fb-1
+                        0.5                                                                               0.5
+                                                   Z→τµ τhad                                                                         Z→τµ τhad, p (τhad-vis)>30 GeV
+                                                                                                                                                      T
+
+                                                   HLT tau25 medium trigger                                                          HLT tau25 medium trigger
+
+                                                          L1                                                                                L1
+                                                          HLT                                                                               HLT
+
+
+                          0                                                                                 0
+                                         100                   200               300                         0             5              10              15           20
+                                                               p (τhad-vis) [GeV]                                                           Number of vertices
+                                                                T
+
+
+                                                 (a)                                                                                (b)
+
+Figure 12: The Level 1 (red dots) and High Level Trigger (blue triangles) online tau identification efficiency for
+τhad−vis candidates identified by the offline medium tau identification, as a function of (a) the offline τhad−vis transverse
+momentum and (b) the number of primary vertices. The error bars correspond to the statistical uncertainty.
+
+
+
+
+                                                                                     21
+The measured online tau identification efficiency is compared to simulated Z → ττ events in figure 13
+and is shown to be well modelled outside the turn-on region. As in the offline tau identification efficiency
+measurement, scale factors are derived to account for the differences between data and simulation and
+are found to be consistent with unity for tau candidates with a reconstructed transverse momentum above
+30 GeV.
+The dominant systematic uncertainties considered for the efficiency measurement are shown in table 4,
+and are associated with the background subtraction. The largest systematic uncertainty results from the
+uncertainty on the estimation of the multi-jet background and contains a statistical component related
+to the number of events in the SS control region, and a systematic component derived by varying the
+choice of selection criteria used to define the control region. The uncertainty on the normalisation factor
+covers the uncertainty in the assumption that the OS to SS ratio is the same between the isolation and
+anti-isolation regions. The systematic uncertainties are larger in the low-pT region due to the larger
+background contribution.
+
+
+
+
+     Efficiency                                                        Efficiency
+                    1                                                                 1
+
+                  0.8
+
+                  0.6                                                               0.5
+                                                    Data                                                             Data
+                        ATLAS Preliminary                                                 ATLAS Preliminary
+                         s = 13 TeV, 3.2 fb-1       Data Syst.                             s = 13 TeV, 3.2 fb-1      Data Syst.
+                  0.4   Z→τµ τhad, 1-track          Data Stat.                            Z→τµ τhad, 3-track         Data Stat.
+                        HLT tau25 medium trigger    MC                                    HLT tau25 medium trigger   MC
+
+                  0.2
+
+     εData/ εMC                                                    εData/ εMC
+                  1.2                               MC
+                                                                                    1.5
+                                                                                                                     MC
+
+                    1
+                  0.8                                                                 1
+                  0.6                                                               0.5
+                                           102                                                              102
+                                             p (τhad-vis) [GeV]                                               p (τhad-vis) [GeV]
+                                               T                                                                T
+
+
+                                 (a) 1-track                                                      (b) 3-track
+
+Figure 13: Efficiencies for signal and background subtracted data as well as the corresponding scale factors
+(ε Data /ε MC ) for the tau trigger with online pT > 25 GeV, as a function of the transverse momentum of offline
+τhad−vis candidates with a medium identification requirement. “Data Syst.” (“Data Stat.”) reflects the systematic
+(statistical) uncertainty associated with data; “MC” includes only the statistical uncertainty of the simulation.
+
+
+
+
+                                                                  22
+                                                    1-track                            3-track
+      Uncertainty sources               Without trigger With trigger       Without trigger With trigger
+      Statistical                                 1.9%         2.5%                  3.5%         7.8%
+      Jet fake background                         3.0%         3.0%                  7.3%         7.9%
+      Muon performance                            0.5%         0.6%                  0.8%         1.7%
+      Pileup and soft component                   0.5%         1.5%                  1.1%         7.0%
+
+Table 4: The overall effect of individual systematic uncertainties on all backgrounds measured in selections with
+and without the application of the tau trigger with a pT threshold of 25 GeV. The systematic uncertainties are
+shown for 1-track and 3-track τhad−vis candidates separately. If the systematic uncertainty consists of both upward
+and downward variations, the variation resulting in the highest effect is shown. Systematic uncertainties (or pairs
+thereof) whose overall effect is 0.05% or less are not shown.
+
+
+6.4 Offline τhad−vis in-situ energy scale measurement
+
+This section describes the in-situ measurement of the tau energy scale (TES) based on collision data. This
+measurement is used to derive an extra correction to account for differences between data and simulation.
+The method is based on the fact that the distribution of the reconstructed visible mass, mvis , in Z → τµ τhad
+events is sensitive to shifts in the TES between data and simulation.
+In this measurement, the event selection is described in section 6.1. The signal and background estimation
+is the same as that used in the trigger efficiency measurement, as described in section 6.2.
+
+
+6.4.1 Energy scale extraction
+
+The mvis variable is defined as the invariant mass of the τhad−vis and muon system. The tau energy is
+parametrised as ET → (1 + α)ET by introducing the TES shift factor α, while the muon momentum
+scale is measured independently with high precision. In Run 1, α was determined by comparing the mvis
+fitted peak value between data and simulation [2]. One drawback of this peak-fit method is that the peak
+value is easily affected by statistical fluctuations. In Run 2, a more robust method has been developed by
+comparing the full mvis shape and α is determined by finding the value at which the simulation and data
+maximally agree. Technically, α is determined by minimising χ2 (α, f ), defined as:
+
+                                                                         bkg 2
+                                                               sig
+                                                                            
+                                        X           Nidata − f Ni (α) − Ni
+                         χ2 (α, f ) =       q       2        sig  2  bkg  2 .                            (9)
+                                        i       data
+                                               Ni       + f ∆Ni (α) + ∆Ni
+                                                            2
+
+
+        data/sig/bkg
+Here Ni            is the number of events in the i-th bin of the visible mass distribution in the data,
+                           sig/bkg                                                            bkg
+                                                                                                   bkg 
+signal or background; ∆Ni          is the corresponding uncertainty in the number of events; Ni    ∆Ni
+corresponds to the sum of the contributions from all backgrounds; the parameter f is introduced to reduce
+the impact of overall normalisation discrepancies between data and simulation. The signal yield in each
+bin depends upon the in-situ TES parameter α.
+
+
+
+
+                                                        23
+6.4.2 Results
+
+For the baseline tau energy calibration, the measured TES shift factor is α = −0.7% ± 0.8% (stat)
+± 1.2% (syst) and α = −3.6% ± 1.2% (stat) ± 3.0% (syst) for τhad−vis with one and three associated
+tracks, respectively. The corrections are applied to the momentum of τhad−vis in simulation in order to
+yield agreement (on average) with data. The resulting mvis distribution for data and simulation is shown
+in Figure 14 after applying the TES correction. For the BRT tau energy calibration, the measured TES
+shift factor is α = 0.95% ± 0.9% (stat) ± 1.7% (syst) and α = −3.1% ± 1.1% (stat) ± 1.6% (syst) for
+τhad−vis with one and three associated tracks, respectively.
+
+                            3
+                   2.4 ×10
+
+
+
+  Events / 3 GeV                                                                 Events / 3 GeV
+                                                        Data                                      800                                   Data
+                   2.2 ATLAS Preliminary   -1           Z→ττ
+                                                                                                        ATLAS Preliminary
+                                                                                                                                        Z→ττ
+                                                                                                         s = 13 TeV, 3.2 fb-1
+                     2 s = 13 TeV, 3.2 fb               Z→ ee/µµ                                  700                                   Z→ ee/µµ
+                        Z→τµ τhad, 1-track              W→ lν                                           Z→τµ τhad, 3-track              W→ lν
+                   1.8                                  Jet→l,τ fakes                                                                   Jet→l,τ fakes
+                                                                                                  600
+                   1.6                                  Uncertainty                                                                     Uncertainty
+                                                        Z→ττ Pre-fit                                                                    Z→ττ Pre-fit
+                   1.4                                                                            500
+                   1.2                                                                            400
+                     1
+                   0.8                                                                            300
+                   0.6                                                                            200
+                   0.4
+                                                                                                  100
+                   0.2
+                   1.5                                                                            1.5
+
+  Data/Pred                                                                      Data/Pred
+                     1                                                                              1
+                   0.5                                                                            0.5
+                                     50                         100                                                  50                         100
+                                                    mvis(µ, τ     ) [GeV]                                                           mvis(µ, τ     ) [GeV]
+                                                            had                                                                             had
+                                      (a) 1-track                                                                     (b) 3-track
+
+Figure 14: The distribution of mvis : the invariant mass of the τhad−vis and muon system. The uncertainty band
+contains the statistical uncertainty only.
+
+As summarised in Table 5, the dominant systematic uncertainties of the measurement of the baseline
+TES calibration are due to background modelling, tau energy resolution, and muon performance. The
+uncertainty due to the background modelling is estimated conservatively by varying the tau identification
+working points, varying the fit range and bin width, and from the normalisation uncertainties propagated
+from the uncertainty of the normalisation factors derived from the control regions. The uncertainties due
+to the muon reconstruction include the uncertainties on the reconstruction, identification and resolution.
+The systematic uncertainties of the measurement of the BRT TES calibration are estimated in a similar
+way.
+
+
+
+
+                                                                            24
+                                 Source                      Uncertainty [%]
+                                                             1-track 3-track
+                                 Background modelling          1.1       2.9
+                                 Tau energy resolution         0.3       0.6
+                                 Muon reconstruction           0.2       0.6
+                                 Total                         1.2       3.0
+
+
+Table 5: Dominant systematic uncertainties on the tau energy scale correction factor estimated using the in-situ
+method. The values depend on the number of associated tracks. All other systematic uncertainties are smaller than
+0.1%.
+
+
+7 t t̄ tag-and-probe trigger efficiency measurement
+
+The higher mass of the top quark in comparison to the Z boson results in decays to tau leptons with a
+harder pT spectrum. This enables performance measurements in the pT region that is difficult to access
+and provides a useful cross check to the Z → ττ analyses discussed in section 6. This section describes the
+tau trigger efficiency measurement using the process t t¯ → [bµνµ ][bτντ ], in which the muon constitutes
+the ‘tag’ object, and the hadronically decaying τhad−vis is probed. Signal events are those which contain a
+τhad−vis candidate geometrically matched with a generated τhad−vis .
+
+
+7.1 Event selection
+
+The selection and triggering of the muon candidate is the same as described in section 6. Likewise, events
+with additional electrons or muons are vetoed and at least one opposite sign charge τhad−vis is required,
+with the leading pT candidate considered. Non-t t¯ processes are suppressed by requiring at least two jets
+with pT > 20 GeV in the event, and with at least one b-tagged.
+
+
+7.2 Signal and background processes
+
+All simulated events originating from t t¯, single top, and W /Z+jets processes where the probe is geomet-
+rically matched to a generated, hadronically decaying τhad−vis particle are considered as signal events. The
+main backgrounds are events where a quark- or gluon-initiated jet is reconstructed and misidentified as a
+τhad−vis object. These backgrounds principally result from multi-jet processes as well as t t¯, single top, and
+W /Z+jets processes. In similarity to section 6.3.1, as described in equation 6 and 7, the combined shape
+of these backgrounds is taken from events in which the muon and the τhad−vis have the same sign charge.
+Normalisation factors (r QCD ) for the backgrounds are derived in a control region enriched in multi-jet
+events, defined by inverting the isolation requirement on the muon and dropping the b-tag requirement.
+The normalisation factors are defined as the ratio of OS to SS charge events and are parametrised by the
+number of tracks associated with the τhad−vis candidate, as well as its pT . The r QCD value is computed
+separately for events before and after the application of the tau trigger.
+In similarity to section 6.3.1, simulated events are used to model the excess of the opposite sign events to
+same sign events for events containing t t¯, single top, and W /Z+jets processes, where a jet is misidentified
+
+
+
+                                                       25
+as the τhad−vis . The small background from events in which an electron or muon is misidentified as the
+probe is also modelled by simulated events with the subset of events with the same sign requirement
+subtracted. Figure 15 shows the signal region tau pT distributions before and after the application of the
+tau trigger.
+
+
+
+
+      Events / GeV                                                            Events / GeV
+                           ATLAS Preliminary         Data                                          ATLAS Preliminary           Data
+
+                       3     s = 13 TeV, 3.2 fb-1    τ                                         3     s = 13 TeV, 3.2 fb-1      τ
+                     10                              Same Sign Data                          10                                Same Sign Data
+                           tt → [bµνµ ][bτντ]                                                      tt → [bµνµ ][bτντ]
+                                                     l→ τ fakes                                                                l→ τ fakes
+                                                                                                   HLT tau25 medium trigger
+                                                     Simulated Jet→τ fakes                                                     Simulated Jet→τ fakes
+                     102                             Uncertainty                             102                               Uncertainty
+
+
+
+
+                     10                                                                      10
+
+
+                      1                                                                       1
+
+                     1.5                                                                     1.5
+
+      Data/Pred                                                               Data/Pred
+                       1                                                                       1
+                     0.5                                                                     0.5
+                                50            100      150          200                                 50            100        150          200
+                                                    p (τhad-vis) [GeV]                                                        p (τhad-vis) [GeV]
+                                                     T                                                                         T
+
+
+
+Figure 15: Tau candidate pT distribution after the t t¯ selection, before (left) and after (right) applying the tau trigger
+with threshold pT > 25 GeV. Here, ‘Simulated Jet → τ fakes’ represents the simulated jets misidentified as tau
+candidates from t t¯, single top, and W /Z+jets processes with opposite sign charged events subtracted by same sign
+charged events.
+
+
+
+7.3 Results
+
+The tau trigger efficiency is measured with respect to tau candidates reconstructed and identified offline in
+the same manner as described in section 6.3, and as a function of the reconstructed transverse momentum
+of the tau candidate. For the tau trigger with a pT threshold of 25 GeV, described in 6.3, and for events
+with tau candidates reconstructed with the offline medium identification requirement, the efficiencies
+and corresponding scale factors in simulated signal and data events (with the estimated backgrounds
+subtracted) are shown in Figure 16. The efficiencies agree above 40 GeV for 1-track τhad−vis candidates,
+and above 45 GeV for 3-track τhad−vis candidates.
+Sources of systematic uncertainty include the reconstruction and identification efficiencies and the energy
+scale of the muon, the reconstruction efficiency of the b-jets, and the estimation of the r QCD normalisation
+factor. With the exception of r QCD , all are correlated with and without the tau trigger applied. The
+systematic uncertainties enter through the subtraction of estimated backgrounds from data. The main
+sources of systematic uncertainty are displayed in Table 6. The largest source of uncertainty, the multi-jet
+normalisation factor, contains a statistical component related to the number of events in the SS control
+region, and a systematic component derived by varying the choice of selection criteria used to define the
+control region, and so covers the uncertainty in the assumption that the OS to SS ratio is the same between
+the isolation and anti-isolation regions. With respect to the Z → ττ analysis in Section 6.3, the t t¯ analysis
+improves the precision of the trigger efficiency measurement for tau candidates with pT >100 GeV.
+
+
+
+                                                                             26
+    Efficiency                                                        Efficiency
+                   1                                                                 1
+
+
+                 0.8                                                               0.8
+
+
+                 0.6                                    Data
+                                                                                   0.6                                     Data
+                       ATLAS Preliminary                                                  ATLAS Preliminary
+                                                        Data Syst.                                                         Data Syst.
+                         s = 13 TeV, 3.2 fb-1                                               s = 13 TeV, 3.2 fb-1
+                       tt → [bµνµ][bτντ], 1-track       Data Stat.                        tt → [bµνµ][bτντ], 3-track       Data Stat.
+                 0.4                                    MC
+                                                                                   0.4                                     MC
+                       HLT tau25 medium trigger                                           HLT tau25 medium trigger
+
+
+
+    εData/ εMC                                                        εData/ εMC
+                 1.2                                    MC                         1.4                                     MC
+
+                   1                                                               1.2
+                                                                                     1
+                 0.8                                                               0.8
+                 0.6                                                               0.6
+                                            102                                                               102
+                                              p (τhad-vis) [GeV]                                                    p (τhad-vis) [GeV]
+                                                    T                                                                  T
+
+
+                                  (a) 1-track                                                        (b) 3-track
+
+
+Figure 16: Efficiencies for signal and background subtracted data as well as the corresponding scale factors
+(ε Data /ε MC ) for the tau trigger with online pT > 25 GeV, as a function of the transverse momentum of offline
+τhad−vis candidates with a medium identification requirement. “Data Syst.” (“Data Stat.”) reflects the systematic
+(statistical) uncertainty associated with data; “MC” includes only the statistical uncertainty of the simulation. The
+spikes in the efficiency from data in the above two plots are due to the statistical fluctuation in the background
+subtraction.
+
+
+
+
+                                            Source                                 Uncertainty [%]
+                                                                                   1-track 3-track
+                                            multi-jet normalisation                 7.7       13.7
+                                            b-tagging                               <1        <1
+                                            muon                                    <1        <1
+
+
+Table 6: Dominant systematic uncertainties on the estimated backgrounds for the t t¯ tag-and-probe trigger efficiency
+measurement.
+
+
+
+
+                                                                     27
+8 Z → ee tag-and-probe analysis
+
+The probability of misidentifying an electron as a tau candidate is measured in events dominated by
+Z → ee processes. As in the previous sections, a tag-and-probe approach is used. Events are selected
+by triggering on the presence of an electron (tag) and must contain a tau candidate decaying hadronically
+with a single track (probe). In this section, signal refers to Z → ee events containing a τhad−vis candidate
+geometrically matched with a generated electron.
+
+
+8.1 Event selection
+
+The event selection is chosen to produce a sample of events enriched in Z → ee processes. The tag
+object in the event is a reconstructed electron with pT > 25 GeV, and tight likelihood identification
+requirements. Several triggers are available, with online medium electron likelihood identification and
+varying online pT requirements. These select events containing electrons with varying levels of efficiency,
+and therefore the trigger used to select events is dependent on the pT of the reconstructed electron in
+order to maximise acceptance. Events in which the reconstructed electron has offline pT > 135 GeV,
+65 GeV < pT < 135 GeV or 25 < pT < 65 GeV, are selected and geometrically matched to a trigger
+object with a respective online requirement of pT > 120 GeV, pT > 60 GeV or pT > 24 GeV. The probe
+τhad−vis candidate must have a single track, pT > 20 GeV, and a veto is placed on events containing muons
+or b-tagged jets.
+To ensure the selected events contain a high purity of Z → ee decays, an additional selection is placed
+on the signal region, requiring the electron tag pT > 30 GeV, the invariant mass of the electron and tau
+system to be within 80 GeV < mvis (e, τhad−vis ) < 100 GeV, and the transverse mass of the electron and
+ETmiss system, mT (e, ETmiss ), to be less than 40 GeV.
+
+
+8.2 Signal and background processes
+
+The data sample enriched in Z → ee processes is compared to an estimation of signal events and
+background processes. The Z → ee signal process is estimated via simulation and the probe tau from
+both signal and background processes must be within a cone of size ∆R < 0.2 of a generated electron for
+simulated events. The contribution to the signal region from Z → ττ and top-quark processes are also
+estimated from simulation.
+After the final selection, the fraction of Z → ee events is approximately 98%, as shown in Figure 17.
+W + jets processes are estimated via simulated events, with a normalisation factor extracted from a W + jets
+dominated control region to correct the imperfect nature of the simulation. The control region is defined
+by requiring exactly one electron in the event, mvis (e, τhad−vis ) < 80 GeV, mT (e, ETmiss ) > 70 GeV, and
+ETmiss > 30 GeV.
+The shape of the multi-jet background is taken from events in which the electron and the tau lepton have
+the same charge and scaled with a normalisation factor derived in a control region enriched in multi-jet
+events. The multi-jet control region is defined by inverting the isolation requirement on the electron, such
+that the ratio of transverse momentum in a cone of ∆R < 0.2 around the electron to the electron pT ,
+and the ratio of transverse momentum in a cone of ∆R < 0.4 around the electron to the electron pT , are
+
+
+
+
+                                                    28
+greater than 12% and 8% respectively. Same sign events from the simulated Z → ττ, W + jets and top
+backgrounds are subtracted from the same sign background.
+The pT and η distributions of the tau candidate are shown in Figure 17 after the full event selection and
+with the background estimation described above.
+
+
+                                                                                               ×106
+
+                                                                                Events
+
+       Events / GeV
+                                                                                                                            Data
+                  106       ATLAS Preliminary             Data                                  ATLAS Preliminary           Z→ττ
+                                                          Z→ττ                                                              Z→ ee/µµ
+                             s = 13 TeV, 3.2 fb-1                                        0.3     s = 13 TeV, 3.2 fb-1
+                  105       Z→ ee
+                                                          Z→ ee/µµ
+                                                                                                Z→ ee                       W→ lν
+                                                          W→ lν                                                             Jet→l,τ fakes
+                  104                                     Jet→l,τ fakes
+                                                                                                                            tt, single top
+                                                          tt, single top                                                    Uncertainty
+                  103                                     Uncertainty                    0.2
+
+                  102
+                                                                                         0.1
+                      10
+                       1
+                       20             40            60        80         100                     −2           −1        0       1          2
+                                                         p (τhad-vis) [GeV]                                                         η (τ       )
+                                                          T                                                                             had-vis
+
+                                     (a) Tau candidate pT                                                 (b) Tau candidate η
+
+
+Figure 17: The pT and η distributions of the tau candidate after the full Z → ee event selection. In Figure (b), the
+yield in each bin is normalized according the bin width.
+
+
+
+8.3 Results
+
+The electron misidentification probability is defined as the probability of an electron satisfying both the tau
+identification and the electron discrimination algorithms. It is measured by taking the ratio of signal region
+events passing the medium tau identification and the very loose electron discrimination requirements to
+all signal region events, and is calculated for both data and the simulated Z → ee signal process. For
+the efficiency in data, the estimated contribution to the signal region coming from non-Z → ee events is
+first subtracted. The electron misidentification probability ranges between 0.5% and 2.5% across the η
+spectrum of the tau candidate in both data and simulation. The correction factors between the efficiencies
+in data and simulation are shown in Figure 18. The data to simulation agreement is constant across the
+|η(τhad−vis )| range, except for |η(τhad−vis )| < 0.1 and |η(τhad−vis )| > 2.4, where boundaries of the detector
+coverage are present.
+Sources of uncertainty are shown in Table 7. Systematic uncertainties associated with the reconstruction,
+identification and energy scale of the electron, and the electron trigger are considered. The estimation of
+the multi-jet and W + jets normalisation factors contribute as additional sources of uncertainty, and include
+a statistical component as well as a systematic component of 10%, conservatively estimated from the
+Z → τµ τhad measurements. The uncertainty in the normalisation factors covers the assumption that the
+OS to SS ratio is the same between the signal and control regions. The uncertainties are found consistent
+between different tau identifcation working points.
+
+
+
+
+                                                                           29
+                                              4
+                                 εData/ εMC       ATLAS Preliminary
+                                                  s = 13 TeV, 3.2 fb-1
+                                              3   Z→ ee tag-probe
+
+
+
+                                                           Scale factor with total uncertainty
+                                              2
+                                                           Statistical uncertainty
+
+
+
+
+                                              1
+
+                                              0      0.5          1        1.5          2          2.5
+                                                                                            η (τ         )
+                                                                                                 had-vis
+
+
+
+
+Figure 18: Electron misidentification correction scale factors between data and simulation for the requirement
+that τhad−vis candidates with overlapping electrons pass a medium tau identification criterion and the electron
+discrimination algorithm. The measurements are carried out on data enriched in Z → ee events and with estimated
+backgrounds subtracted, as well as simulated Z → ee events, and the ratio (ε Data /ε MC ) is displayed as a scale factor.
+
+
+                                Source                                               Uncertainty [%]
+                                Statistics                                                    4.9
+                                Multi-jet normalisation factor                                <1
+                                W + jets scale factor                                         <1
+                                Electron                                                      <1
+
+
+Table 7: Dominant uncertainties on the electron misidentification scale factors estimated with the Z boson tag-and-
+probe method.
+
+
+9 Summary and conclusions
+
+Table 8 summarises the tau performance measurements and their usage in physics analyses. The per-
+formance of the online and offline tau identification algorithms, and the energy calibration are measured
+using Z → ττ tag-and-probe measurements. The uncertainties on the offline tau identification efficiency
+correction factor measurement are approximately 5% (6%) for one (three) track, inclusive in η and for a
+visible transverse momentum greater than 20 GeV. The online tau identification efficiency correction
+factor is measured with a precision of (3–20)% depending on the transverse energy of the tau candidate
+selected by offline algorithms. The online tau identification efficiency correction factor measurement from
+t t¯ processes is complementary in the higher pT range with a precision of (8–14)%. The probability of
+misidentifying electrons as tau candidates is measured to be < 2.5%, and the corresponding simulation
+to data correction factors are measured with a precision of 3–14%. The reconstructed tau energy scale
+correction factor is measured with a precision of approximately (2–3)%.
+
+
+
+
+                                                                      30
+                         Tau performance          Measurements            Precision (%)
+                         Offline identification   Z → ττ                  5–6
+                         Energy scale             Z → ττ                  2–3
+                         Trigger                  Z → ττ                  3–20
+                                                  t t¯ → [bµνµ ][bτντ ]   8–14
+                         Electron veto            Z → ee                  3–14
+
+
+Table 8: Summary of the tau performance measurements and the relative precision on the simulation to data
+correction factor. The correction factor of the above measurements are all applied to the generated tau candidates
+in physics analyses, except “Electron veto” which is applied to the simulated tau candidates misidentified from
+electrons. For the trigger efficiency scale factor, the measurement from Z → ττ is used for the pT threshold of 25,
+35, 50 GeV, while the measurement from t t¯ → [bµνµ ][bτντ ] is used for the pT threshold of 80, 125, 160 GeV.
+
+
+
+
+                                                        31
+References
+
+ [1]   K. A. Olive et al., Review of Particle Physics, Chin. Phys. C38 (2014) 090001.
+ [2]   ATLAS Collaboration, Identification and energy calibration of hadronically decaying tau leptons
+                                                    √
+       with the ATLAS experiment in pp collisions at s = 8 TeV, Eur. Phys. J. C75 (2015) 303,
+       arXiv: 1412.7086 [hep-ex].
+ [3]   ATLAS Collaboration, Reconstruction, Energy Calibration, and Identification of Hadronically
+       Decaying Tau Leptons in the ATLAS Experiment for Run-2 of the LHC,
+       ATL-PHYS-PUB-2015-045, 2015, url: https://cds.cern.ch/record/2064383.
+ [4]   ATLAS Collaboration, The ATLAS Experiment at the CERN Large Hadron Collider,
+       JINST 3 (2008) S08003.
+ [5]   ATLAS Collaboration, ATLAS Insertable B-Layer Technical Design Report,
+       CERN-LHCC-2010-013, ATLAS-TDR-19, 2010,
+       url: http://cdsweb.cern.ch/record/1291633.
+ [6]   ATLAS Collaboration,
+       Technical Design Report for the Phase-I Upgrade of the ATLAS TDAQ System,
+       CERN-LHCC-2013-018, 2013, url: https://cds.cern.ch/record/1602235.
+ [7]   P. Nason, A New method for combining NLO QCD with shower Monte Carlo algorithms,
+       JHEP 11 (2004) 040, arXiv: hep-ph/0409146.
+ [8]   S. Frixione, P. Nason and C. Oleari,
+       Matching NLO QCD computations with Parton Shower simulations: the POWHEG method,
+       JHEP 11 (2007) 070, arXiv: 0709.2092 [hep-ph].
+ [9]   S. Alioli, P. Nason, C. Oleari and E. Re, A general framework for implementing NLO calculations
+       in shower Monte Carlo programs: the POWHEG BOX, JHEP 06 (2010) 043,
+       arXiv: 1002.2581 [hep-ph].
+[10]   T. Sjöstrand, S. Mrenna and P. Skands, A brief introduction to PYTHIA 8.1,
+       Comput. Phys. Commun. 178 (2008) 852, arXiv: 0710.3820 [hep-ph].
+[11]   ATLAS Collaboration, Measurement of the Z/γ ∗ boson transverse momentum distribution in pp
+                    √
+       collisions at s = 7 TeV with the ATLAS detector, JHEP 2014 (2014) 55,
+       arXiv: 1406.3660 [hep-ex].
+[12]   P. Golonka and Z. Was,
+       PHOTOS Monte Carlo: a precision tool for QED correctionsin Z and W decays,
+       Eur. Phys. J. C 45 (2006) 97, arXiv: hep-ph/0506026.
+[13]   N. Davidson, T. Przedzinski and Z. Was,
+       PHOTOS Interface in C++: Technical and Physics Documentation, (2010),
+       arXiv: 1011.0937 [hep-ph].
+[14]   K. Melnikov and F. Petriello,
+       Electroweak gauge boson production at hadron colliders through O(alpha(s)**2),
+       Phys. Rev. D 74 (2006) 114017, arXiv: hep-ph/0609070.
+[15]   R. Gavin, Y. Li, F. Petriello and S. Quackenbush,
+       FEWZ 2.0: A code for hadronic Z production at next-to- next-to-leading order, (2010),
+       arXiv: 1011.3540 [hep-ph].
+
+
+
+                                                   32
+[16]   P. Artoisenet, R. Frederix, O. Mattelaer and R. Rietkerk,
+       Automatic spin-entangled decays of heavy resonances in Monte Carlo simulations,
+       JHEP 1303 (2013) 015, arXiv: 1212.3460 [hep-ph].
+[17]   T. Sjöstrand, S. Mrenna and P. Skands, PYTHIA 6.4 physics and manual, JHEP 05, 026 (2006) 26,
+       arXiv: hep-ph/0603175.
+[18]   P. Z. Skands, Tuning Monte Carlo Generators: The Perugia Tunes, Phys. Rev. D82 (2010) 074018,
+       arXiv: 1005.3457 [hep-ph].
+[19]   M. Czakon and A. Mitov,
+       Top++: A Program for the Calculation of the Top-Pair Cross-Section at Hadron Colliders,
+       Comput. Phys. Commun. 185 (2014) 2930, arXiv: 1112.5675 [hep-ph].
+[20]   N. Kidonakis, Next-to-next-to-leading-order collinear and soft gluon corrections for t-channel
+       single top quark production, Phys. Rev. D83 (2011) 091503, arXiv: 1103.2792 [hep-ph].
+[21]   N. Kidonakis, NNLL resummation for s-channel single top quark production,
+       Phys. Rev. D81 (2010) 054028, arXiv: 1001.5034 [hep-ph].
+[22]   N. Kidonakis,
+       Two-loop soft anomalous dimensions for single top quark associated production with a W- or H-,
+       Phys. Rev. D82 (2010) 054018, arXiv: 1005.4451 [hep-ph].
+[23]   ATLAS Collaboration,
+                        √    Muon reconstruction performance of the ATLAS detector in proton–proton
+       collision data at (s)=13 TeV, Eur. Phys. J. C 76 (2016) 292, arXiv: 1603.05598 [hep-ex].
+[24]   ATLAS Collaboration,
+       Electron and photon energy calibration with the ATLAS detector using LHC Run 1 data,
+       Eur. Phys. J. C 74 (2014) 3071, arXiv: 1407.5063 [hep-ph].
+[25]   ATLAS Collaboration, Electron efficiency measurements with the ATLAS detector using the 2015
+       LHC proton-proton collision data, ATLAS-CONF-2016-024, 2016,
+       url: https://cds.cern.ch/record/2157687.
+[26]   M. Cacciari, G. P. Salam and G. Soyez, The anti-kt jet clustering algorithm, JHEP 04 (2008) 063,
+       arXiv: 0802.1189 [hep-ph].
+[27]   ATLAS Collaboration,
+       Topological cell clustering in the ATLAS calorimeters and its performance in LHC Run 1, (2016),
+       arXiv: 1603.02934 [hep-ex].
+[28]   T. Barillari et al., Local Hadronic Calibration, ATL-LARG-PUB-2009-001-2, 2008,
+       url: https://cds.cern.ch/record/1112035.
+[29]   ATLAS Collaboration, Performance of b-Jet Identification in the ATLAS Experiment,
+       JINST 11 (2016) P04008, arXiv: 1512.01094 [hep-ex].
+[30]   ATLAS Collaboration, Expected performance of the ATLAS b-tagging algorithms in Run-2,
+       ATL-PHYS-PUB-2015-022, 2015, url: https://cds.cern.ch/record/2037697.
+[31]   ATLAS Collaboration, Performance of missing transverse momentum reconstruction with the
+                                                              √
+       ATLAS detector in the first proton–proton collisions at s = 13 TeV, ATL-PHYS-PUB-2015-027,
+       2015, url: https://cds.cern.ch/record/2037904.
+[32]   ATLAS Collaboration,
+       Reconstruction of hadronic decay products of tau leptons with the ATLAS experiment,
+       Eur. Phys. J. C 76 (2015) 296, arXiv: 1512.05955 [hep-ex].
+
+
+
+                                                   33
+[33]   A. Hocker et al., TMVA - Toolkit for Multivariate Data Analysis, PoS ACAT (2007) 040,
+       arXiv: physics/0703039 [physics.data-an].
+[34]   L. Breiman, J. Friedman, R. Olshen and C. Stone, Classification and Regression Trees,
+       Chapman & Hall, 1984.
+[35]   Y. Freund and R. E. Schapire,
+       A decision-theoretic generalization of on-line learning and an application to boosting,
+       J. Comput. Syst. Sci. 55 (1997).
+[36]   M. Aaboud et al., Performance of the ATLAS Trigger System in 2015, (2016),
+       arXiv: 1611.09661 [hep-ex].
+[37]   GEANT4 Collaboration, S. Agostinelli et al., Geant4 – a simulation toolkit,
+       Nucl. Instr. and Meth. A 506 (2003) 250 .
+[38]   H. W. Bertini,
+       Intranuclear-cascade calculation of the secondary nucleon spectra from nucleon-nucleus
+       interactions in the energy range 340 to 2900 mev and comparisons with experiment,
+       Phys. Rev. 188 (1969) 1711.
+[39]   B. Andersson, G. Gustafson and B. Nilsson-Almqvist, A model for low-pT hadronic reactions with
+       generalizations to hadron-nucleus and nucleus-nucleus collisions,
+       Nuclear Physics B 281 (1987) 289 .
+[40]   A. Ribon et al., Status of Geant4 hadronic physics for the simulation of LHC experiments at the
+       start of the LHC physics program, (2010),
+       url: http://lcgapp.cern.ch/project/docs/noteStatusHadronic2010.pdf.
+
+
+
+
+                                                   34
+Appendix
+
+A Tau Identification input variables of Z → τ µ τhad tag-and-probe analysis
+
+                           ×103                                                                ×103
+                                                                                           5
+
+
+      Events / 0.1                                                        Events / 0.1
+                       8     ATLAS Preliminary                                                   ATLAS Preliminary
+                              s = 13 TeV, 3.2 fb-1                                                s = 13 TeV, 3.2 fb-1
+                       7     Z→τµ τhad, 1-track                                            4     Z→τµ τhad, 1-track
+                       6           Data                                                                Data
+                                   l→ τ fakes                                                          l→ τ fakes
+                       5           Jet→ τ fakes                                            3           Jet→ τ fakes
+                                   τ                                                                   τ
+                       4           Uncertainty                                                         Uncertainty
+                                                                                           2
+                       3
+                       2                                                                    1
+                        1
+
+
+
+
+      Data/Pred                                                           Data/Pred
+                     1.5                                                                 1.5
+                       1                                                                   1
+                     0.5                                                                 0.5
+                         0         0.2       0.4     0.6   0.8       1                       0         0.2       0.4     0.6   0.8       1
+                                                                 fcent                                                               fcent
+
+Figure 19: Central energy fraction f cent , as defined in Figure 9, for one track τhad−vis candidates before (left) and
+after (right) medium identification requirement. The uncertainty band includes only the statistical uncertainty.
+
+
+
+                           ×103                                                                ×103
+
+
+
+      Events / 0.1                                                        Events / 0.1
+                             ATLAS Preliminary                                           1.4     ATLAS Preliminary
+                       5
+                              s = 13 TeV, 3.2 fb-1                                                s = 13 TeV, 3.2 fb-1
+                             Z→τµ τhad, 3-track                                          1.2     Z→τµ τhad, 3-track
+                       4
+                                   Data                                                     1          Data
+                                   l→ τ fakes                                                          l→ τ fakes
+                                   Jet→ τ fakes                                                        Jet→ τ fakes
+                       3           τ                                                     0.8           τ
+                                   Uncertainty                                                         Uncertainty
+                                                                                         0.6
+                       2
+                                                                                         0.4
+                        1
+                                                                                         0.2
+
+
+
+
+      Data/Pred                                                           Data/Pred
+                     1.5                                                                 1.5
+                       1                                                                   1
+                     0.5                                                                 0.5
+                         0         0.2       0.4     0.6   0.8       1                       0         0.2       0.4     0.6   0.8       1
+                                                                 fcent                                                               fcent
+
+Figure 20: Central energy fraction f cent , as defined in Figure 9, for three track τhad−vis candidates before (left) and
+after (right) medium identification requirement. The uncertainty band includes only the statistical uncertainty.
+
+
+
+
+                                                                         35
+                           ×103                                                                      ×103
+
+
+
+      Events / 0.2                                                              Events / 0.2
+                       8     ATLAS Preliminary           Data                                  3.5     ATLAS Preliminary                Data
+                                                         l→ τ fakes                                                                     l→ τ fakes
+                              s = 13 TeV, 3.2 fb-1       Jet→ τ fakes
+                                                                                                        s = 13 TeV, 3.2 fb-1            Jet→ τ fakes
+                       7     Z→τµ τhad, 1-track          τ
+                                                                                                 3     Z→τµ τhad, 1-track               τ
+                                                         Uncertainty                                                                    Uncertainty
+                       6                                                                       2.5
+                       5                                                                         2
+                       4
+                                                                                               1.5
+                       3
+                                                                                                 1
+                       2
+                       1                                                                       0.5
+
+
+
+
+      Data/Pred                                                                 Data/Pred
+                     1.2                                                                       1.2
+                       1                                                                         1
+                     0.8                                                                       0.8
+                        −1          −0.5             0     0.5             1                      −1          −0.5             0          0.5             1
+                                                                 ftrack-HAD
+                                                                  EM                                                                            ftrack-HAD
+                                                                                                                                                 EM
+
+
+Figure 21: Fraction of EM energy from charged pions fEM     track−HAD , as defined in Figure 7, for one track τ
+                                                                                                               had−vis
+candidates before (left) and after (right) medium identification requirement. The uncertainty band includes only the
+statistical uncertainty.
+
+
+
+
+                           ×103
+                       5
+
+
+      Events / 0.2                                                              Events / 0.2
+                             ATLAS Preliminary                                                         ATLAS Preliminary
+                                                                                               800
+                              s = 13 TeV, 3.2 fb-1                                                      s = 13 TeV, 3.2 fb-1
+                       4     Z→τµ τhad, 3-track                                                700     Z→τµ τhad, 3-track
+
+                                   Data                                                        600           Data
+                                   l→ τ fakes                                                                l→ τ fakes
+                       3           Jet→ τ fakes                                                500           Jet→ τ fakes
+                                   τ                                                                         τ
+                                   Uncertainty                                                 400           Uncertainty
+                       2
+                                                                                               300
+
+                       1                                                                       200
+                                                                                               100
+
+
+
+
+      Data/Pred                                                                 Data/Pred
+                     1.2                                                                       1.5
+                       1                                                                         1
+                     0.8                                                                       0.5
+                        −1          −0.5             0     0.5             1                      −1          −0.5             0         0.5           1
+                                                                 ftrack-HAD
+                                                                  EM                                                               Corrected ftrack-HAD
+                                                                                                                                              EM
+
+Figure 22: Fraction of EM energy from charged pions fEM    track−HAD , as defined in Figure 7, for three track τ
+                                                                                                                had−vis
+candidates before (left) and after (right) medium identification requirement. The uncertainty band includes only the
+statistical uncertainty.
+
+
+
+
+                                                                               36
+                        ×103                                                           ×103
+
+      Events                                                         Events
+                    6                  ATLAS Preliminary                         3.5                  ATLAS Preliminary
+                                        s = 13 TeV, 3.2 fb-1                                           s = 13 TeV, 3.2 fb-1
+                                                                                   3
+                    5                  Z→τµ τhad, 1-track                                             Z→τµ τhad, 1-track
+
+                                            Data                                 2.5                       Data
+                    4                       l→ τ fakes                                                     l→ τ fakes
+                                            Jet→ τ fakes                           2                       Jet→ τ fakes
+                                            τ                                                              τ
+                    3                       Uncertainty                                                    Uncertainty
+                                                                                 1.5
+                    2
+                                                                                    1
+                     1                                                           0.5
+
+
+
+
+      Data/Pred                                                      Data/Pred
+                  1.5                                                            1.5
+                    1                                                              1
+                  0.5                                                            0.5
+                      0        2   4       6         8         10                    0        2   4       6         8         10
+                                                           fEM
+                                                            track                                                         fEM
+                                                                                                                           track
+
+
+Figure 23: Ratio of EM energy to track momentum ftrack  EM for one track τ
+                                                                            had−vis candidates before (left) and after
+                                              EM
+(right) medium identification requirement. ftrack is defined as the ratio of the sum of energy deposited in the
+electromagnetic calorimeter associated with the τhad−vis candidate to the sum of the momentum of tracks in the core
+region. The uncertainty band includes only the statistical uncertainty.
+
+
+
+
+                        ×103                                                           ×103
+                   10
+      Events                                                         Events
+                                       ATLAS Preliminary                           3                  ATLAS Preliminary
+                                        s = 13 TeV, 3.2 fb-1                                           s = 13 TeV, 3.2 fb-1
+                    8                  Z→τµ τhad, 3-track                        2.5                  Z→τµ τhad, 3-track
+
+                                            Data                                                           Data
+
+                    6
+                                            l→ τ fakes                             2                       l→ τ fakes
+                                            Jet→ τ fakes                                                   Jet→ τ fakes
+                                            τ                                                              τ
+                                            Uncertainty                          1.5                       Uncertainty
+                    4
+                                                                                    1
+                    2
+                                                                                 0.5
+
+
+
+
+      Data/Pred                                                      Data/Pred
+                  1.5                                                            1.5
+                    1                                                              1
+                  0.5                                                            0.5
+                      0        1   2       3         4          5                    0        1   2       3         4          5
+                                                           fEM
+                                                            track                                                         fEM
+                                                                                                                           track
+
+
+Figure 24: Ratio of EM energy to track momentum ftrack EM , as defined in Figure 23, for three track τ
+                                                                                                      had−vis candidates
+before (left) and after (right) medium identification requirement. The uncertainty band includes only the statistical
+uncertainty.
+
+
+
+
+                                                                    37
+                        ×103                                                                  ×103
+                                                                                        4.5
+      Events                                                                Events
+                    7                      ATLAS Preliminary                                                     ATLAS Preliminary
+                                            s = 13 TeV, 3.2 fb-1                          4                       s = 13 TeV, 3.2 fb-1
+                    6                      Z→τµ τhad, 1-track                                                    Z→τµ τhad, 1-track
+                                                                                        3.5
+                    5                           Data
+                                                                                          3                           Data
+                                                l→ τ fakes                                                            l→ τ fakes
+                                                Jet→ τ fakes                                                          Jet→ τ fakes
+                    4                           τ
+                                                                                        2.5                           τ
+                                                Uncertainty                                                           Uncertainty
+                    3                                                                     2
+                                                                                        1.5
+                    2
+                                                                                           1
+                     1                                                                  0.5
+
+
+
+      Data/Pred                                                             Data/Pred
+                  1.5                                                                   1.5
+                    1                                                                     1
+                  0.5                                                                   0.5
+                      0        2       4       6         8            10                    0        2       4       6         8            10
+                                                             f-1
+                                                              lead track                                                           f-1
+                                                                                                                                    lead track
+
+
+                                                     track for one track τhad−vis candidates before (left) and after (right)
+Figure 25: Leading track momentum fraction flead −1
+                                      −1
+medium identification requirement. flead track is defined as the transverse energy sum deposited in all cells belonging
+to TopoClusters in the core region of the τhad−vis candidate, divided by the transverse momentum of the highest pT
+charged particle in the core region. The uncertainty band includes only the statistical uncertainty.
+
+
+
+
+                        ×103                                                                  ×103
+
+      Events                                                                Events
+                   12                      ATLAS Preliminary
+                                                                                        2.5                      ATLAS Preliminary
+                                            s = 13 TeV, 3.2 fb-1                                                  s = 13 TeV, 3.2 fb-1
+                   10                      Z→τµ τhad, 3-track                                                    Z→τµ τhad, 3-track
+                                                                                          2
+                                                Data                                                                  Data
+                    8                           l→ τ fakes                                                            l→ τ fakes
+                                                Jet→ τ fakes                                                          Jet→ τ fakes
+                                                τ
+                                                                                        1.5                           τ
+                    6                           Uncertainty                                                           Uncertainty
+
+                                                                                           1
+                    4
+
+                    2                                                                   0.5
+
+
+
+
+      Data/Pred                                                             Data/Pred
+                  1.5                                                                   1.5
+                    1                                                                     1
+                  0.5                                                                   0.5
+                      0            2               4                   6                    0            2               4                   6
+                                                             f-1
+                                                              lead track                                                           f-1
+                                                                                                                                    lead track
+
+
+                                                     track , as defined in Figure 25, for three track τhad−vis candidates
+Figure 26: Leading track momentum fraction flead  −1
+
+before (left) and after (right) medium identification requirement. The uncertainty band includes only the statistical
+uncertainty.
+
+
+
+
+                                                                           38
+                            ×103                                                               ×103
+                        7
+
+
+      Events / 0.02                                                      Events / 0.02
+                                           ATLAS Preliminary                               4                  ATLAS Preliminary
+                        6                   s = 13 TeV, 3.2 fb-1                                               s = 13 TeV, 3.2 fb-1
+                                           Z→τµ τhad, 1-track
+                                                                                         3.5                  Z→τµ τhad, 1-track
+                        5                       Data                                       3                       Data
+                                                l→ τ fakes                                                         l→ τ fakes
+                        4                       Jet→ τ fakes                             2.5                       Jet→ τ fakes
+                                                τ                                                                  τ
+                                                Uncertainty                                2                       Uncertainty
+                        3
+                                                                                         1.5
+                        2
+                                                                                            1
+                         1                                                               0.5
+
+
+
+
+      Data/Pred                                                          Data/Pred
+                      1.5                                                                1.5
+                        1                                                                  1
+                      0.5                                                                0.5
+                          0        0.05   0.1        0.15          0.2                       0        0.05   0.1        0.15          0.2
+                                                               Rtrack                                                             Rtrack
+
+Figure 27: Track radius Rtrack for one track τhad−vis candidates before (left) and after (right) medium identification
+requirement. Rtrack is defined as the pT -weighted ∆R distance of the associated tracks to the τhad−vis direction, using
+only tracks in the core region. The uncertainty band includes only the statistical uncertainty.
+
+
+
+
+                            ×103                                                               ×103
+
+
+
+      Events / 0.02                                                      Events / 0.02
+                        7                  ATLAS Preliminary                                                  ATLAS Preliminary
+                                                                                         1.8
+                                            s = 13 TeV, 3.2 fb-1                                               s = 13 TeV, 3.2 fb-1
+                        6                  Z→τµ τhad, 3-track
+                                                                                         1.6                  Z→τµ τhad, 3-track
+
+                        5                       Data
+                                                                                         1.4                       Data
+                                                l→ τ fakes                               1.2                       l→ τ fakes
+                                                Jet→ τ fakes                                                       Jet→ τ fakes
+                        4                       τ                                          1                       τ
+                                                Uncertainty                                                        Uncertainty
+                        3                                                                0.8
+                        2                                                                0.6
+                                                                                         0.4
+                         1                                                               0.2
+
+
+
+      Data/Pred                                                          Data/Pred
+                      1.5                                                                1.5
+                        1                                                                  1
+                      0.5                                                                0.5
+                          0        0.05   0.1        0.15          0.2                       0        0.05   0.1        0.15          0.2
+                                                               Rtrack                                                             Rtrack
+
+Figure 28: Track radius Rtrack , as defined in Figure 27, for three track τhad−vis candidates before (left) and after
+(right) medium identification requirement. The uncertainty band includes only the statistical uncertainty.
+
+
+
+
+                                                                     39
+                            ×103                                                                           ×103
+
+
+
+     Events / 0.2                                                                   Events / 0.2
+                      4.5     ATLAS Preliminary              Data                                    1.4     ATLAS Preliminary              Data
+                                                             l→ τ fakes                                                                     l→ τ fakes
+                        4      s = 13 TeV, 3.2 fb-1          Jet→ τ fakes
+                                                                                                              s = 13 TeV, 3.2 fb-1          Jet→ τ fakes
+                              Z→τµ τhad, 1-track             τ
+                                                                                                     1.2     Z→τµ τhad, 1-track             τ
+                      3.5                                    Uncertainty                                                                    Uncertainty
+                                                                                                        1
+                        3
+                      2.5                                                                            0.8
+                        2                                                                            0.6
+                      1.5
+                                                                                                     0.4
+                         1
+                      0.5                                                                            0.2
+
+
+
+
+     Data/Pred                                                                      Data/Pred
+                      1.5                                                                            1.5
+                        1                                                                              1
+                      0.5                                                                            0.5
+                          0           0.5             1        1.5             2                         0           0.5             1        1.5             2
+                                                                     Slead track                                                                    Slead track
+
+Figure 29: Leading track IP significance Slead track for one track τhad−vis candidates before (left) and after (right)
+medium identification requirement. Slead track is defined as the absolute value of transverse impact parameter of the
+highest pT track in the core region, calculated with respect to the tau vertex, divided by its estimated uncertainty.
+The uncertainty band includes only the statistical uncertainty.
+
+
+
+
+                            ×103                                                                           ×103
+
+
+
+
+     Events / 3e+02                                                                 Events / 3e+02
+                        9     ATLAS Preliminary              Data                                    4.5     ATLAS Preliminary              Data
+                                                             l→ τ fakes                                                                     l→ τ fakes
+                               s = 13 TeV, 3.2 fb-1                                                    4      s = 13 TeV, 3.2 fb-1
+                        8                                    Jet→ τ fakes                                                                   Jet→ τ fakes
+                              Z→τµ τhad, 1-track             τ                                               Z→τµ τhad, 1-track             τ
+                        7                                    Uncertainty                             3.5                                    Uncertainty
+
+                        6                                                                              3
+                        5                                                                            2.5
+                        4                                                                              2
+                        3                                                                            1.5
+                        2                                                                               1
+                         1                                                                           0.5
+
+
+
+     Data/Pred                                                                      Data/Pred
+                      1.5                                                                            1.5
+                        1                                                                              1
+                      0.5                                                                            0.5
+                          0              1000             2000            3000                           0              1000             2000            3000
+                                                          mπ^0 + track [MeV]                                                             mπ^0 + track [MeV]
+
+Figure 30: Track-plus-EM-system mass mπ 0 +track for one track τhad−vis candidates before (left) and after (right)
+medium identification requirement. mπ 0 +track is defined as the invariant mass of the system composed of the tracks
+and up to two most energetic electromagnetic calorimeter clusters in the core region. The uncertainty band includes
+only the statistical uncertainty.
+
+
+
+
+                                                                                   40
+                             ×103                                                                             ×103
+
+
+
+
+      Events / 3e+02                                                                   Events / 3e+02
+                                ATLAS Preliminary             Data                                      1.8      ATLAS Preliminary             Data
+                         7       s = 13 TeV, 3.2 fb-1
+                                                              l→ τ fakes
+                                                                                                        1.6       s = 13 TeV, 3.2 fb-1
+                                                                                                                                               l→ τ fakes
+                                                              Jet→ τ fakes                                                                     Jet→ τ fakes
+                                Z→τµ τhad, 3-track            τ                                                  Z→τµ τhad, 3-track            τ
+                         6                                    Uncertainty
+                                                                                                        1.4                                    Uncertainty
+
+                         5                                                                              1.2
+                                                                                                             1
+                         4
+                                                                                                        0.8
+                         3
+                                                                                                        0.6
+                         2
+                                                                                                        0.4
+                            1                                                                           0.2
+
+
+
+      Data/Pred                                                                        Data/Pred
+                       1.5                                                                              1.5
+                         1                                                                                1
+                       0.5                                                                              0.5
+                                  1000          2000      3000          4000                                       1000          2000      3000          4000
+                                                        mπ^0 + track [MeV]                                                               mπ^0 + track [MeV]
+
+Figure 31: Track-plus-EM-system mass mπ 0 +track , as defined in Figure 30, for three track τhad−vis candidates
+before (left) and after (right) medium identification requirement. The uncertainty band includes only the statistical
+uncertainty.
+
+
+
+
+                       106                                                                              106
+
+
+
+      Events / 0.05                                                                    Events / 0.05
+                                ATLAS Preliminary             Data                                               ATLAS Preliminary             Data
+                                                              l→ τ fakes                                                                       l→ τ fakes
+                         5       s = 13 TeV, 3.2 fb-1                                                     5       s = 13 TeV, 3.2 fb-1
+                       10                                     Jet→ τ fakes                              10                                     Jet→ τ fakes
+                                Z→τµ τhad, 1-track            τ                                                  Z→τµ τhad, 1-track            τ
+                                                              Uncertainty                                                                      Uncertainty
+                       104                                                                              104
+
+                       103                                                                              103
+
+                       102                                                                              102
+
+                        10                                                                               10
+
+                         1                                                                                1
+
+
+      Data/Pred                                                                        Data/Pred
+                       1.5                                                                              1.5
+                         1                                                                                1
+                       0.5                                                                              0.5
+                           0          0.2       0.4     0.6       0.8             1                         0          0.2       0.4     0.6       0.8             1
+                                                                             ftrack
+                                                                              iso                                                                             ftrack
+                                                                                                                                                               iso
+
+                                                          track , as defined in Figure 8, for one track τ
+Figure 32: Fraction of tracks pT in the isolation region fiso                                            had−vis candidates
+before (left) and after (right) medium identification requirement. The uncertainty band includes only the statistical
+uncertainty.
+
+
+
+
+                                                                                      41
+                            ×103                                                                     ×103
+
+
+
+      Events / 0.15                                                            Events / 0.15
+                             ATLAS Preliminary             Data                                       ATLAS Preliminary             Data
+                        7                                  l→ τ fakes
+                                                                                                 4                                  l→ τ fakes
+                              s = 13 TeV, 3.2 fb-1         Jet→ τ fakes
+                                                                                                       s = 13 TeV, 3.2 fb-1         Jet→ τ fakes
+                        6    Z→τµ τhad, 1-track            τ
+                                                                                               3.5    Z→τµ τhad, 1-track            τ
+                                                           Uncertainty                                                              Uncertainty
+                                                                                                 3
+                        5
+                                                                                               2.5
+                        4
+                                                                                                 2
+                        3
+                                                                                               1.5
+                        2                                                                        1
+                        1                                                                      0.5
+
+
+
+
+      Data/Pred                                                                Data/Pred
+                      1.5                                                                      1.5
+                        1                                                                        1
+                      0.5                                                                      0.5
+                               0.5             1           1.5            2                             0.5             1           1.5            2
+                                                             PEM+track
+                                                               T       /PT
+                                                                                                                                      PEM+track
+                                                                                                                                        T       /PT
+
+Figure 33: Ratio of track-plus-EM-system to pT PEM+track
+                                                 T        /PT for one track τhad−vis candidates before (left) and after
+(right) medium identification requirement. PEM+track
+                                            T        /PT is defined as the ratio of the τhad−vis pT , estimated using the
+vector sum of track momenta and up to two most energetic electromagnetic calorimeter clusters in the core region,
+to the calorimeter-only measurement of τhad−vis pT . The uncertainty band includes only the statistical uncertainty.
+
+
+
+
+                            ×103                                                                     ×103
+                        6
+
+
+      Events / 0.15                                                            Events / 0.15
+                             ATLAS Preliminary             Data                                                                     Data
+                                                           l→ τ fakes                            1 ATLAS Preliminary                l→ τ fakes
+                              s = 13 TeV, 3.2 fb-1                                                                -1
+                                                                                                       s = 13 TeV, 3.2 fb
+                        5                                  Jet→ τ fakes                                                             Jet→ τ fakes
+                             Z→τµ τhad, 3-track            τ                                          Z→τµ τhad, 3-track            τ
+                                                           Uncertainty                         0.8                                  Uncertainty
+                        4
+                                                                                               0.6
+                        3
+
+                        2                                                                      0.4
+
+                        1                                                                      0.2
+
+
+
+
+      Data/Pred                                                                Data/Pred
+                      1.5                                                                      1.5
+                        1                                                                        1
+                      0.5                                                                      0.5
+                             0.5           1         1.5        2                                     0.5           1         1.5        2
+                                                             PEM+track
+                                                              T        /PT                                                            PEM+track
+                                                                                                                                       T        /PT
+
+Figure 34: Ratio of track-plus-EM-system to pT PTEM+track /PT , as defined in figure 33, for three track τhad−vis
+candidates before (left) and after (right) medium identification requirement. The uncertainty band includes only the
+statistical uncertainty.
+
+
+
+
+                                                                              42
+                            ×103                                                                             ×103
+                      4.5
+
+
+     Events / 0.02                                                                    Events / 0.02
+                              ATLAS Preliminary                 Data                                           ATLAS Preliminary                 Data
+                        4      s = 13 TeV, 3.2 fb-1
+                                                                l→ τ fakes                             1.2      s = 13 TeV, 3.2 fb-1
+                                                                                                                                                 l→ τ fakes
+                                                                Jet→ τ fakes                                                                     Jet→ τ fakes
+                              Z→τµ τhad, 3-track                τ                                              Z→τµ τhad, 3-track                τ
+                      3.5                                       Uncertainty                               1                                      Uncertainty
+                        3
+                                                                                                       0.8
+                      2.5
+                        2                                                                              0.6
+                      1.5                                                                              0.4
+                         1
+                                                                                                       0.2
+                      0.5
+
+
+
+     Data/Pred                                                                        Data/Pred
+                      1.5                                                                              1.5
+                        1                                                                                1
+                      0.5                                                                              0.5
+                          0          0.05             0.1        0.15           0.2                        0          0.05             0.1        0.15           0.2
+                                                                            ∆ RMax                                                                           ∆ RMax
+
+Figure 35: Maximum ∆RMax for three track τhad−vis candidates before (left) and after (right) medium identification
+requirement. ∆RMax is defined as the maximum ∆R between a track associated with the τhad−vis candidate and the
+τhad−vis direction. The uncertainty band includes only the statistical uncertainty.
+
+
+
+
+                            ×103                                                                             ×103
+
+
+
+
+     Events / 3e+02                                                                   Events / 3e+02
+                                                       ATLAS Preliminary                               1.8                              ATLAS Preliminary
+                        5
+                                                        s = 13 TeV, 3.2 fb-1                                                             s = 13 TeV, 3.2 fb-1
+                                                                                                       1.6
+                                                       Z→τµ τhad, 3-track                                                               Z→τµ τhad, 3-track
+                        4                                                                              1.4
+                                                             Data                                                                             Data
+                                                             l→ τ fakes                                1.2                                    l→ τ fakes
+                                                             Jet→ τ fakes                                                                     Jet→ τ fakes
+                        3                                    τ                                            1                                   τ
+                                                             Uncertainty                                                                      Uncertainty
+                                                                                                       0.8
+                        2
+                                                                                                       0.6
+                         1                                                                             0.4
+                                                                                                       0.2
+
+
+
+     Data/Pred                                                                        Data/Pred
+                      1.5                                                                              1.5
+                        1                                                                                1
+                      0.5                                                                              0.5
+                                      2000                  4000          6000                                         2000                  4000          6000
+                                                                mtrack [MeV]                                                                     mtrack [MeV]
+
+Figure 36: Track mass mtrack for three track τhad−vis candidates before (left) and after (right) medium identification
+requirement. mtrack is defined as the invariant mass calculated from the sum of the four-momentum of all tracks
+in the core and isolation regions, assuming a pion mass for each track. The uncertainty band includes only the
+statistical uncertainty.
+
+
+
+
+                                                                                  43
+                        ×103
+
+      Events                                                                  Events
+                         ATLAS Preliminary           Data                                       ATLAS Preliminary           Data
+                    6                                l→ τ fakes                           600                               l→ τ fakes
+                          s = 13 TeV, 3.2 fb-1       Jet→ τ fakes
+                                                                                                 s = 13 TeV, 3.2 fb-1       Jet→ τ fakes
+                         Z→τµ τhad, 3-track          τ                                          Z→τµ τhad, 3-track          τ
+                    5                                Uncertainty                          500                               Uncertainty
+
+
+                    4                                                                     400
+
+                    3                                                                     300
+
+                    2                                                                     200
+
+                    1                                                                     100
+
+
+
+
+      Data/Pred                                                               Data/Pred
+                  1.5                                                                     1.5
+                    1                                                                       1
+                  0.5                                                                     0.5
+                               0                 5                     10                            0                  5                     10
+                                                                    flight                                                                 flight
+                                                                ST                                                                     ST
+
+                                                       for three track τhad−vis candidates before (left) and after (right)
+                                                             flight
+Figure 37: Transverse flight path significance ST
+                                       flight
+medium identification requirement. ST is defined as the decay length of the secondary vertex, reconstructed from
+the tracks associated with the core region of the τhad−vis candidate, in the transverse plane, calculated with respect to
+the tau vertex, divided by the estimated uncertainty. The uncertainty band includes only the statistical uncertainty.
+
+
+
+
+                                                                             44
+

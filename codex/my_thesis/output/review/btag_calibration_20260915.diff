@@ -1,0 +1,25 @@
+--- before/output/ch6/objects/btagging.tex
++++ after/output/ch6/objects/btagging.tex
+@@ -34,16 +34,10 @@
+ 
+ \subsection{Calibration}
+ 
+-The $b$-jet tagging efficiency and the $c$-jet and light-jet mistagging efficiencies are measured in flavour-enriched data samples and compared with simulation~\cite{ATLAS2026GN2}. % 详细写出是哪个sample测量哪个flacour tagging/mistagging efficiecny，不要用这种flavour-enrivhed抽象词概括。
+-A tagged jet of flavour $f$ is assigned a weight $\mathrm{SF}_f$.%不需要介绍SF的具体公式，把
+-Untagged jets also require a correction because the probability for a jet to fail the tag is $1-\epsilon_f$, where $\epsilon_f$ is the tagging efficiency for flavour $f$.
+-The weight for an untagged jet is therefore
+-\begin{align}
+-    w_f^{\mathrm{untagged}}
+-    =\frac{1-\epsilon_f^{\mathrm{data}}}{1-\epsilon_f^{\mathrm{MC}}}
+-    =\frac{1-\mathrm{SF}_f\epsilon_f^{\mathrm{MC}}}{1-\epsilon_f^{\mathrm{MC}}},
+-    \label{eq:ch6_btag_untagged}
+-\end{align}
+-where $\epsilon_f^{\mathrm{data}}$ and $\epsilon_f^{\mathrm{MC}}$ are the efficiencies in data and simulation, respectively.
+-The simulated event weight is multiplied by the product of the factors for its tagged and untagged jets.
++The $b$-jet tagging efficiency is measured in dileptonic $\ttbar$ events with an oppositely charged electron--muon pair and two jets~\cite{ATLAS2026GN2}.
++The $c$-jet mistagging efficiency, the probability for a $c$-jet to pass the $b$-tagging requirement, is measured in semileptonic $\ttbar$ events using charm jets from hadronic $W$ decays.
++The corresponding light-jet mistagging efficiency is measured in $Z$+jets events with $\zee$ or $\zmumu$ decays.
++
++These efficiencies are measured in bins of jet $\pT$ and compared with simulation to obtain flavour-dependent scale factors, as defined in Eq.~\ref{eq:ch6_efficiency_sf}.
++Corrections are applied to the simulated event weights for both tagged and untagged jets, since an efficiency difference also changes the probability of failing the tag.
+ Flavour-tagging corrections therefore affect both the zero-tag and tagged event categories.

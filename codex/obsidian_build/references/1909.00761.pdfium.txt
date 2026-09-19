@@ -1,0 +1,3603 @@
+=== PDF PAGE 1 ===
+EUROPEAN ORGANISATION FOR NUCLEAR RESEARCH (CERN)
+Eur. Phys. J. C 80 (2020) 47
+DOI: 10.1140/epjc/s10052-019-7500-2
+CERN-EP-2019-169
+12th February 2020
+Performance of electron and photon triggers in
+ATLAS during LHC Run 2
+The ATLAS Collaboration
+Electron and photon triggers covering transverse energies from 5 GeV to several TeV are
+essential for the ATLAS experiment to record signals for a wide variety of physics: from
+Standard Model processes to searches for new phenomena in both proton–proton and heavy-ion
+collisions. To cope with a fourfold increase of peak LHC luminosity from 2015 to 2018 (Run 2),
+to 2.1×1034 cm−2
+s
+−1
+, and a similar increase in the number of interactions per beam-crossing to
+about 60, trigger algorithms and selections were optimised to control the rates while retaining
+a high efficiency for physics analyses. For proton–proton collisions, the single-electron
+trigger efficiency relative to a single-electron offline selection is at least 75% for an offline
+electron of 31 GeV, and rises to 96% at 60 GeV; the trigger efficiency of a 25 GeV leg of the
+primary diphoton trigger relative to a tight offline photon selection is more than 96% for an
+offline photon of 30 GeV. For heavy-ion collisions, the primary electron and photon trigger
+efficiencies relative to the corresponding standard offline selections are at least 84% and 95%,
+respectively, at 5 GeV above the corresponding trigger threshold.
+© 2020 CERN for the benefit of the ATLAS Collaboration.
+Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+arXiv:1909.00761v2 [hep-ex] 10 Feb 2020
+
+=== PDF PAGE 2 ===
+1 Introduction
+Electrons and photons are present in many Standard Model processes as well as in searches for phenomena
+beyond the Standard Model. The ATLAS physics programme relies on an efficient trigger system to record
+a highly signal-rich subset of all collision events produced by the Large Hadron Collider (LHC) at CERN.
+The ATLAS Collaboration has published several electron and photon trigger performance results since the
+start of data-taking: the early 2010 data are covered in Ref. [1], the 2011 data in Ref. [2] and the 2015 data
+in Ref. [3]. This paper addresses the evolution of performance of the electron and photon triggers from
+2015 to 2018 (Run 2). The major challenge for the trigger in this period was the need to maintain excellent
+performance for the ATLAS physics programme while adapting to a nearly fourfold increase in the LHC
+peak luminosity and in the number of interactions per beam-crossing.
+This paper is organised as follows. The ATLAS detector is described in Section 2. The trigger system is
+introduced in Section 3. Section 4 introduces the data sets used in this publication. The following two
+sections detail electron and photon reconstruction and identification at the analysis level (offline) and the
+trigger level (online). Section 7 presents the techniques used to measure the trigger performance. The
+performance of the photon and electron triggers from 2015 to 2018 is described in Sections 8–11. The data
+quality monitoring is described in Section 12, and the conclusions are presented in Section 13.
+2 The ATLAS detector
+The ATLAS detector [4–6] is a multipurpose detector designed to observe particles produced in high-energy
+proton–proton (pp) and heavy-ion (HI) collisions. It is composed of a tracking detector in the innermost
+region around the interaction point, surrounded by calorimeters and muon chambers.
+The inner tracking detector (ID) is immersed in a 2 T magnetic field produced by a thin superconducting
+solenoid, and provides precise reconstruction of charged-particle tracks in a pseudorapidity range1 |η| < 2.5.
+The innermost part consists of a silicon pixel detector with four layers. The layer closest to the beam-pipe,
+the insertable B-layer, was installed before Run 2 and provides high-resolution hits in three-dimensions with
+pixels at a radius of 3.3 cm to improve the tracking performance. A silicon microstrip tracker surrounds the
+pixel detector with typically four layers of sensor modules. Each module is composed of multiple pairs of
+sensors with a stereo-angle to measure three-dimensional hit positions. The outermost region of the tracker
+in the range |η| < 2.0 is covered by a transition radiation tracker (TRT). It consists of straw drift tubes filled
+with a gas mixture of 70% Xe, 27% CO2 and 3% O2 interleaved with polypropylene/polyethylene transition
+radiators creating transition radiation for particles with a large Lorentz factor. This radiation is absorbed
+by the Xe-based gas mixture, discriminating electrons from hadrons over a wide energy range. Some of
+the TRT modules instead contain a gas mixture of 70% Ar, 28.5% CO2 and 1.5% O2 as a mitigation for
+gas leaks that cannot be repaired without an invasive opening of the inner detector. At the end of Run
+2 data-taking the two innermost TRT barrel layers, i.e. about half of the modules in |η| < 0.6, and 3 (2)
+out of 14 endcap wheels in −2 < η < −1 (1 < η < 2) were running with the argon-based gas mixture.
+1 ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) in the centre of the detector
+and the z-axis along the beam-pipe. The x-axis points from the IP to the centre of the LHC ring, and the y-axis points
+upward. Cylindrical coordinates (r, φ) are used in the transverse plane, φ being the azimuthal angle around the beam-pipe.
+The pseudorapidity is defined in terms of the polar angle θ as η = − ln tan(θ/2). The angular distance ∆R is defined as
+∆R ≡
+p
+(∆η)
+2 + (∆φ)
+2. Transverse momenta and energies are defined as pT = p sin θ and ET = E sin θ, respectively.
+2
+
+=== PDF PAGE 3 ===
+The presence of this gas mixture is taken into account in the simulation and the corresponding loss in
+identification power is partially mitigated by a dedicated TRT particle-identification algorithm [7]. For
+charged particles with transverse momenta > 0.5 GeV the TRT provides typically 35 hits per track.
+The calorimeter system has both electromagnetic (EM) and hadronic components. It is designed to provide
+a full φ coverage and covers the pseudorapidity range |η| < 4.9, with finer granularity over the region
+matched to the inner detector. The EM calorimeter is a lead/liquid-argon (LAr) sampling calorimeter
+with an accordion-geometry. It is divided into two half-barrels (−1.475 < η < 0 and 0 < η < 1.475)
+and two endcap components (1.375 < |η| < 3.2). The transition region between the barrel and endcaps
+(1.37 < |η| < 1.52) contains significant additional inactive material [4]. Over the region devoted to
+precision measurements (|η| < 2.5, excluding the transition region), the EM calorimeter is segmented
+into three layers longitudinal in shower depth. The first layer consists of strips finely grained in the η
+direction, offering excellent discrimination between isolated photons and pairs of closely spaced photons
+coming from π
+0 → γγ decay. For electrons and photons with high transverse energy, most of the energy is
+collected in the second layer, which has a lateral granularity of 0.025 × 0.025 in (η, φ) space. The third
+layer provides measurements of energy deposited in the tails of the shower. In front of the accordion
+calorimeter, a thin presampler layer, covering the pseudorapidity interval |η| < 1.8, is used to correct for
+energy loss upstream of the calorimeter.
+Three hadronic calorimeter layers surround the EM calorimeter. For electrons and photons, they provide
+additional background discrimination through measurements of hadronic energy. The barrel hadronic
+calorimeter (|η| < 1.7) is an iron/scintillator tile sampling calorimeter with wavelength-shifting fibers. For
+the hadronic endcaps, copper/LAr calorimeters are used. The forward regions (FCal) are instrumented with
+copper–tungsten/LAr calorimeters for both the EM and hadronic energy measurements up to |η| = 4.9.
+The LAr-based detectors are housed in one barrel and two endcap cryostats.
+The outermost layers of ATLAS consist of an external muon spectrometer (MS) in the pseudorapidity range
+|η| < 2.7, incorporating three large toroidal magnet assemblies with eight coils each. The field integral of
+the toroids ranges between 2.0 and 6.0 Tm for most of the acceptance. The MS includes precision tracking
+chambers and fast detectors for triggering.
+3 ATLAS trigger system
+A two-level trigger system [3] is used to select events of interest. The first-level (L1) trigger, implemented
+in custom hardware, utilises coarser-granularity signals from the calorimeters and the muon chambers to
+reduce the event rate from the 40 MHz bunch crossing rate to below 100 kHz; it has 2.5 µs to decide which
+events to keep to satisfy this factor 400 reduction. L1 also defines regions-of-interest (RoIs) which have
+calorimeter clusters with high transverse energy, ET, or muon tracks in the muon chambers.
+Events accepted by L1 are processed by the high-level trigger (HLT), based on algorithms implemented in
+software which must further reduce the number of events recorded to disk to an average rate of about 1 kHz
+within a few seconds. The HLT uses fine-granularity calorimeter information, precision measurements
+from the muon spectrometer and tracking information from the ID, which are not available at L1. HLT
+reconstruction can be executed either within the RoIs identified at L1 or for the full detector (full-scan).
+The selection of particle candidates by the HLT is performed at each step, so that if it fails at a certain step,
+subsequent steps are not executed. This is essential to reduce the time needed by the HLT to reconstruct
+the event and make a decision.
+3
+
+=== PDF PAGE 4 ===
+A sequence of L1 and HLT trigger algorithms is called a ‘trigger’ and is meant to identify one or more
+particles of a given type and a given threshold of transverse energy or momentum. For example, electron
+and photon triggers are meant to select events with one or more electrons or photons in the detector. The
+configuration of the trigger is controlled by the ‘trigger menu’, which defines a full list of the L1 and HLT
+triggers and their configurations. Menu composition and trigger thresholds are optimised for the LHC
+running conditions (beam type, luminosity, etc.) to fit within the event acceptance rate and the bandwidth
+constraints of the data acquisition system of the ATLAS detector as well as the offline storage constraints.
+In addition to the triggers described above, there are ‘rerun’ triggers which never accept an event on their
+own, but are configured to run only on the events accepted by other triggers, and their decision is recorded
+for offline use. This information is used for studies of the trigger efficiency, which is calculated separately
+for each object (leg) of the multi-object triggers.
+Trigger thresholds and identification criteria have to be modified sometimes to maintain a stable output
+rate. To ensure an optimal trigger menu within the rate constraints of a given LHC luminosity, prescale
+factors can be applied to both the L1 and HLT triggers independently and configured during data-taking.
+They allow the experiment to either disable triggers completely or to set the fraction of events that may be
+accepted by them.
+4 Data sets and simulation samples
+The results described in this paper use the full pp collision data set recorded by ATLAS between 2015 and
+2018 with the LHC operating at a centre-of-mass energy of √
+s = 13 TeV. The maximum instantaneous
+luminosities increased by a factor of four during the four years of Run 2, resulting in an increase in the
+average number of interactions per bunch crossing, hµi, also referred to as ‘pile-up’. In addition to pp data,
+the heavy-ion (HI) physics programme is realised for one month per year, typically starting in November.
+During it, the LHC provides either lead–lead (PbPb) ion collisions, or special reference runs with either
+low-pile-up pp or proton–lead (pPb) ion collisions. The per-year values of maximum instantaneous
+luminosity, pile-up and integrated luminosity after requiring stable beam conditions and a functional
+detector are summarised in Table 1 for the standard pp collisions and in Table 2 for the HI programme.
+Table 1: The per-year values of maximum instantaneous luminosity (L), peak and average pile-up (hµi), and integrated
+luminosity for pp data-taking. The uncertainty in the combined 2015–2018 integrated luminosity is 1.7% [8],
+obtained using the LUCID-2 detector [9] for the primary luminosity measurements. It should be noted that in 2017
+the peak hµi = 80 was reached only in a few dedicated runs, so a maximum value of hµi = 60 is used for the results
+shown in this paper.
+Year Peak L [cm−2
+s
+−1
+] Peak hµi Average hµi
+∫
+Ldt [fb−1
+]
+2015 0.5 ×1034 15 13.4 3.2
+2016 1.4 ×1034 45 25.1 32.9
+2017 2.1 ×1034 80 37.8 43.9
+2018 2.1 ×1034 60 36.1 58.5
+Samples of simulated Z → ee and W → eν decays are used to benchmark the expected electron trigger
+efficiencies and to optimise the electron identification criteria. Powheg-Box v1 Monte Carlo (MC)
+generator [10–13] is used for the simulation of the hard-scattering in these samples. It is interfaced to
+4
+
+=== PDF PAGE 5 ===
+Table 2: The per-year values of centre-of-mass energy per nucleon pair, maximum instantaneous luminosity, and
+integrated luminosity for the heavy-ion data-taking. A hµi value related to pile-up is not listed as it is negligible
+compared to the nominal pp data-taking (below 0.04 for the 2015 PbPb data set).
+Beam type √
+sN N Year Peak L [cm−2
+s
+−1
+]
+∫
+Ldt
+PbPb 5.02 TeV 2015 2.7 ×1027 0.48 nb−1
+5.02 TeV 2018 6.2 ×1027 1.73 nb−1
+pp 5.02 TeV 2015 3.8 ×1032 25 pb−1
+pPb 8.16 TeV 2016 8.6 ×1029 165 nb−1
+Pythia 8.186 [14] for the modelling of the parton shower, hadronisation, and underlying event (UE), with
+parameters set according to the AZNLO tune [15]. The CT10 PDF set [16] is used for the hard-scattering
+processes, whereas the CTEQ6L1 PDF set [17] is used for the parton shower. The effect of QED final-state
+radiation is simulated with Photos++ (v3.52) [18, 19]. The EvtGen v1.2.0 program [20] is used to decay
+bottom and charm hadrons. For optimisation of the low-ET electron selection, J/ψ → ee samples are
+used. These were generated with Pythia 8.186, the A14 set of tuned parameters [21], and the CTEQ6L1
+PDF set for both the hard-scattering processes and the parton shower. For high-ET electron trigger
+studies, a MC event sample for the gg → radion (3 TeV) → VV → eeqq process was produced with
+MadGraph5-2.6.0 [22] interfaced to Pythia 8.212.
+Background samples for electron processes were simulated with two-to-two processes in Pythia 8.186
+with the A14 set of tuned parameters and NNPDF23LO [23]. These processes include multijet production,
+qg → qγ, qq¯ → qγ, W/Z boson production (plus other electroweak processes) and top-quark production.
+A filter is applied to enrich the sample in electron backgrounds: selected events have particles (excluding
+muons and neutrinos) produced in the hard scatter with a summed transverse energy exceeding 17 GeV in a
+region of ∆η × ∆φ = 0.1 × 0.1. For the background studies, electrons from W/Z boson production are
+excluded using generator-level information.
+For low-ET photon trigger studies, samples of Z→ ``γ (` = e, µ) events with transverse energy of the
+photon above 10 GeV were generated with Sherpa 2.1.1 [24] and the CT10 PDF set. For high-ET photon
+trigger studies, MC samples of prompt-photon production generated with Pythia 8.186 are used. These
+samples include the leading-order γ+jet events from qg → qγ and qq → gγ hard-scattering processes, as
+well as prompt photons from quark fragmentation in QCD dijet events. In addition to the samples detailed
+above, samples of a Standard Model Higgs boson produced via gluon–gluon fusion decaying into two
+photons were generated using Powheg-Box, NNLOPS implementation [25, 26], with the PDF4LHC15
+PDF set [27], and interfaced to Pythia 8.186 for parton showering, hadronisation and the UE using the
+AZNLO set of tuned parameters.
+Simulation of collision events includes the effect of multiple pp interactions in the same or neighbouring
+bunch crossings. The simulation of pile-up collisions was performed with Pythia 8.186 using the ATLAS
+A3 set of tuned parameters [28] and the NNPDF23LO PDF set, and weighted to reproduce the average
+number of pile-up interactions per bunch crossing observed in data. The generated events were passed
+through a full detector simulation [29] based on Geant 4 [30].
+5
+
+=== PDF PAGE 6 ===
+5 Offline object reconstruction and identification
+The offline electron and photon reconstruction [31] uses dynamic, variable-size clusters of energy deposits
+measured in topologically connected EM and hadronic calorimeter cells [32], called topo-clusters, to recover
+energy from bremsstrahlung photons or from electrons from photon conversions. After applying initial
+position corrections and energy calibrations to the topo-clusters, they are matched to ID tracks re-fitted
+to account for bremsstrahlung, following the procedure described in Ref. [33], to reconstruct electron
+candidates. Topo-clusters not matched to any track or matched to conversion vertices are reconstructed as
+photon candidates. The electron and photon candidates to be used for analyses then have their energies
+recalibrated.
+Identification of photon candidates in ATLAS relies on rectangular selection requirements based on
+calorimetric variables [31] which deliver good separation between prompt photons and fake signatures.
+Fake photon signatures can result either from non-prompt photons originating from the decay of neutral
+hadrons in jets, or from jets depositing a large energy fraction in the EM calorimeter. Two identification
+working points (WPs), ‘loose’ and ‘tight’, are defined for photons. Photon identification WPs are strictly
+inclusive, i.e. photons satisfying the ‘tight’ selection are a subset of those satisfying the ‘loose’ selection.
+The ‘loose’ selection is based on shower shapes in the second layer of the EM calorimeter and on the energy
+deposited in the hadronic calorimeter. In addition to the ‘loose’ selection criteria, the ‘tight’ selection uses
+information from the finely segmented first layer of the calorimeter. For a collection of photons radiated
+from leptons in Z decays and with ET >25 GeV, the efficiency integrated over 2015–2017 data sets of the
+‘loose’ (‘tight’) selection is 98.9% (87.5%) for photons not matched to any track and 96.3% (87.6%) for
+photons matched to conversion vertices [31].
+Prompt electrons entering the central region of the detector (|η| < 2.47) are selected using a likelihood-based
+(LH) identification [31], which exploits the characteristic features of energy deposits in the EM calorimeters
+(longitudinal and lateral shower shapes), track quality, track–cluster matching, and particle identification by
+the TRT. The LH probability density functions (pdfs) for the ET range of 4.5 to 15 GeV are derived from
+J/ψ → ee and for ET > 15 GeV from Z → ee events as described in Ref. [31]. Different pdfs are obtained
+for each identification quantity in separate bins in electron-candidate ET and η. To ensure a smooth variation
+of the electron identification efficiency with the electron ET, the discriminant requirements are varied in
+finer bins than those defined for the pdfs and, at the ET bin boundaries, a linear interpolation between the
+neighbouring bins in ET is used to determine both the pdf values and the discriminant requirements at the
+bin boundaries. This procedure is referred to as ‘smoothing’. The discriminant threshold is also adjusted
+linearly as a function of the number of reconstructed vertices to yield a stable rejection of background
+electrons. Three operating points, corresponding to increasing threshold values for the LH discriminant, are
+defined (identification efficiencies quoted are averages for electroweak processes integrated over 2015–2017
+data sets): ‘loose’ (93%), ‘medium’ (88%) and ‘tight’ (80%) [31].
+Muon candidates, used in photon performance studies, are identified by matching ID tracks to tracks
+reconstructed in the muon spectrometer [34].
+To reduce backgrounds from misidentified jets and from light- and heavy-flavour hadron decays inside
+jets, photon and lepton candidates are often required to be isolated. This isolation selection is specific
+to the analysis topology. The calorimeter isolation E
+iso
+T
+is computed as the sum of transverse energies of
+topo-clusters in the calorimeters, in a cone around the candidate. The energy deposited by the photon
+or lepton candidate and the contributions from the UE and pile-up are subtracted on an event-by-event
+basis [35]. The track isolation variable, p
+iso
+T
+is obtained by summing the scalar pT of good-quality tracks in
+6
+
+=== PDF PAGE 7 ===
+a cone around the candidate; good tracks are defined here as having pT > 1 GeV and a distance of closest
+approach to the primary vertex along the beam axis |z0 sin θ| < 3 mm, and exclude the tracks associated
+with the photon conversion or the lepton candidate. The exact definitions of a few WPs used in this paper
+are provided in Table 3 and described in detail in Refs. [31, 34].
+Table 3: Definition of isolation working points. For electron (muon) track isolation the cone size ∆R
+var has a
+maximum value of 0.2 (0.3) and decreases as a function of pT as 10 GeV/pT[GeV]. Prefix ‘FC’ highlights a fixed
+requirement applied to the calorimeter and track isolation variables.
+Object WP Calorimeter isolation Track isolation
+Photon Calorimeter-only tight E
+iso
+T
+(∆R < 0.4) < 0.022 · ET + 2.45GeV -
+Electron FCTight E
+iso
+T
+(∆R < 0.2)/ET < 0.06 p
+iso
+T
+(∆R
+var < 0.2)/pT < 0.06
+FCLoose E
+iso
+T
+(∆R < 0.2)/ET < 0.2 p
+iso
+T
+(∆R
+var < 0.2)/pT < 0.15
+Muon FCLoose E
+iso
+T
+(∆R < 0.2)/pT < 0.3 p
+iso
+T
+(∆R
+var < 0.3)/pT < 0.15
+6 Trigger reconstruction and identification of photons and electrons
+Photon and electron reconstruction at the HLT stage is performed on each EM RoI provided by L1, which
+satisfies ET and isolation requirements as specified by the trigger menu. It proceeds in a series of sequential
+steps as shown in Figure 1. In the HLT, fast algorithms are executed first, allowing precision algorithms
+(which closely reproduce the offline algorithms and require more CPU time) to run at a reduced rate later
+in the trigger sequence.
+Fast algorithms are executed using calorimeter and ID information within the RoI to perform the initial
+selection and identification of the photon and electron candidates, and achieve early background rejection.
+If a particle candidate satisfies the criteria defined for the fast selection, the precision algorithms are executed
+in the HLT, where access to detector information outside the RoI is possible. These precision online
+algorithms are similar to their offline counterparts, with the following exceptions: the bremsstrahlung-aware
+re-fit of electron tracks [33] and electron and photon dynamic, variable-size topo-clusters [31] are not used
+online; photon candidates are identified using only the calorimeter information online; the online algorithms
+use hµi to assess pile-up, while the number of primary vertices is used offline. In addition to the above,
+some cell-energy-level corrections are not available online, such as the correction for transient changes in
+LAr high-voltage [36], or differ in implementation, such as the bunch crossing position-dependent pile-up
+correction [37, 38].
+6.1 Photon and electron triggers at L1
+The details of the Run 2 L1 trigger algorithms can be found in Ref. [3], and only the basic elements
+are described here. The L1 trigger for photons and electrons uses calorimeter information in the central
+(|η| < 2.5) region to build an EM RoI. A sliding window algorithm is used, with a window consisting of
+4 × 4 trigger towers with granularity 0.1 × 0.1 in η and φ, longitudinally segmented into electromagnetic
+and hadronic towers. Within the window the algorithm uses the maximum ET from the four possible pairs
+of nearest-neighbour electromagnetic towers in a 2 × 2 central region; this is used for EM transverse energy
+reconstruction. The energy of the trigger towers is calibrated at the electromagnetic energy scale (EM
+7
+
+=== PDF PAGE 8 ===
+Figure 1: Simplified non-isolated photon (g) and electron (e) trigger sequences for pp data-taking.
+scale). This EM scale is not the same as the one used in the offline reconstruction, which can lead to trigger
+inefficiencies relative to offline reconstruction as discussed in Section 8.
+A nominal transverse energy threshold is applied (e.g. ET > 22 GeV, denoted by the trigger name EM22).
+The threshold can also be η-dependent, due to the energy scale depending on η, within the granularity
+of 0.1. Typical variations of the threshold are −2 to +3 GeV relative to the nominal value. Optionally, a
+selection to reject hadronic activity can be applied: candidate electrons and photons are rejected if the
+sum of transverse energies in hadronic towers matched to the 2 × 2 central region is at least 1 GeV and
+exceeds ET/23.0 − 0.2 GeV. Finally, an EM isolation requirement can be applied: candidate photons and
+electrons are rejected if the sum of transverse energies in the 12 towers surrounding the 2 × 2 central region
+in the EM layer is at least 2 GeV and exceeds ET/8.0 − 1.8 GeV. No requirements based on hadronic
+activity or EM isolation are applied above 50 GeV of ET reconstructed at L1. These additional selections
+were optimised to maintain a fixed L1 efficiency at the lowest possible rate. The effect of these additional
+selections on the rate and efficiency is discussed in Section 8.
+6.2 HLT photon reconstruction and identification for p p data-taking
+The HLT fast algorithm reconstructs clusters from the calorimeter cells within the EM RoIs identified by
+L1. To minimise the HLT latency, the fast algorithm uses only the second layer of the EM calorimeter to
+8
+
+=== PDF PAGE 9 ===
+find the cell with the largest deposited transverse energy in the RoI. This cell is referred to as the ‘pre-seed’.
+Nine possible 3 × 7 windows (∆η × ∆φ = 0.075 × 0.175) around the pre-seed cell are checked to ensure
+that the local maximum, the cluster seed, is found. The final cluster position is obtained by calculating the
+energy-weighted average cell positions inside a 3 × 7 window centred on the cluster seed. To compute the
+accumulated energy in all EM calorimeter layers, a cluster size of 3 × 7 is used in the barrel and a cluster
+size of 5 × 5 in the endcaps. Several corrections, based on the offline reconstruction algorithms, are used at
+the fast algorithm step in order to improve the resolution of the cluster position and energy.
+In this fast reconstruction step, only selections on the cluster ET and shower shape parameters2 Rhad, Rη
+and Eratio, which have good discrimination power between background and signal, are applied.
+In the precision step, offline-like algorithms are used for the reconstruction of calorimeter quantities. After
+retrieving the cell information from regions slightly larger than the RoI, the precision HLT reconstruction
+uses the offline sliding-window algorithm to construct clusters [39]. The energy of the clusters is calibrated
+using a multivariate technique such that the response of the calorimeter layers is corrected in data and
+simulation [38]. The online photon identification relies on the same cluster shower shapes that are used in
+the offline algorithms (details are given in Ref. [40]), and three identification WPs are defined: ‘loose’,
+‘medium’, and ‘tight’. The ‘medium’ identification is used only in the HLT.
+An optional requirement on calorimeter-only isolation in photon triggers uses topo-clusters, similar to the
+offline isolation calculation [31]. Full-scan topo-cluster reconstruction is needed to compute the energy
+density of the event on-the-fly in the HLT; this is then used to subtract ambient noise in the isolation cone.
+An isolation cone of size ∆R = 0.2 (0.4) around the photon candidate is used for the very-loose (tight)
+isolation requirement, denoted by ‘icalovloose’ (‘icalotight’). If the ratio of the transverse energy in the
+topo-clusters to the transverse energy of the photon candidate is less than 10% (3%, with an energy offset of
+2.45 GeV), then the photon is considered isolated for ‘icalovloose’ (‘icalotight’) by the HLT. These isolation
+criteria are over 98% efficient for offline photons satisfying tight isolation. The full-scan topo-cluster
+reconstruction is executed only once per event at the end of the trigger sequence (as it is very CPU intense)
+and is common to all isolated triggers and all trigger signatures.
+6.3 HLT electron reconstruction and identification for p p data-taking
+HLT electron reconstruction also has fast and precision steps. The description below corresponds to the
+implementation at the end of Run 2 data-taking; modifications made to the initial Run 2 implementation
+are described in Section 10.1.
+The fast calorimeter reconstruction and selection steps for electrons have two implementations: a cut-based
+algorithm and a neural-network-based ‘Ringer’ algorithm. The former algorithm, the same as described
+above for photons, is used for electron triggers with ET < 15 GeV. The Ringer algorithm, described in
+detail in Section 6.3.1, is used for triggering electrons with ET ≥ 15 GeV. For both fast algorithms, electron
+candidates are required to have tracks from the fast track reconstruction step, performed inside the RoI
+only, matching the corresponding clusters as detailed in Section 10.1.
+2 Rhad is the ratio of the cluster transverse energy in the hadronic calorimeter to that in the EM calorimeter. Rη is based on the
+cluster shape in the second layer of the EM calorimeter and defined as the ratio of the ET in a core region of 3 × 7 cells in
+η × φ to that in a 7 × 7 region, expanded in η from 3 × 7 core. Eratio is based on the cluster shape in the first layer of the EM
+calorimeter and defined as the ratio of the energy difference between the maximum energy deposit and the energy deposit in a
+secondary maximum in the cluster to the sum of these energies.
+9
+
+=== PDF PAGE 10 ===
+In the precision calorimeter reconstruction step, the cluster reconstruction and calibration are similar to
+those for photons, and to those used offline in early Run 2 analyses [41]. Precision tracks within the
+RoI are extrapolated to the second layer of the EM calorimeter and are required to match the clusters
+within |∆η(track, cluster)| < 0.05 and |∆φ(track, cluster)| < 0.05 rad. The offline reconstruction uses a
+looser, asymmetric condition for the matching in φ [31] to mitigate the effects of the energy loss due to
+bremsstrahlung; this leads to some inefficiency at the trigger level. In the precision step, the electron
+selection relies on a multivariate technique using a LH discriminant with four operating points: ‘lhvloose’,
+‘lhloose’, ‘lhmedium’, and ‘lhtight’. The identification in the trigger is designed to be as close as possible
+to the offline version, but there are a few necessary differences: the discriminating variables used online
+have different resolutions; the momentum loss due to bremsstrahlung, ∆p/p, is not accounted for in the
+online LH. Triggers with ‘nod0’ suffixed to their names do not include the transverse impact parameter
+relative to the beam-line, d0, and its significance, |d0/σ(d0)|, in the online LH: this reduces inefficiency
+due to the absence of the bremsstrahlung-aware re-fit in the HLT and preserves efficiency for electrons
+from exotic processes which do not originate at the primary vertex.
+An additional, optional requirement of isolation denoted ‘ivarloose’ is also available for electron triggers.
+This tracking-only isolation is required to satisfy p
+iso
+T
+(∆R
+var < 0.2)/pT < 0.10 and is calculated similarly
+to the offline isolation working points detailed in Table 3 in Section 5.
+Some triggers with non-standard electron sequences are also used. For example, triggers with only ET
+requirements applied in the HLT (fast and precision levels) and no tracking requirements are called ‘etcut’
+and are used both as high-ET unprescaled triggers described in Section 10.3 and as prescaled triggers for
+electron performance studies described in Ref. [31].
+6.3.1 Ringer algorithm
+The Ringer algorithm exploits the property of EM showers to develop in the lateral direction in an
+approximately conical structure around the initial particle. This feature allows the relevant information from
+the calorimeters to be encoded into quantities describing energy sums (Σ) of all the cells in a concentric
+ring [42], referred to as ‘rings’, in each calorimeter sampling layer. The rings (r2, ...rn) are rectangular in
+shape because of the calorimeter cell structure [4] as illustrated in Figure 2. In the EM calorimeter, these
+rings are centred around the most energetic cell at each layer, while in the hadronic calorimeter the position
+of the most energetic cell in the second layer of the EM calorimeter is used as an axis. A hundred rings are
+defined in total within an RoI. There are n = 8 rings for each of the presampler, second, and third layers
+of the EM calorimeter, 64 rings in the first layer of the EM calorimeter, and 4 rings in each of the three
+layers of the hadronic calorimeter. The transverse energy deposited in each ring is normalised to the total
+transverse energy in the RoI.
+The concatenated vector of 100 normalised ring transverse energies feeds an ensemble of multilayer
+perceptron (MLP) neural networks (NN) [43] for each ET × η region. The activation function of the
+hidden layer is a hyperbolic tangent. For the 2017 data-taking, the model parameters were optimised on
+the simulated Z → ee and background data sets described in Section 4. In 2018, this optimisation was
+performed on the 2017 data. The training procedure and parameters are the same for all specific NNs,
+except for the number of hidden units in a single-hidden-layer MLP, optimised in the range of 5 to 20 units
+using tenfold cross-validation efficiency measurements.
+The NNs are trained and selected for operation with a heuristic technique to avoid local optima and achieve
+an optimal fake rejection, while maintaining the trigger electron efficiency unchanged relative to the
+10
+
+=== PDF PAGE 11 ===
+Figure 2: The concept of ring-shaped energy reconstruction in a calorimeter slice corresponding to the RoI size for
+|η| < 1.35. The most energetic cell (r1) is shown in red, while the rings around it alternate between black and white.
+In this scenario there are some areas not used by the Ringer algorithm calculation: the vertical strip at the right edge
+of the presampler and layer 1, and the horizontal strip(s) at the lower edge of layers 2 and 3.
+cut-based fast-electron selection. The ensemble composition comprises 20 (25) NNs for 2017 (2018)
+data-taking, with typically no more than 10 neurons in the hidden layer.
+Each discriminant requirement is computed as a linear function of hµi to ensure pile-up independence of the
+signal efficiency. To account for mismodelling in the MC simulations, the parameters of the linear threshold
+correction were derived using 2016 (2017) collision data for the 2017 (2018) data-taking period.
+The Ringer algorithm increases the time taken by the fast calorimeter reconstruction step to 1–2 ms per
+event, approximately 45% slower than the cut-based algorithm. However, it reduces the number of input
+candidates for the more CPU-demanding fast tracking step (which takes about 64 ms per event) by a factor
+of 1.5–6. This factor depends on the detailed trigger configuration. Overall, the use of the Ringer algorithm
+enabled at least a 50% reduction in the CPU demand for the lowest-threshold unprescaled single-electron
+trigger. In Run 2, the Ringer algorithm was used only in the electron triggers with ET thresholds above
+15 GeV, because of the availability of a large Z → ee event sample in data, useful for the Ringer algorithm
+validation. Its implementation for the electron triggers with ET thresholds below 15 GeV was finalized
+only during 2018, too late to be used for the data-taking. The Ringer algorithm was not used in the photon
+triggers during Run 2, as they do not have any CPU-demanding track reconstruction steps and gains from
+its implementation are smaller than for electrons.
+6.4 HLT photon and electron reconstruction and identification for heavy-ion data-taking
+Triggering on both reference pp and pPb collisions relies on strategies developed for high-pile-up pp
+data-taking, while for PbPb a dedicated set of triggers is required.
+11
+
+=== PDF PAGE 12 ===
+One of the main characteristics of HI collisions is event centrality, which is determined by the total
+transverse energy measured in the forward calorimeter, FCal ΣET. Small (large) values correspond to events
+with a small (large) overlap region of two colliding nuclei. In a PbPb collision, the average background
+originating from the UE in the calorimeter and ID can affect the performance of the online reconstruction
+and identification of photons and electrons. Unlike pile-up in pp collisions, the UE background cannot be
+assumed to change slowly with time; on the contrary, it can be dramatically different event-by-event due to
+the varying HI collision centrality. The tracking performance is approximately centrality-independent, so
+the track-related requirements are identical to those for pp collisions.
+To maintain centrality-independence of the photon and electron trigger performance, a UE correction is
+performed in a two-stage approach. First, at the fast calorimeter stage of the HLT, no shower shapes are
+used for the online selection and only an ET requirement is imposed. This allows the rate with which the
+UE correction is applied to be reduced, while consuming only the resources required for reconstruction in
+RoIs. Next, the UE correction is evaluated per cell as an average in φ for each slice of width ∆η = 0.1
+in each calorimeter layer. This calculated average energy is then subtracted from the cluster constituent
+cells. As a result, the cells in the RoI (which are used as inputs to clustering and downstream identification
+algorithms) contain no systematic bias due to the UE. Residual fluctuations due to the stochastic nature of
+the UE remain present.
+Due to the small size of the EM cluster, this first-order UE correction is found to be sufficient; the azimuthal
+modulation originating from the flow phenomenon [44] in the UE can be neglected.
+Both the cut-based (photon and electron) and LH (electron) identifications are used for the HI triggers.
+Their performance is presented in Section 11. The cut-based electron identification for HI collisions is
+similar to that used for the pp data-taking in Run 1 (2010–2012) [1]. Two WPs are defined: ‘loose_ion’ and
+‘medium_ion’, based on a subset of variables used in the standard electron LH selection. These working
+points are strictly inclusive. The ‘medium_ion’ working point uses more variables than ‘loose_ion’ to
+increase background rejection.
+6.5 Trigger naming convention
+Table 4: Selected optional requirements which can be suffixed to photon and electron trigger names.
+Photon (g) Electron (e)
+Identification loose, medium, tight lhvloose, lhloose, lhmedium, lhtight
+Modified identification nod0 – transverse impact parameter not used
+Isolation icalovloose, icalotight ivarloose
+Special reconstruction etcut – ET-only requirement applied in the HLT
+ion – triggers for heavy-ion data-taking
+The ATLAS Run 2 trigger naming convention used is [Trigger level]_[object multiplicity][object
+type][minimum ET value in GeV] and, optionally, an additional string detailing other requirements
+listed in Table 4. Trigger level is L1 or HLT, often omitted for brevity. Possible object types are ‘EM’
+for L1 EM cluster, ‘g’ for HLT photon and ‘e’ for HLT electron. Additional options at L1, detailed in
+Section 6.1, are η-dependence of the ET threshold (denoted by the letter ‘V’ appended to the trigger name),
+the hadronic activity veto (denoted by ‘H’) and the EM isolation requirement (denoted by ‘I’). Although
+each HLT trigger is configured with a L1 trigger as its ‘seed’, the latter is not always mentioned explicitly
+12
+
+=== PDF PAGE 13 ===
+as part of the trigger name. For example, a trigger with name 2g20_tight_icalovloose_L12EM15VHI is
+designed to identify at least two photons at the HLT with ET > 20 GeV each satisfying ‘tight’ photon
+identification criteria and calorimeter-only very loose isolation requirements; here the name explicitly
+mentions the ‘seed’ L1 trigger, which requires two isolated L1 EM clusters with η-dependent threshold
+centred on ET of 15 GeV.
+7 Performance measurement techniques
+7.1 Rate measurements
+The ATLAS data-taking conditions are archived with a time interval of the order of a minute, which
+defines a luminosity block. In order to obtain the rate of a given trigger as a function of the instantaneous
+luminosity [9, 45], individual rate measurements on different luminosity blocks from all data collected in a
+given year are used. If, for a given rate measurement, the ratio of trigger rate to instantaneous luminosity
+varies by more than 20% from the average of other measurements, that measurement is not taken into
+account as an estimator of the rate for that trigger. This avoids averaging rate measurements that fluctuate
+because of unpredictable and temporary changes of LHC collisions.
+7.2 Measurement of the electron trigger efficiency
+The electron trigger efficiency, denoted by trig, can be measured either for electrons at the HLT (including
+L1) or for EM clusters at L1. It is estimated directly from data using the tag-and-probe method described
+in detail in Ref. [46]. This method selects, from a known resonance such as Z → ee, an unbiased sample
+of ‘probe’ electrons by using strict selection requirements on the second ‘tag’ object. The efficiency of any
+given requirement can then be determined by applying it to the probe sample, after accounting for residual
+background contamination.
+The total efficiency, total, may be factorised as a product of two efficiency terms:
+total = offline × trig =
+
+Noffline
+Nall 
+×
+
+Ntrig
+Noffline 
+,
+where Nall is the number of produced electrons, Ntrig is the number of triggered electron candidates, Noffline
+is the number of isolated, identified and reconstructed offline electron candidates and offline is the offline
+efficiency [31]. The efficiency of a trigger is computed with respect to a specific offline isolation and
+identification WP. Therefore, when presenting the results in Section 10, several efficiencies per trigger are
+provided and these correspond to a few representative offline electron selections.
+Events with Z → ee decays are collected using unprescaled single-electron triggers (see Section 10.1
+for details). The tag electron must be an electron identified offline with the tight selection criteria
+(hereafter called ‘tight offline electron’) associated geometrically with the object that fired the trigger,
+with ET > 27 GeV and |η| < 2.47 and outside the transition region between the barrel and the endcaps
+1.37 < |η| < 1.52. For the electron trigger efficiency measurement, the isolation and identification
+requirements on the probe are always specified and they have to correspond to the electron offline
+identification requirements used in an analysis. The background subtraction is performed with so-called
+Zmass method [46], in which the invariant-mass distribution constructed from the tag–probe pair is used to
+13
+
+=== PDF PAGE 14 ===
+discriminate electrons from background. The signal efficiency is extracted in a window ±15 GeV around the
+Z boson mass [47] and its statistical and systematic uncertainties are derived as described in Ref. [41].
+Simulated events need to be corrected to reproduce as closely as possible the efficiencies measured in
+data. This is achieved by applying ‘an efficiency correction factor’, defined as the ratio of the efficiency
+measurement in data to that determined in simulated events, to the event weight in simulation. The impact
+of the choice of Z → ee events for the efficiency measurement, and uncertainties in the background
+estimation, are assessed by varying the requirements on the selection of both the tag and probe electron
+candidates and by varying the details of the background subtraction method as detailed in Ref. [41].
+The scaling factor and its systematic uncertainty are obtained from the mean and standard deviation,
+respectively, of the results produced by the set of independent variations of all these parameters. The
+statistical uncertainty is calculated as the average over the statistical uncertainties in all variations.
+7.3 Measurement of the photon trigger efficiency
+The photon trigger efficiency at the HLT (including L1), denoted by 
+γ
+trig, can be measured by two
+complementary data-driven methods. The Bootstrap (BS) method uses photons triggered by a lower level
+or unbiased trigger, while the second method uses photons from radiative Z → ``γ decays.
+The BS event sample is collected by L1-only triggers or by loose, low-ET photon triggers. In the BS
+method, the photon trigger efficiency can be factorised as the product of two efficiency terms:
+
+γ
+trig = HLT|BS × BS.
+The efficiency of the HLT photon trigger relative to the corresponding BS sample efficiency, HLT|BS, is
+measured with offline photons on events in the BS sample. The BS sample efficiency, BS, is computed on
+collision events recorded by a special ‘random’ trigger, which runs at a rate of a few Hz, by comparing the
+number of the BS events with the number of isolated, identified and reconstructed offline photon candidates
+in the sample. The background contamination in this sample is large, which could lead to biases towards a
+lower efficiency estimate. Those biases are expected to be small because the photon trigger efficiency is
+evaluated with respect to ‘tight’ and isolated offline photons and a few GeV above the trigger threshold.
+The trigger efficiency for background photons fulfilling the ‘tight’ offline identification is also very high,
+close to the one of signal photons; an additional systematic uncertainty is assigned as described below to
+account for any potential biases.
+The systematic uncertainty of the trigger efficiency is computed as the discrepancy between the efficiency
+measured in data and in simulated H→ γγ (high-ET) and prompt-photon (low-ET) samples. This approach
+to compute the systematic uncertainties is conservative, as it also includes the discrepancies between
+simulation and real data (mismodelling). The main underlying assumption is that the trigger efficiency in
+the MC simulation is close to the trigger efficiency in a pure sample of photons in data. This assumption is
+supported by the observation of good agreement between the trigger efficiencies in data and simulation for
+photons from Z radiative decays, discussed in Section 9.
+The size of the data sample collected during Run 2 allows the use of photons from radiative Z decays to
+measure the photon trigger efficiencies. In this method the photon trigger efficiency is measured using a
+clean sample of prompt, isolated photons with relatively low pT from Z → ``γ (` = e, µ) decays, in which
+a photon is produced from the final-state radiation of one of the two leptons from the Z boson decay.
+14
+
+=== PDF PAGE 15 ===
+Events triggered by the lowest-threshold unprescaled single and double electron and muon triggers are
+used to select Z → eeγ and Z → µµγ event candidates. The sample is selected by requiring events with
+two opposite-charge leptons (ee or µµ) with pT > 10 GeV and a ‘tight’ photon candidate within |η| < 2.37,
+excluding the calorimeter transition region, and with ET > 10 GeV. The photon candidate is further required
+to satisfy an isolation WP of interest. Both leptons are required to satisfy the ‘medium’ identification and
+‘FCLoose’ isolation criteria, and must have |η| < 2.47, with |z0| < 10 mm and |d0/σ(d0)| < 10. The
+separation between the photon and each lepton is required to be ∆R > 0.2. Figure 3 shows the distribution of
+m`` vs the three-body mass, m``γ. The invariant mass of the two leptons must be within 40 < m`` < 83 GeV
+to reject events in which a Z → `` decay is produced in association with a photon coming from initial-state
+radiation. The invariant mass of the three-body system is required to be 86 < m``γ < 96 GeV. With
+these requirements, only photons originating from Z radiative decays are selected. If more than one ``γ
+candidate is found, the one with the three-body mass closest to the Z boson mass is selected.
+0
+200
+400
+600
+800
+1000
+1200
+1400
+1600
+1800
+2000
+70 80 90 100 110 120
+ [GeV] mllγ
+40
+50
+60
+70
+80
+90
+100
+ [GeV] ll m
+ATLAS
+pp data 2017
+s = 13 TeV
+Z→llγ
+Figure 3: The invariant mass of the two leptons, m`` , vs the invariant mass of the three-body system, m``γ, in
+Z → eeγ and Z → µµγ decays in 2017 pp data. Events with a photon and a Z→ `` decay are visible as a horizontal
+band, which peaks around m`` = 90 GeV for three-body invariant masses above 96 GeV, and can be easily separated
+from Z radiative decay events, which are concentrated in a vertical band around m``γ = 90 GeV.
+The statistical uncertainty associated with the Z radiative decay method is calculated as a confidence
+interval of a Bayesian estimate with Jeffrey’s prior [48]. The systematic uncertainty is estimated by
+following the strategy used in the Z → ee tag-and-probe method for electron measurements described
+in Section 7.2. In this case, the two leptons are the tags, and the photon is the probe. The systematic
+uncertainty is estimated from variations in the trigger efficiency measurement resulting from changing the
+requirements on the leptons and on the dilepton and three-body systems. The requirement on the invariant
+mass of the dilepton system is varied from 30 < m`` < 83 GeV to 50 < m`` < 90 GeV. The three-body
+system mass requirement is varied from 65 < m``γ < 105 GeV to 80 < m``γ < 95 GeV. In addition, when
+considering the electron channel, the identification of the tags is changed from ‘tight’ to ‘medium’ for one
+or both electrons.
+Figure 4 shows a comparison between the BS and Z radiative decay methods for ‘medium’ photon triggers
+in 2018. The small difference in performance for the turn-on is due to the different purities of the samples:
+15
+
+=== PDF PAGE 16 ===
+there are significant backgrounds in the BS sample, and almost inexistent backgrounds in the Z radiative
+decay measurement, leading to slightly higher efficiency computed by the Z radiative decay method. This is
+expected, as the efficiency for the trigger to select the background present in the BS sample is lower than the
+efficiency for the trigger to select real photons. Typically, physics analyses use the photon triggers to select
+objects with ET at least 5 GeV above the trigger threshold. In that regime, the efficiency measurements of
+both methods give compatible results. The Z radiative decay method provides a data-driven sample of
+photons with very high purity to compute the efficiency for trigger thresholds below 60 GeV; above this
+value the BS method is used.
+20 30 40 50 60 70
+ [GeV] ET
+0
+0.2
+0.4
+0.6
+0.8
+1
+Trigger Efficiency
+ATLAS
+pp data 2018, s = 13 TeV
+Radiative Z Bootstrap
+g25_medium
+g35_medium
+Figure 4: The photon trigger efficiency as a function of the offline photon ET for both legs of the primary diphoton
+trigger in the 2018 pp data. The measurement using the BS method (open markers) is compared with that using the
+Z radiative decay (filled markers) method. The efficiency is computed with respect to offline photons satisfying
+‘tight’ identification criteria and a ‘calorimeter-only tight’ isolation requirement. Offline photon candidates in the
+calorimeter transition region 1.37 < |η| < 1.52 are not considered. The error bars indicate statistical uncertainties.
+8 L1 trigger evolution and performance
+Table 5: List of unprescaled L1 EM triggers in different data-taking periods during Run 2.
+L1 EM trigger type 2015 2016 2017–2018
+Single object L1_EM20VH L1_EM22VHI
+Diobject L1_2EM10VH L1_2EM15VH L1_2EM15VHI
+Table 5 shows the lowest-threshold unprescaled single-object and diobject L1 EM triggers in the different
+data-taking periods during Run 2. Figure 5 shows the L1 rates for the single-object and diobject EM
+calorimeter triggers during Run 2. Among the triggers shown there are two single-object triggers not
+used in Run 2: the L1_EM20VHI trigger, to highlight the additional rejection from the EM isolation
+requirement, and L1_EM24VHI, which was a ‘backup’ trigger for single EM objects. The single-object L1
+rates in Figure 5(a) are well described by a linear fit as a function of luminosity, with an approximately
+zero intercept, indicating a negligible contribution from effects not related to pp collisions, as expected for
+such a narrow RoI window. For single-object L1 EM triggers with ET in the range 20–24 GeV, the rate is
+reduced by approximately 25% when the threshold is raised by 2 GeV. For diobject L1 EM triggers this
+reduction in rate depends on the threshold: for a 5 GeV increase from L1_2EM10VH (L1_2EM15VH) a
+16
+
+=== PDF PAGE 17 ===
+6 8 10 12 14 16
+ ] -1 s
+-2 cm
+33 Instantaneous Luminosity [10
+0
+10
+20
+30
+40
+50
+60
+70
+80
+L1 Rate [kHz]
+ATLAS
+-1 pp data: 2018 0.5 fb
+s = 13 TeV
+L1_EM20VH
+L1_EM20VHI
+L1_EM22VHI
+L1_EM24VHI
+L1_2EM10VH
+(a)
+6 8 10 12 14 16
+ ] -1 s
+-2 cm
+33 Instantaneous Luminosity [10
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+L1 Rate [kHz]
+ATLAS
+pp data s = 13 TeV
+-1 2016 32.9 fb
+-1 2018 0.5 fb
+L1_2EM15VH
+L1_2EM20VH
+L1_2EM15VHI
+(b)
+Figure 5: Dependence of the L1 trigger rates on the luminosity for single-object and diobject L1 EM triggers. The
+2016 pp data is used for the L1_2EM15VH trigger, as this trigger was unavailable in 2018.
+reduction of 90% (50%) is achieved. An additional EM isolation requirement (I) leads to a consistent rate
+reduction of about 44% per leg for single-object (L1_EM20VH) and diobject (L1_2EM15VH) triggers
+and a pile-up-dependent efficiency loss of at most 5% up to 50 GeV, as shown in Figure 6. No isolation
+requirements are applied above this ET value.
+20 30 40 50 60 70 80 90 100
+ [GeV] T
+ E
+0
+0.2
+0.4
+0.6
+0.8
+1
+L1 Trigger Efficiency
+ATLAS
+pp data 2017, s = 13 TeV
+L1_EM20VH
+L1_EM20VHI
+L1_EM22VHI
+(a)
+20 25 30 35 40 45 50 55 60
+<µ>
+0.86
+0.88
+0.9
+0.92
+0.94
+0.96
+0.98
+1
+L1 Trigger Efficiency
+ATLAS
+pp data 2017, s = 13 TeV
+L1_EM20VH
+L1_EM20VHI
+L1_EM22VHI
+(b)
+Figure 6: Efficiency of L1 single EM object triggers as a function of (a) the offline electron ET and (b) pile-up.
+The offline reconstructed electron is required to pass a likelihood-based ‘tight’ identification. The efficiencies are
+measured with a tag-and-probe method in Z → ee data events, using offline monitoring tools described in Section 12.
+The error bars show the statistical uncertainties only. No background subtraction is applied, as the effect is expected
+to be negligible. For (b), only offline candidates with ET values at least 1 GeV above the corresponding trigger
+threshold are considered.
+Dedicated combined-object triggers such as three EM clusters or an EM cluster with a muon, τ-lepton, jet,
+or missing transverse momentum are also implemented at L1, allowing L1 EM trigger thresholds to be
+lowered to 7 GeV. Some L1 triggers do not require an additional EM object for their rate reduction. In this
+case, their HLT photon/electron reconstruction is seeded by the lowest available L1 EM threshold, which is
+3 GeV.
+17
+
+=== PDF PAGE 18 ===
+Additional topological requirements (invariant mass, ∆R, etc.) can also be applied to L1 triggers to further
+reduce the rate. For example, prescaled triggers used to collect J/ψ → ee events for the low-ET electron
+performance studies [31, 38, 41] have at least one L1 EM threshold as low as 3 GeV and a requirement on
+the invariant mass of the EM object pairs to lie between 1 and 5 GeV [49]. The latter requirement leads to
+trigger rate reduction factors of 4–9, depending on the exact trigger threshold configuration.
+9 Photon trigger evolution and performance in p p data-taking
+9.1 Evolution of photon triggers in Run 2
+Table 6 shows the lowest-threshold unprescaled photon triggers in different data-taking periods during
+Run 2. The ‘loose’ and ‘medium’ identification requirements remained unchanged throughout 2015–2018.
+An optimisation of the selection for the online ‘tight’ definition was performed at the end of 2017 in order to
+synchronise with a reoptimised offline ‘tight’ photon selection. The calorimeter-only isolation requirement
+(icalovloose) was implemented in the HLT for tight diphoton triggers for the first time in 2017.
+Table 6: List of unprescaled triggers with photons in different data-taking periods during Run 2. The corresponding
+L1 trigger threshold is given in brackets. No L1 isolation is applied for L1 ET > 50 GeV.
+Trigger type 2015 2016 2017–2018
+Primary g120_loose g140_loose
+single photon (EM22VHI) (EM22VHI)
+Primary diphoton g35_loose_g25_loose g35_medium_g25_medium
+(2EM15VH) (2EM20VH)
+Loose diphoton 2g50_loose (2EM20VH)
+Tight diphoton 2g20_tight 2g22_tight 2g20_tight_icalovloose
+(2EM15VH) (2EM15VH) (2EM15VHI)
+9.2 Primary single-photon and diphoton triggers
+The lowest-threshold unprescaled single-photon trigger is primarily designed to trigger on high-ET photons
+in searches for new phenomena beyond the Standard Model. This primary single-photon trigger uses the
+‘loose’ identification requirement, with no isolation applied. Figure 7 shows the HLT trigger rates for
+photon triggers as a function of instantaneous luminosity. The ET threshold of the single-photon trigger was
+increased from 120 to 140 GeV in 2016 to keep its acceptance rate below 50 Hz, as shown in Figure 7(a).
+The efficiencies of the single-photon triggers in 2015–2018, measured with the BS method, are shown
+in Figure 8 as a function of ET and η. The total uncertainties, shown as vertical bars, are dominated by
+systematic uncertainties, especially differences between data and Monte Carlo simulation. The trigger
+efficiency measurement has a total uncertainty of the order of 1% for photons with ET values 5 GeV above
+the trigger threshold, and an uncertainty of less than 0.1% for photons at least 10 GeV above the trigger
+threshold.
+Primary diphoton triggers are mainly designed for efficient selection of events with Higgs boson candidates
+in the diphoton decay channel. Trigger ET thresholds of 35 and 25 GeV for the leading and subleading
+18
+
+=== PDF PAGE 19 ===
+2 4 6 8 10 12 14 16 18 20
+ ] -1 s
+-2 cm
+33 Instantaneous Luminosity [10
+0
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+Rate [Hz]
+ATLAS
+pp data 2015-2018
+s = 13 TeV
+Primary
+single-photon triggers
+2015
+2016
+2017
+2018
+(a)
+2 4 6 8 10 12 14 16 18 20
+ ] -1 s
+-2 cm
+33 Instantaneous Luminosity [10
+0
+5
+10
+15
+20
+25
+30
+35
+Rate [Hz]
+ATLAS
+pp data 2015-2018
+s = 13 TeV
+Primary
+diphoton triggers
+2015
+2016
+2017
+2018
+(b)
+Figure 7: HLT output rate as a function of instantaneous luminosity for the primary (a) single-photon triggers and (b)
+diphoton triggers in 2015–2018. The changes between years are detailed in Section 9.1.
+110 120 130 140 150 160 170 180 190 200
+ [GeV] ET
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+1.05
+1.1
+Trigger Efficiency
+ATLAS pp data 2015-2018
+s = 13 TeV
+Single-photon triggers
+2015
+2016
+2017
+2018
+110 120 130 140 150 160 170 180 190 200
+ [GeV] ET
+0.85
+0.9
+0.95
+1
+Data/MC
+(a)
+−2.5 −2 −1.5 −1 −0.5 0 0.5 1 1.5 2 2.5
+η
+0.92
+0.94
+0.96
+0.98
+1
+1.02
+1.04
+Trigger Efficiency
+ATLAS pp data 2015-2018, s = 13 TeV
+Single-photon triggers
+2015 2016 2017 2018
+−2.5 −2 −1.5 −1 −0.5 0 0.5 1 1.5 2 2.5
+η
+0.95
+1
+Data/MC
+(b)
+Figure 8: Efficiencies of single-photon triggers in 2015–2018 as a function of the offline photon (a) ET and (b) η.
+The changes between years are detailed in Section 9.1. The efficiency is computed with respect to offline photons
+satisfying ‘tight’ identification criteria and a ‘calorimeter-only tight’ isolation requirement. The ratios of data to MC
+simulation efficiencies are also shown. The total uncertainties, shown as vertical bars, are dominated by systematic
+uncertainties. Offline photon candidates in the calorimeter transition region 1.37 < |η| < 1.52 are not considered.
+For (b), only offline candidates with ET values 5 GeV above the corresponding trigger threshold are used.
+photons allow the collection of diphoton events with invariant masses low enough for good background
+modelling for resonances above 120 GeV, such as the Higgs boson [50, 51]. During 2015 and 2016
+‘loose’ identification was used at the HLT for primary diphoton triggers. During 2017–2018, ‘medium’
+identification was used in order to keep the primary diphoton trigger rate below 20 Hz at higher values
+of instantaneous luminosity, as shown in Figure 7(b). The rate of the primary diphoton triggers shows a
+linear dependence on the instantaneous luminosity. As shown in Table 6, diphoton triggers with ‘loose’
+identification were maintained at higher trigger ET thresholds (50 GeV).
+To measure the efficiency of primary diphoton triggers in data, photons from Z radiative decays are used.
+Trigger efficiencies for each of the legs of the diphoton trigger are measured separately and then combined
+19
+
+=== PDF PAGE 20 ===
+at the analysis level. This approach is used for all the multi-object and combined triggers. The efficiencies
+for the 25 GeV leg of the primary diphoton triggers in 2015–2018 are shown in Figure 9. Slightly lower
+efficiencies are observed in 2017–2018 due to the tightening of the online photon identification from the
+‘loose’ to ‘medium’ WP: it is ∼ 95% efficient for events with offline ‘tight’ isolated photons with ET at
+least 5 GeV above the trigger threshold. Trigger efficiencies show no significant dependence on η or hµi,
+remaining close to 100% during most of Run 2; the 2017 efficiency is the lowest of all years due to a
+different LHC bunch structure. The total uncertainties, shown as vertical bars, are dominated by statistical
+uncertainties. The ratios of efficiency measured in data to that in MC simulation are shown in Figure 9 as
+functions of ET, η and hµi, and are close to 1 in all cases, confirming good data/MC simulation agreement
+and validating the systematic uncertainty procedure for the BS method.
+25 30 35 40 45 50 55 60 65 70
+ [GeV] ET
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+Trigger Efficiency
+ATLAS pp data 2015-2018, s = 13 TeV
+Diphoton triggers
+2015
+2016
+2017
+2018
+25 30 35 40 45 50 55 60 65 70
+ [GeV] ET
+0.9
+0.95
+1
+1.05
+Data/MC
+(a)
+−2.5 −2 −1.5 −1 −0.5 0 0.5 1 1.5 2 2.5
+η
+0.86
+0.88
+0.9
+0.92
+0.94
+0.96
+0.98
+1
+1.02
+1.04
+Trigger Efficiency
+ATLAS pp data 2015-2018, s = 13 TeV
+Diphoton triggers
+2015 2016 2017 2018
+−2.5 −2 −1.5 −1 −0.5 0 0.5 1 1.5 2 2.5
+η
+0.95
+1
+Data/MC
+(b)
+10 20 30 40 50 60
+<µ>
+0.88
+0.9
+0.92
+0.94
+0.96
+0.98
+1
+1.02
+1.04
+Trigger Efficiency
+ATLAS
+Diphoton triggers
+pp data 2015-2018, s = 13 TeV
+2015 2016 2017 2018
+10 20 30 40 50 60
+<µ>
+0.9
+0.95
+1
+1.05
+1.1
+Data/MC
+(c)
+Figure 9: Efficiencies of the 25 GeV leg of primary diphoton triggers in 2015–2018 as a function of the offline photon
+(a) ET, (b) η and (c) hµi. The changes between years are detailed in Section 9.1. The ratios of data to MC simulation
+efficiencies are also shown. The efficiency is computed with respect to offline photons satisfying ‘tight’ identification
+criteria and a ‘calorimeter-only tight’ isolation requirement. Offline photon candidates in the calorimeter transition
+region 1.37 < |η| < 1.52 are not considered. For (b) and (c), only offline candidates with ET > 30 GeV are used.
+The error bars indicate statistical and systematic uncertainties combined in quadrature.
+20
+
+=== PDF PAGE 21 ===
+9.3 Tight diphoton triggers for searches for low-mass resonances
+Diphoton triggers with lower ET thresholds and tighter identification criteria are designed to collect events
+for beyond the Standard Model low-mass diphoton resonance searches [52]. These searches require the
+trigger ET thresholds to be kept symmetric and as low as possible. Run 2 trigger thresholds allow searches
+to reach diphoton invariant masses down to ∼60 GeV. These triggers are constrained by both the L1 and
+HLT rates. The L1_2EM15VH threshold was used in 2015–2016 and L1_2EM15VHI, which includes EM
+isolation at L1, was used in 2017–2018. The HLT rate for these triggers was about 16 Hz as shown in
+Figure 10. The HLT thresholds were kept at 20 GeV in 2015, and then were increased to 22 GeV as the
+peak luminosity rose above 1.2 × 1034 cm−2
+s
+−1
+in 2016. The use of the topo-cluster-based calorimeter
+isolation in the HLT allowed the thresholds to be lowered back to 20 GeV for the 2017–2018 data-taking
+period, despite the higher instantaneous luminosity and more challenging pile-up conditions.
+2 4 6 8 10 12 14 16 18 20
+ ] -1 s
+-2 cm
+33 Instantaneous Luminosity [10
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+Rate [Hz]
+ATLAS
+pp data 2015-2018
+s = 13 TeV
+Tight diphoton triggers
+2015
+2016
+2017
+2018
+Figure 10: The HLT output rate as a function of instantaneous luminosity for tight diphoton triggers in 2015–2018.
+The changes between years are detailed in Section 9.1.
+Figure 11 shows the low-mass diphoton trigger efficiencies as a function of ET, η and pile-up. The efficiency
+is computed with the Z radiative decay method for a single photon trigger leg of the diphoton trigger
+with respect to offline photons satisfying the tight identification criteria and the calorimeter-only tight
+isolation requirement. Slightly lower efficiency is observed for 2017 triggers due to a different LHC bunch
+structure as well as loosening of the offline tight photon selection, which was applied online only for the
+2018 data-taking period. Triggers in 2017–2018 also suffer from some inefficiency due to L1 isolation up
+to ∼50 GeV, as discussed in Section 8. The isolated trigger g20_tight_icalovloose_L1EM15VHI exhibits
+a degradation in efficiency of 4–5% when hµi rises from 20 to 60; this effect is visible in Figure 11(c).
+Above hµi ∼55, the trend to lower efficiency continues and the statistical uncertainty becomes large. The
+reoptimisation of the online tight identification selection criteria improved the efficiency of these triggers
+in 2018 relative to 2017 at hµi values above ∼40.
+10 Electron trigger evolution and performance in p p data-taking
+10.1 Evolution of electron triggers in Run 2
+The evolution of the Run 2 electron trigger thresholds and identification requirements for the main
+unprescaled triggers is summarised in Table 7.
+21
+
+=== PDF PAGE 22 ===
+20 30 40 50 60 70 80 90 100
+ [GeV] ET
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+Trigger Efficiency
+ATLAS
+Tight diphoton triggers
+pp data 2015-2018, s = 13 TeV
+2015
+2016
+2017
+2018
+20 30 40 50 60 70 80 90 100
+ [GeV] ET
+0.95
+1
+Data/MC
+(a)
+−2.5 −2 −1.5 −1 −0.5 0 0.5 1 1.5 2 2.5
+η
+0.85
+0.9
+0.95
+1
+1.05
+Trigger Efficiency
+ATLAS pp data 2015-2018, s = 13 TeV
+Tight diphoton triggers
+2015 2016 2017 2018
+−2.5 −2 −1.5 −1 −0.5 0 0.5 1 1.5 2 2.5
+η
+0.95
+1
+Data/MC
+(b)
+10 20 30 40 50 60
+<µ>
+0.8
+0.85
+0.9
+0.95
+1
+1.05
+1.1
+Trigger Efficiency
+ATLAS
+Tight diphoton triggers
+pp data 2015-2018, s = 13 TeV
+2015 2016 2017 2018
+10 20 30 40 50 60
+<µ>
+0.9
+0.95
+1
+1.05
+1.1
+Data/MC
+(c)
+Figure 11: Evolution of efficiencies for tight diphoton trigger legs as a function of the offline photon (a) ET, (b) η, and
+(c) hµi during Run 2. The changes between years are detailed in Section 9.1. The efficiency is computed with respect
+to offline photons satisfying tight identification criteria and the calorimeter-only tight isolation requirement. The ratios
+of data to MC simulation efficiencies are also shown. The total uncertainties, shown as vertical bars, are dominated
+by statistical uncertainties. Offline photon candidates in the calorimeter transition region 1.37 < |η| < 1.52 are not
+considered. For (b) and (c), only offline candidates with ET values 5 GeV above the corresponding trigger threshold
+are used.
+22
+
+=== PDF PAGE 23 ===
+Table 7: List of unprescaled electron triggers in different data-taking periods during Run 2. The corresponding L1
+trigger threshold is given in brackets. All single electron triggers start from the same L1 threshold. No L1 isolation is
+applied for ET >50 GeV.
+Trigger type 2015 2016 2017–2018
+Single electron
+e24_lhmedium (EM20VH) e26_lhtight_nod0_ivarloose (EM22VHI)
+e60_lhmedium_nod0
+e120_lhloose e140_lhloose_nod0
+e200_etcut e300_etcut
+Dielectron 2e12_lhloose 2e17_lhvloose_nod0 2e17_lhvloose_nod0 (2EM15VHI)
+(2EM10VH) (2EM15VH) 2e24_lhvloose_nod0 (2EM20VH)
+In addition to the threshold increases, there were also changes in the underlying electron configuration
+and selection requirements as summarised in Table 8. These changes are not always reflected in the
+trigger names. For example, the Ringer algorithm (described in Section 6.3.1) was introduced in 2017.
+The additional background rejection allowed looser fast electron and precision calorimeter selections. In
+particular, for the latter step, in 2015–2016 there was a selection which relied on a multivariate technique
+using a LH discriminant, constructed similarly to the standard offline precision selection one, but based
+only on calorimetric variables. This discriminant had ∼4% inefficiency relative to the offline selection.
+This inefficiency was removed in 2017–2018 by moving to a simpler requirement based only on ET.
+Table 8: Changes in the electron HLT configuration steps
+Step 2015 2016 2017 2018
+Fast calorimeter Cut-based Ringer for ET ≥ 15 GeV
+Reco and selection Tuned on 2016 data Tuned on 2017 data
+Fast electron track pT > 1 GeV, |∆η| < 0.2 track pT > 1 GeV, |∆η| < 0.3 for ET < 20 GeV
+Selection track pT > 2 GeV, |∆η| < 0.2 for ET ≥ 20 GeV
+Precision calorimeter LH calo-only selection ET requirement
+Precision LH Like offline Same as in 2015
+variables, without ∆p/p, without d0, |d0/σ(d0)|,
+binning in ET same ET < 45 GeV same full range
+Precision MC-only 2016 data for ET ≥ 15 GeV 2017 data
+LH inputs, MC for ET < 15 GeV (but ‘lhmedium’)
+tunes smoothing
+The 2015 and 2016 pdfs for the electron LH were derived from simulation samples described in Section 4.
+The pdfs for the trigger electrons with ET below (above) 15 GeV were determined with J/ψ → ee (Z → ee)
+MC samples, and corrected for differences between data and simulation [41]. The 2017 pdfs for electrons
+and background above 15 GeV were derived from data as detailed in Ref. [31]; pdf ‘smoothing’ was also
+introduced online for all triggers. The 2018 electron data-driven pdfs for all working points except the
+‘medium’ one were updated with 2017 data, maintaining the original selection criteria and optimising for
+higher pile-up conditions (hµi up to 100). The 2018 pdfs for electrons with ET below 15 GeV were also
+derived from data as detailed in Ref. [31].
+23
+
+=== PDF PAGE 24 ===
+10.2 Ringer algorithm performance
+In 2017, triggers collected data online simultaneously with and without use of the Ringer algorithm,
+allowing an evaluation of its performance. For Z → ee decays, no difference in efficiency is observed, as
+shown for two triggers in Figure 12. However, some special cases (such as events with merged electrons
+coming from decays of boosted dibosons) are found to suffer losses in efficiency as a result of using the
+Ringer algorithm, as is shown in Figure 13. The efficiency drops for ET > 400 GeV because the two
+clusters begin to overlap, but at very high ET the two clusters become so close that they behave as a single
+cluster and all triggers become efficient again. For the ET range above 300 GeV, a trigger with only an ET
+selection in the HLT, e300_etcut, is available.
+30 40 50 60 70 80 90 100
+ [GeV] ET
+0.65
+0.7
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+Trigger Efficiency
+ATLAS pp data 2017, s = 13 TeV
+e28_lhtight_nod0_ivarloose
+with Ringer algorithm
+with cut-based algorithm
+(a)
+−2 −1 0 1 2
+η
+0.6
+0.65
+0.7
+0.75
+0.8
+0.85
+0.9
+Trigger Efficiency
+ATLAS pp data 2017, s = 13 TeV
+e28_lhtight_nod0_ivarloose
+with Ringer algorithm
+with cut-based algorithm
+(b)
+20 25 30 35 40 45 50 55 60
+<µ>
+0.825
+0.83
+0.835
+0.84
+0.845
+0.85
+0.855
+0.86
+0.865
+0.87
+Trigger Efficiency
+ATLAS
+pp data 2017, s = 13 TeV
+e28_lhtight_nod0_ivarloose
+with Ringer algorithm
+with cut-based algorithm
+(c)
+Figure 12: The efficiency of electron triggers with the Ringer algorithm and with the cut-based algorithm as a function
+of the offline electron (a) ET, (b) η and (c) pile-up. Efficiency is given with respect to offline tight identification
+working point. For (b) and (c), only offline candidates with ET > 29 GeV are used.
+10.3 Single-electron triggers
+One of the main features of the Run 2 trigger menu is the presence of the unprescaled single-electron
+trigger ET threshold of 24 GeV for 2015 and 26 GeV for 2016–2018. This single-electron trigger ensures
+the collection of the majority of the events with leptonic W and Z boson decays, which are present in a
+wide range of measurements and searches in ATLAS. Although the threshold of this trigger is mainly
+24
+
+=== PDF PAGE 25 ===
+0 200 400 600 800 1000 1200 1400 1600
+ [GeV] ET
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+Trigger Efficiency
+ATLAS Simulation
+gg → radion (3 TeV) → VV → eeqq
+e300_etcut
+e140_lhloose_nod0_noRinger
+e140_lhloose_nod0
+(a)
+0.1 0.2 0.3 0.4 0.5 0.6
+∆R
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+Trigger Efficiency
+ATLAS Simulation
+gg → radion (3 TeV) → VV → eeqq
+e140_lhloose_nod0
+e140_lhloose_nod0_noRinger
+(b)
+Figure 13: The efficiency for electrons from gg → radion (3 TeV) → VV → eeqq as a function of (a) the offline
+electron ET and (b) ∆R between two electrons. Efficiency is given with respect to offline loose identification and the
+FCLoose isolation working point. For (b), only offline candidates with ET > 400 GeV are used.
+2 4 6 8 10 12 14 16 18 20
+ ] -1 s
+-2 cm
+33 Instantaneous Luminosity [10
+0
+20
+40
+60
+80
+100
+120
+140
+160
+180
+200
+220
+Rate [Hz]
+ATLAS
+pp data 2015-2018
+s = 13 TeV
+Lowest unprescaled
+single electron triggers
+2015
+2016
+2017
+2018
+Figure 14: Dependence of the trigger rate on the luminosity for the lowest-threshold unprescaled isolated single-electron
+triggers in 2015–2018. The changes between years are detailed in Section 10.1.
+constrained by the L1 bandwidth, as discussed in Section 8, the need for a low threshold and HLT rate
+places strong constraints on the tightness of the identification used by this trigger in the HLT. Relying on
+this trigger provides a simple and inclusive strategy, widely used in the ATLAS physics programme, at a
+cost of about 20% of the total L1 and HLT rate.
+Figure 14 shows the rates for the lowest-threshold unprescaled isolated single-electron triggers used during
+Run 2 as a function of the instantaneous luminosity. The LH selection (‘lhtight’) of the lowest-threshold
+unprescaled isolated single-electron trigger is tuned for a given rate, which remained unchanged in
+2016–2018.
+The electron trigger candidates originate from various processes, as shown in Figure 15. This shows
+the lowest-threshold unprescaled isolated single-electron trigger rate as a function of the HLT electron
+ET-threshold value, broken down by process. The total rate is measured in a data set collected at a constant
+instantaneous luminosity of 8 × 1033 cm−2
+s
+−1
+at √
+s = 13 TeV, while the individual contributions from W,
+Z and multijet production are estimated with MC simulation. The dominant uncertainty in the multijet rate
+is evaluated with a data-driven technique: the rate as a function of ET is obtained in a multijet-enriched
+region by inverting the HLT track-based electron isolation, and the bin-by-bin disagreement between data
+25
+
+=== PDF PAGE 26 ===
+threshold [GeV] T
+25 30 35 40 45 50 55 60 65 70 0
+20
+40
+60
+80
+100
+120
+ATLAS
+-1 s -2 cm 33 s = 13 TeV, 8×10
+HLT_e26_lhtight_nod0_ivarloose
+Rate [Hz]
+pp data 2016 
+W → eν
+Uncertainty
+Z → ee
+Multijet
+Trigger E
+Figure 15: The lowest-threshold unprescaled isolated single-electron trigger’s rate as a function of the threshold value
+for the trigger electron ET.
+and MC simulation is applied as a systematic uncertainty of the multijet process. The total expected rate
+is in agreement with the measured value for all the thresholds considered. Most of the rate comes from
+physics processes of interest such as W and Z production, while a significant but not dominant background
+comes from jets misidentified as electrons.
+2 4 6 8 10 12 14 16 18 20
+ ] -1 s
+-2 cm
+33 Instantaneous Luminosity [10
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+Rate [Hz]
+ATLAS
+pp data 2016-2018
+s = 13 TeV
+Single non-isolated
+electron triggers
+2016
+2017
+2018
+(a)
+2 4 6 8 10 12 14 16 18 20
+ ] -1 s
+-2 cm
+33 Instantaneous Luminosity [10
+0
+0.5
+1
+1.5
+2
+2.5
+Rate [Hz]
+ATLAS
+pp data 2015-2018
+s = 13 TeV
+Loose unprescaled
+single electron triggers
+2015
+2016
+2017
+2018
+(b)
+Figure 16: Dependence of the single-electron-trigger rates on the luminosity for (a) lowest-threshold unprescaled,
+non-isolated and (b) loose unprescaled single-electron triggers in 2015–2018. The changes between years are detailed
+in Section 10.1.
+At higher ET, additional triggers with no isolation requirements and looser identification are introduced.
+The rates for the lowest-threshold unprescaled, non-isolated triggers with a requirement of ET above 60 GeV
+and with ‘lhmedium’ identification are shown in Figure 16(a). The rates for the loose, unprescaled triggers
+with the ‘lhloose’ identification working point and ET above 120–140 GeV are shown in Figure 16(b).
+These higher-ET triggers have rate reductions of one and two orders of magnitude, respectively, compared
+26
+
+=== PDF PAGE 27 ===
+with the lowest-threshold unprescaled isolated single-electron trigger. The three single-electron triggers, the
+exact configuration for which is detailed in Table 7, are used simultaneously in a typical analysis selection,
+allowing an event to be selected if it passes any of them. This configuration is called the ‘single-electron
+trigger combination’. There is also a very high ET trigger, e300_etcut, running at a rate of up to 5 Hz at
+2 · 1034 cm−2
+s
+−1
+. This trigger allows the collection of an unbiased sample of events with very high energy
+deposits in the EM calorimeter, as discussed in Section 10.2.
+20 40 60 80 100 120 140
+ [GeV] ET
+0.7
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+Trigger Efficiency
+ATLAS
+pp data 2015-2018, s = 13 TeV
+Single electron trigger combination
+Offline tight, isolation FCTight
+2015
+2016
+2017
+2018
+20 40 60 80 100 120 140
+ [GeV] ET
+0.8
+0.9
+1
+Data/MC
+(a)
+−2 −1 0 1 2
+η
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+Trigger Efficiency
+ATLAS pp data 2015-2018, s = 13 TeV
+Single electron trigger combination
+Offline tight, isolation FCTight
+2015 2016 2017 2018
+−2 −1 0 1 2
+η
+0.9
+1
+Data/MC
+(b)
+Figure 17: Evolution of the single-electron trigger combination efficiency as a function of the offline electron (a) ET
+and (b) η during Run 2. The changes between years are detailed in Section 10.1. Efficiency is given with respect to
+offline tight identification and the FCTight isolation working point. The ratios of data to MC simulation efficiencies
+are also shown. The error bars indicate statistical and systematic uncertainties combined in quadrature. For (b), only
+offline candidates with ET values at least 1 GeV above the corresponding trigger threshold are used.
+The evolution of the single-electron trigger combination efficiency in 2015–2018 is shown in Figure 17.
+The offline electron is required to pass the tight identification and FCTight isolation requirements. The
+FCTight isolation requirement is chosen because it is the only one which has a more restrictive isolation
+configuration than is used online. The sharper efficiency turn-on as a function of ET in 2015 shown
+in Figure 17(a) is due to a looser identification requirement (‘lhmedium’ versus ‘lhtight’ from 2016), a
+lower ET threshold (24 GeV versus 26 GeV from 2016) and no isolation requirement. Although similar
+identification, isolation, and ET requirements are imposed in the single-electron triggers in 2016–2018,
+some inefficiency at ET < 60 GeV is observed in 2016. This is explained by the different electron trigger
+configuration used in 2016, in particular the inefficiency of the calorimeter-only LH selection at the
+precision step. In 2015–2016, triggers used simulation-based LH and were optimised relative to a different
+offline selection [41], which results in some inefficiency; however, from 2017 a data-driven likelihood
+selection and introduction of a looser fast selection with the Ringer algorithm recover the trigger efficiency
+at ET < 60 GeV. The main remaining sources of inefficiency are the L1 electromagnetic isolation
+requirements discussed in Section 8. As shown in Figure 17(b), the single-electron trigger combination
+efficiency is lower in the 1.37 < |η| < 1.52 and |η| > 2.37 regions, where a significant amount of inactive
+material is present. Further, detailed investigation into the sources of the inefficiency relative to the offline
+selection is discussed below.
+The MC simulation efficiency correction factors, defined in Section 7.2 and shown in the lower panels
+of Figure 17, are as large as 18% close to the trigger ET threshold and at most 4% above 40 GeV. Their
+η-dependence is fairly smooth for 2015 and 2017–2018, with typical values of less than 4% (11%) outside
+(inside) the |η| > 2.37 region. These efficiency correction factors are measured with a typical precision of
+27
+
+=== PDF PAGE 28 ===
+0.1%.
+Figure 18 shows the trigger efficiency dependence on pile-up. This was reduced towards the end of Run 2.
+The residual dependence is caused by the isolation requirements both in the HLT and at L1.
+10 20 30 40 50 60
+<µ>
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+Trigger Efficiency
+ATLAS pp data 2015-2018, s = 13 TeV
+Single electron trigger combination
+Offline tight, isolation FCTight
+2015 2016 2017 2018
+Figure 18: Evolution of the single-electron trigger combination efficiency as a function of the pile-up during Run 2,
+showing measurements in data only. The changes between years are detailed in Section 10.1. The efficiency is given
+with respect to offline tight identification and the FCTight isolation working point. Background subtraction is not
+applied, as the effect is expected to be negligible. Poorly populated bins are removed. Only offline candidates with
+ET values at least 1 GeV above the corresponding trigger threshold are used. The error bars indicate statistical and
+systematic uncertainties combined in quadrature.
+Sources of inefficiency for the e26_lhtight_nod0_ivarloose and e60_lhmedium_nod0 triggers relative to
+the offline reconstruction and the corresponding L1 requirements (EM22VHI) are shown in Table 9. The
+sources are broken down for each of the selection steps in the HLT. A description of the steps is provided in
+Section 6.3. The offline reconstructed electron is required to have ET > 27 (61) GeV and pass the ‘lhtight’
+identification. The inefficiencies are determined by the percentage of candidates that pass the offline
+identification, but fail the online identification at the indicated step, measured with a tag-and-probe method
+using Z → ee decays providing approximately 25 000 and 15 000 suitable probe electrons, respectively.
+The sizes of the contributions of the individual selection steps to the overall inefficiency depend on the ET
+of the electron and on the tightness of the selection requirements. The dominant source of inefficiency for
+the lowest-threshold unprescaled isolated trigger is the electron identification, while for the lowest-threshold
+unprescaled non-isolated trigger, the sources of inefficiency are more diverse. These inefficiencies are
+driven by differences between the online and offline reconstruction criteria described in Section 6.
+10.4 Dielectron triggers
+Dielectron triggers allow the use of electron ET thresholds at least 9 GeV below those of the single-electron
+triggers and looser identification and isolation requirements with only a very small increase in HLT rate.
+The major constraint for dielectron triggers comes from their L1 ET thresholds, while the corresponding
+HLT rates, shown in Figure 19, are of the order of 10 Hz, which allow triggers with a very loose selection
+in the HLT to be kept. The L1_2EM15VH threshold had to be increased to L1_2EM20VH due to rate
+considerations in 2017. An additional set of dielectron triggers which start from L1_2EM15VHI was
+introduced.
+The efficiencies of the dielectron triggers as a function of the offline electron ET shown in Figure 20(a) are
+calculated for a single electron trigger leg of the dielectron trigger. Thus for the 2015 dielectron trigger,
+28
+
+=== PDF PAGE 29 ===
+Table 9: Sources of inefficiency for the e26_lhtight_nod0_ivarloose and e60_lhmedium_nod0 triggers at each
+selection step in the HLT. Isolation requirements on the precision electron candidate may be applied: if the candidate
+fails the ‘Precision Electron selection’ but passes isolation, ‘Electron selection only’ is filled; if the candidate passes
+the precision electron selection buts fails isolation, ‘Isolation only’ is filled; if both fail, ‘Electron selection and
+isolation’ is filled. Data collected in October 2017 are used for this study.
+Inefficiency [%]
+Trigger e26_lhtight_nod0_ivarloose e60_lhmedium_nod0
+Fast step 0.72 ± 0.02 1.3 ± 0.1
+Precision steps:
+Calorimeter reconstruction and ET selection 0.11 ± 0.01 1.63 ± 0.11
+Track reconstruction and track–cluster matching 0.87 ± 0.02 0.67 ± 0.07
+Electron selection only 6.03 ± 0.05 2.60 ± 0.13
+Electron selection and isolation 0.26 ± 0.01 -
+Isolation only 0.75 ± 0.02 -
+Other 0.22 ± 0.01 0.18 ± 0.04
+Total 8.9 ± 0.1 6.38 ± 0.21
+2 4 6 8 10 12 14 16 18 20
+ ] -1 s
+-2 cm
+33 Instantaneous Luminosity [10
+0
+2
+4
+6
+8
+10
+12
+14
+Rate [Hz]
+ATLAS
+pp data 2015-2018
+s = 13 TeV
+Dielectron triggers
+L1 no-iso L1 iso
+2015
+2016
+2017
+2018
+2017
+2018
+Figure 19: Dependence of the dielectron trigger rates on the luminosity in 2015–2018. The changes between years
+are detailed in Section 10.1. Open markers represent L1 triggers with no EM isolation (L1 no-iso), while filled
+markers represent EM isolated L1 triggers (L1 iso).
+2e12_lhloose, the efficiency of e12_lhloose is shown. The dielectron trigger had a lower ET threshold
+in 2015, and a slightly tighter identification point (‘lhloose’ instead of ‘lhvloose’), which results in a
+different efficiency curve. The dielectron triggers with an ET threshold of 17 GeV have a lower efficiency
+in 2017 and 2018 than in previous years for ET below 60 GeV. This is due to the L1 seed, which has
+an electromagnetic isolation requirement. To recover the lost efficiency, a combination of a lower-ET
+trigger (isolated at L1) and a higher-ET trigger (with only the L1 hadronic veto applied) is typically used in
+ATLAS physics analyses. The η-dependence of the efficiencies of the dielectron trigger legs is shown in
+Figure 20(b). The efficiency shown is lower in the 1.37 < |η| < 1.52 and |η| > 2.37 regions, similar to the
+single-electron triggers. Outside these regions, efficiencies of dielectron triggers without L1 EM isolation
+are about 5% lower in the endcaps than in the barrel region, while those for triggers with L1 EM isolation
+29
+
+=== PDF PAGE 30 ===
+have at most 3% variations.
+20 40 60 80 100 120 140
+ [GeV] ET
+0.5
+0.55
+0.6
+0.65
+0.7
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+Trigger Efficiency
+ATLAS
+pp data 2015-2018, s = 13 TeV
+Offline loose, isolation FCLoose
+Dielectron triggers
+L1 non-iso L1 iso
+2015
+2016
+2017
+2018
+2017
+2018
+(a)
+−2 −1 0 1 2
+η
+0.65
+0.7
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+Trigger Efficiency
+ATLAS pp data 2015-2018, s = 13 TeV
+Offline loose, isolation
+FCLoose
+Dielectron triggers
+L1 non-iso L1 iso
+2015
+2016
+2017
+2018
+2017
+2018
+(b)
+Figure 20: Evolution of efficiencies for dielectron trigger legs as a function of the offline electron (a) ET and (b) η
+during Run 2, showing measurements in data only. The changes between years are detailed in Section 10.1. The
+efficiency is given with respect to the loose offline identification and the FCLoose isolation working point. For (b),
+only offline candidates with ET values 1 GeV above the corresponding trigger threshold are used. The error bars
+indicate statistical and systematic uncertainties combined in quadrature.
+Figure 21 shows the dielectron trigger efficiency as a function of pile-up. It decreases slightly with hµi for
+non-isolated L1 triggers, and has a much stronger hµi dependence (due to the L1 electromagnetic isolation
+requirement) for the isolated L1 triggers.
+10 20 30 40 50 60
+<µ>
+0.9
+0.92
+0.94
+0.96
+0.98
+1
+Trigger Efficiency
+ATLAS
+pp data 2015-2018
+s = 13 TeV
+Offline loose,
+isolation FCLoose
+Dielectron triggers
+L1 non-iso L1 iso
+2015
+2016
+2017
+2018
+2017
+2018
+Figure 21: Evolution of efficiencies for the dielectron trigger legs as a function of pile-up during Run 2, showing
+measurements in data only. The changes between years are detailed in Section 10.1. The efficiency is given with
+respect to the loose offline identification and the FCLoose isolation working point. No background subtraction is
+applied, as the effect is expected to be negligible. Poorly populated bins are removed. Only offline candidates with
+ET values at least 1 GeV above the corresponding trigger threshold are used. The error bars indicate statistical and
+systematic uncertainties combined in quadrature.
+The efficiency of the e24_lhvloose_nod0 trigger in 2018 with respect to various offline identification WPs
+is shown in Figure 22. The MC efficiency corrections for this trigger with very loose online selection
+reach up to 30% (10%) at low ET relative to loose and medium (tight) offline selections, but above 40 GeV
+they remain below 5%. The data–simulation discrepancies are mostly driven by the performance in the
+1.37 < |η| < 1.52 and |η| > 2.37 regions. The efficiency correction factors are measured with a typical
+precision of 0.1%.
+30
+
+=== PDF PAGE 31 ===
+40 60 80 100 120 140
+0.7
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+Trigger Efficiency
+ATLAS
+pp data 2018, s = 13 TeV
+ > 24 GeV, very loose
+T Trigger electron E
+offline loose
+offline medium
+offline tight
+40 60 80 100 120 140
+ [GeV] ET
+0.7
+0.8
+0.9
+1
+Data/MC
+(a)
+−2 −1 0 1 2
+η
+0.6
+0.65
+0.7
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+1.05
+Trigger Efficiency
+ATLAS pp data 2018, s = 13 TeV
+ > 24 GeV, very loose
+T Trigger electron E
+offline loose offline medium offline tight
+−2 −1 0 1 2
+η
+0.8
+0.9
+1
+Data/MC
+(b)
+Figure 22: Efficiencies of the e24_lhvloose_nod0 trigger as a function of the offline electron (a) ET and (b) η with
+respect to offline tight, medium, and loose identification, and no isolation requirements. The efficiencies are measured
+in data and shown with corresponding statistical and systematic uncertainties. The ratios of data to MC simulation
+are also shown. For (b), only offline candidates with ET >25 GeV are used.
+10.5 Other electron and combined triggers for physics
+Lower thresholds or looser identification criteria than those used in the single-electron and dielectron
+triggers described above can be used for ‘combined’ triggers which target specific final states with other
+physics objects (photons, muons, τ-leptons, jets, b-jets, missing transverse momentum, etc.) in addition
+to an electron. The lowest electron-ET threshold used in combined triggers is 7 GeV. The efficiency of
+the electron leg of this trigger, shown in Figure 23, is similar to that for the single-electron and dielectron
+triggers.
+20 40 60 80 100 120 140
+ [GeV] ET
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+Trigger Efficiency
+ATLAS
+pp data 2015-2018, s = 13 TeV
+ > 7 GeV, medium T Trigger electron E
+Offline tight, isolation FCTight
+2015
+2016
+2017
+2018
+20 40 60 80 100 120 140
+ [GeV] ET
+0.9
+0.95
+1
+Data/MC
+(a)
+−2 −1 0 1 2
+η
+0.7
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+1.05
+Trigger Efficiency
+ATLAS pp data 2015-2018, s = 13 TeV
+ > 7 GeV, medium T Trigger electron E
+Offline tight, isolation FCTight
+2015
+2016
+2017
+2018
+−2 −1 0 1 2
+η
+0.9
+0.95
+1
+1.05
+Data/MC
+(b)
+Figure 23: Evolution of efficiencies of triggers with a 7 GeV electron-ET threshold and ‘lhmedium’ identification as a
+function of the offline electron (a) ET and (b) η during Run 2. The changes between years are detailed in Section 10.1.
+The efficiency is given with respect to the offline tight identification criteria and the FCTight isolation working point.
+The ratios of data to MC simulation efficiencies are also shown. The error bars indicate statistical and systematic
+uncertainties combined in quadrature. For (b), only offline candidates with ET > 8 GeV are used.
+There are also dedicated triggers which allow events with unusual topologies to be collected. For example,
+for final states with two closely spaced electrons, standard triggers are not very efficient. This is shown in
+31
+
+=== PDF PAGE 32 ===
+Figure 24 for the Higgs boson Dalitz decay H → γ
+∗γ → eeγ. The efficiency is measured in a sample of
+simulated events with mee < 10 GeV, E
+γ
+T
+> 35 GeV and both electrons with ET > 15 GeV. A dedicated,
+cut-based electron identification WP, ‘mergedtight’, was introduced in 2017, allowing events with two
+collimated electrons to pass the trigger. As shown in Table 10, this new trigger recovers a significant fraction
+of events not recorded by the standard diphoton triggers (2g50_loose and g35_medium_g25_medium),
+especially in the regime of ∆R(ee) < 0.1. An additional requirement on the invariant mass of the photon
+and dielectron requiring compatibility with the Higgs boson mass is introduced to reduce the background
+rate, with negligible impact on the signal efficiency.
+Table 10: Trigger efficiency in a sample of simulated H → γ
+∗γ → eeγ events. The specially developed trigger is
+called ‘1 photon, 1 collimated electron pair’. The signal selection efficiency for the combination of three triggers is
+given in the ‘Combined efficiency’ line.
+Trigger Signal efficiency [%]
+2 loose photons, ET >50 GeV 41.3 ± 0.5
+2 medium photons, ET >35, 25 GeV 61.7 ± 0.5
+1 photon, 1 collimated electron pair, ET >35, 30 GeV 72.3 ± 0.4
+Combined efficiency 85.8 ± 0.3
+0 0.1 0.2 0.3
+ee ∆R
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+ Trigger Efficiency
+>50,50 GeV T HLT: 2 loose photons, E
+>35,25 GeV T HLT: 2 medium photons, E
+>35,30 GeV T HLT: 1 photon, 1 collimated electron pair, E
+Passes any of the three triggers below
+ATLAS Simulation
+Figure 24: Trigger efficiency in a sample of simulated H → γ
+∗γ → eeγ events. The specially developed trigger is
+called ‘1 photon, 1 collimated electron pair’. The error bars indicate statistical uncertainties only.
+10.6 Support electron triggers
+Samples of J/ψ → ee events for various performance measurements were collected with prescaled
+‘support’ dielectron triggers. These require electron ET thresholds in the range 4–14 GeV with one electron
+leg passing an ‘lhtight’ identification requirement and the other an ‘etcut’ requirement.
+There are also sets of single-electron prescaled triggers with either only an ET requirement in the HLT, or
+with ‘lhvloose’ identification at various ET thresholds. These have a rate of about 1 Hz each and are used
+for performance and background studies.
+Additionally, for each combined trigger electron leg there is a corresponding single electron trigger which
+is enabled only in ‘rerun’ mode to allow electron trigger efficiency measurements.
+32
+
+=== PDF PAGE 33 ===
+11 Electron and photon trigger performance in HI data-taking
+In the 2015 PbPb run, only cut-based ‘HI loose’ electron triggers were activated. The number of Z → ee
+candidates in the entire run was limited to about 4000, which limited the precision of the trigger efficiency
+evaluation.
+In the 2018 PbPb run, a factor of 3.5 more integrated luminosity was provided which resulted in a
+significant improvement in the number of Z → ee candidates for electron trigger performance studies.
+Two electron trigger sequences are activated for data-taking: a cut-based ‘loose_ion’ trigger with an
+ET = 20 GeV threshold, and an LH-based ‘lhloose_ion’ trigger with an ET > 15 GeV requirement. In
+the latter, the standard pp pdfs are evaluated using the UE-corrected variables. An advantage of the
+LH-based approach is a significant reduction in the output rate in comparison with the cut-based trigger
+at the same ET threshold. The LH trigger has significantly better purity at the cost of a moderate loss in
+trigger efficiency. Figure 25 shows the trigger efficiency as a function of FCal ΣET and offline electron ET
+for the ‘loose_ion’ and ‘lhloose_ion’ triggers with 20 and 15 GeV thresholds, respectively. The trigger
+efficiencies are evaluated using the tag-and-probe method on Z → ee candidate events. Probe electrons
+are required to pass a version of the loose LH identification optimised for PbPb collisions. The ‘loose_ion’
+trigger is slightly more efficient in the plateau region, which is reached at around 25 GeV in both cases.
+Both trigger sequences have a small (below 12%) collision-centrality dependence.
+0 0.5 1 1.5 2 2.5 3 3.5 4 4.5 5
+ [TeV] ET FCal Σ
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+1.05
+Trigger efficiency
+ > 20 GeV, loose
+T Trigger electron E
+ > 15 GeV, lhloose
+T Trigger electron E
+ATLAS
+-1 PbPb data 2018, 1.3 nb
+sNN = 5.02 TeV
+(a) 10 20 30 40 50 60 70 80 90 100
+ [GeV] ET
+0
+0.2
+0.4
+0.6
+0.8
+1
+Trigger Efficiency
+ > 20 GeV, loose
+T Trigger electron E
+ > 15 GeV, lhloose
+T Trigger electron E
+ATLAS
+-1 PbPb data 2018, 1.3 nb
+sNN = 5.02 TeV
+(b)
+Figure 25: HI electron trigger efficiency as a function of (a) FCal ΣET and (b) the offline electron ET. The efficiency
+is calculated with respect to the loose offline identification WP using offline monitoring tools described in Section 12.
+For (a), only offline candidates with ET >20 GeV are used. The error bars indicate statistical uncertainties only.
+The primary unprescaled photon trigger used in 2015 and 2018 PbPb data-taking had a 20 GeV ET
+threshold, and the photon candidate was required to satisfy loose identification criteria. Figure 26 shows
+the 2018 photon trigger efficiency using the BS method. The efficiency is shown in Figure 26(a) as a
+function of FCal ΣET, with and without UE subtraction applied in the online reconstruction. When the
+reconstruction is run without UE subtraction, i.e. in the same manner as done in pp collision data-taking,
+the efficiency shows a strong dependence on collision centrality. This is primarily due to a strong distortion
+of the shower shapes and subsequent inefficiency associated with the identification requirements. When
+the reconstruction is run with the UE subtraction procedure, the photon trigger efficiency remains high
+across the full range of centralities. In Figure 26(b), the (offline, calibrated) photon-ET dependence of
+33
+
+=== PDF PAGE 34 ===
+0 0.5 1 1.5 2 2.5 3 3.5 4 4.5 5
+ [TeV] T FCal Σ E
+0
+0.2
+0.4
+0.6
+0.8
+1
+Trigger Efficiency
+-1 PbPb data 2018, 0.67 nb
+sNN = 5.02 TeV
+UE subtracted UE unsubtracted
+ATLAS
+ > 20 GeV, loose
+T Trigger photon E
+(a)
+15 20 25 30 35
+ [GeV] ET
+0
+0.2
+0.4
+0.6
+0.8
+1
+Trigger Efficiency
+Trigger photon loose:
+ET
+ > 15 GeV
+ET
+ > 20 GeV
+-1 PbPb data 2018, 0.67 nb
+sNN = 5.02 TeV
+ATLAS
+(b)
+Figure 26: Photon trigger efficiencies as a function of (a) FCal ΣET and (b) offline photon ET. In (a), the closed
+(open) marker indicate data with (without) UE subtraction; only offline candidates with ET >20 GeV are used. In (b),
+UE subtraction is applied in both cases, with closed (open) markers indicating ET thresholds of 15 (20) GeV. The
+efficiencies are computed with respect to offline photons satisfying tight identification criteria using offline monitoring
+tools described in Section 12. Offline photon candidates in the calorimeter transition region 1.37 < |η| < 1.52 are
+not considered. The error bars indicate statistical uncertainties only.
+photon trigger efficiencies using UE subtraction is shown for photon triggers with 15 and 20 GeV ET
+thresholds. The efficiency is determined with respect to offline reconstructed photons which pass a tighter
+set of identification cuts, identical to those used in typical physics analyses. The HI photon triggers become
+fully efficient at about 5 GeV above the nominal online trigger threshold, similar to the photon triggers
+used for the pp data-taking.
+12 Monitoring and data quality
+During data-taking, the performance of the electron and photon triggers is monitored online while data are
+being collected, and offline, right after data are recorded.
+The online monitoring check is performed during the data-taking by shift personnel based in the ATLAS
+control room at CERN, located at ground level, 100 m above the ATLAS detector, in the Point 1 of the LHC
+ring. Observables related to electron and photon candidates at different stages of the HLT reconstruction are
+checked. These observables are defined in the reconstruction and hypothesis-testing algorithms executed
+online. Only a set of representative electron and photon triggers are monitored online. Monitoring of the
+full set of triggers would require a large fraction of the HLT farm’s computing power and is not necessary,
+as many of the electron and photon triggers share the same algorithms. In the fast reconstruction step, only
+the coverage in η–φ space and the distributions of ET are monitored for both the electrons and photons.
+Ringer algorithm variables, track positions, and distances between tracks and calorimeter clusters are
+monitored for electron triggers. In the precision step, in addition to those observables, the value of hµi at
+the HLT and some calorimeter shower shapes are monitored. For electrons, the distribution of the value of
+the likelihood discriminant is also monitored.
+34
+
+=== PDF PAGE 35 ===
+An ‘express stream’ is defined, containing a fraction of the collected data reconstructed with high priority
+for offline monitoring and data-quality purposes. It takes around one day for the ATLAS computing centre
+at CERN to calibrate and reconstruct data from the express stream. Once these data are available, offline
+monitoring of the performance and data quality for several electron and photon triggers is performed. The
+list of triggers that are monitored offline include versions of all primary triggers (single, isolated electron,
+single photon, dielectron, diphoton, tight diphoton), and supporting triggers (e.g. dedicated Z → ee and
+J/ψ → ee tag-and-probe triggers). All of the express stream triggers are highly prescaled; 3 Hz of the
+total 20 Hz express stream rate is reserved for the electron and photon trigger monitoring.
+Almost all of the variables used by the online algorithms are monitored offline, at L1 and in both the fast
+and precision HLT reconstruction steps. In addition to distributions of physics observables, the efficiencies
+of different triggers are computed and monitored. Figure 6 is an example of an efficiency plot produced
+with the monitoring tools. The offline monitoring is performed by an expert among the shift personnel,
+who compares the distributions of HLT physics observables and trigger performance with those from a
+reference set of data, selected in advance, for which the ATLAS detector is known to have good operational
+performance. There were no data-quality issues caused by electron and photon triggers in Run 2.
+13 Conclusion
+This paper describes the ATLAS electron and photon triggers and their evolution during Run 2. To cope
+with a fourfold increase of peak LHC luminosity in Run 2 (2015–2018), to 2.1×1034 cm−2
+s
+−1
+, and a similar
+increase in the number of interactions per beam-crossing, trigger algorithms and selections needed to
+be optimised to control the trigger rates while retaining a high efficiency for offline analyses. The main
+triggers for the proton–proton data-taking were a single-electron trigger with a transverse energy threshold
+of 26 GeV and a diphoton trigger with transverse energy thresholds of 25 and 35 GeV. The single-electron
+trigger efficiency relative to a single-electron offline selection is at least 75% for an offline electron of
+31 GeV, and rises to 96% at 60 GeV. The trigger efficiency of a 25 GeV leg of the primary diphoton
+trigger relative to a tight offline photon selection is more than 96% for an offline photon of 30 GeV. Trigger
+efficiencies are comparable in the heavy-ion runs, in which electron and photon trigger transverse energy
+thresholds were in the range 15–20 GeV.
+Acknowledgements
+We thank CERN for the very successful operation of the LHC, as well as the support staff from our
+institutions without whom ATLAS could not be operated efficiently.
+We acknowledge the support of ANPCyT, Argentina; YerPhI, Armenia; ARC, Australia; BMWFW
+and FWF, Austria; ANAS, Azerbaijan; SSTC, Belarus; CNPq and FAPESP, Brazil; NSERC, NRC and
+CFI, Canada; CERN; CONICYT, Chile; CAS, MOST and NSFC, China; COLCIENCIAS, Colombia;
+MSMT CR, MPO CR and VSC CR, Czech Republic; DNRF and DNSRC, Denmark; IN2P3-CNRS,
+CEA-DRF/IRFU, France; SRNSFG, Georgia; BMBF, HGF, and MPG, Germany; GSRT, Greece; RGC,
+Hong Kong SAR, China; ISF and Benoziyo Center, Israel; INFN, Italy; MEXT and JSPS, Japan; CNRST,
+Morocco; NWO, Netherlands; RCN, Norway; MNiSW and NCN, Poland; FCT, Portugal; MNE/IFA,
+Romania; MES of Russia and NRC KI, Russian Federation; JINR; MESTD, Serbia; MSSR, Slovakia;
+ARRS and MIZŠ, Slovenia; DST/NRF, South Africa; MINECO, Spain; SRC and Wallenberg Foundation,
+35
+
+=== PDF PAGE 36 ===
+Sweden; SERI, SNSF and Cantons of Bern and Geneva, Switzerland; MOST, Taiwan; TAEK, Turkey;
+STFC, United Kingdom; DOE and NSF, United States of America. In addition, individual groups and
+members have received support from BCKDF, CANARIE, CRC and Compute Canada, Canada; COST,
+ERC, ERDF, Horizon 2020, and Marie Skłodowska-Curie Actions, European Union; Investissements d’
+Avenir Labex and Idex, ANR, France; DFG and AvH Foundation, Germany; Herakleitos, Thales and
+Aristeia programmes co-financed by EU-ESF and the Greek NSRF, Greece; BSF-NSF and GIF, Israel;
+CERCA Programme Generalitat de Catalunya, Spain; The Royal Society and Leverhulme Trust, United
+Kingdom.
+The crucial computing support from all WLCG partners is acknowledged gratefully, in particular from
+CERN, the ATLAS Tier-1 facilities at TRIUMF (Canada), NDGF (Denmark, Norway, Sweden), CC-IN2P3
+(France), KIT/GridKA (Germany), INFN-CNAF (Italy), NL-T1 (Netherlands), PIC (Spain), ASGC
+(Taiwan), RAL (UK) and BNL (USA), the Tier-2 facilities worldwide and large non-WLCG resource
+providers. Major contributors of computing resources are listed in Ref. [53].
+References
+[1] ATLAS Collaboration, Performance of the ATLAS Trigger System in 2010, Eur. Phys. J. C 72
+(2012) 1849, arXiv: 1110.1530 [hep-ex].
+[2] ATLAS Collaboration, Performance of the ATLAS Electron and Photon Trigger in pp Collisions
+at √
+s = 7 TeV in 2011, ATLAS-CONF-2012-048, 2012, url: https://cds.cern.ch/record/
+1450089.
+[3] ATLAS Collaboration, Performance of the ATLAS trigger system in 2015, Eur. Phys. J. C 77
+(2017) 317, arXiv: 1611.09661 [hep-ex].
+[4] ATLAS Collaboration, The ATLAS Experiment at the CERN Large Hadron Collider, JINST 3 (2008)
+S08003.
+[5] ATLAS Collaboration, ATLAS Insertable B-Layer Technical Design Report, ATLAS-TDR-19,
+2010, url: https://cds.cern.ch/record/1291633, ATLAS Insertable B-Layer Technical
+Design Report Addendum, ATLAS-TDR-19-ADD-1, 2012, URL: https://cds.cern.ch/record/
+1451888.
+[6] B. Abbott et al., Production and integration of the ATLAS Insertable B-Layer, JINST 13 (2018)
+T05008, arXiv: 1803.00844 [physics.ins-det].
+[7] ATLAS Collaboration, Particle Identification Performance of the ATLAS Transition Radiation
+Tracker, ATLAS-CONF-2011-128, 2011, url: https://cds.cern.ch/record/1383793.
+[8] ATLAS Collaboration, Luminosity determination in pp collisions at √
+s = 13 TeV using the ATLAS
+detector at the LHC, ATLAS-CONF-2019-021, 2019, url: http://cds.cern.ch/record/
+2677054.
+[9] G. Avoni et al., The new LUCID-2 detector for luminosity measurement and monitoring in ATLAS,
+JINST 13 (2018) P07017.
+[10] P. Nason, A new method for combining NLO QCD with shower Monte Carlo algorithms, JHEP 11
+(2004) 040, arXiv: hep-ph/0409146.
+[11] S. Frixione, P. Nason and C. Oleari, Matching NLO QCD computations with parton shower
+simulations: the POWHEG method, JHEP 11 (2007) 070, arXiv: 0709.2092 [hep-ph].
+36
+
+=== PDF PAGE 37 ===
+[12] S. Alioli, P. Nason, C. Oleari and E. Re, A general framework for implementing NLO calculations
+in shower Monte Carlo programs: the POWHEG BOX, JHEP 06 (2010) 043, arXiv: 1002.2581
+[hep-ph].
+[13] S. Alioli, P. Nason, C. Oleari and E. Re, NLO vector-boson production matched with shower in
+POWHEG, JHEP 07 (2008) 060, arXiv: 0805.4802 [hep-ph].
+[14] T. Sjöstrand, S. Mrenna and P. Z. Skands, A brief introduction to PYTHIA 8.1, Comput. Phys.
+Commun. 178 (2008) 852, arXiv: 0710.3820 [hep-ph].
+[15] ATLAS Collaboration, Measurement of the Z/γ
+∗ boson transverse momentum distribution in
+pp collisions at √
+s = 7 TeV with the ATLAS detector, JHEP 09 (2014) 145, arXiv: 1406.3660
+[hep-ex].
+[16] H.-L. Lai et al., New parton distributions for collider physics, Phys. Rev. D 82 (2010) 074024, arXiv:
+1007.2241 [hep-ph].
+[17] J. Pumplin et al., New generation of parton distributions with uncertainties from global QCD
+analysis, JHEP 07 (2002) 012, arXiv: hep-ph/0201195.
+[18] P. Golonka and Z. Was, PHOTOS Monte Carlo: a precision tool for QED corrections in Z and W
+decays, Eur. Phys. J. C 45 (2006) 97, arXiv: hep-ph/0506026.
+[19] N. Davidson, T. Przedzinski and Z. Was, PHOTOS interface in C++: Technical and physics
+documentation, Comput. Phys. Commun. 199 (2016) 86, arXiv: 1011.0937 [hep-ph].
+[20] D. J. Lange, The EvtGen particle decay simulation package, Nucl. Instrum. Meth. A 462 (2001) 152.
+[21] ATLAS Collaboration, ATLAS Pythia 8 tunes to 7 TeV data, ATL-PHYS-PUB-2014-021, 2014, url:
+https://cds.cern.ch/record/1966419.
+[22] J. Alwall et al., The automated computation of tree-level and next-to-leading order differential cross
+sections, and their matching to parton shower simulations, JHEP 07 (2014) 079, arXiv: 1405.0301
+[hep-ph].
+[23] R. D. Ball et al., Parton distributions with LHC data, Nucl. Phys. B 867 (2013) 244, arXiv:
+1207.1303 [hep-ph].
+[24] T. Gleisberg, S. Höche, F. Krauss, M. Schönherr, S. Schumann et al., Event generation with SHERPA
+1.1, JHEP 02 (2009) 007, arXiv: 0811.4622 [hep-ph].
+[25] K. Hamilton, P. Nason, E. Re and G. Zanderighi, NNLOPS simulation of Higgs boson production,
+JHEP 10 (2013) 222, arXiv: 1309.0017 [hep-ph].
+[26] K. Hamilton, P. Nason and G. Zanderighi, Finite quark-mass effects in the NNLOPS POWHEG+MiNLO
+Higgs generator, JHEP 05 (2015) 140, arXiv: 1501.04637 [hep-ph].
+[27] J. Butterworth et al., PDF4LHC recommendations for LHC Run II, J. Phys. G 43 (2016) 023001,
+arXiv: 1510.03865 [hep-ph].
+[28] ATLAS Collaboration, The Pythia 8 A3 tune description of ATLAS minimum bias and inelastic
+measurements incorporating the Donnachie–Landshoff diffractive model, ATL-PHYS-PUB-2016-
+017, 2016, url: https://cds.cern.ch/record/2206965.
+[29] ATLAS Collaboration, The ATLAS Simulation Infrastructure, Eur. Phys. J. C 70 (2010) 823, arXiv:
+1005.4568 [physics.ins-det].
+[30] S. Agostinelli et al., GEANT4 – a simulation toolkit, Nucl. Instrum. Meth. A 506 (2003) 250.
+37
+
+=== PDF PAGE 38 ===
+[31] ATLAS Collaboration, Electron and photon performance measurements with the ATLAS detector
+using the 2015-2017 LHC proton–proton collision data, (2019), arXiv: 1908.0005 [hep-ex].
+[32] ATLAS Collaboration, Topological cell clustering in the ATLAS calorimeters and its performance
+in LHC Run 1, Eur. Phys. J. C 77 (2017) 490, arXiv: 1603.02934 [hep-ex].
+[33] ATLAS Collaboration, Improved electron reconstruction in ATLAS using the Gaussian Sum Filter￾based model for bremsstrahlung, ATLAS-CONF-2012-047, 2012, url: https://cds.cern.ch/
+record/1449796.
+[34] ATLAS Collaboration, Muon reconstruction performance of the ATLAS detector in proton–proton
+collision data at √
+s = 13 TeV, Eur. Phys. J. C 76 (2016) 292, arXiv: 1603.05598 [hep-ex].
+[35] M. Cacciari and G. P. Salam, Pileup subtraction using jet areas, Phys. Lett. B659 (2008) 119, arXiv:
+0707.1378 [hep-ph].
+[36] ATLAS Collaboration, Readiness of the ATLAS liquid argon calorimeter for LHC collisions, Eur.
+Phys. J. C 70 (2010) 723, arXiv: 0912.2642 [hep-ex].
+[37] ATLAS Collaboration, Trigger Menu in 2016, ATL-DAQ-PUB-2017-001, 2017, url: https:
+//cds.cern.ch/record/2242069.
+[38] ATLAS Collaboration, Electron and photon energy calibration with the ATLAS detector using
+2015–2016 LHC proton–proton collision data, JINST 14 (2019) P03017, arXiv: 1812.03848
+[hep-ex].
+[39] W. Lampl et al., Calorimeter Clustering Algorithms: Description and Performance, ATL-LARG￾PUB-2008-002, 2008, url: https://cds.cern.ch/record/1099735.
+[40] ATLAS Collaboration, Measurement of the photon identification efficiencies with the ATLAS detector
+using LHC Run 2 data collected in 2015 and 2016, Eur. Phys. J. C 79 (2019) 205, arXiv: 1810.05087
+[hep-ex].
+[41] ATLAS Collaboration, Electron reconstruction and identification in the ATLAS experiment using
+the 2015 and 2016 LHC proton–proton collision data at √
+s = 13 TeV, Eur. Phys. J. (2019), arXiv:
+1902.04655 [hep-ex].
+[42] J. Seixas, L. Caloba, M. Souza, A. Braga and A. Rodrigues, Neural second-level trigger system
+based on calorimetry, Comput. Phys. Commun. 95 (1996) 143.
+[43] S. Haykin, Neutral Networks and Learning Machines, Prentice Hall, 2008.
+[44] ATLAS Collaboration, Measurement of the azimuthal anisotropy of charged particles produced in
+√
+sNN = 5.02 TeV Pb+Pb collisions with the ATLAS detector, Eur. Phys. J. C 78 (2018) 997, arXiv:
+1808.03951 [hep-ex].
+[45] ATLAS Collaboration, Luminosity determination in pp collisions at √
+s = 8 TeV using the ATLAS
+detector at the LHC, Eur. Phys. J. C 76 (2016) 653, arXiv: 1608.03953 [hep-ex].
+[46] ATLAS Collaboration, Electron efficiency measurements with the ATLAS detector using 2012 LHC
+proton–proton collision data, Eur. Phys. J. C 77 (2017) 195, arXiv: 1612.01456 [hep-ex].
+[47] M. Tanabashi et al., Review of Particle Physics, Phys. Rev. D 98 (2018) 030001.
+[48] D. Casadei, Estimating the selection efficiency, JINST 7 (2012) P08021, arXiv: 0908 . 0130
+[physics.data-an].
+[49] A. Collaboration, Expected Performance of the ATLAS Experiment - Detector, Trigger and Physics,
+(2009), arXiv: 0901.0512 [hep-ex].
+38
+
+=== PDF PAGE 39 ===
+[50] ATLAS Collaboration, Observation of a new particle in the search for the Standard Model Higgs
+boson with the ATLAS detector at the LHC, Phys. Lett. B 716 (2012) 1, arXiv: 1207.7214 [hep-ex].
+[51] CMS Collaboration, Observation of a new boson at a mass of 125 GeV with the CMS experiment at
+the LHC, Phys. Lett. B 716 (2012) 30, arXiv: 1207.7235 [hep-ex].
+[52] ATLAS Collaboration, Search for Scalar Diphoton Resonances in the Mass Range 65–600 GeV with
+the ATLAS Detector in pp Collision Data at √
+s = 8 TeV, Phys. Rev. Lett. 113 (2014) 171801, arXiv:
+1407.6583 [hep-ex].
+[53] ATLAS Collaboration, ATLAS Computing Acknowledgements, ATL-GEN-PUB-2016-002, url:
+https://cds.cern.ch/record/2202407.
+39
+
+=== PDF PAGE 40 ===
+The ATLAS Collaboration
+G. Aad102, B. Abbott129, D.C. Abbott103, A. Abed Abud71a,71b, K. Abeling53, D.K. Abhayasinghe94
+,
+S.H. Abidi167, O.S. AbouZeid40, N.L. Abraham156, H. Abramowicz161, H. Abreu160, Y. Abulaiti6
+,
+B.S. Acharya67a,67b,n, B. Achkar53, S. Adachi163, L. Adam100, C. Adam Bourdarios5
+, L. Adamczyk84a
+,
+L. Adamek167, J. Adelman121, M. Adersberger114, A. Adiguzel12c, S. Adorni54, T. Adye144
+,
+A.A. Affolder146, Y. Afik160, C. Agapopoulou65, M.N. Agaras38, A. Aggarwal119, C. Agheorghiesei27c
+,
+J.A. Aguilar-Saavedra140f,140a,ag, F. Ahmadov80, W.S. Ahmed104, X. Ai18, G. Aielli74a,74b, S. Akatsuka86
+,
+T.P.A. Åkesson97, E. Akilli54, A.V. Akimov111, K. Al Khoury65, G.L. Alberghi23b,23a, J. Albert176
+,
+M.J. Alconada Verzini161, S. Alderweireldt36, M. Aleksa36, I.N. Aleksandrov80, C. Alexa27b
+,
+T. Alexopoulos10, A. Alfonsi120, F. Alfonsi23b,23a, M. Alhroob129, B. Ali142, M. Aliev166, G. Alimonti69a
+,
+S.P. Alkire148, C. Allaire65, B.M.M. Allbrooke156, B.W. Allen132, P.P. Allport21, A. Aloisio70a,70b
+,
+A. Alonso40, F. Alonso89, C. Alpigiani148, A.A. Alshehri57, M. Alvarez Estevez99, D. Álvarez Piqueras174
+,
+M.G. Alviggi70a,70b, Y. Amaral Coutinho81b, A. Ambler104, L. Ambroz135, C. Amelung26, D. Amidei106
+,
+S.P. Amor Dos Santos140a, S. Amoroso46, C.S. Amrouche54, F. An79, C. Anastopoulos149, N. Andari145
+,
+T. Andeen11, C.F. Anders61b, J.K. Anders20, A. Andreazza69a,69b, V. Andrei61a, C.R. Anelli176
+,
+S. Angelidakis38, A. Angerami39, A.V. Anisenkov122b,122a, A. Annovi72a, C. Antel54, M.T. Anthony149
+,
+E. Antipov130, M. Antonelli51, D.J.A. Antrim171, F. Anulli73a, M. Aoki82, J.A. Aparisi Pozo174
+,
+L. Aperio Bella15a, J.P. Araque140a, V. Araujo Ferraz81b, R. Araujo Pereira81b, C. Arcangeletti51
+,
+A.T.H. Arce49, F.A. Arduh89, J-F. Arguin110, S. Argyropoulos78, J.-H. Arling46, A.J. Armbruster36
+,
+A. Armstrong171, O. Arnaez167, H. Arnold120, Z.P. Arrubarrena Tame114, G. Artoni135, S. Artz100
+,
+S. Asai163, N. Asbah59, E.M. Asimakopoulou172, L. Asquith156, J. Assahsah35d, K. Assamagan29
+,
+R. Astalos28a, R.J. Atkin33a, M. Atkinson173, N.B. Atlay19, H. Atmani65, K. Augsten142, G. Avolio36
+,
+R. Avramidou60a, M.K. Ayoub15a, A.M. Azoulay168b, G. Azuelos110,at, H. Bachacou145, K. Bachas68a,68b
+,
+M. Backes135, F. Backman45a,45b, P. Bagnaia73a,73b, M. Bahmani85, H. Bahrasemani152, A.J. Bailey174
+,
+V.R. Bailey173, J.T. Baines144, M. Bajic40, C. Bakalis10, O.K. Baker183, P.J. Bakker120, D. Bakshi Gupta8
+,
+S. Balaji157, E.M. Baldin122b,122a, P. Balek180, F. Balli145, W.K. Balunas135, J. Balz100, E. Banas85
+,
+A. Bandyopadhyay24, Sw. Banerjee181,i, A.A.E. Bannoura182, L. Barak161, W.M. Barbe38
+,
+E.L. Barberio105, D. Barberis55b,55a, M. Barbero102, G. Barbour95, T. Barillari115, M-S. Barisits36
+,
+J. Barkeloo132, T. Barklow153, R. Barnea160, S.L. Barnes60c, B.M. Barnett144, R.M. Barnett18
+,
+Z. Barnovska-Blenessy60a, A. Baroncelli60a, G. Barone29, A.J. Barr135, L. Barranco Navarro45a,45b
+,
+F. Barreiro99, J. Barreiro Guimarães da Costa15a, S. Barsov138, R. Bartoldus153, G. Bartolini102
+,
+A.E. Barton90, P. Bartos28a, A. Basalaev46, A. Basan100, A. Bassalat65,an, M.J. Basso167, R.L. Bates57
+,
+S. Batlamous35e, J.R. Batley32, B. Batool151, M. Battaglia146, M. Bauce73a,73b, F. Bauer145, K.T. Bauer171
+,
+H.S. Bawa31,l, J.B. Beacham49, T. Beau136, P.H. Beauchemin170, F. Becherer52, P. Bechtle24, H.C. Beck53
+,
+H.P. Beck20,r, K. Becker52, M. Becker100, C. Becot46, A. Beddall12d, A.J. Beddall12a, V.A. Bednyakov80
+,
+M. Bedognetti120, C.P. Bee155, T.A. Beermann182, M. Begalli81b, M. Begel29, A. Behera155, J.K. Behr46
+,
+F. Beisiegel24, A.S. Bell95, G. Bella161, L. Bellagamba23b, A. Bellerive34, P. Bellos9
+,
+K. Beloborodov122b,122a, K. Belotskiy112, N.L. Belyaev112, D. Benchekroun35a, N. Benekos10
+,
+Y. Benhammou161, D.P. Benjamin6
+, M. Benoit54, J.R. Bensinger26, S. Bentvelsen120, L. Beresford135
+,
+M. Beretta51, D. Berge46, E. Bergeaas Kuutmann172, N. Berger5
+, B. Bergmann142, L.J. Bergsten26
+,
+J. Beringer18, S. Berlendis7
+, G. Bernardi136, C. Bernius153, F.U. Bernlochner24, T. Berry94, P. Berta100
+,
+C. Bertella15a, I.A. Bertram90, O. Bessidskaia Bylund182, N. Besson145, A. Bethani101, S. Bethke115
+,
+A. Betti42, A.J. Bevan93, J. Beyer115, D.S. Bhattacharya177, P. Bhattarai26, R. Bi139, R.M. Bianchi139
+,
+O. Biebel114, D. Biedermann19, R. Bielski36, K. Bierwagen100, N.V. Biesuz72a,72b, M. Biglietti75a
+,
+T.R.V. Billoud110, M. Bindi53, A. Bingul12d, C. Bini73a,73b, S. Biondi23b,23a, M. Birman180, T. Bisanz53
+,
+40
+
+=== PDF PAGE 41 ===
+J.P. Biswal161, D. Biswas181,i, A. Bitadze101, C. Bittrich48, K. Bjørke134, K.M. Black25, T. Blazek28a
+,
+I. Bloch46, C. Blocker26, A. Blue57, U. Blumenschein93, G.J. Bobbink120, V.S. Bobrovnikov122b,122a
+,
+S.S. Bocchetta97, A. Bocci49, D. Boerner46, D. Bogavac14, A.G. Bogdanchikov122b,122a, C. Bohm45a
+,
+V. Boisvert94, P. Bokan53,172, T. Bold84a, A.S. Boldyrev113, A.E. Bolz61b, M. Bomben136, M. Bona93
+,
+J.S. Bonilla132, M. Boonekamp145, C.D. Booth94, H.M. Borecka-Bielska91, A. Borisov123, G. Borissov90
+,
+J. Bortfeldt36, D. Bortoletto135, D. Boscherini23b, M. Bosman14, J.D. Bossio Sola104, K. Bouaouda35a
+,
+J. Boudreau139, E.V. Bouhova-Thacker90, D. Boumediene38, S.K. Boutle57, A. Boveia127, J. Boyd36
+,
+D. Boye33b,ao, I.R. Boyko80, A.J. Bozson94, J. Bracinik21, N. Brahimi102, G. Brandt182, O. Brandt32
+,
+F. Braren46, B. Brau103, J.E. Brau132, W.D. Breaden Madden57, K. Brendlinger46, L. Brenner46
+,
+R. Brenner172, S. Bressler180, B. Brickwedde100, D.L. Briglin21, D. Britton57, D. Britzger115, I. Brock24
+,
+R. Brock107, G. Brooijmans39, W.K. Brooks147c, E. Brost121, J.H Broughton21
+,
+P.A. Bruckman de Renstrom85, D. Bruncko28b, A. Bruni23b, G. Bruni23b, L.S. Bruni120, S. Bruno74a,74b
+,
+M. Bruschi23b, N. Bruscino73a,73b, P. Bryant37, L. Bryngemark97, T. Buanes17, Q. Buat36, P. Buchholz151
+,
+A.G. Buckley57, I.A. Budagov80, M.K. Bugge134, F. Bührer52, O. Bulekov112, T.J. Burch121, S. Burdin91
+,
+C.D. Burgard120, A.M. Burger130, B. Burghgrave8
+, J.T.P. Burr46, C.D. Burton11, J.C. Burzynski103
+,
+V. Büscher100, E. Buschmann53, P.J. Bussey57, J.M. Butler25, C.M. Buttar57, J.M. Butterworth95, P. Butti36
+,
+W. Buttinger36, C.J. Buxo Vazquez107, A. Buzatu158, A.R. Buzykaev122b,122a, G. Cabras23b,23a
+,
+S. Cabrera Urbán174, D. Caforio56, H. Cai173, V.M.M. Cairo153, O. Cakir4a, N. Calace36, P. Calafiura18
+,
+A. Calandri102, G. Calderini136, P. Calfayan66, G. Callea57, L.P. Caloba81b, A. Caltabiano74a,74b
+,
+S. Calvente Lopez99, D. Calvet38, S. Calvet38, T.P. Calvet155, M. Calvetti72a,72b, R. Camacho Toro136
+,
+S. Camarda36, D. Camarero Munoz99, P. Camarri74a,74b, D. Cameron134, R. Caminal Armadans103
+,
+C. Camincher36, S. Campana36, M. Campanelli95, A. Camplani40, A. Campoverde151, V. Canale70a,70b
+,
+A. Canesse104, M. Cano Bret60c, J. Cantero130, T. Cao161, Y. Cao173, M.D.M. Capeans Garrido36
+,
+M. Capua41b,41a, R. Cardarelli74a, F. Cardillo149, G. Carducci41b,41a, I. Carli143, T. Carli36, G. Carlino70a
+,
+B.T. Carlson139, L. Carminati69a,69b, R.M.D. Carney45a,45b, S. Caron119, E. Carquin147c, S. Carrá46
+,
+J.W.S. Carter167, M.P. Casado14,e, A.F. Casha167, D.W. Casper171, R. Castelijn120, F.L. Castillo174
+,
+V. Castillo Gimenez174, N.F. Castro140a,140e, A. Catinaccio36, J.R. Catmore134, A. Cattai36, V. Cavaliere29
+,
+E. Cavallaro14, M. Cavalli-Sforza14, V. Cavasinni72a,72b, E. Celebi12b, F. Ceradini75a,75b
+,
+L. Cerda Alberich174, K. Cerny131, A.S. Cerqueira81a, A. Cerri156, L. Cerrito74a,74b, F. Cerutti18
+,
+A. Cervelli23b,23a, S.A. Cetin12b, Z. Chadi35a, D. Chakraborty121, W.S. Chan120, W.Y. Chan91
+,
+J.D. Chapman32, B. Chargeishvili159b, D.G. Charlton21, T.P. Charman93, C.C. Chau34, S. Che127
+,
+S. Chekanov6
+, S.V. Chekulaev168a, G.A. Chelkov80,as, M.A. Chelstowska36, B. Chen79, C. Chen60a
+,
+C.H. Chen79, H. Chen29, J. Chen60a, J. Chen39, S. Chen137, S.J. Chen15c, X. Chen15b, Y-H. Chen46
+,
+H.C. Cheng63a, H.J. Cheng15a, A. Cheplakov80, E. Cheremushkina123, R. Cherkaoui El Moursli35e
+,
+E. Cheu7
+, K. Cheung64, T.J.A. Chevalérias145, L. Chevalier145, V. Chiarella51, G. Chiarelli72a
+,
+G. Chiodini68a, A.S. Chisholm21, A. Chitan27b, I. Chiu163, Y.H. Chiu176, M.V. Chizhov80, K. Choi66
+,
+A.R. Chomont73a,73b, S. Chouridou162, Y.S. Chow120, M.C. Chu63a, X. Chu15a,15d, J. Chudoba141
+,
+A.J. Chuinard104, J.J. Chwastowski85, L. Chytka131, D. Cieri115, K.M. Ciesla85, D. Cinca47, V. Cindro92
+,
+I.A. Cioară27b, A. Ciocio18, F. Cirotto70a,70b, Z.H. Citron180,j, M. Citterio69a, D.A. Ciubotaru27b
+,
+B.M. Ciungu167, A. Clark54, M.R. Clark39, P.J. Clark50, C. Clement45a,45b, Y. Coadou102, M. Cobal67a,67c
+,
+A. Coccaro55b, J. Cochran79, H. Cohen161, A.E.C. Coimbra36, L. Colasurdo119, B. Cole39, A.P. Colijn120
+,
+J. Collot58, P. Conde Muiño140a,140h, S.H. Connell33b, I.A. Connelly57, S. Constantinescu27b
+,
+F. Conventi70a,au, A.M. Cooper-Sarkar135, F. Cormier175, K.J.R. Cormier167, L.D. Corpe95
+,
+M. Corradi73a,73b, E.E. Corrigan97, F. Corriveau104,ae, A. Cortes-Gonzalez36, M.J. Costa174, F. Costanza5
+,
+D. Costanzo149, G. Cowan94, J.W. Cowley32, J. Crane101, K. Cranmer125, S.J. Crawley57, R.A. Creager137
+,
+S. Crépé-Renaudin58, F. Crescioli136, M. Cristinziani24, V. Croft120, G. Crosetti41b,41a, A. Cueto5
+,
+T. Cuhadar Donszelmann149, A.R. Cukierman153, W.R. Cunningham57, S. Czekierda85, P. Czodrowski36
+,
+41
+
+=== PDF PAGE 42 ===
+M.J. Da Cunha Sargedas De Sousa60b, J.V. Da Fonseca Pinto81b, C. Da Via101, W. Dabrowski84a
+,
+F. Dachs36, T. Dado28a, S. Dahbi35e, T. Dai106, C. Dallapiccola103, M. Dam40, G. D’amen29
+,
+V. D’Amico75a,75b, J. Damp100, J.R. Dandoy137, M.F. Daneri30, N.P. Dang181,i, N.S. Dann101
+,
+M. Danninger175, V. Dao36, G. Darbo55b, O. Dartsi5
+, A. Dattagupta132, T. Daubney46, S. D’Auria69a,69b
+,
+C. David46, T. Davidek143, D.R. Davis49, I. Dawson149, K. De8
+, R. De Asmundis70a, M. De Beurs120
+,
+S. De Castro23b,23a, S. De Cecco73a,73b, N. De Groot119, P. de Jong120, H. De la Torre107, A. De Maria15c
+,
+D. De Pedis73a, A. De Salvo73a, U. De Sanctis74a,74b, M. De Santis74a,74b, A. De Santo156
+,
+K. De Vasconcelos Corga102, J.B. De Vivie De Regie65, C. Debenedetti146, D.V. Dedovich80
+,
+A.M. Deiana42, J. Del Peso99, Y. Delabat Diaz46, D. Delgove65, F. Deliot145,q, C.M. Delitzsch7
+,
+M. Della Pietra70a,70b, D. Della Volpe54, A. Dell’Acqua36, L. Dell’Asta74a,74b, M. Delmastro5
+,
+C. Delporte65, P.A. Delsart58, D.A. DeMarco167, S. Demers183, M. Demichev80, G. Demontigny110
+,
+S.P. Denisov123, L. D’Eramo136, D. Derendarz85, J.E. Derkaoui35d, F. Derue136, P. Dervan91, K. Desch24
+,
+C. Deterre46, K. Dette167, C. Deutsch24, M.R. Devesa30, P.O. Deviveiros36, A. Dewhurst144
+,
+F.A. Di Bello54, A. Di Ciaccio74a,74b, L. Di Ciaccio5
+, W.K. Di Clemente137, C. Di Donato70a,70b
+,
+A. Di Girolamo36, G. Di Gregorio72a,72b, B. Di Micco75a,75b, R. Di Nardo103, K.F. Di Petrillo59
+,
+R. Di Sipio167, D. Di Valentino34, C. Diaconu102, F.A. Dias40, T. Dias Do Vale140a, M.A. Diaz147a
+,
+J. Dickinson18, E.B. Diehl106, J. Dietrich19, S. Díez Cornell46, A. Dimitrievska18, W. Ding15b
+,
+J. Dingfelder24, F. Dittus36, F. Djama102, T. Djobava159b, J.I. Djuvsland17, M.A.B. Do Vale81c
+,
+M. Dobre27b, D. Dodsworth26, C. Doglioni97, J. Dolejsi143, Z. Dolezal143, M. Donadelli81d, B. Dong60c
+,
+J. Donini38, A. D’onofrio93, M. D’Onofrio91, J. Dopke144, A. Doria70a, M.T. Dova89, A.T. Doyle57
+,
+E. Drechsler152, E. Dreyer152, T. Dreyer53, A.S. Drobac170, D. Du60b, Y. Duan60b, F. Dubinin111
+,
+M. Dubovsky28a, A. Dubreuil54, E. Duchovni180, G. Duckeck114, A. Ducourthial136, O.A. Ducu110
+,
+D. Duda115, A. Dudarev36, A.C. Dudder100, E.M. Duffield18, L. Duflot65, M. Dührssen36, C. Dülsen182
+,
+M. Dumancic180, A.E. Dumitriu27b, A.K. Duncan57, M. Dunford61a, A. Duperrin102, H. Duran Yildiz4a
+,
+M. Düren56, A. Durglishvili159b, D. Duschinger48, B. Dutta46, D. Duvnjak1
+, G.I. Dyckes137, M. Dyndal36
+,
+S. Dysch101, B.S. Dziedzic85, K.M. Ecker115, R.C. Edgar106, M.G. Eggleston49, T. Eifert36, G. Eigen17
+,
+K. Einsweiler18, T. Ekelof172, H. El Jarrari35e, M. El Kacimi35c, R. El Kosseifi102, V. Ellajosyula172
+,
+M. Ellert172, F. Ellinghaus182, A.A. Elliot93, N. Ellis36, J. Elmsheuser29, M. Elsing36, D. Emeliyanov144
+,
+A. Emerman39, Y. Enari163, M.B. Epland49, J. Erdmann47, A. Ereditato20, M. Errenst36, M. Escalier65
+,
+C. Escobar174, O. Estrada Pastor174, E. Etzion161, H. Evans66, A. Ezhilov138, F. Fabbri57, L. Fabbri23b,23a
+,
+V. Fabiani119, G. Facini95, R.M. Faisca Rodrigues Pereira140a, R.M. Fakhrutdinov123, S. Falciano73a
+,
+P.J. Falke5
+, S. Falke5
+, J. Faltova143, Y. Fang15a, Y. Fang15a, G. Fanourakis44, M. Fanti69a,69b
+,
+M. Faraj67a,67c,t, A. Farbin8
+, A. Farilla75a, E.M. Farina71a,71b, T. Farooque107, S. Farrell18
+,
+S.M. Farrington50, P. Farthouat36, F. Fassi35e, P. Fassnacht36, D. Fassouliotis9
+, M. Faucci Giannelli50
+,
+W.J. Fawcett32, L. Fayard65, O.L. Fedin138,o, W. Fedorko175, A. Fehr20, M. Feickert42, L. Feligioni102
+,
+A. Fell149, C. Feng60b, M. Feng49, M.J. Fenton57, A.B. Fenyuk123, S.W. Ferguson43, J. Ferrando46
+,
+A. Ferrante173, A. Ferrari172, P. Ferrari120, R. Ferrari71a, D.E. Ferreira de Lima61b, A. Ferrer174
+,
+D. Ferrere54, C. Ferretti106, F. Fiedler100, A. Filipčič92, F. Filthaut119, K.D. Finelli25
+,
+M.C.N. Fiolhais140a,140c,a, L. Fiorini174, F. Fischer114, W.C. Fisher107, I. Fleck151, P. Fleischmann106
+,
+R.R.M. Fletcher137, T. Flick182, B.M. Flierl114, L. Flores137, L.R. Flores Castillo63a, F.M. Follega76a,76b
+,
+N. Fomin17, J.H. Foo167, G.T. Forcolin76a,76b, A. Formica145, F.A. Förster14, A.C. Forti101, A.G. Foster21
+,
+M.G. Foti135, D. Fournier65, H. Fox90, P. Francavilla72a,72b, S. Francescato73a,73b, M. Franchini23b,23a
+,
+S. Franchino61a, D. Francis36, L. Franconi20, M. Franklin59, A.N. Fray93, P.M. Freeman21, B. Freund110
+,
+W.S. Freund81b, E.M. Freundlich47, D.C. Frizzell129, D. Froidevaux36, J.A. Frost135, C. Fukunaga164
+,
+E. Fullana Torregrosa174, E. Fumagalli55b,55a, T. Fusayasu116, J. Fuster174, A. Gabrielli23b,23a
+,
+A. Gabrielli18, S. Gadatsch54, P. Gadow115, G. Gagliardi55b,55a, L.G. Gagnon110, C. Galea27b
+,
+B. Galhardo140a, G.E. Gallardo135, E.J. Gallas135, B.J. Gallop144, G. Galster40, R. Gamboa Goni93
+,
+42
+
+=== PDF PAGE 43 ===
+K.K. Gan127, S. Ganguly180, J. Gao60a, Y. Gao50, Y.S. Gao31,l, C. García174, J.E. García Navarro174
+,
+J.A. García Pascual15a, C. Garcia-Argos52, M. Garcia-Sciveres18, R.W. Gardner37, N. Garelli153
+,
+S. Gargiulo52, V. Garonne134, P. Gaspar81b, A. Gaudiello55b,55a, G. Gaudio71a, I.L. Gavrilenko111
+,
+A. Gavrilyuk124, C. Gay175, G. Gaycken46, E.N. Gazis10, A.A. Geanta27b, C.M. Gee146, C.N.P. Gee144
+,
+J. Geisen53, M. Geisen100, C. Gemme55b, M.H. Genest58, C. Geng106, S. Gentile73a,73b, S. George94
+,
+T. Geralis44, L.O. Gerlach53, P. Gessinger-Befurt100, G. Gessner47, S. Ghasemi151
+,
+M. Ghasemi Bostanabad176, M. Ghneimat151, A. Ghosh65, A. Ghosh78, B. Giacobbe23b, S. Giagu73a,73b
+,
+N. Giangiacomi23b,23a, P. Giannetti72a, A. Giannini70a,70b, G. Giannini14, S.M. Gibson94, M. Gignac146
+,
+D. Gillberg34, G. Gilles182, D.M. Gingrich3,at, M.P. Giordani67a,67c, F.M. Giorgi23b, P.F. Giraud145
+,
+G. Giugliarelli67a,67c, D. Giugni69a, F. Giuli74a,74b, S. Gkaitatzis162, I. Gkialas9,g, E.L. Gkougkousis14
+,
+P. Gkountoumis10, L.K. Gladilin113, C. Glasman99, J. Glatzer14, P.C.F. Glaysher46, A. Glazov46
+,
+G.R. Gledhill132, M. Goblirsch-Kolb26, D. Godin110, S. Goldfarb105, T. Golling54, D. Golubkov123
+,
+A. Gomes140a,140b, R. Goncalves Gama53, R. Gonçalo140a, G. Gonella52, L. Gonella21, A. Gongadze80
+,
+F. Gonnella21, J.L. Gonski39, S. González de la Hoz174, S. Gonzalez-Sevilla54
+,
+G.R. Gonzalvo Rodriguez174, L. Goossens36, N.A. Gorasia21, P.A. Gorbounov124, H.A. Gordon29
+,
+B. Gorini36, E. Gorini68a,68b, A. Gorišek92, A.T. Goshaw49, M.I. Gostkin80, C.A. Gottardo119
+,
+M. Gouighri35b, D. Goujdami35c, A.G. Goussiou148, N. Govender33b, C. Goy5
+, E. Gozani160
+,
+I. Grabowska-Bold84a, E.C. Graham91, J. Gramling171, E. Gramstad134, S. Grancagnolo19, M. Grandi156
+,
+V. Gratchev138, P.M. Gravila27f, F.G. Gravili68a,68b, C. Gray57, H.M. Gray18, C. Grefe24, K. Gregersen97
+,
+I.M. Gregor46, P. Grenier153, K. Grevtsov46, C. Grieco14, N.A. Grieser129, A.A. Grillo146, K. Grimm31,k
+,
+S. Grinstein14,z, J.-F. Grivaz65, S. Groh100, E. Gross180, J. Grosse-Knetter53, Z.J. Grout95, C. Grud106
+,
+A. Grummer118, L. Guan106, W. Guan181, C. Gubbels175, J. Guenther36, A. Guerguichon65
+,
+J.G.R. Guerrero Rojas174, F. Guescini115, D. Guest171, R. Gugel52, T. Guillemin5
+, S. Guindon36, U. Gul57
+,
+J. Guo60c, W. Guo106, Y. Guo60a,s, Z. Guo102, R. Gupta46, S. Gurbuz12c, G. Gustavino129, M. Guth52
+,
+P. Gutierrez129, C. Gutschow95, C. Guyot145, C. Gwenlan135, C.B. Gwilliam91, A. Haas125, C. Haber18
+,
+H.K. Hadavand8
+, N. Haddad35e, A. Hadef60a, S. Hageböck36, M. Haleem177, J. Haley130, G. Halladjian107
+,
+G.D. Hallewell102, K. Hamacher182, P. Hamal131, K. Hamano176, H. Hamdaoui35e, M. Hamer24
+,
+G.N. Hamity149, K. Han60a,y, L. Han60a, S. Han15a, Y.F. Han167, K. Hanagaki82,w, M. Hance146
+,
+D.M. Handl114, B. Haney137, R. Hankache136, E. Hansen97, J.B. Hansen40, J.D. Hansen40, M.C. Hansen24
+,
+P.H. Hansen40, E.C. Hanson101, K. Hara169, T. Harenberg182, S. Harkusha108, P.F. Harrison178
+,
+N.M. Hartmann114, Y. Hasegawa150, A. Hasib50, S. Hassani145, S. Haug20, R. Hauser107, L.B. Havener39
+,
+M. Havranek142, C.M. Hawkes21, R.J. Hawkings36, D. Hayden107, C. Hayes155, R.L. Hayes175
+,
+C.P. Hays135, J.M. Hays93, H.S. Hayward91, S.J. Haywood144, F. He60a, M.P. Heath50, V. Hedberg97
+,
+L. Heelan8
+, S. Heer24, K.K. Heidegger52, W.D. Heidorn79, J. Heilman34, S. Heim46, T. Heim18
+,
+B. Heinemann46,ap, J.J. Heinrich132, L. Heinrich36, J. Hejbal141, L. Helary61b, A. Held175, S. Hellesund134
+,
+C.M. Helling146, S. Hellman45a,45b, C. Helsens36, R.C.W. Henderson90, Y. Heng181, L. Henkelmann61a
+,
+S. Henkelmann175, A.M. Henriques Correia36, G.H. Herbert19, H. Herde26, V. Herget177
+,
+Y. Hernández Jiménez33d, H. Herr100, M.G. Herrmann114, T. Herrmann48, G. Herten52
+,
+R. Hertenberger114, L. Hervas36, T.C. Herwig137, G.G. Hesketh95, N.P. Hessey168a, A. Higashida163
+,
+S. Higashino82, E. Higón-Rodriguez174, K. Hildebrand37, E. Hill176, J.C. Hill32, K.K. Hill29, K.H. Hiller46
+,
+S.J. Hillier21, M. Hils48, I. Hinchliffe18, F. Hinterkeuser24, M. Hirose133, S. Hirose52, D. Hirschbuehl182
+,
+B. Hiti92, O. Hladik141, D.R. Hlaluku33d, X. Hoad50, J. Hobbs155, N. Hod180, M.C. Hodgkinson149
+,
+A. Hoecker36, D. Hohn52, D. Hohov65, T. Holm24, T.R. Holmes37, M. Holzbock114, L.B.A.H. Hommels32
+,
+S. Honda169, T.M. Hong139, J.C. Honig52, A. Hönle115, B.H. Hooberman173, W.H. Hopkins6
+, Y. Horii117
+,
+P. Horn48, L.A. Horyn37, S. Hou158, A. Hoummada35a, J. Howarth101, J. Hoya89, M. Hrabovsky131
+,
+J. Hrdinka77, I. Hristova19, J. Hrivnac65, A. Hrynevich109, T. Hryn’ova5
+, P.J. Hsu64, S.-C. Hsu148, Q. Hu29
+,
+S. Hu60c, Y.F. Hu15a,15d, D.P. Huang95, Y. Huang60a, Y. Huang15a, Z. Hubacek142, F. Hubaut102
+,
+43
+
+=== PDF PAGE 44 ===
+M. Huebner24, F. Huegging24, T.B. Huffman135, M. Huhtinen36, R.F.H. Hunter34, P. Huo155, A.M. Hupe34
+,
+N. Huseynov80,af, J. Huston107, J. Huth59, R. Hyneman106, S. Hyrych28a, G. Iacobucci54, G. Iakovidis29
+,
+I. Ibragimov151, L. Iconomidou-Fayard65, Z. Idrissi35e, P. Iengo36, R. Ignazzi40, O. Igonkina120,ab,*
+,
+R. Iguchi163, T. Iizawa54, Y. Ikegami82, M. Ikeno82, D. Iliadis162, N. Ilic119,167,ae, F. Iltzsche48
+,
+G. Introzzi71a,71b, M. Iodice75a, K. Iordanidou168a, V. Ippolito73a,73b, M.F. Isacson172, M. Ishino163
+,
+W. Islam130, C. Issever19,46, S. Istin160, F. Ito169, J.M. Iturbe Ponce63a, R. Iuppa76a,76b, A. Ivina180
+,
+H. Iwasaki82, J.M. Izen43, V. Izzo70a, P. Jacka141, P. Jackson1
+, R.M. Jacobs24, B.P. Jaeger152, V. Jain2
+,
+G. Jäkel182, K.B. Jakobi100, K. Jakobs52, T. Jakoubek141, J. Jamieson57, K.W. Janas84a, R. Jansky54
+,
+J. Janssen24, M. Janus53, P.A. Janus84a, G. Jarlskog97, N. Javadov80,af, T. Javůrek36, M. Javurkova103
+,
+F. Jeanneau145, L. Jeanty132, J. Jejelava159a, A. Jelinskas178, P. Jenni52,b, J. Jeong46, N. Jeong46
+,
+S. Jézéquel5
+, H. Ji181, J. Jia155, H. Jiang79, Y. Jiang60a, Z. Jiang153,p, S. Jiggins52, F.A. Jimenez Morales38
+,
+J. Jimenez Pena115, S. Jin15c, A. Jinaru27b, O. Jinnouchi165, H. Jivan33d, P. Johansson149, K.A. Johns7
+,
+C.A. Johnson66, K. Jon-And45a,45b, R.W.L. Jones90, S.D. Jones156, S. Jones7
+, T.J. Jones91
+,
+J. Jongmanns61a, P.M. Jorge140a, J. Jovicevic36, X. Ju18, J.J. Junggeburth115, A. Juste Rozas14,z
+,
+A. Kaczmarska85, M. Kado73a,73b, H. Kagan127, M. Kagan153, A. Kahn39, C. Kahra100, T. Kaji179
+,
+E. Kajomovitz160, C.W. Kalderon97, A. Kaluza100, A. Kamenshchikov123, M. Kaneda163, N.J. Kang146
+,
+L. Kanjir92, Y. Kano117, V.A. Kantserov112, J. Kanzaki82, L.S. Kaplan181, D. Kar33d, K. Karava135
+,
+M.J. Kareem168b, S.N. Karpov80, Z.M. Karpova80, V. Kartvelishvili90, A.N. Karyukhin123, L. Kashif181
+,
+R.D. Kass127, A. Kastanas45a,45b, C. Kato60d,60c, J. Katzy46, K. Kawade150, K. Kawagoe88
+,
+T. Kawaguchi117, T. Kawamoto163, G. Kawamura53, E.F. Kay176, V.F. Kazanin122b,122a, R. Keeler176
+,
+R. Kehoe42, J.S. Keller34, E. Kellermann97, D. Kelsey156, J.J. Kempster21, J. Kendrick21, K.E. Kennedy39
+,
+O. Kepka141, S. Kersten182, B.P. Kerševan92, S. Ketabchi Haghighat167, M. Khader173, F. Khalil-Zada13
+,
+M. Khandoga145, A. Khanov130, A.G. Kharlamov122b,122a, T. Kharlamova122b,122a, E.E. Khoda175
+,
+A. Khodinov166, T.J. Khoo54, E. Khramov80, J. Khubua159b, S. Kido83, M. Kiehn54, C.R. Kilby94
+,
+Y.K. Kim37, N. Kimura95, O.M. Kind19, B.T. King91,*, D. Kirchmeier48, J. Kirk144, A.E. Kiryunin115
+,
+T. Kishimoto163, D.P. Kisliuk167, V. Kitali46, O. Kivernyk5
+, T. Klapdor-Kleingrothaus52, M. Klassen61a
+,
+M.H. Klein106, M. Klein91, U. Klein91, K. Kleinknecht100, P. Klimek121, A. Klimentov29, T. Klingl24
+,
+T. Klioutchnikova36, F.F. Klitzner114, P. Kluit120, S. Kluth115, E. Kneringer77, E.B.F.G. Knoops102
+,
+A. Knue52, D. Kobayashi88, T. Kobayashi163, M. Kobel48, M. Kocian153, P. Kodys143, D.M. Koeck156
+,
+P.T. Koenig24, T. Koffas34, N.M. Köhler36, T. Koi153, M. Kolb145, I. Koletsou5
+, T. Komarek131, T. Kondo82
+,
+K. Köneke52, A.X.Y. Kong1
+, A.C. König119, T. Kono126, R. Konoplich125,ak, V. Konstantinides95
+,
+N. Konstantinidis95, B. Konya97, R. Kopeliansky66, S. Koperny84a, K. Korcyl85, K. Kordas162
+,
+G. Koren161, A. Korn95, I. Korolkov14, E.V. Korolkova149, N. Korotkova113, O. Kortner115, S. Kortner115
+,
+T. Kosek143, V.V. Kostyukhin166,166, A. Kotsokechagia65, A. Kotwal49, A. Koulouris10
+,
+A. Kourkoumeli-Charalampidi71a,71b, C. Kourkoumelis9
+, E. Kourlitis149, V. Kouskoura29
+,
+A.B. Kowalewska85, R. Kowalewski176, C. Kozakai163, W. Kozanecki145, A.S. Kozhin123
+,
+V.A. Kramarenko113, G. Kramberger92, D. Krasnopevtsev60a, M.W. Krasny136, A. Krasznahorkay36
+,
+D. Krauss115, J.A. Kremer84a, J. Kretzschmar91, P. Krieger167, F. Krieter114, A. Krishnan61b, K. Krizka18
+,
+K. Kroeninger47, H. Kroha115, J. Kroll141, J. Kroll137, K.S. Krowpman107, J. Krstic16, U. Kruchonak80
+,
+H. Krüger24, N. Krumnack79, M.C. Kruse49, J.A. Krzysiak85, T. Kubota105, O. Kuchinskaia166
+,
+S. Kuday4b, J.T. Kuechler46, S. Kuehn36, A. Kugel61a, T. Kuhl46, V. Kukhtin80, R. Kukla102
+,
+Y. Kulchitsky108,ah, S. Kuleshov147c, Y.P. Kulinich173, M. Kuna58, T. Kunigo86, A. Kupco141, T. Kupfer47
+,
+O. Kuprash52, H. Kurashige83, L.L. Kurchaninov168a, Y.A. Kurochkin108, A. Kurova112, M.G. Kurth15a,15d
+,
+E.S. Kuwertz36, M. Kuze165, A.K. Kvam148, J. Kvita131, T. Kwan104, A. La Rosa115, L. La Rotonda41b,41a
+,
+F. La Ruffa41b,41a, C. Lacasta174, F. Lacava73a,73b, D.P.J. Lack101, H. Lacker19, D. Lacour136, E. Ladygin80
+,
+R. Lafaye5
+, B. Laforge136, T. Lagouri33d, S. Lai53, I.K. Lakomiec84a, S. Lammers66, W. Lampl7
+,
+C. Lampoudis162, E. Lançon29, U. Landgraf52, M.P.J. Landon93, M.C. Lanfermann54, V.S. Lang46
+,
+44
+
+=== PDF PAGE 45 ===
+J.C. Lange53, R.J. Langenberg103, A.J. Lankford171, F. Lanni29, K. Lantzsch24, A. Lanza71a
+,
+A. Lapertosa55b,55a, S. Laplace136, J.F. Laporte145, T. Lari69a, F. Lasagni Manghi23b,23a, M. Lassnig36
+,
+T.S. Lau63a, A. Laudrain65, A. Laurier34, M. Lavorgna70a,70b, S.D. Lawlor94, M. Lazzaroni69a,69b, B. Le105
+,
+E. Le Guirriec102, M. LeBlanc7
+, T. LeCompte6
+, F. Ledroit-Guillon58, A.C.A. Lee95, C.A. Lee29
+,
+G.R. Lee17, L. Lee59, S.C. Lee158, S.J. Lee34, S. Lee79, B. Lefebvre168a, H.P. Lefebvre94, M. Lefebvre176
+,
+F. Legger114, C. Leggett18, K. Lehmann152, N. Lehmann182, G. Lehmann Miotto36, W.A. Leight46
+,
+A. Leisos162,x, M.A.L. Leite81d, C.E. Leitgeb114, R. Leitner143, D. Lellouch180,*, K.J.C. Leney42
+,
+T. Lenz24, R. Leone7
+, S. Leone72a, C. Leonidopoulos50, A. Leopold136, C. Leroy110, R. Les167
+,
+C.G. Lester32, M. Levchenko138, J. Levêque5
+, D. Levin106, L.J. Levinson180, D.J. Lewis21, B. Li15b
+,
+B. Li106, C-Q. Li60a, F. Li60c, H. Li60a, H. Li60b, J. Li60c, K. Li153, L. Li60c, M. Li15a,15d, Q. Li15a,15d
+,
+Q.Y. Li60a, S. Li60d,60c, X. Li46, Y. Li46, Z. Li60b, Z. Liang15a, B. Liberti74a, A. Liblong167, K. Lie63c
+,
+S. Lim29, C.Y. Lin32, K. Lin107, T.H. Lin100, R.A. Linck66, J.H. Lindon21, A.L. Lionti54, E. Lipeles137
+,
+A. Lipniacka17, T.M. Liss173,ar, A. Lister175, A.M. Litke146, J.D. Little8
+, B. Liu79, B.L. Liu6
+, H.B. Liu29
+,
+H. Liu106, J.B. Liu60a, J.K.K. Liu135, K. Liu136, M. Liu60a, P. Liu18, Y. Liu15a,15d, Y.L. Liu106, Y.W. Liu60a
+,
+M. Livan71a,71b, A. Lleres58, J. Llorente Merino152, S.L. Lloyd93, C.Y. Lo63b, F. Lo Sterzo42
+,
+E.M. Lobodzinska46, P. Loch7
+, S. Loffredo74a,74b, T. Lohse19, K. Lohwasser149, M. Lokajicek141
+,
+J.D. Long173, R.E. Long90, L. Longo36, K.A. Looper127, J.A. Lopez147c, I. Lopez Paz101, A. Lopez Solis149
+,
+J. Lorenz114, N. Lorenzo Martinez5
+, A.M. Lory114, M. Losada22, P.J. Lösel114, A. Lösle52, X. Lou46
+,
+X. Lou15a, A. Lounis65, J. Love6
+, P.A. Love90, J.J. Lozano Bahilo174, M. Lu60a, Y.J. Lu64, H.J. Lubatti148
+,
+C. Luci73a,73b, A. Lucotte58, C. Luedtke52, F. Luehring66, I. Luise136, L. Luminari73a, B. Lund-Jensen154
+,
+M.S. Lutz103, D. Lynn29, H. Lyons91, R. Lysak141, E. Lytken97, F. Lyu15a, V. Lyubushkin80
+,
+T. Lyubushkina80, H. Ma29, L.L. Ma60b, Y. Ma60b, G. Maccarrone51, A. Macchiolo115
+,
+C.M. Macdonald149, J. Machado Miguens137, D. Madaffari174, R. Madar38, W.F. Mader48, N. Madysa48
+,
+J. Maeda83, T. Maeno29, M. Maerker48, A.S. Maevskiy113, V. Magerl52, N. Magini79, D.J. Mahon39
+,
+C. Maidantchik81b, T. Maier114, A. Maio140a,140b,140d, K. Maj84a, O. Majersky28a, S. Majewski132
+,
+Y. Makida82, N. Makovec65, B. Malaescu136, Pa. Malecki85, V.P. Maleev138, F. Malek58, U. Mallik78
+,
+D. Malon6
+, C. Malone32, S. Maltezos10, S. Malyukov80, J. Mamuzic174, G. Mancini51, I. Mandić92
+,
+L. Manhaes de Andrade Filho81a, I.M. Maniatis162, J. Manjarres Ramos48, K.H. Mankinen97, A. Mann114
+,
+A. Manousos77, B. Mansoulie145, I. Manthos162, S. Manzoni120, A. Marantis162, G. Marceca30
+,
+L. Marchese135, G. Marchiori136, M. Marcisovsky141, L. Marcoccia74a,74b, C. Marcon97
+,
+C.A. Marin Tobon36, M. Marjanovic129, Z. Marshall18, M.U.F. Martensson172, S. Marti-Garcia174
+,
+C.B. Martin127, T.A. Martin178, V.J. Martin50, B. Martin dit Latour17, L. Martinelli75a,75b, M. Martinez14,z
+,
+V.I. Martinez Outschoorn103, S. Martin-Haugh144, V.S. Martoiu27b, A.C. Martyniuk95, A. Marzin36
+,
+S.R. Maschek115, L. Masetti100, T. Mashimo163, R. Mashinistov111, J. Masik101, A.L. Maslennikov122b,122a
+,
+L. Massa74a,74b, P. Massarotti70a,70b, P. Mastrandrea72a,72b, A. Mastroberardino41b,41a, T. Masubuchi163
+,
+D. Matakias10, A. Matic114, N. Matsuzawa163, P. Mättig24, J. Maurer27b, B. Maček92
+,
+D.A. Maximov122b,122a, R. Mazini158, I. Maznas162, S.M. Mazza146, S.P. Mc Kee106, T.G. McCarthy115
+,
+W.P. McCormack18, E.F. McDonald105, J.A. Mcfayden36, G. Mchedlidze159b, M.A. McKay42
+,
+K.D. McLean176, S.J. McMahon144, P.C. McNamara105, C.J. McNicol178, R.A. McPherson176,ae
+,
+J.E. Mdhluli33d, Z.A. Meadows103, S. Meehan36, T. Megy52, S. Mehlhase114, A. Mehta91, T. Meideck58
+,
+B. Meirose43, D. Melini160, B.R. Mellado Garcia33d, J.D. Mellenthin53, M. Melo28a, F. Meloni46
+,
+A. Melzer24, S.B. Menary101, E.D. Mendes Gouveia140a,140e, L. Meng36, X.T. Meng106, S. Menke115
+,
+E. Meoni41b,41a, S. Mergelmeyer19, S.A.M. Merkt139, C. Merlassino20, P. Mermod54, L. Merola70a,70b
+,
+C. Meroni69a, G. Merz106, O. Meshkov113,111, J.K.R. Meshreki151, A. Messina73a,73b, J. Metcalfe6
+,
+A.S. Mete171, C. Meyer66, J-P. Meyer145, H. Meyer Zu Theenhausen61a, F. Miano156, M. Michetti19
+,
+R.P. Middleton144, L. Mijović50, G. Mikenberg180, M. Mikestikova141, M. Mikuž92, H. Mildner149
+,
+M. Milesi105, A. Milic167, D.A. Millar93, D.W. Miller37, A. Milov180, D.A. Milstead45a,45b, R.A. Mina153
+,
+45
+
+=== PDF PAGE 46 ===
+A.A. Minaenko123, M. Miñano Moya174, I.A. Minashvili159b, A.I. Mincer125, B. Mindur84a, M. Mineev80
+,
+Y. Minegishi163, L.M. Mir14, A. Mirto68a,68b, K.P. Mistry137, T. Mitani179, J. Mitrevski114, V.A. Mitsou174
+,
+M. Mittal60c, O. Miu167, A. Miucci20, P.S. Miyagawa149, A. Mizukami82, J.U. Mjörnmark97
+,
+T. Mkrtchyan61a, M. Mlynarikova143, T. Moa45a,45b, K. Mochizuki110, P. Mogg52, S. Mohapatra39
+,
+R. Moles-Valls24, M.C. Mondragon107, K. Mönig46, J. Monk40, E. Monnier102, A. Montalbano152
+,
+J. Montejo Berlingen36, M. Montella95, F. Monticelli89, S. Monzani69a, N. Morange65, D. Moreno22
+,
+M. Moreno Llácer174, C. Moreno Martinez14, P. Morettini55b, M. Morgenstern120, S. Morgenstern48
+,
+D. Mori152, M. Morii59, M. Morinaga179, V. Morisbak134, A.K. Morley36, G. Mornacchi36, A.P. Morris95
+,
+L. Morvaj155, P. Moschovakos36, B. Moser120, M. Mosidze159b, T. Moskalets145, H.J. Moss149
+,
+J. Moss31,m, E.J.W. Moyse103, S. Muanza102, J. Mueller139, R.S.P. Mueller114, D. Muenstermann90
+,
+G.A. Mullier97, D.P. Mungo69a,69b, J.L. Munoz Martinez14, F.J. Munoz Sanchez101, P. Murin28b
+,
+W.J. Murray178,144, A. Murrone69a,69b, M. Muškinja18, C. Mwewa33a, A.G. Myagkov123,al, A.A. Myers139
+,
+J. Myers132, M. Myska142, B.P. Nachman18, O. Nackenhorst47, A.Nag Nag48, K. Nagai135, K. Nagano82
+,
+Y. Nagasaka62, J.L. Nagle29, E. Nagy102, A.M. Nairz36, Y. Nakahama117, K. Nakamura82, T. Nakamura163
+,
+I. Nakano128, H. Nanjo133, F. Napolitano61a, R.F. Naranjo Garcia46, R. Narayan42, I. Naryshkin138
+,
+T. Naumann46, G. Navarro22, P.Y. Nechaeva111, F. Nechansky46, T.J. Neep21, A. Negri71a,71b
+,
+M. Negrini23b, C. Nellist53, M.E. Nelson45a,45b, S. Nemecek141, P. Nemethy125, M. Nessi36,d
+,
+M.S. Neubauer173, M. Neumann182, R. Newhouse175, P.R. Newman21, Y.S. Ng19, Y.W.Y. Ng171
+,
+B. Ngair35e, H.D.N. Nguyen102, T. Nguyen Manh110, E. Nibigira38, R.B. Nickerson135, R. Nicolaidou145
+,
+D.S. Nielsen40, J. Nielsen146, N. Nikiforou11, V. Nikolaenko123,al, I. Nikolic-Audit136, K. Nikolopoulos21
+,
+P. Nilsson29, H.R. Nindhito54, Y. Ninomiya82, A. Nisati73a, N. Nishu60c, R. Nisius115, I. Nitsche47
+,
+T. Nitta179, T. Nobe163, Y. Noguchi86, I. Nomidis136, M.A. Nomura29, M. Nordberg36
+,
+N. Norjoharuddeen135, T. Novak92, O. Novgorodova48, R. Novotny142, L. Nozka131, K. Ntekas171
+,
+E. Nurse95, F.G. Oakham34,at, H. Oberlack115, J. Ocariz136, A. Ochi83, I. Ochoa39, J.P. Ochoa-Ricoux147a
+,
+K. O’Connor26, S. Oda88, S. Odaka82, S. Oerdek53, A. Ogrodnik84a, A. Oh101, S.H. Oh49, C.C. Ohm154
+,
+H. Oide165, M.L. Ojeda167, H. Okawa169, Y. Okazaki86, M.W. O’Keefe91, Y. Okumura163, T. Okuyama82
+,
+A. Olariu27b, L.F. Oleiro Seabra140a, S.A. Olivares Pino147a, D. Oliveira Damazio29, J.L. Oliver1
+,
+M.J.R. Olsson171, A. Olszewski85, J. Olszowska85, D.C. O’Neil152, A.P. O’neill135, A. Onofre140a,140e
+,
+P.U.E. Onyisi11, H. Oppen134, M.J. Oreglia37, G.E. Orellana89, D. Orestano75a,75b, N. Orlando14
+,
+R.S. Orr167, V. O’Shea57, R. Ospanov60a, G. Otero y Garzon30, H. Otono88, P.S. Ott61a, M. Ouchrif35d
+,
+J. Ouellette29, F. Ould-Saada134, A. Ouraou145, Q. Ouyang15a, M. Owen57, R.E. Owen21, V.E. Ozcan12c
+,
+N. Ozturk8
+, J. Pacalt131, H.A. Pacey32, K. Pachal49, A. Pacheco Pages14, C. Padilla Aranda14
+,
+S. Pagan Griso18, M. Paganini183, G. Palacino66, S. Palazzo50, S. Palestini36, M. Palka84b, D. Pallin38
+,
+I. Panagoulias10, C.E. Pandini36, J.G. Panduro Vazquez94, P. Pani46, G. Panizzo67a,67c, L. Paolozzi54
+,
+C. Papadatos110, K. Papageorgiou9,g, S. Parajuli43, A. Paramonov6
+, D. Paredes Hernandez63b
+,
+S.R. Paredes Saenz135, B. Parida166, T.H. Park167, A.J. Parker31, M.A. Parker32, F. Parodi55b,55a
+,
+E.W. Parrish121, J.A. Parsons39, U. Parzefall52, L. Pascual Dominguez136, V.R. Pascuzzi167
+,
+J.M.P. Pasner146, F. Pasquali120, E. Pasqualucci73a, S. Passaggio55b, F. Pastore94, P. Pasuwan45a,45b
+,
+S. Pataraia100, J.R. Pater101, A. Pathak181,i, T. Pauly36, J. Pearkes153, B. Pearson115, M. Pedersen134
+,
+L. Pedraza Diaz119, R. Pedro140a, T. Peiffer53, S.V. Peleganchuk122b,122a, O. Penc141, H. Peng60a
+,
+B.S. Peralva81a, M.M. Perego65, A.P. Pereira Peixoto140a, D.V. Perepelitsa29, F. Peri19, L. Perini69a,69b
+,
+H. Pernegger36, S. Perrella70a,70b, A. Perrevoort120, K. Peters46, R.F.Y. Peters101, B.A. Petersen36
+,
+T.C. Petersen40, E. Petit102, A. Petridis1
+, C. Petridou162, P. Petroff65, M. Petrov135, F. Petrucci75a,75b
+,
+M. Pettee183, N.E. Pettersson103, K. Petukhova143, A. Peyaud145, R. Pezoa147c, L. Pezzotti71a,71b
+,
+T. Pham105, F.H. Phillips107, P.W. Phillips144, M.W. Phipps173, G. Piacquadio155, E. Pianori18
+,
+A. Picazio103, R.H. Pickles101, R. Piegaia30, D. Pietreanu27b, J.E. Pilcher37, A.D. Pilkington101
+,
+M. Pinamonti67a,67c, J.L. Pinfold3
+, M. Pitt161, L. Pizzimento74a,74b, M.-A. Pleier29, V. Pleskot143
+,
+46
+
+=== PDF PAGE 47 ===
+E. Plotnikova80, P. Podberezko122b,122a, R. Poettgen97, R. Poggi54, L. Poggioli65, I. Pogrebnyak107
+,
+D. Pohl24, I. Pokharel53, G. Polesello71a, A. Poley18, A. Policicchio73a,73b, R. Polifka143, A. Polini23b
+,
+C.S. Pollard46, V. Polychronakos29, D. Ponomarenko112, L. Pontecorvo36, S. Popa27a, G.A. Popeneciu27d
+,
+L. Portales5
+, D.M. Portillo Quintero58, S. Pospisil142, K. Potamianos46, I.N. Potrap80, C.J. Potter32
+,
+H. Potti11, T. Poulsen97, J. Poveda36, T.D. Powell149, G. Pownall46, M.E. Pozo Astigarraga36
+,
+P. Pralavorio102, S. Prell79, D. Price101, M. Primavera68a, S. Prince104, M.L. Proffitt148, N. Proklova112
+,
+K. Prokofiev63c, F. Prokoshin80, S. Protopopescu29, J. Proudfoot6
+, M. Przybycien84a, D. Pudzha138
+,
+A. Puri173, P. Puzo65, J. Qian106, Y. Qin101, A. Quadt53, M. Queitsch-Maitland36, A. Qureshi1
+,
+M. Racko28a, F. Ragusa69a,69b, G. Rahal98, J.A. Raine54, S. Rajagopalan29, A. Ramirez Morales93
+,
+K. Ran15a,15d, T. Rashid65, S. Raspopov5
+, D.M. Rauch46, F. Rauscher114, S. Rave100, B. Ravina149
+,
+I. Ravinovich180, J.H. Rawling101, M. Raymond36, A.L. Read134, N.P. Readioff58, M. Reale68a,68b
+,
+D.M. Rebuzzi71a,71b, A. Redelbach177, G. Redlinger29, K. Reeves43, L. Rehnisch19, J. Reichert137
+,
+D. Reikher161, A. Reiss100, A. Rej151, C. Rembser36, M. Renda27b, M. Rescigno73a, S. Resconi69a
+,
+E.D. Resseguie137, S. Rettie175, B. Reynolds127, E. Reynolds21, O.L. Rezanova122b,122a, P. Reznicek143
+,
+E. Ricci76a,76b, R. Richter115, S. Richter46, E. Richter-Was84b, O. Ricken24, M. Ridel136, P. Rieck115
+,
+O. Rifki46, M. Rijssenbeek155, A. Rimoldi71a,71b, M. Rimoldi46, L. Rinaldi23b, G. Ripellino154, I. Riu14
+,
+J.C. Rivera Vergara176, F. Rizatdinova130, E. Rizvi93, C. Rizzi36, R.T. Roberts101, S.H. Robertson104,ae
+,
+M. Robin46, D. Robinson32, J.E.M. Robinson46, C.M. Robles Gajardo147c, A. Robson57, A. Rocchi74a,74b
+,
+E. Rocco100, C. Roda72a,72b, S. Rodriguez Bosca174, A. Rodriguez Perez14, D. Rodriguez Rodriguez174
+,
+A.M. Rodríguez Vera168b, S. Roe36, O. Røhne134, R. Röhrig115, R.A. Rojas147c, C.P.A. Roland66
+,
+J. Roloff29, A. Romaniouk112, M. Romano23b,23a, N. Rompotis91, M. Ronzani125, L. Roos136, S. Rosati73a
+,
+G. Rosin103, B.J. Rosser137, E. Rossi46, E. Rossi75a,75b, E. Rossi70a,70b, L.P. Rossi55b, L. Rossini69a,69b
+,
+R. Rosten14, M. Rotaru27b, J. Rothberg148, D. Rousseau65, G. Rovelli71a,71b, A. Roy11, D. Roy33d
+,
+A. Rozanov102, Y. Rozen160, X. Ruan33d, F. Rühr52, A. Ruiz-Martinez174, A. Rummler36, Z. Rurikova52
+,
+N.A. Rusakovich80, H.L. Russell104, L. Rustige38,47, J.P. Rutherfoord7
+, E.M. Rüttinger149, M. Rybar39
+,
+G. Rybkin65, E.B. Rye134, A. Ryzhov123, J.A. Sabater Iglesias46, P. Sabatini53, G. Sabato120, S. Sacerdoti65
+,
+H.F-W. Sadrozinski146, R. Sadykov80, F. Safai Tehrani73a, B. Safarzadeh Samani156, P. Saha121, S. Saha104
+,
+M. Sahinsoy61a, A. Sahu182, M. Saimpert46, M. Saito163, T. Saito163, H. Sakamoto163, A. Sakharov125,ak
+,
+D. Salamani54, G. Salamanna75a,75b, J.E. Salazar Loyola147c, A. Salnikov153, J. Salt174, D. Salvatore41b,41a
+,
+F. Salvatore156, A. Salvucci63a,63b,63c, A. Salzburger36, J. Samarati36, D. Sammel52, D. Sampsonidis162
+,
+D. Sampsonidou162, J. Sánchez174, A. Sanchez Pineda67a,36,67c, H. Sandaker134, C.O. Sander46
+,
+I.G. Sanderswood90, M. Sandhoff182, C. Sandoval22, D.P.C. Sankey144, M. Sannino55b,55a, Y. Sano117
+,
+A. Sansoni51, C. Santoni38, H. Santos140a,140b, S.N. Santpur18, A. Santra174, A. Sapronov80
+,
+J.G. Saraiva140a,140d, O. Sasaki82, K. Sato169, F. Sauerburger52, E. Sauvan5
+, P. Savard167,at, N. Savic115
+,
+R. Sawada163, C. Sawyer144, L. Sawyer96,ai, C. Sbarra23b, A. Sbrizzi23a, T. Scanlon95, J. Schaarschmidt148
+,
+P. Schacht115, B.M. Schachtner114, D. Schaefer37, L. Schaefer137, J. Schaeffer100, S. Schaepe36
+,
+U. Schäfer100, A.C. Schaffer65, D. Schaile114, R.D. Schamberger155, N. Scharmberg101
+,
+V.A. Schegelsky138, D. Scheirich143, F. Schenck19, M. Schernau171, C. Schiavi55b,55a, S. Schier146
+,
+L.K. Schildgen24, Z.M. Schillaci26, E.J. Schioppa36, M. Schioppa41b,41a, K.E. Schleicher52, S. Schlenker36
+,
+K.R. Schmidt-Sommerfeld115, K. Schmieden36, C. Schmitt100, S. Schmitt46, S. Schmitz100
+,
+J.C. Schmoeckel46, U. Schnoor52, L. Schoeffel145, A. Schoening61b, P.G. Scholer52, E. Schopf135
+,
+M. Schott100, J.F.P. Schouwenberg119, J. Schovancova36, S. Schramm54, F. Schroeder182, A. Schulte100
+,
+H-C. Schultz-Coulon61a, M. Schumacher52, B.A. Schumm146, Ph. Schune145, A. Schwartzman153
+,
+T.A. Schwarz106, Ph. Schwemling145, R. Schwienhorst107, A. Sciandra146, G. Sciolla26, M. Scodeggio46
+,
+M. Scornajenghi41b,41a, F. Scuri72a, F. Scutti105, L.M. Scyboz115, C.D. Sebastiani73a,73b, P. Seema19
+,
+S.C. Seidel118, A. Seiden146, B.D. Seidlitz29, T. Seiss37, J.M. Seixas81b, G. Sekhniaidze70a, K. Sekhon106
+,
+S.J. Sekula42, N. Semprini-Cesari23b,23a, S. Sen49, C. Serfon77, L. Serin65, L. Serkin67a,67b, M. Sessa60a
+,
+47
+
+=== PDF PAGE 48 ===
+H. Severini129, T. Šfiligoj92, F. Sforza55b,55a, A. Sfyrla54, E. Shabalina53, J.D. Shahinian146
+,
+N.W. Shaikh45a,45b, D. Shaked Renous180, L.Y. Shan15a, J.T. Shank25, M. Shapiro18, A. Sharma135
+,
+A.S. Sharma1
+, P.B. Shatalov124, K. Shaw156, S.M. Shaw101, M. Shehade180, Y. Shen129, A.D. Sherman25
+,
+P. Sherwood95, L. Shi158,aq, S. Shimizu82, C.O. Shimmin183, Y. Shimogama179, M. Shimojima116
+,
+I.P.J. Shipsey135, S. Shirabe165, M. Shiyakova80,ac, J. Shlomi180, A. Shmeleva111, M.J. Shochet37
+,
+J. Shojaii105, D.R. Shope129, S. Shrestha127, E.M. Shrif33d, E. Shulga180, P. Sicho141, A.M. Sickles173
+,
+P.E. Sidebo154, E. Sideras Haddad33d, O. Sidiropoulou36, A. Sidoti23b,23a, F. Siegert48, Dj. Sijacki16
+,
+M.Jr. Silva181, M.V. Silva Oliveira81a, S.B. Silverstein45a, S. Simion65, R. Simoniello100, S. Simsek12b
+,
+P. Sinervo167, V. Sinetckii113, N.B. Sinev132, S. Singh152, M. Sioli23b,23a, I. Siral132, S.Yu. Sivoklokov113
+,
+J. Sjölin45a,45b, E. Skorda97, P. Skubic129, M. Slawinska85, K. Sliwa170, R. Slovak143, V. Smakhtin180
+,
+B.H. Smart144, J. Smiesko28a, N. Smirnov112, S.Yu. Smirnov112, Y. Smirnov112, L.N. Smirnova113,u
+,
+O. Smirnova97, J.W. Smith53, M. Smizanska90, K. Smolek142, A. Smykiewicz85, A.A. Snesarev111
+,
+H.L. Snoek120, I.M. Snyder132, S. Snyder29, R. Sobie176,ae, A. Soffer161, A. Søgaard50, F. Sohns53
+,
+C.A. Solans Sanchez36, E.Yu. Soldatov112, U. Soldevila174, A.A. Solodkov123, A. Soloshenko80
+,
+O.V. Solovyanov123, V. Solovyev138, P. Sommer149, H. Son170, W. Song144, W.Y. Song168b, A. Sopczak142
+,
+A.L. Sopio95, F. Sopkova28b, C.L. Sotiropoulou72a,72b, S. Sottocornola71a,71b, R. Soualah67a,67c,f
+,
+A.M. Soukharev122b,122a, D. South46, S. Spagnolo68a,68b, M. Spalla115, M. Spangenberg178, F. Spanò94
+,
+D. Sperlich52, T.M. Spieker61a, R. Spighi23b, G. Spigo36, M. Spina156, D.P. Spiteri57, M. Spousta143
+,
+A. Stabile69a,69b, B.L. Stamas121, R. Stamen61a, M. Stamenkovic120, E. Stanecka85, B. Stanislaus135
+,
+M.M. Stanitzki46, M. Stankaityte135, B. Stapf120, E.A. Starchenko123, G.H. Stark146, J. Stark58
+,
+S.H. Stark40, P. Staroba141, P. Starovoitov61a, S. Stärz104, R. Staszewski85, G. Stavropoulos44, M. Stegler46
+,
+P. Steinberg29, A.L. Steinhebel132, B. Stelzer152, H.J. Stelzer139, O. Stelzer-Chilton168a, H. Stenzel56
+,
+T.J. Stevenson156, G.A. Stewart36, M.C. Stockton36, G. Stoicea27b, M. Stolarski140a, S. Stonjek115
+,
+A. Straessner48, J. Strandberg154, S. Strandberg45a,45b, M. Strauss129, P. Strizenec28b, R. Ströhmer177
+,
+D.M. Strom132, R. Stroynowski42, A. Strubig50, S.A. Stucci29, B. Stugu17, J. Stupak129, N.A. Styles46
+,
+D. Su153, S. Suchek61a, V.V. Sulin111, M.J. Sullivan91, D.M.S. Sultan54, S. Sultansoy4c, T. Sumida86
+,
+S. Sun106, X. Sun3
+, K. Suruliz156, C.J.E. Suster157, M.R. Sutton156, S. Suzuki82, M. Svatos141
+,
+M. Swiatlowski37, S.P. Swift2
+, T. Swirski177, A. Sydorenko100, I. Sykora28a, M. Sykora143, T. Sykora143
+,
+D. Ta100, K. Tackmann46,aa, J. Taenzer161, A. Taffard171, R. Tafirout168a, H. Takai29, R. Takashima87
+,
+K. Takeda83, T. Takeshita150, E.P. Takeva50, Y. Takubo82, M. Talby102, A.A. Talyshev122b,122a
+,
+N.M. Tamir161, J. Tanaka163, M. Tanaka165, R. Tanaka65, S. Tapia Araya173, S. Tapprogge100
+,
+A. Tarek Abouelfadl Mohamed136, S. Tarem160, K. Tariq60b, G. Tarna27b,c, G.F. Tartarelli69a, P. Tas143
+,
+M. Tasevsky141, T. Tashiro86, E. Tassi41b,41a, A. Tavares Delgado140a, Y. Tayalati35e, A.J. Taylor50
+,
+G.N. Taylor105, W. Taylor168b, A.S. Tee90, R. Teixeira De Lima153, P. Teixeira-Dias94, H. Ten Kate36
+,
+J.J. Teoh120, S. Terada82, K. Terashi163, J. Terron99, S. Terzo14, M. Testa51, R.J. Teuscher167,ae
+,
+S.J. Thais183, T. Theveneaux-Pelzer46, F. Thiele40, D.W. Thomas94, J.O. Thomas42, J.P. Thomas21
+,
+A.S. Thompson57, P.D. Thompson21, L.A. Thomsen183, E. Thomson137, E.J. Thorpe93, R.E. Ticse Torres53
+,
+V.O. Tikhomirov111,am, Yu.A. Tikhonov122b,122a, S. Timoshenko112, P. Tipton183, S. Tisserant102
+,
+K. Todome23b,23a, S. Todorova-Nova5
+, S. Todt48, J. Tojo88, S. Tokár28a, K. Tokushuku82, E. Tolley127
+,
+K.G. Tomiwa33d, M. Tomoto117, L. Tompkins153,p, B. Tong59, P. Tornambe103, E. Torrence132, H. Torres48
+,
+E. Torró Pastor148, C. Tosciri135, J. Toth102,ad, D.R. Tovey149, A. Traeet17, C.J. Treado125, T. Trefzger177
+,
+F. Tresoldi156, A. Tricoli29, I.M. Trigger168a, S. Trincaz-Duvoid136, D.T. Trischuk175, W. Trischuk167
+,
+B. Trocmé58, A. Trofymov145, C. Troncon69a, M. Trovatelli176, F. Trovato156, L. Truong33b
+,
+M. Trzebinski85, A. Trzupek85, F. Tsai46, J.C-L. Tseng135, P.V. Tsiareshka108,ah, A. Tsirigotis162,x
+,
+V. Tsiskaridze155, E.G. Tskhadadze159a, M. Tsopoulou162, I.I. Tsukerman124, V. Tsulaia18, S. Tsuno82
+,
+D. Tsybychev155, Y. Tu63b, A. Tudorache27b, V. Tudorache27b, T.T. Tulbure27a, A.N. Tuna59
+,
+S. Turchikhin80, D. Turgeman180, I. Turk Cakir4b,v, R.J. Turner21, R.T. Turra69a, P.M. Tuts39
+,
+48
+
+=== PDF PAGE 49 ===
+S. Tzamarias162, E. Tzovara100, G. Ucchielli47, K. Uchida163, I. Ueda82, F. Ukegawa169, G. Unal36
+,
+A. Undrus29, G. Unel171, F.C. Ungaro105, Y. Unno82, K. Uno163, J. Urban28b, P. Urquijo105, G. Usai8
+,
+Z. Uysal12d, V. Vacek142, B. Vachon104, K.O.H. Vadla134, A. Vaidya95, C. Valderanis114
+,
+E. Valdes Santurio45a,45b, M. Valente54, S. Valentinetti23b,23a, A. Valero174, L. Valéry46, R.A. Vallance21
+,
+A. Vallier36, J.A. Valls Ferrer174, T.R. Van Daalen14, P. Van Gemmeren6
+, I. Van Vulpen120
+,
+M. Vanadia74a,74b, W. Vandelli36, M. Vandenbroucke145, E.R. Vandewall130, A. Vaniachine166
+,
+D. Vannicola73a,73b, R. Vari73a, E.W. Varnes7
+, C. Varni55b,55a, T. Varol158, D. Varouchas65, K.E. Varvell157
+,
+M.E. Vasile27b, G.A. Vasquez176, F. Vazeille38, D. Vazquez Furelos14, T. Vazquez Schroeder36, J. Veatch53
+,
+V. Vecchio75a,75b, M.J. Veen120, L.M. Veloce167, F. Veloso140a,140c, S. Veneziano73a, A. Ventura68a,68b
+,
+N. Venturi36, A. Verbytskyi115, V. Vercesi71a, M. Verducci72a,72b, C.M. Vergel Infante79, C. Vergis24
+,
+W. Verkerke120, A.T. Vermeulen120, J.C. Vermeulen120, M.C. Vetterli152,at, N. Viaux Maira147c
+,
+M. Vicente Barreto Pinto54, T. Vickey149, O.E. Vickey Boeriu149, G.H.A. Viehhauser135, L. Vigani61b
+,
+M. Villa23b,23a, M. Villaplana Perez69a,69b, E. Vilucchi51, M.G. Vincter34, G.S. Virdee21
+,
+A. Vishwakarma46, C. Vittori23b,23a, I. Vivarelli156, M. Vogel182, P. Vokac142, S.E. von Buddenbrock33d
+,
+E. Von Toerne24, V. Vorobel143, K. Vorobev112, M. Vos174, J.H. Vossebeld91, M. Vozak101, N. Vranjes16
+,
+M. Vranjes Milosavljevic16, V. Vrba142, M. Vreeswijk120, R. Vuillermet36, I. Vukotic37, P. Wagner24
+,
+W. Wagner182, J. Wagner-Kuhr114, S. Wahdan182, H. Wahlberg89, V.M. Walbrecht115, J. Walder90
+,
+R. Walker114, S.D. Walker94, W. Walkowiak151, V. Wallangen45a,45b, A.M. Wang59, C. Wang60c
+,
+C. Wang60b, F. Wang181, H. Wang18, H. Wang3
+, J. Wang63a, J. Wang157, J. Wang61b, P. Wang42
+,
+Q. Wang129, R.-J. Wang100, R. Wang60a, R. Wang6
+, S.M. Wang158, W.T. Wang60a, W. Wang15c
+,
+W.X. Wang60a, Y. Wang60a,aj, Z. Wang60c, C. Wanotayaroj46, A. Warburton104, C.P. Ward32
+,
+D.R. Wardrope95, N. Warrack57, A. Washbrook50, A.T. Watson21, M.F. Watson21, G. Watts148
+,
+B.M. Waugh95, A.F. Webb11, S. Webb100, C. Weber183, M.S. Weber20, S.A. Weber34, S.M. Weber61a
+,
+A.R. Weidberg135, J. Weingarten47, M. Weirich100, C. Weiser52, P.S. Wells36, T. Wenaus29, T. Wengler36
+,
+S. Wenig36, N. Wermes24, M.D. Werner79, M. Wessels61a, T.D. Weston20, K. Whalen132, N.L. Whallon148
+,
+A.M. Wharton90, A.S. White106, A. White8
+, M.J. White1
+, D. Whiteson171, B.W. Whitmore90
+,
+W. Wiedenmann181, M. Wielers144, N. Wieseotte100, C. Wiglesworth40, L.A.M. Wiik-Fuchs52, F. Wilk101
+,
+H.G. Wilkens36, L.J. Wilkins94, H.H. Williams137, S. Williams32, C. Willis107, S. Willocq103
+,
+J.A. Wilson21, I. Wingerter-Seez5
+, E. Winkels156, F. Winklmeier132, O.J. Winston156, B.T. Winter52
+,
+M. Wittgen153, M. Wobisch96, A. Wolf100, T.M.H. Wolf120, R. Wolff102, R.W. Wölker135, J. Wollrath52
+,
+M.W. Wolter85, H. Wolters140a,140c, V.W.S. Wong175, N.L. Woods146, S.D. Worm21, B.K. Wosiek85
+,
+K.W. Woźniak85, K. Wraight57, S.L. Wu181, X. Wu54, Y. Wu60a, T.R. Wyatt101, B.M. Wynne50, S. Xella40
+,
+Z. Xi106, L. Xia178, X. Xiao106, I. Xiotidis156, D. Xu15a, H. Xu60a,c, L. Xu29, T. Xu145, W. Xu106, Z. Xu60b
+,
+Z. Xu153, B. Yabsley157, S. Yacoob33a, K. Yajima133, D.P. Yallup95, Y. Yamaguchi165, A. Yamamoto82
+,
+M. Yamatani163, T. Yamazaki163, Y. Yamazaki83, Z. Yan25, H.J. Yang60c,60d, H.T. Yang18, S. Yang78
+,
+X. Yang60b,58, Y. Yang163, W-M. Yao18, Y.C. Yap46, Y. Yasu82, E. Yatsenko60c,60d, J. Ye42, S. Ye29
+,
+I. Yeletskikh80, M.R. Yexley90, E. Yigitbasi25, K. Yorita179, K. Yoshihara137, C.J.S. Young36, C. Young153
+,
+J. Yu79, R. Yuan60b,h, X. Yue61a, S.P.Y. Yuen24, M. Zaazoua35e, B. Zabinski85, G. Zacharis10
+,
+E. Zaffaroni54, J. Zahreddine136, A.M. Zaitsev123,al, T. Zakareishvili159b, N. Zakharchuk34, S. Zambito59
+,
+D. Zanzi36, D.R. Zaripovas57, S.V. Zeißner47, C. Zeitnitz182, G. Zemaityte135, J.C. Zeng173, O. Zenin123
+,
+T. Ženiš28a, D. Zerwas65, M. Zgubič135, B. Zhang15c, D.F. Zhang15b, G. Zhang15b, H. Zhang15c, J. Zhang6
+,
+L. Zhang15c, L. Zhang60a, M. Zhang173, R. Zhang181, S. Zhang106, X. Zhang60b, Y. Zhang15a,15d
+,
+Z. Zhang63a, Z. Zhang65, P. Zhao49, Y. Zhao60b, Z. Zhao60a, A. Zhemchugov80, Z. Zheng106, D. Zhong173
+,
+B. Zhou106, C. Zhou181, M.S. Zhou15a,15d, M. Zhou155, N. Zhou60c, Y. Zhou7
+, C.G. Zhu60b, C. Zhu15a,15d
+,
+H.L. Zhu60a, H. Zhu15a, J. Zhu106, Y. Zhu60a, X. Zhuang15a, K. Zhukov111, V. Zhulanov122b,122a
+,
+D. Zieminska66, N.I. Zimine80, S. Zimmermann52, Z. Zinonos115, M. Ziolkowski151, L. Živković16
+,
+G. Zobernig181, A. Zoccoli23b,23a, K. Zoch53, T.G. Zorbas149, R. Zou37, L. Zwalinski36
+.
+49
+
+=== PDF PAGE 50 ===
+1Department of Physics, University of Adelaide, Adelaide; Australia.
+2Physics Department, SUNY Albany, Albany NY; United States of America.
+3Department of Physics, University of Alberta, Edmonton AB; Canada.
+4(a)Department of Physics, Ankara University, Ankara;(b)
+Istanbul Aydin University, Istanbul;(c)Division of
+Physics, TOBB University of Economics and Technology, Ankara; Turkey.
+5LAPP, Université Grenoble Alpes, Université Savoie Mont Blanc, CNRS/IN2P3, Annecy; France.
+6High Energy Physics Division, Argonne National Laboratory, Argonne IL; United States of America.
+7Department of Physics, University of Arizona, Tucson AZ; United States of America.
+8Department of Physics, University of Texas at Arlington, Arlington TX; United States of America.
+9Physics Department, National and Kapodistrian University of Athens, Athens; Greece.
+10Physics Department, National Technical University of Athens, Zografou; Greece.
+11Department of Physics, University of Texas at Austin, Austin TX; United States of America.
+12(a)Bahcesehir University, Faculty of Engineering and Natural Sciences, Istanbul;(b)
+Istanbul Bilgi
+University, Faculty of Engineering and Natural Sciences, Istanbul;(c)Department of Physics, Bogazici
+University, Istanbul;(d)Department of Physics Engineering, Gaziantep University, Gaziantep; Turkey.
+13Institute of Physics, Azerbaijan Academy of Sciences, Baku; Azerbaijan.
+14Institut de Física d’Altes Energies (IFAE), Barcelona Institute of Science and Technology, Barcelona;
+Spain.
+15(a)
+Institute of High Energy Physics, Chinese Academy of Sciences, Beijing;(b)Physics Department,
+Tsinghua University, Beijing;(c)Department of Physics, Nanjing University, Nanjing;(d)University of
+Chinese Academy of Science (UCAS), Beijing; China.
+16Institute of Physics, University of Belgrade, Belgrade; Serbia.
+17Department for Physics and Technology, University of Bergen, Bergen; Norway.
+18Physics Division, Lawrence Berkeley National Laboratory and University of California, Berkeley CA;
+United States of America.
+19Institut für Physik, Humboldt Universität zu Berlin, Berlin; Germany.
+20Albert Einstein Center for Fundamental Physics and Laboratory for High Energy Physics, University of
+Bern, Bern; Switzerland.
+21School of Physics and Astronomy, University of Birmingham, Birmingham; United Kingdom.
+22Facultad de Ciencias y Centro de Investigaciónes, Universidad Antonio Nariño, Bogota; Colombia.
+23(a)
+INFN Bologna and Universita’ di Bologna, Dipartimento di Fisica;(b)
+INFN Sezione di Bologna; Italy.
+24Physikalisches Institut, Universität Bonn, Bonn; Germany.
+25Department of Physics, Boston University, Boston MA; United States of America.
+26Department of Physics, Brandeis University, Waltham MA; United States of America.
+27(a)Transilvania University of Brasov, Brasov;(b)Horia Hulubei National Institute of Physics and Nuclear
+Engineering, Bucharest;(c)Department of Physics, Alexandru Ioan Cuza University of Iasi, Iasi;(d)National
+Institute for Research and Development of Isotopic and Molecular Technologies, Physics Department,
+Cluj-Napoca;(e)University Politehnica Bucharest, Bucharest;(f )West University in Timisoara, Timisoara;
+Romania.
+28(a)Faculty of Mathematics, Physics and Informatics, Comenius University, Bratislava;(b)Department of
+Subnuclear Physics, Institute of Experimental Physics of the Slovak Academy of Sciences, Kosice; Slovak
+Republic.
+29Physics Department, Brookhaven National Laboratory, Upton NY; United States of America.
+30Departamento de Física, Universidad de Buenos Aires, Buenos Aires; Argentina.
+31California State University, CA; United States of America.
+32Cavendish Laboratory, University of Cambridge, Cambridge; United Kingdom.
+33(a)Department of Physics, University of Cape Town, Cape Town;(b)Department of Mechanical
+50
+
+=== PDF PAGE 51 ===
+Engineering Science, University of Johannesburg, Johannesburg;(c)University of South Africa, Department
+of Physics, Pretoria;(d)School of Physics, University of the Witwatersrand, Johannesburg; South Africa.
+34Department of Physics, Carleton University, Ottawa ON; Canada.
+35(a)Faculté des Sciences Ain Chock, Réseau Universitaire de Physique des Hautes Energies - Université
+Hassan II, Casablanca;(b)Faculté des Sciences, Université Ibn-Tofail, Kénitra;(c)Faculté des Sciences
+Semlalia, Université Cadi Ayyad, LPHEA-Marrakech;(d)Faculté des Sciences, Université Mohamed
+Premier and LPTPM, Oujda;(e)Faculté des sciences, Université Mohammed V, Rabat; Morocco.
+36CERN, Geneva; Switzerland.
+37Enrico Fermi Institute, University of Chicago, Chicago IL; United States of America.
+38LPC, Université Clermont Auvergne, CNRS/IN2P3, Clermont-Ferrand; France.
+39Nevis Laboratory, Columbia University, Irvington NY; United States of America.
+40Niels Bohr Institute, University of Copenhagen, Copenhagen; Denmark.
+41(a)Dipartimento di Fisica, Università della Calabria, Rende;(b)
+INFN Gruppo Collegato di Cosenza,
+Laboratori Nazionali di Frascati; Italy.
+42Physics Department, Southern Methodist University, Dallas TX; United States of America.
+43Physics Department, University of Texas at Dallas, Richardson TX; United States of America.
+44National Centre for Scientific Research "Demokritos", Agia Paraskevi; Greece.
+45(a)Department of Physics, Stockholm University;(b)Oskar Klein Centre, Stockholm; Sweden.
+46Deutsches Elektronen-Synchrotron DESY, Hamburg and Zeuthen; Germany.
+47Lehrstuhl für Experimentelle Physik IV, Technische Universität Dortmund, Dortmund; Germany.
+48Institut für Kern- und Teilchenphysik, Technische Universität Dresden, Dresden; Germany.
+49Department of Physics, Duke University, Durham NC; United States of America.
+50SUPA - School of Physics and Astronomy, University of Edinburgh, Edinburgh; United Kingdom.
+51INFN e Laboratori Nazionali di Frascati, Frascati; Italy.
+52Physikalisches Institut, Albert-Ludwigs-Universität Freiburg, Freiburg; Germany.
+53II. Physikalisches Institut, Georg-August-Universität Göttingen, Göttingen; Germany.
+54Département de Physique Nucléaire et Corpusculaire, Université de Genève, Genève; Switzerland.
+55(a)Dipartimento di Fisica, Università di Genova, Genova;(b)
+INFN Sezione di Genova; Italy.
+56II. Physikalisches Institut, Justus-Liebig-Universität Giessen, Giessen; Germany.
+57SUPA - School of Physics and Astronomy, University of Glasgow, Glasgow; United Kingdom.
+58LPSC, Université Grenoble Alpes, CNRS/IN2P3, Grenoble INP, Grenoble; France.
+59Laboratory for Particle Physics and Cosmology, Harvard University, Cambridge MA; United States of
+America.
+60(a)Department of Modern Physics and State Key Laboratory of Particle Detection and Electronics,
+University of Science and Technology of China, Hefei;(b)
+Institute of Frontier and Interdisciplinary Science
+and Key Laboratory of Particle Physics and Particle Irradiation (MOE), Shandong University,
+Qingdao;(c)School of Physics and Astronomy, Shanghai Jiao Tong University, KLPPAC-MoE, SKLPPC,
+Shanghai;(d)Tsung-Dao Lee Institute, Shanghai; China.
+61(a)Kirchhoff-Institut für Physik, Ruprecht-Karls-Universität Heidelberg, Heidelberg;(b)Physikalisches
+Institut, Ruprecht-Karls-Universität Heidelberg, Heidelberg; Germany.
+62Faculty of Applied Information Science, Hiroshima Institute of Technology, Hiroshima; Japan.
+63(a)Department of Physics, Chinese University of Hong Kong, Shatin, N.T., Hong Kong;(b)Department of
+Physics, University of Hong Kong, Hong Kong;(c)Department of Physics and Institute for Advanced Study,
+Hong Kong University of Science and Technology, Clear Water Bay, Kowloon, Hong Kong; China.
+64Department of Physics, National Tsing Hua University, Hsinchu; Taiwan.
+65IJCLab, Université Paris-Saclay, CNRS/IN2P3, 91405, Orsay; France.
+66Department of Physics, Indiana University, Bloomington IN; United States of America.
+51
+
+=== PDF PAGE 52 ===
+67(a)
+INFN Gruppo Collegato di Udine, Sezione di Trieste, Udine;(b)
+ICTP, Trieste;(c)Dipartimento
+Politecnico di Ingegneria e Architettura, Università di Udine, Udine; Italy.
+68(a)
+INFN Sezione di Lecce;(b)Dipartimento di Matematica e Fisica, Università del Salento, Lecce; Italy.
+69(a)
+INFN Sezione di Milano;(b)Dipartimento di Fisica, Università di Milano, Milano; Italy.
+70(a)
+INFN Sezione di Napoli;(b)Dipartimento di Fisica, Università di Napoli, Napoli; Italy.
+71(a)
+INFN Sezione di Pavia;(b)Dipartimento di Fisica, Università di Pavia, Pavia; Italy.
+72(a)
+INFN Sezione di Pisa;(b)Dipartimento di Fisica E. Fermi, Università di Pisa, Pisa; Italy.
+73(a)
+INFN Sezione di Roma;(b)Dipartimento di Fisica, Sapienza Università di Roma, Roma; Italy.
+74(a)
+INFN Sezione di Roma Tor Vergata;(b)Dipartimento di Fisica, Università di Roma Tor Vergata, Roma;
+Italy.
+75(a)
+INFN Sezione di Roma Tre;(b)Dipartimento di Matematica e Fisica, Università Roma Tre, Roma; Italy.
+76(a)
+INFN-TIFPA;(b)Università degli Studi di Trento, Trento; Italy.
+77Institut für Astro- und Teilchenphysik, Leopold-Franzens-Universität, Innsbruck; Austria.
+78University of Iowa, Iowa City IA; United States of America.
+79Department of Physics and Astronomy, Iowa State University, Ames IA; United States of America.
+80Joint Institute for Nuclear Research, Dubna; Russia.
+81(a)Departamento de Engenharia Elétrica, Universidade Federal de Juiz de Fora (UFJF), Juiz de
+Fora;(b)Universidade Federal do Rio De Janeiro COPPE/EE/IF, Rio de Janeiro;(c)Universidade Federal de
+São João del Rei (UFSJ), São João del Rei;(d)
+Instituto de Física, Universidade de São Paulo, São Paulo;
+Brazil.
+82KEK, High Energy Accelerator Research Organization, Tsukuba; Japan.
+83Graduate School of Science, Kobe University, Kobe; Japan.
+84(a)AGH University of Science and Technology, Faculty of Physics and Applied Computer Science,
+Krakow;(b)Marian Smoluchowski Institute of Physics, Jagiellonian University, Krakow; Poland.
+85Institute of Nuclear Physics Polish Academy of Sciences, Krakow; Poland.
+86Faculty of Science, Kyoto University, Kyoto; Japan.
+87Kyoto University of Education, Kyoto; Japan.
+88Research Center for Advanced Particle Physics and Department of Physics, Kyushu University, Fukuoka ;
+Japan.
+89Instituto de Física La Plata, Universidad Nacional de La Plata and CONICET, La Plata; Argentina.
+90Physics Department, Lancaster University, Lancaster; United Kingdom.
+91Oliver Lodge Laboratory, University of Liverpool, Liverpool; United Kingdom.
+92Department of Experimental Particle Physics, Jožef Stefan Institute and Department of Physics,
+University of Ljubljana, Ljubljana; Slovenia.
+93School of Physics and Astronomy, Queen Mary University of London, London; United Kingdom.
+94Department of Physics, Royal Holloway University of London, Egham; United Kingdom.
+95Department of Physics and Astronomy, University College London, London; United Kingdom.
+96Louisiana Tech University, Ruston LA; United States of America.
+97Fysiska institutionen, Lunds universitet, Lund; Sweden.
+98Centre de Calcul de l’Institut National de Physique Nucléaire et de Physique des Particules (IN2P3),
+Villeurbanne; France.
+99Departamento de Física Teorica C-15 and CIAFF, Universidad Autónoma de Madrid, Madrid; Spain.
+100Institut für Physik, Universität Mainz, Mainz; Germany.
+101School of Physics and Astronomy, University of Manchester, Manchester; United Kingdom.
+102CPPM, Aix-Marseille Université, CNRS/IN2P3, Marseille; France.
+103Department of Physics, University of Massachusetts, Amherst MA; United States of America.
+104Department of Physics, McGill University, Montreal QC; Canada.
+52
+
+=== PDF PAGE 53 ===
+105School of Physics, University of Melbourne, Victoria; Australia.
+106Department of Physics, University of Michigan, Ann Arbor MI; United States of America.
+107Department of Physics and Astronomy, Michigan State University, East Lansing MI; United States of
+America.
+108B.I. Stepanov Institute of Physics, National Academy of Sciences of Belarus, Minsk; Belarus.
+109Research Institute for Nuclear Problems of Byelorussian State University, Minsk; Belarus.
+110Group of Particle Physics, University of Montreal, Montreal QC; Canada.
+111P.N. Lebedev Physical Institute of the Russian Academy of Sciences, Moscow; Russia.
+112National Research Nuclear University MEPhI, Moscow; Russia.
+113D.V. Skobeltsyn Institute of Nuclear Physics, M.V. Lomonosov Moscow State University, Moscow;
+Russia.
+114Fakultät für Physik, Ludwig-Maximilians-Universität München, München; Germany.
+115Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München; Germany.
+116Nagasaki Institute of Applied Science, Nagasaki; Japan.
+117Graduate School of Science and Kobayashi-Maskawa Institute, Nagoya University, Nagoya; Japan.
+118Department of Physics and Astronomy, University of New Mexico, Albuquerque NM; United States of
+America.
+119Institute for Mathematics, Astrophysics and Particle Physics, Radboud University Nijmegen/Nikhef,
+Nijmegen; Netherlands.
+120Nikhef National Institute for Subatomic Physics and University of Amsterdam, Amsterdam;
+Netherlands.
+121Department of Physics, Northern Illinois University, DeKalb IL; United States of America.
+122(a)Budker Institute of Nuclear Physics and NSU, SB RAS, Novosibirsk;(b)Novosibirsk State University
+Novosibirsk; Russia.
+123Institute for High Energy Physics of the National Research Centre Kurchatov Institute, Protvino; Russia.
+124Institute for Theoretical and Experimental Physics named by A.I. Alikhanov of National Research
+Centre "Kurchatov Institute", Moscow; Russia.
+125Department of Physics, New York University, New York NY; United States of America.
+126Ochanomizu University, Otsuka, Bunkyo-ku, Tokyo; Japan.
+127Ohio State University, Columbus OH; United States of America.
+128Faculty of Science, Okayama University, Okayama; Japan.
+129Homer L. Dodge Department of Physics and Astronomy, University of Oklahoma, Norman OK; United
+States of America.
+130Department of Physics, Oklahoma State University, Stillwater OK; United States of America.
+131Palacký University, RCPTM, Joint Laboratory of Optics, Olomouc; Czech Republic.
+132Center for High Energy Physics, University of Oregon, Eugene OR; United States of America.
+133Graduate School of Science, Osaka University, Osaka; Japan.
+134Department of Physics, University of Oslo, Oslo; Norway.
+135Department of Physics, Oxford University, Oxford; United Kingdom.
+136LPNHE, Sorbonne Université, Université de Paris, CNRS/IN2P3, Paris; France.
+137Department of Physics, University of Pennsylvania, Philadelphia PA; United States of America.
+138Konstantinov Nuclear Physics Institute of National Research Centre "Kurchatov Institute", PNPI, St.
+Petersburg; Russia.
+139Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh PA; United States of
+America.
+140(a)Laboratório de Instrumentação e Física Experimental de Partículas - LIP, Lisboa;(b)Departamento de
+Física, Faculdade de Ciências, Universidade de Lisboa, Lisboa;(c)Departamento de Física, Universidade de
+53
+
+=== PDF PAGE 54 ===
+Coimbra, Coimbra;(d)Centro de Física Nuclear da Universidade de Lisboa, Lisboa;(e)Departamento de
+Física, Universidade do Minho, Braga;(f )Departamento de Física Teórica y del Cosmos, Universidad de
+Granada, Granada (Spain);(g)Dep Física and CEFITEC of Faculdade de Ciências e Tecnologia,
+Universidade Nova de Lisboa, Caparica;(h)
+Instituto Superior Técnico, Universidade de Lisboa, Lisboa;
+Portugal.
+141Institute of Physics of the Czech Academy of Sciences, Prague; Czech Republic.
+142Czech Technical University in Prague, Prague; Czech Republic.
+143Charles University, Faculty of Mathematics and Physics, Prague; Czech Republic.
+144Particle Physics Department, Rutherford Appleton Laboratory, Didcot; United Kingdom.
+145IRFU, CEA, Université Paris-Saclay, Gif-sur-Yvette; France.
+146Santa Cruz Institute for Particle Physics, University of California Santa Cruz, Santa Cruz CA; United
+States of America.
+147(a)Departamento de Física, Pontificia Universidad Católica de Chile, Santiago;(b)Universidad Andres
+Bello, Department of Physics, Santiago;(c)Departamento de Física, Universidad Técnica Federico Santa
+María, Valparaíso; Chile.
+148Department of Physics, University of Washington, Seattle WA; United States of America.
+149Department of Physics and Astronomy, University of Sheffield, Sheffield; United Kingdom.
+150Department of Physics, Shinshu University, Nagano; Japan.
+151Department Physik, Universität Siegen, Siegen; Germany.
+152Department of Physics, Simon Fraser University, Burnaby BC; Canada.
+153SLAC National Accelerator Laboratory, Stanford CA; United States of America.
+154Physics Department, Royal Institute of Technology, Stockholm; Sweden.
+155Departments of Physics and Astronomy, Stony Brook University, Stony Brook NY; United States of
+America.
+156Department of Physics and Astronomy, University of Sussex, Brighton; United Kingdom.
+157School of Physics, University of Sydney, Sydney; Australia.
+158Institute of Physics, Academia Sinica, Taipei; Taiwan.
+159(a)E. Andronikashvili Institute of Physics, Iv. Javakhishvili Tbilisi State University, Tbilisi;(b)High
+Energy Physics Institute, Tbilisi State University, Tbilisi; Georgia.
+160Department of Physics, Technion, Israel Institute of Technology, Haifa; Israel.
+161Raymond and Beverly Sackler School of Physics and Astronomy, Tel Aviv University, Tel Aviv; Israel.
+162Department of Physics, Aristotle University of Thessaloniki, Thessaloniki; Greece.
+163International Center for Elementary Particle Physics and Department of Physics, University of Tokyo,
+Tokyo; Japan.
+164Graduate School of Science and Technology, Tokyo Metropolitan University, Tokyo; Japan.
+165Department of Physics, Tokyo Institute of Technology, Tokyo; Japan.
+166Tomsk State University, Tomsk; Russia.
+167Department of Physics, University of Toronto, Toronto ON; Canada.
+168(a)TRIUMF, Vancouver BC;(b)Department of Physics and Astronomy, York University, Toronto ON;
+Canada.
+169Division of Physics and Tomonaga Center for the History of the Universe, Faculty of Pure and Applied
+Sciences, University of Tsukuba, Tsukuba; Japan.
+170Department of Physics and Astronomy, Tufts University, Medford MA; United States of America.
+171Department of Physics and Astronomy, University of California Irvine, Irvine CA; United States of
+America.
+172Department of Physics and Astronomy, University of Uppsala, Uppsala; Sweden.
+173Department of Physics, University of Illinois, Urbana IL; United States of America.
+54
+
+=== PDF PAGE 55 ===
+174Instituto de Física Corpuscular (IFIC), Centro Mixto Universidad de Valencia - CSIC, Valencia; Spain.
+175Department of Physics, University of British Columbia, Vancouver BC; Canada.
+176Department of Physics and Astronomy, University of Victoria, Victoria BC; Canada.
+177Fakultät für Physik und Astronomie, Julius-Maximilians-Universität Würzburg, Würzburg; Germany.
+178Department of Physics, University of Warwick, Coventry; United Kingdom.
+179Waseda University, Tokyo; Japan.
+180Department of Particle Physics, Weizmann Institute of Science, Rehovot; Israel.
+181Department of Physics, University of Wisconsin, Madison WI; United States of America.
+182Fakultät für Mathematik und Naturwissenschaften, Fachgruppe Physik, Bergische Universität
+Wuppertal, Wuppertal; Germany.
+183Department of Physics, Yale University, New Haven CT; United States of America.
+a Also at Borough of Manhattan Community College, City University of New York, New York NY; United
+States of America.
+b Also at CERN, Geneva; Switzerland.
+c Also at CPPM, Aix-Marseille Université, CNRS/IN2P3, Marseille; France.
+d Also at Département de Physique Nucléaire et Corpusculaire, Université de Genève, Genève;
+Switzerland.
+e Also at Departament de Fisica de la Universitat Autonoma de Barcelona, Barcelona; Spain.
+f Also at Department of Applied Physics and Astronomy, University of Sharjah, Sharjah; United Arab
+Emirates.
+g Also at Department of Financial and Management Engineering, University of the Aegean, Chios; Greece.
+h Also at Department of Physics and Astronomy, Michigan State University, East Lansing MI; United
+States of America.
+i Also at Department of Physics and Astronomy, University of Louisville, Louisville, KY; United States of
+America.
+j Also at Department of Physics, Ben Gurion University of the Negev, Beer Sheva; Israel.
+k Also at Department of Physics, California State University, East Bay; United States of America.
+l Also at Department of Physics, California State University, Fresno; United States of America.
+m Also at Department of Physics, California State University, Sacramento; United States of America.
+n Also at Department of Physics, King’s College London, London; United Kingdom.
+o Also at Department of Physics, St. Petersburg State Polytechnical University, St. Petersburg; Russia.
+p Also at Department of Physics, Stanford University, Stanford CA; United States of America.
+q Also at Department of Physics, University of Adelaide, Adelaide; Australia.
+r Also at Department of Physics, University of Fribourg, Fribourg; Switzerland.
+s Also at Department of Physics, University of Michigan, Ann Arbor MI; United States of America.
+t Also at Dipartimento di Matematica, Informatica e Fisica, Università di Udine, Udine; Italy.
+u Also at Faculty of Physics, M.V. Lomonosov Moscow State University, Moscow; Russia.
+v Also at Giresun University, Faculty of Engineering, Giresun; Turkey.
+w Also at Graduate School of Science, Osaka University, Osaka; Japan.
+x Also at Hellenic Open University, Patras; Greece.
+y Also at IJCLab, Université Paris-Saclay, CNRS/IN2P3, 91405, Orsay; France.
+z Also at Institucio Catalana de Recerca i Estudis Avancats, ICREA, Barcelona; Spain.
+aa Also at Institut für Experimentalphysik, Universität Hamburg, Hamburg; Germany.
+ab Also at Institute for Mathematics, Astrophysics and Particle Physics, Radboud University
+Nijmegen/Nikhef, Nijmegen; Netherlands.
+ac Also at Institute for Nuclear Research and Nuclear Energy (INRNE) of the Bulgarian Academy of
+Sciences, Sofia; Bulgaria.
+55
+
+=== PDF PAGE 56 ===
+ad Also at Institute for Particle and Nuclear Physics, Wigner Research Centre for Physics, Budapest;
+Hungary.
+ae Also at Institute of Particle Physics (IPP), Vancouver; Canada.
+a f Also at Institute of Physics, Azerbaijan Academy of Sciences, Baku; Azerbaijan.
+ag Also at Instituto de Fisica Teorica, IFT-UAM/CSIC, Madrid; Spain.
+ah Also at Joint Institute for Nuclear Research, Dubna; Russia.
+ai Also at Louisiana Tech University, Ruston LA; United States of America.
+a j Also at LPNHE, Sorbonne Université, Université de Paris, CNRS/IN2P3, Paris; France.
+ak Also at Manhattan College, New York NY; United States of America.
+al Also at Moscow Institute of Physics and Technology State University, Dolgoprudny; Russia.
+am Also at National Research Nuclear University MEPhI, Moscow; Russia.
+an Also at Physics Department, An-Najah National University, Nablus; Palestine.
+ao Also at Physics Dept, University of South Africa, Pretoria; South Africa.
+ap Also at Physikalisches Institut, Albert-Ludwigs-Universität Freiburg, Freiburg; Germany.
+aq Also at School of Physics, Sun Yat-sen University, Guangzhou; China.
+ar Also at The City College of New York, New York NY; United States of America.
+as Also at Tomsk State University, Tomsk, and Moscow Institute of Physics and Technology State
+University, Dolgoprudny; Russia.
+at Also at TRIUMF, Vancouver BC; Canada.
+au Also at Universita di Napoli Parthenope, Napoli; Italy.
+∗ Deceased
+56

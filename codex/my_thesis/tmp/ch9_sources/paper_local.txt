@@ -1,0 +1,2299 @@
+
+=== PDF PAGE 1 ===
+Journal: Phys. Lett. B.
+ATLAS Paper
+EXOT-2025-06
+20th April 2026
+ Draft version 1.1
+1
+Search for a leptoquark in events with a2
+hadronically-decaying𝝉lepton and missing3
+transverse momentum using𝒑 𝒑collisions at4
+√𝒔=13TeV with the ATLAS detector5
+The ATLAS Collaboration6
+AsearchforphysicsbeyondtheStandardModeltargetingleptoquarksignalshasbeenperformed
+in final states with a hadronically-decaying𝜏 lepton and missing transverse momentum, using
+proton–proton collision data at a centre-of-mass energy of√𝑠=13 TeV recorded by the
+ATLAS detector at the Large Hadron Collider, corresponding to an integrated luminosity
+of 140 fb−1. The analysis is designed to probe both resonant production and non-resonant
+𝑡-channel exchange of the leptoquark, covering a wide range of coupling scenarios. No excess
+above the Standard Model background prediction is observed. Limits on the leptoquark mass
+andcouplingconstantsaresetat95%confidencelevelforthebenchmark 𝑈1 vectorleptoquark
+model.
+7
+8
+9
+10
+11
+12
+13
+14
+15
+©2026 CERN for the benefit of the ATLAS Collaboration.16
+Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.17
+
+=== PDF PAGE 2 ===
+ATLAS DRAFT
+1 Introduction18
+Semileptonic decays of𝐵 mesons provide one of the most sensitive probes of lepton flavour universality19
+in the Standard Model (SM) of particle physics, as well as possible contributions from physics beyond20
+the SM. In particular, a combination of the BaBar [1, 2], Belle [3–6], Belle-II [7, 8] and LHCb [9–12]21
+results reported about a3.8𝜎 deviation from the SM expectation on the ratio of the branching fractions22
+𝑅(𝐷 (∗) )=B (𝐵→𝐷 (∗) 𝜏𝜈)/B (𝐵→𝐷 (∗) ℓ𝜈), where ℓ=𝑒, 𝜇 (ℓ=𝜇 for LHCb) [13], motivating23
+scenarios with new interactions in the𝑏→𝑐𝜏𝜈 transition. Such extensions to the SM [14–16] could be24
+described by a leptoquark (LQ), a hypothetical scalar or vector boson that couples directly to a lepton25
+and a quark, thereby mediating interactions between the lepton and quark sectors. This search focuses26
+on the production of a vector leptoquark𝑈1 with quantum numbers(3,1,2/3) , which correspond to the27
+colour, weak, and hypercharge representations, respectively. The𝑅(𝐷 (∗) ) anomaly requires significant28
+contributions from both𝑏𝜏and𝑐𝜈couplings of a LQ.29
+A comprehensive programme to search for LQ signals with𝜏 leptons in the final state has been developed30
+by the ATLAS and CMS experiments [17–22] at the Large Hadron Collider (LHC). In LQ pair production,31
+thecrosssectiondependsonlyonthestrongcouplingconstantatleadingorder, makingthesearcheslargely32
+insensitivetothespecificchoiceoftheLQcoupling. SignalswithLQmassesbelowapproximately1.6 TeV33
+wereexcludedbysuchsearches. SearchesforsingleproductionofaLQdecayinginto 𝑏𝜏 wereperformedin34
+the 𝑏𝜏𝜏 final state, assuming it was produced in association with a𝜏 lepton. If the lepton-quark couplings35
+are large,𝑡-channel exchange of the LQ can lead to an excess of events over the SM expectation in the36
+high-mass region of the final-state system. ATLAS and CMS have performed such non-resonant searches37
+for LQ signals in the𝜏𝜏 final state. For the𝑈1 LQ model, the region with𝜆𝑏𝜏 /𝑚U1 >∼1TeV −1 has been38
+excluded by ATLAS [19], where𝜆𝑏𝜏 =𝑔 𝑈/
+√
+2, with𝑔𝑈 denoting the vector coupling constant and𝑚U139
+the LQ mass, as defined in Section 3. CMS had similar sensitivity [21], but observed a small excess of40
+events at high𝑚𝜏 𝜏, leading to a weaker observed limit on𝜆𝑏𝜏 /𝑚U1.41
+Previous ATLAS and CMS searches in𝜏𝜏(+𝑏) final states mentioned above assumed that the signal rate42
+depends only on the𝑏𝜏 coupling, because the𝑐𝜈 coupling contributes only through subleading effects.43
+In contrast, this is the first ATLAS analysis targeting the𝜏𝜈(+𝑏) final state. Figure 1 shows illustrative44
+Feynman diagrams for the signals targeted by this analysis. A search for leptoquarks is performed in45
+events with a hadronically-decaying𝜏 lepton (𝜏had) with high transverse momentum (𝑝T) and large missing46
+transverse momentum. The analysis is categorised according to the presence or absence of a jet containing47
+𝑏-hadrons (𝑏-jet) and the transverse momentum range of the jet. The categories with𝑏-jet are sensitive to48
+the product of the𝑏𝜏 and 𝑐𝜈 couplings, directly relevant to the𝑅(𝐷 (∗) ) anomaly, while categories without49
+the 𝑏-jet requirement enhance sensitivity to scenarios with larger𝑐𝜈 coupling contributions. An advantage50
+of the𝜏𝜈𝑏 channel is that the corresponding SM backgrounds are highly suppressed [23]. In the SM, the51
+production of a𝜏𝜈 system with an associated𝑏 quark is CKM-suppressed, making the SM amplitude that52
+interferes with new physics contribution highly reduced at the high-mass region. The LQ interpretation by53
+CMS in the𝜏𝜈final state [24] was performed without𝑏-jet requirements.54
+20th April 2026 – 16:37 2
+
+=== PDF PAGE 3 ===
+ATLAS DRAFT
+g
+¯c
+τ
+¯ντ
+¯b/¯s
+LQ
+(a)
+g
+¯c ¯ντ
+¯b/¯s
+τLQ (b)
+Figure 1: Illustrative Feynman diagrams of signals targeted by this analysis: (a)𝑡-channel exchange of a leptoquark
+(LQ) with a soft jet (non-resonant signal) and (b) single LQ production decaying to𝑏𝜏/𝑠𝜏(resonant signal).
+2 ATLAS detector55
+The ATLAS detector [25, 26] is a multipurpose apparatus with nearly4𝜋 coverage in solid angle.1 It56
+consists of an inner tracking detector (ID) inside a2T superconducting solenoid magnet, electromagnetic57
+and hadronic calorimeters, and a muon spectrometer. The inner tracking detector covers the pseudorapidity58
+range |𝜂|<2.5 . It consists of silicon pixel, silicon microstrip, and transition radiation tracking detectors.59
+Lead/liquid-argon (LAr) sampling calorimeters provide electromagnetic (EM) energy measurements with60
+high granularity within the region|𝜂|<3.2 . A steel/scintillator-tile hadronic calorimeter covers the central61
+pseudorapidity range (|𝜂|<1.7 ). The endcap and forward regions are instrumented with LAr calorimeters62
+for EM and hadronic energy measurements up to|𝜂|=4.9 . The muon spectrometer (MS) surrounds the63
+calorimeters and is based on three large superconducting air-core toroidal magnets with eight coils each.64
+The field integral of the toroids ranges between2.0 and 6.0Tm across most of the detector. The MS65
+includes a system of precision tracking chambers up to|𝜂|=2.7 and fast detectors for triggering up to66
+|𝜂|=2.4 . A two-level trigger system was used to select events [27]. The first-level trigger is implemented67
+in hardware and uses a subset of the detector information to accept events at a rate close to100kHz. This68
+is followed by a software-based trigger that reduces the accepted rate of complete events to1.25kHz on69
+average in Run 2, depending on the data-taking conditions. A software suite [28] is used in data simulation,70
+in the reconstruction and analysis of real and simulated data, in detector operations, and in the trigger and71
+data acquisition systems of the experiment.72
+1 ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) in the centre of the detector
+and the𝑧-axis along the beam pipe. The𝑥-axis points from the IP to the centre of the LHC ring, and the𝑦-axis points upwards.
+Polar coordinates(𝑟, 𝜙) are used in the transverse plane,𝜙 being the azimuthal angle around the𝑧-axis. The pseudorapidity is
+defined in terms of the polar angle𝜃 as 𝜂=−ln tan(𝜃/2) and is equal to the rapidity𝑦= 1
+2 ln
+
+𝐸+𝑝 𝑧
+𝐸−𝑝 𝑧
+
+in the relativistic limit.
+Angular distance is measured in units ofΔ𝑅≡
+√︁
+(Δ𝑦) 2 + (Δ𝜙) 2.
+20th April 2026 – 16:37 3
+
+=== PDF PAGE 4 ===
+ATLAS DRAFT
+3 Signal model73
+The effective Lagrangian for𝑈1 LQ interactions [29] is:74
+L𝑈1 =− 1
+2𝑈†
+1𝜇𝜈 𝑈 𝜇𝜈
+1 +𝑚 2
+U1𝑈†
+1𝜇𝑈 𝜇
+1 −𝑖𝑔 𝑠 (1−𝜅)𝑈 †
+1𝜇𝑇 𝑎𝑈1𝜈 𝐺 𝑎𝜇𝜈
+75
+−𝑖𝑔𝑌
+2
+3 (1−˜𝜅)𝑈 †
+1𝜇𝑈1𝜈 𝐵𝜇𝜈 + 𝑔𝑈√
+2
+h
+𝑈 𝜇
+1 (𝛽 𝑖 𝑗
+𝐿 ¯𝑞𝑖
+𝐿𝛾𝜇ℓ 𝑗
+𝐿 +𝛽 𝑖 𝑗
+𝑅 ¯𝑑𝑖
+𝑅𝛾𝜇𝑒 𝑗
+𝑅) +ℎ.𝑐.
+i
+,76
+where 𝑈1 is a LQ field,𝐺 𝑎 and 𝐵 denote the field-strength tensors of the𝑆𝑈(3) 𝑐 and 𝑈(1) 𝑌 gauge bosons,77
+𝑔𝑠 and 𝑔𝑌 the corresponding gauge coupling constants, and𝑇 𝑎 =𝜆 𝑎/2 (Gell-Mann matrices). Here𝑞 𝐿78
+(ℓ𝐿)denotestheleft-handedquark(lepton)doublets,and 𝑑𝑅 (𝑒𝑅)denotestheright-handeddowntypequark79
+(charged-lepton) singlets,𝑖∈ {1,2,3 } and 𝑗∈ {1,2,3 } are flavour indices, and𝑎∈ {1,2,3 } is a𝑆𝑈(3) 𝑐80
+index. The CKM matrix elements𝑉𝑗𝑖 are included in𝑞𝑖
+𝐿 as:81
+𝑞𝑖
+𝐿 =
+ 
+𝑉 ∗
+𝑗𝑖 𝑢 𝑗
+𝐿
+𝑑𝑖
+𝐿
+!
+.
+The couplings𝛽𝐿 and 𝛽𝑅 are complex3×3 matrices in flavour space. In this analysis, motivated by the82
+discussion in Refs. [30, 31], they are defined as:83
+𝛽𝐿 = ©­
+«
+0 0𝛽 13
+𝐿
+0 0𝛽 23
+𝐿
+0 0𝛽 33
+𝐿
+ª®
+¬
+, 𝛽 𝑅 = ©­
+«
+0 0 0
+0 0 0
+0 0𝛽 33
+𝑅
+ª®
+¬
+.
+Conventionally, the normalisation factor𝑔𝑈 is introduced to set𝛽33
+𝐿 =1 . There are two benchmark84
+scenarios for
+𝛽33
+𝑅
+ =0 and 1. The parameters𝜅 and ˜𝜅introduce the LQ couplings to the SM gauge-boson85
+fields. They are set to𝜅=˜𝜅=0in this analysis (Yang-Mills coupling scenario).86
+Integrating out the𝑈1 field at low energy induces semileptonic four-fermion operators. The left-handed87
+coefficient for the𝑏→𝑐𝜏𝜈transition scales as:88
+𝐶 𝑐
+𝐿 𝐿 ∼
+𝑔2
+𝑈𝑣 2
+4𝑚2
+U1
+
+1+ 𝑉𝑐𝑠
+𝑉𝑐𝑏
+𝛽23
+𝐿
+
+,(1)
+where 𝑣 is the electroweak vacuum expectation value. The term proportional to𝛽23
+𝐿 is enhanced by the89
+ratio 𝑉𝑐𝑠 /𝑉𝑐𝑏, implying that even moderate values of𝛽23
+𝐿 can generate sizable contribution to𝑅(𝐷 (∗) )90
+anomalies2. Although 𝛽23
+𝐿 ∼0.1 is often assumed in general UV-complete models [30, 31], direct91
+experimental constraints allow larger𝛽23
+𝐿 values. This search specifically explores the high-𝛽23
+𝐿 region [29],92
+which was not explored thoroughly by previous ATLAS and CMS searches.93
+The signal is primarily characterised by three parameters:𝑚U1, 𝑔𝑈 and 𝛽23
+𝐿 . The relative contributions of94
+resonant and non-resonant production depend strongly on𝑚U1. The resonant production cross section95
+decreasesrapidlyaround 𝑚U1 ∼1.5TeV , mainlyduetothesuppressionofthepartondistributionfunctions96
+at high Bjorken-𝑥. As a result, the non-resonant contribution becomes dominant at higher masses. The97
+coupling 𝑔𝑈 controlstheoverallsignalnormalisation. Theparameter 𝛽23
+𝐿 influencestheflavourstructureof98
+theproductionprocessandchangestheeffectivepartonluminositycontributingtothesignal. Largervalues99
+of 𝛽23
+𝐿 also reduce the relative fraction of signal events containing a𝑏-quark in the final state. The decay100
+width of the LQ approximately scales asΓ∝𝑔 2
+𝑈 ×𝑚 U1 ×𝛽 23
+𝐿 . For example, at𝑚U1 =1.5TeV , 𝛽23
+𝐿 =0.6 ,101
+and𝑔 𝑈 =2, the intrinsic width is about 7% of the LQ mass.102
+2 The 𝛽13
+𝐿 is set to𝑉 ∗
+𝑡 𝑑/𝑉∗
+𝑡 𝑠𝛽23
+𝐿 ∼0.2𝛽 23
+𝐿 following the convention of Ref. [29]. Its contribution is smaller than𝛽23
+𝐿 term and is
+ignored here for simplicity.
+20th April 2026 – 16:37 4
+
+=== PDF PAGE 5 ===
+ATLAS DRAFT
+4 Data and Monte-Carlo simulation103
+This search employs the proton-proton (𝑝 𝑝) collisions data at the centre-of-mass energy√𝑠=13TeV104
+recordedbytheATLASdetectorduringRun2periodoftheLHC(2015–18),correspondingtoanintegrated105
+luminosity of 140fb−1. The number of interactions per bunch crossing (pileup) ranged from about 8106
+to 70, with an average of 34 [32]. Events are collected using the𝐸miss
+T , single-electron or single-muon107
+triggers [33–35] with the lowest unprescaled thresholds. Depending on the analysis category defined later,108
+events are required to satisfy either the𝐸miss
+T trigger or the single-lepton trigger. The typical thresholds109
+are𝐸 miss
+T >110GeV with various pileup mitigation algorithms depending on the data-taking period, and110
+𝑝T >26GeV for electrons and muons with different isolation requirements for various𝑝T ranges.111
+Signal LQ events with𝜏, 𝜈 and up to two partons including𝑏-quark [29] are produced at leading order112
+(LO) in QCD in the five-flavour scheme usingMadGraph5_aMC@NLO3.3.1 [36] matrix element113
+(ME) generator with the NNPDF3.0NLO [37] parton distribution function (PDF). Parton shower (PS) and114
+hadronisation are simulated withPythia8.3.08 [38] using the A14 tune with NNPDF2.3LO PDF [39] for115
+theunderlyingevent(UE).AllrelevantproductiondiagramsareconsideredintheMEcalculation,including116
+both 𝑠-channel (resonant) and𝑡-channel (non-resonant) topologies. For the CKKW-L matching [40],117
+the Durham𝑘⊥ and 𝐷 parameters are set to 15GeVand 0.4, respectively, corresponding to a minimum118
+jet 𝑝T of 15GeVat the ME level. Signal samples are generated for 152 different combinations of the119
+parameters (𝑚U1, 𝑔𝑈, 𝛽23
+𝐿 ), ranging in1.5≤𝑚 U1 ≤3.0TeV , 0.5≤𝑔 𝑈 ≤3.0 and 0≤𝛽 23
+𝐿 ≤2.2 , for120 𝛽33
+𝑅
+ =0 . The lower𝑚U1 boundary is chosen to cover the region around the current exclusion limits from121
+LQpair-productionsearches. Athighermasses( 𝑚U1 >3TeV ),thesignalisdominatedbythenon-resonant122
+contribution, and both the cross section and kinematic distributions depend on the coupling-to-mass ratio123
+rather than the explicit mass value. Therefore, 3.0TeVis taken as the upper boundary of the scan. We124
+also have 12 special signal samples generated for
+𝛽33
+𝑅
+ =1 and
+𝛽33
+𝑅
+ =0 at 𝑚U1 =1.5 , 2.0, 2.5, 3.0,125
+4.0, and 5.0TeVwith 𝑔𝑈 =1.0 and 𝛽23
+𝐿 =0.2 fixed for the right-handed scenario interpretation. The126
+interference contribution between the signal and the SM𝜏𝜈 processes with up to two partons is generated127
+separately usingMadGraphat each parameter point, using the same configurations as the signal samples,128
+and combined with them.129
+The dominant source of SM background is𝑊→𝜏𝜈 production in association with a jet. The𝑊 and 𝑍130
+boson production processes in association with jets (𝑊+jets and𝑍+jets) are simulated using theSherpa131
+generator[41]withMEcalculatedatnext-to-leadingorder(NLO)accuracyinQCDforuptotwoadditional132
+partons and at LO for up to five additional partons, and merged with theSherpaPS [42] using the133
+MEPS@NLOprescription [43–46]. Top-quark pair and single-top (single-𝑡) backgrounds are generated134
+withPowheg Boxv2 [47–50] at NLO accuracy in QCD, interfaced toPythia8.230 [51] for parton135
+shower and hadronisation. The single-𝑡 contribution includes the𝑠-channel, 𝑡-channel, and𝑊𝑡 associated136
+production processes, with the𝑊𝑡 channel providing the dominant contribution in this analysis. Diboson137
+processes are simulated usingSherpa2.2.2 at NLO accuracy. Only fully-leptonic decay modes (i.e.4ℓ,138
+ℓℓℓ𝜈, 2ℓ2𝜈, ℓ𝜈𝜈𝜈, and4𝜈 where ℓ=𝑒, 𝜇, 𝜏 ) are considered in this analysis, as others are negligibly small139
+after the high-𝐸miss
+T requirement.140
+The decays of bottom and charm hadrons are simulated withEvtGen[52]. Simulated events are weighted141
+to reproduce the distribution of the average number of interactions per bunch crossing (⟨𝜇⟩) observed in142
+data. The ⟨𝜇⟩ value in data is rescaled by a factor of1.03±0.04 to improve the agreement between data143
+and simulation in both charged-particle track distributions and the visible inelastic𝑝 𝑝cross-section [53].144
+A detailed simulation of the ATLAS detector based onGeant4[54, 55] is used. For the signal samples,145
+20th April 2026 – 16:37 5
+
+=== PDF PAGE 6 ===
+ATLAS DRAFT
+the AtlFast3 [56] ATLAS detector simulation based on the generative neural network for the calorimeter146
+response is used.147
+A summary of the generator configurations for all MC samples, including the cross-section calculation148
+order in QCD, is shown in Table 1.149
+Table 1: List of the MC simulated samples used in this analysis. From left to right, the generators used for the ME
+calculation, the tune for the UE, the PDF set for ME calculation and the cross-section calculation order in QCD used
+for the normalisation of the simulated samples are shown. The symbolℓ denotes an electron or muon. The SM
+background processes are normalized using cross sections calculated at next-to-next-to-learning order (NNLO) or
+NLO in QCD. For ttbar, NNLO with the resummation of next-to-next-to-leading logarithmic (NNLL) soft gluon
+terms is used.
+Process ME Generator Tune PDF set Cross-section Calc. Order
+SignalMadGraph5_aMC@NLOA14 NNPDF3.0NLO LO
+𝑊(→𝜏𝜈)+jetsSherpa2.2.11SherpaNNPDF3.0NNLO NNLO
+𝑡¯𝑡and single-𝑡Powheg Boxv2 A14 NNPDF3.0NLO NNLO+NNLL (𝑡 ¯𝑡)
+NLO (single-𝑡)
+𝑍(→𝜈𝜈)+jetsSherpa2.2.11SherpaNNPDF3.0NNLO NNLO
+𝑍(→𝜏𝜏)+jetsSherpa2.2.14SherpaNNPDF3.0NNLO NNLO
+𝑊(→ℓ𝜈)/(𝑍→ℓℓ)+jetsSherpa2.2.11SherpaNNPDF3.0NNLO NNLO
+DibosonSherpa2.2.2SherpaNNPDF3.0NNLO NLO
+5 Event reconstruction and preselection150
+Hadronically-decaying 𝜏 leptonsarereconstructed fromseedjetsformedby theanti- 𝑘𝑡 algorithm [57]with151
+aradiusparameter 𝑅=0.4 ,usingtopologicalcellclusters,calibratedwiththelocalhadroniccell-weighting152
+scheme [58, 59]. Candidate𝜏hads are required to have𝑝T >20GeV and |𝜂| <2.5 , excluding the crack153
+region of the EM calorimeter1.37< |𝜂| <1.52 . The vertex of a𝜏had decay is determined from tracks154
+within Δ𝑅 <0.2 oftheaxisoftheseedjet. Tracksassociatedwiththe 𝜏had candidatearethenselectedfrom155
+all tracks associated with the seed jet based on geometric and impact-parameter criteria, and classified156
+using a recurrent neural network (RNN)-based track classifier [60]. Candidates are required to have one157
+or three tracks classified as𝜏had tracks, with the sum of their charges equal to±1. Another RNN-based158
+classifier is used to separate𝜏hads from the background jets [60], using tracks and calorimeter energy159
+clusters associated with the seed jet, as well as several high-level discriminating variables. There are160
+several working points for𝜏had identification corresponding to different efficiencies. Different working161
+points are used in this analysis depending on the analysis region and purpose. The “Loose” working point162
+is used to count the number of𝜏had, for overlap removal described below and the𝐸miss
+T reconstruction, and163
+the “Tight” working point is employed for the𝜏had in the signal selection. In addition, all candidates are164
+required to pass the “Loose” RNN eVeto working point [60], to suppress electrons that are misidentified as165
+𝜏had candidates.166
+Electrons are reconstructed by combining clusters in the EM calorimeter with ID tracks [61]. Electron167
+candidates are required to have𝑝T >10GeV and |𝜂| <2.47 excluding the crack region of the EM168
+calorimeter. All electrons are required to satisfy the “Tight” likelihood identification and “Loose_VarRad”169
+isolation criteria [62]. Muons are reconstructed from ID and MS tracks, and additional calorimeter170
+information[63]. Muoncandidatesarerequiredtohave 𝑝T >10GeV and |𝜂| <2.5 . Allmuonsmustsatisfy171
+20th April 2026 – 16:37 6
+
+=== PDF PAGE 7 ===
+ATLAS DRAFT
+the “Loose” identification working point and “Loose_VarRad” isolation criterion [64]. Both electrons and172
+muons are required to have small transverse (𝑑0) and longitudinal (𝑧0) impact parameters for the ID track,173
+with 𝑑0/𝜎𝑑0 <5 (3) and|𝑧0 sin𝜃 | <0.5 mm for electrons (muons), where𝜎𝑑0 is the uncertainty on the𝑑0174
+measurement.175
+Jetsarereconstructedwiththeanti- 𝑘𝑡 algorithm( 𝑅=0.4 )fromparticle-flowobjects[65], andarerequired176
+tohave 𝑝T >20GeV and |𝜂| <2.5 . Pileupjetsaresuppressedusingthejet–vertextaggeratthe“FixedEffPt”177
+working point [66]. Jets originating from𝑏-hadrons (𝑏-jets) are identified using the GN2 multivariate178
+algorithm, based on a graph neural network and transformer, at a working point corresponding to 85%179
+𝑏-jet efficiency [67].180
+The particle identification and isolation efficiencies in the simulation are corrected to match those observed181
+in data. To avoid double-counting, overlapping physics objects are rejected in the following order: the182
+𝜏had within Δ𝑅=0.2 of an electron;𝜏hads withinΔ𝑅=0.2 of a muon; calorimeter-tagged muons sharing183
+an ID track with an electron; electrons sharing an ID track with a muon; the closest jet withinΔ𝑅=0.2184
+of an electron; electrons withinΔ𝑅=0.4 of a jet; jets withinΔ𝑅=0.4 of a muon if they have at185
+most two associated tracks; muons withinΔ𝑅=0.4 of a jet; and jets withinΔ𝑅=0.2 of a 𝜏had. All186
+reconstructed physics objects above are calibrated and the corresponding efficiency scale factors and187
+energy/momentum corrections are applied to simulated events to account for residual differences between188
+data and simulation.189
+The missing transverse momentum is defined as the negative vector sum of the𝑝T of all selected objects in190
+the event, including a term to account for the momenta of soft particles that are not associated with any191
+of the selected objects [68]. The magnitude of this vector is referred to as the missing transverse energy,192
+𝐸miss
+T . This soft term is calculated from ID tracks matched to the PV.193
+Only data from periods with stable beams and all detector systems operational is employed [32]. The194
+reconstructedinteractionpointwiththehighest Í 𝑝2
+Toftheassociatedtrackswith 𝑝T >500MeV isselected195
+as the primary vertex (PV) [69]. All events must have at least two tracks associated with the PV. Events196
+must contain at least one𝜏had, electron or muon, and at least one jet. To suppress multijet background,197
+events are rejected if the minimum azimuthal separation between jets and𝐸miss
+T (minΔ𝜙(𝑗, 𝐸 miss
+T )) is less198
+than 0.4 and the ratio of𝐸miss
+T to jet 𝑝T for the jet with the minimalΔ𝜙(𝑗, 𝐸 miss
+T ) is less than 6. The199
+requirements above define the event preselection, which serves as the starting point for the subsequent200
+event categorisation and statistical analysis.201
+6 Event selections202
+Four signal regions (SRs) are defined to maximise sensitivity: one targeting resonant LQ production and203
+one targeting non-resonant LQ production, each further categorised by the presence or absence of a𝑏-jet,204
+assummarisedinTable2. DuringtheoptimisationofSRs,theselectionsarechosensuchthatthestatistical205
+uncertainty of the expected background from simulation is kept at approximately 10%. Events in the SRs206
+are required to pass the𝐸miss
+T trigger. Exactly one𝜏had with 𝑝T >200GeV is required. The selected𝜏had207
+mustpassthe“Tight”identificationcriterion[60]. Eventswithadditionallightleptons(electronsormuons)208
+are vetoed.209
+Resonanceandnon-resonanceSRsareprimarilydistinguishedbythejet 𝑝T. TheresonanceSRs, SR1b-Res210
+and SR0b-Res, are defined for lower LQ masses (∼1.5 TeV), with and without a𝑏-jet in the events. Events211
+must satisfy𝐸miss
+T >200GeV and 𝑚T >200GeV , where𝑚T is the transverse mass of the𝜏had and 𝐸miss
+T .212
+20th April 2026 – 16:37 7
+
+=== PDF PAGE 8 ===
+ATLAS DRAFT
+Up to four jets are allowed per event. InSR1b-Res, the number of𝑏-jets is required to be unity, and its𝑝T213
+must be greater than 250GeV. In addition, the invariant mass of the𝑏-jet and the𝜏had, 𝑚𝑏𝜏had, is required214
+to be greater than 800GeV. In SR0b-Res, the number of𝑏-jets must be zero, and the leading jet𝑝T is215
+required to be greater than 250GeV. The leptoquark mass is reconstructed by the leading jet and the𝜏had,216
+𝑚 𝑗 𝜏had.217
+The non-resonance SR,SR1b-NonResand SR0b-NonRes, target the high-𝑚T regime with and without a218
+𝑏-jet, hence𝑚T >600GeV and 𝐸miss
+T >400GeV are required. The azimuthal difference between the𝜏had219
+and 𝐸miss
+T , Δ𝜙(𝜏had, 𝐸miss
+T ), is required to be greater than 1.2. To suppress top-quark background, at most220
+two jets are allowed per event. InSR1b-NonRes, the𝑏-jet 𝑝T is required to be50< 𝑝 T <250GeV , while221
+forSR0b-NonRes, the leading jet𝑝T is used instead.222
+Table 2: Summary of event selection criteria in SRs. All events are required to satisfy preselection requirements.
+Feature Criterion
+Trigger requirement𝐸 miss
+T trigger (lowest-unprescaled)
+𝜏had multiplicity (𝑁𝜏had) 1
+𝑝 𝜏had
+T [GeV]>200
+𝜏had identification Tight
+Light lepton multiplicity (𝑁ℓ) 0
+Region
+SR1b-Res SR0b-Res SR1b-NonRes SR0b-NonRes
+𝑏-jet multiplicity (𝑁𝑏) 1 0 1 0
+𝑏-jet𝑝 T [GeV]>250–[50,250]–
+Leading jet𝑝T [GeV] –>250– [50, 250]
+𝐸miss
+T [GeV]>200>400
+𝑚T [GeV]>200>600
+𝑚𝑏𝜏had [GeV]>800– – –
+𝑚 𝑗 𝜏had [GeV] –>800– –
+Δ𝜙(𝜏had, 𝐸miss
+T )–>1.2
+Number of jets≤4≤2
+7 Background estimation223
+The dominant SM background source in the SRs is from𝑊→𝜏𝜈 production in association with224
+jets. Subdominant contributions arise from top-quark decays producing𝜏 leptons (𝑡¯𝑡→𝜏𝜈𝑏𝜏𝜈𝑏 and225
+𝑊𝑡→𝜏𝜈𝜏𝜈𝑏 )in SR1bregions,incaseswhere 𝜏 leptonsand 𝑏 quarksaremisreconstructedaslight-flavour226
+jets. The normalisations of 𝑊+jets and top backgrounds are constrained by the data in high-purity227
+control regions (CRs), where single-lepton triggers are used instead of the𝐸miss
+T trigger. Events with a jet228
+misidentified as a𝜏had, dominated by𝑍→𝜈𝜈 events with large𝐸miss
+T , make a minor contribution to this229
+analysis, and are estimated from simulation with a conservative uncertainty obtained from data-driven230
+studieswith 𝑍→ℓℓ events. Multijetbackgroundisfoundtobenegligibleafterthepreselection. OtherSM231
+backgrounds, including diboson and𝑍→𝜏𝜏 contributions, as well as minor contributions from𝑊→ℓ𝜈232
+and𝑍→ℓℓprocesses, are also estimated by simulation.233
+20th April 2026 – 16:37 8
+
+=== PDF PAGE 9 ===
+ATLAS DRAFT
+The 𝑊+jets background normalisation is determined separately for each SR using two control regions234
+(CRWs), one for each SR. TheCRWs are constructed similarly to the SRs, except that an electron or muon235
+is required instead of a𝜏had, achieving a purity of∼70% in𝑊→ℓ𝜈 events. Electrons (muons) inCRW236
+regions must satisfy the “TightLH” (“Medium”) identification and “HighPtCaloOnly” (“Tight_VarRad”)237
+isolation criteria [62, 64]. Events with𝑏-jets are vetoed to suppress top-quark contributions inCRW238
+regions and enhance the statistical precision. All other selection criteria are kept the same as in theSR0b239
+regions, except that𝜏had-related kinematic variables (e.g.𝑚T) are computed using the electron or muon240
+instead of the𝜏had.241
+The top-quark background normalisation is determined separately for each SR using two control regions242
+(CRTops), one for each SR. TheCRTopregions are defined by requiring one𝜏had and one additional243
+electron or muon, achieving a∼90% purity in top-quark events. To increase the event yield inCRTops,244
+several kinematic requirements are loosened with respect to the SR selections:𝑁𝑏 ≥1 , 𝑝 𝜏had
+T >100GeV ,245
+𝐸miss
+T >100GeV , 𝑚T >100GeV , and no selection on𝑚𝑏𝜏had is required. Among multiple𝑏-jets, the one246
+with the highest𝑝T is selected and used as a proxy for the𝑏-jet inSR1bregions, and is employed in the247
+reconstruction of kinematic variables such as𝑚𝑏𝜏had. All other selection criteria are kept the same as in the248
+SR1bregions.249
+The background normalisation estimated in the CRs is tested in dedicated validation regions (VRs),250
+designed to prove the extrapolation holds from the CRs to the SRs. These include regions with modified251
+𝑏-jet multiplicity or light lepton requirements, while preserving kinematic selections similar to those of the252
+SRs. Two types of VRs are defined, for each of the resonance and non-resonance analyses, amounting253
+to four VRs in total. The VRs are labelled asVRW and VRTop, characterised by the requirements254
+(𝑁 𝜏had, 𝑁ℓ, 𝑁𝑏)=(0,1,1) and (1,0,2) , respectively. TheVRWregions are used to test the extrapolation255
+of the background estimation from CRs with a𝑏-jet veto to SRs requiring a𝑏-jet. The VRTopregions256
+probe the validity of the𝑡¯𝑡 background normalisations obtained in CRs using electron or muon, by testing257
+them in regions with𝜏had. In theVRWregions, similarly to theCRWones, the kinematic variables used in258
+the event selection are computed with an electron or a muon, instead of a𝜏had. In theVRTopregions, the259
+leading-𝑝T 𝑏-jet is used as a proxy of the𝑏-jet in the SRs.260
+8 Systematic uncertainties261
+Experimental and modelling systematic uncertainties are included as normalisation and shape variations in262
+the fit and are subdominant to the statistical uncertainty due to the limited SR event yields.263
+The uncertainty in the combined 2015–2018 integrated luminosity is 0.83% [70], obtained using the264
+LUCID-2 detector [71] for the primary luminosity measurements, complemented by measurements using265
+the inner detector and calorimeters. The uncertainty due to pileup reweighting is evaluated following the266
+prescription in Ref. [72].267
+The tau energy scale and its uncertainties are measured in-situ using𝑍→𝜏𝜏 events, combined with test268
+beam and MC simulation comparison in the high-𝑝T region. The correction applied to the simulated tau269
+energy scale is typically below 1% of the reconstructed𝜏had energy. The associated absolute uncertainty270
+on the𝜏 energy scale is smaller than 1.5%. The efficiencies of tau reconstruction and identification in271
+the simulation samples are corrected to agree with data, depending on𝑝T, using𝑡¯𝑡 events. The central272
+value of the correction factor is around unity in all𝑝T ranges, with uncertainties of 5–8% (6-11%) for273
+1-prong (3-prong) using the “Tight” identification working point. The uncertainties on electron and muon274
+20th April 2026 – 16:37 9
+
+=== PDF PAGE 10 ===
+ATLAS DRAFT
+reconstruction and identification efficiencies, as well as the energy and momentum scales and resolutions275
+are considered, with these effects being significantly smaller than those of the𝜏lepton.276
+The jet energy scale and resolution, pileup subtraction and𝐸miss
+T soft-term uncertainties are estimated by277
+in-situ methods [68, 73]. The efficiency of𝑏-jet identification in the simulation is corrected to match data278
+efficiencies measured in𝑡¯𝑡 events and the uncertainties are estimated on the correction factor [74–76].279
+For signal samples using AtlFast3 detector simulation, an additional uncertainty taking into account the280
+difference from the full simulation is considered, and its impact on the signal yield is around 1%.281
+Uncertainties on the theoretical modelling of simulated events are also considered. For𝑊+jets simulated282
+events, variations of the renormalisation and factorisation scales by factor 2 and1/2 and PDFs are283
+considered [77]. Additionally, approximate NLO electroweak corrections are applied to the nominal284
+𝑊+jets samples, and the corresponding effect is taken as an additional systematic uncertainty. Since the285
+normalisationof 𝑊→𝜏𝜈 eventsisestimatedinthe CRWregionswitha 𝑏-jetvetoandappliedtoSRswith286
+a 𝑏-jet, a 30% uncertainty is assigned in those regions on the ratio of𝑊-boson production in association287
+with heavy-flavour hadrons (𝑊+HF) to those with light-flavour hadrons (𝑊+LF), according to previous288
+ATLAS studies [78, 79].289
+For top-quark simulated events, variations of ME calculation, renormalisation and factorisation scales as290
+with 𝑊+jets,ISR/FSR,PDFand ℎdamp parametersareconsidered[80]. Forthe 𝑡¯𝑡 component,thedifference291
+of top-quark𝑝T distribution of the nominal NLO calculation from the NNLO [81] is also considered as an292
+additional uncertainty. Interference between𝑡¯𝑡 and single-𝑡 events is also taken into account, by comparing293
+DR (diagram removal) to DS (diagram subtraction) schemes [82].294
+The background containing a jet misidentified as a𝜏had is a minor contribution to the SRs and is dominated295
+by 𝑍→𝜈𝜈 production. The modelling of the misidentification probability of a jet as a𝜏had in simulated296
+events is checked in the control sample requiring𝑍→ℓℓ , and a conservative 100% uncertainty is assigned297
+to the normalisation of those simulated events. For the signal samples, variations of renormalisation and298
+factorisation scales and PDF are taken into account.299
+9 Results300
+TheTRExFitterframework [83] is used to perform the statistical analysis. Two fit configurations are301
+employed: one is the “background-only” fit and the other is the “signal-plus-background (s+b)” fit. The a302
+template maximum-likelihood fit [84] is performed using the observed event yields in each region. For303
+the background-only fit, the four single-bin CRs are included in the fit to constrain the normalisations304
+of 𝑊+jets and top-quark samples, with a fixed signal strength of𝜇=0 . Separate normalisation factors305
+are introduced for the resonance and non-resonance regions, resulting in four independent normalisation306
+factors: two for𝑊+jets (𝜆Res
+𝑊 and 𝜆NonRes
+𝑊 ) and two for the top-quark background (𝜆Res
+𝑡 and 𝜆NonRes
+𝑡 ). The307
+top-quark normalisation factors are applied simultaneously to both the𝑡¯𝑡 and single-𝑡 samples. The fit308
+results are applied to SRs and VRs to compare the observed data with the SM expectations. For the s+b309
+fit, on the other hand, a fit is performed in the four CR and four SR event categories simultaneously to310
+constrain the background normalisations and determine the signal strength𝜇. The interference between311
+the signal and the SM is considered by normalising the events by a factor of√𝜇. Its impact on the signal312
+yield is negligibly small in SRs with a𝑏-jet (SR1b-Resand SR1b-NonRes). In the SRs with a𝑏-jet veto313
+(SR0b-Resand SR0b-NonRes), the contribution from negative interference amounts to approximately 20%314
+of the pure BSM yield at𝑚U1 =1.5TeV , increasing to about 30–40% at higher masses for𝜇=1 . It is315
+20th April 2026 – 16:37 10
+
+=== PDF PAGE 11 ===
+ATLAS DRAFT
+verified that, for the range of coupling values considered in this analysis, the total yield (BSM signal plus316
+interference) remains positive in all cases. For both fit models, systematic uncertainties are considered as317
+nuisance parameters in the fit, with Gaussian, log-normal or Poisson constraints. Statistical uncertainties in318
+each bin due to the limited size of the simulated background samples are taken into account by dedicated319
+parameters using the Beeston-Barlow “lite” (one parameter per bin) technique [85].320
+Thebackground-onlyfitresultisshowninFigure2. Thebest-fitnormalisationfactorsare 𝜆Res
+𝑊 =1.21±0.11 ,321
+𝜆NonRes
+𝑊 =0.89±0.08 , 𝜆Res
+𝑡 =0.76±0.16 and 𝜆NonRes
+𝑡 =0.81±0.16 . Figure 3 shows the kinematic322
+distributions in CRs and VRs after the background-only fit. The agreement between data and the post-fit323
+background predictions in all VRs is found to be satisfactory. In theVRW-NonResregion, a deviation of324
+about 2𝜎 from the SM expectation is observed. All events in this region were verified, and no indications325
+of specific detector malfunctions were found. The background modelling in this region was also tested326
+by checking the data-to-prediction agreement in regions of lower and higher𝐸miss
+T using the same event327
+selection, and no mismodelling or deficiencies were identified. Given the size of the deviation, the328
+observation is consistent with a statistical fluctuation.329
+In the SR1b-Res and SR1b-NonRes regions, 3 and 2 events are observed, compared to background330
+expectations of2.69±0.83 and 1.88±0.71 , respectively. Figure 4 shows the kinematic distributions in331
+each SR after the background-only fit. In theSR0b-Resand SR0b-NonResregions, 33 and 45 events are332
+observed, with expected backgrounds of36.4±7.3 and 38.3±9.9 , respectively. Overall, the observed data333
+are in good agreement with the SM prediction.334
+CRW­ResCRW­NonResCRTop­ResCRTop­NonResVRW­ResVRW­NonResVRTop­ResVRTop­NonResSR0b­ResSR0b­NonResSR1b­ResSR1b­NonRes0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1−10
+1
+10
+210
+310
+410
+510
+Events
+ATLAS Internal
+­1 = 13 TeV, 140 fbs
+Analysis regions
+Post­fit
+Data
+ (1.5 TeV)1U  (3 TeV)1U
+W+jets Diboson tt
+tsingle Z+jets Uncertainty
+Pre­fit Bkg.
+Figure 2: Comparison of the event yields between data and the background prediction for four CRs, four VRs
+and four SRs in the upper panel. The background prediction is shown after a “background-only fit” in the
+CRs. The signal expectation for signal strength𝜇=1 is shown for illustrative purposes at the parameter points 𝑚U1, 𝑔𝑈, 𝛽23
+𝐿
+ =(1.5TeV,1.5,0.6) and (3.0TeV,2.5,1.0) with a red and a violet dashed line, respectively. The
+ratio of the data to the background (“Bkg.”) prediction is shown in the lower panel, separately for post-fit background
+(black points) and pre-fit background (dashed blue line). The size of the combined statistical and systematic
+uncertainty in the background prediction is indicated by a blue hatched band.
+Theimpactofeachsystematicuncertaintyontheanalysissensitivityisevaluatedwithrespecttothebest-fit335
+20th April 2026 – 16:37 11
+
+=== PDF PAGE 12 ===
+ATLAS DRAFT
+200 400 600 800 1000 1200 1400
+ [GeV]+jlm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+CRW-Res
+Data W+jets Diboson
+tt tsingle Z+jets
+Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]miss
+TE
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+CRW-NonRes
+Data W+jets Diboson
+tt tsingle Z+jets
+Uncertainty
+0 200 400 600 800 1000 1200 1400
+ [GeV]hadτbm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+CRTop-Res
+Data W+jets Diboson
+tt tsingle Z+jets
+Uncertainty
+0 200 400 600 800 1000 1200 1400
+ [GeV]miss
+TE
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLAS Internal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+CRTop-NonRes
+Data W+jets Diboson
+tt tsingle Z+jets
+Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]hadτbm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+VRTop-Res
+Data W+jets Diboson
+tt tsingle Z+jets
+Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]miss
+TE
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+VRTop-NonRes
+Data W+jets Diboson
+tt tsingle Z+jets
+Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]blm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+VRW-Res
+Data W+jets Diboson
+tt tsingle Z+jets
+Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]miss
+TE
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+VRW-NonRes
+Data W+jets Diboson
+tt tsingle Z+jets
+Uncertainty
+Figure 3: The post-fit distributions of𝐸miss
+T , 𝑚𝑏𝜏 ℎ𝑎𝑑, 𝑚𝑙+𝑗 or 𝑚𝑙𝑏 in CRW-Res, CRW-NonRes, CRTop-Res, CRTop-
+NonRes, VRTop-Res, VRTop-NonRes, VRW-Res, andVRW-NonRes. The background-only fit results are used for
+the background predictions. The distributions are shown prior to applying the selection on each variable, which is
+denoted by a right red arrow.
+20th April 2026 – 16:37 12
+
+=== PDF PAGE 13 ===
+ATLAS DRAFT
+200 400 600 800 1000 1200 1400
+ [GeV]miss
+TE
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-10
+1
+10
+210
+Events
+ATLASInternal
+-1 = 13 TeV, 140 fb s
+Background-only fit
+SR1b-Res
+Data  (1.5 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]hadτbm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+SR1b-Res
+Data  (1.5 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]miss
+TE
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+SR1b-NonRes
+Data  (3.0 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+600 700 800 900 1000 1100 1200 1300 1400 1500
+ [GeV]Tm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+SR1b-NonRes
+Data  (3.0 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]miss
+TE
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+SR0b-Res
+Data  (1.5 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]+jethadτm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+SR0b-Res
+Data  (1.5 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+200 400 600 800 1000 1200 1400
+ [GeV]miss
+TE
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLASInternal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+SR0b-NonRes
+Data  (3.0 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+600 700 800 900 1000 1100 1200 1300 1400 1500
+ [GeV]Tm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1-
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+Events
+ATLAS Internal
+-1
+ = 13 TeV, 140 fb s
+Background-only fit
+SR0b-NonRes
+Data  (3.0 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+Figure 4: The post-fit distributions of𝐸miss
+T , 𝑚𝑏𝜏had(𝑚𝑏𝜏had+𝑗𝑒𝑡 ) in SR1b-Res, SR0b-Res and 𝑚T, 𝐸miss
+T in SR1b-
+NonRes, SR0b-NonRes. The background-only fit results are used for the background predictions. The signal
+expectations at the parameter points 𝑚U1, 𝑔𝑈, 𝛽23
+𝐿
+ =(1.5TeV,1.5,0.6)and(3.0TeV,2.5,1.0)are also shown for
+SR1b-Res and SR1b-NonRes, respectively. The distributions are shown prior to applying the selection on each
+variable, which is denoted by a right red arrow.
+20th April 2026 – 16:37 13
+
+=== PDF PAGE 14 ===
+ATLAS DRAFT
+value of the signal strength𝜇. This evaluation is performed using a dataset from pseudo-experiments in the336
+SRs constructed from the post-fit background expectation and a signal corresponding to𝜇=1 . Using the337
+results of the s+b fit, performed with the dataset from pseudo-experiments in the SRs and the observed338
+data in the CRs, the impact of a given nuisance parameter is quantified based on the covariance matrix,339
+assuming a linear propagation of uncertainties around the best-fit point. For each nuisance parameter, its340
+contribution to the uncertainty on the signal strength is estimated as the product of its post-fit uncertainty,341
+the total post-fit uncertainty on𝜇, and the correlation coefficient between the nuisance parameter and the342
+signal strength. The dominant source of systematic uncertainties is the tau energy scale, and its impact on343
+𝜇 is around 10%. The uncertainty on the ratio of𝑊+HF to𝑊+LF is the subdominant source of systematic344
+uncertainty, whose impact depends on𝑚U1, but typically amounts to about 5–10%.345
+An upper limit on the signal strength𝜇 is calculated with the CLs method [86] at predefined points in the346
+(𝑚U1, 𝑔𝑈, 𝛽23
+𝐿 , 𝛽33
+𝑅 ) parameter space. Figures 5 and 6 show the parameter regions corresponding to the347
+upper limit on𝜇=1 at 95% confidence level (CL) in the pure left-handed scenario: the former presents348
+the limits on𝑔𝑈 as a function of𝑚U1 at fixed values of𝛽23
+𝐿 ; and the latter shows the limits on𝛽23
+𝐿 as a349
+function of𝑔𝑈 at each𝑚U1 point. The observed (expected) upper limits on𝑔𝑈 are 1.13 (1.11) at𝛽23
+𝐿 =1.0350
+and 0.52 (0.53) at𝛽23
+𝐿 =2.2 for a leptoquark mass of 1.5TeV, and 2.30 (2.19) at𝛽23
+𝐿 =1.0 and 1.22 (1.18)351
+at 𝛽23
+𝐿 =2.2 for a leptoquark mass of 2.5TeV. The shaded areas show the parameter region consistent with352
+the 𝑅(𝐷 (∗) ) anomalies [31]. In the reference,𝛽23
+𝐿 is constrained to be within[0.06,0.16] with the general353
+UV completion assumption, but in this letter, it is converted to a higher𝛽23
+𝐿 region to follow equation 1.354
+A previous 𝜏𝜏 analysis [19] assumed small values of𝛽23
+𝐿 around O (0.1) and excluded approximately355
+𝑔𝑈 >2.1 , 2.8 and 3.5 at 𝑚U1 =1.5TeV , 2.0TeV and 2.5TeV, respectively. In contrast, this analysis356
+probes a complementary region of the parameter space, characterized by the lower values of𝑔𝑈 and higher357
+values of𝛽23
+𝐿 .358
+20th April 2026 – 16:37 14
+
+=== PDF PAGE 15 ===
+ATLAS DRAFT
+1500
+1550 1600 1650 1700 1750 1800 1850 1900 1950 2000  [GeV]
+1
+Um1
+2
+3
+4
+5
+U
+g Internal  ATLAS-1
+ = 13 TeV, 140 fbs = 0.2
+23L
+β95% CL upper limit
+Exp.
+σ
+1±Exp. σ
+2±Exp. Obs.
+σ
+region within 2B anomalies favoured
+σ
+region within 1B anomalies favoured
+1600
+1800 2000 2200 2400 2600 2800 3000  [GeV]
+1
+Um0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+U
+g Internal  ATLAS-1
+ = 13 TeV, 140 fbs = 1.0
+23L
+β95% CL upper limit
+Exp.
+σ
+1±Exp. σ
+2±Exp. Obs.
+σ
+region within 2B anomalies favoured
+σ
+region within 1B anomalies favoured
+1600
+1800 2000 2200 2400 2600 2800 3000  [GeV]
+1
+Um0
+0.5
+1
+1.5
+2
+2.5
+U g Internal  ATLAS-1
+ = 13 TeV, 140 fbs = 2.2
+23L
+β95% CL upper limit
+Exp.
+σ
+1±Exp. σ
+2±Exp. Obs.
+σ
+region within 2B anomalies favoured
+σ
+region within 1B anomalies favoured
+Figure 5: Observed (red line) and expected (black dashed line) 95% CL upper limits on𝑔𝑈 as a function of𝑚U1, at
+𝛽23
+𝐿 =0.2 , 1.0 and 2.2. The shaded regions are favoured by𝐵 anomalies at the 2𝜎 level, converted from𝐶 𝑐
+𝐿 𝐿 limit in
+Ref. [31] using Eq. 1.
+20th April 2026 – 16:37 15
+
+=== PDF PAGE 16 ===
+ATLAS DRAFT
+0.5
+1 1.5 2 2.5 3 U
+g0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+2
+2.2
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbs = 1.5 TeV
+1
+Um95% CL upper limit
+Exp.
+σ
+1±Exp. σ
+2±Exp. Obs.
+σ
+region within 2B anomalies favoured
+σ
+region within 1B anomalies favoured
+1
+1.5 2 2.5 3 U
+g0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+2
+2.2
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbs = 2.0 TeV
+1
+Um95% CL upper limit
+Exp.
+σ
+1±Exp. σ
+2±Exp. Obs.
+σ
+region within 2B anomalies favoured
+σ
+region within 1B anomalies favoured
+1
+1.5 2 2.5 3 U
+g0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+2
+2.2
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbs = 2.5 TeV
+1
+Um95% CL upper limit
+Exp.
+σ
+1±Exp. σ
+2±Exp. Obs.
+σ
+region within 2B anomalies favoured
+σ
+region within 1B anomalies favoured
+1.2
+1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3 U
+g0.8
+1
+1.2
+1.4
+1.6
+1.8
+2
+2.2
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbs = 3.0 TeV
+1
+Um95% CL upper limit
+Exp.
+σ
+1±Exp. σ
+2±Exp. Obs.
+σ
+region within 2B anomalies favoured
+σ
+region within 1B anomalies favoured
+Figure 6: Observed (red line) and expected (black dashed line) 95% CL upper limits on𝛽23
+𝐿 as a function of𝑔𝑈
+at 𝑚U1 =1.5TeV , 2TeV, 2.5TeVand 3.0TeV. The shaded regions are favoured by𝐵 anomalies at the 2𝜎 level,
+converted from𝐶𝑐
+𝐿 𝐿 limit in Ref. [31] using Eq. 1.
+20th April 2026 – 16:37 16
+
+=== PDF PAGE 17 ===
+ATLAS DRAFT
+10 Conclusion359
+This letter has presented a first search for high-mass leptoquark signals with ATLAS, targeting final states360
+with a hadronically-decaying𝜏 lepton and missing transverse momentum. The analysis is designed to361
+probe both resonant production and non-resonant𝑡-channel exchange of the leptoquark, covering a wide362
+range of coupling scenarios. No significant excess is observed over the SM background. Upper limits on363
+the 𝑈1 vector leptoquark couplings are set at 95% CL. The results probe part of the parameter space at364
+higher𝛽 23
+𝐿 , which is not covered by the previous𝜏𝜏searches.365
+Acknowledgements366
+We thank CERN for the very successful operation of the LHC and its injectors, as well as the support staff367
+at CERN and at our institutions worldwide without whom ATLAS could not be operated efficiently.368
+The crucial computing support from all WLCG partners is acknowledged gratefully, in particular from369
+CERN, the ATLAS Tier-1 facilities at TRIUMF/SFU (Canada), NDGF (Denmark, Norway, Sweden),370
+CC-IN2P3 (France), KIT/GridKA (Germany), INFN-CNAF (Italy), NL-T1 (Netherlands), PIC (Spain),371
+RAL (UK) and BNL (USA), the Tier-2 facilities worldwide and large non-WLCG resource providers.372
+Major contributors of computing resources are listed in Ref. [87].373
+WegratefullyacknowledgethesupportofANPCyT,Argentina;YerPhI,Armenia;ARC,Australia;BMWFW374
+andFWF,Austria;ANAS,Azerbaijan;CNPqandFAPESP,Brazil;NSERC,NRCandCFI,Canada;CERN;375
+ANID,Chile; CAS,MOSTandNSFC,China; Minciencias, Colombia; MEYSCR,CzechRepublic; DNRF376
+and DNSRC, Denmark; IN2P3-CNRS and CEA-DRF/IRFU, France; SRNSFG, Georgia; BMFTR, HGF377
+and MPG, Germany; GSRI, Greece; RGC and Hong Kong SAR, China; ICHEP and Academy of Sciences378
+and Humanities, Israel; INFN, Italy; MEXT and JSPS, Japan; CNRST, Morocco; NWO, Netherlands;379
+RCN, Norway; MNiSW, Poland; FCT, Portugal; MNE/IFA, Romania; MSTDI, Serbia; MSSR, Slovakia;380
+ARIS and MVZI, Slovenia; DSI/NRF, South Africa; MICIU/AEI, Spain; SRC and Wallenberg Foundation,381
+Sweden; SERI, SNSF and Cantons of Bern and Geneva, Switzerland; NSTC, Taipei; TENMAK, Türkiye;382
+STFC/UKRI, United Kingdom; DOE and NSF, United States of America.383
+Individual groups and members have received support from BCKDF, CANARIE, CRC and DRAC,384
+Canada; CERN-CZ, FORTE and PRIMUS, Czech Republic; COST, ERC, ERDF, Horizon 2020 and Marie385
+Skłodowska-Curie Actions, European Union; Investissements d’Avenir Labex, Investissements d’Avenir386
+IdexandANR,France;DFGandAvHFoundation,Germany;Herakleitos,ThalesandAristeiaprogrammes387
+co-financed by EU-ESF and the Greek NSRF, Greece; BSF-NSF and MINERVA, Israel; NCN and NAWA,388
+Poland; La Caixa Banking Foundation, CERCA Programme Generalitat de Catalunya and PROMETEO389
+and GenT Programmes Generalitat Valenciana, Spain; Göran Gustafssons Stiftelse, Sweden; The Royal390
+Society and Leverhulme Trust, United Kingdom; United States of America.391
+In addition, individual members wish to acknowledge support from Chile: Agencia Nacional de Invest-392
+igación y Desarrollo (ANID FONDECYT reg. 1230987, FONDECYT 1230812, FONDECYT 1240864,393
+Fondecyt 3240661, Fondecyt Regular 1240721); China: Chinese Ministry of Science and Technology394
+(MOST-2023YFA1605700, MOST-2023YFA1609300), National Natural Science Foundation of China395
+(NSFC 12275265, NSFC-W2543005); Czech Republic: Czech Science Foundation (GACR - 24-11373S),396
+Ministry of Education Youth and Sports (ERC-CZ-LL2327, FORTE CZ.02.01.01/00/22_008/0004632),397
+PRIMUS Research Programme (PRIMUS/21/SCI/017); EU: H2020 European Research Council (ERC -398
+20th April 2026 – 16:37 17
+
+=== PDF PAGE 18 ===
+ATLAS DRAFT
+101002463); European Union: European Research Council (BARD No. 101116429, ERC - 948254, ERC399
+101089007), European Regional Development Fund (HE COFUND GA No.101081355, ERDF); France:400
+Agence Nationale de la Recherche (ANR-21-CE31-0013, ANR-22-EDIR-0002, ANR-24-CE31-0504-01);401
+Germany: DeutscheForschungsgemeinschaft(DFG-469666862);China: ResearchGrantsCouncil(GRF);402
+Italy: Ministero dell’Università e della Ricerca (NextGenEU 153D23001490006 M4C2.1.1, NextGenEU403
+I53D23000820006 M4C2.1.1, NextGenEU I53D23001490006 M4C2.1.1, SOE2024_0000023); Japan:404
+JapanSocietyforthePromotionofScience(JSPSKAKENHIJP22H01227,JSPSKAKENHIJP22H04944,405
+JSPS KAKENHI JP22KK0227, JSPS KAKENHI JP24K23939, JSPS KAKENHI JP24KK0251, JSPS406
+KAKENHI JP25H00650, JSPS KAKENHI JP25H01291, JSPS KAKENHI JP25K01023); Poland: Pol-407
+ish National Science Centre (NCN 2021/42/E/ST2/00350, NCN OPUS 2023/51/B/ST2/02507, NCN408
+OPUS nr 2022/47/B/ST2/03059, NCN UMO-2019/34/E/ST2/00393, UMO-2022/47/O/ST2/00148, UMO-409
+2023/49/B/ST2/04085, UMO-2023/51/B/ST2/00920, UMO-2024/53/N/ST2/00869); Spain: Agencia de410
+Gestión de Ayudas Universitarias y de Investigación (AGAUR - 2023 BP 00141), Ministry of Science and411
+Innovation(RYC2019-028510-I,RYC2020-030254-I,RYC2021-031273-I,RYC2022-038164-I),Ministerio412
+de Ciencia, Innovación y Universidades/Agencia Estatal de Investigación (PID2022-142604OB-C22);413
+Sweden: Carl Trygger Foundation (Carl Trygger Foundation CTS 22:2312), Swedish Research Council414
+(Swedish Research Council 2023-04654, VR 2021-03651, VR 2022-03845, VR 2022-04683, VR 2023-415
+03403, VR 2024-05451, VR 2025-05940), Knut and Alice Wallenberg Foundation (KAW 2023.0366);416
+Switzerland: Swiss National Science Foundation (SNSF - PCEFP2_194658); United Kingdom: The417
+Binks Trust, Royal Society (NIF-R1-231091); United States of America: U.S. Department of Energy418
+(ECA DE-AC02-76SF00515), John Templeton Foundation (John Templeton Foundation 63206), Neubauer419
+Family Foundation.420
+References421
+[1] BaBar Collaboration,Evidence for an excess of¯𝐵→𝐷 (∗) 𝜏− ¯𝜈𝜏 decays,422
+Phys. Rev. Lett.109(2012) 101802, arXiv:1205.5442 [hep-ex](cit. on p. 2).423
+[2] BaBar Collaboration,424
+Measurement of an Excess of¯𝐵→𝐷 (∗) 𝜏− ¯𝜈𝜏 Decays and Implications for Charged Higgs Bosons,425
+Phys. Rev. D88(2013) 072012, arXiv:1303.0571 [hep-ex](cit. on p. 2).426
+[3] Belle Collaboration,Measurement of the branching ratio of¯𝐵→𝐷 (∗) 𝜏− ¯𝜈𝜏 relative to427
+¯𝐵→𝐷 (∗) ℓ− ¯𝜈ℓ decays with hadronic tagging at Belle, Phys. Rev. D92(2015) 072014,428
+arXiv:1507.03233 [hep-ex](cit. on p. 2).429
+[4] Belle Collaboration,430
+Measurement of the𝜏lepton polarization and𝑅(𝐷∗)in the decay ¯𝐵→𝐷 ∗𝜏− ¯𝜈𝜏,431
+Phys. Rev. Lett.118(2017) 211801, arXiv:1612.00529 [hep-ex](cit. on p. 2).432
+[5] Belle Collaboration,Measurement of the𝜏lepton polarization and𝑅(𝐷 ∗)in the decay433
+¯𝐵→𝐷 ∗𝜏− ¯𝜈𝜏 with one-prong hadronic𝜏decays at Belle, Phys. Rev. D97(2018) 012004,434
+arXiv:1709.00129 [hep-ex](cit. on p. 2).435
+[6] Belle Collaboration,Measurement ofR (𝐷)andR (𝐷 ∗)with a semileptonic tagging method,436
+Phys. Rev. Lett.124(2020) 161803, arXiv:1910.05864 [hep-ex](cit. on p. 2).437
+[7] Belle II Collaboration,Test of lepton flavor universality with a measurement of𝑅(𝐷∗)using438
+hadronic B tagging at the Belle II experiment, Phys. Rev. D110(2024) 072020,439
+arXiv:2401.02840 [hep-ex](cit. on p. 2).440
+20th April 2026 – 16:37 18
+
+=== PDF PAGE 19 ===
+ATLAS DRAFT
+[8] Belle II Collaboration,Test of lepton flavor universality with measurements of𝑅(𝐷 +) and 𝑅(𝐷 ∗+)441
+using semileptonic B tagging at the Belle II experiment, Phys. Rev. D112(2025) 032010,442
+arXiv:2504.11220 [hep-ex](cit. on p. 2).443
+[9] LHCb Collaboration,444
+Measurement of the ratio of branching fractionsB (¯𝐵0 →𝐷 ∗+𝜏− ¯𝜈𝜏)/B ( ¯𝐵0 →𝐷 ∗+𝜇− ¯𝜈𝜇),445
+Phys. Rev. Lett.115(2015) 111803, [Erratum: Phys.Rev.Lett. 115, 159901 (2015)],446
+arXiv:1506.08614 [hep-ex](cit. on p. 2).447
+[10] LHCb Collaboration,Measurement of the ratios of branching fractionsR (𝐷∗)andR (𝐷 0),448
+Phys. Rev. Lett.131(2023) 111802, arXiv:2302.02886 [hep-ex](cit. on p. 2).449
+[11] LHCb Collaboration,450
+Test of lepton flavor universality using𝐵0 →𝐷 ∗− 𝜏+𝜈𝜏 decays with hadronic𝜏channels,451
+Phys. Rev. D108(2023) 012018, [Erratum: Phys.Rev.D 109, 119902 (2024)],452
+arXiv:2305.01463 [hep-ex](cit. on p. 2).453
+[12] LHCb Collaboration,454
+Measurement of the Branching Fraction Ratios𝑅(𝐷+)and𝑅(𝐷 ∗+)Using Muonic𝜏Decays,455
+Phys. Rev. Lett.134(2025) 061801, arXiv:2406.03387 [hep-ex](cit. on p. 2).456
+[13] HFLAV Collaboration,Preliminary average of𝑅(𝐷)and𝑅(𝐷 ∗)for CKM 2025,url:https:457
+//hflav-eos.web.cern.ch/hflav-eos/semi/ckm25/html/RDsDsstar/RDRDs.html458
+(cit. on p. 2).459
+[14] D. Buttazzo, A. Greljo, G. Isidori and D. Marzocca,460
+B-physics anomalies: a guide to combined explanations, JHEP11(2017) 044,461
+arXiv:1706.07808 [hep-ph](cit. on p. 2).462
+[15] A. Angelescu, D. Bečirević, D. A. Faroughy and O. Sumensari,463
+Closing the window on single leptoquark solutions to the𝐵-physics anomalies, JHEP10(2018) 183,464
+arXiv:1808.08179 [hep-ph](cit. on p. 2).465
+[16] A. Angelescu, D. Bečirević, D. A. Faroughy, F. Jaffredo and O. Sumensari,466
+Single leptoquark solutions to the B-physics anomalies, Phys. Rev. D104(2021) 055017,467
+arXiv:2103.12504 [hep-ph](cit. on p. 2).468
+[17] ATLAS Collaboration,Search for pair-production of vector-like quarks in lepton+jets final states469
+containing at least one𝑏-tagged jet using the Run 2 data from the ATLAS experiment,470
+Phys. Lett. B854(2024) 138743, arXiv:2401.17165 [hep-ex](cit. on p. 2).471
+[18] ATLAS Collaboration,Search for leptoquarks decaying into the b𝜏final state in𝑝 𝑝collisions at472
+√𝑠=13TeV with the ATLAS detector, JHEP10(2023) 001, arXiv:2305.15962 [hep-ex]473
+(cit. on p. 2).474
+[19] ATLAS Collaboration,A measurement of the high-mass𝜏¯𝜏production cross-section at475
+√𝑠=13TeV with the ATLAS detector and constraints on new particles and couplings,476
+JHEP10(2025) 054, arXiv:2503.19836 [hep-ex](cit. on pp. 2, 14).477
+[20] CMS Collaboration,Search for singly and pair-produced leptoquarks coupling to third-generation478
+fermions in proton–proton collisions at√𝑠=13TeV, Phys. Lett. B819(2021) 136446,479
+arXiv:2012.04178 [hep-ex](cit. on p. 2).480
+[21] CMS Collaboration,Search for a third-generation leptoquark coupled to a𝜏lepton and a𝑏quark481
+through single, pair, and nonresonant production in proton–proton collisions at√𝑠=13TeV,482
+JHEP05(2024) 311, arXiv:2308.07826 [hep-ex](cit. on p. 2).483
+20th April 2026 – 16:37 19
+
+=== PDF PAGE 20 ===
+ATLAS DRAFT
+[22] CMS Collaboration,Searches for additional Higgs bosons and for vector leptoquarks in𝜏𝜏final484
+states in proton–proton collisions at√𝑠=13TeV, JHEP07(2023) 073,485
+arXiv:2208.02717 [hep-ex](cit. on p. 2).486
+[23] M. Endo, S. Iguro, T. Kitahara, M. Takeuchi and R. Watanabe,487
+Non-resonant new physics search at the LHC for the b→c𝜏𝜈anomalies, JHEP02(2022) 106,488
+arXiv:2111.04748 [hep-ph](cit. on p. 2).489
+[24] CMS Collaboration,Search for new physics in the𝜏 lepton plus missing transverse momentum final490
+state in proton-proton collisions at√𝑠=13TeV, JHEP09(2023) 051,491
+arXiv:2212.12604 [hep-ex](cit. on p. 2).492
+[25] ATLAS Collaboration,The ATLAS Experiment at the CERN Large Hadron Collider,493
+JINST3(2008) S08003 (cit. on p. 3).494
+[26] ATLAS Collaboration,The ATLAS experiment at the CERN Large Hadron Collider: a description495
+of the detector configuration for Run 3, JINST19(2024) P05063,496
+arXiv:2305.16623 [physics.ins-det](cit. on p. 3).497
+[27] ATLAS Collaboration,Performance of the ATLAS trigger system in 2015,498
+Eur. Phys. J. C77(2017) 317, arXiv:1611.09661 [hep-ex](cit. on p. 3).499
+[28] ATLAS Collaboration,Software and computing for Run 3 of the ATLAS experiment at the LHC,500
+Eur. Phys. J. C85(2025) 234, arXiv:2404.06335 [hep-ex](cit. on p. 3),501
+Erratum: Eur. Phys. J. C85(2025) 907.502
+[29] M. J. Baker, J. Fuentes-Martín, G. Isidori and M. König,503
+High-𝑝 𝑇 signatures in vector–leptoquark models, Eur. Phys. J. C79(2019) 334,504
+arXiv:1901.10480 [hep-ph](cit. on pp. 4, 5).505
+[30] C. Cornella, D. A. Faroughy, J. Fuentes-Martín, G. Isidori and M. Neubert,506
+Reading the footprints of the B-meson flavor anomalies, JHEP08(2021) 050,507
+arXiv:2103.16558 [hep-ph](cit. on p. 4).508
+[31] J. Aebischer, G. Isidori, M. Pesut, B. A. Stefanek and F. Wilsch,509
+Confronting the vector leptoquark hypothesis with new low- and high-energy data,510
+Eur. Phys. J. C83(2023) 153, arXiv:2210.13422 [hep-ph](cit. on pp. 4, 14–16, 33).511
+[32] ATLAS Collaboration,ATLAS data quality operations and performance for 2015–2018 data-taking,512
+JINST15(2020) P04003, arXiv:1911.04632 [physics.ins-det](cit. on pp. 5, 7).513
+[33] ATLAS Collaboration,Performance of the missing transverse momentum triggers for the ATLAS514
+detector during Run-2 data taking, JHEP08(2020) 080, arXiv:2005.09554 [hep-ex]515
+(cit. on p. 5).516
+[34] ATLAS Collaboration,Performance of electron and photon triggers in ATLAS during LHC Run 2,517
+Eur. Phys. J. C80(2020) 47, arXiv:1909.00761 [hep-ex](cit. on p. 5).518
+[35] ATLAS Collaboration,Performance of the ATLAS muon triggers in Run 2,519
+JINST15(2020) P09015, arXiv:2004.13447 [physics.ins-det](cit. on p. 5).520
+[36] J. Alwall et al.,The automated computation of tree-level and next-to-leading order differential cross521
+sections, and their matching to parton shower simulations, JHEP07(2014) 079,522
+arXiv:1405.0301 [hep-ph](cit. on p. 5).523
+[37] NNPDF Collaboration, R. D. Ball et al.,Parton distributions for the LHC run II,524
+JHEP04(2015) 040, arXiv:1410.8849 [hep-ph](cit. on p. 5).525
+20th April 2026 – 16:37 20
+
+=== PDF PAGE 21 ===
+ATLAS DRAFT
+[38] C. Bierlich et al.,A comprehensive guide to the physics and usage of PYTHIA 8.3,526
+SciPost Phys. Codebases (2022) 8, arXiv:2203.11601 [hep-ph](cit. on p. 5).527
+[39] ATLAS Collaboration,ATLAS Pythia 8 tunes to7TeV data, ATL-PHYS-PUB-2014-021, 2014,528
+url:https://cds.cern.ch/record/1966419(cit. on p. 5).529
+[40] L. Lönnblad and S. Prestel,Matching tree-level matrix elements with interleaved showers,530
+JHEP03(2012) 019, arXiv:1109.4829 [hep-ph](cit. on p. 5).531
+[41] E. Bothmann et al.,Event generation with Sherpa 2.2, SciPost Phys.7(2019) 034,532
+arXiv:1905.09127 [hep-ph](cit. on p. 5).533
+[42] S. Schumann and F. Krauss,534
+A parton shower algorithm based on Catani–Seymour dipole factorisation, JHEP03(2008) 038,535
+arXiv:0709.1027 [hep-ph](cit. on p. 5).536
+[43] S. Höche, F. Krauss, M. Schönherr and F. Siegert,537
+A critical appraisal of NLO+PS matching methods, JHEP09(2012) 049,538
+arXiv:1111.1220 [hep-ph](cit. on p. 5).539
+[44] S. Höche, F. Krauss, M. Schönherr and F. Siegert,540
+QCD matrix elements + parton showers. The NLO case, JHEP04(2013) 027,541
+arXiv:1207.5030 [hep-ph](cit. on p. 5).542
+[45] S. Catani, F. Krauss, B. R. Webber and R. Kuhn,QCD Matrix Elements + Parton Showers,543
+JHEP11(2001) 063, arXiv:hep-ph/0109231(cit. on p. 5).544
+[46] S. Höche, F. Krauss, S. Schumann and F. Siegert,QCD matrix elements and truncated showers,545
+JHEP05(2009) 053, arXiv:0903.1219 [hep-ph](cit. on p. 5).546
+[47] S. Frixione, G. Ridolfi and P. Nason,547
+A positive-weight next-to-leading-order Monte Carlo for heavy flavour hadroproduction,548
+JHEP09(2007) 126, arXiv:0707.3088 [hep-ph](cit. on p. 5).549
+[48] P. Nason,A new method for combining NLO QCD with shower Monte Carlo algorithms,550
+JHEP11(2004) 040, arXiv:hep-ph/0409146(cit. on p. 5).551
+[49] S. Frixione, P. Nason and C. Oleari,552
+Matching NLO QCD computations with parton shower simulations: the POWHEG method,553
+JHEP11(2007) 070, arXiv:0709.2092 [hep-ph](cit. on p. 5).554
+[50] S. Alioli, P. Nason, C. Oleari and E. Re,A general framework for implementing NLO calculations in555
+shower Monte Carlo programs: the POWHEG BOX, JHEP06(2010) 043,556
+arXiv:1002.2581 [hep-ph](cit. on p. 5).557
+[51] T. Sjöstrand et al.,An introduction to PYTHIA 8.2, Comput. Phys. Commun.191(2015) 159,558
+arXiv:1410.3012 [hep-ph](cit. on p. 5).559
+[52] D. J. Lange,The EvtGen particle decay simulation package, Nucl. Instrum. Meth. A462(2001) 152560
+(cit. on p. 5).561
+[53] ATLAS Collaboration,Measurement of the Inelastic Proton–Proton Cross Section at√𝑠=13TeV562
+with the ATLAS Detector at the LHC, Phys. Rev. Lett.117(2016) 182002,563
+arXiv:1606.02625 [hep-ex](cit. on p. 5).564
+[54] ATLAS Collaboration,The ATLAS Simulation Infrastructure, Eur. Phys. J. C70(2010) 823,565
+arXiv:1005.4568 [physics.ins-det](cit. on p. 5).566
+20th April 2026 – 16:37 21
+
+=== PDF PAGE 22 ===
+ATLAS DRAFT
+[55] S. Agostinelli et al.,Geant4– a simulation toolkit, Nucl. Instrum. Meth. A506(2003) 250567
+(cit. on p. 5).568
+[56] ATLAS Collaboration,AtlFast3: The Next Generation of Fast Simulation in ATLAS,569
+Comput. Softw. Big Sci.6(2022) 7, arXiv:2109.02551 [hep-ex](cit. on p. 6).570
+[57] M. Cacciari, G. P. Salam and G. Soyez,The anti-𝑘𝑡 jet clustering algorithm, JHEP04(2008) 063,571
+arXiv:0802.1189 [hep-ph](cit. on p. 6).572
+[58] ATLAS Collaboration,573
+Topological cell clustering in the ATLAS calorimeters and its performance in LHC Run 1,574
+Eur. Phys. J. C77(2017) 490, arXiv:1603.02934 [hep-ex](cit. on p. 6).575
+[59] ATLAS Collaboration,Local Hadronic Calibration, ATL-LARG-PUB-2009-001-2, 2008,576
+url:https://cds.cern.ch/record/1112035(cit. on p. 6).577
+[60] ATLAS Collaboration,Reconstruction, Identification, and Calibration of hadronically decaying tau578
+leptons with the ATLAS detector for the LHC Run 3 and reprocessed Run 2 data,579
+ATL-PHYS-PUB-2022-044, 2022,url:https://cds.cern.ch/record/2827111580
+(cit. on pp. 6, 7).581
+[61] ATLAS Collaboration,Electron reconstruction and identification in the ATLAS experiment using582
+the 2015 and 2016 LHC proton–proton collision data at√𝑠=13TeV , Eur. Phys. J. C79(2019) 639,583
+arXiv:1902.04655 [physics.ins-det](cit. on p. 6).584
+[62] ATLAS Collaboration,Electron and photon performance measurements with the ATLAS detector585
+using the 2015–2017 LHC proton–proton collision data, JINST14(2019) P12006,586
+arXiv:1908.00005 [hep-ex](cit. on pp. 6, 9).587
+[63] ATLAS Collaboration,Muon reconstruction and identification efficiency in ATLAS using the full588
+Run 2𝑝 𝑝collision data set at√𝑠=13TeV, Eur. Phys. J. C81(2021) 578,589
+arXiv:2012.00578 [hep-ex](cit. on p. 6).590
+[64] ATLAS Collaboration,Studies of the muon momentum calibration and performance of the ATLAS591
+detector with𝑝 𝑝collisions at √𝑠=13TeV, Eur. Phys. J. C83(2023) 686,592
+arXiv:2212.07338 [hep-ex](cit. on pp. 7, 9).593
+[65] ATLAS Collaboration,594
+Jet reconstruction and performance using particle flow with the ATLAS Detector,595
+Eur. Phys. J. C77(2017) 466, arXiv:1703.10485 [hep-ex](cit. on p. 7).596
+[66] ATLAS Collaboration,Tagging and suppression of pileup jets with the ATLAS detector,597
+ATLAS-CONF-2014-018, 2014,url:https://cds.cern.ch/record/1700870(cit. on p. 7).598
+[67] ATLAS Collaboration,Transforming jet flavour tagging at ATLAS, (2025),599
+arXiv:2505.19689 [hep-ex](cit. on p. 7).600
+[68] ATLAS Collaboration,The performance of missing transverse momentum reconstruction and its601
+significance with the ATLAS detector using140fb−1 of √𝑠=13TeV𝑝 𝑝collisions,602
+Eur. Phys. J. C85(2025) 606, arXiv:2402.05858 [hep-ex](cit. on pp. 7, 10).603
+[69] ATLAS Collaboration,Vertex Reconstruction Performance of the ATLAS Detector at√𝑠=13TeV ,604
+ATL-PHYS-PUB-2015-026, 2015,url: https://cds.cern.ch/record/2037717(cit. on p. 7).605
+[70] ATLAS Collaboration,606
+Luminosity determination in𝑝 𝑝collisions at√𝑠=13TeV using the ATLAS detector at the LHC,607
+Eur. Phys. J. C83(2023) 982, arXiv:2212.09379 [hep-ex](cit. on p. 9).608
+20th April 2026 – 16:37 22
+
+=== PDF PAGE 23 ===
+ATLAS DRAFT
+[71] G. Avoni et al.,The new LUCID-2 detector for luminosity measurement and monitoring in ATLAS,609
+JINST13(2018) P07017 (cit. on p. 9).610
+[72] W. Buttinger,Using Event Weights to account for differences in Instantaneous Luminosity and611
+Trigger Prescale in Monte Carlo and Data, ATL-COM-SOFT-2015-119, 2015,612
+url:https://cds.cern.ch/record/2014726/(cit. on p. 9).613
+[73] ATLAS Collaboration,Jet energy scale and resolution measured in proton–proton collisions at614
+√𝑠=13TeV with the ATLAS detector, Eur. Phys. J. C81(2021) 689,615
+arXiv:2007.02645 [hep-ex](cit. on p. 10).616
+[74] ATLAS Collaboration,ATLAS 𝑏-jet identification performance and efficiency measurement with𝑡¯𝑡617
+events in𝑝 𝑝collisions at √𝑠=13TeV, Eur. Phys. J. C79(2019) 970,618
+arXiv:1907.05120 [hep-ex](cit. on p. 10).619
+[75] ATLAS Collaboration,Measurement of the𝑐-jet mistagging efficiency in𝑡¯𝑡events using𝑝 𝑝620
+collision data at√𝑠=13TeV collected with the ATLAS detector, Eur. Phys. J. C82(2022) 95,621
+arXiv:2109.10627 [hep-ex](cit. on p. 10).622
+[76] ATLAS Collaboration,623
+Calibration of the light-flavour jet mistagging efficiency of the𝑏-tagging algorithms with𝑍+jets624
+events using139fb −1 of ATLAS proton–proton collision data at√𝑠=13TeV,625
+Eur. Phys. J. C83(2023) 728, arXiv:2301.06319 [hep-ex](cit. on p. 10).626
+[77] R. D. Ball et al.,The PDF4LHC21 combination of global PDF fits for the LHC Run III,627
+J. Phys. G49(2022) 080501, arXiv:2203.05506 [hep-ph](cit. on p. 10).628
+[78] ATLAS Collaboration,629
+Measurements of𝑊 𝐻and𝑍 𝐻production with Higgs boson decays into bottom quarks and direct630
+constraints on the charm Yukawa coupling in13TeV𝑝 𝑝collisions with the ATLAS detector,631
+JHEP04(2025) 075, arXiv:2410.19611 [hep-ex](cit. on p. 10).632
+[79] ATLAS Collaboration,ATLAS simulation of boson plus jets processes in Run 2,633
+ATL-PHYS-PUB-2017-006, 2017,url:https://cds.cern.ch/record/2261937634
+(cit. on p. 10).635
+[80] ATLAS Collaboration,636
+Study of top-quark pair modelling and uncertainties using ATLAS measurements at√𝑠=13TeV,637
+ATL-PHYS-PUB-2020-023, 2020,url:https://cds.cern.ch/record/2730443638
+(cit. on p. 10).639
+[81] M. Czakon et al.,Top-pair production at the LHC through NNLO QCD and NLO EW,640
+JHEP10(2017) 186, arXiv:1705.04105 [hep-ph](cit. on p. 10).641
+[82] S. Frixione, E. Laenen, P. Motylinski, C. White and B. R. Webber,642
+Single-top hadroproduction in association with a𝑊boson, JHEP07(2008) 029,643
+arXiv:0805.3067 [hep-ph](cit. on p. 10).644
+[83] M. Aly et al.,TRExFitter, version 1.6.0, 2025,645
+url:https://doi.org/10.5281/zenodo.17790864(cit. on p. 10).646
+[84] G. Cowan, K. Cranmer, E. Gross and O. Vitells,647
+Asymptotic formulae for likelihood-based tests of new physics, Eur. Phys. J. C71(2011) 1554,648
+arXiv:1007.1727 [physics.data-an](cit. on p. 10), Erratum: Eur. Phys. J. C73(2013) 2501.649
+[85] R. Barlow and C. Beeston,Fitting using finite Monte Carlo samples,650
+Comput. Phys. Commun.77(1993) 219 (cit. on p. 11).651
+20th April 2026 – 16:37 23
+
+=== PDF PAGE 24 ===
+ATLAS DRAFT
+[86] A. L. Read,Presentation of search results: The𝐶 𝐿𝑠 technique,652
+J. Phys. G28(2002) 2693, ed. by M. R. Whalley and L. Lyons (cit. on p. 14).653
+[87] ATLAS Collaboration,ATLAS Computing Acknowledgements, ATL-SOFT-PUB-2026-001, 2026,654
+url:https://cds.cern.ch/record/2952666(cit. on p. 17).655
+20th April 2026 – 16:37 24
+
+=== PDF PAGE 25 ===
+ATLAS DRAFT
+Auxiliary material656
+Table 3:CRWand VRWevent selection criteria. Differences from the SRs are shown in bold.𝑝ℓ
+T, 𝑚ℓ
+T, and𝑚𝑏ℓ
+are reconstructed by lepton instead of𝜏had in the SRs. In theCRWregions, the leading-𝑝T jet is used as a proxy of
+the 𝑏-jet in SRs and𝑚𝑏𝜏had is replaced by𝑚 𝑗ℓ reconstructed by the leading-𝑝T jet and lepton. Dashes (–) refer to
+selections that are not applied.
+Feature Criterion
+Trigger requirementSingle lepton trigger (lowest-unprescaled)
+𝜏had multiplicity (𝑁𝜏had)0
+𝑏-jets multiplicity (𝑁𝑏)0(1) inCRW(VRW)
+Light lepton multiplicity (𝑁ℓ)1
+𝑝ℓ
+T [GeV]>200
+Light lepton identification HighPtCaloOnly isolation for electron /
+Medium identification and Tight_VarRad isolation for muon
+Region
+CRW(VRW)-Res CRW(VRW)-NonRes
+Leading-jet𝑝 T or𝑝 𝑏
+T [GeV]>250[50,250]
+𝐸miss
+T [GeV]>200>400
+𝑚ℓ
+T [GeV]>200>600
+𝑚𝑏ℓ or𝑚 𝑗ℓ [GeV]>800–
+Δ𝜙(ℓ, 𝐸 miss
+T )–>1.2
+Number of jets≤4≤2
+20th April 2026 – 16:37 25
+
+=== PDF PAGE 26 ===
+ATLAS DRAFT
+Table 4:CRTopevent selection criteria. Differences from the SRs are shown in bold. The leading-𝑝T 𝑏-jet is used as
+a proxy of the𝑏-jet in the SRs. Dashes (–) refer to selections that are not applied.
+Feature Criterion
+Trigger requirementSingle lepton trigger (lowest-unprescaled)
+𝜏had multiplicity (𝑁𝜏had) 1
+𝑝 𝜏had
+T [GeV]>100
+𝜏had identification Tight
+𝑏-jets multiplicity (𝑁𝑏)≥1
+Light lepton multiplicity(𝑁ℓ)1
+𝑝ℓ
+T [GeV]>28
+Light lepton identification HighPtCaloOnly isolation for electron /
+Medium identification and Tight_VarRad isolation for muon
+𝐸miss
+T [GeV]>100
+𝑚T [GeV]>100
+𝑚𝑏𝜏had [GeV]–
+Region
+CRTop-Res CRTop-NonRes
+𝑝𝑏
+T [GeV]>250[50,250]
+Δ𝜙(𝜏had, 𝐸miss
+T )–>1.2
+Number of jets (including𝑏-jets)≤4≤2
+Table 5:VRTopevent selection criteria. Differences from the SRs are shown in bold. The leading-𝑝T 𝑏-jet is used as
+a proxy of the𝑏-jet in the SRs. Dashes (–) refer to selections that are not applied.
+Feature Criterion
+Trigger requirement𝐸 miss
+T trigger (lowest-unprescaled)
+𝜏had multiplicity (𝑁𝜏had) 1
+𝑝 𝜏had
+T [GeV]>100
+𝜏had identification Tight
+𝑏-jets multiplicity (𝑁𝑏)2
+Light lepton multiplicity (𝑁ℓ) 0
+Region
+VRTop-Res VRTop-NonRes
+Leading𝑏-jet𝑝 T [GeV]>250[50,250]
+𝐸miss
+T [GeV]>200>200
+𝑚T [GeV]>100 >200
+𝑚𝑏𝜏had [GeV]>400–
+Δ𝜙(𝜏had, 𝐸miss
+T )–>1.2
+Number of non-𝑏-tagged jets≤20
+20th April 2026 – 16:37 26
+
+=== PDF PAGE 27 ===
+ATLAS DRAFT
+Table 6: Observed and expected yields in signal regions (SRs), after a background-only fit in control regions.
+Process SR1b-Res SR1b-NonRes SR0b-Res SR0b-NonRes
+𝑡¯𝑡 0.16±0.12 0.27±0.13 0.24±0.11 0.11±0.10
+Single-𝑡 0.09±0.11 <0.01 0.05±0.02 0.02±0.01
+𝑍→ℓℓ+jets <0.01 <0.01 0.03±0.03 <0.01
+𝑍→𝜈𝜈+jets 0.04±0.05 0.05±0.06 2.8±2.8 2.3±2.3
+𝑍→𝜏𝜏+jets 0.11±0.05 0.17±0.06 1.90±0.66 3.1±1.2
+𝑊+jets 1.9±0.7 1.3±0.6 27.7±6.0 31.5±8.7
+Diboson 0.39±0.18 0.10±0.04 3.7±1.2 1.18±0.47
+Total 2.69±0.83 1.88±0.71 36.4±7.3 38.3±9.9
+Data 3 2 33 45
+Table 7: Observed and expected yields in control regions (CRs), after a background-only fit.
+Process CRW-Res CRW-NonRes CRTop-Res CRTop-NonRes
+𝑡¯𝑡 5.6±1.3 2.6±0.6 38.8±5.8 385.5±19.1
+Single-𝑡 2.2±0.5 1.1±0.2 15.3±2.4 57.9±3.8
+𝑍→ℓℓ+jets 7.0±1.2 9.5±1.2 0.03±0.03 0.42±0.44
+𝑍→𝜈𝜈+jets 1.2±0.3 0.42±0.16 <0.01 <0.01
+𝑍→𝜏𝜏+jets 0.72±0.06 0.28±0.08 2.26±0.37 4.73±0.60
+𝑊+jets 380±22 830±30 3.0±0.7 15.8±3.1
+Diboson 65.3±2.4 28.0±1.9 3.6±0.5 3.7±0.5
+Total 462±22 872±30 63.0±7.9 468±22
+Data 462 872 63 468
+20th April 2026 – 16:37 27
+
+=== PDF PAGE 28 ===
+ATLAS DRAFT
+Table 8: Observed and expected yields in validation regions (VRs), after a background-only fit.
+Process VRW-Res VRW-NonRes VRTop-Res VRTop-NonRes
+𝑡¯𝑡 4.1±1.8 8.7±3.3 4.18±1.76 24.0±7.3
+Single-𝑡 3.8±1.6 2.9±1.1 4.54±1.93 1.8±0.6
+𝑍→ℓℓ+jets 0.37±0.16 <0.01 <0.01 <0.01
+𝑍→𝜈𝜈+jets 0.016±0.003 0.03±0.02 0.27±0.27 0.78±0.78
+𝑍→𝜏𝜏+jets 0.019±0.016 <0.01 0.44±0.15 0.15±0.06
+𝑊+jets 23.1±8.4 27.8±10.6 3.22±1.21 3.3±1.4
+Diboson 3.3±1.2 1.18±0.40 0.31±0.11 0.06±0.04
+Total 34.7±9.3 40.7±12.0 13.0±3.9 30.1±8.1
+Data 37 72 19 30
+20th April 2026 – 16:37 28
+
+=== PDF PAGE 29 ===
+ATLAS DRAFT
+0.05
+0.1
+0.15
+0.2
+ [fb]
+visible σ Internal
+ ATLAS-1
+ = 13 TeV, 140 fbsSR1b-Res + SR1b-NonRes
+SR0b-Res + SR0b-NonRes
+| = 0
+33R
+β|| = 1
+33R
+β|1.5
+2 2.5 3 3.5 4  [TeV]
+1
+Um0.5
+1
+1.5
+|=0
+33
+R
+β | visible
+σ  / |=1 33
+R
+β | visible
+σ 
+Figure 7: The 95% CL upper limits on the inclusive visible cross section, with
+𝛽33
+𝑅
+ =0 (blank circle) and 1 (full
+circle), asafunctionof 𝑚U1. Theparameters 𝑔𝑈 and 𝛽23
+𝐿 arefixedat1and0.2, respectively. Thevisiblecrosssection
+is defined as the cross section calculated withMadGraph, multiplied by the acceptance and selection efficiency. The
+SR1b-Res, SR1b-NonRes, SR0b-Resand SR0b-NonResare combined for simplicity. The interference effect with
+the SM𝜏𝜈process is not considered in this study.
+20th April 2026 – 16:37 29
+
+=== PDF PAGE 30 ===
+ATLAS DRAFT
+Table 9: Cross section, acceptance times selection efficiency (𝐴×𝜖 ) and observed upper limit on the signal strength
+𝜇 (𝜇95) separately forSR1b-Resand SR1b-NonResscenarios. The quantities are computed for four mass points of
+𝑚U1 =1.5 , 2.0, 2.5 and 4.0TeV, and in the coupling parameter space of(𝛽 23
+𝐿 , 𝛽33
+𝐿 ,
+𝛽33
+𝑅
+ , 𝑔𝑈)=(0.2,1.0,0,1.0) and
+(0.2,1.0,1.0,1.0). The interference effect with the SM𝜏𝜈process is not considered in this study.
+𝑀𝑈1 |𝛽 33
+𝑅 |cross section𝐴×𝜖 𝜇 95
+[TeV] [fb]SR1b-Res SR1b-NonRes SR0b-Res SR0b-NonRes
+1.5 0 0.55 0.64% 0.069% 0.30% 0.13% 11
+1 1.6 0.28% 0.076% 0.14% 0.16% 8.0
+2.0 0 0.16 0.28% 0.066% 0.15% 0.14% 82
+1 0.51 0.12% 0.086% 0.084% 0.18% 48
+2.5 0 0.066 0.13% 0.075% 0.083% 0.15%3.8×10 2
+1 0.21 0.062% 0.094% 0.054% 0.20%1.5×10 2
+4.0 0 0.010 0.028% 0.071% 0.045% 0.17%5.1×10 3
+1 0.033 0.025% 0.11% 0.044% 0.23%1.1×10 3
+20th April 2026 – 16:37 30
+
+=== PDF PAGE 31 ===
+ATLAS DRAFT
+0.64%
+0.24% 0.12% 0.09% 0.16% 0.09%
+0.06% 0.11% 1.81%
+0.28% 0.11% 0.06% 0.12% 0.09% 0.07%
+0.72%
+0.11% 0.05% 0.09% 0.06% 0.08%
+0.32%
+0.12% 0.05% 0.02% 0.05% 0.16%
+0.07% 0.03% 0.05% 0.09%
+0.04% 0.02% 0.04% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 1.5 TeV, SR1b-Res
+1
+UM
+0.07%
+0.05% 0.04% 0.05% 0.05% 0.04%
+0.04% 0.05% 0.08%
+0.04% 0.04% 0.04% 0.05% 0.05% 0.03%
+0.05%
+0.02% 0.03% 0.03% 0.03% 0.03%
+0.03%
+0.03% 0.02% 0.02% 0.02% 0.02%
+0.02% 0.02% 0.02% 0.02%
+0.02% 0.01% 0.02% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 1.5 TeV, SR1b-NonRes
+1
+UM
+0.28%
+0.07% 0.06% 0.09% 0.04%
+0.07% 0.11%
+0.05% 0.04% 0.06% 0.05% 0.03%
+0.05%
+0.03% 0.04% 0.04% 0.03% 0.02%
+0.03%
+0.02% 0.02% 0.03% 0.03% 0.07%
+0.02% 0.02% 0.03% 0.03% 0.04%
+0.02% 0.03% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 2.0 TeV, SR1b-Res
+1
+UM
+0.07%
+0.06% 0.06% 0.06% 0.05%
+0.06% 0.05%
+0.04% 0.04% 0.05% 0.05% 0.03%
+0.03%
+0.03% 0.04% 0.03% 0.03% 0.03%
+0.03%
+0.02% 0.02% 0.03% 0.03% 0.02%
+0.02% 0.02% 0.02% 0.02% 0.02%
+0.02% 0.02% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 2.0 TeV, SR1b-NonRes
+1
+UM
+0.13%
+0.05% 0.04%
+0.02%
+0.04% 0.03% 0.03%
+0.03% 0.02%
+0.03% 0.03% 0.03% 0.02%
+0.02%
+0.03% 0.02% 0.03% 0.02%
+0.01%
+0.02% 0.02% 0.02% 0.01%
+0.02% 0.02% 0.03% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 2.5 TeV, SR1b-Res
+1
+UM
+0.07%
+0.07% 0.06%
+0.05%
+0.05% 0.05% 0.04%
+0.04% 0.03%
+0.04% 0.04% 0.04% 0.03%
+0.02%
+0.03% 0.03% 0.03% 0.02%
+0.02%
+0.02% 0.02% 0.03% 0.02%
+0.02% 0.02% 0.03% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 2.5 TeV, SR1b-NonRes
+1
+UM
+0.06%
+0.03%
+0.03% 0.02%
+0.03% 0.02%
+0.02% 0.03% 0.02%
+0.02% 0.01%
+0.02% 0.02% 0.02% 0.03% 0.02%
+0.01%
+0.02% 0.02% 0.02% 0.03% 0.02%
+0.01%
+0.01% 0.02% 0.02% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 3.0 TeV, SR1b-Res
+1
+UM
+0.07%
+0.05%
+0.05% 0.05%
+0.05% 0.04%
+0.04% 0.04% 0.03%
+0.03% 0.03%
+0.03% 0.04% 0.03% 0.03% 0.03%
+0.02%
+0.03% 0.03% 0.03% 0.02% 0.02%
+0.02%
+0.03% 0.02% 0.03% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 3.0 TeV, SR1b-NonRes
+1
+UM
+Figure 8: The acceptance times selection efficiency for signals in SR1b at each parameter point. The interference
+effect with the SM𝜏𝜈process is not considered.
+20th April 2026 – 16:37 31
+
+=== PDF PAGE 32 ===
+ATLAS DRAFT
+0.30%
+0.13% 0.07% 0.06% 0.10% 0.09%
+0.07% 0.12% 1.57%
+0.33% 0.14% 0.09% 0.15% 0.12% 0.14%
+1.23%
+0.25% 0.12% 0.20% 0.15% 0.21%
+0.81%
+0.38% 0.18% 0.11% 0.16% 0.56%
+0.26% 0.15% 0.20% 0.40%
+0.20% 0.13% 0.17% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 1.5 TeV, SR0b-Res
+1
+UM
+0.13%
+0.11% 0.12% 0.11% 0.13% 0.13%
+0.13% 0.14% 0.23%
+0.17% 0.16% 0.16% 0.16% 0.16% 0.17%
+0.28%
+0.20% 0.17% 0.20% 0.18% 0.20%
+0.25%
+0.22% 0.20% 0.19% 0.20% 0.23%
+0.21% 0.19% 0.22% 0.23%
+0.21% 0.20% 0.22% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 1.5 TeV, SR0b-NonRes
+1
+UM
+0.15%
+0.05% 0.05% 0.07% 0.05%
+0.08% 0.16%
+0.08% 0.07% 0.10% 0.09% 0.07%
+0.14%
+0.09% 0.13% 0.11% 0.12% 0.09%
+0.11%
+0.09% 0.08% 0.12% 0.12% 0.27%
+0.10% 0.09% 0.13% 0.13% 0.20%
+0.09% 0.13% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 2.0 TeV, SR0b-Res
+1
+UM
+0.14%
+0.14% 0.14% 0.14% 0.16%
+0.17% 0.19%
+0.18% 0.18% 0.19% 0.19% 0.19%
+0.21%
+0.20% 0.23% 0.21% 0.21% 0.22%
+0.23%
+0.22% 0.23% 0.22% 0.23% 0.25%
+0.23% 0.23% 0.24% 0.23% 0.26%
+0.23% 0.25% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 2.0 TeV, SR0b-NonRes
+1
+UM
+0.08%
+0.05% 0.06%
+0.06%
+0.08% 0.08% 0.08%
+0.09% 0.07%
+0.09% 0.09% 0.10% 0.10%
+0.07%
+0.10% 0.10% 0.11% 0.09%
+0.08%
+0.07% 0.10% 0.12% 0.08%
+0.11% 0.11% 0.13% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 2.5 TeV, SR0b-Res
+1
+UM
+0.15%
+0.15% 0.18%
+0.20%
+0.20% 0.20% 0.22%
+0.23% 0.23%
+0.23% 0.23% 0.25% 0.26%
+0.25%
+0.27% 0.25% 0.25% 0.26%
+0.23%
+0.25% 0.26% 0.26% 0.25%
+0.27% 0.27% 0.27% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 2.5 TeV, SR0b-NonRes
+1
+UM
+0.06%
+0.06%
+0.07% 0.07%
+0.08% 0.08%
+0.08% 0.09% 0.08%
+0.09% 0.06%
+0.08% 0.09% 0.11% 0.13% 0.09%
+0.06%
+0.09% 0.09% 0.11% 0.13% 0.09%
+0.07%
+0.09% 0.10% 0.12% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 3.0 TeV, SR0b-Res
+1
+UM
+0.17%
+0.21%
+0.22% 0.23%
+0.23% 0.26%
+0.26% 0.26% 0.26%
+0.27% 0.27%
+0.27% 0.26% 0.28% 0.28% 0.28%
+0.26%
+0.28% 0.29% 0.29% 0.29% 0.28%
+0.27%
+0.28% 0.29% 0.29% 0.5
+1 1.5 2 2.5 3 U
+g0.5
+1
+1.5
+2
+2.5
+3
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbsSignal Acceptance*Efficiency
+ = 3.0 TeV, SR0b-NonRes
+1
+UM
+Figure 9: The acceptance times selection efficiency for signals inSR0bat each parameter point. The interference
+effect with the SM𝜏𝜈process is not considered.
+20th April 2026 – 16:37 32
+
+=== PDF PAGE 33 ===
+ATLAS DRAFT
+1600
+1800 2000 2200 2400 2600 2800 3000  [GeV]
+1
+Um0
+1
+2
+3
+4
+5
+U
+g Internal  ATLAS-1
+ = 13 TeV, 140 fbs = 1.0
+23L
+β95% CL upper limit
+Exp.
+σ
+1±Exp. σ
+2±Exp. Obs.
+Exp. (SR1b-Res + SR0b-Res)
+Exp. (SR1b-NonRes + SR0b-NonRes)
+σ
+region within 2B anomalies favoured
+σ
+region within 1B anomalies favoured
+Figure 10: Observed (red line) and expected (black dashed line) 95% CL upper limits on𝑔𝑈 as a function of𝑚U1, at
+𝛽23
+𝐿 =1.0 . The shaded regions are favoured by𝐵 anomalies at the 2𝜎 level, converted from𝐶 𝑐
+𝐿 𝐿 limit in Ref. [31]
+using Eq. 1. The expected limits bySR1b-Res+SR0b-ResandSR1b-NonRes+SR0b-NonResare also shown.
+0.5
+1 1.5 2 2.5 3 U
+g0
+0.5
+1
+1.5
+2
+2.5
+23
+L
+β Internal  ATLAS-1
+ = 13 TeV, 140 fbs = 1.5 TeV
+1
+Um95% CL upper limit
+Exp.
+σ
+1±Exp. σ
+2±Exp. Obs.
+Exp. (SR0b)
+Exp. (SR1b)
+σ
+region within 2B anomalies favoured
+σ
+region within 1B anomalies favoured
+Figure 11: Observed (red line) and expected (black dashed line) 95% CL upper limits on𝑔𝑈 as a function of𝑚U1, at
+𝛽23
+𝐿 =1.0 . The shaded regions are favoured by𝐵 anomalies at the 2𝜎 level, converted from𝐶 𝑐
+𝐿 𝐿 limit in Ref. [31]
+using Eq. 1. The expected limits bySR1b-only andSR0b-only are also shown.
+20th April 2026 – 16:37 33

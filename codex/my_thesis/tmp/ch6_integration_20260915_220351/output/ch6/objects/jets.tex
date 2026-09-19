@@ -1,0 +1,43 @@
+\section{Jets}
+\label{sec:ch6_jets}
+
+\subsection{Reconstruction}
+
+Jets are reconstructed from the collimated hadrons produced through parton showering and hadronisation.
+In this analysis, the constituents used for jet clustering are first reconstructed with the particle-flow (PFlow) algorithm, which combines ID track momenta with calorimeter energy measurements~\cite{ATLAS2017ParticleFlow}.
+The main steps are:
+\begin{enumerate}
+    \item Calorimeter topological clusters are initially calibrated for electromagnetic showers and matched to ID tracks.
+    \item The expected calorimeter energy deposited by the matched charged particles is subtracted from the clusters, avoiding double counting when the track momenta are used.
+    \item Vertex association is used to suppress charged-particle contributions from pile-up. The selected tracks and remaining calorimeter contributions form the PFlow constituents.
+\end{enumerate}
+
+These PFlow constituents are then grouped into jets using the anti-$k_t$ algorithm with $R=0.4$~\cite{Cacciari2008AntiKt}.
+Pairs are selected for combination according to their angular separation and $\pT$.
+Their four-momenta are added, and the merged object is used in the next clustering step.
+Low-$\pT$ constituents are preferentially clustered around nearby high-$\pT$ constituents, so isolated jets have approximately circular boundaries with radius $R$.
+
+\subsection{Identification and pile-up rejection}
+
+Jets from the hard scattering are selected after jet cleaning and pile-up rejection.
+\begin{itemize}
+    \item \textbf{Jet cleaning} is performed with the requirements on calorimeter pulse shapes and the distribution of energy among calorimeter layers to reject noise and non-collision backgrounds. For example, a jet with $|\eta|<2$ is rejected if more than 99\% of its energy is deposited in a single calorimeter layer. The efficiency for collision jets exceeds 99.5\%~\cite{ATLAS2015JetCleaning}.
+    \item \textbf{Pile-up rejection} uses the vertex origins and $\pT$ of the jet tracks.
+    The jet-vertex tagger (JVT) is constructed from two variables~\cite{ATLAS2014JVT}.
+    The first is based on the ratio of the $\pT$ sum of tracks from the PV to that of tracks from all vertices.
+    The second is the same PV-track $\pT$ sum divided by the reconstructed jet $\pT$.
+    Large values of both variables favour jets from the hard scattering.
+    The neural-network JVT (NNJVT) is used in this analysis with the \texttt{FixedEffPt} working point~\cite{ATLASNNJVTTagger}, whose target efficiency for hard-scatter jets is $88$--$98\%$~\cite{ATLASNNJVTFixedEffPt}.
+\end{itemize}
+
+\subsection{Calibration}
+
+Jet energies are calibrated to correct the jet energy scale (JES) and improve the jet energy resolution (JER).
+The JES characterises the average energy response, while the JER quantifies the spread of reconstructed energies at a fixed particle-level energy.
+The following corrections are applied~\cite{ATLAS2021JetCalibration}:
+\begin{enumerate}
+    \item \textbf{Pile-up subtraction} removes the estimated energy deposited by pile-up particles. The corresponding correction to the jet $\pT$ is estimated as $\rho A$, where $\rho$ is the event $\pT$ density and $A$ is the jet area.
+    \item \textbf{Energy and direction calibration} corrects the differences in energy and $\eta$ between reconstructed and matched particle-level jets. Particle-level jets are built from stable simulated particles, excluding muons and neutrinos, and therefore provide a reference without detector effects.
+    \item \textbf{Global sequential calibration} corrects the remaining response differences between jets with different particle compositions or shower shapes. Track multiplicity and energy fractions in calorimeter layers are used to reduce these differences, improving the resolution while preserving the average energy scale.
+    \item \textbf{Residual in situ calibration} uses well-measured $Z$ bosons and photons as references to check the jet energy response. For higher-$\pT$ jets, the vector sum of several calibrated lower-$\pT$ jets are used as the reference. The average ratio of jet $\pT$ to reference $\pT$ is compared between data and simulation to determine the final correction, and then applied only to data.
+\end{enumerate}

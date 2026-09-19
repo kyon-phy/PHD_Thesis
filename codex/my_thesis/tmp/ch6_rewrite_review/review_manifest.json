@@ -1,0 +1,990 @@
+{
+  "request": "Rewrite CH6 from Tracks with independent section files, headings and lists, reference all applicable phD theses, INT note takes precedence, preserve introduction; generate CH6.txt",
+  "authorised_span": "From section Tracks to end of output/ch6/CH6_draft.tex, plus supporting draft files",
+  "before_sha256": "0fdac7dc7a0b3e41568e19bed70934f4d851d88e4084d7a8f18383355f93fb58",
+  "preserved_intro_sha256": "15d6a1ffeb740342727059433cd5071f2251e24b6c5f7b6d681d3f56c8177a69",
+  "reviewed_coverage": [
+    "output/ch6/sections/01_tracks.tex",
+    "output/ch6/sections/02_primary_vertex.tex",
+    "output/ch6/sections/03_electrons.tex",
+    "output/ch6/sections/04_muons.tex",
+    "output/ch6/sections/05_hadronic_taus.tex",
+    "output/ch6/sections/06_jets.tex",
+    "output/ch6/sections/07_flavour_tagging.tex",
+    "output/ch6/sections/08_overlap_removal.tex",
+    "output/ch6/sections/09_missing_momentum.tex"
+  ],
+  "reader_activation": {
+    "enabled": false,
+    "reason": "not requested"
+  },
+  "source_hashes": {
+    "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/references/phD2022_oishi.pdf": "02f9f4111ff8dc66315b6a74e67c7e86ae13a85f8cd3954ce25a1f8071ac51ba",
+    "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/references/phD2024_zhang.pdf": "d722f8b64360725aee5c3c659f6cdcdb521d74005f0060bf5d965278cf74e39d",
+    "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/references/phD2022_tateno.pdf": "174e801b7bf3d1c55abce199133048008ba0f6578b9797bf7fd282598e08b160",
+    "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/references/phD2020_yang.pdf": "300c86809951308504038910fc4d946f1a4d1ff82d7447c9fae36c3d56fdec37",
+    "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/references/phD2025_tanaka.pdf": "bf89c0b64f3b5f469a7db33abab76c6204835f540ae3be8d3c57af77c46f2ff8",
+    "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/references/phD2024_sugizaki.pdf": "289301bae9abdd9ab3f47b2352bf8d7378aa7af34a50420750fcc2613a259620",
+    "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/references/phD2024_aoki.pdf": "145860982bac1fe26a06a55477caf053dc823d65faa699096d90a40447ae9be3",
+    "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/references/ANA_EXOT_2025_06_INT1.pdf": "0efdb46cdc365996c18a7694afea917f8619eab3e77da692a840b2d110c7a640",
+    "tmp/ch6_sources/topocluster.pdf": "edd0409596cf13f5d051f6c039fd89473433ff6ec83fbabf68983ec481e421db",
+    "tmp/ch6_sources/tau_rnn.pdf": "4bc9e7193ad34aeeba62809611786a5360f3d56343f22e434853e22db78afc4b",
+    "tmp/ch6_sources/electron_reco.pdf": "fcb9f2b794217d2ae57a6bed0f65f2173fb3d93d29b3a70c6bf7a8cd3697fd67",
+    "tmp/ch6_sources/particle_flow.pdf": "0335fb613146c5e280012f93ce6217d89a7cd2957488373ae90d715a640870b8",
+    "tmp/ch6_sources/muon_id.pdf": "97151bffa48dd050db9e510f15ccf75dc64e9bcc088de0f3a6d769574782d223",
+    "tmp/ch6_sources/electron_perf.pdf": "a3e139349d9eaca2d5bf1078832120a2d15c8c716a969bfefacfcd5a1f7d009a",
+    "tmp/ch6_sources/tau_table_03.pdf": "0a61a3d971c2576c65463502693960ae08ffe2af99adfc0fab4c9875d4446607",
+    "tmp/ch6_sources/tau_table_02.pdf": "14462cc4d1910b6696268fcd9ceab115a1b65fcf699e42c862ffb4a947eab8ca",
+    "tmp/ch6_sources/tau_table_07.pdf": "689231eb89323020fa18d74c95038f3c7e6788d7477aebf421f5248fe57667bd",
+    "tmp/ch6_sources/tau_table_10.pdf": "9b62bbc9406388a17706ce5376739118160721daff85dd8429f7b8a7aa3f42fd",
+    "tmp/ch6_sources/tau_table_04.pdf": "c7bb5f40771ab2555b856294d2f08b35947abb75d39ceb9a403b38d083a6b5b4",
+    "tmp/ch6_sources/gn2.pdf": "6281761279ce186d661c27e708b294f19e818acf3e762b629b8d1d5e7c384d2f",
+    "tmp/ch6_sources/jet_calib.pdf": "99348cd2f1f97a37f47515b23a61c1b8809c8178bb7c9ef2e97daf685a1e49ff",
+    "tmp/ch6_sources/antikt.pdf": "e92a90b0b990f5b2337167fead29263a00534d4af4d5160aa75df9e246d8979d",
+    "tmp/ch6_sources/tau_r22.pdf": "3b17b7c4a8dba0932b92463c0c8c5b755d618d14e007a43860b0a22bf5dbdf82",
+    "tmp/ch6_sources/tracks.pdf": "4c18a665b2b39ff535f4eb5a7c94c3cbfaf18b107739f52de40005f225c7a842",
+    "tmp/ch6_sources/muon_calib.pdf": "c8becf032c67eb82e15488d34289ef771f5140638bc4ae9aec7dd4cb88299551",
+    "tmp/ch6_sources/met.pdf": "cc0b2a32a6e7b9899de99befe07662ea90f330461d5d24de729cf3b22e8d73f1"
+  },
+  "source_checks": [
+    {
+      "claim": "electron baseline and signal criteria",
+      "source": "INT note §5.2, Table 5.1",
+      "implementation": "sections/03_electrons.tex",
+      "checked": "10 GeV; 2.47 and transition exclusion; TightLH; Loose_VarRad; additional HighPtCaloOnly; 5 and 0.5 mm impact cuts"
+    },
+    {
+      "claim": "muon criteria",
+      "source": "INT note §5.3, Table 5.2",
+      "implementation": "sections/04_muons.tex",
+      "checked": "10 GeV; 2.5; Loose/Medium; Loose_VarRad/Tight_VarRad; 3 and 0.5 mm impact cuts"
+    },
+    {
+      "claim": "tau selection and efficiency corrections",
+      "source": "INT note §5.4, Table 5.3; ATL-PHYS-PUB-2022-044 §§4–6,8 and Table 4",
+      "implementation": "sections/05_hadronic_taus.tex",
+      "checked": "20 GeV baseline; 200 GeV SR; 1/3 tracks; charge ±1; Loose/Tight ID; Loose eVeto; 2 GeV non-calo-tagged muon rejection; Medium-ID eVeto SF used for Tight-ID candidates"
+    },
+    {
+      "claim": "jet clustering and calibration",
+      "source": "INT note §5.5, Table 5.4; 0802.1189 §2; 1703.10485 §6; 2007.02645 §§4–5",
+      "implementation": "sections/06_jets.tex",
+      "checked": "EMPFlow; anti-kt 0.4; pT 20 GeV; eta 2.5; LooseBad; NNJVT FixedEffPt; calibration sequence; truth jets exclude muons/neutrinos"
+    },
+    {
+      "claim": "GN2 model, WP and efficiency denominator",
+      "source": "INT note §5.5; 2505.19689v2, architecture and algorithm-performance sections",
+      "implementation": "sections/07_flavour_tagging.tex",
+      "checked": "transformer; four probabilities; 85% inclusive ttbar reference, not constant signal efficiency; untagged weight is an illustrative complementary-probability derivation"
+    },
+    {
+      "claim": "OR order and matching",
+      "source": "INT note §5.7",
+      "implementation": "sections/08_overlap_removal.tex",
+      "checked": "ten steps including electron-electron; rapidity distances; NumTrack < 3 AND ghost association; no mixing of alternative published/production-code versions"
+    },
+    {
+      "claim": "MET components and uncertainties",
+      "source": "INT note §5.6; 2402.05858v2; TopCPTool and FastFrames code context checked earlier in this conversation",
+      "implementation": "sections/09_missing_momentum.tex",
+      "checked": "baseline e/mu/tau WPs; jets separately selected by MET; TST; Tight; association map; no photon input; soft-term systematic variations not asserted to be nominal corrections"
+    },
+    {
+      "claim": "track parameters and PV selection",
+      "source": "1704.07983 §3; ATL-PHYS-PUB-2015-026; INT note §5.8; 2606.02067v1 §5",
+      "implementation": "sections/01_tracks.tex; sections/02_primary_vertex.tex",
+      "checked": "silicon space points; ambiguity treatment; d0/z0 beam-line convention and Delta z0 to PV; at least two 500 MeV tracks and largest sum pT²"
+    }
+  ],
+  "paragraph_ledger": [
+    {
+      "file": "output/ch6/sections/01_tracks.tex",
+      "section": "Tracks",
+      "topic": null,
+      "line": 1,
+      "text": "\\section{Tracks}\n\\label{sec:ch6_tracks}",
+      "sha256": "1f5afa4a323068ec1281943801b322580a50a51f4b3307e05df14b2ae5dca0a2",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/01_tracks.tex",
+      "section": "Tracks",
+      "topic": "Reconstruction",
+      "line": 4,
+      "text": "\\subsection{Reconstruction}",
+      "sha256": "bd6b3f9f9c6b55f3535a0d1c06e599656f64b59ff226b983dcd05ae00bf4916c",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/01_tracks.tex",
+      "section": "Tracks",
+      "topic": "Reconstruction",
+      "line": 6,
+      "text": "A track is reconstructed by fitting the trajectory of a charged particle to measurements in the ID.\nIts momentum and charge are determined from the curvature in the magnetic field, while its position near the beam line is used to associate it with a production vertex.\nTrack reconstruction is performed in the following stages~\\cite{ATLAS2017DenseTracking}:\n\\begin{enumerate}\n    \\item \\textbf{Space-point formation.} Signals in neighbouring channels of a silicon sensor are grouped into clusters. Three-dimensional space points are obtained from pixel clusters or from paired measurements on the two sides of an SCT module.\n    \\item \\textbf{Seeding and track finding.} Combinations of space points are used to form track seeds. These seeds are extended through the silicon layers with a combinatorial Kalman filter, in which the trajectory and its uncertainty are updated as compatible measurements are added. Multiple scattering and energy loss in the detector material are included in the fit.\n    \\item \\textbf{Ambiguity resolution.} Candidates are ranked using their fit quality, assigned clusters and missing expected measurements. Duplicate or incompatible candidates are rejected, while shared clusters are treated to retain nearby physical tracks where possible.\n    \\item \\textbf{TRT extension.} Accepted silicon tracks are extrapolated into the TRT, and compatible measurements are included in a further fit.\n\\end{enumerate}",
+      "sha256": "fe8b9b2b1c5671bf397fbc059bdffc31a36f04f92eeac726c83f0fed702e2781",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "ATLAS2017DenseTracking"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/01_tracks.tex",
+      "section": "Tracks",
+      "topic": "Track parameters and quality",
+      "line": 16,
+      "text": "\\subsection{Track parameters and quality}",
+      "sha256": "d08e924fc5992e0ad108fa4198b588012d6e39b50200a694a44d63a1fc32f75d",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/01_tracks.tex",
+      "section": "Tracks",
+      "topic": "Track parameters and quality",
+      "line": 18,
+      "text": "The fitted trajectory is specified by five parameters at its point of closest approach to a reference beam line:\n\\begin{itemize}\n    \\item $d_0$ and $z_0$: the signed transverse impact parameter and the longitudinal coordinate at closest approach.\n    \\item $\\phi_0$ and $\\theta$: the azimuthal and polar angles of the momentum.\n    \\item $q/p$: the electric charge divided by the momentum magnitude.\n\\end{itemize}\nTheir uncertainties and correlations are described by the covariance matrix of the fit.\nThe transverse impact-parameter significance, $d_0/\\sigma(d_0)$, measures the displacement in units of its uncertainty.\nFor association with a vertex at $z_{\\mathrm{PV}}$, the longitudinal separation is expressed as\n\\begin{align}\n    \\Delta z_0\\sin\\theta=(z_0-z_{\\mathrm{PV}})\\sin\\theta.\n    \\label{eq:ch6_track_longitudinal}\n\\end{align}",
+      "sha256": "d7c99bf1d3176f83fe2b7517ebc7e5f87ac037fb85fe416cb09f2e1adce9a169",
+      "function": "definition, mechanism or analysis implementation in Track parameters and quality",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/01_tracks.tex",
+      "section": "Tracks",
+      "topic": "Track parameters and quality",
+      "line": 32,
+      "text": "Track-quality requirements are imposed on the hit content, fit quality and number of missing expected hits.\nAdditional requirements depend on how the tracks are used: prompt-lepton tracks are required to be compatible with the primary vertex, whereas displaced tracks are retained for heavy-flavour tagging.\nThe corresponding selections are specified below for each reconstructed object.\n",
+      "sha256": "b1d7aacddda081916e18b79428a17c2e94b3b9d2e57fd1a118d88d6080846458",
+      "function": "definition, mechanism or analysis implementation in Track parameters and quality",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/02_primary_vertex.tex",
+      "section": "Primary vertex",
+      "topic": null,
+      "line": 1,
+      "text": "\\section{Primary vertex}\n\\label{sec:ch6_primary_vertex}",
+      "sha256": "d8a4649038f665a59428c7ff2dc03cc7c8a13f45621a002c9ec46bceafa7e2ea",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/02_primary_vertex.tex",
+      "section": "Primary vertex",
+      "topic": "Reconstruction",
+      "line": 4,
+      "text": "\\subsection{Reconstruction}",
+      "sha256": "bd6b3f9f9c6b55f3535a0d1c06e599656f64b59ff226b983dcd05ae00bf4916c",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/02_primary_vertex.tex",
+      "section": "Primary vertex",
+      "topic": "Reconstruction",
+      "line": 6,
+      "text": "Collision vertices are reconstructed from tracks compatible with a common origin~\\cite{ATLAS2015Vertex}.\nCandidate positions are first identified from the longitudinal distribution of tracks near the beam line.\nThe vertex positions are then fitted using the track parameters and their uncertainties, with reduced weights assigned to incompatible tracks.\nTracks that are not assigned to a fitted vertex are considered when searching for further vertices.\nSeveral collision vertices can therefore be reconstructed in an event containing pile-up.",
+      "sha256": "f0d22a99e4eae523f96e09fab5b832b02e5c33ed67a240f3078941942a86015b",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "ATLAS2015Vertex"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/02_primary_vertex.tex",
+      "section": "Primary vertex",
+      "topic": "Primary-vertex selection",
+      "line": 12,
+      "text": "\\subsection{Primary-vertex selection}",
+      "sha256": "6dcd24cd0e2679248468e059dc8b63d3beccbbeafd791b79489781890cc5d805",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/02_primary_vertex.tex",
+      "section": "Primary vertex",
+      "topic": "Primary-vertex selection",
+      "line": 14,
+      "text": "The primary vertex associated with the hard scattering is selected from vertices with at least two tracks satisfying $\\pT>500~\\MeV$~\\cite{ATLAS2026LQTauNu}.\nThe vertex with the largest sum of squared track transverse momenta is chosen:\n\\begin{align}\n    v_{\\mathrm{PV}}=\\operatorname*{arg\\,max}_{v}\n    \\sum_{i\\in v}p_{\\mathrm{T},i}^{\\,2}.\n    \\label{eq:ch6_primary_vertex}\n\\end{align}\nEnergetic tracks are given greater weight by this criterion, favouring the hard scattering over additional soft collisions.\nEvents without a qualifying vertex are rejected.\nThe selected vertex is used as the reference for prompt-lepton selection, isolation, pile-up jet rejection and the track contribution to $\\met$.\n",
+      "sha256": "110a8590c70d8d352bd44f7008223f191fd334ff6e28d7f753da015c52c8a3f5",
+      "function": "definition, mechanism or analysis implementation in Primary-vertex selection",
+      "citations": [
+        "ATLAS2026LQTauNu"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": null,
+      "line": 1,
+      "text": "\\section{Electrons}\n\\label{sec:ch6_electrons}",
+      "sha256": "9e81cbf46bc64160f04d4d42091b82470c3356868ec13effc217ae4603138bae",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Reconstruction",
+      "line": 4,
+      "text": "\\subsection{Reconstruction}",
+      "sha256": "bd6b3f9f9c6b55f3535a0d1c06e599656f64b59ff226b983dcd05ae00bf4916c",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Reconstruction",
+      "line": 6,
+      "text": "An electron is reconstructed from an ID track matched to an electromagnetic shower in the calorimeter.\nBremsstrahlung photons emitted in the upstream material can spread the shower energy over several clusters and alter the curvature of the electron track.\nBoth effects are treated in the reconstruction~\\cite{ATLAS2019ElectronPerformance}:\n\\begin{enumerate}\n    \\item \\textbf{Calorimeter clustering.} Neighbouring cells are grouped into topological clusters according to their signal significance above the expected noise. Clusters with a substantial electromagnetic energy fraction are used as electron seeds.\n    \\item \\textbf{Track refitting and matching.} Electron-track candidates are refitted with a Gaussian-sum filter, in which a mixture of Gaussian components is used to describe radiative energy losses. The refitted tracks are extrapolated to the calorimeter and matched to the clusters.\n    \\item \\textbf{Supercluster formation.} Nearby clusters are added to the seed to recover energy from bremsstrahlung. Additional clusters sharing the matched electron track can be collected over a wider region in $\\phi$. The resulting variable-size supercluster is matched to the electron track to form the candidate.\n\\end{enumerate}\nThe cluster association is illustrated in Figure~\\ref{fig:ch6_electron_supercluster}.\nThe wider collection in $\\phi$ helps recover energy separated from the electron by its bending in the magnetic field.",
+      "sha256": "934f3d14a16cbb5204ea751504f64751250c0d4be5c11d59aab6fb0c352cb74a",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "ATLAS2019ElectronPerformance"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Reconstruction",
+      "line": 17,
+      "text": "\\begin{figure}[htbp]\n    \\centering\n    \\includegraphics[width=0.75\\textwidth]{output/ch6/figures/electron_superclusters.png}\n    \\caption{Cluster association for electron superclusters. Seed and additional clusters are shown in red and blue, respectively. Geometrically nearby clusters are collected, and a wider association is allowed for clusters sharing the electron track. The electron-relevant part of the supercluster diagram is reproduced from Ref.~\\cite{ATLAS2019ElectronPerformance}.}\n    \\label{fig:ch6_electron_supercluster}\n\\end{figure}",
+      "sha256": "8d02969be8cb790726920ce5176670e15b56f756db9fb99508546d53683b307a",
+      "function": "source-attributed figure/table",
+      "citations": [
+        "ATLAS2019ElectronPerformance"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Identification",
+      "line": 24,
+      "text": "\\subsection{Identification}",
+      "sha256": "09566ee3e8d95747f15c233410636b383fd46fba9b1d98e14718fcb516e70f00",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Identification",
+      "line": 26,
+      "text": "Electron candidates are distinguished from hadronic showers and converted photons using a likelihood discriminant~\\cite{ATLAS2019ElectronReco}.\nIts inputs describe the shower shapes and hadronic leakage, the track hit content, and the agreement between the track and calorimeter measurements.\nThe \\texttt{Loose}, \\texttt{Medium} and \\texttt{Tight} working points provide increasing background rejection at the cost of electron efficiency.",
+      "sha256": "11c729c0536fd6df8c6b9e484e5c6f0df8e3a6c8198c6c0ebd8794b2e27b6ffa",
+      "function": "definition, mechanism or analysis implementation in Identification",
+      "citations": [
+        "ATLAS2019ElectronReco"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Identification",
+      "line": 30,
+      "text": "Baseline electrons are the initial candidates used for object counting and overlap removal.\nThe following requirements are imposed:\n\\begin{itemize}\n    \\item $\\pT>10~\\GeV$ and $|\\eta|<2.47$, excluding $1.37<|\\eta|<1.52$.\n    \\item \\texttt{TightLH} identification and a calorimeter cluster passing the object-quality requirements.\n    \\item $|d_0|/\\sigma(d_0)<5$ and $|\\Delta z_0\\sin\\theta|<0.5~\\mm$.\n\\end{itemize}\nThe impact-parameter requirements suppress electrons from displaced decays and tracks incompatible with the primary vertex.\nClusters in regions with known calorimeter defects are rejected, including the affected end-cap high-voltage regions in the 2016 data.",
+      "sha256": "e539460c6c7a008ae054dc89c042e8e0b27ee47fa6e730f1cc3263aacbfc9a35",
+      "function": "definition, mechanism or analysis implementation in Identification",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Isolation",
+      "line": 40,
+      "text": "\\subsection{Isolation}",
+      "sha256": "ca6b9069897d975d3a22fd3e4235f3e02ad88e1125767e624f25150f56543e09",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Isolation",
+      "line": 42,
+      "text": "Prompt electrons are separated from electrons inside hadronic jets by requiring little additional activity around the candidate.\nTwo isolation quantities are used~\\cite{ATLAS2019ElectronPerformance}:\n\\begin{itemize}\n    \\item \\textbf{Track isolation}: the scalar sum of the transverse momenta of nearby tracks associated with the primary vertex, excluding the electron track. The cone radius is reduced at high electron $\\pT$ to limit contamination from nearby activity.\n    \\item \\textbf{Calorimeter isolation}: the transverse energy around the electron after subtracting its own shower contribution and correcting for pile-up and shower leakage.\n\\end{itemize}\nBaseline electrons are required to pass \\texttt{Loose\\_VarRad} isolation.\nSignal electrons used in the analysis regions additionally pass \\texttt{HighPtCaloOnly} isolation to suppress high-$\\pT$ backgrounds.\nTheir momentum thresholds are specified with the region definitions in Chapter~\\ref{chapter:event_selection}.",
+      "sha256": "6dac0dc65d57451b4afb8a4b354db1d3e70a078487064c47992ada2484abb64b",
+      "function": "definition, mechanism or analysis implementation in Isolation",
+      "citations": [
+        "ATLAS2019ElectronPerformance"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Calibration",
+      "line": 52,
+      "text": "\\subsection{Calibration}",
+      "sha256": "7cc419a70edbac636250989fd4c6540defa6624e4a997ab55e41bdc70a5a13b2",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/03_electrons.tex",
+      "section": "Electrons",
+      "topic": "Calibration",
+      "line": 54,
+      "text": "The electron energy is calibrated for losses in upstream material, energy outside the cluster and variations in detector response~\\cite{ATLAS2019ElectronPerformance}.\nThe residual energy scale is constrained using the reconstructed mass in $\\zee$ events, and the simulated resolution is adjusted to describe the data.\nReconstruction, identification and isolation efficiencies are measured with the tag-and-probe method: one well-identified electron selects a resonance decay, and the second electron is used to test the requirement under study after background subtraction.\nFor a selection efficiency $\\epsilon$, the scale factor is defined as\n\\begin{align}\n    \\mathrm{SF}=\\frac{\\epsilon_{\\mathrm{data}}}{\\epsilon_{\\mathrm{MC}}}.\n    \\label{eq:ch6_efficiency_sf}\n\\end{align}\nThe appropriate scale factors are applied to simulated event weights for the electron working points used in the analysis.\n",
+      "sha256": "890306f4eff5bdc39dc21b9870afa005f1a291ed8aaed9d4d44164dbee5cbd83",
+      "function": "definition, mechanism or analysis implementation in Calibration",
+      "citations": [
+        "ATLAS2019ElectronPerformance"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/04_muons.tex",
+      "section": "Muons",
+      "topic": null,
+      "line": 1,
+      "text": "\\section{Muons}\n\\label{sec:ch6_muons}",
+      "sha256": "5def104a7d9a9de50e1285739bc0b7f8d829346d7542acef2c8a65a69764f84a",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/04_muons.tex",
+      "section": "Muons",
+      "topic": "Reconstruction",
+      "line": 4,
+      "text": "\\subsection{Reconstruction}",
+      "sha256": "bd6b3f9f9c6b55f3535a0d1c06e599656f64b59ff226b983dcd05ae00bf4916c",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/04_muons.tex",
+      "section": "Muons",
+      "topic": "Reconstruction",
+      "line": 6,
+      "text": "Muons are reconstructed using tracks in the ID and MS, together with their energy deposits in the calorimeters~\\cite{ATLAS2021MuonID}.\nTheir relatively small energy loss allows most muons to reach the MS.\nThe main reconstruction categories are:\n\\begin{itemize}\n    \\item \\textbf{Combined muons}: ID and MS tracks are matched and fitted together, including the energy loss between the two tracking systems.\n    \\item \\textbf{Segment-tagged muons}: an ID track is matched to one or more local track segments in the MS when a complete MS track is unavailable.\n    \\item \\textbf{Calorimeter-tagged muons}: an ID track is matched to calorimeter deposits compatible with a minimum-ionising particle. Acceptance is recovered in regions with limited MS coverage.\n    \\item \\textbf{MS-extrapolated muons}: an MS track is extrapolated towards the interaction region without a matched ID track. This category extends reconstruction beyond the ID acceptance and is not used by the $|\\eta|<2.5$ selection here.\n\\end{itemize}",
+      "sha256": "8522b6b79c899ebdc322f458bbd4364eef192678aec1a1aabf22e39a2058b634",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "ATLAS2021MuonID"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/04_muons.tex",
+      "section": "Muons",
+      "topic": "Identification",
+      "line": 16,
+      "text": "\\subsection{Identification}",
+      "sha256": "09566ee3e8d95747f15c233410636b383fd46fba9b1d98e14718fcb516e70f00",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/04_muons.tex",
+      "section": "Muons",
+      "topic": "Identification",
+      "line": 18,
+      "text": "Muon identification is based on the detector hit content, fit quality and consistency of the independent ID and MS momentum measurements~\\cite{ATLAS2021MuonID}.\nThese requirements suppress hadrons decaying in flight and incorrectly matched tracks.\nBaseline muons are required to satisfy:\n\\begin{itemize}\n    \\item $\\pT>10~\\GeV$ and $|\\eta|<2.5$.\n    \\item \\texttt{Loose} identification.\n    \\item $|d_0|/\\sigma(d_0)<3$ and $|\\Delta z_0\\sin\\theta|<0.5~\\mm$.\n\\end{itemize}\nAdditional reconstruction categories are retained by the \\texttt{Loose} working point to improve efficiency.\nSignal muons are required to pass \\texttt{Medium} identification, with more restrictive requirements on the reconstruction quality.",
+      "sha256": "080026700159540e3438b325baa1ab282be60d8c08354fbcaea1a501dd315308",
+      "function": "definition, mechanism or analysis implementation in Identification",
+      "citations": [
+        "ATLAS2021MuonID"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/04_muons.tex",
+      "section": "Muons",
+      "topic": "Isolation",
+      "line": 29,
+      "text": "\\subsection{Isolation}",
+      "sha256": "ca6b9069897d975d3a22fd3e4235f3e02ad88e1125767e624f25150f56543e09",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/04_muons.tex",
+      "section": "Muons",
+      "topic": "Isolation",
+      "line": 31,
+      "text": "Muons from heavy-flavour decays are often accompanied by other particles inside a jet.\nThey are suppressed using track and calorimeter isolation, defined by the surrounding activity after excluding the muon's own contribution~\\cite{ATLAS2021MuonID}.\nThe track cone is reduced as the muon $\\pT$ increases.\nThe \\texttt{Loose\\_VarRad} working point is applied to baseline muons, while \\texttt{Tight\\_VarRad} is additionally required for signal muons.",
+      "sha256": "8b989f8d8b2988e78a5d1c5e4c14502833184a2f4e62f007409564afa24be7ee",
+      "function": "definition, mechanism or analysis implementation in Isolation",
+      "citations": [
+        "ATLAS2021MuonID"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/04_muons.tex",
+      "section": "Muons",
+      "topic": "Calibration",
+      "line": 36,
+      "text": "\\subsection{Calibration}",
+      "sha256": "7cc419a70edbac636250989fd4c6540defa6624e4a997ab55e41bdc70a5a13b2",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/04_muons.tex",
+      "section": "Muons",
+      "topic": "Calibration",
+      "line": 38,
+      "text": "The muon momentum scale and resolution are calibrated using resonance decays, particularly $\\zmumu$ and $J/\\psi\\rightarrow\\mu\\mu$~\\cite{ATLAS2023MuonCalibration}.\nThe reconstructed mass distributions constrain biases from the magnetic-field description, detector alignment and material modelling.\nThe corrections are applied to the combined momentum measurement used in the analysis.\nReconstruction, identification and isolation scale factors are measured with tag-and-probe samples and applied to simulated event weights for the selected working points~\\cite{ATLAS2021MuonID}.\n",
+      "sha256": "bfe3816eabc1cdf7f1262ad3376c0fbcdd04b676e422a0f850aeab8eccac1e73",
+      "function": "definition, mechanism or analysis implementation in Calibration",
+      "citations": [
+        "ATLAS2023MuonCalibration",
+        "ATLAS2021MuonID"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": null,
+      "line": 1,
+      "text": "\\section{Hadronic tau leptons}\n\\label{sec:ch6_tau}",
+      "sha256": "8e07965de40759e8b02bb2b47f6001dd1d71af0e79f6cf8eb40864c0fea0d043",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Reconstruction",
+      "line": 4,
+      "text": "\\subsection{Reconstruction}",
+      "sha256": "bd6b3f9f9c6b55f3535a0d1c06e599656f64b59ff226b983dcd05ae00bf4916c",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Reconstruction",
+      "line": 6,
+      "text": "Hadronic $\\tau$ decays are reconstructed from their visible decay products, consisting mainly of charged pions and photons from neutral-pion decays~\\cite{ATLAS2022TauR22}.\nApproximately 65\\% of $\\tau$ decays are hadronic, and the dominant modes contain one or three charged hadrons.\nThe decay products of an energetic $\\tau$-lepton are collimated, producing a narrow calorimeter shower with a small number of associated tracks.\nThe visible object is denoted by $\\tau_{\\mathrm{had\\text{-}vis}}$, or $\\tau_{\\mathrm{had}}$ in the selections below.\nIts reconstructed momentum excludes the decay neutrino, which contributes to $\\met$.",
+      "sha256": "0dbe9c1028da6c739f6f598d8f0e16cbc77717db4613b49b2bba33f5e1950edc",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "ATLAS2022TauR22"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Reconstruction",
+      "line": 12,
+      "text": "Tau candidates are reconstructed in the following stages~\\cite{ATLAS2022TauR22}:\n\\begin{enumerate}\n    \\item \\textbf{Jet seeding.} Calorimeter topological clusters are grouped with the anti-$k_t$ algorithm using a radius parameter $R=0.4$. The clusters are calibrated with local hadronic weights to correct the different responses to electromagnetic and hadronic showers~\\cite{ATLAS2017TopoClusters}. These calorimeter seeds differ from the particle-flow jets used in the event selection.\n    \\item \\textbf{Vertex association.} Tracks within $\\Delta R<0.2$ of the seed direction are used to identify the production vertex. The vertex carrying the largest fraction of their scalar $\\pT$ sum is selected. This association provides the reference for the candidate direction and track impact parameters.\n    \\item \\textbf{Track classification.} Associated tracks are classified by a recurrent neural network (RNN) as tau-decay tracks, conversion tracks, other physical tracks or incorrectly reconstructed tracks. The classification reduces changes in the reconstructed charged multiplicity caused by unrelated tracks.\n\\end{enumerate}\nCandidates with one or three tau-decay tracks are referred to as one-prong or three-prong candidates.\nFor three-prong decays, a secondary vertex can also be reconstructed from the decay tracks.\nThis displaced decay vertex is distinct from the production vertex selected in the vertex-association step.",
+      "sha256": "83fb0b767cf766e2244047a17a00084f9540f27105d167a4c4edd5fcc992e80e",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "ATLAS2022TauR22",
+        "ATLAS2017TopoClusters"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Identification",
+      "line": 22,
+      "text": "\\subsection{Identification}",
+      "sha256": "09566ee3e8d95747f15c233410636b383fd46fba9b1d98e14718fcb516e70f00",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Identification",
+      "line": 24,
+      "text": "Hadronic tau candidates are distinguished from quark- and gluon-initiated jets using a separate RNN discriminant~\\cite{ATLAS2019TauRNN,ATLAS2022TauR22}.\nThree groups of inputs are combined:\n\\begin{itemize}\n    \\item \\textbf{Tracks}: their momenta, angular separations from the tau axis and displacement information.\n    \\item \\textbf{Calorimeter clusters}: their energies, positions and shower properties.\n    \\item \\textbf{Candidate observables}: the shower width, energy concentration, track-system mass and, for three-prong candidates, the significance of the secondary-vertex displacement.\n\\end{itemize}\nThe narrow shower and low charged multiplicity of a hadronic $\\tau$ decay are thereby used together with its decay structure.\nNearby activity is included in the identification inputs, and no additional electron- or muon-style isolation working point is imposed.",
+      "sha256": "29aee6f76ab832496e85ae3c125457cf39d8263d5d73cdf1bbf5d291cff6ef98",
+      "function": "definition, mechanism or analysis implementation in Identification",
+      "citations": [
+        "ATLAS2019TauRNN,ATLAS2022TauR22"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Identification",
+      "line": 34,
+      "text": "The \\texttt{Loose}, \\texttt{Medium} and \\texttt{Tight} requirements correspond to increasingly restrictive cuts on the discriminant.\nTheir target identification efficiencies are listed in Table~\\ref{tab:ch6_tau_id}.\nThese efficiencies are conditional on reconstruction and do not represent the full efficiency for a generated $\\tau$-lepton to pass the event selection.\nThe difference is visible in Figure~\\ref{fig:ch6_tau_id}: at high $\\pT$, the efficiency to reconstruct three separate decay tracks is reduced as their angular separations become smaller.",
+      "sha256": "b30db2567deb5c6d462068b5686dda31936ca19587401b4f7ed9756ab7eb7629",
+      "function": "definition, mechanism or analysis implementation in Identification",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Identification",
+      "line": 39,
+      "text": "\\begin{table}[htbp]\n    \\centering\n    \\caption{Target RNN identification efficiencies for reconstructed hadronic tau candidates~\\cite{ATLAS2022TauR22}. Baseline and signal candidates are selected with the \\texttt{Loose} and \\texttt{Tight} working points, respectively.}\n    \\label{tab:ch6_tau_id}\n    \\begin{tabular}{lcc}\n        \\toprule\n        Working point & One-prong & Three-prong \\\\\n        \\midrule\n        \\texttt{Loose} & 85\\% & 75\\% \\\\\n        \\texttt{Medium} & 75\\% & 60\\% \\\\\n        \\texttt{Tight} & 60\\% & 45\\% \\\\\n        \\bottomrule\n    \\end{tabular}\n\\end{table}",
+      "sha256": "7093d540a82c85e686a4686ecfc6b78887c15007b0c874b91ca68de4b66da71c",
+      "function": "source-attributed figure/table",
+      "citations": [
+        "ATLAS2022TauR22"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Identification",
+      "line": 54,
+      "text": "\\begin{figure}[htbp]\n    \\centering\n    \\includegraphics[width=0.82\\textwidth]{output/ch6/figures/tau_identification.png}\n    \\caption{Identification efficiency alone (filled symbols) and combined reconstruction and identification efficiency (open symbols) as functions of truth visible $\\pT$ for one-prong (left) and three-prong (right) hadronic tau decays. The transverse-momentum panels for simulated $\\gamma^*\\rightarrow\\tau\\tau$ events are reproduced side by side from Ref.~\\cite{ATLAS2022TauR22}.}\n    \\label{fig:ch6_tau_id}\n\\end{figure}",
+      "sha256": "1933b71e509714d26ee62e5888ae5aa33bf3a9932db117b11656ea3bf0dc54b8",
+      "function": "source-attributed figure/table",
+      "citations": [
+        "ATLAS2022TauR22"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Identification",
+      "line": 61,
+      "text": "Electrons are rejected with a separate RNN using shower and track information, including the relation between the calorimeter energy and track momentum~\\cite{ATLAS2022TauR22}.\nThe \\texttt{Loose} electron-rejection working point is applied to both baseline and signal tau candidates.\nMuon rejection is performed by removing tau candidates within $\\Delta R<0.2$ of a muon with $\\pT>2~\\GeV$, excluding calorimeter-tagged muons from this test.\nFurther overlaps between analysis objects are resolved as described in Section~\\ref{sec:ch6_overlap}.",
+      "sha256": "ea2946ba287f37626ab23b8dfde6d648c542125c1e6554a89e2c68d241ad50b3",
+      "function": "definition, mechanism or analysis implementation in Identification",
+      "citations": [
+        "ATLAS2022TauR22"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Identification",
+      "line": 66,
+      "text": "Baseline tau candidates are required to satisfy:\n\\begin{itemize}\n    \\item $\\pT>20~\\GeV$ and $|\\eta|<2.5$, excluding $1.37<|\\eta|<1.52$.\n    \\item one or three tau-decay tracks with total charge $\\pm1$.\n    \\item \\texttt{Loose} RNN tau identification and \\texttt{Loose} electron rejection.\n\\end{itemize}\nSignal candidates additionally pass \\texttt{Tight} tau identification.\nThe signal-region threshold is $\\pT^{\\tau}>200~\\GeV$.\nThe thresholds used in other regions are specified in Chapter~\\ref{chapter:event_selection}.",
+      "sha256": "12dba71b5da1d3c5fd862bdb49de12b9fc741ab5303241d5780b989ea37f7127",
+      "function": "definition, mechanism or analysis implementation in Identification",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Calibration",
+      "line": 76,
+      "text": "\\subsection{Calibration}",
+      "sha256": "7cc419a70edbac636250989fd4c6540defa6624e4a997ab55e41bdc70a5a13b2",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Calibration",
+      "line": 78,
+      "text": "The tau energy scale is calibrated to the visible decay products using calorimeter and tracking measurements~\\cite{ATLAS2022TauR22}.\nThe calibration is performed in three steps:\n\\begin{enumerate}\n    \\item \\textbf{Calorimeter estimate.} The locally calibrated cluster energies in the tau core are corrected for pile-up and the average detector response.\n    \\item \\textbf{Combined estimate.} A second momentum estimate is formed from charged-particle tracks and neutral calorimeter deposits. It is combined with the calorimeter estimate using weights determined by their expected resolutions.\n    \\item \\textbf{Multivariate correction.} A boosted regression tree refines the combined estimate using shower properties, track multiplicity, reconstructed decay structure and pile-up information.\n\\end{enumerate}\nThe resulting multivariate calibration is used for the tau kinematics in this analysis.\nThe improvement in resolution is illustrated in Figure~\\ref{fig:ch6_tau_tes}.\nThe decay-neutrino momentum is excluded from the calibration target.",
+      "sha256": "36ecd84f750859fd7730b1d3c3f723892c79a3afc2d2bf9d86a1a33c9f532e6a",
+      "function": "definition, mechanism or analysis implementation in Calibration",
+      "citations": [
+        "ATLAS2022TauR22"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Calibration",
+      "line": 89,
+      "text": "\\begin{figure}[htbp]\n    \\centering\n    \\includegraphics[width=0.82\\textwidth]{output/ch6/figures/tau_energy_resolution.png}\n    \\caption{Relative visible-momentum resolution versus truth visible $\\pT$ for one-prong (left) and three-prong (right) tau candidates passing \\texttt{Medium} identification in simulated $\\gamma^*\\rightarrow\\tau\\tau$ events. The resolution is half the width of the central 68\\% interval of the reconstructed-to-truth $\\pT$ ratio. The upper panels of the calibration comparison are reproduced from Ref.~\\cite{ATLAS2022TauR22}. Signal candidates in this analysis pass \\texttt{Tight} identification.}\n    \\label{fig:ch6_tau_tes}\n\\end{figure}",
+      "sha256": "9c0a7202dde3b2a1be0b6bd8ac3a574af749e8962cfa40ea89c2aae01902f37c",
+      "function": "source-attributed figure/table",
+      "citations": [
+        "ATLAS2022TauR22"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/05_hadronic_taus.tex",
+      "section": "Hadronic tau leptons",
+      "topic": "Calibration",
+      "line": 96,
+      "text": "Simulated event weights are corrected for differences in tau reconstruction, identification and electron-rejection efficiencies between data and simulation.\nFor signal candidates passing \\texttt{Tight} tau identification, the electron-rejection scale factor associated with \\texttt{Medium} tau identification is used.\nThe selection itself remains \\texttt{Tight} tau identification with \\texttt{Loose} electron rejection.\n",
+      "sha256": "da1250ca8b091cffa2eb1f5dcaee6410ead9fd7ece0d23790b050e832444325f",
+      "function": "definition, mechanism or analysis implementation in Calibration",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/06_jets.tex",
+      "section": "Jets",
+      "topic": null,
+      "line": 1,
+      "text": "\\section{Jets}\n\\label{sec:ch6_jets}",
+      "sha256": "4c9d233a81368e8ab26cff61e2f549367d4e5a980254d7ec2ae130211d5fe798",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/06_jets.tex",
+      "section": "Jets",
+      "topic": "Reconstruction",
+      "line": 4,
+      "text": "\\subsection{Reconstruction}",
+      "sha256": "bd6b3f9f9c6b55f3535a0d1c06e599656f64b59ff226b983dcd05ae00bf4916c",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/06_jets.tex",
+      "section": "Jets",
+      "topic": "Reconstruction",
+      "line": 6,
+      "text": "Jets are reconstructed from the collimated hadrons produced through parton showering and hadronisation.\nParticle-flow constituents are used to combine the charged-particle momentum measurements from the ID with calorimeter measurements of the remaining energy~\\cite{ATLAS2017ParticleFlow}.\nThe main steps are:\n\\begin{enumerate}\n    \\item Well-measured tracks are matched to calorimeter topological clusters.\n    \\item The expected calorimeter energy deposited by the matched charged particles is subtracted from the clusters, avoiding double counting when the track momenta are used.\n    \\item The selected tracks and remaining calorimeter contributions are retained as the jet inputs. Vertex association is used to suppress charged-particle contributions from pile-up.\n\\end{enumerate}\nCalorimeter deposits from neutral particles and charged particles without a selected track remain in the calorimeter contribution.\nThe input clusters are initially measured at the electromagnetic energy scale, and the hadronic response is corrected by the jet calibration.",
+      "sha256": "f9a1ad5dcb8ff4de33ec366ad4a627156969299acc2867103ad356b4aca0da7f",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "ATLAS2017ParticleFlow"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/06_jets.tex",
+      "section": "Jets",
+      "topic": "Reconstruction",
+      "line": 17,
+      "text": "The constituents are clustered with the anti-$k_t$ algorithm using $R=0.4$~\\cite{Cacciari2008AntiKt}.\nAt each iteration, pairwise and beam distances are evaluated:\n\\begin{align}\n    d_{ij}&=\\min\\!\\left(p_{\\mathrm{T},i}^{-2},p_{\\mathrm{T},j}^{-2}\\right)\n       \\frac{\\Delta R_{y,ij}^{\\,2}}{R^2},\n    &d_{iB}&=p_{\\mathrm{T},i}^{-2},\n    \\label{eq:ch6_antikt}\\\\\n    \\Delta R_{y,ij}&=\\sqrt{(y_i-y_j)^2+(\\phi_i-\\phi_j)^2},\n    &y&=\\frac{1}{2}\\ln\\frac{E+p_z}{E-p_z}.\n    \\label{eq:ch6_rapidity}\n\\end{align}\nHere, $y$ is rapidity and $B$ labels the beam distance.\nIf the smallest distance is $d_{ij}$, the two constituent four-momenta are combined.\nIf it is $d_{iB}$, constituent $i$ is declared a jet and removed from the sequence.\nThe procedure is repeated until no constituents remain.\nThe inverse-$\\pT^2$ weighting favours the clustering of soft radiation around hard constituents, giving isolated jets approximately circular boundaries.\nThe algorithm is infrared and collinear safe: the hard-jet configuration is unchanged by an arbitrarily soft emission or a collinear splitting.\nThe rapidity distance $\\Delta R_y$ differs from the pseudorapidity distance $\\Delta R$ defined in Eq.~\\eqref{eq:delta_r}.\nThe two distances coincide in the massless limit.",
+      "sha256": "dd5c2d1eecc9a8eb5906c44a221daf6788fb47d85b284497155fb828d4e00738",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "Cacciari2008AntiKt"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/06_jets.tex",
+      "section": "Jets",
+      "topic": "Identification and pile-up rejection",
+      "line": 37,
+      "text": "\\subsection{Identification and pile-up rejection}",
+      "sha256": "91d842f317ee5e48ade3e284fca3fbae8f4444cfb57bf4dfd8d47d0e81538545",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/06_jets.tex",
+      "section": "Jets",
+      "topic": "Identification and pile-up rejection",
+      "line": 39,
+      "text": "Analysis jets are selected with calibrated $\\pT>20~\\GeV$ and $|\\eta|<2.5$.\nTwo quality requirements are applied:\n\\begin{itemize}\n    \\item \\textbf{Jet cleaning.} The \\texttt{LooseBad} criteria are used to reject jets with energy deposits characteristic of calorimeter noise or non-collision backgrounds.\n    \\item \\textbf{Pile-up rejection.} The neural-network jet-vertex tagger, NNJVT, is used with the \\texttt{FixedEffPt} working point. Track-to-vertex association is used to distinguish jets from the hard scattering from jets produced in pile-up collisions.\n\\end{itemize}\nThe NNJVT requirement is applied within the kinematic range of its calibration.\nNo forward jet-vertex requirement is applied to this central analysis-jet collection.",
+      "sha256": "9bc9185b7d1b58092790161c5fb4792bbf52629c42689bfbacee3e9fc7ae2432",
+      "function": "definition, mechanism or analysis implementation in Identification and pile-up rejection",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/06_jets.tex",
+      "section": "Jets",
+      "topic": "Calibration",
+      "line": 48,
+      "text": "\\subsection{Calibration}",
+      "sha256": "7cc419a70edbac636250989fd4c6540defa6624e4a997ab55e41bdc70a5a13b2",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/06_jets.tex",
+      "section": "Jets",
+      "topic": "Calibration",
+      "line": 50,
+      "text": "The reconstructed jet four-momentum is calibrated through the following sequence~\\cite{ATLAS2021JetCalibration}:\n\\begin{enumerate}\n    \\item \\textbf{Pile-up subtraction.} The average additional transverse momentum is subtracted using the event transverse-momentum density $\\rho$ and jet area $A$, giving a correction proportional to $\\rho A$. Residual dependence on the pile-up activity is then corrected.\n    \\item \\textbf{Simulation-based energy and direction calibration.} Reconstructed jets are compared with particle-level jets in simulation to correct the average energy response and pseudorapidity bias.\n    \\item \\textbf{Global sequential calibration.} Dependence on the particle composition and shower development is reduced using tracking and calorimeter observables sensitive to variations in the jet response.\n    \\item \\textbf{Residual in situ calibration.} Remaining differences between data and simulation are measured with momentum balance in $Z$+jet, photon+jet and multijet events. This final correction is applied to collision data.\n\\end{enumerate}\nParticle-level jets are built from simulated stable particles, excluding muons and neutrinos, with the corresponding jet algorithm and provide the reference for the response calibration.\nJet energy-scale and resolution uncertainties are propagated to the analysis selections and to $\\met$.\nScale factors for the pile-up rejection efficiency are applied to simulated event weights.\n",
+      "sha256": "5fd4f40430e22fed1cd84103e505b5ad7f7089aa6f99c1db8ad87348e49cfdf3",
+      "function": "definition, mechanism or analysis implementation in Calibration",
+      "citations": [
+        "ATLAS2021JetCalibration"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/07_flavour_tagging.tex",
+      "section": "Jet flavour tagging",
+      "topic": null,
+      "line": 1,
+      "text": "\\section{Jet flavour tagging}\n\\label{sec:ch6_btag}",
+      "sha256": "eeb84f070965e2676b6ccaf5181dec150e839dcaf0eb9f43040bc05187854c16",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/07_flavour_tagging.tex",
+      "section": "Jet flavour tagging",
+      "topic": "Reconstruction inputs",
+      "line": 4,
+      "text": "\\subsection{Reconstruction inputs}",
+      "sha256": "f4b28fca16f3e58baf44f87182c7adc66aa7ceb401df47ef0366914a06e10857",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/07_flavour_tagging.tex",
+      "section": "Jet flavour tagging",
+      "topic": "Reconstruction inputs",
+      "line": 6,
+      "text": "Jets containing $b$-hadrons are identified using the displacement of their decay products from the primary vertex.\nWith a typical proper lifetime of about $1.5$~ps, a boosted $b$-hadron can travel several millimetres before decaying~\\cite{ATLAS2026GN2}.\nIts charged decay products can therefore have significant impact parameters and a common secondary vertex.\nThe subsequent decay of a charm hadron can produce an additional displaced vertex.\nThe track momenta, impact parameters, detector hit information and correlations between tracks are used as flavour-tagging inputs.",
+      "sha256": "85bc3fb272126f02b7a37e25815cfa3f8576fc8530f8bc8c1b7223f61cdd1853",
+      "function": "definition, mechanism or analysis implementation in Reconstruction inputs",
+      "citations": [
+        "ATLAS2026GN2"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/07_flavour_tagging.tex",
+      "section": "Jet flavour tagging",
+      "topic": "Identification",
+      "line": 12,
+      "text": "\\subsection{Identification}",
+      "sha256": "09566ee3e8d95747f15c233410636b383fd46fba9b1d98e14718fcb516e70f00",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/07_flavour_tagging.tex",
+      "section": "Jet flavour tagging",
+      "topic": "Identification",
+      "line": 14,
+      "text": "The GN2v01 algorithm is used for $b$-tagging in this analysis.\nJet and track information is processed with a transformer neural network, in which the representation of each track is updated using information from other tracks in the jet~\\cite{ATLAS2026GN2}.\nTracks with a common displaced origin can thereby be recognised together.\nDuring training, auxiliary tasks are used to identify track origins and to group tracks from the same vertex, as illustrated in Figure~\\ref{fig:ch6_gn2}.\nExplicitly reconstructed secondary vertices are not required as separate input objects.",
+      "sha256": "89a4587b426c530d78ded5b6549e20ee6dced9dafc3b2ede9b6f90c68e32936f",
+      "function": "definition, mechanism or analysis implementation in Identification",
+      "citations": [
+        "ATLAS2026GN2"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/07_flavour_tagging.tex",
+      "section": "Jet flavour tagging",
+      "topic": "Identification",
+      "line": 20,
+      "text": "\\begin{figure}[htbp]\n    \\centering\n    \\includegraphics[width=\\textwidth]{output/ch6/figures/gn2_architecture.png}\n    \\caption{GN2 flavour-tagging architecture. Jet and track measurements are combined, processed by the transformer, and used for jet-flavour prediction and the auxiliary track-origin and vertex-grouping tasks. The symbols $n_{\\mathrm{jf}}$, $n_{\\mathrm{tf}}$ and $n_{\\mathrm{tracks}}$ denote the numbers of jet features, track features and tracks. Reproduced from Ref.~\\cite{ATLAS2026GN2}.}\n    \\label{fig:ch6_gn2}\n\\end{figure}",
+      "sha256": "735eadd544a17b7c8859c7f514f64b3c599dabb93539ea043a64c2caec3922cc",
+      "function": "source-attributed figure/table",
+      "citations": [
+        "ATLAS2026GN2"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/07_flavour_tagging.tex",
+      "section": "Jet flavour tagging",
+      "topic": "Identification",
+      "line": 27,
+      "text": "The outputs for the $b$-, $c$-, hadronic-tau and light-jet hypotheses are combined into the discriminant\n\\begin{align}\n    D_b=\\ln\\!\\left[\n    \\frac{p_b}{f_c p_c+f_\\tau p_\\tau+(1-f_c-f_\\tau)p_u}\n    \\right],\n    \\label{eq:ch6_gn2_discriminant}\n\\end{align}\nwhere $p_b$, $p_c$, $p_\\tau$ and $p_u$ are the classifier outputs~\\cite{ATLAS2026GN2}.\nThe fixed coefficients $f_c$ and $f_\\tau$ set the balance between the background flavours in the discriminant.\nA jet is tagged when $D_b$ exceeds the working-point threshold.\nThe nominal working point corresponds to an inclusive $b$-jet efficiency of 85\\% in simulated $\\ttbar$ events.\nThe efficiency for signal $b$-jets can differ because of their different kinematic distributions.\nFor a background flavour $f$, the rejection is defined as $1/\\epsilon_f$, where $\\epsilon_f$ is its probability of passing the tagging requirement.",
+      "sha256": "b9f8afbcfdd75398d293f3954f51248c81fa2988cb28148b1c661c725923fb25",
+      "function": "definition, mechanism or analysis implementation in Identification",
+      "citations": [
+        "ATLAS2026GN2"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/07_flavour_tagging.tex",
+      "section": "Jet flavour tagging",
+      "topic": "Calibration",
+      "line": 41,
+      "text": "\\subsection{Calibration}",
+      "sha256": "7cc419a70edbac636250989fd4c6540defa6624e4a997ab55e41bdc70a5a13b2",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/07_flavour_tagging.tex",
+      "section": "Jet flavour tagging",
+      "topic": "Calibration",
+      "line": 43,
+      "text": "Tagging and mistagging efficiencies are measured in flavour-enriched data samples and compared with simulation~\\cite{ATLAS2026GN2}.\nFlavour- and kinematics-dependent scale factors are applied to simulated event weights.\nBoth tagged and untagged outcomes must be corrected.\nFor a single jet with tagging efficiency $\\epsilon_f$, the correction for an untagged outcome is\n\\begin{align}\n    w_f^{\\mathrm{untagged}}\n    =\\frac{1-\\epsilon_f^{\\mathrm{data}}}{1-\\epsilon_f^{\\mathrm{MC}}}\n    =\\frac{1-\\mathrm{SF}_f\\epsilon_f^{\\mathrm{MC}}}{1-\\epsilon_f^{\\mathrm{MC}}}.\n    \\label{eq:ch6_btag_untagged}\n\\end{align}\nThis complementary-probability relation explains why flavour-tagging corrections affect both the zero-tag and tagged event categories.\nIn this search, the zero-tag category also receives a direct contribution from $U_1\\rightarrow s\\tau$ when $\\beta_L^{23}$ is sizeable, as discussed in Chapter~\\ref{chapter:event_selection}.\n",
+      "sha256": "3493f1b32b0ac271872c77bca5e8e68ac7e858465dbf2ebd83f393d0f75540fe",
+      "function": "definition, mechanism or analysis implementation in Calibration",
+      "citations": [
+        "ATLAS2026GN2"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/08_overlap_removal.tex",
+      "section": "Overlap removal",
+      "topic": null,
+      "line": 1,
+      "text": "\\section{Overlap removal}\n\\label{sec:ch6_overlap}",
+      "sha256": "ab88212123b8e03417fb63e47fa1cfac55438be2d0f8b389a226e0c99b05e278",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/08_overlap_removal.tex",
+      "section": "Overlap removal",
+      "topic": "Shared signals and matching",
+      "line": 4,
+      "text": "\\subsection{Shared signals and matching}",
+      "sha256": "d7376811600de9ae02fb0ec5377aa2865f2e224c95a9d250a108af1a4eadcb79",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/08_overlap_removal.tex",
+      "section": "Overlap removal",
+      "topic": "Shared signals and matching",
+      "line": 6,
+      "text": "The same detector activity can be reconstructed as more than one object.\nFor example, an electron shower can also form a jet, while a hadronic tau candidate is seeded by a calorimeter jet.\nAn ordered overlap-removal procedure is applied to the baseline candidates to resolve these ambiguities before event selection.\nOnly objects surviving an earlier step are considered in subsequent steps.",
+      "sha256": "eb69eff0452cce42df790af62980258a96d907af78f7c2da3f2cda092b9e2b78",
+      "function": "definition, mechanism or analysis implementation in Shared signals and matching",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/08_overlap_removal.tex",
+      "section": "Overlap removal",
+      "topic": "Shared signals and matching",
+      "line": 11,
+      "text": "Geometrical overlaps are evaluated with the rapidity distance $\\Delta R_y$ defined in Eq.~\\eqref{eq:ch6_rapidity}.\nShared ID tracks are also used to identify duplicate electron and muon interpretations.\nFor muon--jet matching, \\emph{ghost association} is used: an object with negligible momentum is placed along the muon direction during jet clustering, and the jet containing it is identified.\nThe association is therefore determined by the clustering without changing the jet momentum.",
+      "sha256": "cdd5ba9533ca4ef9c03ae27ae41e4b559e83c6547bc9bc7c116d54dd91a78f9b",
+      "function": "definition, mechanism or analysis implementation in Shared signals and matching",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/08_overlap_removal.tex",
+      "section": "Overlap removal",
+      "topic": "Removal sequence",
+      "line": 16,
+      "text": "\\subsection{Removal sequence}",
+      "sha256": "80b81777b568534621db9d422428138dc55078209f7f9443b7a20f8d7c8b43b4",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/08_overlap_removal.tex",
+      "section": "Overlap removal",
+      "topic": "Removal sequence",
+      "line": 18,
+      "text": "The following steps are applied in order:\n\\begin{enumerate}\n    \\item \\textbf{Electron--electron}: when two electrons share an ID track, the electron with lower $\\pT$ is removed.\n    \\item \\textbf{Tau--electron}: a tau candidate within $\\Delta R_y<0.2$ of an electron is removed.\n    \\item \\textbf{Tau--muon}: a tau candidate within $\\Delta R_y<0.2$ of a muon is removed.\n    \\item \\textbf{Calorimeter-tagged muon--electron}: a calorimeter-tagged muon sharing the electron ID track is removed.\n    \\item \\textbf{Electron--muon}: an electron sharing an ID track with a remaining muon is removed.\n    \\item \\textbf{Jet--electron}: a jet within $\\Delta R_y<0.2$ of an electron is removed.\n    \\item \\textbf{Electron--jet}: an electron within $\\Delta R_y<0.4$ of a remaining jet is removed.\n    \\item \\textbf{Jet--muon}: a jet with fewer than three associated tracks is removed if the muon is ghost-associated with it.\n    \\item \\textbf{Muon--jet}: a muon within $\\Delta R_y<0.4$ of a remaining jet is removed.\n    \\item \\textbf{Jet--tau}: a jet within $\\Delta R_y<0.2$ of a remaining tau candidate is removed.\n\\end{enumerate}",
+      "sha256": "692ed2b440208c954a0f15f9ca8a8e88caf3ed6f15c3c46d16d2efe499b89256",
+      "function": "definition, mechanism or analysis implementation in Removal sequence",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/08_overlap_removal.tex",
+      "section": "Overlap removal",
+      "topic": "Removal sequence",
+      "line": 32,
+      "text": "The inner electron--jet step retains the electron interpretation of an electromagnetic shower, whereas the outer step rejects electrons embedded in surviving hadronic jets.\nFor muon--jet overlaps, the small track multiplicity is used to recognise a jet candidate dominated by activity associated with the muon.\nThe last step retains the tau interpretation of an overlapping jet.\nThe separate low-$\\pT$ muon rejection in tau identification, described in Section~\\ref{sec:ch6_tau}, is applied in addition to this baseline-object sequence.\n",
+      "sha256": "0be254c59b5ab40a0bab594f785f4a2e06b9dded21b14609d87c4224b886ad55",
+      "function": "definition, mechanism or analysis implementation in Removal sequence",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/09_missing_momentum.tex",
+      "section": "Missing transverse momentum",
+      "topic": null,
+      "line": 1,
+      "text": "\\section{Missing transverse momentum}\n\\label{sec:ch6_met}",
+      "sha256": "664e1f247143909dde20d73f233d8798b2666441b4824bf130dd8c47ca28fb94",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/09_missing_momentum.tex",
+      "section": "Missing transverse momentum",
+      "topic": "Reconstruction",
+      "line": 4,
+      "text": "\\subsection{Reconstruction}",
+      "sha256": "bd6b3f9f9c6b55f3535a0d1c06e599656f64b59ff226b983dcd05ae00bf4916c",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/09_missing_momentum.tex",
+      "section": "Missing transverse momentum",
+      "topic": "Reconstruction",
+      "line": 6,
+      "text": "The incoming partons carry little transverse momentum compared with the hard-scattering scale, so an imbalance in the measured transverse momentum can indicate undetected particles.\nBoth the neutrino from the hard process and the tau-decay neutrino contribute to the signal imbalance.\nThe reconstructed vector is obtained from the negative sum of calibrated visible contributions~\\cite{ATLAS2025METPerformance}:\n\\begin{align}\n    \\vec p_{\\mathrm{T}}^{\\,\\mathrm{miss}}\n    &=-\\left(\n    \\sum_e\\vec p_{\\mathrm{T}}^{\\,e}\n    +\\sum_\\mu\\vec p_{\\mathrm{T}}^{\\,\\mu}\n    +\\sum_{\\tau_{\\mathrm{had}}}\\vec p_{\\mathrm{T}}^{\\,\\tau}\n    +\\sum_j\\vec p_{\\mathrm{T}}^{\\,j}\n    +\\vec p_{\\mathrm{T}}^{\\,\\mathrm{soft}}\n    \\right),\n    \\label{eq:ch6_met_vector}\\\\\n    \\met&=\\left|\\vec p_{\\mathrm{T}}^{\\,\\mathrm{miss}}\\right|.\n    \\label{eq:ch6_met_magnitude}\n\\end{align}\nTwo types of contribution are included:\n\\begin{itemize}\n    \\item \\textbf{Hard term}: the electron, muon, hadronic-tau and jet contributions accepted by the reconstruction. No separate photon collection is supplied in this analysis.\n    \\item \\textbf{Track soft term}: the vector sum of selected tracks associated with the primary vertex and not assigned to retained hard-object contributions.\n\\end{itemize}\nThe primary-vertex requirement suppresses charged-particle contributions from pile-up.\nNeutral particles outside the hard term are not measured by the track soft term.",
+      "sha256": "78e029d051af8d96ebabfedf81a45d663821b36001868451d166c0e8fb2ebe39",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "ATLAS2025METPerformance"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/09_missing_momentum.tex",
+      "section": "Missing transverse momentum",
+      "topic": "Reconstruction",
+      "line": 30,
+      "text": "The baseline electron, muon and tau identification and isolation working points are used to select the corresponding inputs.\nJets are selected separately by the $\\met$ reconstruction with the \\texttt{Tight} operating point.\nTheir acceptance is distinct from that of the central jets counted in the analysis regions.\nAn association map is used to record shared detector signals and resolve double counting when the object contributions are combined~\\cite{ATLAS2025METPerformance}.\nConsequently, $\\met$ is not recomputed as a simple sum of the objects passing the final region selections or the geometrical overlap-removal procedure.",
+      "sha256": "4253577857802d39ace03a2421bb592ae868ebecda764df83485612ad66d2f82",
+      "function": "definition, mechanism or analysis implementation in Reconstruction",
+      "citations": [
+        "ATLAS2025METPerformance"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/09_missing_momentum.tex",
+      "section": "Missing transverse momentum",
+      "topic": "Calibration and uncertainties",
+      "line": 36,
+      "text": "\\subsection{Calibration and uncertainties}",
+      "sha256": "b4f82516ebac4d9dd0a05cf8468b7b86d2ff6f5f8d36a9288b1d1bb73e8e8d4b",
+      "function": "section or topic heading",
+      "citations": []
+    },
+    {
+      "file": "output/ch6/sections/09_missing_momentum.tex",
+      "section": "Missing transverse momentum",
+      "topic": "Calibration and uncertainties",
+      "line": 38,
+      "text": "The energy and momentum calibrations of the hard objects are propagated to the reconstructed vector.\nThe response and resolution uncertainties of the track soft term are evaluated separately using events in which little genuine $\\met$ is expected~\\cite{ATLAS2025METPerformance}.\nThe corresponding variations are propagated together with the hard-object uncertainties to retain their correlations with the visible kinematics.",
+      "sha256": "8a60d4e82b18632e621fd44d1433d6b25ff70a456b61e70a08db78b6866e3e16",
+      "function": "definition, mechanism or analysis implementation in Calibration and uncertainties",
+      "citations": [
+        "ATLAS2025METPerformance"
+      ]
+    },
+    {
+      "file": "output/ch6/sections/09_missing_momentum.tex",
+      "section": "Missing transverse momentum",
+      "topic": "Calibration and uncertainties",
+      "line": 42,
+      "text": "Apparent $\\met$ can also be produced by mismeasured visible momentum, calorimeter noise or energy lost in uninstrumented regions.\nFor example, an underestimated jet momentum can produce an imbalance along the jet direction.\nJet cleaning and event-level angular selections are therefore used to suppress these contributions, as described in Chapter~\\ref{chapter:event_selection}.\n",
+      "sha256": "aacfc6a436df1d08e93d7ab135688196b40683d87b19682c1c229ca64f4533bc",
+      "function": "definition, mechanism or analysis implementation in Calibration and uncertainties",
+      "citations": []
+    }
+  ],
+  "findings": [
+    {
+      "category": "source conflict",
+      "finding": "Old OR used public-paper sequence and carried internal-source narration",
+      "resolution": "Replaced by INT-note ten-step OR; removed internal citation and source narration."
+    },
+    {
+      "category": "physics",
+      "finding": "Some comparison theses use older clustering/taggers or imprecise anti-kt/PV descriptions",
+      "resolution": "Use their explanatory structure, verify physics with public primary references; apply current INT-note analysis settings."
+    },
+    {
+      "category": "scope",
+      "finding": "Introductions and first-use terminology were expanded in earlier versions",
+      "resolution": "Preserved accepted introduction byte-for-byte and reused previously defined ID/MS/MET notation."
+    },
+    {
+      "category": "presentation",
+      "finding": "Full four-panel tau plots floated beyond the relevant section",
+      "resolution": "Use only relevant pT panels with explicit attribution; retain one or two figures per section."
+    },
+    {
+      "category": "technical",
+      "finding": "Cropped source PDFs brought font-merging warnings",
+      "resolution": "Use high-resolution PNG renderings of retained PDF crops; no data or annotations changed."
+    }
+  ],
+  "unresolved_source_gap": "No verified public citation specifically documents the Medium-ID electron-veto SF used for Tight tau-ID; implementation is retained as this analysis convention, supported privately by INT note. Full production provenance is not audited by this writing task.",
+  "validation": {
+    "section_count": 9,
+    "figure_count": 4,
+    "public_citations": 15,
+    "all_inputs_resolve": true,
+    "all_refs_resolve": true,
+    "intro_preserved": true,
+    "merged_txt_matches_sections": true,
+    "pdf_pages": 18,
+    "rendered_pages_checked": "all 18, contact sheets; figure pages enlarged",
+    "log_file": "output/ch6/build/CH6_preview.log"
+  },
+  "output_hashes": {
+    "output/ch6/sections/01_tracks.tex": "6b71d0aee7476f037b1734bd482d1b0521db2dc2020387e5136a3cef60b50b76",
+    "output/ch6/sections/02_primary_vertex.tex": "0f0518a7586602bda817d94e3551c28af31540152741c9cf2732485ac650dab7",
+    "output/ch6/sections/03_electrons.tex": "a536920ade158745fca4b895ce9a352bc505911576457c9090e09d0bb3724066",
+    "output/ch6/sections/04_muons.tex": "9e53a2f4b8da0a3eb4862972fda412609bc5b65439c6220ac4aa2b2525bd0fae",
+    "output/ch6/sections/05_hadronic_taus.tex": "5b43828629bef702245100a5d761ed3dbfcc128048b95fa8fb121165bf193f39",
+    "output/ch6/sections/06_jets.tex": "2be33af2bc49e7aa863897ef2d1d37529e0b8e290e1d71265076130c971a0920",
+    "output/ch6/sections/07_flavour_tagging.tex": "94e9f4882bb987f0a5cd5a8d017b612d41a0ce1f1e72fa6e8bf7ee6077051e4a",
+    "output/ch6/sections/08_overlap_removal.tex": "d3bd07528ca3de1f00ebc5f6537d4b4eecb8aeb58ea502f274546935c0790e83",
+    "output/ch6/sections/09_missing_momentum.tex": "38fa58fc8a8353e550e52cbf2c3bac41c886c2d8b1c8ba569ac39ddb70a044ae",
+    "output/ch6/CH6_draft.tex": "380b5b8cd9bba35d9a15ada709a0058500715ec848fe555a0d33451a6c0682dd",
+    "output/ch6/CH6.txt": "2443f8cfde9e06761a276c841e3381adac700dffe4afe3c677fef4cc9037bdc5",
+    "output/ch6/CH6_references.bib": "4b3ed86c2955a0c8e5f1d22acc69b59f546d17ea0c30682dd29d8c03a43edb08",
+    "output/ch6/build/CH6_preview.pdf": "a8e38c9b902d98a49e0e8751be83d77d18f2a1efd07a3f437111a3c08435541f"
+  }
+}

@@ -1,0 +1,171 @@
+--- CH6.tex (before)
+
++++ CH6.tex (after)
+
+@@ -5,7 +5,7 @@
+
+ \label{chapter:object_reconstruction}
+ 
+ Hadronically decaying $\tau$-leptons, electrons, muons and jets are used in this analysis.
+-This chapter describes their reconstruction, identification and calibration, followed by overlap removal and the reconstruction of $\met$.
++This chapter describes their reconstruction, identification and calibration, followed by their definitions in the analysis, overlap removal and the reconstruction of $\met$.
+ 
+ These objects are reconstructed and identified using detector measurements.
+ Tracks are used to determine charged-particle momenta and production vertices, while energy deposits are measured in the calorimeters.
+@@ -20,5 +20,6 @@
+
+ \input{output/ch6/objects/taus}
+ \input{output/ch6/objects/jets}
+ \input{output/ch6/objects/btagging}
++\input{output/ch6/objects/object_definition}
+ \input{output/ch6/objects/overlap_removal}
+ \input{output/ch6/objects/met}
+--- objects/electrons.tex (before)
+
++++ objects/electrons.tex (after)
+
+@@ -27,20 +27,7 @@
+
+ Its inputs include the shower shapes in the EM calorimeter, track-hit variables, and the agreement between the track and calorimeter measurements.
+ The \texttt{Loose}, \texttt{Medium} and \texttt{Tight} working points provide increasing background rejection at the cost of electron efficiency.
+ 
+-The following requirements are applied for baseline electrons:
+-\begin{itemize}
+-    \item $\pT>10~\GeV$ and $|\eta|<2.47$, excluding $1.37<|\eta|<1.52$.
+-    \item \texttt{TightLH} identification and a calorimeter cluster passing the object-quality requirements.
+-    \item $|d_0|/\sigma(d_0)<5$ and $|\Delta z_0\sin\theta|<0.5~\mm$.
+-\end{itemize}
+-The transverse impact-parameter significance, $d_0/\sigma(d_0)$, measures the displacement in units of its uncertainty.
+-For association with a vertex at $z_{\mathrm{PV}}$, the longitudinal separation is expressed as
+-\begin{align}
+-    \Delta z_0\sin\theta=(z_0-z_{\mathrm{PV}})\sin\theta.
+-    \label{eq:ch6_track_longitudinal}
+-\end{align}
+-The impact-parameter requirements suppress electrons from displaced decays and tracks incompatible with the primary vertex.
+-Clusters in regions with known calorimeter defects are rejected, including the affected end-cap high-voltage regions in the 2016 data.
++The \texttt{Tight} likelihood requirement is denoted by \texttt{TightLH}.
+ 
+ \subsection{Isolation}
+ 
+@@ -50,9 +37,8 @@
+
+     \item \textbf{Track isolation}: the scalar sum of the transverse momenta of nearby tracks associated with the primary vertex, excluding the electron track. The cone radius is reduced at high electron $\pT$ to limit contamination from nearby activity.
+     \item \textbf{Calorimeter isolation}: the transverse energy around the electron after subtracting its own shower contribution and correcting for pile-up and shower leakage.
+ \end{itemize}
+-Baseline electrons are required to pass \texttt{Loose\_VarRad} isolation.
+-Signal electrons used in the analysis regions additionally pass \texttt{HighPtCaloOnly} isolation to suppress high-$\pT$ backgrounds.
+-Their momentum thresholds are specified with the region definitions in Chapter~\ref{chapter:event_selection}.
++The \texttt{Loose\_VarRad} working point combines loose requirements on track and calorimeter isolation.
++The \texttt{HighPtCaloOnly} working point imposes a calorimeter-isolation requirement designed to suppress backgrounds at high electron $\pT$~\cite{ATLAS2019ElectronPerformance}.
+ 
+ \subsection{Calibration}
+ 
+--- objects/muons.tex (before)
+
++++ objects/muons.tex (after)
+
+@@ -15,23 +15,17 @@
+
+ 
+ \subsection{Identification}
+ 
+-Muon identification is based on the detector hit content, fit quality and consistency of the independent ID and MS momentum measurements~\cite{ATLAS2021MuonID}.
++Muon identification is based on detector hit variables, fit quality and consistency of the independent ID and MS momentum measurements~\cite{ATLAS2021MuonID}.
+ These requirements suppress hadrons decaying in flight and incorrectly matched tracks.
+-Baseline muons are required to satisfy:
+-\begin{itemize}
+-    \item $\pT>10~\GeV$ and $|\eta|<2.5$.
+-    \item \texttt{Loose} identification.
+-    \item $|d_0|/\sigma(d_0)<3$ and $|\Delta z_0\sin\theta|<0.5~\mm$.
+-\end{itemize}
+ Additional reconstruction categories are retained by the \texttt{Loose} working point to improve efficiency.
+-Signal muons are required to pass \texttt{Medium} identification, with more restrictive requirements on the reconstruction quality.
++The \texttt{Medium} working point imposes more restrictive requirements on the reconstruction quality.
+ 
+ \subsection{Isolation}
+ 
+ Muons from heavy-flavour decays are often accompanied by other particles inside a jet.
+ They are suppressed using track and calorimeter isolation, defined by the surrounding activity after excluding the muon's own contribution~\cite{ATLAS2021MuonID}.
+-The track cone is reduced as the muon $\pT$ increases.
+-The \texttt{Loose\_VarRad} working point is applied to baseline muons, while \texttt{Tight\_VarRad} is additionally required for signal muons.
++The \texttt{Loose\_VarRad} and \texttt{Tight\_VarRad} working points combine track and calorimeter isolation with a track-cone radius that decreases as the muon $\pT$ increases.
++Less surrounding activity is allowed by \texttt{Tight\_VarRad}, giving stronger rejection of muons produced inside jets.
+ 
+ \subsection{Calibration}
+ 
+--- objects/taus.tex (before)
+
++++ objects/taus.tex (after)
+
+@@ -38,7 +38,7 @@
+
+ 
+ \begin{table}[htbp]
+     \centering
+-    \caption[Target efficiencies of the hadronic tau identification working points]{Target RNN identification efficiencies for reconstructed hadronic tau candidates~\cite{ATLAS2022TauR22}. Baseline and signal candidates are selected with the \texttt{Loose} and \texttt{Tight} working points, respectively.}
++    \caption[Target efficiencies of the hadronic tau identification working points]{Target RNN identification efficiencies for reconstructed hadronic tau candidates~\cite{ATLAS2022TauR22}.}
+     \label{tab:ch6_tau_id}
+     \begin{tabular}{lcc}
+         \toprule
+@@ -54,24 +54,13 @@
+
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.82\textwidth]{output/ch6/figures/tau_identification.png}
+-    \caption[Hadronic tau reconstruction and identification efficiencies]{Identification efficiency alone (filled symbols) and combined reconstruction and identification efficiency (open symbols) as functions of truth visible $\pT$ for one-prong (left) and three-prong (right) hadronic tau decays. The transverse-momentum panels for simulated $\gamma^*\rightarrow\tau\tau$ events are reproduced side by side from Ref.~\cite{ATLAS2022TauR22}.}
++    \caption[Hadronic tau reconstruction and identification efficiencies]{Identification efficiency alone (filled symbols) and combined reconstruction and identification efficiency (open symbols) as functions of truth visible $\pT$ for one-prong (left) and three-prong (right) hadronic tau decays in simulated $\gamma^*\rightarrow\tau\tau$ events~\cite{ATLAS2022TauR22}.}
+     \label{fig:ch6_tau_id}
+ \end{figure}
+ 
+ Electrons are rejected with a separate RNN using shower and track information, including the relation between the calorimeter energy and track momentum~\cite{ATLAS2022TauR22}.
+-The \texttt{Loose} electron-rejection working point is applied to both baseline and signal tau candidates.
+-Muon rejection is performed by removing tau candidates within $\Delta R<0.2$ of a muon with $\pT>2~\GeV$, excluding calorimeter-tagged muons from this test.
+-Further overlaps between analysis objects are resolved as described in Section~\ref{sec:ch6_overlap}.
+-
+-Baseline tau candidates are required to satisfy:
+-\begin{itemize}
+-    \item $\pT>20~\GeV$ and $|\eta|<2.5$, excluding $1.37<|\eta|<1.52$.
+-    \item one or three tau-decay tracks with total charge $\pm1$.
+-    \item \texttt{Loose} RNN tau identification and \texttt{Loose} electron rejection.
+-\end{itemize}
+-Signal candidates additionally pass \texttt{Tight} tau identification.
+-The signal-region threshold is $\pT^{\tau}>200~\GeV$.
+-The thresholds used in other regions are specified in Chapter~\ref{chapter:event_selection}.
++The \texttt{Loose} electron-rejection working point applies a cut on this discriminant to suppress electrons while retaining a high efficiency for hadronic tau decays.
++Muon rejection uses the angular separation between the tau candidate and reconstructed muons.
+ 
+ \subsection{Calibration}
+ 
+@@ -89,10 +78,9 @@
+
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.82\textwidth]{output/ch6/figures/tau_energy_resolution.png}
+-    \caption[Hadronic tau momentum resolution and calibration]{Relative visible-momentum resolution versus truth visible $\pT$ for one-prong (left) and three-prong (right) tau candidates passing \texttt{Medium} identification in simulated $\gamma^*\rightarrow\tau\tau$ events. The resolution is half the width of the central 68\% interval of the reconstructed-to-truth $\pT$ ratio. The upper panels of the calibration comparison are reproduced from Ref.~\cite{ATLAS2022TauR22}. Signal candidates in this analysis pass \texttt{Tight} identification.}
++    \caption[Hadronic tau momentum resolution and calibration]{Relative visible-momentum resolution versus truth visible $\pT$ for one-prong (left) and three-prong (right) tau candidates passing \texttt{Medium} identification in simulated $\gamma^*\rightarrow\tau\tau$ events. The resolution is half the width of the central 68\% interval of the reconstructed-to-truth $\pT$ ratio~\cite{ATLAS2022TauR22}.}
+     \label{fig:ch6_tau_tes}
+ \end{figure}
+ 
+ Simulated event weights are corrected for differences in tau reconstruction, identification and electron-rejection efficiencies between data and simulation.
+ For signal candidates passing \texttt{Tight} tau identification, the electron-rejection scale factor associated with \texttt{Medium} tau identification is used.
+-The selection itself remains \texttt{Tight} tau identification with \texttt{Loose} electron rejection.
+--- objects/jets.tex (before)
+
++++ objects/jets.tex (after)
+
+@@ -36,14 +36,12 @@
+
+ 
+ \subsection{Identification and pile-up rejection}
+ 
+-Analysis jets are selected with calibrated $\pT>20~\GeV$ and $|\eta|<2.5$.
+ Two quality requirements are applied:
+ \begin{itemize}
+     \item \textbf{Jet cleaning.} The \texttt{LooseBad} criteria are used to reject jets with energy deposits characteristic of calorimeter noise or non-collision backgrounds.
+     \item \textbf{Pile-up rejection.} The neural-network jet-vertex tagger, NNJVT, is used with the \texttt{FixedEffPt} working point. Track-to-vertex association is used to distinguish jets from the hard scattering from jets produced in pile-up collisions.
+ \end{itemize}
+ The NNJVT requirement is applied within the kinematic range of its calibration.
+-No forward jet-vertex requirement is applied to this central analysis-jet collection.
+ 
+ \subsection{Calibration}
+ 

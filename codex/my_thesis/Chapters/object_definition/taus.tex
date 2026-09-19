@@ -1,0 +1,45 @@
+\section{Hadronic tau leptons}
+\label{sec:ch6_tau}
+
+\subsection{Reconstruction}
+
+$\tau$ leptons can decay both leptonically and hadronically.
+Approximately 65\% of $\tau$ decays are hadronic, with the major modes containing charged and possible nerutral pions~\cite{ATLAS2022TauR22}.
+In this anlysis we only consider the hardronic decay tau. It is denoted by $\tau_{\mathrm{had}}$. Here the $\tau$-neutrino is exculded in the reconstruction.
+
+Hadronic tau candidates are first seeded by anti-$k_t$ jets with $R=0.4$.
+The production vertex is then chosen as the vertex with the largest fraction of the $\pT$ sum of tracks within $\Delta R<0.2$ of the seed axis.
+This vertex provides the reference for track association and impact-parameter calculations.
+The tracks are then classified by a recurrent neural network (RNN) to select tau-decay tracks.
+The number of selected tau-decay tracks defines the prong multiplicity: candidates with one or three such tracks are called one-prong or three-prong candidates, respectively.
+
+\subsection{Identification}
+
+Hadronic tau decays are identified using an RNN discriminant to distinguish them from quark- and gluon-initiated jets~\cite{ATLAS2019TauRNN,ATLAS2022TauR22}.
+Track momenta and calorimeter shower properties are used as inputs, since tau decays typically have narrower showers and lower charged multiplicity than these jets.
+Track displacements and, for three-prong candidates, the significance of the reconstructed decay-vertex displacement are also included as inputs sensitive to the finite tau lifetime.
+Nearby activity is also included in the RNN inputs, so isolation information is used as part of the identification.
+
+Baseline tau candidates are required to pass \texttt{Loose} RNN identification, and signal candidates must additionally satisfy \texttt{Tight}.
+The higher RNN-score threshold for \texttt{Tight} rejects more jets at the cost of tau efficiency.
+For reconstructed one-prong (three-prong) candidates, the target identification efficiencies are 85\% (75\%) for \texttt{Loose} and 60\% (45\%) for \texttt{Tight}.
+
+Electrons can be misidentified as hadronic tau candidates because their narrow showers and tracks are similar to the signature of a one-prong tau decay~\cite{ATLAS2022TauR22}.
+To suppress this background, both baseline and signal tau candidates are required to pass \texttt{Loose} electron rejection.
+This working point requires a minimum score from a separate RNN using shower and track information, including the relation between calorimeter energy and track momentum.
+The tau efficiencies are approximately 95\% and 98\% for one-prong and three-prong candidates, respectively.
+The corresponding electron rejection efficiencies are approximately 99.7\% and 98.8\%.
+
+\subsection{Calibration}
+
+The tau energy scale (TES) calibration is derived from MC samples~\cite{ATLAS2022TauR22}.
+In these samples, the generated visible tau $\pT$, excluding the decay neutrino, is used as the reference for correcting the reconstructed $\pT$.
+The visible $\pT$ is reconstructed in two ways: from calorimeter energy deposits and shower directions, and from a combination of tracking and calorimeter measurements.
+In the latter, charged-hadron momenta are measured from track curvature in the magnetic field, while neutral particles, which leave no tracks, are measured through their calorimeter deposits.
+The calorimeter deposits associated with charged hadrons are subtracted to avoid double counting.
+These two measurements are combined in a weighted average.
+The averaged $\pT$ is then corrected using a boosted regression tree (BRT) trained on these MC samples.
+
+In addition to the momentum calibration, differences in tau reconstruction, identification and electron-rejection efficiencies between data and simulation must be correcte.
+For this purpose, data-to-simulation scale factors are applied to simulated event weights.
+In this analysis, for signal candidates passing \texttt{Tight} tau identification, the electron-veto scale factors for \texttt{Medium} tau identification are used because no corresponding factors were available for \texttt{Tight}.

@@ -1,0 +1,19 @@
+% Compile from the thesis root directory.
+% The chapter source and bibliography can be integrated independently.
+\documentclass[a4paper,12pt,times,numbered,oneside,custombib]{Classes/PhDThesisPSnPDF}
+\input{Preamble/preamble}
+\input{thesis-info}
+\hypersetup{pdftitle={Chapter 6: Object Reconstruction and Identification -- Reading Draft},pdfauthor={Jiaqi Zang}}
+% Import only the required external labels, avoiding the existing CH6 labels
+% and the main thesis citation numbering.
+\usepackage{xr-hyper}
+\externaldocument[][nocite]{output/ch6/CH6_external_labels}[../../thesis.pdf]
+\begin{document}
+\mainmatter
+\setcounter{chapter}{5}
+\input{output/ch6/CH6_draft}
+\begin{spacing}{0.9}
+\bibliographystyle{unsrtnat}
+\bibliography{output/ch6/CH6_references}
+\end{spacing}
+\end{document}

@@ -1,0 +1,2148 @@
+
+=== PDF PAGE 1 ===
+     EUROPEAN ORGANISATION FOR NUCLEAR RESEARCH (CERN)
+
+
+
+
+
+
+
+
+Submitted to: Phys. Lett. B.                                               CERN-EP-2026-136
+                                                                                2nd June 2026
+
+
+           Searchforaleptoquarkineventswitha
+       hadronicallydecaying𝝉-leptonandmissing
+      transversemomentumusing√                    𝒑𝒑collisionsat
+               𝒔=13TeVwiththeATLASdetector
+
+
+                               TheATLASCollaboration
+
+
+
+     Asearchforleptoquarksignalsisperformedinfinalstateswithahadronicallydecaying
+     𝜏-leptonandmissingtransversemomentum,usingdatafromproton–protoncollisionsata
+     centre-of-massenergyof√𝑠=13  TeVrecordedbytheATLASdetectorattheLargeHadron
+     ColliderduringRun2(2015–18),correspondingtoanintegratedluminosityof140fb−1 .The
+     analysisisdesignedtoprobebothresonantproductionandnon-resonant𝑡-channelexchange
+     oftheleptoquark,coveringawiderangeofcouplingscenarios.NoexcessabovetheStandard
+     Modelbackgroundpredictionisobserved.Limitsaresetonthecouplingsinthebenchmark
+     𝑈1vector-leptoquarkmodelat95%confidencelevelformassesbetween1.5TeVand3.0TeV.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+©2026CERNforthebenefitoftheATLASCollaboration.
+ReproductionofthisarticleorpartsofitisallowedasspecifiedintheCC-BY-4.0license.
+
+=== PDF PAGE 2 ===
+1 Introduction
+
+Semileptonicdecaysof 𝐵mesonsprovideoneofthemostsensitiveprobesofleptonflavouruniversality
+(LFU)intheStandardModel(SM)ofparticlephysics,aswellaspossiblecontributionsfromphysics
+‘beyondtheSM’(BSM).Inparticular,acombinationoftheBaBar[1,2],Belle[3–6],Belle-II[7,8]and
+LHCb[9–12]resultsshowadeviationofabout          3.8𝜎   fromtheSMexpectationusingtheHFLAVCKM2025
+fitassumptionsfortheratioofbranchingfractions𝑅(𝐷    (∗))=B(𝐵→𝐷             (∗)𝜏𝜈)/B(𝐵→𝐷           (∗)ℓ𝜈) ,where
+ℓ=𝑒,𝜇  (ℓ=𝜇  forLHCb)[13],motivatingscenarioswithnewinteractionsinthe      𝑏→𝑐𝜏𝜈   transition.
+SuchextensionsoftheSMcouldbedescribedbyaleptoquark(LQ)[14–17],ahypotheticalscalarorvector
+bosonthatcouplesdirectlytoaleptonandaquark,therebymediatinginteractionsbetweentheleptonand
+quarksectors.The 𝑅(𝐷    (∗))anomalycanbeaccommodatedbysizeablecontributionsfromboththe 𝑏𝜏
+and𝑐𝜈couplingsofaLQ[18–20].
+AcomprehensiveprogrammetosearchforLQsignalswith 𝜏-leptonsinthefinalstate[21–26]was
+developedbytheATLAS[27]andCMS[28]experimentsattheLargeHadronCollider(LHC).InLQ
+pairproduction,thecross-sectiondependsonlyonthestrongcouplingconstantatleadingorder,making
+thesearcheslargelyinsensitivetothespecificchoiceoftheLQcoupling.SignalswithLQmassesbelow
+approximately1.6TeVwereexcludedbysuchsearches[21,23].SearchesforsinglyproducedLQsthat
+decayinto 𝑏𝜏wereperformedinthe 𝑏𝜏𝜏finalstate,assumingtheywereproducedinassociationwitha
+𝜏-lepton.Ifthelepton–quarkcouplingsarelarge,𝑡-channelexchangeoftheLQcanleadtomoreeventswith
+ahigh-massfinal-statethanareexpectedintheSM.ATLASandCMShaveperformedsuchnon-resonant
+searchesforLQsignalsinthe𝜏𝜏finalstate.Forthe𝑈1LQmodel,theregionwith𝜆𝑏𝜏/𝑚 U1 ≳1TeV     −1
+hasbeenexcludedbyATLAS[22],where     𝜆𝑏𝜏 =𝑔  𝑈/√2,with𝑔𝑈denotingthevectorcouplingconstant
+and 𝑚U1theLQmass,asdefinedinSection3.CMShadsimilarsensitivity[24],butobservedasmall
+excessofeventsathigh𝑚        𝜏𝜏,leadingtoaweakerobservedlimiton𝜆    𝑏𝜏/𝑚 U1.
+ThepreviousATLASandCMSsearchesin𝜏𝜏(+𝑏)   finalstatesmentionedaboveassumedthatthesignal
+ratedependsonlyonthe 𝑏𝜏coupling,becausethe𝑐𝜈couplingcontributesonlythroughsubleadingeffects.
+Whileacouplinginvolvingasecond-generationquarkandathird-generationleptonisgenerallyexpected
+tobeflavour-suppressed,anon-zero𝑐𝜈couplingisrequiredtoaccommodatethe 𝑅(𝐷    (∗))anomaly.This
+providesastrongphenomenologicalmotivationtoprobethisscenariodirectlywiththefirstATLAS
+analysistargetingthe 𝜏𝜈(+𝑏)   finalstate,whichispresentedinthisLetter. Figure1showsillustrative
+Feynmandiagramsforthesignalstargetedbythisanalysis. Asearchforleptoquarksisperformedin
+eventswithahadronicallydecaying𝜏-lepton(𝜏had)withhightransversemomentum(𝑝T)andlargemissing
+transversemomentum,whosemagnitudeisdenotedby 𝐸missT .Twotypesofsignalproductionmodesare
+considered:anon-resonantprocessinvolving 𝑡-channelexchangeofaLQ,typicallyassociatedwitha
+low-𝑝Tjetfromtheinitial-statequark,andresonantsingleproductionofaLQdecayingintoahigh-𝑝T 𝑏-
+or 𝑠-quarkanda𝜏-lepton.Theanalysisisfurthercategorisedaccordingtothepresenceorabsenceofajet
+containing 𝑏-hadrons(a‘𝑏-jet’).Thecategorieswitha𝑏-jetaresensitivetotheproductofthe 𝑏𝜏and
+𝑐𝜈couplings,directlyrelevanttothe 𝑅(𝐷    (∗))anomaly,whilecategorieswithoutthe 𝑏-jetrequirement
+enhancesensitivitytoscenarioswithlarger𝑐𝜈couplingcontributions.Anadvantageofthe𝜏𝜈𝑏channel
+isthatthecorrespondingSMbackgroundsarehighlysuppressed[29].IntheSM,theproductionofa
+𝜏𝜈systemwithanassociated 𝑏-quarkisCKM-suppressed,sotheSMamplitudethatinterfereswiththe
+BSMamplitudeisstronglysuppressedinthehigh-massregion.TheCMSsearchofthe𝜏𝜈finalstate[26]
+includedaLQinterpretationandwasperformedwithout𝑏-jetrequirements.
+
+
+
+
+
+
+                                                        2
+
+=== PDF PAGE 3 ===
+                            (a)                                                     (b)
+
+Figure1:IllustrativeFeynmandiagramsofsignalstargetedbythisanalysis:(a)non-resonant   𝑡-channelexchangeofa
+leptoquark(LQ)and(b)asinglyproducedLQdecayinginto𝑏𝜏/𝑠𝜏(resonantsignal).
+
+2 ATLASdetector
+
+TheATLASdetector[27,30]isamultipurposeapparatuswithnearly           4𝜋 coverageinsolidangle.1 It
+consistsofaninnertrackingdetector(ID)insidea2Tsuperconductingsolenoid,electromagneticand
+hadroniccalorimeters,andamuonspectrometer.Theinnertrackingdetectorcoversthepseudorapidity
+range|𝜂|<2.5    .Itconsistsofsiliconpixel,siliconmicrostrip,andtransitionradiationtrackingdetectors.
+Lead/liquid-argon(LAr)samplingcalorimetersprovideelectromagnetic(EM)energymeasurementswith
+highgranularitywithintheregion|𝜂|<3.2    .Asteel/scintillator-tilehadroniccalorimetercoversthecentral
+pseudorapidityrange(|𝜂|<1.7    ).TheendcapandforwardregionsareinstrumentedwithLArcalorimeters
+forEMandhadronicenergymeasurementsupto|𝜂|=4.9    .Themuonspectrometer(MS)surroundsthe
+calorimetersandisbasedonthreelargesuperconductingair-coretoroidalmagnetswitheightcoilseach.
+Thefieldintegralofthetoroidsrangesbetween2.0and6.0Tmacrossmostofthedetector. TheMS
+includesasystemofprecisiontrackingchambersupto |𝜂|=2.7     andfastdetectorsfortriggeringupto
+|𝜂|=2.4    .Atwo-leveltriggersystemisusedtoselectevents[31].Thefirst-leveltriggerisimplementedin
+hardwareandusesasubsetofthedetectorinformationtoaccepteventsataratecloseto100kHz.This
+isfollowedbyasoftware-basedtriggerthatreducestheacceptedrateofcompleteeventsto1.25kHzon
+averageinRun2,dependingonthedata-takingconditions.Asoftwaresuite[32]isusedindatasimulation,
+inthereconstructionandanalysisofrealandsimulateddata,indetectoroperations,andinthetriggerand
+dataacquisitionsystemsoftheexperiment.
+
+3 Signalmodel
+
+Thissearchfocusesontheproductionofavectorleptoquark𝑈1withquantumnumbers(3,1,2/3)      ,which
+correspondtothecolour,weak,andhyperchargerepresentations,respectively.TheeffectiveLagrangian
+
+
+
+
+
+1ATLASusesaright-handedcoordinatesystemwithitsoriginatthenominalinteractionpoint(IP)inthecentreofthedetector
+  andthe 𝑧-axisalongthebeampipe.The𝑥-axispointsfromtheIPtothecentreoftheLHCring,andthe 𝑦-axispointsupwards.
+  Polarcoordinates(𝑟,𝜙)  areusedinthetransverseplane, 𝜙beingtheazimuthalanglearoundthe 𝑧-axis.Thepseudorapidityis
+  definedintermsofthepolarangle𝜃as𝜂=−lntan(𝜃/2)          andisequaltotherapidity 𝑦=(1/2)ln[(𝐸+𝑝                        𝑧)/(𝐸−𝑝       𝑧)]inthe
+  relativisticlimit.AngulardistanceismeasuredinunitsofΔ𝑅≡      √︁(Δ𝑦)        2+(Δ𝜙)        2.
+
+
+
+                                                            3
+
+=== PDF PAGE 4 ===
+for𝑈    1LQinteractions[33]is
+
+            L𝑈1   =−  12𝑈†1𝜇𝜈 𝑈𝜇𝜈1  +𝑚   2U1𝑈†1𝜇 𝑈𝜇1 −𝑖𝑔 s(1−𝜅)𝑈          †1𝜇 𝑇𝑎𝑈1𝜈 𝐺𝑎𝜇𝜈
+                                                              h                                           i
+                        −𝑖𝑔 Y23(1−˜𝜅)𝑈           †1𝜇 𝑈1𝜈 𝐵𝜇𝜈+ 𝑔𝑈√2𝑈𝜇1(𝛽 𝑖𝑗L ¯𝑞 𝑖L𝛾𝜇ℓ𝑗L+𝛽  𝑖𝑗R  ¯𝑑𝑖R𝛾𝜇𝑒𝑗R)+ℎ.𝑐.,
+
+where𝑈1𝜇 isavectorLQfield,𝑈1𝜇𝜈  ≡𝐷   𝜇𝑈1𝜈 −𝐷   𝜈𝑈1𝜇 isitsfield-strengthtensor,𝑚U1istheLQmass,𝐺𝑎
+and𝐵denotethefield-strengthtensorsoftheSU(3)candU(1)Ygaugebosons,𝑔sand𝑔Ythecorresponding
+gaugecouplingconstants,and𝑇𝑎 =𝜆   𝑎/2 (Gell-Mannmatrices).Here 𝑞L(ℓL)denotestheleft-handed
+quark(lepton)doubletsand 𝑑R(𝑒R)denotestheright-handeddown-typequark(charged-lepton)singlets,
+𝑖∈ {1,2,3    }and 𝑗∈ {1,2,3    }areflavourindices,and𝑎∈  {1,...,8  }isaSU(3)cindex.TheCKMmatrix
+elements𝑉                𝑗𝑖areincludedin𝑞   𝑖Las                  !
+                                                    𝑞𝑖L =  𝑉∗𝑗𝑖𝑢𝑗L  .
+                                                             𝑑𝑖L
+Theflavourbasisofthequarkfieldsisidentifiedwiththemassbasisofthedown-typequarks.Thecouplings
+𝛽Land 𝛽Rarecomplex 3×3  matricesinflavourspace.Inthisanalysis,motivatedbythediscussionin
+Refs.[34,35],theyaredefinedas
+
+                                             0   0 𝛽  13Lª®          0   0     0 ª®
+                                     𝛽L =©­0   0 𝛽  23L    , 𝛽R =©­0   0     0    .
+                                            «0   0 𝛽  33L¬         «0   0 𝛽  33R ¬
+
+Conventionally,thenormalisationfactor 𝑔𝑈isintroducedtoset 𝛽33L  =1 . Therearetwobenchmark =0 and𝛽33R =1 .Inthisanalysis,theinterpretationisperformedinthe
+scenarios,correspondingto𝛽33R        =0 ).Theparameters 𝜅and ˜𝜅 introducetheLQcouplingstotheSM
+purelyleft-handedscenario(𝛽33R
+gauge-bosonfields.Theyaresetto𝜅=˜𝜅=0inthisanalysis(Yang–Millscouplingscenario).
+Integratingoutthe𝑈1fieldatlowenergyinducessemileptonicfour-fermionoperators.Theleft-handed
+coefficientforthe𝑏→𝑐𝜏𝜈transitionscalesas
+
+                                            𝐶𝑐LL ∼ 𝑔2𝑈𝑣24𝑚  2U11+   𝑉𝑐𝑠𝑉𝑐𝑏𝛽23L,                           (1)
+
+
+where 𝑣istheelectroweakvacuumexpectationvalue. Thetermproportionalto 𝛽23L isenhancedby
+theratio𝑉𝑐𝑠/𝑉 𝑐𝑏,implyingthatevenmoderatevaluesof 𝛽23L cangeneratesizeablecontributionstothe
+𝑅(𝐷    (∗))anomalies.2Although 𝛽23L  ∼0.1   isoftenassumedinUV-completemodels[34,35],low-energy
+charged-currentobservablesalonedonotimposestringentconstraintsonthisparameter. Additional
+constraintsarisefromflavour-changingneutral-currentobservables,particularly𝐵𝑠(𝑑)  –¯𝐵𝑠(𝑑)  mixing,as
+wellasfromLFUtestsin 𝜏-leptondecays. However,theseboundsaremodeldependentandmaybe
+affectedbyadditionalstatesintheUVtheory[35].Thissearchthereforeexploresthehigh-    𝛽23L region[33],
+whichwasnotthoroughlycoveredbypreviousATLASandCMSsearches.
+Thesignalisprimarilycharacterisedbythreeparameters: 𝑚U1,𝑔𝑈and 𝛽23L.Therelativecontributionsof
+resonantandnon-resonantproductiondependstronglyon 𝑚U1.Theresonantproductioncross-section
+decreasesrapidlyaround𝑚U1 ∼1.5TeV   ,mainlyduetothesuppressionofthepartondistributionfunctions
+
+2Theparameter 𝛽13L issetto𝑉∗𝑡𝑑/𝑉  ∗𝑡𝑠 𝛽23L  ∼0.2𝛽          23L followingtheconventionofRef.[33].Itscontributionissmallerthanthe     𝛽23L
+  termandisignoredhereforsimplicity.
+
+
+
+                                                           4
+
+=== PDF PAGE 5 ===
+(PDFs)athighBjorken-𝑥.Asaresult,thenon-resonantcontributionbecomesdominantathighermasses.
+Thecoupling 𝑔𝑈controlstheoverallsignalnormalisation. Theparameter 𝛽23L influencestheflavour
+structureoftheproductionprocessandchangestheeffectivepartonluminositycontributingtothesignal.
+Largervaluesof 𝛽23L alsoreducetherelativefractionofsignaleventscontaininga 𝑏-quarkinthefinal
+state.ThedecaywidthoftheLQscalesapproximatelyas Γ/𝑚  U1 ∝𝑔   2𝑈 ×1+(𝛽    23L )2.Forexample,at
+𝑚U1 =1.5TeV,𝛽               23L  =0.6,and𝑔              𝑈 =2,theintrinsicwidthisabout7%oftheLQmass.
+
+4 DataandMonteCarlosimulation
+
+Thissearchusesproton–proton(𝑝𝑝)collisiondatarecordedatacentre-of-massenergyof√𝑠=13TeV    by
+theATLASdetectorduringRun2oftheLHC(2015–2018),correspondingtoanintegratedluminosityof
+140fb−1 .Thenumberofinteractionsperbunchcrossing(pile-up)rangedfromabout8to70,withan
+averageof34[36].Eventswerecollectedusingthelowest-thresholdunprescaled      𝐸missT ,single-electron
+andsingle-muontriggers[37–39].Thetypicalthresholdswere           𝐸missT    =110GeV    ,withvariouspile-up
+mitigationalgorithmsdependingonthedata-takingperiod,and 𝑝T =26GeV   forelectronsandmuons,
+withdifferentisolationrequirementsforvarious𝑝    Tranges.
+SignalLQeventswitha𝜏-lepton,neutrino,anduptotwopartons(includingpossible 𝑏-quarks)[33]were
+modelledatleadingorder(LO)inQCDinthefive-flavourschemeusingtheMadGraph5_aMC@NLO3.3.1[40]
+matrixelement(ME)generatorwiththeNNPDF3.0nloPDFs[41].Thepartonshower(PS)andhadronisa-
+tionweregeneratedbyPythia8.308[42],usingparametervaluesfromtheA14tunewithNNPDF2.3lo
+PDFs[43]fortheunderlyingevent(UE).AllrelevantproductiondiagramswereconsideredintheME
+calculation,includingboththe 𝑠-channel(resonant)and 𝑡-channel(non-resonant)topologies. Forthe
+CKKW-Lmatching[44],theDurham      𝑘⊥and 𝐷parametersweresetto15GeVand0.4,respectively,
+correspondingtoaminimumjet 𝑝Tof15GeVattheMElevel. Signalsamplesweregeneratedfor
+152differentparameterpoints (𝑚 U1,𝑔𝑈,𝛽23L)satisfying 1.5≤𝑚     U1 ≤3.0TeV   , 0.5≤𝑔        𝑈 ≤3.0   and =0 .Thelowerboundon 𝑚U1waschosensoastocovertheregionaroundthe
+0≤𝛽      23L  ≤2.2  ,for𝛽33R
+exclusionlimitssetbypreviousLQpair-productionsearches.Athighermasses(𝑚U1 >3TeV  ),thesignal
+isdominatedbythenon-resonantcontribution,andboththecross-sectionandthekinematicdistributions
+dependonthecoupling-to-massratioratherthantheexplicitmassvalue.Therefore,3.0TeVistakenasthe
+upperboundaryofthescan.ThecontributionfrominterferencebetweenthesignalprocessandtheSM𝜏𝜈
+processeswithuptotwopartonswasgeneratedseparatelywithMadGraphateachparameterpoint,using
+thesameconfigurationasforthesignalprocess,andaddedtothecorrespondingsignalsample.
+ThedominantsourceofSMbackgroundis𝑊→𝜏𝜈    productioninassociationwithajet.Productionof
+a𝑊or 𝑍bosoninassociationwithjets(𝑊+jetsand 𝑍+jets)wasmodelledusingtheSherpa2.2.11or
+2.2.14generator[45],withMEscalculatedatnext-to-leading-order(NLO)accuracyinQCDforuptotwo
+additionalpartons,andatLOforuptofiveadditionalpartons,andmergedwiththeSherpaPS[46]using
+theMEPS@NLOprescription[47–50].Top-quarkpair(                                    𝑡¯𝑡)andsingle-top(single-𝑡)backgroundswere
+generatedatNLOaccuracyinQCDwithPowhegBoxv2[51–54],interfacedtoPythia8.230[55]for
+partonshoweringandhadronisation.The 𝑡¯𝑡backgroundwasnormalisedtotheinclusivecross-section
+calculatedatnext-to-next-to-leadingorder(NNLO)inQCDwithresummationofnext-to-next-to-leading
+logarithmic(NNLL)soft-gluonterms.Thesingle-𝑡contributionincludesthe 𝑠-channel,𝑡-channel,and
+𝑊𝑡-associated-productionprocesses,withthe 𝑊𝑡channelprovidingthedominantcontributioninthis
+analysis.DibosonprocessesweregeneratedusingSherpa2.2.2atNLOaccuracy.Onlythefullyleptonic
+
+
+
+
+
+                                                        5
+
+=== PDF PAGE 6 ===
+                  decaymodes(i.e. 4ℓ ,ℓℓℓ𝜈, 2ℓ2𝜈  ,ℓ𝜈𝜈𝜈,and 4𝜈 whereℓ=𝑒,𝜇,𝜏  )areconsideredinthisanalysis,asothers
+                  contributenegligiblyafterthehigh-𝐸      missT  requirement.
+                 ThedecaysofbottomandcharmhadronsweremodelledwithEvtGen[56]forallsamplesexceptthose
+                  generatedwithSherpa.Allgeneratedeventsampleswerepassedthroughadetailedsimulationofthe
+                 ATLASdetectorbasedonGeant4[57,58]. Forthesignalsamples,theAtlFast3[59]toolbasedon
+                  generativeneuralnetworksprovidedafastsimulationofthecalorimeter’sresponse.Theeffectofpile-up
+                 wasmodelledbyoverlaying[60]thesimulatedhard-scatteringeventwithinelasticproton–proton(   𝑝𝑝)
+                  eventsgeneratedfromamixofEpos2.0.1.4[61]andPythia8.308[42].TheEposeventsweregenerated
+                 withtheEposLHCtune[62]andthePythiaeventswiththeA3tune[63]andtheNNPDF2.3lo[64]setof
+                  partondistributionfunctions(PDF).Pythiapile-upeventsincludeeitherahightransversemomentum(                𝑝T)
+                  jet,apromptphoton,oraleptonfroma 𝑏-hadrondecay,whileEposwasfilteredtosimulateallremaining
+                  pile-upeventsintheoverlaysample.Theindividualsimulationswerefirstreweightedtoensureasmooth
+                  connectionacrossjet 𝑝Tthenthecombinationreweightedtomatchthedistributionoftheactualnumberof
+                  interactionsperbunchcrossingmeasuredindata.
+                 AsummaryoftheMCgeneratorconfigurationsforallsimulatedeventsamplesisshowninTable1.
+
+                  Table1:ListoftheMCsimulatedsamplesusedinthisanalysis.ThegeneratorsusedfortheMEcalculation,the
+                  perturbativeorderoftheMEcalculation,thePSgenerator,thePDFsetandthesetoftunedparameters(tune)used
+                  fortheUEmodellingareshown.Thesymbolℓdenotesanelectronormuon.
+
+
+
+
+
+
+
+
+
+
+
+
+                  5 Eventreconstructionandpreselection
+
+                  Hadronicallydecaying𝜏-leptonsarereconstructedfromseedjetsformedbytheanti-𝑘𝑡algorithm[65]with
+                  aradiusparameter 𝑅=0.4   ,usingtopologicalcell-energyclusters,calibratedwiththelocalhadroniccell-
+                 weightingscheme[66,67].All          𝜏hadcandidatesarerequiredtohave 𝑝T >20GeV   and|𝜂| <2.5  ,excluding
+                  theEMcalorimeter’sbarrel–endcaptransitionregion1.37<      |𝜂| <1.52  .Thevertexofa 𝜏haddecayis
+                  determinedfromtrackswithin Δ𝑅=0.2     oftheaxisoftheseedjet. Geometricandimpact-parameter
+                  criteriaarethenappliedtoalltracksassociatedwiththeseedjettoselectthosewellmatchedtothe𝜏had
+                  candidate,afterwhichatrackclassifierbasedonarecurrentneuralnetwork(RNN)[68]distinguishes     𝜏had
+                  tracksfromothertracks.Each𝜏hadcandidateisrequiredtohaveoneorthreetracksclassifiedas𝜏hadtracks,
+                 withthesumoftheirchargesequalto±1 .AnotherRNN-basedclassifierisusedtoseparate𝜏hadcandidates
+                  fromthehadron-jetbackground[68],usingtracksandcalorimeterenergyclustersassociatedwiththe
+                  seedjet,aswellasseveralhigh-leveldiscriminatingvariables.Severaldifferentworkingpointsfor𝜏had
+
+
+
+
+Process       Generator              MEorder Partonshower PDFset        Tune6
+
+𝑈1signal   MadGraph5_aMC@NLOLO       Pythia8        NNPDF3.0nloA14
+𝑊(→𝜏𝜈)+jetsSherpa2.2.11           NLO  Sherpa            NNPDF3.0nnlo   Sherpadefault
+𝑡¯𝑡                    PowhegBoxv2          NLO  Pythia8        NNPDF3.0nloA14
+𝑡            PowhegBoxv2          NLO  Pythia8        NNPDF3.0nloSingle-A14
+𝑍(→𝜈𝜈)+jetsSherpa2.2.11           NLO  Sherpa            NNPDF3.0nnlo   Sherpadefault
+𝑍(→𝜏𝜏)+jetsSherpa2.2.14           NLO  Sherpa            NNPDF3.0nnlo   Sherpadefault
+𝑊(→ℓ𝜈)+jetsSherpa2.2.11           NLO  Sherpa            NNPDF3.0nnlo   Sherpadefault
+𝑍(→ℓℓ)+jetsSherpa2.2.11           NLO  Sherpa            NNPDF3.0nnlo   Sherpadefault
+Diboson Sherpa2.2.2            NLO  Sherpa            NNPDF3.0nnlo   Sherpadefault
+
+=== PDF PAGE 7 ===
+identification,correspondingtodifferentefficiencies,areusedinthisanalysis.The‘Loose’workingpointis
+usedforcountingthenumberof𝜏had,fortheoverlapremovaldescribedbelowandfor 𝐸missT  reconstruction,
+whereasthe‘Tight’workingpointisemployedforthe𝜏hadinthesignalselection.Inaddition,allcandidates
+arerequiredtopassthe‘Loose’RNNeVetoworkingpoint[68],tosuppresselectronsthataremisidentified
+as𝜏  hadcandidates.
+ElectronsarereconstructedbycombiningenergyclustersintheEMcalorimeterwithIDtracks[69].Electron
+candidatesarerequiredtohave 𝑝T >10GeV   and |𝜂| <2.47   excludingtheEMcalorimeter’stransition
+region. Allelectronsarerequiredtosatisfythe‘Tight’likelihoodidentificationand‘Loose_VarRad’
+isolationcriteria[70]. MuonsarereconstructedfromIDandMStracks,andadditionalcalorimeter
+information[71].Muoncandidatesarerequiredtohave      𝑝T >10GeV   and |𝜂| <2.5  .Allmuonsmust
+satisfythe‘Loose’identificationworkingpointand‘Loose_VarRad’isolationcriterion[72].Boththe
+electronsandmuonsarerequiredtohavesmalltransverse(𝑑0)andlongitudinal(𝑧0)impactparametersfor
+theirIDtrack,with 𝑑0/𝜎 𝑑0 <5 (3)forelectrons(muons)and|𝑧0sin𝜃    | <0.5   mmforboth,where𝜎𝑑0is
+theuncertaintyinthe𝑑      0measurement.
+Jetsarereconstructedfromparticle-flowobjects[73]withtheanti-    𝑘𝑡algorithm(𝑅=0.4   ),andare
+requiredtohave 𝑝T >20GeV   and|𝜂| <2.5  .Pile-upjetsaresuppressedusingthejet–vertextaggeratthe
+‘FixedEffPt’workingpoint[74].Jetsoriginatingfrom𝑏-hadrons(i.e. 𝑏-jets)areidentifiedusingtheGN2
+multivariatealgorithm,basedonagraphneuralnetworkandtransformer,ataworkingpointcorresponding
+to85%𝑏-jetefficiency[75].
+Toavoiddouble-counting,overlappingphysicsobjectsarerejectedinthefollowingorder:a𝜏hadwithin
+Δ𝑅=0.2     ofanelectron;𝜏hadcandidateswithinΔ𝑅=0.2     ofamuon;calorimeter-taggedmuonssharing
+anIDtrackwithanelectron;electronssharinganIDtrackwithamuon;theclosestjetwithinΔ𝑅=0.2
+ofanelectron;electronswithinΔ𝑅=0.4     ofajet;jetswithinΔ𝑅=0.4     ofamuoniftheyhaveatmost
+twoassociatedtracks;muonswithin Δ𝑅=0.4     ofajet;andjetswithin Δ𝑅=0.2     ofa 𝜏had. Allthe
+reconstructedphysicsobjectsabovearecalibratedandthecorrespondingefficiencyscalefactorsand
+energy/momentumcorrectionsareappliedtosimulatedeventstoaccountforresidualdifferencesbetween
+dataandsimulation.
+Themissingtransversemomentumisdefinedasthenegativevectorsumofthe𝑝Tofallselectedobjectsin
+theevent,plusatermtoaccountforthe 𝑝TofsoftparticleswithIDtracksthatarematchedtotheprimary
+vertexbutnottoanyoftheselectedobjects[76].Themagnitudeofthisvectorisdenotedby𝐸     missT .
+Onlydatafromperiodswithstablebeamsandalldetectorsystemsoperationalareemployed[36].The
+reconstructedinteractionpointwiththehighestÍ𝑝2Toftheassociatedtrackswith 𝑝T >500MeV    is
+selectedastheprimaryvertex[77].Alleventsmusthaveatleasttwotracksassociatedwiththeprimary
+vertex.Eventsmustcontainatleastonejet.Tosuppressmultijetbackground,eventsarerejectedifthe
+smallestazimuthalseparationbetweenjetsand𝐸missT  (i.e.minΔ𝜙(𝑗,𝐸        missT   ))islessthan0.4andtheratioof
+𝐸missT  tojet 𝑝TforthejetwiththesmallestΔ𝜙(𝑗,𝐸    missT   )islessthan6.Therequirementsabovedefinethe
+eventpreselection,whichservesasthestartingpointforthesubsequenteventcategorisationandstatistical
+analysis.
+
+6 Eventselection
+
+Foursignalregions(SRs)aredefinedinordertomaximisethesensitivityoftheanalysis: twofor
+non-resonantLQproductionandtwoforresonantLQproduction,illustratedbytheFeynmandiagrams
+
+
+
+                                                         7
+
+=== PDF PAGE 8 ===
+shownintheleftandrightpanelsofFigure1,respectively.Eachregionisfurthersubdividedaccording
+tothepresenceorabsenceofa 𝑏-jet,assummarisedinTable2. DuringtheoptimisationoftheSRs,
+usingsimulatedevents,theselectionsarechosensuchthatthestatisticaluncertaintyoftheexpected
+backgroundiskeptbelow30%.EventsintheSRsarerequiredtopassthe 𝐸missT  trigger.Exactlyone𝜏had
+with𝑝    T >200GeVisrequired.Eventswithadditionallightleptons(electronsormuons)arevetoed.
+Resonanceandnon-resonanceSRsareprimarilydistinguishedbythejet 𝑝T.TheresonanceSRs,SR0b-Res
+and SR1b-Res,withnoorone 𝑏-jetineachevent,areoptimisedforsignalswithlowerLQmasses
+(∼1.5TeV).Eventsmustsatisfy 𝐸missT    >200GeV    and𝑚T >200GeV    ,where𝑚Tisthetransversemass
+ofthe 𝜏hadand 𝐸missT .Uptofourjetsareallowedperevent.In SR0b-Res,thenumberof 𝑏-jetsmustbe
+zero,andtheleadingjet’s𝑝Tmustexceed250GeV.Theinvariantmassoftheleadingjetandthe 𝜏had,
+denotedby𝑚𝑗𝜏had,isusedasaproxyfortheleptoquarkmassandisrequiredtobegreaterthan800GeV.
+In SR1b-Res,exactlyone 𝑏-jetisrequired,andits 𝑝Tmustexceed250GeV.Inaddition,theinvariant
+massofthe𝑏-jetandthe𝜏       had,denotedby𝑚  𝑏𝜏had,isrequiredtobegreaterthan800GeV.
+Thenon-resonanceSRs, SR0b-NonResand SR1b-NonRes,targetthehigh-𝑚Tregimewitheithernoor
+one𝑏-jet,andhence𝑚T >600GeV    and𝐸missT    >400GeV    arerequired.Theazimuthalseparationbetween
+the𝜏hadand 𝐸missT ,denotedbyΔ𝜙(𝜏    had,𝐸missT   ),isrequiredtobegreaterthan1.2.Tosuppresstop-quark
+background,atmosttwojetsareallowedperevent.InSR0b-NonRes,theleadingjet’s𝑝Tisrequiredto
+satisfy50< 𝑝         T <250GeV,whileforSR1b-NonRes,the𝑏-jet’s𝑝                     Tisusedinstead.
+
+Table2:SummaryofeventselectioncriteriainSRs.Alleventsarerequiredtosatisfythepreselectionrequirements.
+
+        Feature                                       Criterion
+        Triggerrequirement                      𝐸         missT  trigger(lowest-unprescaled)
+        𝜏hadmultiplicity(𝑁 𝜏had)                             1
+        𝑝𝜏hadT  [GeV]                                                                >200
+        𝜏hadidentification                                Tight
+        Lightleptonmultiplicity(𝑁 ℓ)                        0
+                                                                       Region
+                                              SR0b-Res    SR1b-Res    SR0b-NonRes    SR1b-NonRes
+        𝑏-jetmultiplicity(𝑁   𝑏)           0         1          0            1
+        𝑏-jet𝑝     T[GeV]                 –         >250      –            [50,250]
+        Leadingjet𝑝  T[GeV]               >250    –       [50,250]         –
+        𝐸missT  [GeV]                                      >200                             >400
+        𝑚T[GeV]                                         >200                             >600
+        𝑚𝑏𝜏had[GeV]                   –         >800      –            –
+        𝑚𝑗𝜏had[GeV]                           >800    –          –            –
+        Δ𝜙(𝜏    had,𝐸missT   )                     –                                   >1.2
+        Numberofjets                              ≤4                                ≤2
+
+
+7 Backgroundestimation
+
+TheSMbackgroundsareestimatedusingsimulatedsamples.ThedominantSMbackgroundintheSRs
+comesfrom𝑊→𝜏𝜈    productioninassociationwithjets.Subdominantcontributionsarisefromtop-quark
+
+
+
+                                                           8
+
+=== PDF PAGE 9 ===
+decaysproducing𝜏-leptons(𝑡¯𝑡→𝜏𝜈𝑏𝜏𝜈𝑏   and𝑊𝑡→𝜏𝜈𝜏𝜈𝑏  ),incaseswhere𝜏-leptonsand 𝑏-quarksare
+misreconstructedaslight-flavourjets.Thenormalisationsof𝑊+jetsandtop-quarksamplesareconstrained
+bythedatainhigh-puritycontrolregions(CRs),wheresingle-leptontriggersareusedinsteadofthe 𝐸missT
+trigger. Eventswithajetmisidentifiedasa𝜏had,mostly 𝑍→𝜈𝜈   eventswithlarge 𝐸missT ,makeminor
+contributionsinthisanalysis,andarealsoestimatedfromsimulationwithaconservativeuncertainty
+obtainedfromdata-drivenstudieswith 𝑍→ℓℓ   events.Multijetbackgroundisfoundtobenegligibleafter
+thepreselection.OtherSMbackgrounds,includingdibosonand 𝑍→𝜏𝜏   contributions,aswellasminor
+contributionsfrom𝑊→ℓ𝜈and𝑍→ℓℓprocesses,arealsoestimatedbysimulation.
+The 𝑊+jetsbackgroundnormalisationisconstrainedusingtwocontrolregions,CRW-ResandCRW-
+NonRes,constructedusingthesameeventselectionsasintheresonantandnon-resonantSR0bregions,
+respectively,exceptthatanelectronormuonisrequiredinsteadofa 𝜏had. Theyachieveapurityof
+approximately70%in𝑊→ℓ𝜈    events.Electrons(muons)intheCRWregionsmustsatisfythe‘TightLH’
+(‘Medium’)identificationand‘HighPtCaloOnly’(‘Tight_VarRad’)isolationcriteria[70,72].Eventswith
+𝑏-jetsarevetoedtosuppresstop-quarkcontributions.Allotherselectioncriteriaarekeptthesameasinthe
+correspondingSR0bregions,exceptthat𝜏had-relatedkinematicvariablesarecomputedusingtheelectron
+ormuoninsteadofthe𝜏   had.
+Thetop-quarkbackgroundnormalisationisconstrainedusingtwocontrolregions,CRTop-ResandCRTop-
+NonRes,definedbyrequiringone𝜏hadandoneadditionalelectronormuon.Toincreasetheeventyield
+intheseregions,severalkinematicrequirementsareloosenedwithrespecttotheSRselections: 𝑁𝑏 ≥1 ,
+𝑝𝜏hadT    >100GeV    , 𝐸missT    >100GeV    ,𝑚T >100GeV    ,andnorestrictionon𝑚𝑏𝜏had.Amongmultiple 𝑏-jets,
+theonewiththehighest 𝑝Tisselectedandusedasaproxyforthe 𝑏-jetinthe SR1bregions,andis
+employedinthereconstructionofkinematicvariablessuchas𝑚𝑏𝜏had.Allotherselectioncriteriaarekept
+thesameasintheSR1bregions.Apurityofapproximately90%intop-quarkeventsisachieved.
+ThebackgroundnormalisationestimatedintheCRsistestedindedicatedvalidationregions(VRs),
+designedtovalidatetheextrapolationfromtheCRstotheSRs.Theseincluderegionswithmodified𝑏-jet
+multiplicityorlight-leptonrequirements,whilehavingkinematicselectionssimilartothoseintheSRs.Two
+typesofVRsaredefined,foreachoftheresonanceandnon-resonancecases,amountingtofourVRsintotal.
+TheVRsarelabelledasVRWandVRTop,characterisedbytherequirements(𝑁 𝜏had,𝑁ℓ,𝑁𝑏)=(0,1,1)
+and(1,0,2)    ,respectively.TheVRWregionsareusedtotesttheextrapolationofthebackgroundestimation
+fromtheCRswitha 𝑏-jetvetototheSRsrequiringa 𝑏-jet.Inthe VRWregions,similarlytothe CRW
+ones,thekinematicvariablesusedintheeventselectionarecomputedwithanelectronoramuon,instead
+ofa𝜏had.TheVRTopregionsprobethevalidityofthe𝑡¯𝑡backgroundnormalisationsobtainedinCRsusing
+a𝜏hadandanelectronormuon,bytestingtheminregionswitha𝜏hadandnolightlepton.Inthe VRTop
+regions,thehighest-𝑝T 𝑏-jetisusedasaproxyofthe 𝑏-jetintheSRs.Aswiththe CRTopregions,looser
+selectioncutsfor𝑁   𝑏,𝑝 𝜏hadT ,𝐸missT ,𝑚Tand𝑚      𝑏𝜏hadarerequired.
+
+8 Systematicuncertainties
+
+Experimentalandmodellingsystematicuncertaintiesareincludedasnormalisationandshapevariationsin
+thefitandaresmallerthanthestatisticaluncertaintyfromthelimitedSReventyields.
+Theuncertaintyinthecombined2015–2018integratedluminosityis0.83%[78],obtainedusingthe
+LUCID-2detector[79]fortheprimaryluminositymeasurements,complementedbymeasurementsusing
+theinnerdetectorandcalorimeters.
+
+
+
+
+                                                       9
+
+=== PDF PAGE 10 ===
+The𝜏-leptonenergyscaleanditsuncertaintiesaremeasuredinsituusing 𝑍→𝜏𝜏   events,combinedwith
+testbeamandMCsimulationcomparisoninthehigh-𝑝Tregion[68,80,81]. Thecorrectionapplied
+tothesimulated 𝜏energyscaleistypicallybelow1%ofthereconstructed 𝜏hadenergy.Theassociated
+uncertaintyintheabsolute𝜏energyscaleissmallerthan1.5%.Theefficienciesof𝜏-leptonreconstruction
+andidentificationinthesimulationsamplesarecorrectedtoagreewithdata,dependingon𝑝T,using𝑡¯𝑡
+events.Thecentralvalueofthecorrectionfactorisclosetounityinall 𝑝Tranges,withuncertaintiesof
+5%–8%(6%–11%)for1-prong(3-prong)𝜏hadatthe‘Tight’identificationworkingpoint.Theuncertainties
+intheelectronandmuonreconstructionandidentificationefficienciesandtheirenergyandmomentum
+scalesandresolutionsareconsidered,andtheyaresignificantlysmallerthanthoseaffecting𝜏-leptons.
+Thejetenergyscaleandresolutionand𝐸missT  soft-termuncertaintiesareestimatedusinginsitumethods[76,
+82].Theefficiencyof    𝑏-jetidentificationinthesimulationiscorrectedtomatchthatmeasuredin𝑡¯𝑡data
+events,anduncertaintiesinthecorrectionfactorareestimated[83–85].ForsignalsamplesusingAtlFast3
+detectorsimulation,anadditionaluncertaintytakingintoaccounthowitdiffersfromthefullGeant4
+simulationisconsidered,anditsimpactonthesignalyieldisaround1%.
+Uncertaintiesinthetheoreticalmodellingofsimulatedeventsarealsoconsidered.Forsimulated𝑊+jets
+events,variationsoftherenormalisationandfactorisationscales,byfactorsof2and1/2 ,andthePDFs
+areconsidered[86].Additionally,approximateNLOelectroweakcorrectionsareappliedtothenominal
+𝑊+jetssamples,andthecorrespondingeffectistakenasanadditionalsystematicuncertainty.Sincethe
+normalisationof𝑊→𝜏𝜈    eventsisestimatedintheCRWregionswitha𝑏-jetvetoandappliedtoSRswith
+a 𝑏-jet,a30%uncertaintyisassignedinthoseregionstotheratioof𝑊-bosonproductioninassociation
+withheavy-flavourhadrons(𝑊+HF)tothatwithlight-flavourhadrons(𝑊+LF),accordingtoprevious
+ATLASstudies[87–90].
+Forsimulatedtop-quarkevents,variationsoftheMEcalculation,renormalisationandfactorisationscales,
+andPDFsareconsidered,similarlytothe𝑊+jetssamples,alongwithvariationsrelatedtoinitial-and
+final-stateradiationandtheℎdampparameter[91].Thedifferenceinthetop-quark     𝑝Tdistribution’sshape
+betweenthenominalNLOpredictionandtheNNLOprediction[92]isalsoconsideredasanadditional
+uncertainty.Uncertaintiesintheinterferencebetween𝑡¯𝑡andsingle-𝑡eventsareestimatedbycomparing
+simulationsusingthediagramremovalanddiagramsubtractionschemes[93].
+Thebackgroundcontainingajetmisidentifiedasa𝜏hadisaminorcontributionintheSRsandismainly
+dueto 𝑍→𝜈𝜈   production.Themodellingoftheprobabilityofmisidentifyingajetasa𝜏hadinsimulated
+eventsischeckedinacontrolsamplerequiring 𝑍→ℓℓ   decays,togetherwitha𝜏hadcandidate,providinga
+samplewithmorethan90%purityineventscontaining 𝑍bosonandajetmisidentifiedas𝜏hadcandidate.
+Thekinematicdistributionsaregenerallywellmodelledbythesimulation,whileupto60%differencesare
+observedintheoveralleventyieldbetweendataandsimulation.Thesedifferencesincludeeffectsfrom
+boththemodellingof 𝑍+jetsandtheprobabilityforjetstobemisidentifiedas𝜏hadcandidates,withthe
+latterexpectedtodominate.Sincethisbackgroundcontributesonlyasmallfractionofthetotalbackground
+intheSRs,aconservative100%uncertaintyisassignedtothenormalisationofthosesimulatedevents.
+Forthesignalsamples,variationsoftherenormalisationandfactorisationscalesandPDFaretakeninto
+account.
+
+
+
+
+
+
+
+
+
+
+                                                       10
+
+=== PDF PAGE 11 ===
+9 Results
+
+TheTRExFitterframework[94]isusedtoperformthestatisticalanalysis.Twofitconfigurationsare
+employed:oneisthe‘background-only’fitandtheotheristhe‘signal-plus-background(s+b)’fit. A
+templatemaximum-likelihoodfit[95]isperformedusingtheobservedeventyieldsineachregion.Forthe
+background-onlyfit,thefoursingle-binCRsareincludedinthefittoconstrainthenormalisationsof𝑊+jets
+andtop-quarksamples,withafixedsignalstrengthof𝜇=0  .Separatebackgroundnormalisationfactors
+areintroducedfortheresonanceandnon-resonanceregions,resultinginfourindependentnormalisation
+factors:twofor𝑊+jets(𝜆Res𝑊 and𝜆NonRes𝑊   )andtwoforthetop-quarkbackground(𝜆Res𝑡  and𝜆NonRes𝑡    ).The
+top-quarknormalisationfactorsareappliedsimultaneouslytoboththe 𝑡¯𝑡andsingle-𝑡samples.Thefit
+resultsareappliedtoSRsandVRstocomparetheobserveddatawiththeSMexpectation.Forthes+b
+fit,ontheotherhand,afitisperformedinthefourCRandfourSReventcategoriessimultaneouslyto
+constrainthebackgroundnormalisationanddeterminethesignalstrength 𝜇. Thecontributiondueto
+interferencebetweenthesignalandSMprocessesisscaledbyafactorof√𝜇.IntheSRswitha 𝑏-jet
+veto(SR0b-Resand SR0b-NonRes),theexpectedcontributionfromdestructiveinterferencefor 𝜇=1
+amountstoapproximately20%ofthepurelyBSMyieldat𝑚U1 =1.5TeV   ,increasingtoabout30%–40%
+athighermasses. TheimpactofinterferenceonthesignalyieldisnegligiblysmallintheSRswitha
+𝑏-jet(SR1b-Resand SR1b-NonRes). Itisverifiedthat,fortherangeofcouplingvaluesconsideredin
+thisanalysis,thetotalBSMsignalplusinterferenceyieldremainspositiveinallcases.Thesensitivityis
+drivenbytheSR1bregions.However,forlargervaluesof 𝛽23L asizablepartofthesignalpopulatesregions
+withoutareconstructed𝑏-jetandtheSR0bregionsaresensitivetosuch𝑈                 1signals.
+Forbothfitconfigurations,systematicuncertaintiesareconsideredasnuisanceparametersinthefit,with
+Gaussian,log-normalorPoissonconstraints.Statisticaluncertaintiesineachbinduetothelimitedsizeof
+thesimulatedbackgroundsamplesaretakenintoaccountbydedicatedparametersusingtheBeeston–Barlow
+‘lite’(oneparameterperbin)technique[96].
+Thebackground-onlyfitresultisshowninFigure2.Figure3showsthekinematicdistributionsin                     CRW
+andVRWregionsafterthebackground-onlyfit.Thebest-fitnormalisationfactorsare𝜆Res𝑊  =1.21±0.11       ,
+𝜆NonRes𝑊       =0.89±0.08       ,𝜆Res𝑡    =0.76±0.16        and𝜆NonRes𝑡        =0.81±0.16       .Agreementbetweendataandthe
+post-fitbackgroundpredictionsinallVRsisfoundtobesatisfactory. Inthe VRW-NonResregion,a
+deviationofabout2𝜎fromtheSMexpectationisobserved.Noindicationsofspecificdetectormalfunctions
+arefoundafteraverificationoftheeventsinthisregion.Thebackgroundmodellinginthisregionisfurther
+validatedbycheckingthelevelofagreementbetweendataandpredictioninregionsoflowerandhigher
+𝐸missT  usingthesameeventselection,andnoevidenceofsignificantmismodellingordeficienciesisfound.
+Giventhesizeofthedeviation,theobservationisconsistentwithastatisticalfluctuation.
+Inthe SR0b-Resand SR0b-NonResregions,33and45eventsareobserved,withexpectedbackgroundsof
+36.4±7.3      and38.3±9.9      events,respectively.IntheSR1b-ResandSR1b-NonResregions,3and2events
+areobserved,comparedtobackgroundexpectationsof 2.69±0.83      and 1.88±0.71      events,respectively.
+Figure4showsthekinematicdistributionsineachSRafterthebackground-onlyfit.Overall,theobserved
+dataareingoodagreementwiththeSMprediction.
+Theimpactofeachsystematicuncertaintyontheanalysissensitivityisevaluatedwithrespecttothe
+best-fitvalueofthesignalstrength𝜇.Thisevaluationisperformedusingadatasetfrompseudo-datasets
+constructedfromthepost-fitbackgroundexpectationwithaninjectedsignalcorrespondingto𝜇=1  ,and
+theimpactisassessedonthefittedvalueof𝜇.Usingtheresultsofthes+bfit,performedwiththedataset
+frompseudo-experimentsintheSRsandtheobserveddataintheCRs,theimpactofagivennuisance
+
+
+
+
+                                                        11
+
+=== PDF PAGE 12 ===
+Figure2:ComparisonofthedataandpredictedbackgroundeventyieldsforfourCRs,fourVRsandfourSRsin
+theupperpanel.Thebackgroundpredictionisshownaftera‘background-onlyfit’intheCRs(extrapolatedtothe
+VRsandSRs).Thesignalexpectationforsignalstrength 𝜇=1  isshownforillustrativepurposesattheparameter =(1.5TeV,1.5,0.6)            and (3.0TeV,2.5,1.0)           withareddashedlineandavioletdashedline,
+points 𝑚U1,𝑔𝑈,𝛽23L
+respectively.Theratioofthedatatothebackground(‘Bkg.’)predictionisshowninthelowerpanel,separatelyfor
+post-fitbackground(blackpoints)andpre-fitbackground(dashedblueline).Thesizeofthecombinedstatisticaland
+systematicuncertaintyinthebackgroundpredictionisindicatedbyabluehatchedband.
+
+
+parameterisdeterminedfromthecovariancematrix,assumingalinearpropagationofuncertaintiesaround
+thebest-fitpoint.Foreachnuisanceparameter,itscontributiontotheuncertaintyinthesignalstrengthis
+estimatedastheproductofitspost-fituncertainty,thetotalpost-fituncertaintyin𝜇,andthecorrelation
+coefficientbetweenthenuisanceparameterandthesignalstrength.Thedominantsourceofsystematic
+uncertaintyisthe𝜏-leptonenergyscale,anditsimpacton 𝜇isaround10%.Theuncertaintyintheratioof
+𝑊+HFto𝑊+LFisthesubdominantsourceofsystematicuncertainty,whoseimpactdependson𝑚U1,but
+typicallyamountstoabout5%–10%.
+Anupperlimitonthesignalstrength 𝜇iscalculatedwiththeCLsmethod[97],wherethedistributions
+oftheteststatisticareevaluatedusingpseudo-experiments,atpredefinedpointsinthe(𝑚 U1,𝑔𝑈,𝛽23L )
+parameterspace.Figures5and6showtheobservedandexpectedexclusioncontoursat95%confidence
+level(CL)inthepurelyleft-handedscenario(|𝛽 33L |=1,|𝛽         33R |=0 ).Figure5presentsthelimitson          𝑔𝑈asa
+functionof𝑚U1atfixedvaluesof𝛽23L,whileFigure6showsthelimitson          𝛽23L asafunctionof𝑔𝑈foreach
+𝑚U1point.Theobserved(expected)upperlimitson 𝑔𝑈are1.13(1.11)at 𝛽23L  =1.0   and0.52(0.53)at
+𝛽23L  =2.2   foraleptoquarkmassof1.5TeV,and2.30(2.19)at 𝛽23L  =1.0   and1.22(1.18)at 𝛽23L  =2.2   fora
+leptoquarkmassof2.5TeV.Theshadedareasindicatetheparameterregionconsistentwiththe 𝑅(𝐷    (∗))
+anomalies[35]. InRef.[35],           𝛽23L isconstrainedtobewithintheinterval [0.06,0.16]        withthegeneral
+UV-completionassumption,butinthisLetter,itismappedtoahigher 𝛽23L regionusingEq.(1).These
+limitsarecomplementarytothosefromLQpair-productionsearches[22,24],whicharelargelyinsensitive
+to𝑔𝑈atleadingorderandthereforeprovidethestrongestconstraintsatlowmasses,whereasthepresent
+𝜏𝜈(+𝑏)   analysisprobesthehigh-𝛽23L regionthroughsingle-productionandnon-resonantcontributions.
+Aprevious𝜏𝜏analysis[22],whichassumed      𝛽23L  ∼ O(0.1)   ,excludedvaluesofapproximately𝑔𝑈 >2.1  ,
+
+
+
+                                                          12
+
+=== PDF PAGE 13 ===
+                                (a)                                                    (b)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                (c)                                                    (d)
+
+Figure3:Thepost-fitdistributionsof(a)   𝑚𝑗ℓinCRW-Res,(b) 𝐸missT  inCRW-NonRes,(c)𝑚𝑏ℓinVRW-Resand(d)
+𝐸missT  inVRW-NonRes.Theoverflowentriesareaddedtotherightmostbin.Thebackground-onlyfitresultisused
+forthebackgroundprediction.Thedistributionsareshownpriortoimposingtheselectionrequirementoneach
+variable,whichisindicatedbyaright-pointingredarrow.Bottompanelsshowtheratiooftheobserveddatatothe
+background(‘Bkg.’)prediction.Blueupwardtrianglesindicateratiovaluesexceedingthedisplayedy-axisrange.
+Thesizeofthecombinedstatisticalandsystematicuncertaintyinthebackgroundpredictionisindicatedbyablue
+hatchedband.
+
+
+
+
+
+
+
+
+
+
+
+
+                                                           13
+
+=== PDF PAGE 14 ===
+                                 (a)                                                      (b)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 (c)                                                      (d)
+
+Figure4:Thepost-fitdistributionsof(a)   𝑚𝑗𝜏hadin SR0b-Res,(b)𝑚Tin SR0b-NonRes,(c)𝑚𝑏𝜏hadin SR1b-Res,and
+(d)𝑚TinSR1b-NonRes.Theoverflowentriesareaddedtotherightmostbin.Thebackground-onlyfitresultisused =(1.5TeV,1.5,0.6)
+forthebackgroundprediction.Thesignalexpectationattheparameterpoints 𝑚U1,𝑔𝑈,𝛽23L
+and(3.0TeV,2.5,1.0)           isalsoshownwithareddashedlineandavioletdashedline,respectively.Thedistributions
+areshownpriortoimposingtheselectionrequirementoneachvariable,whichisindicatedbyaright-pointingred
+arrow. Bottompanelsshowtheratiooftheobserveddatatothebackground(‘Bkg.’) prediction. Blueupward
+trianglesindicateratiovaluesexceedingthedisplayedy-axisrange.Thesizeofthecombinedstatisticalandsystematic
+uncertaintyinthebackgroundpredictionisindicatedbyabluehatchedband.
+
+
+
+
+
+
+
+
+
+
+
+
+                                                              14
+
+=== PDF PAGE 15 ===
+2.8 ,and 3.5  at 𝑚U1 =1.5TeV   , 2.0TeV   and 2.5TeV  ,respectively.Incontrast,thisanalysisextendsthe
+sensitivitytoacomplementaryregionoftheparameterspace,characterisedbylowervaluesof 𝑔𝑈and
+highervaluesof𝛽    23L.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                             (a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 (b)                                                      (c)
+
+Figure5:Observed(redfullline)andexpected(blackdashedline)95%CLupperlimitson    𝑔𝑈asafunctionof
+𝑚U1,at(a)𝛽      23L  =0.2,(b)1.0and(c)2.2.Theshadedregionsarefavouredby𝐵anomaliesatthe1𝜎and2𝜎levels,
+convertedfrom𝐶        𝑐LLlimitinRef.[35]usingEq.(1).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                             15
+
+=== PDF PAGE 16 ===
+                                  (a)                                                        (b)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  (c)                                                        (d)
+
+Figure6:Observed(redfullline)andexpected(blackdashedline)95%CLupperlimitson   𝛽23L asafunctionof𝑔𝑈at
+(a)𝑚U1 =1.5TeV   ,(b)2TeV,(c)2.5TeVand(d)3.0TeV.Theshadedregionsarefavouredby 𝐵anomaliesatthe
+1𝜎and2𝜎levels,convertedfrom𝐶                   𝑐LLlimitinRef.[35]usingEq.(1).
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                               16
+
+=== PDF PAGE 17 ===
+10 Conclusion
+
+ThisLetterpresentsthefirstATLASsearchtargetinghigh-mass𝑈1leptoquarksignalsinthe 𝜏𝜈(+𝑏)
+finalstatewithahadronicallydecaying𝜏-leptonandmissingtransversemomentum. Thesearchuses
+140fb−1 ofdatafrom13TeVproton–protoncollisionsattheLHC.Theanalysisisdesignedtoprobeboth
+resonantproductionandnon-resonant 𝑡-channelexchangeoftheleptoquark,coveringawiderangeof
+couplingscenarios.NosignificantexcessisobservedovertheSMbackground.Upperlimitsonthe𝑈1
+vector-leptoquarkcouplingsaresetat95%CLformassesbetween1.5TeVand3.0TeV.Theresultsprobe
+partoftheparameterspaceathigh𝛽         23L values,whichisnotcoveredbytheprevious𝜏𝜏searches.
+
+Acknowledgements
+
+WethankCERNfortheverysuccessfuloperationoftheLHCanditsinjectors,aswellasthesupportstaff
+atCERNandatourinstitutionsworldwidewithoutwhomATLAScouldnotbeoperatedefficiently.
+ThecrucialcomputingsupportfromallWLCGpartnersisacknowledgedgratefully,inparticularfrom
+CERN,theATLASTier-1facilitiesatTRIUMF/SFU(Canada),NDGF(Denmark,Norway,Sweden),
+CC-IN2P3(France),KIT/GridKA(Germany),INFN-CNAF(Italy),NL-T1(Netherlands),PIC(Spain),
+RAL(UK)andBNL(USA),theTier-2facilitiesworldwideandlargenon-WLCGresourceproviders.
+MajorcontributorsofcomputingresourcesarelistedinRef.[98].
+WegratefullyacknowledgethesupportofANPCyT,Argentina;YerPhI,Armenia;ARC,Australia;BMWFW
+andFWF,Austria;ANAS,Azerbaijan;CNPqandFAPESP,Brazil;NSERC,NRCandCFI,Canada;CERN;
+ANID,Chile;CAS,MOSTandNSFC,China;Minciencias,Colombia;MEYSCR,CzechRepublic;DNRF
+andDNSRC,Denmark;IN2P3-CNRSandCEA-DRF/IRFU,France;SRNSFG,Georgia;BMFTR,HGF
+andMPG,Germany;GSRI,Greece;RGCandHongKongSAR,China;ICHEPandAcademyofSciences
+andHumanities,Israel;INFN,Italy;MEXTandJSPS,Japan;CNRST,Morocco;NWO,Netherlands;
+RCN,Norway;MNiSW,Poland;FCT,Portugal;MNE/IFA,Romania;MSTDI,Serbia;MSSR,Slovakia;
+ARISandMVZI,Slovenia;DSI/NRF,SouthAfrica;MICIU/AEI,Spain;SRCandWallenbergFoundation,
+Sweden;SERI,SNSFandCantonsofBernandGeneva,Switzerland;NSTC,Taipei;TENMAK,Türkiye;
+STFC/UKRI,UnitedKingdom;DOEandNSF,UnitedStatesofAmerica.
+IndividualgroupsandmembershavereceivedsupportfromBCKDF,CANARIE,CRCandDRAC,
+Canada;CERN-CZ,FORTEandPRIMUS,CzechRepublic;COST,ERC,ERDF,Horizon2020andMarie
+Skłodowska-CurieActions,EuropeanUnion;Investissementsd’AvenirLabex,Investissementsd’Avenir
+IdexandANR,France;DFGandAvHFoundation,Germany;Herakleitos,ThalesandAristeiaprogrammes
+co-financedbyEU-ESFandtheGreekNSRF,Greece;BSF-NSFandMINERVA,Israel;NCNandNAWA,
+Poland;LaCaixaBankingFoundation,CERCAandAGAURprogramsfromGeneralitatdeCatalunyaand
+PROMETEOandGenTProgrammesGeneralitatValenciana,Spain;GöranGustafssonsStiftelse,Sweden;
+TheRoyalSocietyandLeverhulmeTrust,UnitedKingdom;EricandWendySchmidtFundforStrategic
+Innovation,UnitedStatesofAmerica.
+Inaddition,individualmemberswishtoacknowledgesupportfromChile:AgenciaNacionaldeInvest-
+igaciónyDesarrollo(ANIDFONDECYTreg.1230987,FONDECYT1230812,FONDECYT1240864,
+Fondecyt3240661,FondecytRegular1240721);China:ChineseMinistryofScienceandTechnology
+(MOST-2023YFA1605700,MOST-2023YFA1609300),NationalNaturalScienceFoundationofChina
+(NSFC12275265,NSFC-W2543005);CzechRepublic:CzechScienceFoundation(GACR-24-11373S),
+
+
+
+                                                  17
+
+=== PDF PAGE 18 ===
+MinistryofEducationYouthandSports(ERC-CZ-LL2327,FORTECZ.02.01.01/00/22_008/0004632),
+PRIMUSResearchProgramme(PRIMUS/21/SCI/017);EU:H2020EuropeanResearchCouncil(ERC-
+101002463);EuropeanUnion:EuropeanResearchCouncil(BARDNo.101116429,ERC-101219398,
+ERC-948254,ERC101089007),EuropeanRegionalDevelopmentFund(HECOFUNDGANo.101081355,
+ERDF),MarieSklodowska-CurieActions(GAP-101168829);France:AgenceNationaledelaRecherche
+(ANR-21-CE31-0013,ANR-22-EDIR-0002,ANR-24-CE31-0504-01);Germany:DeutscheForschungs-
+gemeinschaft(DFG-469666862);China: ResearchGrantsCouncil(GRF);Italy: IstitutoNazionale
+diFisicaNucleare(LHC-MIUR-28003/2025),Ministerodell’UniversitàedellaRicerca(NextGenEU
+153D23001490006M4C2.1.1,NextGenEUI53D23000820006M4C2.1.1,NextGenEUI53D23001490006
+M4C2.1.1,SOE2024_0000023);Japan:JapanSocietyforthePromotionofScience(JSPSKAKENHI
+JP25H0063,JSPSKAKENHIJP22H01227,JSPSKAKENHIJP22H04944,JSPSKAKENHIJP22KK0227,
+JSPSKAKENHIJP24K23939,JSPSKAKENHIJP24KK0251,JSPSKAKENHIJP25H00650,JSPS
+KAKENHIJP25H01291,JSPSKAKENHIJP25K01011,JSPSKAKENHIJP25K01023);Poland:Pol-
+ishNationalScienceCentre(NCN2021/42/E/ST2/00350,NCNOPUS2023/51/B/ST2/02507,NCN
+OPUSnr2022/47/B/ST2/03059,NCNUMO-2019/34/E/ST2/00393,UMO-2022/47/O/ST2/00148,UMO-
+2023/49/B/ST2/04085,UMO-2023/51/B/ST2/00920,UMO-2024/53/N/ST2/00869);Spain:Agènciade
+Gestiód’AjutsUniversitarisideRecerca.(AGAUR-2023BP00141),MinistryofScienceandInnovation
+(RYC2019-028510-I,RYC2020-030254-I,RYC2021-031273-I,RYC2022-038164-I),MinisteriodeCiencia,
+InnovaciónyUniversidades/AgenciaEstataldeInvestigación(EUNextGenerationEU(PRTR-C17.I1),
+PID2022-142604OB-C22);Sweden:CarlTryggerFoundation(CarlTryggerFoundationCTS22:2312),
+SwedishResearchCouncil(SwedishResearchCouncil2023-04654,VR2021-03651,VR2022-03845,VR
+2022-04683,VR2023-03403,VR2024-05451,VR2025-05940),KnutandAliceWallenbergFoundation
+(KAW2023.0366);Switzerland:SwissNationalScienceFoundation(SNSF-PCEFP2_194658);United
+Kingdom:TheBinksTrust,RoyalSociety(NIF-R1-231091);UnitedStatesofAmerica:U.S.Department
+ofEnergy(ECADE-AC02-76SF00515),JohnTempletonFoundation(JohnTempletonFoundation63206),
+NeubauerFamilyFoundation.
+
+References
+
+ [1]BABARCollaboration,EvidenceforanExcessof                             ¯𝐵→𝐷       (∗)𝜏−¯𝜈 𝜏Decays,
+       Phys.Rev.Lett.109(2012)101802,arXiv:1205.5442[hep-ex].
+ [2]BABARCollaboration,
+       Measurementofanexcessof  ¯𝐵→𝐷       (∗)𝜏−¯𝜈 𝜏decaysandimplicationsforchargedHiggsbosons,
+       Phys.Rev.D88(2013)072012,arXiv:1303.0571[hep-ex].
+ [3]BelleCollaboration,Measurementofthebranchingratioof                             ¯𝐵→𝐷       (∗)𝜏−¯𝜈 𝜏relativeto
+       ¯𝐵→𝐷       (∗)ℓ−¯𝜈 ℓdecayswithhadronictaggingatBelle,Phys.Rev.D92(2015)072014,
+       arXiv:1507.03233[hep-ex].
+ [4]BelleCollaboration,
+       Measurementofthe𝜏leptonPolarizationand𝑅(𝐷                 ∗)intheDecay   ¯𝐵→𝐷       ∗𝜏−¯𝜈 𝜏,
+       Phys.Rev.Lett.118(2017)211801,arXiv:1612.00529[hep-ex].
+ [5]BelleCollaboration,Measurementofthe𝜏leptonpolarizationand𝑅(𝐷                                                ∗)inthedecay
+       ¯𝐵→𝐷       ∗𝜏−¯𝜈 𝜏withone-pronghadronic𝜏decaysatBelle,Phys.Rev.D97(2018)012004,
+       arXiv:1709.00129[hep-ex].
+
+
+
+
+
+                                                     18
+
+=== PDF PAGE 19 ===
+ [6]BelleCollaboration,MeasurementofR(𝐷)andR(𝐷                                                ∗)withaSemileptonicTaggingMethod,
+       Phys.Rev.Lett.124(2020)161803,arXiv:1910.05864[hep-ex].
+ [7]BelleIICollaboration,Testofleptonflavoruniversalitywithameasurementof𝑅(𝐷                                      ∗)using
+       hadronicBtaggingattheBelleIIexperiment,Phys.Rev.D110(2024)072020,
+       arXiv:2401.02840[hep-ex].
+ [8] BelleIICollaboration,Testofleptonflavoruniversalitywithmeasurementsof                      𝑅(𝐷    +)and 𝑅(𝐷    ∗+)
+       usingsemileptonicBtaggingattheBelleIIexperiment,Phys.Rev.D112(2025)032010,
+       arXiv:2504.11220[hep-ex].
+ [9]LHCbCollaboration,
+       MeasurementoftheRatioofBranchingFractionsB(            ¯𝐵0 →𝐷    ∗+𝜏−¯𝜈 𝜏)/B( ¯𝐵0 →𝐷    ∗+𝜇−¯𝜈 𝜇),
+       Phys.Rev.Lett.115(2015)111803,[Erratum:Phys.Rev.Lett.115,159901(2015)],
+       arXiv:1506.08614[hep-ex].
+[10]LHCbCollaboration,MeasurementoftheRatiosofBranchingFractionsR(𝐷                                               ∗)andR(𝐷            0),
+       Phys.Rev.Lett.131(2023)111802,arXiv:2302.02886[hep-ex].
+[11]LHCbCollaboration,
+       Testofleptonflavoruniversalityusing𝐵           0 →𝐷    ∗−𝜏+𝜈𝜏decayswithhadronic𝜏channels,
+       Phys.Rev.D108(2023)012018,[Erratum:Phys.Rev.D109,119902(2024)],
+       arXiv:2305.01463[hep-ex].
+[12]LHCbCollaboration,
+       MeasurementoftheBranchingFractionRatios𝑅(𝐷               +)and𝑅(𝐷            ∗+)UsingMuonic𝜏Decays,
+       Phys.Rev.Lett.134(2025)061801,arXiv:2406.03387[hep-ex].
+[13]Y.Amhisetal.,Averagesofb-hadron,c-hadron,and𝜏-leptonpropertiesasof2018,
+       Eur.Phys.J.C81(2021)226,thelatestupdateisavailableathttps://hflav-
+       eos.web.cern.ch/hflav-eos/semi/ckm25/html/RDsDsstar/RDRDs.html,
+       arXiv:1909.12524[hep-ex].
+[14]J.C.PatiandA.Salam,Leptonnumberasthefourth“color”,
+       Phys.Rev.D10(1974)275,[Erratum:Phys.Rev.D11,703–703(1975)].
+[15]H.GeorgiandS.L.Glashow,UnityofAllElementary-ParticleForces,
+       Phys.Rev.Lett.32(1974)438.
+[16]W.Buchmüller,R.RücklandD.Wyler,Leptoquarksinlepton-quarkcollisions,
+       Phys.Lett.B191(1987)442,[Erratum:Phys.Lett.B448,320–320(1999)].
+[17] W.BuchmüllerandD.Wyler,ConstraintsonSU(5)-typeleptoquarks,Phys.Lett.B177(1986)377.
+[18]D.Buttazzo,A.Greljo,G.IsidoriandD.Marzocca,
+       B-physicsanomalies:aguidetocombinedexplanations,JHEP11(2017)044,
+       arXiv:1706.07808[hep-ph].
+[19]A.Angelescu,D.Bečirević,D.A.FaroughyandO.Sumensari,
+       Closingthewindowonsingleleptoquarksolutionstothe 𝐵-physicsanomalies,JHEP10(2018)183,
+       arXiv:1808.08179[hep-ph].
+[20]A.Angelescu,D.Bečirević,D.A.Faroughy,F.JaffredoandO.Sumensari,
+       SingleleptoquarksolutionstotheB-physicsanomalies,Phys.Rev.D104(2021)055017,
+       arXiv:2103.12504[hep-ph].
+
+
+
+
+
+                                                           19
+
+=== PDF PAGE 20 ===
+[21]ATLASCollaboration,√Searchforleptoquarksdecayingintotheb𝜏finalstatein𝑝𝑝collisionsat
+         𝑠=13TeVwiththeATLASdetector,JHEP10(2023)001,arXiv:2305.15962[hep-ex].
+[22]ATLASCollaboration,√Ameasurementofthehigh-mass𝜏¯𝜏productioncross-sectionat
+         𝑠=13TeVwiththeATLASdetectorandconstraintsonnewparticlesandcouplings,
+       JHEP10(2025)054,arXiv:2503.19836[hep-ex].
+[23] CMSCollaboration,Searchforsinglyandpair-producedleptoquarkscouplingtothird-generation
+       fermionsinproton–protoncollisionsat√𝑠=13TeV,Phys.Lett.B819(2021)136446,
+       arXiv:2012.04178[hep-ex].
+[24]CMSCollaboration,Searchforathird-generationleptoquarkcoupledtoa𝜏leptonanda𝑏quark
+       throughsingle,pair,andnonresonantproductioninproton–protoncollisionsat√𝑠=13TeV,
+       JHEP05(2024)311,arXiv:2308.07826[hep-ex].
+[25]CMSCollaboration,SearchesforadditionalHiggsbosonsandforvectorleptoquarksin𝜏𝜏final
+       statesinproton–protoncollisionsat√𝑠=13TeV,JHEP07(2023)073,
+       arXiv:2208.02717[hep-ex].
+[26] CMSCollaboration,Searchfornewphysicsinthe                     𝜏leptonplusmissingtransversemomentumfinal
+       stateinproton-protoncollisionsat√𝑠=13TeV,JHEP09(2023)051,
+       arXiv:2212.12604[hep-ex].
+[27]ATLASCollaboration,TheATLASExperimentattheCERNLargeHadronCollider,
+       JINST3(2008)S08003.
+[28]CMSCollaboration,TheCMSexperimentattheCERNLHC,JINST3(2008)S08004.
+[29]M.Endo,S.Iguro,T.Kitahara,M.TakeuchiandR.Watanabe,
+       Non-resonantnewphysicssearchattheLHCfortheb→c𝜏𝜈anomalies,JHEP02(2022)106,
+       arXiv:2111.04748[hep-ph].
+[30] ATLASCollaboration,TheATLASexperimentattheCERNLargeHadronCollider:adescription
+       ofthedetectorconfigurationforRun3,JINST19(2024)P05063,
+       arXiv:2305.16623[physics.ins-det].
+[31]ATLASCollaboration,PerformanceoftheATLAStriggersystemin2015,
+       Eur.Phys.J.C77(2017)317,arXiv:1611.09661[hep-ex].
+[32]ATLASCollaboration,SoftwareandcomputingforRun3oftheATLASexperimentattheLHC,
+       Eur.Phys.J.C85(2025)234,arXiv:2404.06335[hep-ex],
+       Erratum:Eur.Phys.J.C85(2025)907.
+[33]M.J.Baker,J.Fuentes-Martín,G.IsidoriandM.König,
+       High-𝑝          𝑇signaturesinvector–leptoquarkmodels,Eur.Phys.J.C79(2019)334,
+       arXiv:1901.10480[hep-ph].
+[34]C.Cornella,D.A.Faroughy,J.Fuentes-Martín,G.IsidoriandM.Neubert,
+       ReadingthefootprintsoftheB-mesonflavoranomalies,JHEP08(2021)050,
+       arXiv:2103.16558[hep-ph].
+[35]J.Aebischer,G.Isidori,M.Pesut,B.A.StefanekandF.Wilsch,
+       Confrontingthevectorleptoquarkhypothesiswithnewlow-andhigh-energydata,
+       Eur.Phys.J.C83(2023)153,arXiv:2210.13422[hep-ph].
+[36] ATLASCollaboration,ATLASdataqualityoperationsandperformancefor2015–2018data-taking,
+       JINST15(2020)P04003,arXiv:1911.04632[physics.ins-det].
+
+
+
+                                                        20
+
+=== PDF PAGE 21 ===
+[37]ATLASCollaboration,PerformanceofthemissingtransversemomentumtriggersfortheATLAS
+       detectorduringRun-2datataking,JHEP08(2020)080,arXiv:2005.09554[hep-ex].
+[38]ATLASCollaboration,PerformanceofelectronandphotontriggersinATLASduringLHCRun2,
+       Eur.Phys.J.C80(2020)47,arXiv:1909.00761[hep-ex].
+[39]ATLASCollaboration,PerformanceoftheATLASmuontriggersinRun2,
+       JINST15(2020)P09015,arXiv:2004.13447[physics.ins-det].
+[40] J.Alwalletal.,Theautomatedcomputationoftree-levelandnext-to-leadingorderdifferentialcross
+       sections,andtheirmatchingtopartonshowersimulations,JHEP07(2014)079,
+       arXiv:1405.0301[hep-ph].
+[41]NNPDFCollaboration,R.D.Balletal.,PartondistributionsfortheLHCrunII,
+       JHEP04(2015)040,arXiv:1410.8849[hep-ph].
+[42]C.Bierlichetal.,AcomprehensiveguidetothephysicsandusageofPYTHIA8.3,
+       SciPostPhys.Codebases(2022)8,arXiv:2203.11601[hep-ph].
+[43]ATLASCollaboration,ATLASPythia8tunesto7TeVdata,ATL-PHYS-PUB-2014-021,2014,
+       url:https://cds.cern.ch/record/1966419.
+[44]L.LönnbladandS.Prestel,Matchingtree-levelmatrixelementswithinterleavedshowers,
+       JHEP03(2012)019,arXiv:1109.4829[hep-ph].
+[45]E.Bothmannetal.,EventgenerationwithSherpa2.2,SciPostPhys.7(2019)034,
+       arXiv:1905.09127[hep-ph].
+[46]S.SchumannandF.Krauss,
+       ApartonshoweralgorithmbasedonCatani–Seymourdipolefactorisation,JHEP03(2008)038,
+       arXiv:0709.1027[hep-ph].
+[47]S.Höche,F.Krauss,M.SchönherrandF.Siegert,
+       AcriticalappraisalofNLO+PSmatchingmethods,JHEP09(2012)049,
+       arXiv:1111.1220[hep-ph].
+[48]S.Höche,F.Krauss,M.SchönherrandF.Siegert,
+       QCDmatrixelements+partonshowers.TheNLOcase,JHEP04(2013)027,
+       arXiv:1207.5030[hep-ph].
+[49]S.Catani,F.Krauss,B.R.WebberandR.Kuhn,QCDMatrixElements+PartonShowers,
+       JHEP11(2001)063,arXiv:hep-ph/0109231.
+[50]S.Höche,F.Krauss,S.SchumannandF.Siegert,QCDmatrixelementsandtruncatedshowers,
+       JHEP05(2009)053,arXiv:0903.1219[hep-ph].
+[51]S.Frixione,G.RidolfiandP.Nason,
+       Apositive-weightnext-to-leading-orderMonteCarloforheavyflavourhadroproduction,
+       JHEP09(2007)126,arXiv:0707.3088[hep-ph].
+[52]P.Nason,AnewmethodforcombiningNLOQCDwithshowerMonteCarloalgorithms,
+       JHEP11(2004)040,arXiv:hep-ph/0409146.
+[53]S.Frixione,P.NasonandC.Oleari,
+       MatchingNLOQCDcomputationswithpartonshowersimulations:thePOWHEGmethod,
+       JHEP11(2007)070,arXiv:0709.2092[hep-ph].
+
+
+
+
+
+                                                       21
+
+=== PDF PAGE 22 ===
+[54] S.Alioli,P.Nason,C.OleariandE.Re,AgeneralframeworkforimplementingNLOcalculationsin
+       showerMonteCarloprograms:thePOWHEGBOX,JHEP06(2010)043,
+       arXiv:1002.2581[hep-ph].
+[55]T.Sjöstrandetal.,AnintroductiontoPYTHIA8.2,Comput.Phys.Commun.191(2015)159,
+       arXiv:1410.3012[hep-ph].
+[56]D.J.Lange,TheEvtGenparticledecaysimulationpackage,
+       Nucl.Instrum.Meth.A462(2001)152.
+[57]ATLASCollaboration,TheATLASSimulationInfrastructure,Eur.Phys.J.C70(2010)823,
+       arXiv:1005.4568[physics.ins-det].
+[58]S.Agostinellietal.,Geant4–asimulationtoolkit,Nucl.Instrum.Meth.A506(2003)250.
+[59]ATLASCollaboration,AtlFast3:TheNextGenerationofFastSimulationinATLAS,
+       Comput.Softw.BigSci.6(2022)7,arXiv:2109.02551[hep-ex].
+[60] ATLASCollaboration,Emulatingtheimpactofadditionalproton–protoninteractionsintheATLAS
+       simulationbypresamplingsetsofinelasticMonteCarloevents,Comput.Softw.BigSci.6(2022)3,
+       arXiv:2102.09495[hep-ex].
+[61]K.Werner,F.-M.LiuandT.Pierog,
+       Partonladdersplittingandtherapiditydependenceoftransversemomentumspectrain
+       deuteron–goldcollisionsattheBNLRelativisticHeavyIonCollider,
+       Phys.Rev.C74(2006)044902,arXiv:hep-ph/0506232.
+[62]T.Pierog,I.Karpenko,J.M.Katzy,E.YatsenkoandK.Werner,EPOSLHC:Testofcollective
+       hadronizationwithdatameasuredattheCERNLargeHadronCollider,
+       Phys.Rev.C92(2015)034906,arXiv:1306.0121[hep-ph].
+[63]ATLASCollaboration,ThePythia8A3tunedescriptionofATLASminimumbiasandinelastic
+       measurementsincorporatingtheDonnachie–Landshoffdiffractivemodel,
+       ATL-PHYS-PUB-2016-017,2016,url:https://cds.cern.ch/record/2206965.
+[64]NNPDFCollaboration,R.D.Balletal.,PartondistributionswithLHCdata,
+       Nucl.Phys.B867(2013)244,arXiv:1207.1303[hep-ph].
+[65]M.Cacciari,G.P.SalamandG.Soyez,Theanti-𝑘                     𝑡jetclusteringalgorithm,JHEP04(2008)063,
+       arXiv:0802.1189[hep-ph].
+[66]ATLASCollaboration,
+       TopologicalcellclusteringintheATLAScalorimetersanditsperformanceinLHCRun1,
+       Eur.Phys.J.C77(2017)490,arXiv:1603.02934[hep-ex].
+[67]ATLASCollaboration,LocalHadronicCalibration,ATL-LARG-PUB-2009-001-2,2008,
+       url:https://cds.cern.ch/record/1112035.
+[68] ATLASCollaboration,Reconstruction,Identification,andCalibrationofhadronicallydecayingtau
+       leptonswiththeATLASdetectorfortheLHCRun3andreprocessedRun2data,
+       ATL-PHYS-PUB-2022-044,2022,url:https://cds.cern.ch/record/2827111.
+[69]ATLASCollaboration,ElectronreconstructionandidentificationintheATLASexperimentusing
+       the2015and2016LHCproton–protoncollisiondataat√𝑠=13TeV    ,Eur.Phys.J.C79(2019)639,
+       arXiv:1902.04655[physics.ins-det].
+
+
+
+
+
+                                                        22
+
+=== PDF PAGE 23 ===
+[70]ATLASCollaboration,ElectronandphotonperformancemeasurementswiththeATLASdetector
+       usingthe2015–2017LHCproton–protoncollisiondata,JINST14(2019)P12006,
+       arXiv:1908.00005[hep-ex].
+[71]ATLASCollaboration,MuonreconstructionandidentificationefficiencyinATLASusingthefull
+       Run2𝑝𝑝collisiondatasetat    √𝑠=13TeV,Eur.Phys.J.C81(2021)578,
+       arXiv:2012.00578[hep-ex].
+[72] ATLASCollaboration,StudiesofthemuonmomentumcalibrationandperformanceoftheATLAS
+       detectorwith𝑝𝑝collisionsat    √𝑠=13TeV,Eur.Phys.J.C83(2023)686,
+       arXiv:2212.07338[hep-ex].
+[73]ATLASCollaboration,
+       JetreconstructionandperformanceusingparticleflowwiththeATLASDetector,
+       Eur.Phys.J.C77(2017)466,arXiv:1703.10485[hep-ex].
+[74]ATLASCollaboration,TaggingandsuppressionofpileupjetswiththeATLASdetector,
+       ATLAS-CONF-2014-018,2014,url:https://cds.cern.ch/record/1700870.
+[75] ATLASCollaboration,TransformingjetflavourtaggingatATLAS,NatureCommun.17(2026)541,
+       arXiv:2505.19689[hep-ex].
+[76]ATLASCollaboration,Theperformanceofmissingtransversemomentumreconstructionandits
+       significancewiththeATLASdetectorusing140fb                −1 of√𝑠=13TeV𝑝𝑝collisions,
+       Eur.Phys.J.C85(2025)606,arXiv:2402.05858[hep-ex].
+[77] ATLASCollaboration,VertexReconstructionPerformanceoftheATLASDetectorat                   √𝑠=13TeV    ,
+       ATL-PHYS-PUB-2015-026,2015,url:https://cds.cern.ch/record/2037717.
+[78]ATLASCollaboration,
+       Luminositydeterminationin𝑝𝑝collisionsat    √𝑠=13TeVusingtheATLASdetectorattheLHC,
+       Eur.Phys.J.C83(2023)982,arXiv:2212.09379[hep-ex].
+[79] G.Avonietal.,ThenewLUCID-2detectorforluminositymeasurementandmonitoringinATLAS,
+       JINST13(2018)P07017.
+[80]ATLASCollaboration,Reconstruction,EnergyCalibration,andIdentificationofHadronically
+       DecayingTauLeptonsintheATLASExperimentforRun-2oftheLHC,ATL-PHYS-PUB-2015-045,
+       2015,url:https://cds.cern.ch/record/2064383.
+[81]ATLASCollaboration,Measurementofthetauleptonreconstructionandidentification
+       performanceintheATLASexperimentusing𝑝𝑝collisionsat         √𝑠=13TeV,
+       ATLAS-CONF-2017-029,2017,url:https://cds.cern.ch/record/2261772.
+[82]ATLASCollaboration,√Jetenergyscaleandresolutionmeasuredinproton–protoncollisionsat
+         𝑠=13TeVwiththeATLASdetector,Eur.Phys.J.C81(2021)689,
+       arXiv:2007.02645[hep-ex].
+[83] ATLASCollaboration,ATLAS                      𝑏-jetidentificationperformanceandefficiencymeasurementwith𝑡¯𝑡
+       eventsin𝑝𝑝collisionsat    √𝑠=13TeV,Eur.Phys.J.C79(2019)970,
+       arXiv:1907.05120[hep-ex].
+[84]ATLASCollaboration,Measurementofthe𝑐-jetmistaggingefficiencyin𝑡                                      ¯𝑡eventsusing𝑝𝑝
+       collisiondataat√𝑠=13TeVcollectedwiththeATLASdetector,Eur.Phys.J.C82(2022)95,
+       arXiv:2109.10627[hep-ex].
+
+
+
+
+
+                                                         23
+
+=== PDF PAGE 24 ===
+[85]ATLASCollaboration,
+       Calibrationofthelight-flavourjetmistaggingefficiencyofthe𝑏-taggingalgorithmswith𝑍+jets
+       eventsusing139fb                −1 ofATLASproton–protoncollisiondataat√𝑠=13TeV,
+       Eur.Phys.J.C83(2023)728,arXiv:2301.06319[hep-ex].
+[86]R.D.Balletal.,ThePDF4LHC21combinationofglobalPDFfitsfortheLHCRunIII,
+       J.Phys.G49(2022)080501,arXiv:2203.05506[hep-ph].
+[87]ATLASCollaboration,ATLASsimulationofbosonplusjetsprocessesinRun2,
+       ATL-PHYS-PUB-2017-006,2017,url:https://cds.cern.ch/record/2261937.
+[88]ATLASCollaboration,Modellingandcomputationalimprovementstothesimulationofsingle
+       vector-bosonplusjetprocessesfortheATLASexperiment,JHEP08(2022)089,
+       arXiv:2112.09588[hep-ex].
+[89] ATLASCollaboration,Measurementsoftheproductioncross-sectionfora                      𝑍bosoninassociation
+       with𝑏-or𝑐-jetsinproton–protoncollisionsat      √𝑠=13TeVwiththeATLASdetector,
+       Eur.Phys.J.C84(2024)984,arXiv:2403.15093[hep-ex].
+[90]ATLASCollaboration,
+       Measurementsof𝑊𝐻and𝑍𝐻productionwithHiggsbosondecaysintobottomquarksanddirect
+       constraintsonthecharmYukawacouplingin13TeV𝑝𝑝collisionswiththeATLASdetector,
+       JHEP04(2025)075,arXiv:2410.19611[hep-ex].
+[91]ATLASCollaboration,
+       Studyoftop-quarkpairmodellinganduncertaintiesusingATLASmeasurementsat√𝑠=13TeV,
+       ATL-PHYS-PUB-2020-023,2020,url:https://cds.cern.ch/record/2730443.
+[92]M.Czakonetal.,Top-pairproductionattheLHCthroughNNLOQCDandNLOEW,
+       JHEP10(2017)186,arXiv:1705.04105[hep-ph].
+[93]S.Frixione,E.Laenen,P.Motylinski,C.WhiteandB.R.Webber,
+       Single-tophadroproductioninassociationwitha𝑊boson,JHEP07(2008)029,
+       arXiv:0805.3067[hep-ph].
+[94]M.Alyetal.,TRExFitter,version1.6.0,2025,
+       url:https://doi.org/10.5281/zenodo.17790864.
+[95]G.Cowan,K.Cranmer,E.GrossandO.Vitells,
+       Asymptoticformulaeforlikelihood-basedtestsofnewphysics,Eur.Phys.J.C71(2011)1554,
+       arXiv:1007.1727[physics.data-an],Erratum:Eur.Phys.J.C73(2013)2501.
+[96]R.BarlowandC.Beeston,FittingusingfiniteMonteCarlosamples,
+       Comput.Phys.Commun.77(1993)219.
+[97]A.L.Read,Presentationofsearchresults:the𝐶𝐿                   𝑆technique,
+       J.Phys.G28(2002)2693,ed.byM.R.WhalleyandL.Lyons.
+[98]ATLASCollaboration,ATLASComputingAcknowledgements,ATL-SOFT-PUB-2026-001,2026,
+       url:https://cds.cern.ch/record/2952666.
+
+
+
+
+
+
+
+
+
+
+                                                         24
+
+=== PDF PAGE 25 ===
+TheATLASCollaboration
+
+G.Aad     102,E.Aakvaag       17,B.Abbott      121,S.Abdelhameed       83b,K.Abeling       54,N.J.Abicht     48,
+S.H.Abidi     30,M.Aboelela       44,A.Aboulhorma        36e,H.Abramowicz        154,B.S.Acharya      68a,68b,m,
+A.Ackermann       62a,C.AdamBourdarios         4,L.Adamczyk        85a,S.V.Addepalli      146,
+M.J.Addison      101,J.Adelman      117,A.Adiguzel      22c,T.Adye      135,A.A.Affolder      137,Y.Afik     39,
+M.N.Agaras      13,A.Aggarwal       100,C.Agheorghiesei       28c,A.Ahmad       83a,F.Ahmadov        38,ad,
+S.Ahuja     95,S.Ahuja     165,X.Ai      113c,G.Aielli    75a,75b,A.Aikot     165,M.AitTamlihat       36e,
+T.P.A.Åkesson      98,D.Akiyama       170,N.N.Akolkar       25,S.Aktas     168,G.L.Alberghi      24b,
+J.Albert    167,U.Alberti    20,P.Albicocco      52,S.Alderweireldt      51,Z.L.Alegria     122,M.Aleksa      37,
+I.N.Aleksandrov      38,C.Alexa      28b,T.Alexopoulos      10,F.Alfonsi     24b,M.Algren      55,
+M.Alhroob      169,B.Ali     133,H.M.J.Ali      91,v,S.Ali   32,S.W.Alibocus       92,M.Aliev      34c,
+G.Alimonti     70a,C.Allaire     65,B.M.M.Allbrooke        149,D.R.Allen      122,J.S.Allen     101,
+J.F.Allen    51,C.S.Alley     1,E.R.Almazan       137,A.Aloisio      71a,71b,F.Alonso     90,C.Alpigiani     140,
+A.AlvarezFernandez        100,M.AlvesCardoso         55,M.G.Alviggi      71a,71b,M.Aly     101,
+Y.AmaralCoutinho        81b,C.Amelung37,M.Amerl           101,T.Amezza       128,B.Amini      53,
+K.Amirie     158,A.Amirkhanov        38,D.Amperiadou        155,S.An82,C.Anastopoulos          142,
+T.Andeen     11,J.K.Anders      92,A.C.Anderson        58,A.Andreazza       70a,70b,S.Angelidakis     9,
+A.Angerami      41,A.V.Anisenkov        38,A.Annovi      73a,C.Antel     37,E.Antipov      148,
+M.Antonelli     52,F.Anulli     74a,M.Aoki      82,T.Aoki     156,M.A.Aparo        13,L.AperioBella       47,
+M.Apicella31,C.Appelt        154,A.Apyan       27,M.Arampatzi       10,S.J.ArbiolVal      86,
+C.Arcangeletti     52,A.T.H.Arce      50,M.Arcuri      43b,43a,J-F.Arguin     108,S.Argyropoulos       155,
+J.-H.Arling    47,O.Arnaez       4,H.Arnold      148,G.Artoni     74a,74b,H.Asada      111,S.Asatryan     175,
+N.A.Asbah      37,R.A.AshbyPickering         169,A.M.Aslam        95,J.Assahsah     36d,K.Assamagan        30,
+R.Astalos     29a,K.S.V.Astrand      98,S.Atashi     162,R.J.Atkin     34a,H.Atmani36f,
+P.A.Atmasiddha       129,K.Augsten      133,A.D.Auriol      40,V.A.Austrup      101,A.S.Avad       94,
+G.Avolio     37,A.Azzam       13,D.Babal      29b,H.Bachacou       136,K.Bachas      155,p,A.Bachiu     35,
+E.Bachmann       49,M.J.Backes      62a,A.Badea      39,T.M.Baer      106,M.Bahmani        19,D.Bahner      53,
+K.Bai    124,L.Baines      94,O.K.Baker      174,D.BakshiGupta         8,L.E.BalabramFilho        81b,
+V.Balakrishnan      121,R.Balasubramanian        4,P.Balek     85a,E.Ballabene     24b,24a,F.Balli    136,
+L.M.Baltes     62a,W.K.Balunas       127,I.Bamwidhi       83c,E.Banas     86,M.Bandieramonte         130,
+A.Bandyopadhyay        25,S.Bansal     25,L.Barak      154,M.Barakat      47,E.L.Barberio      105,
+D.Barberis     18b,M.Barbero      102,M.Z.Barel      116,T.Barillari     110,M-S.Barisits     37,
+T.Barklow     146,P.Baron      134,D.A.BaronMoreno         101,A.Baroncelli      61,A.J.Barr     127,
+J.D.Barr    96,F.Barreiro     99,J.BarreiroGuimarãesdaCosta           14,M.G.BarrosTeixeira        131a,
+F.Bartels    62a,R.Bartoldus      146,A.E.Barton      91,P.Bartos     29a,M.Baselga      48,S.Bashiri86,
+A.Bassalat     65,b,M.J.Basso     159a,S.Bataju     44,R.Bate     166,R.L.Bates      58,S.Batlamous99,
+M.Battaglia     137,D.Battulga     19,M.Bauce       74a,74b,L.Bauckhage      47,P.Bauer      25,L.T.Bayer     47,
+L.T.BazzanoHurrell       31,T.Beau      128,J.Y.Beaucamp       90,S.Beauceron      128,P.H.Beauchemin        161,
+P.Bechtle    25,H.P.Beck      20,o,K.Becker     169,A.J.Beddall      80,V.A.Bednyakov        38,C.P.Bee     148,
+L.J.Beemster     16,M.Begalli      81d,M.Begel      30,J.K.Behr     47,J.F.Beirer     37,F.Beisiegel     25,
+M.Belfkir     83c,G.Bella    154,L.Bellagamba       24b,A.Bellerive     35,C.D.Bellgraph       67,P.Bellos    21,
+I.Benaoumeur      21,D.Benchekroun        36a,F.Bendebba       36a,Y.Benhammou         154,
+K.C.Benkendorfer       167,L.Beresford      47,M.Beretta     52,E.BergeaasKuutmann          163,N.Berger      4,
+B.Bergmann       133,J.Beringer     18a,M.Berkat      136,G.Bernardi      5,C.Bernius     146,
+F.U.Bernlochner      25,A.BerrocalGuardia        13,T.Berry     95,P.Berta     134,A.Berti131a,
+
+
+
+
+                                                       25
+
+=== PDF PAGE 26 ===
+R.Bertrand     102,S.Bethke      110,A.Betti     74a,74b,T.F.Beumker       173,A.J.Bevan      94,L.Bezio      55,
+N.K.Bhalla     53,S.Bharthuar      110,S.Bhatta      148,P.Bhattarai     146,Z.M.Bhatti      118,K.D.Bhide      53,
+V.S.Bhopatkar      122,R.M.Bianchi       130,G.Bianco       24b,24a,O.Biebel     109,M.Biglietti     76a,P.Bijl53,
+C.S.Billingsley44,Y.Bimgdi         36f,M.Bindi      54,A.Bingham       173,A.Bingul      22b,C.Bini      74a,74b,
+G.A.Bird     33,M.Biros      134,S.Biryukov       149,T.Bisanz     48,E.Bisceglie      24b,24a,J.P.Biswal     135,
+D.Biswas      144,M.Biyabi      14,I.Bloch     47,A.Blue      58,U.Blumenschein        94,V.S.Bobrovnikov       38,
+L.Boccardo      56b,56a,M.Boehler      53,B.Boehm        168,D.Bogavac       13,L.S.Boggia      128,
+V.Boisvert     95,P.Bokan      163,T.Bold     85a,M.Bomben         5,M.Bona      94,M.Boonekamp          136,
+A.G.Borbély      58,G.Borissov       91,A.Borkar      168,D.Bortoletto      127,M.Borysova       171,
+D.Boscherini      24b,M.Bosman        13,K.Bouaouda        36a,L.Boudet      136,J.Boudreau      130,
+E.V.Bouhova-Thacker        91,D.Boumediene         40,R.Bouquet       56b,56a,A.Boveia     120,D.Boye      30,
+I.R.Boyko     38,L.Bozianu       55,J.Bracinik     21,N.Brahimi       4,G.Brandt      173,O.Brandt      33,
+B.Brau     103,R.Brener      171,L.Brenner      116,R.Brenner      163,S.Bressler      171,M.Brettell     96,
+G.Brianti    116,D.Britton      58,D.Britzger      110,I.Brock     25,R.Brock      107,H.Bronson129,
+G.Brooijmans       41,A.J.Brooks67,E.M.Brooks           159b,E.Brost     30,L.M.Brown        167,159a,
+L.E.Bruce     60,T.L.Bruckler       127,P.A.BruckmandeRenstrom            86,B.Brüers      47,A.Bruni      24b,
+G.Bruni     24b,D.Brunner       46a,46b,M.Bruschi      24b,N.Bruscino      74a,74b,T.Buanes      17,Q.Buat     140,
+D.Buchin      110,A.G.Buckley       58,J.Bucko      134,M.Buhring       49,O.Bulekov       80,B.A.Bullard      146,
+T.O.Buratovich      90,S.Burdin      92,C.D.Burgard       48,A.M.Burger       89,B.Burghgrave       8,
+O.Burlayenko      53,J.Burleson      164,J.C.Burzynski      121,V.Büscher      100,P.J.Bussey      58,O.But     25,
+J.M.Butler     26,C.M.Buttar      58,J.M.Butterworth       96,P.Butti37,W.Buttinger        135,
+C.J.BuxoVazquez        107,A.R.Buzykaev        38,S.CabreraUrbán         165,L.Cadamuro       65,H.Cai      37,
+Y.Cai    24b,112c,24a,Y.Cai    112a,M.A.Cairo129,V.M.M.Cairo            37,O.Cakir      3a,N.Calace      37,
+P.Calafiura    18a,G.Calderini      128,P.Calfayan      35,L.Calic     98,G.Callea     58,L.P.Caloba81b,
+D.Calvet     40,S.Calvet     40,R.CamachoToro          128,S.Camarda       37,D.CamareroMunoz           27,
+P.Camarri     75a,75b,C.Camincher       37,M.Campanelli        96,A.Camplani       42,V.Canale      71a,71b,
+A.C.Canbay      3a,E.Canonero       95,J.Cantero     165,F.Capocasa      27,P.Cappelli     27,M.Capua       43b,43a,
+A.Carbone      70a,70b,R.Cardarelli     75a,J.C.J.Cardenas      8,M.P.Cardiff      27,G.Carducci      43b,43a,
+T.Carli    37,G.Carlino     71a,J.I.Carlotto     13,B.T.Carlson      130,q,E.M.Carlson      167,
+L.Carminati     70a,70b,A.Carnelli     4,M.Carnesale       37,S.Caron     115,E.Carquin      138g,I.B.Carr     105,
+S.Carrá     72a,72b,G.Carratta    24b,24a,C.CarrionMartinez         165,A.M.Carroll      124,N.Cartalade      40,
+M.P.Casado      13,h,P.Casolaro     71a,71b,M.Caspar       47,F.Cassinese     90,W.R.Castiglioni       39,
+F.L.Castillo    4,V.CastilloGimenez        165,N.F.Castro      131a,131e,A.Catinaccio      37,J.R.Catmore      126,
+T.Cavaliere     4,V.Cavaliere     30,E.Celebi      80,S.Cella     30,V.Cepaitis     55,K.Cerny      123,
+A.S.Cerqueira      81a,A.Cerri     73a,ap,L.Cerrito     75a,75b,F.Cerutti    18a,B.Cervato      70a,70b,
+A.Cervelli     24b,G.Cesarini     52,S.A.Cetin      80,V.C.Chabalala       34j,P.M.Chabrillat      128,
+R.Chakkappai       65,S.Chakraborty       169,A.Chambers        60,J.Chan     18a,J.D.Chapman        33,
+E.Chapon      136,D.G.Charlton       21,C.Chauhan       132,Y.Che      112a,S.Chekanov       6,
+G.A.Chelkov       38,a,H.Chen     30,J.Chen      141a,J.Chen     145,M.Chen       59,S.Chen      87,
+S.J.Chen     112a,X.Chen      141a,X.Chen       15,ai,Z.Chen     61,C.L.Cheng       146,H.C.Cheng       63a,
+S.Cheong      146,A.Cheplakov       38,E.Cherepanova       116,E.Cheu      7,K.Cheung       64,L.Chevalier     136,
+G.Chiarelli    73a,G.Chiodini       69a,A.S.Chisholm       21,J.L.Chisholm       166,A.Chitan      28b,
+M.Chitishvili     165,M.V.Chizhov       38,r,K.Choi     11,Y.Chou      140,E.Y.S.Chow       115,G.Christou      51,
+K.L.Chu      171,M.C.Chu       63a,Z.Chubinidze       52,J.Chudoba      132,J.J.Chwastowski       86,
+D.Cieri    110,K.M.Ciesla       85a,V.Cindro      93,A.Ciocio      18a,F.Cirotto     71a,71b,Z.H.Citron     171,
+M.Citterio     70a,D.A.Ciubotaru28b,A.Clark          55,P.J.Clark     51,N.ClarkeHall       96,C.Clarry      158,
+S.E.Clawson      47,C.Clement       46a,46b,L.Clissa    24b,24a,Y.Coadou       102,M.Cobal      68a,68c,
+
+
+
+                                                        26
+
+=== PDF PAGE 27 ===
+A.Coccaro      56b,M.G.CochranBranson          140,R.F.CoelhoBarrue        131a,R.CoelhoLopesDeSa           103,
+S.Coelli    70a,M.M.Cohen        129,L.S.Colangeli     158,B.Cole      41,P.ColladoSoto       99,J.Collot    59,
+M.R.Coluccia      69a,I.Combes65,P.CondeMuiño            131a,131g,L.H.J.Condren      162,M.P.Connell      34c,
+S.H.Connell     34c,E.I.Conroy      127,M.ContrerasCossio        11,F.Conventi      71a,ak,
+A.M.Cooper-Sarkar       127,L.Corazzina      74a,74b,F.A.Corchia      24b,24a,A.CordeiroOudotChoi         140,
+L.D.Corpe      40,M.Corradi      74a,74b,F.Corriveau     104,ab,A.Cortes-Gonzalez       156,M.J.Costa     165,
+F.Costanza     4,D.Costanzo      142,J.Couthures      4,G.Cowan       95,K.Cranmer       172,L.Cremer      48,
+D.Cremonini      24b,24a,S.Crépé-Renaudin      59,F.Crescioli     128,T.Cresta    72a,72b,M.Cristinziani     144,
+M.Cristoforetti    77a,77b,T.M.Critchley     55,E.Critelli    96,A.Cueto      99,H.Cui     96,Z.Cui     7,
+B.M.Cunnett      149,W.R.Cunningham         58,E.Cuppini110,F.Curcio        165,J.R.Curran      51,
+M.J.DaCunhaSargedasDeSousa              56b,56a,J.V.DaFonsecaPinto        81b,C.DaVia       101,
+W.Dabrowski       85a,T.Dado     37,S.Dahbi      151,T.Dai    106,D.DalSanto        20,C.Dallapiccola     103,
+M.Dam      42,G.D’amen       30,V.D’Amico       109,J.R.Dandoy       35,M.D’Andrea       56b,56a,
+D.Dannheim       37,G.D’anniballe      73a,73b,M.Danninger      145,V.Dao      148,G.Darbo      56b,
+F.Dattola    47,S.D’Auria      70a,70b,A.D’Avanzo      71a,71b,T.Davidek     134,J.Davidson      169,
+I.Dawson     94,K.De      8,C.DeAlmeidaRossi          158,N.DeBiase       47,S.DeCastro       24b,24a,
+N.DeGroot       115,P.deJong      116,H.DelaTorre       117,A.DeMaria        112a,S.DeMirandaRimes          81d,
+A.DeSalvo      74a,U.DeSanctis       75a,75b,F.DeSantis      69a,69b,A.DeSanto      149,
+J.B.DeVivieDeRegie          59,K.G.DeVries       116,J.Debevc      93,D.V.Dedovich38,J.Degens          92,
+A.M.Deiana      44,J.DelPeso      99,L.Delagrange       27,F.Deliot    136,C.M.Delitzsch       48,
+M.DellaPietra      71a,71b,D.DellaVolpe      55,A.Dell’Acqua       37,L.Dell’Asta     70a,70b,M.Delmastro      4,
+C.C.Delogu      56b,56a,P.A.Delsart    59,S.Demers       174,M.Demichev        38,H.Denizli     22a,l,
+M.G.Depala      92,L.D’Eramo       40,D.Derendarz       86,L.Derin     56b,56a,F.Derue     128,P.Dervan     92,*,
+A.M.Desai      1,K.Desch      25,F.A.DiBello       73a,73b,A.DiCiaccio      75a,75b,L.DiCiaccio      4,
+D.DiCroce      37,C.DiDonato        71a,71b,A.DiGirolamo       37,G.DiGregorio        65,A.DiLuca       77a,77b,
+B.DiMicco      76a,76b,R.DiNardo       76a,76b,K.F.DiPetrillo    39,M.Diamantopoulou         35,F.A.Dias     116,
+M.A.Diaz      138a,138b,A.R.Didenko      38,M.Didenko       165,S.D.Diefenbacher       18a,E.B.Diehl      106,
+S.DíezCornell      47,C.DiezPardos       144,C.Dimitriadi      147,A.Dimitrievska      21,A.Dimri      148,
+Y.Ding61,J.Dingfelder       25,T.Dingley     127,I-M.Dinu       28b,S.J.Dittmeier     62b,F.Dittus    37,
+M.Divisek     134,B.Dixit     92,F.Djama      102,T.Djobava     152b,C.Doglioni      101,98,A.Dohnalova      29a,
+Z.Dolezal     134,K.Domijan       85a,K.M.Dona       39,M.Donadelli      81d,B.Dong      107,J.Donini     40,
+A.D’Onofrio      71a,71b,M.D’Onofrio      92,J.Dopke      135,A.Doria     71a,N.DosSantosFernandes          131a,
+I.A.DosSantosLuz        81e,P.Dougan      44,M.T.Dova       90,A.T.Doyle      58,M.P.Drescher      54,
+E.Dreyer     171,I.Drivas-koulouris     10,M.Drnevich       118,D.Du      61,T.Du39,T.A.duPree         116,
+Z.Duan112a,M.Dubau         4,F.Dubinin      38,M.Dubovsky        29a,E.Duchovni      171,G.Duckeck       109,
+P.K.Duckett96,O.A.Ducu         28b,D.Duda      51,A.Dudarev       37,M.M.Dudek        86,E.R.Duden       27,
+M.D’uffizi    101,L.Duflot     65,M.Dührssen       37,I.Duminica      28g,A.E.Dumitriu       28b,
+M.Dunford      62a,T.Duong4,A.Duperrin          102,A.F.DuqueBran        40,H.DuranYildiz        3a,
+A.Durglishvili     152b,G.I.Dyckes     18a,M.Dyndal       85a,B.S.Dziedzic      37,G.H.Eberwein       127,
+B.Eckerova     29a,J.C.Egan      96,S.Eggebrecht      54,E.EgidioPurcinoDeSouza           81e,G.Eigen      17,
+K.Einsweiler     18a,T.Ekelof     163,P.A.Ekman       98,S.ElFarkh      36b,Y.ElGhazali       61,
+H.ElJarrari     104,A.ElMoussaouy         36a,I.Elbaz    154,D.Elitez     37,M.Ellert     163,
+F.Ellinghaus     173,T.A.Elliot    95,J.Elmsheuser      30,M.Elsawy       83b,M.Elsing      37,
+D.Emeliyanov      135,Y.Enari     82,S.Epari     108,D.ErnaniMartinsNeto          86,F.Ernst37,
+M.Escalier     65,C.Escobar      165,R.EstevamDePaula         81c,E.Etzion      154,G.Evans     131a,131b,
+H.Evans     67,L.S.Evans      47,S.Ezzarqtouni      36a,F.Fabbri     24b,24a,L.Fabbri    24b,24a,G.Facini    96,
+V.Fadeyev     137,D.Fakoudis      100,S.Falciano     74a,L.F.FaldaUlhoaCoelho          27,F.Fallavollita    110,
+
+
+
+                                                       27
+
+=== PDF PAGE 28 ===
+G.Falsetti    43b,43a,J.Faltova    134,C.Fan      164,K.Y.Fan      63b,Y.Fan     14,Y.Fang      14,112c,
+M.Fanti     70a,70b,M.Faraj     68a,68c,Z.Farazpay     97,A.Farbin      8,A.Farilla     76a,K.Farman       151,
+J.N.Farr    174,M.S.Farrington       60,S.M.Farrington       135,51,F.Fassi    36e,D.Fassouliotis      9,
+L.Fayard     65,G.Fazzino      62b,P.Federic     134,P.Federicova      132,M.Feickert      172,L.Feligioni     102,
+D.E.Fellers     18a,C.Feng     113b,Y.Feng14,Z.Feng         65,B.FernandezBarbadillo          91,
+P.FernandezMartinez        66,C.FernandezRuiz         33,J.Ferrando      91,A.Ferrari     163,P.Ferrari    116,115,
+R.Ferrari    72a,D.Ferrere      55,C.Ferretti    106,M.P.Fewell       1,D.Fiacco      74a,74b,F.Fiedler    100,
+P.Fiedler    133,S.Filimonov      38,M.S.Filip      28b,s,A.Filipčič93,E.K.Filmer           159a,F.Filthaut    115,
+M.C.N.Fiolhais      131a,131c,c,L.Fiorini    165,W.C.Fisher      107,T.Fitschen      101,I.Fleck    144,
+P.Fleischmann      106,T.Flick     173,M.Flores      34d,ag,L.R.FloresCastillo      63a,M.Foll      126,
+F.M.Follega     77a,77b,N.Fomin       33,J.H.Foo     158,A.Formica       136,M.Fornasiero       149,
+A.C.Forti     101,N.Forti     24b,24a,E.Fortin    102,A.W.Fortman        18a,L.Foster     18a,L.Fountas      9,
+H.Fox     91,P.Francavilla     73a,73b,S.Francescato      60,S.Franchellucci      20,M.Franchini       24b,24a,
+S.Franchino     62a,D.Francis37,L.Franco         47,L.Franconi      47,M.Franklin       60,G.Frattari     37,
+Y.Y.Frid    154,N.Fritzsche      37,A.Froch      55,D.Froidevaux       37,J.A.Frost     135,Y.Fu     107,
+S.FuenzalidaGarrido        138g,Y.C.Fujikake      137,M.Fujimoto       148,K.Y.Fung       63a,
+E.FurtadoDeSimasFilho           81e,M.Furukawa        156,M.FusteCosta        47,P.FusteMartin       13,
+J.Fuster    165,A.Gaa      54,A.Gabrielli     24b,24a,A.Gabrielli     158,G.Gagliardi      56b,56a,
+L.G.Gagnon       18a,S.Galantzan      154,J.Gallagher      1,E.J.Gallas     127,A.L.Gallen      163,
+B.J.Gallop     135,K.K.Gan       120,Y.Gao      51,Z.Gao      112a,A.Garabaglu       140,
+F.M.GarayWalls        138a,138b,C.García     165,A.GarciaAlonso         116,A.G.GarciaCaffaro        174,
+J.E.GarcíaNavarro       165,M.A.GarciaRuiz         23b,M.Garcia-Sciveres        18a,G.L.Gardner       129,
+R.W.Gardner      39,N.Garelli     161,R.B.Garg       146,J.M.Gargan      33,C.A.Garner158,C.M.Garvey            34a,
+V.K.Gassmann161,G.Gaudio            72a,A.J.Gavin      94,J.Gavranovic      93,I.L.Gavrilenko      131a,
+C.Gay     166,G.Gaycken       124,A.Gekow120,C.Gemme             56b,M.H.Genest        59,A.D.Gentry       114,
+S.George     95,T.Geralis     45,A.A.Gerwin        121,P.Gessinger-Befurt       37,M.Ghani       169,
+K.Ghorbanian       94,A.Ghosal      144,A.Ghosh       162,A.Ghosh       7,B.Giacobbe       24b,S.Giagu      74a,74b,
+A.Giannini     61,S.M.Gibson        95,D.T.Gil     85b,B.J.Gilbert     41,D.Gillberg      35,G.Gilles     116,
+D.M.Gingrich       2,aj,M.P.Giordani      68a,68c,P.F.Giraud    136,G.Giugliarelli      68a,68c,D.Giugni     70a,
+F.Giuli    75a,75b,al,I.Gkialas   9,i,B.C.Gladwyn       127,C.Glasman        99,M.Glazewska        20,
+R.M.Gleason       162,G.Glemža       47,I.Gnesi     24b,24a,am,Y.Go     30,M.Goblirsch-Kolb        37,
+B.Gocke      48,D.Godin108,B.Gokturk          22a,S.Goldfarb      105,T.Golling      55,M.G.D.Gololo        34c,
+A.Golub      140,J.P.Gombas      107,A.Gomes        131a,131b,G.GomesDaSilva          144,
+A.J.GomezDelegido         37,R.Gonçalo       131a,A.Gongadze        152c,F.Gonnella      21,J.L.Gonski      146,
+R.Y.GonzálezAndana          51,S.GonzálezdelaHoz           165,M.V.GonzalezRodrigues          47,
+R.GonzalezSuarez        163,S.Gonzalez-Sevilla       55,L.Goossens       37,B.Gorini      37,E.Gorini      69a,69b,
+A.Gorišek     93,T.C.Gosart       129,A.T.Goshaw       50,M.I.Gostkin       38,S.Goswami       122,
+C.A.Gottardo      37,S.A.Gotz      109,M.Gouighri       36b,A.G.Goussiou        140,N.Govender       34c,
+R.P.Grabarczyk      127,I.Grabowska-Bold         85a,K.Graham       35,E.Gramstad       126,
+S.Grancagnolo       69a,69b,C.M.Grant1,P.M.Gravila         28f,F.G.Gravili     69a,69b,H.M.Gray       18a,
+M.Greco      110,M.J.Green       1,C.Grefe     25,A.S.Grefsrud       17,I.M.Gregor      47,K.T.Greif      162,
+P.Grenier    146,S.G.Grewe110,K.Grimm            32,S.Grinstein      13,x,E.Gross     171,J.Grosse-Knetter      54,
+L.H.Grossman       18b,L.Guan       106,G.Guerrieri      37,R.Guevara      126,R.Gugel      100,
+J.A.M.Guhit      106,A.Guida      19,E.Guilloton      169,S.Guindon       37,F.Guo      14,112c,J.Guo     141a,
+L.Guo     47,L.Guo      112b,u,Y.Guo      106,Y.Guo      41,A.Gupta      48,R.Gupta       130,S.Gupta      27,
+S.Gurbuz      25,S.S.Gurdasani      47,G.Gustavino       74a,74b,P.Gutierrez     121,
+L.F.GutierrezZagazeta        129,M.Gutsche       49,C.Gutschow       96,W.Guérin       89,C.Gwenlan       127,
+
+
+
+                                                        28
+
+=== PDF PAGE 29 ===
+C.B.Gwilliam      92,E.S.Haaland       126,A.Haas     118,M.Habedank        58,C.Haber      18a,
+R.J.Haberle     171,H.K.Hadavand        8,A.Haddad       40,A.Hadef      49,A.I.Hagan      91,J.J.Hahn     144,
+M.Haleem       168,J.Haley    122,G.D.Hallewell       102,J.A.Hallford     47,K.Hamano        167,
+H.Hamdaoui       163,M.Hamer       25,S.E.D.Hammoud          65,E.J.Hampshire      95,L.Han      112a,
+L.Han     61,S.Han     14,K.Hanagaki       82,M.Hance       137,D.A.Hangal       41,H.Hanif      145,
+M.D.Hank       129,J.B.Hansen      42,P.H.Hansen      42,T.Harenberg       173,S.Harkusha      175,
+M.L.Harris     103,Y.T.Harris      25,J.Harrison     13,P.F.Harrison169,M.L.E.Hart         96,
+N.M.Hartman       110,N.M.Hartmann         109,R.Z.Hasan      95,135,Y.Hasegawa       143,D.Hashimoto       111,
+F.Haslbeck     37,S.Hassan      126,R.Hauser      107,M.Haviernik       134,C.M.Hawkes        21,
+R.J.Hawkings      37,Y.Hayashi      156,D.Hayden       107,R.L.Hayes      116,C.P.Hays      127,J.M.Hays      94,
+H.S.Hayward       92,M.He      14,112c,Y.He    47,Y.He      96,N.B.Heatley      94,V.Hedberg      98,
+J.Heilman     35,S.Heim      47,T.Heim      18a,J.J.Heinrich     124,L.Heinrich     110,J.Hejbal     132,
+M.Helbig     49,A.Held      172,S.Hellesund      17,C.M.Helling       166,F.N.E.Henry      58,H.Herde      98,
+Y.HernándezJiménez         148,G.Herten     53,R.Hertenberger       109,L.Hervas      37,M.E.Hesping       100,
+N.P.Hessey     159a,J.Hessler     110,R.Hicks     129,M.Hidaoui       36b,N.Hidic     134,E.Hill     158,
+T.S.Hillersoy    17,S.J.Hillier    21,J.R.Hinds     107,F.Hinterkeuser     25,M.Hirose      125,S.Hirose     160,
+D.Hirschbuehl      173,B.Hiti    93,J.Hobbs      148,R.Hobincu       28e,N.Hod      171,A.M.Hodges       164,
+M.C.Hodgkinson        142,B.H.Hodkinson        127,A.Hoecker      37,D.D.Hofer      106,J.Hofer     165,
+J.Hofner    100,M.Holzbock        37,L.B.A.H.Hommels         33,V.Homsak       127,J.J.Hong      67,
+T.M.Hong      130,B.H.Hooberman         164,W.H.Hopkins        6,M.C.Hoppesch        164,Y.Horii     111,
+M.E.Horstmann       110,M.M.Horzela        54,S.Hou      151,M.R.Housenga        164,J.Howarth      58,
+J.Hoya    6,M.Hrabovsky        123,T.Hryn’ova      4,P.J.Hsu     64,S.-C.Hsu      140,T.Hsu     65,M.Hu      18a,
+P.Hu    63b,Q.Hu      61,S.Huang      33,X.Huang      14,112c,Y.Huang      134,Y.Huang      112b,Y.Huang      14,
+Z.Huang      65,Z.Hubacek      133,F.Huegging       25,T.B.Huffman       127,
+M.HufnagelMaranhaDeFaria            81a,C.A.Hugli      47,M.Huhtinen       37,S.K.Huiberts      17,
+R.Hulsken     104,C.E.Hultquist      18a,D.L.Humphreys        103,N.Huseynov       12,J.Huston      107,
+B.Huth     37,J.Huth     60,L.Huth      47,R.Hyneman       7,G.Iacobucci      55,G.Iakovidis      30,
+L.Iconomidou-Fayard        65,J.P.Iddon    37,P.Iengo     71a,71b,Y.Iiyama     156,T.Iizawa     156,
+Y.Ikegami     82,D.Iliadis    155,N.Ilic    158,H.Imam       36a,G.InacioGoncalves        81d,
+S.A.InfanteCabanas       138c,T.IngebretsenCarlson        46a,46b,J.M.Inglis    94,G.Introzzi     72a,72b,
+M.Iodice     76a,V.Ippolito     74a,74b,R.K.Irwin     92,M.Ishino     156,W.Islam      172,C.Issever     19,
+S.Istin   22a,ar,K.Itabashi    125,H.Ito    170,R.Iuppa      77a,77b,A.Ivina    171,F.Ivone     37,
+S.Izumiyama      111,V.Izzo     71a,P.Jacka     133,P.Jackson     1,P.R.Jacobson      50,P.Jain    47,
+K.Jakobs     53,J.Jamieson      58,W.Jang     156,S.Jankovych       116,B.K.Jashal     135,M.Javurkova       103,
+P.Jawahar     101,L.Jeanty     124,J.Jejelava    152a,ae,P.Jenni   53,f,L.Jerala    93,C.E.Jessiman      35,
+H.Jia    166,J.Jia   148,X.Jia     110,112c,C.Jiang    51,Q.Jiang     63b,S.Jiggins     47,
+M.JimenezOrtega        165,J.JimenezPena       13,S.Jin     112a,A.Jinaru     28b,O.Jinnouchi     139,
+P.Johansson     142,K.A.Johns      7,J.W.Johnson       137,F.A.Jolly    47,D.M.Jones       149,E.Jones     47,
+K.S.Jones8,P.Jones       33,R.W.L.Jones       91,T.J.Jones    92,H.L.Joos      37,R.Joshi     120,
+J.Jovicevic    16,X.Ju     18a,J.J.Junggeburth     37,T.Junkermann       62a,A.JusteRozas       13,x,
+M.K.Juzek      86,S.Kabana      138f,A.Kaczmarska        86,S.A.Kadir146,M.Kado          110,H.Kagan      120,
+M.Kagan      146,A.Kahn      129,C.Kahra      100,T.Kaji     156,E.Kajomovitz       153,N.Kakati     171,
+N.Kakoty      13,S.Kandel     8,E.Kanellaki      45,N.Kanellos      10,D.Kar      34j,*,E.Karentzos     25,
+K.Karki     8,O.Karkout      116,S.N.Karpov       38,Z.M.Karpova       38,V.Kartvelishvili     91,152b,
+E.Kasimi     155,J.Katzy     47,S.Kaur      35,R.Kavak      164,K.Kawade       143,M.P.Kawale       121,
+C.Kawamoto       87,E.F.Kay      37,S.Kazakos      107,K.Kazakova       102,J.M.Keaveney       34a,
+R.Keeler     167,G.V.Kehris      60,J.S.Keller    35,J.M.Kelly      167,J.J.Kempster     149,O.Kepka       132,
+
+
+
+                                                       29
+
+=== PDF PAGE 30 ===
+J.Kerr    159b,B.P.Kerridge     135,B.P.Kerševan       93,L.Keszeghova       29a,R.A.Khan      130,
+A.Khanov      122,M.Kholodenko        131a,T.J.Khoo      19,G.Khoriauli      168,Y.Khoulaki      36a,
+Y.A.R.Khwaira       128,D.Kim      6,D.W.Kim       18b,Y.K.Kim       39,N.Kimura      96,M.K.Kingston        54,
+F.Kirfel   25,J.Kirk     135,A.E.Kiryunin       110,S.Kita    160,O.Kivernyk       25,M.Klassen      161,
+C.Klein     35,L.Klein     168,M.H.Klein      44,S.B.Klein      55,U.Klein     92,A.Klimentov       30,
+P.Kluit   116,S.Kluth      110,E.Kneringer      78,T.M.Knight      158,A.Knue      48,M.Kobel       49,
+D.Kobylianskii     171,S.F.Koch      37,M.Kocian       146,P.Kodyš     134,D.M.Koeck        124,T.Koffas     35,
+K.Kojima      82,O.Kolay      49,I.Koletsou     4,T.Komarek       86,S.Kondo      156,K.Köneke       54,
+A.X.Y.Kong      1,T.Kono      119,N.Konstantinidis      96,P.Kontaxakis      55,B.Konya      98,
+R.Kopeliansky      41,S.Koperny      85a,R.Koppenhofer        53,K.Korcyl     86,K.Kordas       155,d,
+A.Korn     96,S.Korn      54,I.Korolkov     13,B.Kortman       116,O.Kortner      110,S.Kortner     110,
+W.H.Kostecka      117,M.Kostov       29a,V.V.Kostyukhin       144,A.Kotsokechagia       37,A.Kotwal      50,
+A.Koulouris     37,A.Kourkoumeli-Charalampidi           72a,72b,O.Kovanda      124,R.Kowalewski       167,
+W.Kozanecki      124,G.Kramberger        93,P.Kramer      25,A.Krasznahorkay       103,A.C.Kraus       117,
+J.W.Kraus     173,J.A.Kremer       47,N.B.Krengel      144,T.Kresse     158,L.Kretschmann        173,
+J.Kretzschmar     92,P.Krieger     158,K.Krizka      21,K.Kroeninger       48,H.Kroha      110,J.Kroll    132,
+J.Kroll   129,K.S.Krowpman         107,U.Kruchonak       38,H.Krüger       25,N.Krumnack79,J.Krupa          146,
+M.C.Kruse      50,O.Kuchinskaia       38,S.Kuday      3a,S.Kuehn      37,R.Kuesters      53,T.Kuhl     47,
+V.Kukhtin     38,Y.Kulchitsky      38,S.Kuleshov      138d,138b,J.Kull    1,E.V.Kumar      109,M.Kumar        34j,
+N.Kumari      47,P.Kumari      159b,A.Kupco      132,O.Kuprash       53,H.Kurashige      84,
+L.L.Kurchaninov       159a,O.Kurdysh      4,M.Kuze       139,A.K.Kvam       103,J.Kvita     123,
+N.G.Kyriacou      140,M.Laassiri      30,C.Lacasta     165,H.Lacker      19,D.Lacour      128,E.Ladygin      38,
+A.Lafarge     40,B.Laforge     128,T.Lagouri      174,F.Z.Lahbabi      36a,S.Lai    54,W.S.Lai      96,
+I.K.Lakomiec      54,J.E.Lambert      167,S.Lammers       67,W.Lampl       7,C.Lampoudis        155,
+G.Lamprinoudis       168,A.N.Lancaster      117,U.Landgraf       53,M.P.J.Landon      94,V.S.Lang      53,
+A.J.Lankford     162,F.Lanni     37,C.S.Lantz164,K.Lantzsch         25,A.Lanza      72a,
+M.LanzacBerrocal        165,T.Lari    70a,D.Larsen      17,L.Larson      11,F.LasagniManghi        24b,
+M.Lassnig      37,H.C.Lau      167,S.D.Lawlor      142,R.Lazaridou162,M.Lazzaroni          70a,70b,
+E.T.T.Le    162,H.D.M.Le       107,E.M.LeBoulicaut         174,D.O.LeGuennec136,L.T.LePottier            18a,
+B.Leban     24b,24a,F.Ledroit-Guillon      59,T.F.Lee     159b,L.L.Leeuw      34h,M.Lefebvre       167,
+C.Leggett     18a,L.M.Lehmann        116,G.LehmannMiotto          37,M.Leigh      55,W.A.Leight      103,
+W.Leinonen      115,A.Leisos      155,t,M.A.L.Leite     81c,C.E.Leitgeb      19,R.Leitner     134,
+K.J.C.Leney      44,T.Lenz     25,S.Leone      73a,C.Leonidopoulos       51,A.Leopold      147,
+J.LePage-Bourbonnais       35,R.Les      107,C.G.Lester     33,J.Levêque      4,L.J.Levinson      171,
+G.Levrini     24b,24a,M.P.Lewicki     86,C.Lewis      140,D.J.Lewis      4,L.Lewitt     142,A.Li     30,
+B.Li    113b,C.Li106,C-Q.Li       110,H.Li     113b,H.Li     101,H.Li     15,H.Li61,H.Li       113b,J.Li    141a,
+L.Li    141a,R.Li    174,S.Li     141b,141a,T.Li   5,Y.Li14,Z.Li       14,112c,Z.Li    61,S.Liang     14,112c,
+Z.Liang     14,M.Liberatore      136,B.Liberti     75a,G.B.Libotte     81d,K.Lie     63c,J.LieberMarin       81e,
+H.Lien     67,H.Lin     106,S.F.Lin     148,L.Linden     109,R.E.Lindley      7,J.H.Lindon      37,J.Ling     60,
+E.Lipeles    129,A.Lipniacka      17,A.Lister     166,J.D.Little    67,B.Liu     113a,B.X.Liu      112b,
+D.Liu    153,D.Liu      137,E.H.L.Liu     21,H.Liu112b,J.K.K.Liu        118,K.Liu      141b,K.Liu     141b,
+M.Liu     61,M.Y.Liu      61,P.Liu    113b,Q.Liu      146,S.Liu    148,X.Liu     113b,Y.Liu     112b,112c,
+Y.Liu    164,Y.L.Liu     113b,Y.W.Liu      61,Z.Liu     65,j,S.L.Lloyd     94,E.M.Lobodzinska        47,
+P.Loch    7,E.Lodhi      158,K.Lohwasser       142,E.Loiacono      122,J.D.Lomas       21,I.Longarini     162,
+R.Longo      24b,24a,am,A.LopezSolis      13,N.A.Lopez-canelas        7,N.LorenzoMartinez         4,
+A.M.Lory      109,M.Losada       83b,G.LöschckeCenteno         4,X.Lou      14,112c,P.A.Love     91,M.Lu      65,
+S.Lu    129,Y.J.Lu     151,H.J.Lubatti     140,C.Luci     74a,74b,F.L.LucioAlves       112a,F.Luehring      67,
+
+
+
+                                                       30
+
+=== PDF PAGE 31 ===
+B.S.Lunday      129,O.Lundberg      147,J.Lunde     37,N.A.Luongo       6,M.S.Lutz      158,A.B.Lux      26,
+D.Lynn     30,R.Lysak     132,V.Lysenko      133,E.Lytken     98,V.Lyubushkin       38,T.Lyubushkina      38,
+M.M.Lyukova       148,H.Ma      30,K.Ma      61,L.L.Ma     113b,W.Ma       61,Y.Ma     113b,
+J.C.MacDonald       100,P.C.MachadoDeAbreuFarias           81e,D.Macina      37,R.Madar       40,
+T.Madula     96,J.Maeda      84,T.Maeno      30,P.T.Mafa     34f,H.Maguire      142,M.Maheshwari        33,
+V.Maiboroda      65,G.Maineri      70a,70b,A.Maio     131a,131b,131d,K.Maj    85a,O.Majersky      47,
+S.Majewski     124,A.Makita      156,N.Makovec       65,V.Maksimovic       16,B.Malaescu      128,
+J.Malamant126,Pa.Malecki        86,F.Malek      59,n,M.Mali     93,D.Malito     95,A.Maloizel      5,
+A.MalvezziLopes       81d,S.Malyukov38,J.Mamuzic          93,G.Mancini       52,M.N.Mancini       27,
+G.Manco      72a,72b,S.S.Mandarry      149,I.Mandić     93,L.ManhaesdeAndradeFilho            81a,
+I.M.Maniatis     171,J.ManjarresRamos        89,D.C.Mankad       171,A.Mann       109,T.Manoussos      37,
+M.N.Mantinan       39,S.Manzoni      37,L.Mao      141a,X.Mapekula      34c,A.Marantis      155,
+R.R.MarceloGregorio        1,G.Marchiori      5,C.Marcon      70a,E.Maricic     16,M.Marinescu       47,
+S.Marium      47,M.Marjanovic       121,A.Markhoos       53,M.Markovitch      65,M.K.Maroun        103,
+M.C.Marr      145,T.L.Marsault136,G.T.Marsden101,Z.Marshall            18a,S.Marti-Garcia     165,
+J.Martin    96,T.A.Martin      135,V.J.Martin    51,B.MartinditLatour        17,L.Martinelli     74a,74b,
+V.I.MartinezOutschoorn       103,P.MartinezSuarez       37,S.Martin-Haugh       135,G.Martinovicova       134,
+V.S.Martoiu     28b,A.Martone      89,A.C.Martyniuk       96,A.Marzin      37,D.Mascione       77a,77b,
+L.Masetti    100,J.Masik     101,A.L.Maslennikov       38,S.L.Mason       41,P.Massarotti    71a,71b,
+P.Mastrandrea     73a,73b,A.Mastroberardino      43b,43a,R.Mastrofrancesco      72a,72b,T.Masubuchi      125,
+T.T.Mathew      124,J.Matousek     134,D.M.Mattern       48,K.Mauer      47,J.Maurer      28b,T.Maurin     58,
+A.J.Maury     65,B.Maček       93,C.MavunguTsava        102,A.E.May       101,E.Mayer     40,R.Mazini      34j,
+S.M.Mazza      137,E.Mazzeo       37,J.P.McGowan       167,S.P.McKee        106,C.C.McCracken       166,
+E.F.McDonald       105,L.F.Mcelhinney      91,J.A.Mcfayden       149,R.P.McGovern       129,
+R.P.Mckenzie      34j,D.J.Mclaughlin     96,S.J.McMahon        135,C.M.Mcpartland       92,
+R.A.McPherson       167,ab,S.Mehlhase     109,A.Mehta      92,D.Melini      165,B.R.MelladoGarcia        14,ah,
+A.H.Melo      54,F.Meloni     47,A.M.MendesJacquesDaCosta             101,L.Meng      91,S.Menke      110,
+M.Mentink      37,E.Meoni      43b,43a,G.Mercado      117,S.Merianos      155,C.Merlassino     68a,68c,
+C.Meroni     70a,70b,J.Metcalfe    6,A.S.Mete      6,E.Meuser      100,C.Meyer      67,J-P.Meyer     136,
+Y.Miao112a,R.P.Middleton        135,M.Mihovilovic       65,L.Mijović     51,G.Mikenberg       171,
+M.Mikestikova      132,M.Mikuž      93,H.Mildner      100,A.Milic     37,D.W.Miller      39,E.H.Miller     146,
+A.Milov     171,D.A.Milstead46a,46b,T.Min112a,I.A.Minashvili         152b,A.I.Mincer     118,B.Mindur      85a,
+M.Mineev      38,Y.Mino      87,L.M.Mir      13,M.MirallesLopez       58,M.Mironova       18a,M.Missio      40,
+A.Mitra    169,V.A.Mitsou      165,Y.Mitsumori       111,P.S.Miyagawa      94,R.Mizuhiki      84,
+T.Mkrtchyan     37,M.Mlinarevic       96,T.Mlinarevic     96,M.Mlynarikova       134,L.Mlynarska      85a,
+C.Mo     141a,H.Mobius      47,S.Mobius      20,M.H.MohamedFarook           114,S.Mohapatra       41,
+M.F.MohdSoberi        51,S.Mohiuddin       122,G.Mokgatitswane       34j,R.Mole     21,L.Moleri     171,
+U.Molinatti    127,L.G.Mollier      20,L.Monaco      37,58,B.Mondal      132,S.Mondal      134,K.Mönig      47,
+E.Monnier     102,L.MonsonisRomero165,A.Montella             46a,46b,M.Montella      120,
+F.Montereali     76a,76b,F.Monticelli    90,S.Monzani      68a,68c,M.E.E.Moors      25,
+A.MoranchoTarda        42,N.Morange       65,M.MorenoLlácer        165,C.MorenoMartinez         55,
+J.M.MorenoPerez23b,P.Morettini         56b,S.Morgenstern       62a,M.Morii     60,M.Morinaga       156,
+F.Morodei     74a,74b,P.Moschovakos      37,B.Moser      53,M.Mosidze       152b,T.Moskalets      44,
+P.Moskvitina     115,C.J.Mosomane34b,J.Moss          32,T.MottaQuirino       81d,A.Moussa      36d,
+Y.Moyal     171,k,H.MoyanoGomez          13,E.J.W.Moyse      103,T.G.Mroz      86,S.Muanza       102,
+M.Mucha      25,J.Mueller     130,D.Muller      144,G.A.Mullier     163,A.J.Mullin33,J.J.Mullin50,
+A.C.Mullins44,A.E.Mulski         60,D.P.Mungo      158,D.MunozPerez         122,F.J.MunozSanchez        101,
+
+
+
+                                                      31
+
+=== PDF PAGE 32 ===
+W.J.Murray      169,135,E.Musajan      61,M.Muškinja       93,C.Mwewa        47,A.J.Myers       8,G.Myers      106,
+M.Myska       133,B.P.Nachman       146,K.Nagai       127,K.Nagano       82,R.Nagasaka156,J.L.Nagle         30,ao,
+E.Nagy     102,A.M.Nairz       37,T.Nakagawa        87,Y.Nakahama        82,K.Nakamura        82,K.Nakkalil      5,
+A.Nandi     62b,H.Nanjo      125,E.A.Narayanan       44,Y.Narukawa        156,L.Nasella     70a,70b,S.Nasri    83c,
+C.Nass     25,G.Navarro      23a,A.Nayaz       19,S.Nechaeva      24b,24a,F.Nechansky       132,L.Nedic      127,
+A.Negri     72a,72b,M.Negrini      24b,C.Nellist     116,C.Nelson      104,K.Nelson      106,S.Nemecek        132,
+M.Nessi     37,g,M.S.Neubauer        164,J.Newell     92,P.R.Newman        21,Y.W.Y.Ng       164,B.Ngair      83b,
+H.D.N.Nguyen        108,J.D.Nichols      121,R.Nicolaidou      136,J.Nielsen     137,M.Niemeyer        54,
+J.Niermann      37,N.Nikiforou      37,I.Nikolic-Audit      128,P.Nilsson     30,G.Ninio      154,A.Nisati     74a,
+D.Nishimura      156,R.Nisius      110,N.Nitika     171,E.K.Nkadimeng         34b,T.Nobe      156,D.Noll      146,
+T.Nommensen        150,M.B.Norfolk       142,B.J.Norman       35,L.C.Nosler18a,M.Noury          36a,J.Novak     93,
+T.Novak     93,P.Novotny      171,R.Novotny       133,L.Nozka       123,K.Ntekas      37,D.Ntounis      146,
+N.M.J.NunesDeMouraJunior             81b,J.Ocariz     128,I.Ochoa      131a,A.OdellaRodriguez         13,
+S.Oerdek     47,J.T.Offermann       39,A.Ogrodnik       86,A.Oh      101,C.C.Ohm        147,H.Oide      82,
+M.L.Ojeda      37,Y.Okumura        156,L.F.OleiroSeabra       131a,I.Oleksiyuk      55,G.OliveiraCorrea        13,
+D.OliveiraDamazio        30,J.L.Oliver     1,R.Omar       67,A.P.O’Neill      20,Y.Onoda139,
+A.Onofre     131a,131e,e,P.U.E.Onyisi     11,M.J.Oreglia      39,D.Orestano       76a,76b,R.Orlandini     76a,76b,
+R.S.Orr     158,L.M.Osojnak       41,Y.Osumi       111,G.OteroyGarzón          31,H.Otono      88,
+M.Ouchrif      36d,F.Ould-Saada       126,T.Ovsiannikova       140,M.Owen       58,R.E.Owen        135,
+S.A.Oyeniran      114,V.E.Ozcan       22a,F.Ozturk     86,N.Ozturk       8,S.Ozturk     80,H.A.Pacey       127,
+K.Pachal     159a,A.PachecoPages         13,C.PadillaAranda       13,G.Padovano        74a,74b,
+S.PaganGriso       18a,L.Pagani     75a,75b,J.Pampel      25,D.K.Panchal       11,C.E.Pandini      59,
+J.G.PanduroVazquez         135,H.D.Pandya       1,H.Pang      136,P.Pani     47,G.Panizzo      68a,68c,
+L.Panwar     128,w,L.Paolozzi      21,S.Parajuli     164,A.Paramonov        6,C.Paraskevopoulos        52,
+D.ParedesHernandez         63b,S.R.ParedesSaenz        51,A.Pareti     72a,72b,K.R.Park      41,T.H.Park      110,
+F.Parodi    56b,56a,J.A.Parsons      41,U.Parzefall     53,B.A.Paschen       18a,B.PascualDias       40,
+L.PascualDominguez         99,E.Pasqualucci       74a,S.Passaggio      56b,F.Pastore     95,P.Patel    86,
+U.M.Patel     50,J.R.Pater     101,T.Pauly     37,A.Paunovic       16,F.Pauwels      134,C.I.Pazos     161,
+M.Pedersen      126,R.Pedro      131a,O.Penc      132,C.C.Penelaud       128,S.Peng     15,G.D.Penn       174,
+B.S.Peralva     81d,A.P.PereiraPeixoto       140,L.PereiraSanchez        146,D.V.Perepelitsa      30,ao,
+G.Perera     103,E.PerezCodina        37,M.Perganti      10,H.Pernegger      37,S.Perrella     74a,74b,
+K.Peters    47,R.F.Y.Peters      101,B.A.Petersen      37,T.C.Petersen      42,E.Petit    102,V.Petousis      133,
+A.R.Petri    70a,70b,T.Petru     134,M.Pettee     18a,A.Petukhov       80,K.Petukhova       37,R.Pezoa      138g,
+L.Pezzotti    24b,24a,G.Pezzullo      174,L.Pfaffenbichler     37,A.J.Pfleger     78,T.M.Pham        172,
+T.Pham     105,P.W.Phillips      135,G.Piacquadio       148,E.Pianori     18a,F.Piazza     124,R.Piegaia     31,
+D.Pietreanu     28b,A.D.Pilkington       101,T.Pilusa     34j,M.Pinamonti       68a,68c,J.L.Pinfold    2,
+G.PinheiroMatos        41,B.C.PinheiroPereira       131a,J.PinolBel      13,A.E.PintoPinoargote         128,
+L.Pintucci    68a,68c,K.M.Piper      149,A.Pirttikoski     55,D.A.Pizzi      35,L.Pizzimento       63b,
+A.Plebani     33,M.-A.Pleier      30,V.Pleskot     134,E.Plotnikova38,G.Poddar          94,R.Poettgen      98,
+L.Poggioli     128,S.Polacek     134,G.Polesello      72a,A.Poley      145,A.Polini     24b,C.S.Pollard     169,
+Z.B.Pollock     120,E.PompaPacchi         121,N.I.Pond      96,D.Ponomarenko         67,L.Pontecorvo      37,
+S.Popa     28a,G.A.Popeneciu       28d,A.Poreba      37,D.M.PortilloQuintero         159a,S.Pospisil     133,
+M.A.Postill     142,P.Postolache     28c,K.Potamianos        169,P.A.Potepa      85a,I.N.Potrap     38,
+C.J.Potter    33,H.Potti     150,J.Poveda     165,M.E.PozoAstigarraga         37,R.Pozzi      37,
+A.PradesIbanez       75a,75b,S.R.Pradhan      142,J.Pretel    167,D.Price      101,M.Primavera       69a,
+L.Primomo       68a,68c,M.A.PrincipeMartin        99,R.Privara      123,T.Procter     85b,M.L.Proffitt     140,
+N.Proklova     129,K.Prokofiev       63c,G.Proto     110,J.Proudfoot      6,M.Przybycien       85a,
+
+
+
+                                                        32
+
+=== PDF PAGE 33 ===
+W.W.Przygoda       85b,A.Psallidas      45,D.Pudzha      52,P.Puhl     57,H.I.Purnell     1,
+D.Pyatiizbyantseva      115,J.Qian     106,R.Qian      107,D.Qichen      127,Y.Qin      13,T.Qiu     51,
+A.Quadt     54,M.Queitsch-Maitland         101,G.Quetant      55,R.P.Quinn       166,D.Rafanoharana       110,
+J.L.Rainbolt     39,S.Rajagopalan      30,E.Ramakoti       38,L.Rambelli      56b,56a,I.A.Ramirez-Berend        35,
+K.Ran     106,112c,S.D.Randles      92,D.S.Rankin       129,N.P.Rapheeha       34j,H.Rasheed       28b,
+A.Rastogi     18a,S.Rave      100,S.Ravera     56b,56a,B.Ravina      37,I.Ravinovich      171,M.Raymond         37,
+A.L.Read      126,N.P.Readioff     142,D.M.Rebuzzi        72a,72b,A.S.Reed      58,K.Reeves      27,
+D.Reikher     37,A.Rej      48,C.Rembser       37,H.Ren      61,M.Renda       28b,F.Renner      47,
+A.G.Rennie      58,M.Repik       55,A.L.Rescia      56b,56a,S.Resconi     70a,M.Ressegotti       56b,
+S.Rettie    116,W.F.Rettie     35,M.M.Revering        33,O.L.Rezanova       38,P.Reznicek      134,H.Riani     36d,
+N.Ribaric     50,B.Ricci     68a,68c,E.Ricci     77a,77b,R.Richter    110,E.Richter-Was       85b,M.Ridel      128,
+S.Ridouani     36d,P.Riedler     37,E.M.Riefel      46a,46b,J.O.Rieger     116,M.Rimoldi        34c,
+L.Rinaldi     24b,24a,P.Rincke     163,54,G.Ripellino     163,I.Riu    13,J.C.RiveraVergara        167,
+F.Rizatdinova     122,E.Rizvi     94,B.R.Roberts      39,S.S.Roberts      137,D.Robinson      33,A.Robson       58,
+A.Rocchi     75a,75b,C.Roda      73a,73b,F.A.Rodriguez      117,S.RodriguezBosca         37,
+Y.RodriguezGarcia        23a,A.M.RodríguezVera          117,S.Roe37,J.T.Roemer         37,O.Røhne       126,
+R.A.Rojas     37,Z.Rokavec93,C.P.A.Roland           128,A.Romaniouk         78,E.Romano       72a,72b,
+M.Romano       24b,N.Rompotis        92,L.Roos     128,S.Rosati      74a,L.Roscher      47,B.J.Rosser     39,
+E.Rossi    127,E.Rossi      71a,71b,L.P.Rossi    60,L.Rossini      53,R.Rosten      120,M.Rotaru      28b,
+R.Roth     37,D.Rousseau       65,D.Rousso       47,S.Roy-Garand       55,A.Rozanov       102,
+Z.M.A.Rozario       58,Y.Rozen      153,A.RubioJimenez         165,V.H.RuelasRivera        19,T.A.Ruggeri       1,
+A.Ruggiero      127,A.Ruiz-Martinez       165,A.Rummler        37,G.B.RupnikBoero          37,
+N.A.Rusakovich       38,S.Ruscelli     48,H.L.Russell      167,G.Russo      137,J.P.Rutherfoord      7,
+S.RutherfordColmenares         118,M.Rybar       134,P.Rybczynski      85a,A.Ryzhov       44,
+F.SafaiTehrani      74a,S.Saha     1,B.Sahoo      171,B.T.Saifuddin       121,M.Saimpert       136,
+I.SainzSaenzDiez        62a,G.T.Saito     81c,M.Saito      156,T.Saito     156,A.Sala     70a,70b,O.T.Salin     65,
+A.Salnikov     146,J.Salt    165,A.SalvadorSalas        154,F.Salvatore     149,A.Salzburger       37,
+D.Sammel       53,E.Sampson       91,D.Sampsonidis        155,d,D.Sampsonidou        124,M.A.A.Samy        58,
+J.Sánchez     165,V.SanchezSebastian         165,H.Sandaker      126,C.O.Sander       47,J.A.Sandesara       172,
+M.Sandhoff      173,C.Sandoval      23b,L.Sanfilippo     62a,D.P.C.Sankey      135,T.Sano      87,A.Sansar     22c,
+A.Sansoni     52,M.SantanaQueiroz          18b,L.Santi     37,C.Santoni     40,H.Santos      131a,131b,
+L.SantosPereiraTrigo        47,E.Sanzani      24b,24a,K.A.Saoucha       83d,J.G.Saraiva     131a,131d,
+J.Sardain    7,S.Sarkar      50,O.Sasaki     82,K.Sato      160,C.Sauer37,E.Sauvan         4,P.Savard     158,aj,
+R.Sawada      156,C.Sawyer       135,L.Sawyer      97,A.M.Sayed       27,C.Sbarra      24b,A.Sbrizzi     24b,24a,
+R.Scaglioni     72a,72b,T.Scanlon     96,J.Schaarschmidt       140,U.Schäfer      100,A.C.Schaffer      65,44,
+D.Schaile     109,R.D.Schamberger        148,C.Scharf      19,M.M.Schefer       20,D.Scheirich      134,
+M.Schernau      138f,C.Scheulen       55,C.Schiavi     56b,56a,M.Schioppa       43b,43a,S.Schlenker     37,
+T.Schlomer      54,J.Schmeing      173,C.R.Schmidt       49,E.Schmidt       110,M.A.Schmidt        173,
+K.Schmieden       25,C.Schmitt      100,N.Schmitt      100,S.Schmitt      47,N.A.Schneider       109,
+L.Schoeffel     136,A.Schoening      62b,P.G.Scholer      35,E.Schopf      144,M.Schott      25,S.Schramm       55,
+T.Schroer     55,H-C.Schultz-Coulon        62a,M.Schumacher         53,B.A.Schumm         137,Ph.Schune      136,
+H.R.Schwartz      7,A.Schwartzman         146,T.A.Schwarz       106,Ph.Schwemling        136,
+R.Schwienhorst      107,F.G.Sciacca       20,A.Sciandra      30,G.Sciolla     27,S.A.Scoville      130,
+F.Scuri    73a,C.D.Sebastiani      37,K.Sedlaczek       117,A.Sehrawat       138b,S.C.Seidel     114,
+B.D.Seidlitz     41,C.Seitz     47,J.M.Seixas      81b,G.Sekhniaidze       71a,L.Selem      128,
+N.Semprini-Cesari       24b,24a,A.Semushin       175,V.Senthilkumar       116,L.Serin     65,M.Sessa      71a,71b,
+H.Severini     121,F.Sforza     56b,56a,A.Sfyrla     55,Q.Sha     14,H.Shaddix       117,A.H.Shah       33,
+
+
+
+                                                        33
+
+=== PDF PAGE 34 ===
+R.Shaheen      147,J.D.Shahinian      129,M.Shamim        37,L.Y.Shan      14,M.Shapiro       18a,A.Sharma       37,
+A.S.Sharma      166,P.Sharma       30,K.Shaw      149,S.M.Shaw        101,D.Shemyakin        171,Q.Shen      14,
+D.J.Sheppard      145,P.Sherwood       96,L.Shi     112b,X.Shi     14,S.Shimizu       82,S.Shirabe     88,
+M.Shiyakova       38,z,M.J.Shochet      39,D.R.Shope       126,B.Shrestha      121,S.Shrestha     120,aq,
+I.Shreyber     38,M.J.Shroff     104,P.Sicho     132,A.M.Sickles       164,E.SiderasHaddad         34j,
+A.C.Sidley     116,A.Sidoti     24b,F.Siegert     49,Dj.Sijacki     16,F.Sili    61,J.M.Silva      51,
+I.SilvaFerreira     81b,M.V.SilvaOliveira       30,S.B.Silverstein      46a,S.Simion65,R.Simoniello          37,
+E.L.Simpson      101,H.Simpson        149,L.R.Simpson       6,S.Simsek       80,S.Sindhu      54,S.N.Singh      27,
+S.Singh     30,S.Sinha     47,S.Sinha     101,M.Sioli     24b,24a,K.Sioulas     9,I.Siral    37,E.Sitnikova      47,
+J.Sjölin   46a,46b,A.Skaf      54,E.Skorda      21,P.Skubic     121,M.Slawinska        86,I.Slazyk     17,
+I.Sliusar   126,V.Smakhtin171,B.H.Smart           135,S.Yu.Smirnov        138b,Y.Smirnov       34c,
+O.Smirnova      98,J.L.Smith      101,M.B.Smith       35,R.Smith146,H.Smitmanns           100,M.Smizanska        91,
+K.Smolek      133,P.Smolyanskiy       133,A.A.Snesarev        38,H.L.Snoek       116,R.M.Snyder       50,
+S.Snyder     30,R.Sobie      167,ab,A.Soffer     154,C.A.SolansSanchez         37,E.Yu.Soldatov       38,
+U.Soldevila     165,A.A.Solodkov        34j,S.Solomon      27,A.Soloshenko        38,O.V.Solovyanov        40,
+P.Sommer      49,A.Sopczak       133,A.L.Sopio       51,F.Sopkova      29b,J.D.Sorenson       114,
+I.R.SotarrivaAlvarez       139,V.Sothilingam62a,O.J.SotoSandoval            138c,138b,S.Sottocornola      67,
+R.Soualah     83a,D.South      47,N.Soybelman        171,S.Spagnolo       69a,69b,A.S.Spellman       124,
+D.Sperlich     53,B.Spisso     71a,71b,L.Splendori      102,M.Spousta       134,E.J.Staats    35,R.Stamen       62a,
+E.Stanecka     86,W.Stanek-Maslouska         47,M.V.Stange       49,B.Stanislaus      18a,M.M.Stanitzki       47,
+G.H.Stark     137,J.Stark     89,P.Staroba     132,P.Starovoitov     83d,R.Staszewski       86,C.Stauch      109,
+G.Stavropoulos      45,A.Stefl     37,A.Stein     100,P.Steinberg     30,B.Stelzer     145,159a,H.J.Stelzer     130,
+O.Stelzer    159a,H.Stenzel      57,T.J.Stevenson      149,G.A.Stewart       47,G.Stoicea     28b,
+M.Stolarski     131a,S.Stonjek     110,A.Straessner      49,J.Strandberg      147,S.Strandberg      46a,46b,
+M.Stratmann      173,M.Strauss       121,T.Strebler    102,P.Strizenec      29b,R.Ströhmer      168,
+D.M.Strom      124,R.Stroynowski       44,A.Strubig      46a,46b,S.A.Stucci     30,B.Stugu     17,J.Stupak      121,
+N.A.Styles     47,D.Su      146,S.Su     61,X.Su     61,D.Suchy       29a,A.D.SudhakarPonnu          54,
+L.Sudit    171,Y.Sue      82,K.Sugizaki      129,D.M.S.Sultan       127,L.Sultanaliyeva      25,S.Sultansoy      3b,
+S.Sun     172,W.Sun      14,S.SundarRaman         166,N.Sur      98,J.P.Surdutovich      120,N.SuriJr      174,
+M.R.Sutton      149,M.Svatos      132,P.N.Swallow       33,S.N.Swatman        37,M.Swiatlowski        159a,
+A.Swoboda       37,I.Sykora     29a,M.Sykora       134,T.Sykora      134,D.Ta     100,K.Tackmann        47,y,
+A.Taffard     162,R.Tafirout     159a,Y.Takubo      82,M.Talby       102,N.M.Tamir       154,A.Tanaka      156,
+J.Tanaka     156,R.Tanaka      65,M.Tanasini       148,Z.Tao     166,S.TapiaAraya        138g,S.Tapprogge      100,
+A.TarekAbouelfadlMohamed             37,S.Tarem      153,K.Tariq     14,G.Tarna      37,G.F.Tartarelli     70a,
+M.J.Tartarin     141b,P.Tas    134,M.Tasevsky        132,E.Tassi     43b,43a,A.C.Tate     164,Y.Tayalati     36e,aa,
+G.N.Taylor     105,W.Taylor      159b,R.J.TaylorVara       165,A.S.Tegetmeier        89,P.Teixeira-Dias     95,
+J.J.Teoh    158,K.Terashi      156,J.Terron     99,S.Terzo     13,M.Testa      52,R.J.Teuscher      158,ab,
+A.Thaler     78,T.Theveneaux-Pelzer        102,J.P.Thomas       21,E.A.Thompson        18a,P.D.Thompson         21,
+E.Thomson       129,R.E.Thornberry        30,T.M.Thory-Rao        21,C.N.ThotamunaWijewardhana             148,
+C.Tian     61,Y.Tian     55,V.Tikhomirov       80,Yu.A.Tikhonov        38,D.Timoshyn        134,E.X.L.Ting       1,
+P.Tipton    174,A.Tishelman-Charny         30,K.Todome        139,S.Todorova-Nova        134,L.Toffolin     68a,68c,
+M.Togawa       82,J.Tojo    88,S.Tokár      29a,O.Toldaiev      67,G.Tolkachev       102,M.Tomoto        82,
+L.Tompkins      146,E.Torrence       124,H.Torres     89,D.I.TorresArza        138g,E.TorresReoyo165,
+E.TorróPastor      165,M.Toscani       31,C.Tosciri     39,M.Tost      11,D.R.Tovey      142,T.Trefzger      168,
+P.M.Tricarico     13,A.Tricoli     30,I.M.Trigger      159a,S.Trincaz-Duvoid        128,D.A.Trischuk       167,
+A.Tropina38,D.Truncali        75a,75b,L.Truong      34c,M.Trzebinski       86,A.Trzupek       86,F.Tsai    148,
+A.Tsiamis     155,P.V.Tsiareshka38,S.Tsigaridas         159a,A.Tsirigotis     155,t,V.Tsiskaridze     152a,
+
+
+
+                                                        34
+
+=== PDF PAGE 35 ===
+E.G.Tskhadadze      152a,H.F.Tsoi     129,Y.Tsujikawa      87,V.Tsulaia     18a,K.Tsuri    119,
+D.Tsybychev      148,Y.Tu     63b,A.Tudorache      28b,V.Tudorache      28b,S.B.Tuncay      127,
+S.Turchikhin     56b,56a,I.TurkCakir     3a,R.Turra     70a,T.Turtuvshin     38,ac,P.M.Tuts    41,
+Y.Uematsu      82,F.Ukegawa      160,P.A.UlloaPoblete       138c,138b,G.Unal     37,A.Undrus      30,
+J.Urban    29b,P.Urrejola     138e,G.Usai     8,R.Ushioda      157,M.Usman       108,F.Ustuner     51,
+Z.Uysal    80,V.Vacek      133,B.Vachon      104,T.Vafeiadis     37,A.Vaitkus     96,C.Valderanis      109,
+E.ValdesSanturio      46a,46b,M.Valente     37,S.Valentinetti     24b,24a,A.Valero    165,
+E.ValienteMoreno       165,A.Vallier     89,J.A.VallsFerrer     165,D.R.VanArneman          116,
+R.VanDenBroucke         128,A.VanDerGraaf         48,H.Z.VanDerSchyf          34j,P.VanGemmeren        6,
+M.VanRijnbach        37,S.VanStroud      96,I.VanVulpen       116,P.Vana     134,M.Vanadia       75a,75b,
+U.M.VandeVoorde         147,W.Vandelli     37,E.R.Vandewall       146,D.Vannicola      154,R.Vari     74a,
+M.Varma      174,E.W.Varnes      7,C.Varni      85a,D.Varouchas      65,L.Varriale     165,K.E.Varvell     150,
+M.E.Vasile     28b,A.Vasileiadou9,L.Vaslin82,M.D.Vassilev           146,A.Vasyukov       38,
+L.M.Vaughan       122,R.Vavricka134,T.VazquezSchroeder           13,J.Veatch     32,V.Vecchio     101,
+M.J.Veen     103,I.Veliscek     30,I.Velkovska     93,L.M.Veloce      158,F.Veloso     131a,131c,
+A.G.Veltman      51,S.H.Venetianer      161,S.Veneziano      74a,A.Ventura      69a,69b,A.Verbytskyi     110,
+M.Verducci      73a,73b,C.Vergis    94,M.VerissimoDeAraujo          81b,W.Verkerke       116,
+J.C.Vermeulen      116,C.Vernieri     146,M.Vessella     162,M.C.Vetterli     145,aj,A.Vgenopoulos      100,
+N.ViauxMaira       138g,af,L.Vicenik    133,T.Vickey      142,O.E.VickeyBoeriu        142,
+G.H.A.Viehhauser       127,L.Vigani     62b,M.Vigl      110,M.Villa     24b,24a,M.VillaplanaPerez      165,
+E.M.Villhauer39,E.Vilucchi        52,M.Vincent      165,M.G.Vincter      35,A.Visibile     116,A.Visive     116,
+C.Vittori    161,I.Vivarelli   24b,24a,M.I.VivasAlbornoz        47,E.Voevodina      110,F.Vogel     109,
+J.C.Voigt    49,P.Vokac     133,Yu.Volkotrub      85b,L.Vomberg       25,E.VonToerne        25,
+B.Vormwald       37,K.Vorobev      50,M.Vos      165,K.Voss     144,M.Vozak       37,L.Vozdecky      121,
+N.Vranjes     16,M.VranjesMilosavljevic        16,M.Vreeswijk      116,N.K.Vu      112a,R.Vuillermet      37,
+O.Vujinovic     100,I.Vukotic     39,I.K.Vyas     35,J.F.Wack     33,A.Wada       111,S.Wada     160,
+C.Wagner146,J.M.Wagner          18a,W.Wagner      173,S.Wahdan       173,H.Wahlberg       90,C.H.Waits     121,
+J.Walder    135,R.Walker      109,K.WalkingshawPass         58,W.Walkowiak        144,A.Wall     129,
+E.J.Wallin    98,T.Wamorkar       146,K.Wandall-Christensen        165,A.Wang      61,A.Z.Wang       137,
+C.Wang      47,C.Wang      11,H.Wang      18a,J.Wang      63c,P.Wang      101,P.Wang     96,R.Wang       60,
+R.Wang      106,R.Wang      6,S.M.Wang       151,S.Wang      14,an,T.Wang     115,T.Wang      61,
+W.T.Wang      127,W.Wang113c,X.Wang           164,X.Wang      141a,X.Wang      47,Y.Wang       148,
+Y.Wang     114,Z.Wang      106,Z.Wang       14,Z.Wang63b,C.Wanotayaroj          82,A.Warburton       104,
+A.L.Warnerbring      144,S.Waterhouse       96,A.T.Watson      21,H.Watson      51,M.F.Watson       21,
+E.Watton     37,G.Watts     140,B.M.Waugh        96,J.M.Webb       53,C.Weber      30,M.S.Weber       20,
+C.Wei     61,Y.Wei     53,A.R.Weidberg       127,E.J.Weik     118,J.Weingarten      48,C.Weiser      53,
+C.J.Wells    47,P.S.Wells     37,T.Wenaus      30,T.Wengler      37,N.S.Wenke110,N.Wermes           25,
+D.Werner     47,M.Wessels       62a,A.M.Wharton       91,A.S.White      37,A.White      8,M.J.White      1,
+D.Whiteson      162,L.Wickremasinghe        125,W.Wiedenmann         172,M.Wielers      135,R.Wierda      147,
+C.Wiglesworth      42,H.G.Wilkens       37,J.J.H.Wilkinson      33,S.Williams     33,S.Willocq      103,
+D.J.Wilson     101,P.J.Windischhofer      39,F.I.Winkel     31,F.Winklmeier      124,B.T.Winter      53,
+M.Wittgen146,M.Wobisch          97,T.Wojtkowski59,Z.Wolffs         116,J.Wollrath37,M.W.Wolter         86,
+H.Wolters     131a,131c,M.C.Wong137,E.L.Woodward            41,S.D.Worm       47,B.K.Wosiek       86,
+K.A.Wozniak       55,K.W.Woźniak       86,S.Wozniewski       54,K.Wraight      58,C.Wu      158,C.Wu      21,
+J.Wu    156,M.Wu       112b,M.Wu      115,S.L.Wu      172,S.Wu      14,an,X.Wu     61,Y.Q.Wu       158,
+Y.Wu     61,Z.Wu      102,Z.Wu     112a,J.Wuerzinger      110,T.R.Wyatt      101,B.M.Wynne       51,
+S.Xella    42,L.Xia    112a,M.Xie      61,A.Xiong     124,I.Xiotidis    37,D.Xu     14,H.Xu      61,L.Xu     61,
+
+
+
+                                                      35
+
+=== PDF PAGE 36 ===
+R.Xu     129,T.Xu     106,W.Xu112a,Y.Xu        140,Z.Xu     51,R.Xue     130,B.Yabsley      150,S.Yacoob      11,
+Y.Yamaguchi      82,E.Yamashita       156,H.Yamauchi       160,T.Yamazaki      18a,Y.Yamazaki       84,
+S.Yan    58,Z.Yan      103,C.Yang     18a,H.J.Yang      141a,H.T.Yang      61,S.Yang     61,X.Yang      37,
+X.Yang     14,Y.Yang      156,Y.Yang61,W-M.Yao          18a,C.L.Yardley      149,J.Ye    14,S.Ye     30,
+X.Ye    61,I.Yeletskikh     38,B.Yeo      18b,M.R.Yexley      96,T.P.Yildirim     127,K.Yorita     170,
+C.J.S.Young     37,C.Young       146,I.N.L.Young      58,N.D.Young124,Y.Yu         61,J.Yuan     14,112c,an,
+M.Yuan      106,R.Yuan      141b,L.Yue     96,M.Zaazoua       61,B.Zabinski     86,I.Zahir     36a,
+Q.U.A.Zahoor       51,A.Zaio56b,56a,Z.K.Zak       86,T.Zakareishvili     165,S.Zambito      55,J.Zang     156,
+R.Zanzottera     70a,70b,O.Zaplatilek     133,E.Zaya     147,C.Zeitnitz    173,H.Zeng      14,
+D.T.ZengerJr      27,T.Ženiš29a,S.Zenz          94,D.Zerwas      65,W.Zhan      61,B.Zhang       169,
+D.F.Zhang     142,G.Zhang       14,an,J.Zhang    113b,J.Zhang      6,L.Zhang      61,L.Zhang      112a,
+P.Zhang     14,112c,R.Zhang     112a,S.Zhang      36e,Y.Zhang      140,Y.Zhang      96,Y.Zhang      61,
+Y.Zhang     112a,Z.Zhang      101,Z.Zhang      18a,Z.Zhang      113b,Z.Zhang      65,H.Zhao     140,
+T.Zhao     113b,Y.Zhao     35,Z.Zhao      61,Z.Zhao     61,A.Zhemchugov         38,J.Zheng     112a,
+K.Zheng     164,L.Zheng      113b,X.Zheng       61,Z.Zheng      146,D.Zhong      164,B.Zhou      106,
+B.Zhou     141b,141a,N.Zhou     141a,Y.Zhou      15,Y.Zhou      112a,Y.Zhou7,Z.Zhou         61,J.Zhu    106,
+X.Zhu141b,Y.Zhu       141a,X.Zhuang       14,K.Zhukov      67,P.Ziakas     4,N.I.Zimine     38,J.Zinsser     62b,
+M.Ziolkowski      144,L.Živković16,A.Zoccoli           24b,24a,K.Zoch     37,A.Zografos      37,
+T.G.Zorbas     142,L.Zwalinski      37.
+
+
+1DepartmentofPhysics,UniversityofAdelaide,Adelaide;Australia.
+2DepartmentofPhysics,UniversityofAlberta,EdmontonAB;Canada.
+3(𝑎)  DepartmentofPhysics,AnkaraUniversity,Ankara;(𝑏) DivisionofPhysics,TOBBUniversityof
+EconomicsandTechnology,Ankara;Türkiye.
+4LAPP,UniversitéSavoieMontBlanc,CNRS/IN2P3,Annecy;France.
+5APC,UniversitéParisCité,CNRS/IN2P3,Paris;France.
+6HighEnergyPhysicsDivision,ArgonneNationalLaboratory,ArgonneIL;UnitedStatesofAmerica.
+7DepartmentofPhysics,UniversityofArizona,TucsonAZ;UnitedStatesofAmerica.
+8DepartmentofPhysics,UniversityofTexasatArlington,ArlingtonTX;UnitedStatesofAmerica.
+9PhysicsDepartment,NationalandKapodistrianUniversityofAthens,Athens;Greece.
+10PhysicsDepartment,NationalTechnicalUniversityofAthens,Zografou;Greece.
+11DepartmentofPhysics,UniversityofTexasatAustin,AustinTX;UnitedStatesofAmerica.
+12InstituteofPhysics,AzerbaijanAcademyofSciences,Baku;Azerbaijan.
+13InstitutdeFísicad’AltesEnergies(IFAE),BarcelonaInstituteofScienceandTechnology,Barcelona;
+Spain.
+14InstituteofHighEnergyPhysics,ChineseAcademyofSciences,Beijing;China.
+15PhysicsDepartment,TsinghuaUniversity,Beijing;China.
+16InstituteofPhysics,UniversityofBelgrade,Belgrade;Serbia.
+17DepartmentforPhysicsandTechnology,UniversityofBergen,Bergen;Norway.
+18(𝑎)  PhysicsDivision,LawrenceBerkeleyNationalLaboratory,BerkeleyCA;(𝑏) UniversityofCalifornia,
+BerkeleyCA;UnitedStatesofAmerica.
+19InstitutfürPhysik,HumboldtUniversitätzuBerlin,Berlin;Germany.
+20AlbertEinsteinCenterforFundamentalPhysicsandLaboratoryforHighEnergyPhysics,Universityof
+Bern,Bern;Switzerland.
+21SchoolofPhysicsandAstronomy,UniversityofBirmingham,Birmingham;UnitedKingdom.
+22(𝑎)  DepartmentofPhysics,BogaziciUniversity,Istanbul;(𝑏) DepartmentofPhysicsEngineering,
+GaziantepUniversity,Gaziantep;(𝑐) DepartmentofPhysics,IstanbulUniversity,Istanbul;Türkiye.
+
+
+
+                                                      36
+
+=== PDF PAGE 37 ===
+23(𝑎)  FacultaddeCienciasyCentrodeInvestigaciónes,UniversidadAntonioNariño,
+Bogotá;(𝑏) DepartamentodeFísica,UniversidadNacionaldeColombia,Bogotá;Colombia.
+24(𝑎)  DipartimentodiFisicaeAstronomiaA.Righi,UniversitàdiBologna,Bologna;(𝑏) INFNSezionedi
+Bologna;Italy.
+25PhysikalischesInstitut,UniversitätBonn,Bonn;Germany.
+26DepartmentofPhysics,BostonUniversity,BostonMA;UnitedStatesofAmerica.
+27DepartmentofPhysics,BrandeisUniversity,WalthamMA;UnitedStatesofAmerica.
+28(𝑎)  TransilvaniaUniversityofBrasov,Brasov;(𝑏) HoriaHulubeiNationalInstituteofPhysicsandNuclear
+Engineering,Bucharest;(𝑐) DepartmentofPhysics,AlexandruIoanCuzaUniversityofIasi,Iasi;(𝑑) National
+InstituteforResearchandDevelopmentofIsotopicandMolecularTechnologies,PhysicsDepartment,
+Cluj-Napoca;(𝑒) NationalUniversityofScienceandTechnologyPolitechnica,Bucharest;(𝑓) West
+UniversityinTimisoara,Timisoara;(𝑔) FacultyofPhysics,UniversityofBucharest,Bucharest;Romania.
+29(𝑎)  FacultyofMathematics,PhysicsandInformatics,ComeniusUniversity,Bratislava;(𝑏) Departmentof
+SubnuclearPhysics,InstituteofExperimentalPhysicsoftheSlovakAcademyofSciences,Kosice;Slovak
+Republic.
+30PhysicsDepartment,BrookhavenNationalLaboratory,UptonNY;UnitedStatesofAmerica.
+31UniversidaddeBuenosAires,FacultaddeCienciasExactasyNaturales,DepartamentodeFísica,y
+CONICET,InstitutodeFísicadeBuenosAires(IFIBA),BuenosAires;Argentina.
+32CaliforniaStateUniversity,CA;UnitedStatesofAmerica.
+33CavendishLaboratory,UniversityofCambridge,Cambridge;UnitedKingdom.
+34(𝑎)  DepartmentofPhysics,UniversityofCapeTown,CapeTown;(𝑏) iThembaLabs,Western
+Cape;(𝑐) DepartmentofMechanicalEngineeringScience,UniversityofJohannesburg,
+Johannesburg;(𝑑) NationalInstituteofPhysics,UniversityofthePhilippinesDiliman
+(Philippines);(𝑒) DepartmentofPhysics,StellenboschUniversity,Matieland;(𝑓) Universityof
+KwaZulu-Natal,SchoolofAgricultureandScience,Mathematics,Westville;(𝑔) UniversityofSouthAfrica,
+DepartmentofPhysics,Pretoria;(ℎ) UniversityofPretoria,DepartmentofMechanicalandAeronautical
+Engineering,Pretoria;(𝑖) UniversityofZululand,KwaDlangezwa;(𝑗) SchoolofPhysics,Universityofthe
+Witwatersrand,Johannesburg;SouthAfrica.
+35DepartmentofPhysics,CarletonUniversity,OttawaON;Canada.
+36(𝑎)  FacultédesSciencesAinChock,UniversitéHassanIIdeCasablanca;(𝑏) FacultédesSciences,
+UniversitéIbn-Tofail,Kénitra;(𝑐) FacultédesSciencesSemlalia,UniversitéCadiAyyad,
+LPHEA-Marrakech;(𝑑) LPMR,FacultédesSciences,UniversitéMohamedPremier,Oujda;(𝑒) Facultédes
+sciences,UniversitéMohammedV,Rabat;(𝑓) InstituteofAppliedPhysics,MohammedVIPolytechnic
+University,BenGuerir;Morocco.
+37CERN,Geneva;Switzerland.
+38AffiliatedwithaninternationallaboratorycoveredbyacooperationagreementwithCERN.
+39EnricoFermiInstitute,UniversityofChicago,ChicagoIL;UnitedStatesofAmerica.
+40LPC,UniversitéClermontAuvergne,CNRS/IN2P3,Clermont-Ferrand;France.
+41NevisLaboratory,ColumbiaUniversity,IrvingtonNY;UnitedStatesofAmerica.
+42NielsBohrInstitute,UniversityofCopenhagen,Copenhagen;Denmark.
+43(𝑎)  DipartimentodiFisica,UniversitàdellaCalabria,Rende;(𝑏) INFNGruppoCollegatodiCosenza,
+LaboratoriNazionalidiFrascati;Italy.
+44PhysicsDepartment,SouthernMethodistUniversity,DallasTX;UnitedStatesofAmerica.
+45NationalCentreforScientificResearch"Demokritos",AgiaParaskevi;Greece.
+46(𝑎)  DepartmentofPhysics,StockholmUniversity;(𝑏) OskarKleinCentre,Stockholm;Sweden.
+47DeutschesElektronen-SynchrotronDESY,HamburgandZeuthen;Germany.
+48FakultätPhysik,TechnischeUniversitätDortmund,Dortmund;Germany.
+
+
+
+                                                       37
+
+=== PDF PAGE 38 ===
+49InstitutfürKern-undTeilchenphysik,TechnischeUniversitätDresden,Dresden;Germany.
+50DepartmentofPhysics,DukeUniversity,DurhamNC;UnitedStatesofAmerica.
+51SUPA-SchoolofPhysicsandAstronomy,UniversityofEdinburgh,Edinburgh;UnitedKingdom.
+52INFNeLaboratoriNazionalidiFrascati,Frascati;Italy.
+53PhysikalischesInstitut,Albert-Ludwigs-UniversitätFreiburg,Freiburg;Germany.
+54II.PhysikalischesInstitut,Georg-August-UniversitätGöttingen,Göttingen;Germany.
+55DépartementdePhysiqueNucléaireetCorpusculaire,UniversitédeGenève,Genève;Switzerland.
+56(𝑎)  DipartimentodiFisica,UniversitàdiGenova,Genova;(𝑏) INFNSezionediGenova;Italy.
+57II.PhysikalischesInstitut,Justus-Liebig-UniversitätGiessen,Giessen;Germany.
+58SUPA-SchoolofPhysicsandAstronomy,UniversityofGlasgow,Glasgow;UnitedKingdom.
+59LPSC,UniversitéGrenobleAlpes,CNRS/IN2P3,GrenobleINP,Grenoble;France.
+60LaboratoryforParticlePhysicsandCosmology,HarvardUniversity,CambridgeMA;UnitedStatesof
+America.
+61DepartmentofModernPhysicsandStateKeyLaboratoryofParticleDetectionandElectronics,
+UniversityofScienceandTechnologyofChina,Hefei;China.
+62(𝑎)  Kirchhoff-InstitutfürPhysik,Ruprecht-Karls-UniversitätHeidelberg,Heidelberg;(𝑏) Physikalisches
+Institut,Ruprecht-Karls-UniversitätHeidelberg,Heidelberg;Germany.
+63(𝑎)  DepartmentofPhysics,ChineseUniversityofHongKong,Shatin,N.T.,HongKong;(𝑏) Department
+ofPhysics,UniversityofHongKong,HongKong;(𝑐) DepartmentofPhysicsandInstituteforAdvanced
+Study,HongKongUniversityofScienceandTechnology,ClearWaterBay,Kowloon,HongKong;China.
+64DepartmentofPhysics,NationalTsingHuaUniversity,Hsinchu;Taiwan.
+65IJCLab,UniversitéParis-Saclay,CNRS/IN2P3,91405,Orsay;France.
+66CentroNacionaldeMicroelectrónica(IMB-CNM-CSIC),Barcelona;Spain.
+67DepartmentofPhysics,IndianaUniversity,BloomingtonIN;UnitedStatesofAmerica.
+68(𝑎)  INFNGruppoCollegatodiUdine,SezionediTrieste,Udine;(𝑏) ICTP,Trieste;(𝑐) Dipartimento
+PolitecnicodiIngegneriaeArchitettura,UniversitàdiUdine,Udine;Italy.
+69(𝑎)  INFNSezionediLecce;(𝑏) DipartimentodiMatematicaeFisica,UniversitàdelSalento,Lecce;Italy.
+70(𝑎)  INFNSezionediMilano;(𝑏) DipartimentodiFisica,UniversitàdiMilano,Milano;Italy.
+71(𝑎)  INFNSezionediNapoli;(𝑏) DipartimentodiFisica,UniversitàdiNapoli,Napoli;Italy.
+72(𝑎)  INFNSezionediPavia;(𝑏) DipartimentodiFisica,UniversitàdiPavia,Pavia;Italy.
+73(𝑎)  INFNSezionediPisa;(𝑏) DipartimentodiFisicaE.Fermi,UniversitàdiPisa,Pisa;Italy.
+74(𝑎)  INFNSezionediRoma;(𝑏) DipartimentodiFisica,SapienzaUniversitàdiRoma,Roma;Italy.
+75(𝑎)  INFNSezionediRomaTorVergata;(𝑏) DipartimentodiFisica,UniversitàdiRomaTorVergata,
+Roma;Italy.
+76(𝑎)  INFNSezionediRomaTre;(𝑏) DipartimentodiMatematicaeFisica,UniversitàRomaTre,Roma;
+Italy.
+77(𝑎)  INFN-TIFPA;(𝑏) UniversitàdegliStudidiTrento,Trento;Italy.
+78UniversitätInnsbruck,DepartmentofAstroandParticlePhysics,Innsbruck;Austria.
+79DepartmentofPhysicsandAstronomy,IowaStateUniversity,AmesIA;UnitedStatesofAmerica.
+80IstinyeUniversity,Sariyer,Istanbul;Türkiye.
+81(𝑎)  DepartamentodeEngenhariaElétrica,UniversidadeFederaldeJuizdeFora(UFJF),Juizde
+Fora;(𝑏) UniversidadeFederaldoRioDeJaneiroCOPPE/EE/IF,RiodeJaneiro;(𝑐) InstitutodeFísica,
+UniversidadedeSãoPaulo,SãoPaulo;(𝑑) RiodeJaneiroStateUniversity,RiodeJaneiro;(𝑒) Federal
+UniversityofBahia,Bahia;Brazil.
+82KEK,HighEnergyAcceleratorResearchOrganization,Tsukuba;Japan.
+83(𝑎)  KhalifaUniversityofScienceandTechnology,AbuDhabi;(𝑏) NewYorkUniversityAbuDhabi,Abu
+Dhabi;(𝑐) UnitedArabEmiratesUniversity,AlAin;(𝑑) UniversityofSharjah,Sharjah;UnitedArab
+
+
+
+                                                       38
+
+=== PDF PAGE 39 ===
+Emirates.
+84GraduateSchoolofScience,KobeUniversity,Kobe;Japan.
+85(𝑎)  AGHUniversityofKrakow,FacultyofPhysicsandAppliedComputerScience,Krakow;(𝑏) Marian
+SmoluchowskiInstituteofPhysics,JagiellonianUniversity,Krakow;Poland.
+86InstituteofNuclearPhysicsPolishAcademyofSciences,Krakow;Poland.
+87FacultyofScience,KyotoUniversity,Kyoto;Japan.
+88ResearchCenterforAdvancedParticlePhysicsandDepartmentofPhysics,KyushuUniversity,Fukuoka;
+Japan.
+89L2IT,UniversitédeToulouse,CNRS/IN2P3,UPS,Toulouse;France.
+90InstitutodeFísicaLaPlata,UniversidadNacionaldeLaPlataandCONICET,LaPlata;Argentina.
+91PhysicsDepartment,LancasterUniversity,Lancaster;UnitedKingdom.
+92OliverLodgeLaboratory,UniversityofLiverpool,Liverpool;UnitedKingdom.
+93DepartmentofExperimentalParticlePhysics,JožefStefanInstituteandDepartmentofPhysics,
+UniversityofLjubljana,Ljubljana;Slovenia.
+94DepartmentofPhysicsandAstronomy,QueenMaryUniversityofLondon,London;UnitedKingdom.
+95DepartmentofPhysics,RoyalHollowayUniversityofLondon,Egham;UnitedKingdom.
+96DepartmentofPhysicsandAstronomy,UniversityCollegeLondon,London;UnitedKingdom.
+97LouisianaTechUniversity,RustonLA;UnitedStatesofAmerica.
+98Fysiskainstitutionen,Lundsuniversitet,Lund;Sweden.
+99DepartamentodeFísicaTeoricaC-15andCIAFF,UniversidadAutónomadeMadrid,Madrid;Spain.
+100InstitutfürPhysik,UniversitätMainz,Mainz;Germany.
+101SchoolofPhysicsandAstronomy,UniversityofManchester,Manchester;UnitedKingdom.
+102CPPM,Aix-MarseilleUniversité,CNRS/IN2P3,Marseille;France.
+103DepartmentofPhysics,UniversityofMassachusetts,AmherstMA;UnitedStatesofAmerica.
+104DepartmentofPhysics,McGillUniversity,MontrealQC;Canada.
+105SchoolofPhysics,UniversityofMelbourne,Victoria;Australia.
+106DepartmentofPhysics,UniversityofMichigan,AnnArborMI;UnitedStatesofAmerica.
+107DepartmentofPhysicsandAstronomy,MichiganStateUniversity,EastLansingMI;UnitedStatesof
+America.
+108GroupofParticlePhysics,UniversityofMontreal,MontrealQC;Canada.
+109FakultätfürPhysik,Ludwig-Maximilians-UniversitätMünchen,München;Germany.
+110Max-Planck-InstitutfürPhysik(Werner-Heisenberg-Institut),München;Germany.
+111GraduateSchoolofScienceandKobayashi-MaskawaInstitute,NagoyaUniversity,Nagoya;Japan.
+112(𝑎)   DepartmentofPhysics,NanjingUniversity,Nanjing;(𝑏) SchoolofScience,ShenzhenCampusofSun
+Yat-senUniversity;(𝑐) UniversityofChineseAcademyofScience(UCAS),Beijing;China.
+113(𝑎)   SchoolofPhysics,NankaiUniversity,Tianjin;(𝑏) InstituteofFrontierandInterdisciplinaryScience
+andKeyLaboratoryofParticlePhysicsandParticleIrradiation(MOE),ShandongUniversity,
+Qingdao;(𝑐) SchoolofPhysics,ZhengzhouUniversity;China.
+114DepartmentofPhysicsandAstronomy,UniversityofNewMexico,AlbuquerqueNM;UnitedStatesof
+America.
+115InstituteforMathematics,AstrophysicsandParticlePhysics,RadboudUniversity/Nikhef,Nijmegen;
+Netherlands.
+116NikhefNationalInstituteforSubatomicPhysicsandUniversityofAmsterdam,Amsterdam;
+Netherlands.
+117DepartmentofPhysics,NorthernIllinoisUniversity,DeKalbIL;UnitedStatesofAmerica.
+118DepartmentofPhysics,NewYorkUniversity,NewYorkNY;UnitedStatesofAmerica.
+119OchanomizuUniversity,Otsuka,Bunkyo-ku,Tokyo;Japan.
+
+
+
+                                                      39
+
+=== PDF PAGE 40 ===
+120OhioStateUniversity,ColumbusOH;UnitedStatesofAmerica.
+121HomerL.DodgeDepartmentofPhysicsandAstronomy,UniversityofOklahoma,NormanOK;United
+StatesofAmerica.
+122DepartmentofPhysics,OklahomaStateUniversity,StillwaterOK;UnitedStatesofAmerica.
+123PalackýUniversity,JointLaboratoryofOptics,Olomouc;CzechRepublic.
+124InstituteforFundamentalScience,UniversityofOregon,Eugene,OR;UnitedStatesofAmerica.
+125GraduateSchoolofScience,UniversityofOsaka,Osaka;Japan.
+126DepartmentofPhysics,UniversityofOslo,Oslo;Norway.
+127DepartmentofPhysics,OxfordUniversity,Oxford;UnitedKingdom.
+128LPNHE,SorbonneUniversité,UniversitéParisCité,CNRS/IN2P3,Paris;France.
+129DepartmentofPhysics,UniversityofPennsylvania,PhiladelphiaPA;UnitedStatesofAmerica.
+130DepartmentofPhysicsandAstronomy,UniversityofPittsburgh,PittsburghPA;UnitedStatesof
+America.
+131(𝑎)   LaboratóriodeInstrumentaçãoeFísicaExperimentaldePartículas-LIP,Lisboa;(𝑏) Departamento
+deFísica,FaculdadedeCiências,UniversidadedeLisboa,Lisboa;(𝑐) DepartamentodeFísica,
+UniversidadedeCoimbra,Coimbra;(𝑑) CentrodeFísicaNucleardaUniversidadedeLisboa,
+Lisboa;(𝑒) DepartamentodeFísica,EscoladeCiências,UniversidadedoMinho,Braga;(𝑓) Departamento
+deFísicaTeóricaydelCosmos,UniversidaddeGranada,Granada(Spain);(𝑔) DepartamentodeFísica,
+InstitutoSuperiorTécnico,UniversidadedeLisboa,Lisboa;Portugal.
+132InstituteofPhysicsoftheCzechAcademyofSciences,Prague;CzechRepublic.
+133CzechTechnicalUniversityinPrague,Prague;CzechRepublic.
+134CharlesUniversity,FacultyofMathematicsandPhysics,Prague;CzechRepublic.
+135ParticlePhysicsDepartment,RutherfordAppletonLaboratory,Didcot;UnitedKingdom.
+136IRFU,CEA,UniversitéParis-Saclay,Gif-sur-Yvette;France.
+137SantaCruzInstituteforParticlePhysics,UniversityofCaliforniaSantaCruz,SantaCruzCA;United
+StatesofAmerica.
+138(𝑎)   DepartamentodeFísica,PontificiaUniversidadCatólicadeChile,Santiago;(𝑏) MillenniumInstitute
+forSubatomicphysicsathighenergyfrontier(SAPHIR),Santiago;(𝑐) InstitutodeInvestigación
+MultidisciplinarioenCienciayTecnología,yDepartamentodeFísica,UniversidaddeLa
+Serena;(𝑑) UniversidadAndresBello,DepartmentofPhysics,Santiago;(𝑒) UniversidadSanSebastian,
+Recoleta;(𝑓) InstitutodeAltaInvestigación,UniversidaddeTarapacá,Arica;(𝑔) DepartamentodeFísica,
+UniversidadTécnicaFedericoSantaMaría,Valparaíso;Chile.
+139DepartmentofPhysics,InstituteofScience,Tokyo;Japan.
+140DepartmentofPhysics,UniversityofWashington,SeattleWA;UnitedStatesofAmerica.
+141(𝑎)   StateKeyLaboratoryofDarkMatterPhysics,SchoolofPhysicsandAstronomy,ShanghaiJiaoTong
+University,KeyLaboratoryforParticleAstrophysicsandCosmology(MOE),SKLPPC,Shanghai;(𝑏) State
+KeyLaboratoryofDarkMatterPhysics,Tsung-DaoLeeInstitute,ShanghaiJiaoTongUniversity,
+Shanghai;China.
+142DepartmentofPhysicsandAstronomy,UniversityofSheffield,Sheffield;UnitedKingdom.
+143DepartmentofPhysics,ShinshuUniversity,Nagano;Japan.
+144DepartmentPhysik,UniversitätSiegen,Siegen;Germany.
+145DepartmentofPhysics,SimonFraserUniversity,BurnabyBC;Canada.
+146SLACNationalAcceleratorLaboratory,StanfordCA;UnitedStatesofAmerica.
+147DepartmentofPhysics,RoyalInstituteofTechnology,Stockholm;Sweden.
+148DepartmentsofPhysicsandAstronomy,StonyBrookUniversity,StonyBrookNY;UnitedStatesof
+America.
+149DepartmentofPhysicsandAstronomy,UniversityofSussex,Brighton;UnitedKingdom.
+
+
+
+                                                       40
+
+=== PDF PAGE 41 ===
+150SchoolofPhysics,UniversityofSydney,Sydney;Australia.
+151InstituteofPhysics,AcademiaSinica,Taipei;Taiwan.
+152(𝑎)   E.AndronikashviliInstituteofPhysics,Iv.JavakhishviliTbilisiStateUniversity,Tbilisi;(𝑏) High
+EnergyPhysicsInstitute,TbilisiStateUniversity,Tbilisi;(𝑐) UniversityofGeorgia,Tbilisi;Georgia.
+153DepartmentofPhysics,Technion,IsraelInstituteofTechnology,Haifa;Israel.
+154RaymondandBeverlySacklerSchoolofPhysicsandAstronomy,TelAvivUniversity,TelAviv;Israel.
+155DepartmentofPhysics,AristotleUniversityofThessaloniki,Thessaloniki;Greece.
+156InternationalCenterforElementaryParticlePhysicsandDepartmentofPhysics,UniversityofTokyo,
+Tokyo;Japan.
+157GraduateSchoolofScienceandTechnology,TokyoMetropolitanUniversity,Tokyo;Japan.
+158DepartmentofPhysics,UniversityofToronto,TorontoON;Canada.
+159(𝑎)   TRIUMF,VancouverBC;(𝑏) DepartmentofPhysicsandAstronomy,YorkUniversity,TorontoON;
+Canada.
+160DivisionofPhysicsandTomonagaCenterfortheHistoryoftheUniverse,FacultyofPureandApplied
+Sciences,UniversityofTsukuba,Tsukuba;Japan.
+161DepartmentofPhysicsandAstronomy,TuftsUniversity,MedfordMA;UnitedStatesofAmerica.
+162DepartmentofPhysicsandAstronomy,UniversityofCaliforniaIrvine,IrvineCA;UnitedStatesof
+America.
+163DepartmentofPhysicsandAstronomy,UniversityofUppsala,Uppsala;Sweden.
+164DepartmentofPhysics,UniversityofIllinois,UrbanaIL;UnitedStatesofAmerica.
+165InstitutodeFísicaCorpuscular(IFIC),CentroMixtoUniversidaddeValencia-CSIC,Valencia;Spain.
+166DepartmentofPhysics,UniversityofBritishColumbia,VancouverBC;Canada.
+167DepartmentofPhysicsandAstronomy,UniversityofVictoria,VictoriaBC;Canada.
+168FakultätfürPhysikundAstronomie,Julius-Maximilians-UniversitätWürzburg,Würzburg;Germany.
+169DepartmentofPhysics,UniversityofWarwick,Coventry;UnitedKingdom.
+170WasedaUniversity,Tokyo;Japan.
+171DepartmentofParticlePhysicsandAstrophysics,WeizmannInstituteofScience,Rehovot;Israel.
+172DepartmentofPhysics,UniversityofWisconsin,MadisonWI;UnitedStatesofAmerica.
+173FakultätfürMathematikundNaturwissenschaften,FachgruppePhysik,BergischeUniversität
+Wuppertal,Wuppertal;Germany.
+174DepartmentofPhysics,YaleUniversity,NewHavenCT;UnitedStatesofAmerica.
+175YerevanPhysicsInstitute,Yerevan;Armenia.
+𝑎AlsoatAffiliatedwithaninstituteformerlycoveredbyacooperationagreementwithCERN.
+𝑏AlsoatAn-NajahNationalUniversity,Nablus;Palestine.
+𝑐AlsoatBoroughofManhattanCommunityCollege,CityUniversityofNewYork,NewYorkNY;United
+StatesofAmerica.
+𝑑AlsoatCenterforInterdisciplinaryResearchandInnovation(CIRI-AUTH),Thessaloniki;Greece.
+𝑒AlsoatCentreofPhysicsoftheUniversitiesofMinhoandPorto(CF-UM-UP);Portugal.
+𝑓AlsoatCERN,Geneva;Switzerland.
+𝑔AlsoatDépartementdePhysiqueNucléaireetCorpusculaire,UniversitédeGenève,Genève;
+Switzerland.
+ℎAlsoatDepartamentdeFisicadelaUniversitatAutonomadeBarcelona,Barcelona;Spain.
+𝑖AlsoatDepartmentofFinancialandManagementEngineering,UniversityoftheAegean,Chios;Greece.
+𝑗AlsoatDepartmentofModernPhysicsandStateKeyLaboratoryofParticleDetectionandElectronics,
+UniversityofScienceandTechnologyofChina,Hefei;China.
+𝑘AlsoatDepartmentofPhysics,BenGurionUniversityoftheNegev,BeerSheva;Israel.
+𝑙AlsoatDepartmentofPhysics,BoluAbantIzzetBaysalUniversity,Bolu;Türkiye.
+
+
+
+                                                      41
+
+=== PDF PAGE 42 ===
+𝑚AlsoatDepartmentofPhysics,King’sCollegeLondon,London;UnitedKingdom.
+𝑛AlsoatDepartmentofPhysics,StellenboschUniversity;SouthAfrica.
+𝑜AlsoatDepartmentofPhysics,UniversityofFribourg,Fribourg;Switzerland.
+𝑝AlsoatDepartmentofPhysics,UniversityofThessaly;Greece.
+𝑞AlsoatDepartmentofPhysics,WestmontCollege,SantaBarbara;UnitedStatesofAmerica.
+𝑟AlsoatFacultyofPhysics,SofiaUniversity,’St.KlimentOhridski’,Sofia;Bulgaria.
+𝑠AlsoatFacultyofPhysics,UniversityofBucharest;Romania.
+𝑡AlsoatHellenicOpenUniversity,Patras;Greece.
+𝑢AlsoatHenanUniversity;China.
+𝑣AlsoatImamMohammadIbnSaudIslamicUniversity;SaudiArabia.
+𝑤AlsoatIndianInstituteofTechnology(IIT),Jodhpur;India.
+𝑥AlsoatInstitucioCatalanadeRecercaiEstudisAvancats,ICREA,Barcelona;Spain.
+𝑦AlsoatInstitutfürExperimentalphysik,UniversitätHamburg,Hamburg;Germany.
+𝑧AlsoatInstituteforNuclearResearchandNuclearEnergy(INRNE)oftheBulgarianAcademyof
+Sciences,Sofia;Bulgaria.
+𝑎𝑎AlsoatInstituteofAppliedPhysics,MohammedVIPolytechnicUniversity,BenGuerir;Morocco.
+𝑎𝑏AlsoatInstituteofParticlePhysics(IPP);Canada.
+𝑎𝑐AlsoatInstituteofPhysicsandTechnology,MongolianAcademyofSciences,Ulaanbaatar;Mongolia.
+𝑎𝑑AlsoatInstituteofPhysics,AzerbaijanAcademyofSciences,Baku;Azerbaijan.
+𝑎𝑒AlsoatInstituteofTheoreticalPhysics,IliaStateUniversity,Tbilisi;Georgia.
+𝑎𝑓AlsoatMillenniumInstituteforSubatomicphysicsathighenergyfrontier(SAPHIR),Santiago;Chile.
+𝑎𝑔AlsoatNationalInstituteofPhysics,UniversityofthePhilippinesDiliman(Philippines);Philippines.
+𝑎ℎAlsoatSchoolofPhysics,UniversityoftheWitwatersrand,Johannesburg;SouthAfrica.
+𝑎𝑖AlsoatTheCollaborativeInnovationCenterofQuantumMatter(CICQM),Beijing;China.
+𝑎𝑗AlsoatTRIUMF,VancouverBC;Canada.
+𝑎𝑘AlsoatUniversitàdiNapoliParthenope,Napoli;Italy.
+𝑎𝑙AlsoatUniversitadegliStudiLink;Italy.
+𝑎𝑚AlsoatUniversityandINFNTorino,Torino;Italy.
+𝑎𝑛AlsoatUniversityofChineseAcademyofSciences(UCAS),Beijing;China.
+𝑎𝑜AlsoatUniversityofColoradoBoulder,DepartmentofPhysics,Colorado;UnitedStatesofAmerica.
+𝑎𝑝AlsoatUniversityofSiena;Italy.
+𝑎𝑞AlsoatWashingtonCollege,Chestertown,MD;UnitedStatesofAmerica.
+𝑎𝑟AlsoatYeditepeUniversity,PhysicsDepartment,Istanbul;Türkiye.
+∗Deceased
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     42

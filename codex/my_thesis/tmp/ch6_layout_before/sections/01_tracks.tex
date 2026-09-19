@@ -1,0 +1,34 @@
+\section{Tracks}
+\label{sec:ch6_tracks}
+
+\subsection{Reconstruction}
+
+A track is reconstructed by fitting the trajectory of a charged particle to measurements in the ID.
+Its momentum and charge are determined from the curvature in the magnetic field, while its position near the beam line is used to associate it with a production vertex.
+Track reconstruction is performed in the following stages~\cite{ATLAS2017DenseTracking}:
+\begin{enumerate}
+    \item \textbf{Space-point formation.} Signals in neighbouring channels of a silicon sensor are grouped into clusters. Three-dimensional space points are obtained from pixel clusters or from paired measurements on the two sides of an SCT module.
+    \item \textbf{Seeding and track finding.} Combinations of space points are used to form track seeds. These seeds are extended through the silicon layers with a combinatorial Kalman filter, in which the trajectory and its uncertainty are updated as compatible measurements are added. Multiple scattering and energy loss in the detector material are included in the fit.
+    \item \textbf{Ambiguity resolution.} Candidates are ranked using their fit quality, assigned clusters and missing expected measurements. Duplicate or incompatible candidates are rejected, while shared clusters are treated to retain nearby physical tracks where possible.
+    \item \textbf{TRT extension.} Accepted silicon tracks are extrapolated into the TRT, and compatible measurements are included in a further fit.
+\end{enumerate}
+
+\subsection{Track parameters and quality}
+
+The fitted trajectory is specified by five parameters at its point of closest approach to a reference beam line:
+\begin{itemize}
+    \item $d_0$ and $z_0$: the signed transverse impact parameter and the longitudinal coordinate at closest approach.
+    \item $\phi_0$ and $\theta$: the azimuthal and polar angles of the momentum.
+    \item $q/p$: the electric charge divided by the momentum magnitude.
+\end{itemize}
+Their uncertainties and correlations are described by the covariance matrix of the fit.
+The transverse impact-parameter significance, $d_0/\sigma(d_0)$, measures the displacement in units of its uncertainty.
+For association with a vertex at $z_{\mathrm{PV}}$, the longitudinal separation is expressed as
+\begin{align}
+    \Delta z_0\sin\theta=(z_0-z_{\mathrm{PV}})\sin\theta.
+    \label{eq:ch6_track_longitudinal}
+\end{align}
+
+Track-quality requirements are imposed on the hit content, fit quality and number of missing expected hits.
+Additional requirements depend on how the tracks are used: prompt-lepton tracks are required to be compatible with the primary vertex, whereas displaced tracks are retained for heavy-flavour tagging.
+The corresponding selections are specified below for each reconstructed object.

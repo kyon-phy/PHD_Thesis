@@ -1,0 +1,825 @@
+### PAGE 1
+Non-resonant search in LHC-ATLAS 
+motivated by B anomaly
+D3 Jiaqi Zang
+28/01/2025
+1
+Based on https://arxiv .org/abs/2111.04748
+2025/01/28 Jiaqi ZANGICEPP Analysis meeting
+NOTES: 
+
+### PAGE 2
+Physics motivation – B anomaly
+• Lepton Flavor Universality (LFU)
+➢Weak interaction is universal for 3 lepton flavors in Standard Model.
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 2
+• Signs of LFU violation in the B meson decays are reported.
+➢ 𝑏 → 𝑐𝑙𝜈 : 𝜏 vs. light leptons (𝜇, 𝑒).
+➢ ~ 3.0𝜎 excess over SM (𝐷 and 𝐷∗ combined).
+➢ Leptoquark (LQ) is a possible explanation of such violation.
+SM
+BSM
+3𝜎
+
+NOTES: 
+
+### PAGE 3
+Leptoquark (LQ) model
+3
+• Singlet vector LQ (𝑈1) are picked as the benchmark in current stage.
+• Signal scenario: VLQ BM 1
+➢ 𝑀𝐿𝑄 = 1.5 TeV
+➢ 𝑔𝑈 = 1.5
+➢ 𝛽𝐿
+𝑏𝜏 = 1
+➢ 𝛽𝐿
+𝑠𝜏 = 0.2
+➢ 𝛽𝑅
+𝑏𝜏 = 𝛽𝐿
+𝑑𝜏 = 𝛽𝐿
+𝑠𝜇 = 𝛽𝐿
+𝑏𝜇 = 0
+➢ Same as CMS 𝜏𝜏 search
+Left-handed coupling Right-handed coupling
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+From: T. Kitahara
+NOTES: 
+
+### PAGE 4
+? ?
+Event topology
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 4
+SM background
+Signal
+(true 𝜏)
+• Event topology
+• Target signal: back-to-back 𝜏𝜈 + soft b jet (?)
+irreduciblereducible
+𝑊+ jets
+(fake 𝜏)
+*high 𝑝𝑇
+𝜏 and high 𝐸𝑇
+𝑚𝑖𝑠𝑠 𝑍+ jets
+𝑡 ҧ𝑡 di-leptonic decay
+(true 𝜏)
+• Background composition
+➢ Irreducible.
+o Real tau (𝑊 → 𝜏𝜈 + jets, top)
+➢ Reducible.
+o Fake tau + fake 𝐸𝑇
+𝑚𝑖𝑠𝑠 (Multi-jet) → suppressed by the MC study
+o Fake tau + real 𝐸𝑇
+𝑚𝑖𝑠𝑠. (𝑍 → 𝜈𝜈 + jets)
+
+NOTES: 
+
+### PAGE 5
+5
+Analysis overview
+slides jira
+jira
+• MC samples preparation.
+➢ ATLAS LQ signal sample production is finished. (slides, jira) (new!)
+➢ There was a bug of CKM matrix while producing the former samples.
+➢ Within the bug, LQ + SM interference are underestimated in SR.
+➢ New W+jets hadronic tau decay samples (Sherpa 2.2.11) production are requested and done. 
+(jira) 
+➢ Current W+jets (𝑊 → 𝜏𝜈) samples has extremely low stats in high pT region.
+➢ New samples provide more than twenty times the statistics as the current one.
+➢ Tried to define a signal region with updated Wtaunu samples. (last talk)
+• Analysis group “tau+X” status
+➢ Group framework chain TopCPToolKit→FastFrame→TRExFitter is under development.
+➢ Systematics validation and installation with TopCPTollis on-going. (EL_eff and FT_eff missing
+for now.) (new!)
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+• Overall status
+➢ Cut-based run-2 (partial run-3?) analysis. 
+NOTES: 
+
+### PAGE 6
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 6
+from the last talk…
+NOTES: 
+
+### PAGE 7
+New signal region
+• A new signal region was defined to suppress V+ jest background.
+• The new SR seems promising and have better sensitivity for 𝑀𝐿𝑄 = 1.5 TeV samples.
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 7
+Expected sensitivity
+Z=1.64
+
+NOTES: 
+
+### PAGE 8
+New signal region
+• However, while checking the SR kinematic plots..
+➢Signal parameter: 𝑔𝑈 = 1.5, 𝛽23 = 0.2, 𝛽33 = 1
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 8
+This region enhance the
+resonant process instead
+of non-resonant part!
+• It would be better to split to two SR for the non-resonant/ resonant process
+new SR enhancedWhat we trying to enhance
+NOTES: 
+
+### PAGE 9
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 9
+What if we change the signal parameter? (other 𝛽𝐿
+23, 𝑔𝑈, 𝑀𝐿𝑄)
+NOTES: 
+
+### PAGE 10
+Samples: (MLQ = 1.5/2.5 TeV, 𝑔𝑈 = 1.0/1.5, 𝛽23=0.2/1.0)
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 10
+NOTES: 
+
+### PAGE 11
+Signal study: reweightedsamples comparison
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 11
+• Sample: mc20_13T eV.537131.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkFilter.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537132.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkVeto.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+• All histograms are area-normalized.
+• selection: 1𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠 > 200, 𝑒/𝜇 veto, 1b, QCD cut (minΔ𝜙(𝐸𝑇
+𝑚𝑖𝑠𝑠, 𝑗𝑒𝑡))
+• M𝐿𝑄 = 1.5 𝑇𝑒𝑉, 𝑔𝑈 = 1.0/1.5, 𝛽23=0.2
+
+NOTES: 
+
+### PAGE 12
+Signal study: reweightedsamples comparison
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 12
+• Sample: mc20_13T eV.537131.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkFilter.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537132.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkVeto.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+• All histograms are area-normalized.
+• selection: 1𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠 > 200, 𝑒/𝜇 veto, 1b, QCD cut (minΔ𝜙(𝐸𝑇
+𝑚𝑖𝑠𝑠, 𝑗𝑒𝑡))
+• M𝐿𝑄 = 1.5 𝑇𝑒𝑉, 𝑔𝑈 = 1.0/1.5, 𝛽23=0.2
+
+NOTES: 
+
+### PAGE 13
+Signal study: reweightedsamples comparison
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 13
+• Sample: mc20_13T eV.537131.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkFilter.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537132.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkVeto.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+• All histograms are area-normalized.
+• selection: 1𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠 > 200, 𝑒/𝜇 veto, 1b, QCD cut (minΔ𝜙(𝐸𝑇
+𝑚𝑖𝑠𝑠, 𝑗𝑒𝑡))
+• M𝐿𝑄 = 1.5 𝑇𝑒𝑉, 𝑔𝑈 = 1.0 , 𝛽23 = 0.2/1.0
+
+NOTES: 
+
+### PAGE 14
+Signal study: reweightedsamples comparison
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 14
+• Sample: mc20_13T eV.537131.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkFilter.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537132.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkVeto.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+• All histograms are area-normalized.
+• selection: 1𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠 > 200, 𝑒/𝜇 veto, 1b, QCD cut (minΔ𝜙(𝐸𝑇
+𝑚𝑖𝑠𝑠, 𝑗𝑒𝑡))
+• M𝐿𝑄 = 1.5 𝑇𝑒𝑉, 𝑔𝑈 = 1.0 , 𝛽23 = 0.2/1.0
+
+NOTES: 
+
+### PAGE 15
+Signal study: reweightedsamples comparison
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 15
+• Sample: mc20_13T eV.537131.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkFilter.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537132.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkVeto.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537137.MGPy8EG_LQtau_bsm_U1_M2500_BQuarkFilter.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537138.MGPy8EG_LQtau_bsm_U1_M2500_BQuarkVeto.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+• All histograms are area-normalized.
+• selection: 1𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠 > 200, 𝑒/𝜇 veto, 1b, QCD cut (minΔ𝜙(𝐸𝑇
+𝑚𝑖𝑠𝑠, 𝑗𝑒𝑡))
+• M𝐿𝑄 = 1.5/2.5 𝑇𝑒𝑉, 𝑔𝑈 = 1.0 , 𝛽23 = 0.2
+
+NOTES: 
+
+### PAGE 16
+Signal study: reweightedsamples comparison
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 16
+• Sample:
+mc20_13T eV.537131.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkFilter.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537132.MGPy8EG_LQtau_bsm_U1_M1500_BQuarkVeto.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537137.MGPy8EG_LQtau_bsm_U1_M2500_BQuarkFilter.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+mc20_13T eV.537138.MGPy8EG_LQtau_bsm_U1_M2500_BQuarkVeto.deriv.DAOD_PHYS.e8531_e8455_a907_r148*_r14919_p6490
+• All histograms are area-normalized.
+• selection: 1𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠 > 200, 𝑒/𝜇 veto, 1b, QCD cut (minΔ𝜙(𝐸𝑇
+𝑚𝑖𝑠𝑠, 𝑗𝑒𝑡))
+• M𝐿𝑄 = 1.5/2.5 𝑇𝑒𝑉, 𝑔𝑈 = 1.0 , 𝛽23 = 0.2
+• Sensitivity would highly
+depends on mass point in
+current resonant-enhanced
+signal region.
+• Need to define a non-
+resonant-enhanced signal
+region.
+NOTES: 
+
+### PAGE 17
+Back to the theory…
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 17
+NOTES: 
+
+### PAGE 18
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 18
+Event numbers w/ theory cut
+• Cut
+➢ 1𝜏, 𝑝𝑇
+𝜏 > 200 𝐺𝑒𝑉, 𝜂 < 2.1
+➢ MET > 200 GeV
+➢ e/mu veto
+➢ Δ𝜙 𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠 > 2.4
+➢ 0.7 < 𝑝𝑇
+𝜏 /𝐸𝑇
+𝑚𝑖𝑠𝑠< 1.3
+➢ 1b, 𝑝𝑇
+𝑏 > 20 GeV, 𝜂 < 2.5
+➢ N of light jets <=2
+arXiv:2111.04748
+• Signal parameters (DAOD_PHYS, CMS BM1)
+➢ 𝑀𝐿𝑄 = 1.5 TeV
+➢ 𝑔𝑈 = 1.5
+➢ 𝛽𝐿
+23 = 𝛽𝐿
+33 = 1
+➢ Xsec = 131 fb 
+Yileds (140 fb-1) BG Signal Z
+0.7 < 𝑚𝑇 < 1 𝑇𝑒𝑉 5.7 ± 3.7 14.7 ± 0.9 3.53
+𝑚𝑇 > 1 𝑇𝑒𝑉 1.9 ± 1.7 13.9 ± 0.7 5.27• Kinematics
+0.7 < 𝑚𝑇 < 1 𝑇𝑒𝑉 𝑚𝑇 > 1 𝑇𝑒𝑉
+Seems like we are looking
+at non-resonant process
+now. Still need fine tune
+the cuts though…
+*𝑍~1.8 (roughly) for ATLAS 𝜏𝜏 search
+NOTES: 
+
+### PAGE 19
+Summary & Plan
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 19
+Summary
+Plan
+• Fine tune the non-resonant search signal region.
+• Check the BG components and revisit the BG estimation strategy based on new SR.
+• Work on the framework development and check systematics.
+• Discuss the paper strategy with convener.
+• New SR turns out to be tuned for resonant process.
+• Another region to enhance non-resonant process needs to be defined.
+• A region with high mT and back-to-back 𝜏𝜈 setting seems promising.
+• Better sensitivity than ATLAS 𝜏𝜏 search is expected in specific parameter space.
+• Different signal parameter (𝛽𝐿
+23, 𝑔𝑈) space would not change the signal kinematics
+significantly.
+NOTES: 
+
+### PAGE 20
+20
+Backup
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+NOTES: 
+
+### PAGE 21
+• 𝑍 → 𝜈𝜈 (fake 𝜏)
+➢ Study data/MC agreement in CR 𝑍 → 𝑙𝑙 + 𝜏(fake) + 0b.
+➢ Use Semi-data-driven method to apply normalization factor.
+• 𝑊 → 𝜏𝜈 (true 𝜏)
+➢ Study data/MC agreement in CR 𝑊 → 𝜏𝜈 + 0𝑏.
+➢ Good agreement between data and simulation samples.
+• Top (true 𝜏)
+➢ Study data/MC agreement in CR 𝑡 ҧ𝑡 di-leptonic decay 1𝜏 + 1𝑒/𝜇.
+➢ Next to test the BGs estimation in VR, but…
+Background estimation
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 21
+
+NOTES: 
+
+### PAGE 22
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 22
+Validation on new 𝑊 → 𝜏𝜈 samples
+NOTES: 
+
+### PAGE 23
+232025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+• Samples name*(PMG X-sec for AOD samples could be wrong, ticket):
+mc20_13TeV .700543.Sh_2211_Wtaunu_H_maxHTpTV2_70MET150.deriv.DAOD_PHYS.e8373_s3681_r131*_p5855
+mc20_13TeV .700544.Sh_2211_Wtaunu_H_maxHTpTV2_METorT AU150.deriv.DAOD_PHYS.e8373_s3681_r131*_p5855
+• Samples coverage:
+𝑝𝑇
+𝜏 [GeV]
+𝐸𝑇
+𝑚𝑖𝑠𝑠[GeV]
+150
+150
+80
+700543
+700544
+(Target SR)
+Filtered
+700543: Sherpa W+/W- -> tau nu + 0,1,2j@NLO + 3,4,5j@LO with hadronic tau decaus and MET>70 GeV and not 
+(MET or pT(tau)>150 GeV) taking input from existing unfiltered input file.
+700544: Sherpa W+/W- -> tau nu + 0,1,2j@NLO + 3,4,5j@LO with hadronic tau decaus and MET>150 GeV or 
+pT(tau)>150 GeV taking input from existing unfiltered input file.
+New Wtaunu MET Filtered Samples
+NOTES: 
+
+### PAGE 24
+24
+New Wtaunu MET Filtered Samples
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+• Compare with Wtaunu HF samples (700347 ~ 700349)
+• Selection: 1 𝜏, 𝑒/𝜇 veto, 𝐸𝑇
+𝑚𝑖𝑠𝑠> 200 GeV, MET trigger
+New generated MET samples looks consistent with former samples.
+NOTES: 
+
+### PAGE 25
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 25
+By introducing the new samples…
+NOTES: 
+
+### PAGE 26
+Signal selection and expected yields
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 26
+Signal Region (SR)
+Number of 𝜏𝑡𝑖𝑔ℎ𝑡 = 1, e/mu veto
+Number of b70 = 1
+𝑝𝑇
+𝑏 > 25 GeV
+min Δ𝜙 𝑗𝑒𝑡, 𝐸𝑇
+𝑚𝑖𝑠𝑠 ≥ 0.4 || 𝐸𝑇
+𝑚𝑖𝑠𝑠/𝑝𝑇
+𝑗𝑒𝑡 𝑚𝑖𝑛Δ𝜙 ≥ 6
+𝑝𝑇
+𝜏 > 300 GeV
+𝑚𝑇 > 250 GeV
+𝐸𝑇
+𝑚𝑖𝑠𝑠 > 400 GeV
+Δ𝜙 𝑝𝑇
+𝜏 , 𝑝𝑇
+𝑚𝑖𝑠𝑠 > 0.3
+𝑝𝑇
+𝜏 /𝐸𝑇
+𝑚𝑖𝑠𝑠<3
+Number of light jets ≤ 3
+𝒕 ҧ𝒕 Single Top 𝑾 → 𝝉𝝂 (HF) 𝒁 → 𝝂𝝂 Signal All BG
+Yields* 0.34 ± 0.12 0.18 ± 0.15 −0.17 ± 0.46 0.29 ± 0.08 2.13 ± 0.04 0.70 ± 0.51
+(*140 fb-1)• Yields
+• SR definition in JPS
+• (𝜂𝑗𝑒𝑡 < 2.5 && 𝑝𝑇
+𝜏  > 30) || (𝜂𝑗𝑒𝑡 > 2.5 && 𝑝𝑇
+𝜏  > 30), B tag WP 70 
+𝒕 ҧ𝒕 Single Top 𝑾 → 𝝉𝝂 (MET) 𝒁 → 𝝂𝝂 Signal All BG
+Yields* 0.34 ± 0.12 0.18 ± 0.15 1.292 ± 0.62 0.29 ± 0.08 2.13 ± 0.04 2.15 ± 0.66
+before
+after
+It turns out 𝑊 → 𝜏𝜈 could be the dominant BG! What if use hard b jets?
+NOTES: 
+
+### PAGE 27
+New Signal selection and expected yields
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 27
+Signal Region (SR)
+Number of 𝜏𝑡𝑖𝑔ℎ𝑡 = 1, e/mu veto
+Number of b85 = 1
+𝑝𝑇
+𝑏 > 300 GeV
+min Δ𝜙 𝑗𝑒𝑡, 𝐸𝑇
+𝑚𝑖𝑠𝑠 ≥ 0.4 || 𝐸𝑇
+𝑚𝑖𝑠𝑠/𝑝𝑇
+𝑗𝑒𝑡 𝑚𝑖𝑛Δ𝜙 ≥ 6
+𝑝𝑇
+𝜏 > 200 GeV
+𝑚𝑇 > 150 GeV
+𝐸𝑇
+𝑚𝑖𝑠𝑠 > 350 GeV
+Δ𝜙 𝑝𝑇
+𝜏 , 𝑝𝑇
+𝑚𝑖𝑠𝑠 > 0.3
+𝑝𝑇
+𝜏 /𝐸𝑇
+𝑚𝑖𝑠𝑠< 5
+Number of light jets ≤ 2
+𝒕 ҧ𝒕 SingleTop 𝑾 → 𝝉𝝂 𝒁 → 𝝂𝝂 𝒁 → 𝝉𝝉 Signal All BG
+Yields* 0.04 ± 0.04 0.14 ± 0.14 0.71 ± 0.14 0.08 ± 0.05 0.08 ± 0.05 3.21 ± 0.05 1.07 ± 0.21
+(*140 fb-1)• Yields
+• Updated SR
+• 𝜂𝑗𝑒𝑡 < 2.5 && pT
+j > 20 GeV, B tagging WP 85
+Bonus?Suppressed !
+NOTES: 
+
+### PAGE 28
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 28
+Which means…
+NOTES: 
+
+### PAGE 29
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 29
+Target signal: back-to-back 𝜏𝜈 + soft b jet
+Hard b, 𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠
+Which means…
+NOTES: 
+
+### PAGE 30
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 30
+Target signal: back-to-back 𝜏𝜈 + soft b jet
+Hard b, 𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠
+How do signal kinematics look like while raising 𝒑𝑻
+𝒃 ?
+Which means…
+NOTES: 
+
+### PAGE 31
+New Signal selection and expected yields
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 31
+• N-1 Kinematics plots in SR (b tag WP 85)
+SR
+NOTES: 
+
+### PAGE 32
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 32
+Target signal: back-to-back 𝜏𝜈 + soft b jet
+Hard b, 𝜏, 𝐸𝑇
+𝑚𝑖𝑠𝑠
+How do signal kinematics look like while raising 𝑝𝑇
+𝑏 ?
+How to define a VR region considering such SR?
+Which means…
+NOTES: 
+
+### PAGE 33
+Validationregion investigation
+• Considering validation region reverting 𝑝𝑇
+𝜏 /𝑝𝑇
+𝑏 cut.
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 33
+𝒑𝑻
+𝝉 < 𝟐𝟎𝟎 GeV 𝒑𝑻
+𝒃 < 𝟑𝟎𝟎 GeV
+Signal (MC) 1.15 ± 0.03 1.07 ± 0.06
+BG (MC) 23.4 ± 1.2 23.0 ± 6.4
+S/(S+B) 4.7% 4.4%
+• For both region, signal contamination is low.
+NOTES: 
+
+### PAGE 34
+34
+New signal study – truth kinematics plots
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+• Pre-Selection (w/o b)
+• Met >= 200
+• N of taus = 1
+• e/mu veto
+• N of jets >=1
+• minDPhi(met, jet) >= 0.4 || met/jet >=6
+• Samples: 537131 ~ 537133 (LQ + interference)
+• Large negative interference effect at low-pT and low-MET region.
+NOTES: 
+
+### PAGE 35
+35
+New signal study – truth kinematics plots
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+• Pre-Selection (w/ b)
+• Met >= 200
+• N of taus = 1
+• e/mu veto
+• N of jets >=1
+• minDPhi(met, jet) >= 0.4 || met/jet >=6
+• N of b jets =1
+• Samples: 537131 ~ 537133 (LQ + interference)
+• Phase space with 1b jet could suppress interference effect.
+→ It turns out that CKM(cb) for LQ is 0.04 but for SM is 0.
+• Good to do SR optimization in the 1 b jet region.
+
+NOTES: 
+
+### PAGE 36
+Signal interference study
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 36
+• Compare phase space w/wo b jet selection:
+• Both LQ and interference with SM included samples are produced.
+➢ Event generation: MadGraph5.
+➢ Detector simulation included.
+The phase space with high 𝑝𝑇
+𝜏 , 𝐸𝑇
+𝑚𝑖𝑠𝑠,1b is expected to have little effect by the interference!
+𝑉𝑐𝑠 ~0.98
+SM:
+𝑉𝑐𝑏 ~0.04
+
+NOTES: 
+
+### PAGE 37
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 37
+𝑾 → 𝝉𝝂 CR - definition
+Wtaunu CR
+Number of 𝜏𝑡𝑖𝑔ℎ𝑡 = 1, e/mu veto
+Number of b = 0
+𝑝𝑇
+𝑏 > 25 GeV
+minDPhi(met, jet) >= 0.4 || met/jet >=6
+𝑝𝑇
+𝜏 > 200 GeV
+𝑚𝑇 > 100 GeV
+𝐸𝑇
+𝑚𝑖𝑠𝑠 > 200 GeV
+Δ𝜙 𝑝𝑇
+𝜏 , 𝑝𝑇
+𝑚𝑖𝑠𝑠 > 0.3
+𝑝𝑇
+𝜏 /𝐸𝑇
+𝑚𝑖𝑠𝑠<3
+Number of light jets ≤ 3
+• Purpose: Validate modeling of 𝑊 → 𝜏𝜈 in the SR by data and simulation samples.
+• Strategy: Find a control region that have similar selection with SR but enriched with W.
+➢ Only b-tag selection is changed to b-veto to ensure the reliability of MC samples.
+➢ Data and MC consistency is checked with lower 𝑚𝑇 threshold.
+NOTES: 
+
+### PAGE 38
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 38
+𝑾 → 𝝉𝝂 CR - kinematicsplots
+• Distribution passed Wtaunu CR selection
+• Data and simulation samples show the good agreement in the Wtaunu CR.
+• Important to increase the MC statistics to estimate the tail region precisely.
+CR
+CR
+CR
+NOTES: 
+
+### PAGE 39
+39
+ttbar decay mode (dilep)
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+• Sample: mc20_13TeV.410472.PhPy8EG_A14_ttbar_hdamp258p75_dil.deriv.DAOD_PHYS.e6348_s3681_r131*_p5855
+• Selection: SR
+Weighted events Raw events
+NOTES: 
+
+### PAGE 40
+40
+ttbar decay mode (dilep)
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+• Sample: mc20_13TeV.410472.PhPy8EG_A14_ttbar_hdamp258p75_dil.deriv.DAOD_PHYS.e6348_s3681_r131*_p5855
+• Selection: SR & decaymode = 33 
+• Tau kinematics (taus that failed to pass the tau selection) 
+Tau-id passed:
+0: none
+1: loose
+2: medium
+3: Tight
+• 𝑡 ҧ𝑡 in SR is mainly from
+decay mode 33 with one
+𝜏𝑣𝑖𝑠
+ℎ𝑎𝑑 failed identification.
+NOTES: 
+
+### PAGE 41
+41
+ttbar had scatter scale variation
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+note
+• Used two variation of scale correlation for top samples. (note)
+• “Var3cUp” A14 tune weight: 𝜇𝑅 = 0.5, 𝜇𝐹 = 0.5, ℎ𝑑𝑎𝑚𝑝 = 3𝑚𝑡𝑜𝑝
+• “Var3cDown” A14 tune weight: 𝜇𝑅 = 2.0, 𝜇𝐹 = 2.0, ℎ𝑑𝑎𝑚𝑝 = 1.5𝑚𝑡𝑜𝑝(nominal)
+Nominal Var3cUp Var3cDown
+xSec(pb) 452.352 452.363 452.344
+• CR
+ttbar MC samples in high lepton pT region is a bit overestimated for tested scale variation.
+NOTES: 
+
+### PAGE 42
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 42
+Background estimation – 𝑡 ҧ𝑡
+• Event yields in Top CR (140 fb-1)
+𝒕 ҧ𝒕 (true) 𝒕 ҧ𝒕 (fake) Single Top Diboson 𝑾 → 𝝁𝝂 𝑾 → 𝒆𝝂 All BG*
+Yields 69.3 ± 3.2 8.9 ± 1.2 20.9 ± 1.7 1.7 ± 0.2 1.3 ± 0.4 0.4 ± 0.2 103.6 ± 3.9
+*Top purity > 90%
+• Data and MC sample comparison in CR:
+• Simulation shows good agreements with data in 𝑡 ҧ𝑡
+VR after applying NF .
+• Apply NF to 2b1l validation region
+Normalization factor (NF): 0.68 ± 0.09 
+
+NOTES: 
+
+### PAGE 43
+• Purpose: Correct mis-modeling of 𝑍 → 𝜈𝜈 in SR due to fake 𝜏 background.
+• Strategy:
+➢Semi-data-driven normalization factor (NF) correction method.
+• 𝑁𝐹 =
+𝑁𝑍+𝑗𝑒𝑡𝑠
+𝐶𝑅,𝑑𝑎𝑡𝑎
+𝑁𝑍+𝑗𝑒𝑡𝑠
+𝐶𝑅,𝑀𝐶
+• 𝑁𝑍+𝑗𝑒𝑡𝑠
+𝑆𝑅 = 𝑁𝑍+𝑗𝑒𝑡𝑠
+𝑆𝑅,𝑀𝐶 × 𝑁𝐹
+➢Mismodelling of fake tau can be corrected by comparing data and MC in the CR.
+➢MC samples have more statistics than data.
+➢𝑍 → 𝑙𝑙 + 𝜏 region was selected the CR due to having the same diagram as 𝑍 → 𝜈𝜈 + 𝜏 and high
+purity.
+➢Systematics uncertainty from MC samples will be also considered.
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 43
+𝑍 → 𝑙𝑙 + 𝜏 CR – Purpose and strategy
+𝑁𝑍+𝑗𝑒𝑡𝑠
+𝐶𝑅,𝑚𝑐 − number of events from the Z+ jets in MC samples
+Diagrams of 𝑍 → 𝑙𝑙/𝜈𝜈
+NOTES: 
+
+### PAGE 44
+𝒁 → 𝒍𝒍 + 𝝉 CR
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 44
+• Comparison w/wo tau selection
+0 𝜏 & no 𝑚𝑇 cut 1 𝜏 (𝑝𝑇 > 100 GeV) & no 𝑚𝑇 cut
+Data and simulation has large deviation while selecting fake 𝜏 events.
+NOTES: 
+
+### PAGE 45
+𝒁 → 𝒍𝒍 + 𝝉 CR
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 45
+• N-1 Kinematics plots (tight 𝜏 WP)
+CR
+CR
+CR
+𝒑𝑻
+𝝉 range (GeV) NF
+𝒑𝑻
+𝝉 > 100 0.44 ± 0.06
+NOTES: 
+
+### PAGE 46
+New Physics scenario – Leptoquark (LQ) model
+46
+• Singlet vector LQ (𝑈1) are picked as the benchmark in current stage.
+• Signal scenario: VLQ BM 1
+➢ 𝛽𝐿
+𝑏𝜏 = 1
+➢ 𝛽𝐿
+𝑠𝜏 = 0.19
+➢ 𝛽𝑅
+𝑏𝜏 = 𝛽𝐿
+𝑑𝜏 = 𝛽𝐿
+𝑠𝜇 = 𝛽𝐿
+𝑏𝜇 = 0
+➢ Same as CMS 𝜏𝜏 search
+Left-handed coupling Right-handed coupling
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+From: T. Kitahara
+NOTES: 
+
+### PAGE 47
+Multi-jet cleaning– Purpose and strategy
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 47
+• Purpose: Clean up the multi-jet background in the signal region.
+• Strategy: Utilize feature of remained multi-jet process in SR.
+→ Those events are full of fake 𝐸𝑇
+𝑚𝑖𝑠𝑠 due to jet resolution effects and large cross section.
+→ Fake 𝐸𝑇
+𝑚𝑖𝑠𝑠 tends to the direction of hard jet and have lower or higher energy.
+True and fake 𝐸𝑇
+𝑚𝑖𝑠𝑠 topology
+• Angular distribution of multi-jet after pre-selection.
+Multi-jets enriched in the shaded region
+Signal (w/ 𝜈)
+ Multi-jet (w/o 𝜈)
+
+NOTES: 
+
+### PAGE 48
+Multi-jet cleaning– Rejectionratio
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 48
+• A cut of 𝑚𝑖𝑛ΔΦ(𝑝𝑇
+𝑚𝑖𝑠𝑠, 𝑝𝑇
+𝑗 ) > 0.4 || 𝐸𝑇
+𝑚𝑖𝑠𝑠/𝑝𝑇
+𝑗 > 6 is selected.
+➢ 86% multi-jet background rejection.
+➢ 3.6% signal loss → acceptable.
+• Cuts on 𝑚𝑖𝑛ΔΦ(𝑝𝑇
+𝑚𝑖𝑠𝑠, 𝑝𝑇
+𝑗 ) and 𝐸𝑇
+𝑚𝑖𝑠𝑠/𝑝𝑇
+𝑗 is found to be useful to suppress multi-jet background.
+• Rejection ratio scan for 𝑚𝑖𝑛ΔΦ(𝑝𝑇
+𝑚𝑖𝑠𝑠, 𝑝𝑇
+𝑗) when 𝐸𝑇
+𝑚𝑖𝑠𝑠/𝑝𝑇
+𝑗 > 6 is performed to find a proper cut.
+Rejection ratio= Number of events (rejected)
+Number of total events
+Multi-jet
+enriched region SR
+Signals distribution is quite different than Multi-jets
+SR
+A TLAS simulation work in progress
+𝑠 = 13 TeV, 140 fb−1
+LQ 𝜏𝜏 t-channel
+NOTES: 
+
+### PAGE 49
+𝑾 → 𝝉𝝂 validationregion – Backgroundyields
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 49
+• Background and signal yields in VR.
+𝑾 → 𝝉𝝂 𝒁 → 𝝂𝝂 𝒁 → 𝝉𝝉 Di-boson 𝒕 ҧ𝒕 Single top Multi-jet BG Signal
+Events 686±166 65.8±4.5 22.2±4.2 18.4±1.2 7.6±1.0 4.0±0.7 < 0.05 839±167 0.9±0.02
+• Signal contamination in VR
+➢ S/B = 0.9 / 839 ~ 0.1%
+• 𝑊 → 𝜏𝜈 purity
+➢ 686/839 ~ 80%
+Signal contamination should not
+be the problem
+Relatively high purity of
+𝑊 → 𝜏𝜈 background.
+
+NOTES: 
+
+### PAGE 50
+𝑾 → 𝝉𝝂 validationregion – Results
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 50
+• Data and simulation sample comparison in VR region
+➢ The variable in the horizontal coordinate only applied pre-selection
+Good agreement within error
+between data and MC prediction.
+However…
+Data MC Data/MC
+697±26 839±167 0.82±0.17
+• Data and MC yields
+
+NOTES: 
+
+### PAGE 51
+𝑾 → 𝝉𝝂 validationregion – Results
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 51
+• Data and simulation sample comparison in VR region
+➢ The variable in the horizontal coordinate only applied pre-selection
+• 300 GeV < Jet pT < 500 GeV (looser cut is applied for more statistics)
+• Looks good so far…
+NOTES: 
+
+### PAGE 52
+𝑾 → 𝝉𝝂 validationregion – Results
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 52
+• Data and simulation sample comparison in VR region
+➢ The variable in the horizontal coordinate only applied pre-selection
+• Jet pT > 500 GeV (looser cut is applied for more statistics)
+• Data and MC consistency in high pT region is terrible!
+➢ Bug in xTAUFramework? → Need to cross-check with AnalysisTop and check other region.
+➢ If it’s not a bug, maybe the inconsistency is just due to Wtaunu sample mis-modeling?
+NOTES: 
+
+### PAGE 53
+Check for high-pT region in Zll CR
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 53
+• Selection
+• Met >= 200 GeV
+• N of taus = 1
+• e/mu veto
+• N of jets >=1
+• minDPhi(met, jet) >= 0.4 || met/jet >=6
+Wtaunu VR Zll CR
+• Selection
+• Met >= 200 GeV
+• N of taus = 1
+• N of e/mu = 2
+• N of jets >=1
+No obvious pT-dependent offset in Zll CR. → Next to check Wtaunu CR distribution with GFW1
+Before that, need to confirm that GFW1 works as well as xTAUFramework…
+NOTES: 
+
+### PAGE 54
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting 54
+Frameworkcomparison
+• Wtaunu BF MC20e samples are used for this study.
+• Selection
+• Met >= 200 GeV, N of taus = 1, N of e/mu = 0
+Jet pT (GeV)
+ N of jets
+ Jet eta
+• Kinematic ratio plots looks good.
+• Slightly fluctuation could be from different electron id or different pre-selection.
+NOTES: 
+
+### PAGE 55
+55
+𝜏 identification in ATLAS
+• Baseline tau selection recommendation
+➢ 𝑝𝑇 > 20 𝐺𝑒𝑉
+➢ 𝜂 < 2.5 (excluding 1.37 < 𝜂 < 1.52)
+➢ 1 or 3 tracks
+* From ATL-PHYS-PUB-2019-033
+• Working point efficiency • Background rejection
+2025/01/28 Jiaqi ZANG ICEPP Analysis meeting
+NOTES: 

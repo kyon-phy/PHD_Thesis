@@ -1,0 +1,108 @@
+--- Chapters/CH7_event_selection.tex (before)
++++ Chapters/CH7_event_selection.tex (after)
+@@ -11,27 +11,10 @@
+ \label{subsec:ch7_variables}
+ 
+-The transverse momenta, angular separations and reconstructed masses characterise the energy scale and geometry of the $\tau\nu+\mathrm{jets}$ final state.
+-They distinguish the signal from $W$+jets and top-quark production, and separate the resonant and non-resonant signal contributions. 
+-
+-Heavy-leptoquark production can yield large $\pT^\tau$ and $\met$, whereas most SM events populate lower values of these quantities.
+-    Requiring large $\pT^\tau$ and $\met$ therefore selects the high-energy part of the $\tau\nu$ spectrum in which a leptoquark contribution can become distinguishable~\cite{Endo2022NonResonant}.
+-    The two quantities need not be equal because the jets carry transverse momentum and the $\tau$-decay neutrino contributes to $\mpt$.
+-
+-The azimuthal separation $\DphiTauMet$ is the angle between the $\tau$ momentum and $\mpt$ in the transverse plane, with values between zero and $\pi$.
+-    In non-resonant production with a relatively soft recoiling jet, the $\tau$ and the invisible system tend to be back-to-back.
+-    A lower requirement on $\DphiTauMet$ favours this geometry and reduces top-quark backgrounds with a more complex final state.
+-    Resonant production contains an energetic jet from the leptoquark decay, so a back-to-back requirement on the $\tau$ and $\mpt$ can also remove the signal of interest.
+-
+-The transverse mass $\mT$ combines the two transverse momentum scales with their angular separation:
++The transverse mass of the $\tau$ and $\mpt$ system is defined, neglecting the $\tau$ mass, as
+     \begin{equation}
+         \mT = \sqrt{2\pT^\tau\met\left[1-\cos\DphiTauMet\right]}.
+         \label{eq:ch7_mt}
+     \end{equation}
+-    This definition neglects the small $\tau$ mass.
+-    It is useful because the longitudinal momenta of the neutrinos are unmeasured and the full $\tau\nu$ invariant mass cannot be reconstructed.
+-    For an on-shell $W\to\tau\nu$ decay with correctly reconstructed momenta and no other source of $\mpt$, $\mT$ is bounded by the $W$-boson mass.
+-    Off-shell $W$ production, additional neutrinos and detector resolution populate the high-$\mT$ tail of the SM background.
+-    A heavy virtual leptoquark can enhance this tail, making $\mT$ particularly useful for non-resonant production.
+-    Equation~\ref{eq:ch7_mt} also shows that its selection is correlated with those on $\pT^\tau$, $\met$ and $\DphiTauMet$.
++Here $\DphiTauMet$ is the azimuthal separation between the $\tau$ momentum and $\mpt$, with values between zero and $\pi$.
+ 
+ The invariant masses $m_{b\tau}$ and $m_{j\tau}$ are reconstructed from the selected $b$-jet or leading jet and the $\tau$:
+@@ -41,18 +24,8 @@
+     \end{equation}
+     where $p_b$, $p_{j_1}$ and $p_\tau$ are four-momenta, and $j_1$ is the jet with the largest $\pT$.
+-    In resonant $U_1\to b\tau$ production, $m_{b\tau}$ retains information about the leptoquark mass.
+-    The neutrino from the $\tau$ decay shifts $m_{b\tau}$ below $\MU$ and broadens its distribution, with further smearing from the jet and $\tau$ energy resolutions.
+-    A lower mass threshold therefore selects heavy-particle decays without requiring a narrow peak at $\MU$.
+-    The analogous variable $m_{j\tau}$ is used in the zero-$b$-jet regions, where the leading jet can originate from $U_1\to s\tau$.
+-
+-The selected-jet $\pT$ distinguishes the two production topologies.
+-    The $b$-jet from a resonant $U_1\to b\tau$ decay is typically energetic because it shares the decay energy of a heavy particle.
+-    A $b$-jet radiated in non-resonant production is typically softer.
+-    The $b$-jet $\pT$ is therefore used to divide the one-$b$-jet sample, while the leading-jet $\pT$ is used in the zero-$b$-jet sample.
+-    These reconstructed categories enrich the corresponding production modes without separating them exactly.
++The zero-$b$-jet regions contain no $b$-tagged jet, so $m_{j\tau}$ is used in place of $m_{b\tau}$.
+ 
+ The numbers of selected $\tau$ leptons, electrons, muons, jets and $b$-tagged jets are denoted by $N_\tau$, $N_e$, $N_\mu$, $N_j$ and $N_b$, respectively, with $N_\ell=N_e+N_\mu$.
+     All jets, including $b$-tagged jets, enter $N_j$, so $N_j-N_b$ counts jets that are not $b$-tagged.
+-    An upper requirement on this multiplicity suppresses $\ttbar$ events, whose two top-quark decays often produce several jets.
+ 
+ \subsection{Multijet suppression}
+@@ -119,6 +92,7 @@
+ 
+ The $\SR$ regions select exactly one $b$-tagged jet to target the $b\tau$ interaction in the $U_1$ model.
+-The non-resonant selection is motivated by the high-$\mT$ $\tau\nu+b$ strategy of Ref.~\cite{Endo2022NonResonant}: an energetic $\tau$ and large $\met$ select the hard scattering, the $b$-tag reduces the inclusive $W$+jets background, and a restriction on additional jets suppresses top-quark production.
+-The analysis also retains a resonant category to select an on-shell leptoquark decaying into $b\tau$.
++The tag reduces the inclusive $W$+jets background, as in the high-$\mT$ $\tau\nu+b$ strategy of Ref.~\cite{Endo2022NonResonant}.
++
++The $b$-jet $\pT$ distinguishes resonant $U_1\to b\tau$ decays, which produce an energetic decay jet, from non-resonant production, where the radiated jet is typically softer.
+ The sample is divided at $\pT^b=250~\GeV$, with $\pT^b>250~\GeV$ defining $\SR$-$\Res$ and $50<\pT^b<250~\GeV$ defining $\SR$-$\NonRes$.
+ 
+@@ -126,10 +100,27 @@
+ \label{subsec:ch7_scan}
+ 
++Large $\pT^\tau$ and $\met$ are more characteristic of heavy-leptoquark production than of the bulk of the $W$+jets and top-quark backgrounds.
++Lower thresholds on both quantities therefore improve the signal-to-background ratio.
++
++The $\mT$ distribution from on-shell $W\to\tau\nu$ decays is bounded by the $W$-boson mass for correctly reconstructed momenta and no additional source of $\mpt$.
++Off-shell $W$ production, additional neutrinos and detector resolution generate a high-$\mT$ background tail, which can be enhanced by non-resonant leptoquark exchange.
++A lower $\mT$ threshold targets this signal contribution.
++
++The invariant masses $m_{b\tau}$ and $m_{j\tau}$ probe resonant $U_1\to b\tau$ and $U_1\to s\tau$ decays, respectively, while the SM backgrounds have no corresponding heavy resonance.
++The $\tau$-decay neutrino shifts the signal distributions below $\MU$ and broadens them, with additional smearing from the jet and $\tau$ energy resolutions.
++A lower mass threshold suppresses the SM backgrounds while retaining this broad signal.
++
++The separation $\DphiTauMet$ tends towards $\pi$ in non-resonant production with a soft recoiling jet, whereas top-quark events have more complex decay kinematics.
++A lower threshold favours this signal geometry; an upper threshold is also tested for resonant production, where the energetic decay jet changes the transverse momentum balance.
++
++The jet multiplicity $N_j-N_b$ tends to be larger in $\ttbar$ events because the two top-quark decays produce additional jets.
++An upper limit suppresses this background while retaining signal events with fewer jets.
++
+ The kinematic thresholds are scanned together because the discriminating variables are correlated.
+ For example, increasing $\met$ also raises $\mT$ at fixed $\pT^\tau$ and $\DphiTauMet$, so the effect of an additional $\mT$ requirement depends on the other cuts.
++
+ Lower thresholds on $\pT^\tau$, $\met$ and $\mT$ are scanned in both categories, together with an upper limit on $N_j-N_b$.
+ A lower threshold on $\DphiTauMet$ is tested for the non-resonant topology.
+-For the resonant topology, upper thresholds on this angle and a lower threshold on $m_{b\tau}$ are tested.
+-The complete scan grid is given in Table~\ref{tab:ch7_scan_variables}.
++For the resonant topology, upper thresholds on this angle and a lower threshold on $m_{b\tau}$ are tested, as summarised in Table~\ref{tab:ch7_scan_variables}.
+ 
+ \begin{table}[htbp]
+@@ -154,4 +145,5 @@
+ The mass scan uses only $m_{b\tau}>0$ and $800~\GeV$.
+ The broad $m_{b\tau}$ distribution and limited simulated background statistics in its high-mass tail favour an inclusive mass requirement over a finely scanned mass window.
++
+ The resonant optimisation targets $\MU=1.5~\TeV$, where on-shell production is important.
+ The non-resonant optimisation uses $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, where virtual exchange provides the dominant signal contribution.
+@@ -221,9 +213,7 @@
+ The selected $\SR$-$\Res$ requirements are $\pT^\tau>200~\GeV$, $\met>200~\GeV$, $\mT>200~\GeV$ and $m_{b\tau}>800~\GeV$, with at most three jets that are not $b$-tagged.
+ No additional $\DphiTauMet$ requirement is retained.
+-The $m_{b\tau}$ requirement provides strong rejection of backgrounds without a heavy $b\tau$ resonance, while the energetic $b$-jet selects the two-body decay topology.
+ The region is treated as a single event-counting bin because the available background simulation does not support a finely binned fit to the broad $m_{b\tau}$ distribution.
+ 
+ The selected $\SR$-$\NonRes$ requirements are $\pT^\tau>200~\GeV$, $\met>400~\GeV$, $\mT>600~\GeV$ and $\DphiTauMet>1.2$, with at most one jet that is not $b$-tagged.
+-The tighter $\met$ and $\mT$ requirements select the high-energy tail, and the smaller allowed jet multiplicity reduces the top-quark background.
+ No $m_{b\tau}$ requirement is imposed because the $b$-jet and $\tau$ do not reconstruct an on-shell leptoquark in the target topology.
+ This region also contributes a single event count to the fit.

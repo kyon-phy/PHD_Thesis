@@ -1,0 +1,20 @@
+% Compile from the thesis root directory.
+% Preview only the sections contained in objects/met.tex.
+\documentclass[a4paper,12pt,times,numbered,oneside,custombib]{Classes/PhDThesisPSnPDF}
+\input{Preamble/preamble}
+\input{thesis-info}
+\hypersetup{pdftitle={Missing transverse momentum and object definitions -- Section Preview},pdfauthor={Jiaqi Zang}}
+\usepackage{xr-hyper}
+\externaldocument[][nocite]{output/ch6/MET_external_labels}[CH6_preview.pdf]
+\begin{document}
+\mainmatter
+\setcounter{chapter}{6}
+\setcounter{section}{8}
+\setcounter{equation}{2}
+\markboth{Object Reconstruction and Identification}{Missing transverse momentum}
+\input{Chapters/object_definition/met}
+\begin{spacing}{0.9}
+\bibliographystyle{unsrtnat}
+\bibliography{References/references}
+\end{spacing}
+\end{document}

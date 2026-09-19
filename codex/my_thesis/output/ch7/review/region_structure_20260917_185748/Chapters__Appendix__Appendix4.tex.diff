@@ -1,0 +1,30 @@
+--- Chapters/Appendix/Appendix4.tex.before
++++ Chapters/Appendix/Appendix4.tex
+@@ -0,0 +1,27 @@
++\chapter{Signal--SM interference}
++\label{app:signal_interference_study}
++
++The interference between the leptoquark and SM amplitudes changes the signal contribution remaining after the selection.
++Its effect on the $\bTagSR$ optimisation in Section~\ref{sec:ch7_sr1b} is examined here, together with the role of the kinematic requirements in reducing this contribution.
++
++\section{Contribution to the selected signal yield}
++
++The selected signal prediction includes the interference term in Eq.~\ref{eq:signal_interference}.
++If $S$ denotes the pure BSM yield and $I$ the interference yield, the excess above the SM prediction is $S+I$ at the nominal signal normalisation.
++For destructive interference, $I<0$, so a selection ranked using $S$ alone can overestimate the final sensitivity.
++The interference contribution is therefore checked after the optimisation and included in the final statistical model.
++The signal efficiencies in Chapter~\ref{chapter:event_selection} are evaluated using the pure BSM contribution because the signed interference yield is not an event-selection efficiency.
++
++\section{Effect of the kinematic requirements}
++
++The low-energy phase space in which interference with SM $W$ production is most important is suppressed by the requirements on $\pT^\tau$, $\met$ and $\mT$.
++In particular, the non-resonant requirements $\pT^\tau>200~\GeV$, $\met>400~\GeV$ and $\mT>600~\GeV$ retain the hard tail while reducing the destructive contribution.
++
++At $\MU=1.5~\TeV$, the magnitude of the interference contribution in $\bTagSR$-$\Res$ is typically below $5\%$ of the pure BSM yield over the parameter points studied.
++In $\bTagSR$-$\NonRes$, fractions as large as $40\%$ are found at the lowest $\gU$ values, where the signal yield is too small to be excluded by the analysis.
++Near the expected exclusion boundary from $\bTagSR$-$\NonRes$ alone, the contribution is typically below $10\%$ at $\MU=1.5~\TeV$ and below $5\%$ at $\MU=3.0~\TeV$.
++The expected limits obtained with and without interference are found to differ little in the coupling range to which the one-$b$-jet analysis is sensitive.
++The pure BSM yield is therefore used to rank the trial selections, while interference is retained in the final signal prediction.
++
++This conclusion does not apply to the $\bVetoSR$ regions, where the interference contribution must be retained, as discussed in Section~\ref{sec:ch7_sr0b}.
++The supplementary $\met$ scan in Appendix~\ref{app:sr0b_optimisation} illustrates how a tighter requirement can reduce this contribution in the zero-$b$-jet regions.

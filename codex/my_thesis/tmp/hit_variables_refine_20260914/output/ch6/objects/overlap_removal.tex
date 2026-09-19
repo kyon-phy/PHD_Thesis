@@ -1,0 +1,24 @@
+\section{Overlap removal}
+\label{sec:ch6_overlap}
+
+During the object reconstruction, two different object could share the same detector measurements.
+An ordered overlap-removal procedure is therefore applied to resolve these ambiguities before event selection.
+
+Geometrical overlaps are evaluated using $\Delta R_y$, obtained by replacing $\eta$ with rapidity $y=\tfrac{1}{2}\ln[(E+p_z)/(E-p_z)]$ in Eq.~\eqref{eq:delta_r}.
+Muon--jet matches are also identified using \emph{ghost association}, in which a particle with negligible momentum is added along the muon direction during jet clustering.
+The muon is associated with the jet containing this particle, without changing the jet momentum.
+
+The following steps are applied in order to the baseline objects, using only candidates retained by the preceding steps:
+\begin{enumerate}
+    \item \textbf{Electron--electron}: the lower-$\pT$ electron is removed if two electrons share an ID track.
+    \item \textbf{Tau--electron}: a tau candidate within $\Delta R_y<0.2$ of an electron is removed.
+    \item \textbf{Tau--muon}: a tau candidate within $\Delta R_y<0.2$ of a muon is removed.
+    \item \textbf{Calorimeter-tagged muon--electron}: a calorimeter-tagged muon sharing the electron ID track is removed.
+    \item \textbf{Electron--muon}: an electron sharing an ID track with a remaining muon is removed.
+    \item \textbf{Jet--electron}: a jet within $\Delta R_y<0.2$ of an electron is removed, retaining the electron interpretation of the EM shower.
+    \item \textbf{Electron--jet}: an electron within $\Delta R_y<0.4$ of a remaining jet is removed to reject electrons embedded in hadronic jets.
+    \item \textbf{Jet--muon}: a jet with fewer than three associated tracks is removed if the muon is ghost-associated with it. The small track multiplicity suggests that the jet candidate is dominated by activity associated with the muon.
+    \item \textbf{Muon--jet}: a muon within $\Delta R_y<0.4$ of a remaining jet is removed.
+    \item \textbf{Jet--tau}: a jet within $\Delta R_y<0.2$ of a remaining tau candidate is removed.
+\end{enumerate}
+

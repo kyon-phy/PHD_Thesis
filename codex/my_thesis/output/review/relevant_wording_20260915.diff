@@ -1,0 +1,61 @@
+--- before/output/ch6/objects/btagging.tex
++++ after/output/ch6/objects/btagging.tex
+@@ -17,7 +17,7 @@
+ 
+ The resulting vector is used for the main task of jet-flavour classification.
+ It is also combined with the individual track vectors for two auxiliary tasks: identifying track origins and predicting whether pairs of tracks originate from the same vertex.
+-The three tasks share the transformer and are trained jointly, helping it learn the decay structure relevant to flavour tagging.
++The three tasks share the transformer and are trained jointly, helping it learn the decay structure.
+ The network and its three tasks are illustrated in Figure~\ref{fig:ch6_gn2}.
+ 
+ The jet-flavour classifier produces four outputs for the $b$-jet, $c$-jet, hadronic-$\tau$ and light-jet hypotheses, where light jets originate from $u$, $d$ or $s$ quarks or gluons.
+--- before/Chapters/CH2_theoretical_background.tex
++++ after/Chapters/CH2_theoretical_background.tex
+@@ -889,7 +889,7 @@
+ Here $g$ is the $SU(2)_{L}$ gauge coupling, $u_{L}^{i}$ and $d_{L}^{j}$ are the left-handed up-type and down-type quark mass eigenstates, and $W_{\mu}^{+}$ is the charged weak gauge boson. 
+ The matrix element $V_{ij}^{\mathrm{CKM}}$ describes the strength of the charged-current transition from the down-type quark $d^{j}$ to the up-type quark $u^{i}$. 
+ The matrices $\gamma^{\mu}$ are the Dirac gamma matrices, and the Hermitian-conjugate term describes the corresponding interaction involving $W_{\mu}^{-}$. 
+-The CKM matrix is essential for describing flavour-changing charged-current processes such as $b\rightarrow c\tau\nu$, which are relevant for the leptoquark scenarios discussed later. 
++The CKM matrix is essential for describing flavour-changing charged-current processes such as $b\rightarrow c\tau\nu$. 
+ Its complex phase also provides a source of CP violation in the quark sector of the SM.
+ 
+ In the minimal SM, neutrino masses are absent because no right-handed neutrino fields are included and no renormalisable neutrino Yukawa interaction can be written with the minimal field content. 
+--- before/Chapters/CH3_LQ_search.tex
++++ after/Chapters/CH3_LQ_search.tex
+@@ -82,7 +82,7 @@
+ 
+ Several leptoquark representations have been studied in connection with semileptonic $B$-meson anomalies, including the scalar singlet $S_{1}$ and the scalar doublet $R_{2}$. 
+ In this thesis, however, the benchmark interpretation is based on the vector singlet leptoquark $U_{1}$. 
+-The $U_{1}$ benchmark is well motivated because its left-handed coupling to quark and lepton doublets can generate the SM-like vector operator relevant to $b\rightarrow c\tau\nu$. 
++The $U_{1}$ benchmark is well motivated because its left-handed coupling to quark and lepton doublets can generate the SM-like vector operator for $b\rightarrow c\tau\nu$. 
+ In addition, flavour structures with enhanced couplings to third-generation fermions naturally lead to final states involving $\tau$-leptons, neutrinos, and jets.
+ 
+ The $U_{1}$ leptoquark transforms as
+@@ -438,7 +438,7 @@
+ \label{subsec:u1_low_energy_fit}
+ 
+ The Wilson coefficients $C_{LL}^{c}$ and $C_{LR}^{c}$ introduced above can be constrained using measurements of semileptonic charged-current $B$-meson decays. Ref.~\cite{Aebischer2022} performed a combined fit to low-energy $b\rightarrow c\tau\nu$ observables and determines the preferred region in the $(C_{LL}^{c},C_{LR}^{c})$ plane. The fit result is shown in Fig.~\ref{fig:cll_clr_low_energy_fit}. The Wilson coefficients in this figure are evolved to a common reference scale of $1~\TeV$ to facilitate comparison with high-energy observables. The best-fit point is $(C_{LL}^{c}, C_{LR}^{c})=(0.05,-0.02)$, and the preferred region is compatible with both pure-left-handed ($\beta_{R}^{33}=0$) and sizeable right-handed ($\beta_{R}^{33}=-1$) scenarios.
+-Although the sign of $\beta_R^{33}$ is relevant to the low-energy relation between $C_{LL}^{c}$ and $C_{LR}^{c}$, the collider predictions used in this thesis are identical for $\beta_R^{33}=+1$ and $-1$. The new-physics amplitudes with different fermion chiralities do not interfere, and the amplitude proportional to a product of left- and right-handed couplings does not interfere with the SM amplitude. The collider interpretation therefore depends only on $|\beta_R^{33}|$.
++Although the sign of $\beta_R^{33}$ affects the low-energy relation between $C_{LL}^{c}$ and $C_{LR}^{c}$, the collider predictions used in this thesis are identical for $\beta_R^{33}=+1$ and $-1$. The new-physics amplitudes with different fermion chiralities do not interfere, and the amplitude proportional to a product of left- and right-handed couplings does not interfere with the SM amplitude. The collider interpretation therefore depends only on $|\beta_R^{33}|$.
+ 
+ \begin{figure}[htbp]
+     \centering
+@@ -597,6 +597,6 @@
+     \label{fig:u1_taunu_target_topologies}
+ \end{figure}
+ 
+-The $b$-jet requirement provides strong discrimination against the dominant SM $\tau\nu+\mathrm{jets}$ background, since genuine SM production of a $\tau\nu$ system in association with a $b$-quark is CKM suppressed ~\cite{Endo2022NonResonant}. The $\tau\nu+b$ categories are therefore particularly sensitive to the combination of the $b\tau$ and $c\nu_{\tau}$ interactions relevant to $b\rightarrow c\tau\nu$.
++The $b$-jet requirement provides strong discrimination against the dominant SM $\tau\nu+\mathrm{jets}$ background, since genuine SM production of a $\tau\nu$ system in association with a $b$-quark is CKM suppressed ~\cite{Endo2022NonResonant}. The $\tau\nu+b$ categories are therefore particularly sensitive to the combination of the $b\tau$ and $c\nu_{\tau}$ interactions.
+ 
+ The zero-$b$ categories extend the sensitivity to the large $\beta_{L}^{23}$ region explored in this thesis. As $\beta_{L}^{23}$ increases, the $s\tau$ interaction also becomes sizeable, producing signal events without a final-state $b$-quark. This contribution is particularly relevant for resonant production, where an on-shell $U_{1}$ can decay into $s\tau$. The four categories therefore provide complementary sensitivity to the different flavour and production configurations of the $U_{1}$ signal.
+--- before/Chapters/CH5_MC_simulation.tex
++++ after/Chapters/CH5_MC_simulation.tex
+@@ -15,7 +15,7 @@
+ \label{sec:dataset_selection}
+ 
+ The search uses the full LHC Run~2 proton--proton collision dataset recorded by the ATLAS detector between 2015 and 2018 at a centre-of-mass energy of $\sqrt{s}=13~\TeV$.
+-Only data recorded during stable-beam periods and passing the relevant data-quality requirements are retained~\cite{ATLASDataQualityRun2}.
++Only data recorded during stable-beam periods and passing the data-quality requirements are retained~\cite{ATLASDataQualityRun2}.
+ These periods are defined by the ATLAS good-runs lists (GRLs).
+ 
+ The selected dataset corresponds to an integrated luminosity of $140.1\pm1.2~\ifb$, with a relative uncertainty of $0.83\%$~\cite{ATLASLumiRun2}.

@@ -1,0 +1,1631 @@
+
+--- PAGE 1 ---
+ 1 
+ Taunub: 2nd ATLAS circulation 
+ comments (EXOT-2025-06) 
+ ●  CDS (v1.0)  :  https://cds.cern.ch/record/2954752 
+ [Information] 
+ ●  Glance  : 
+ https://atlas-glance.cern.ch/atlas/analysis/papers/details.php?ref_code=EXOT-2025- 
+ 06 
+ ●  INT note:  https://cds.cern.ch/record/2932059 
+ [editing] 
+ ●  Overleaf  :  https://www.overleaf.com/project/692ee49949631efd63ff5aea 
+ ●  git  : 
+ https://gitlab.cern.ch/atlas-physics-office/EXOT/ANA-EXOT-2025-06/ANA-EXOT-202 
+ 5-06-PAPER 
+ ●  Paper draft:  https://cds.cern.ch/record/2952175 
+ [meeting] 
+ ●  EB meeting  :  https://indico.cern.ch/event/1653941/ 
+ ●  PAM  : TBA (  https://indico.cern.ch/category/2635/  ) 
+ [color] 
+ Takuya 
+ Jiaqi 
+ Stergios 
+ Junichi 
+ Jan (comment-011) 
+ Dear all, 
+ thanks for the update. I have a few minor additional comments, but will then pass 
+ you on to Guillaume for the final checks (spokesperson deletage signoff). 
+ Cheers, Jan 
+ l. 163 is this "mu" reused later on? if not, we may also skip the definition to reduce 
+ confusion 
+ >> Removed 
+
+--- PAGE 2 ---
+ 2 
+ l359 typo "injecte" 
+ >> Fixed to injected 
+ Figure 3 and similar captions: There s a statement missing about overflow contained 
+ in the right-most bin (I assume that s done). Also, we can skip "while the associated 
+ uncertainties are still shown correctly" 
+ >> Added “The overflow entries are added to the rightmost bin.” and removed 
+ “while…” 
+ refs 16+17 need some {\"u} umlauts 
+ https://atlaspo.cern.ch/internal/reference_checker/ANA-EXOT-2025-06-PAPER/ 
+ >> Fixed 
+ Caption of figures 5+: make sure to put the "(a)" or "(a,b)" etc ahead of the item 
+ being described, as for the prior figures. E.g. "at (a) betaL23 = 0.2, (b) 1.0..." 
+ >> Fixed 
+ figure 10/ table 9: Sorry, I clearly had not yet given this proper attention. Can you 
+ expand both captions a bit to explain very clearly what is shown here? I now realise 
+ this is an alternative signal model that is NOT part of the paper. Say clearly what you 
+ mean with "this study". These figures will be standalone on our web page, so any 
+ relevant information needs to be put in here. Why would the visible cross section 
+ limit depend on the signal model? What you write "The visible cross section is 
+ defined as the cross section calculated with MadGraph, multiplied by the acceptance 
+ and selection." cannot be right: this is possibly the definition of the expected visible 
+ cross section, not the 95%CL limit on that quantity? 
+ >> captions updated 
+ https://gitlab.cern.ch/atlas-physics-office/EXOT/ANA-EXOT-2025-06/ANA-EXOT-202 
+ 5-06-PAPER/-/blob/master/ANA-EXOT-2025-06-PAPER-auxmat.tex?ref_type=heads 
+ #L250 
+ https://gitlab.cern.ch/atlas-physics-office/EXOT/ANA-EXOT-2025-06/ANA-EXOT-202 
+ 5-06-PAPER/-/blob/master/ANA-EXOT-2025-06-PAPER-auxmat.tex?ref_type=heads 
+ #L260 
+ Guillaume (comment-010)  ✅  Replied 
+ Dear Takuya, analysis team, editors 
+ thanks for the answers. I don't have further comments from my side, but I noticed that in the 
+ pdf for the auxiliary figures 11 and 12 the caption have disappeared. I would also think that 
+ these figures should be labelled "ATLAS Simulation" instaed of "ATLAS" 
+
+--- PAGE 3 ---
+ 3 
+ cheers 
+ Guillaume 
+ Jan (comment-009)  ✅  Replied 
+ Dear authors, 
+ Please focus on my first batch of comments to get the plots into their final shape as soon as possible for 
+ presentation at LHCP. 
+ >> Done. 
+ As next step, I now read the paper text and send comments - still on the on the draft dated 15th May 2026   10:44 
+ v3.0 (taken from  https://cds.cern.ch/record/2952175  ) as part of the PubCom final sign-off. 
+ This PubCom reading is meant to bring a fresh look and assure uniformity across ATLAS papers. 
+ When you produce an updated draft version, it would be helpful if you could provide a colorized difference 
+ between the current version and the new version. See information on how to do this at 
+ https://twiki.cern.ch/twiki/bin/view/AtlasProtected/PubComLaTeXDiff  . 
+ You could upload this LateXdiff as an extra file in the CDS record of the working draft version. 
+ >> Done 
+ Please make sure you are using the latest version of the atlaslatex package. You can find the latest tarball at 
+ https://twiki.cern.ch/twiki/bin/view/AtlasProtected/PubComLaTeX  . 
+ >> Confirmed 
+ You can also drop the cover pages. 
+ >> Done 
+ +++++++++++++++++++++++++++++++++++ 
+
+--- PAGE 4 ---
+ 4 
+ Congratulations on this nice analysis and the well-written paper! 
+ L21 past tense  showed a deviation  - not true any more? 
+ >> Now changed to “show” 
+ L23 reference 12 is not very good - it s a web page. Cannot we have a publication here? 
+ >> Updated it like this: 
+ “Y.  Amhis etal., Averagesof b-hadron, c-hadron,and 𝜏 -lepton propertiesas of 2018, Eur. Phys. 
+ J.C81(2021) 226, the latest update is available at 
+ https://hﬂav-eos.web.cern.ch/hﬂav-eos/semi/ckm25/html/RDsDsstar/RDRDs.html  ,  arXiv: 
+ 1909.12524 [hep-ex]” 
+ (some pheno papers refer to the latest HFLAV average like this) 
+ L18-29 I don t have a complete suggestion, but I note these first 10 lines of the paper are very dense and 
+ technical. To me it would have made sense to start off why what are leptoquarks and why they may be interesting 
+ (refs 14-16 are definitely not the original idea of leptoquarks!), then bring the RD* discrepancies. The technical 
+ discussion what model is target here (l26+) does not need to be here - your signal model section is very long, so 
+ no need to start that already here 
+ >> Moved “This search focuses on the production of a vector leptoquark $U_1$ with 
+ quantum numbers $(\mathbf{3}, \mathbf{1}, {2/3})$, which correspond to the colour, weak, 
+ and hypercharge representations, respectively.” to Section 3. 
+ We also added more references to original ideas of LQ, that are … 
+ https://inspirehep.net/literature/230560 
+ https://inspirehep.net/literature/235471 
+ https://inspirehep.net/literature/92111 
+ https://inspirehep.net/literature/89207 
+ L38 suggest to use the $\gtrsim$ symbol 
+ >> Fixed 
+ Figure 1: I m not sure the terminology for  b/s  is clear - this is really a b-quark or a strange-quark? Also, the 
+ caption introduces a lot of new terms ( soft jet ,  (non-)resonant signal ) - this should not appear in the figure 
+ caption without being commented on in the text. Can the text refer to these two cases and introduce the terms, 
+ very briefly? 
+ >> Updated the text and caption accordingly. 
+ L57 is there a good reason to separate this CMS reference from the other references in the previous paragraph 
+ l30-41? 
+ >> We added CMS taunu paper also to l.30, and kept l.57 as it is. 
+
+--- PAGE 5 ---
+ 5 
+ L85+1 just a curiosity: do you understand why the CKM matrix is applied here to the up-type quark? Usually we 
+ put these onto the down-type quark? 
+ >> We followed the convention in  https://arxiv.org/pdf/2103.16558 
+ Added “  The ﬂavor basis of the quark ﬁelds is identiﬁed  with the mass basis of the down-type 
+ quarks.  ” 
+ L115 say  missing transverse momentum (ETmiss)  - not introduced yet? 
+ >> We also use MEt in l.171 before its definition in l.199. We added the definition in Section 
+ 1 i.e. “A search for leptoquarks is performed…missing transverse momentum, whose 
+ magnitude denoted by \met” 
+ L116-117  Depending on the analysis category defined later, events are required to satisfy either the E Tmiss 
+ trigger or single-lepton trigger.  - I d drop that and explain later (this sentence doesn t give the reader much, it 
+ only confuses) 
+ >> OK, this sentence was added to follow the comments during the ATLAS circulation, but 
+ happy to drop it 
+ L120 probably  and up to two partons (including b-quarks) ? Not very clear if exactly one b-quark required here 
+ >> OK, updated to “up to two partons (including possible b-quarks)” 
+ L123  Pythia8.308  (one dot less) 
+ >> Fixed 
+ L137 suggest to give the Sherpa version number used (or alternatively drop version number at other places, like 
+ l146) 
+ >> Added 
+ L149 EvtGen for all but Sherpa 
+ >> Fixed 
+
+--- PAGE 6 ---
+ 6 
+ L152 actually the Pileup mode is different for rel 22 - see 
+ https://gitlab.cern.ch/atlas-physics-office/atlaslatex/-/blob/master/template/MC23_snippets/Pileup.tex?ref_type=h 
+ eads#L3  - feel free to shorten a little 
+ >> Thank you. We misunderstood that mc20 uses the same pileup overlay method as mc16. 
+ We’ve updated the text as you suggest 
+ L204 not so clear at this stage why you would want to have an electron or muon in your events. It would appear 
+ this discussion is maybe better for the next section? 
+ >> OK. Removed 
+ L216 you had already discussed the tight selection, can this be dropped/reduced? 
+ >> OK. Removed 
+ L219  are defined for lower LQ masses ( 1.5 TeV).  - this sounds not quite right. Maybe you mean  target signals 
+ with  lower LQ masses ( 1.5 TeV). ? 
+ >> OK. Updated 
+ L222 why  Due to the b-jet veto in this region, ? I d just drop this. 
+ >> OK. Removed 
+ Section  6 Event selection  and  7 Background estimation  - it actually appears that section 6 defines the SRs, 
+ while section 7 defines the CRs? 
+ >> yes, but we think we can keep the current section titles 
+ In any case, what s missing around l235 is a statement that you use the simulation to estimate backgrounds. You 
+ explain nicely how it s constrained in the CRs, but you fail to say that what is constrained is the MC sample 
+ normalisation 
+ >> Added “The SM backgrounds are estimated using simulated samples.” 
+ L236-8 this is unclear - I would suggest to explain this properly - how can you get the fake tau rate from Z->ll 
+ studies? Almost the same text comes back at l302-306, but one still does not learn what was done really 
+ >> Added more explanation in Section 8. 
+ L247  improve the statistical precision.  - how can removing events improve the statistical precision? 
+ >> It is a left over from the version when we used SR1b only. Removed. 
+ L251 drop  while 
+ >> OK 
+
+--- PAGE 7 ---
+ 7 
+ L252 it s unclear if the 90% purity is before or after relaxing these cuts or true for both. I would move the 90% 
+ purity to after discussing the full selection to avoid confusion 
+ >> Moved it to the end of the paragraph 
+ Does VRtop follow the relaxed kinematic requirements of CRtop or those of the SR? 
+ >> Added “As with the \CRTop regions, looser selection cuts for $N_{b}$, $\pt^{\tauh}$, 
+ $\met$, $\mt$ and $m_{b\tauh}$ are required.” 
+ l274+ More citations would be nice here. I think the corrections applied are not interesting numbers to give, the 
+ uncertainty is more relevant. 
+ >> We’ve added some additional references. 
+ L283 what is  pile-up subtraction ? 
+ >> We meant the jet-area correction. As a part of JES calibration, we just removed it 
+ L295 maybe it would be good to add a few more recent ATLAS papers on this topic, e.g. 
+ https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/PMGR-2021-01/ 
+ https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/STDM-2018-43/ 
+ (ref 78 is super old) 
+ >> Thanks for suggestion. Added. We’ll keep [78] given it mentions to W/Z+b simulation 
+ explicitly 
+ L312 to be clear, these are  Separate *background* normalisation factors ? 
+ >> Added 
+ L314 is it a good idea to use lambda for normalisation factors, when one of the model parameters discussed in 
+ the introduction was using lambda (l38)? 
+ >> The team and EB are more in favour of keeping lambda for that since it’s one of the most 
+ common options (and other alternatives like κ and μ are also used for other things). So 
+ hopefully the subscripts/superscripts will distinguish them from the model parameter. 
+ L321  for mu=1  - this comes a bit late in the sentence? Suggest  ... the expected contribution from destructive 
+ interference for mu=1 amounts to 
+
+--- PAGE 8 ---
+ 8 
+ >> Fixed 
+ L323  the total yield (BSM signal plus interference)  - total yield should be SM+interference+BSM, not 
+ interference+BSM? Which statement are you trying to make? 
+ >> Updated to “total BSM signal plus interference yield” 
+ L324-327 suggestion (but please check):  The analysis sensitivity is dominated by the SR1b regions. However, 
+ for larger values of  L23 a sizeable part of the signal populates regions without a reconstructed b-jet and the 
+ SR0b regions are sensitive to such U1 signals. 
+ >> Looks good, adopted. 
+ L327 make a paragraph break before  For both  , I d suggest to be clearer as  For both the  background-only and 
+ signal-plus-background fits 
+ >> OK 
+ L345+ not sure I fully understand: first you say  with respect to the best-fit value of the signal strength  .  but then 
+ you say  pseudo-experiments  . With signal corresponding to   = 1  - can both be true at the same time? 
+ >> Rephrased to “The impact of each systematic uncertainty on the analysis sensitivity is 
+ evaluated with respect to the best-fit value of the signal strength $\mu$. This evaluation is 
+ performed using a dataset from pseudo-datasets constructed from the post-fit background 
+ expectation with an injecte signal corresponding to $\mu=1$, and the impact is assessed on 
+ the fitted value of $\mu$.” 
+ L358  corresponding to parameter points for which   = 1. ? Not clear, can this just be dropped? 
+ >> OK, removed 
+ I wonder if one should say clearly that the analysis has no sensitivity to the  B anomalies favoured region ? 
+ >> We think this is something that readers can see for themselves. We prefer not to mention 
+ that explicitly. 
+ I had already commented on the figures, nothing to add at this stage. 
+ Conclusion section: this is a bit short overall, but ok for me if you want to keep it like it is. 
+ >> We’ve decided to keep it as is, if there is no objection. 
+
+--- PAGE 9 ---
+ 9 
+ I notice you had some discussion in the intro (l36-41) that is not picked up again. 
+ >> This discussion is added mostly in the intro to introduce the reader to the other related 
+ analyses that have been done. Then the complementarity with these searches is discussed 
+ again at the end of the Results section. 
+ Table 9: the last lines is rally mU1=4 TeV? Before the upper limit appeared to be 3 TeV. 
+ >> Yes, it is. We didn’t produce 3TeV signals for right-handed scenario… 
+ References:  https://atlaspo.cern.ch/internal/reference_checker/ANA-EXOT-2025-06-PAPER/ 
+ These look largely good. However the reference checker has identified a few cases where the journal 
+ capitalisation of the title differs from what you have, click on the  Show no spaces no cases  top left - can you 
+ check the title capitalisation vs. the journal-published version and correct where needed? The differences in 
+ journals and experiments/authors look overall incorrect, so leave as is. 
+ E.g. refs 1, 2, 4  are affected 
+ >> We tried to update them. Some items are marked by e.g. “Eur.Phys.J” v.s. “Eur. Phys. J” 
+ but can we keep them as they are? 
+ Guillaume (comment-008)  ✅  Replied 
+ Dear editors, analysis team 
+ thanks for this interesting analysis and paper. 
+ To gain time, I am doing the deputy SP final sign off in parallel to Jan. I don t have further comments on the 
+ figures and you can find below few minor questions or suggestions. 
+ They are based on draft version 3.0 dated 15 May 2026 10:44 from  https://cds.cern.ch/record/2952175 
+ cheers 
+ Guillaume 
+ - line 189 "The particle identification and isolation efficiencies in the simulation are 
+ corrected to match those observed 
+ in data."  This seems to repeat what is said more in details lines 195-197. Is this line 
+ 189 needed ? 
+ >> Indeed. We removed the line l.189. 
+ - line 315: out of curiosity are the single top /ttbar ratio similar or different between 
+ CR and SR ?  Did you try to check if changing the tW/ttbar interference would affect 
+ in a visible way the MC extrapolation from CR to SR ? 
+
+--- PAGE 10 ---
+ 10 
+ >> The ratio of single top/ttbar is basically the same between CR and SR within the 
+ MC stat uncertainty. (although the stats in SR1b-NonRes is very limited). We also 
+ checked the tW/ttbar interference with the alternative DS sample and the nominal 
+ DR sample. The difference is basically less than 10% and covers the difference 
+ between SR/CR. 
+ - Fig 9 and 10 The bins with quoted acceptance*efficiency are a bit scattered 
+ especially at high mass with many empty bins. Just to be sure, you have only signal 
+ MC samples for the points with a reported value ? 
+ >> Correct, all points where we have the signal points are shown in the plots. 
+ - Fig 11 and 12 caption "toy" -> "pseudo-experiments" 
+ >> Fixed 
+ And the fact that pseudo-experiments are used for the main limits presented in the 
+ paper does not seem to be explicitly said. Is ti worth to be added for instance in the 
+ paragraph starting line 356. 
+ >> Added “where the distributions of the test statistic are evaluated using 
+ pseudo-experiments” 
+ Jan (comment-007)  ✅  Replied 
+ Figure 2: There s space to make the legend text a bit later 
+ The colour palette is very grey - is there still a chance to make a it a bit lighter / less 
+ grey? I m not insisting because it s quite late in the process. Maybe here just 
+ zooming a bit on the top panel (to have less Z+jets that has 
+ It would also be nice to make the signal lines stand out a bit more, maybe they can 
+ be just a little brighter colour? (Unless a change in W+jets colour gets rid of this 
+ issue). Also, if you could choose a bit more different colours for the 3 TeV example 
+ signal and the prefit, that would be nice - or you use a different line style for example 
+ signals and prefit. 
+ >> Colour of 1.5 TeV and 3 TeV signals has been changed to brighter red and 
+ magenta (colour code “2” and “6”). And line width is increased a bit. We use explicitly 
+ this palette as also discussed in the PAM since it’s the ATLAS approved one for 
+ colour blindness, etc. Thus we feel that light pink is probably not optimal. About the 
+ zooming in we intentionally went so low to ensure that reader that all processes are 
+ present in all regions (so we tried to ensure that some Z+jets yields show up in the 
+ plot of the VRW-NR region). The rest of the line style choices look very bad with this 
+ linewidth, so they were disregarded. 
+
+--- PAGE 11 ---
+ 11 
+ Figure 3: I would drop the  selection arrow  that indicate actually no selection (2nd 
+ left, 3rd right) 
+ >> Done. (We added the arrow for those plots by another comment’s request 
+ before..Hope current decision would fix.) 
+ Normally we put  empty sub-captions  below the figures (a), (b), and refer to these in 
+ the legend, see e.g.  https://arxiv.org/abs/2603.13113  Fiugure 3+ from page 20 
+ >> Done 
+ Overall it appears you went a bit too far by adding so many plots to the main body 
+ (we had zero for draft 1, now we have 16) - we re very long for a PLB and they will 
+ not like having so many plots. I would consider shifting a few less important plots to 
+ the auxiliary material, so they are not lost, but focus on key plots in the main body. 
+ E.g. CRTop-NonRes and VRTop-NonRes show almost no distribution (more than half 
+ of the plot is empty) and we have the integrated yields already on figure 2. Maybe 
+ you can bring this down to 4-6 plots and move the deselected plots to auxiliary 
+ material. 
+ >> We moved CRTop and VRTop plots to aux materials and focused only on CRW 
+ and VRW in the main body. 
+ The x-axes titles are rather complex - please try to increase their size as far as 
+ feasible so one can easily read these. 
+ >> Done 
+ For the y-axis we would here typically indicate the bin width *without changing 
+ anything on the plot itself*. Here it would be  Events / 100 GeV  for each plot 
+ >> Done 
+ The caption should also have a comment on the blue triangle (out of bounds points) 
+ and if overflow is included in the right-most bin (I guess it is) 
+ >> Added “Bottom panels show the ratio of the observed data to the background 
+ prediction. Blue upward triangles indicate ratio values exceeding the displayed y-axis 
+ range, while the associated uncertainties are still shown correctly.” 
+ Figure 4: same comments as for figure 3. Clearly the Srs are a bit more interesting, 
+ but then having 1 variable per SR in the main body is maybe enough - I d pick the 
+ one that has the best  visual  S-B discrimination and move the others to aux material. 
+ All distributions appear to be very  flat  - strange? Anyway, did you consider linear 
+ scale? 
+ >> We moved MET distributions to aux materials and focus only on mass 
+ (Resonance) and mT (NonResonance) SRs. Log scale is preferred due to the low 
+ yields to visualise all or most of the background processes. 
+ Figure 5: also here subcations, see figure 3. 
+
+--- PAGE 12 ---
+ 12 
+ >> Done 
+ Move the  ATLAS/lumi/couplings labels a bit down to avoid axes ticks overlaps 
+ >> Done. 
+ For the top figure I d consider showing only half the numbers on the x-axis (the  1500 
+ 1550 1600    is very dense) 
+ >> Done 
+ Figure 6: also here subcations, see figure 3. 
+ >> Done 
+ Move the  ATLAS/lumi/couplings labels a bit down to avoid axes ticks overlaps 
+ >> Done. Also adjusted the legend. 
+ Figure 11: Move the  ATLAS/lumi/couplings labels a bit down to avoid axes ticks 
+ overlaps 
+ >> Done. 
+ Bertrand (comment-006)  ✅  
+ Ref. [72] seems to be an internal note, could you please check if we are allowed to cite such material? 
+ >> Indeed. We just removed the sentence related to the pileup reweighting uncertainty, since 
+ it is a minor source of the uncertainties. 
+ Bertrand (comment-005)  ✅  
+ Physics / clarity: 
+ Title: Search for "a leptoquark" sounds to me as if there was one leptoquark to be found in 
+ the entire Run-2 dataset. 
+ Would "Search for singly produced leptoquarks [...]" avoid that ambiguity? 
+ >> We would also searched for t-channel exchange of a leptoquark. The title was modified 
+ based on the suggestion by Physics Coordinators at the first circulation. We would like to 
+ keep it as it is. 
+ L262: "CRs using an electron or muon, by testing them in regions with a 
+ $\tau_\mathrm{had}$" 
+ -> suggest "CRs using a $\tau_\mathrm{had}$ and an electron or muon, by testing them in 
+ regions with a $\tau_\mathrm{had}$ and no light lepton" 
+ >> Adopted 
+ L275: "The associated absolute uncertainty in the $\tau$ energy scale is smaller than 1.5%": 
+ Does the "absolute uncertainty" refer to a relative uncertainty on the "absolute" (MC-based) 
+ TES calibration, as opposed to a "relative" (data vs MC) in-situ TES calibration? 
+
+--- PAGE 13 ---
+ 13 
+ If it is really an absolute uncertainty, one would also need to know the "absolute" TES 
+ response values to infer a relative uncertainty (easier to interpret). 
+ If that is a relative uncertainty, maybe drop "absolute" to avoid confusion. 
+ >> The number is coming from this slides: 
+ https://indico.cern.ch/event/1533397/contributions/6452412/attachments/3043941/5378050/ 
+ 25_04_02.pdf 
+ Rephrased it to “The associated uncertainty in the absolute tau energy scale…” 
+ Minor textual comments: 
+ L97: $\tau$ -> $\tau$-lepton 
+ >> fixed 
+ L114: trigger -> triggers 
+ >> fixed 
+ L140: NNLO was not defined, unlike LO and NLO 
+ >> fixed 
+ L168: suggest to drop "depending on the analysis region and purpose", to avoid repeating 
+ "analysis", and the purposes are clearly explained in the next sentence 
+ >> adopted 
+ L314-315: "the fit results are applied to SRs and VRs" -> suggest: "the fitted normalisation 
+ factors are applied in the SRs and VRs" 
+ >> we also apply the nuisance parameters (not only normalisation factors). We’ll keep the 
+ current description. 
+ Figure 2 legend: for signal, you have e.g. "(1.5 TeV, ...)" while in Figure 4 it reads "(1.5 TeV)", 
+ suggest to drop the ", ..." from Figure 2 
+ >> Updated the figure. 
+ Figure 6 caption: at the 2$\sigma$ level -> at the 1$\sigma$ and 2$\sigma$ levels (since you 
+ show both) 
+ >> fixed 
+ David (comment-004)  ✅  
+ >> Thank you for the updates. We  accept all of your proposals. 
+ Robert (comment-003)  ✅  
+ Thank you for this improved paper draft. All are comments were thoroughly 
+ addressed, so we have no further comments on behalf of the Slovak cluster 
+ (Bratislava and Kosice). 
+ Bill Murray (Warwick) (comment-002)  ✅  
+ Comments: 
+
+--- PAGE 14 ---
+ 14 
+ cross-section / cross section? You are not consistent. 
+ > Changed all instances to cross section 
+ Abstract: 
+ This finishes "    as a function of its mass at 95% confidence level." 
+ The precise CL seems less interesting than the mass range 
+ -> "    for masses  between 1500 GeV and 3000 GeV." 
+ Same in the conclusions 
+ > Added 
+ l77 This is not a theory paper. How about we drop the kappas from this 
+ equation and just mention that 'terms introducing LQ couplings to the 
+ SM gauge-boson fields have been removed, i.e. this is a gauge model'? 
+ >> We would like to keep it. It was added after long discussions and 
+ iterations between the analysis team, the EBs, and the ATLAS reviewers 
+ during the first circulation and at PAM. We do not think it should be overly 
+ simplified further just for the sake of simplicity. 
+ The U_1 has variable indices, mu or mu nu..I am still struggling to 
+ work out why. The first term has both, but the next, which looks like 
+ a mass term, just has one. Maybe help the reader here? 
+ > we changed it to: 
+ “where $U_{1\mu}$ is the vector LQ field, 
+ $U_{1\mu\nu}=D_\mu U_{1\nu}-D_\nu U_{1\mu}$ is its field-strength tensor, 
+ …” 
+ to make more clear 
+ l319 The interference between the signal and the SM is considered by 
+ normalising the events by a factor of root-mu 
+ This I find inelegant. How about 
+ -> The contribution due to interference between the signal and the SM 
+ is scaled by a factor of root-mu 
+ > Done 
+ Jan (o.b.o. CERN EP reviewer)  ✅  
+
+--- PAGE 15 ---
+ 15 
+ Dear all, the CERN EP reviewer has approved the document, but has left 
+ comments that should be considered and answered - I copy them below. 
+ Thanks, Jan 
+ line 21: "results showed a deviation of about 3.5 − 3.8 𝜎  from the SM 
+ expectation on the ratio of the branching..." 
+ I think this range makes some choices on the SM calculations available. 
+ According to HFLAV, see for instance: 
+ https://hflav-eos.web.cern.ch/hflav-eos/semi/ckm25/html/RDsDsstar/RDR 
+ Ds.html 
+ The range is something like from 1.4sigma to 4.7sigma. If you take the 
+ arithmetic average of the existing calculations correspond to about 
+ 3.8sigma, but I'm not sure how to justify this approach. 
+ > We’ve used 3.5 - 3.8σ since it corresponds to the deviations from the two 
+ SM calculations shown at the latest corresponding HFLAV figure (HFLAV SM 
+ pred & L-QCD FLAG24). We think that it’s nicer to quote the average than 
+ giving the broad 1.4sigma to 4.7sigma range.  So, we  updated the text just to 
+ quote 3.8σ, and added “using HFLAV CKM2025 fit assumption” to make it 
+ clearer. 
+
+
+--- PAGE 16 ---
+ 16 
+ Taunub: 1st ATLAS circulation 
+ comments (EXOT-2025-06) 
+ Christian on v1.2  answered  ✅   posted on CDS  ✅  
+ General: 
+ You talk about the two benchmark scenarios for beta_R/L^{33} = 0, 1 in sections 3 and 4, but then it's not 
+ mentioned again in the main body. The related studies then appear in the aux material. It's up to you if you prefer 
+ to keep the right-handed scenario in aux, but if you keep it, I would suggest mentioning it briefly in the discussion. 
+ >> Added “In this analysis, the interpretation is performed in the pure left-handed scenario ($\beta_R^{33}=0$). ” 
+ in section 3, and dropped right-handed signal description from section 4. 
+ I would generally recommend referencing all material from the aux in the main body (also the tables, etc). 
+ Abstract: 
+ L7: I would remove the 'physics BSM targeting...' part to make the first sentence more punchy 
+ >> Adopted 
+ L10: you might want to add the Run 2 data taking period 
+ >> Adopted 
+ L15: Do you want to add a benchmark example of the parameter range you managed to exclude? 
+ Body: 
+ L77: I would define m_U and g_U again here to improve the reading flow (then also your reference to sec 3 in 
+ L40 fits again) 
+ >> Added m_U here. We already have a definition of g_U in L.86 
+ L84: I would clarify the benchmark scenario you are using more explicitely. If you keep both the left handed and 
+ the right handed, I would recommend that you mention both. If you decide to only show the left handed, say that 
+ you only probe beta_L=1 
+ >> See above 
+ L85: you use R twice; am I understanding it correctly that its either beta_L =1, beta_R=0 OR beta_L=0, 
+ beta_R=1? 
+ >> No, we have 2 scenarios with betaL=1 and betaR=0, and betaL=betaR=1. 
+ Footnote 2: would it make sense to inlcude this in the text? 
+ L107-111: you might want to consider moving the trigger selection to the event preselection (section 5), but up to 
+ you. 
+
+--- PAGE 17 ---
+ 17 
+ >> No preference from our side, but we considered a comment from Warwick group. 
+ L125: this is the last time you mention the right handed scenario -> consider removing if not discussed? 
+ >> Dropped it 
+ L153: what is the difference between tau_{had} and tau_{had}s? It might be worth defining both? 
+ >> Just a plural form. Rephrased to “tau_{had} candidates” 
+ L159: 'background jets [59]' -> do you mean the mis-ID tau_had from q+g initiated jets? 
+ >> Rephrased to “hadron-jet background” 
+ L204: it might be worth referring back to Fig1 
+ >> Adopted 
+ Sec7: I wonder if you have space for one of your VR/CR summary diagrams? 
+ >> Like this? Added to the aux materials. 
+ Fig2 legend and similar: U_1(1.5) -> U_1(1.5, ...) to indicate that more parameters are varied as described in the 
+ legend? I assume adding all three would take too much space. 
+ >> Done 
+ Jan (PAM comments) -  all answered  ✅  
+ PAM meeting EXOT-2025-06 Tuesday March 3rd 2026, 11:00: 
+ https://indico.cern.ch/event/1657440/ 
+ Search for leptoquarks in events with a hadronically-decaying   lepton, b-jet, and missing transverse momentum 
+ using pp collisions at a centre-of-mass energy of 13 TeV with the ATLAS detector 
+
+
+--- PAGE 18 ---
+ 18 
+ GLANCE analysis link: 
+ https://atlas-glance.cern.ch/atlas/analysis/papers/details.php?ref_code=EXOT-2025-06 
+ Draft 1 link:  https://cds.cern.ch/record/2954752 
+ Please find below a short summary of the discussion of the PAM meeting. 
+ The Editors and Editorial boards agreed to implement most of the CDS comments received by the Collaboration 
+ (6 people commenting) 
+ Mostly items that required discussion and/or changes relative to the editors and editorial board proposal are 
+ mentioned below. 
+ Changes to be implemented / checked agreed at the PAM are in bold. 
+ Analysis presentation:      Jiaqi Zang 
+ Aurelio: p6 impact of this analysis, tautau should not be a straight line 
+ >> Plot not in the paper 
+ Beta coupling assumptions are different from what is usually assumed in UV complete models (smaller beta23), 
+ are there other constraints on these? 
+ Answer: no low energy constraint on beta23, already in paper 
+ Aurelio: is really true, e.g. Bs mixing... 
+ AI: authors to double-check if there are relevant references, see if coupling choices in MC section sufficiently 
+ motivated 
+ >> Added the following sentence: 
+ “Although $\beta_L^{23} \sim 0.1$ is often assumed in UV-complete models~\cite{Cornella:2021sby, 
+ Aebischer:2022oqe}, low-energy charged-current observables alone do not impose stringent constraints on this 
+ parameter. 
+ Additional constraints arise from flavour-changing neutral current observables, in particular 
+ $B_{s(d)}$--$\bar{B}_{s(d)}$ mixing, as well as from LFU tests in $\tau$ decays. 
+ However, these bounds are model dependent and may be affected by additional states in the UV 
+ theory~\cite{Aebischer:2022oqe}.” 
+ Jan: can we show at the end the complementarity better? 
+ Answer: not easy as other analyses usually use low beta23, comments will have to remain qualitative 
+
+--- PAGE 19 ---
+ 19 
+ AI: make sure the results/conclusions are as good as possible 
+ Aurelio: N-1 plots for main body or CR postfit 
+ AI: we have 2-3 pages space left easily for PLB (15 pages is a good number, we re now at 12), so suggestion is 
+ to show around 4 plots in bkg determination to illustrate we control these background (no need to fill many pages, 
+ just to give the reader some useful information) 
+ >> Added. 
+ Aurelio: page 28 when discussing these plots, mention interplay with pair-production final states/analyses 
+ >> Added a sentence related to the complementarity to the pair-production analyses. 
+ Kerstin: p29 I recall these looked different before (res/nonres) 
+ Answer: there was a change in signal samples, sensitivity initially hoped for didn t materialise 
+ Kerstin: p20 excess coherent in e and mu is less likely to be statistical? 
+ Answer: didn t find any detector related issues, pointed to various sliced regions 
+ Jan: underestimate of W+b cross section? Come back to this in EB talk 
+ Collaboration comments:    Flavia de Almeida Dias 
+ S3-7 toys will be used, ranges a bit trimmed   ok 
+ Aurelio: can we put a  b anomalies best fit line/area 
+ Answer: ok, can be done 
+ >> Added 1sigma/2sigma regions instead of the best fit line. 
+ S8: ok 
+ S9: changes ok, make sure you are consistent. 
+ There was a suggestion to write  Data/Pred.  instead of  Data/Bkg.  - for team and EB to decide (I find other 
+ EXOT ATLAS papers with  Data/Bkg. ) 
+ >> We would prefer to have it as Bkg. since it’s less confusing and it’s used like this in other ATLAS papers. 
+ S10: add  upper limit  once as suggested, add 95% CL 
+ >> Done. 
+
+--- PAGE 20 ---
+ 20 
+ Ticks around the frame (and move labels slightly inward) 
+ >> Done. 
+ S11 ok to leave unsmoothed (leave to decision by team/EB) 
+ >> We prefer to keep it unsmoothed. 
+ S12-15 very small effect, good to discuss as proposed, no need to go into too many details 
+ S16-17 Jan: W+b underestimated? 
+ Answer: probably an effect of tails and limited MC stat, 2sigma still ok 
+ S18-20: Aurelio: this really looks like a SR; Jan: 20% improvement is significant 
+ AI: it is decided to change this to a SR, this will will need some rework of paper and changes/addition to the INT 
+ note; Exotics group and EB should sign off on the updated results. Drop  b-jet  from title. It will be good to 
+ motivate briefly why this region without b-jet requirement still has sensitivity to the targeted models 
+ >> Done and added a sentence for the 0b SRs. 
+ We can still continue with a 2nd circulation, stating the change in circulation message 
+ >> Done 
+ S21: can we double-check our cross section is right? 
+ >> We checked the cross-section of btautau signals generated with similar job options (to be confirmed by 
+ Tanaka-san?), which is consistent with the current ATLAS sample. 
+ AI for exotics convenors that we re not missing something obvious in the cross section 
+ >> Checked with CMS, but was hard to compare apples to apples. 
+ S22: ok 
+ S23: ok, suggest to state the typical range of signal widths in the simulation section and say that there is no 
+ narrow width approximation 
+ >> Added the discussion about the width in Sec 3 
+ S24: answer on CDS, no need to add plots or discuss (unless authors prefer) 
+ S25: ok 
+ S26: ok 
+ S27: suggestion to cite ATLAS VH(bb) 
+ https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2020-20/ 
+ >> Added 
+ Table 4 shows that the Sherpa sample (same as used by you) can easily be 30-50% off, so 30% is probably at 
+ the lower edge of a sensible systematics. (although there is no 1:1 translation of kinematics and your systematics 
+ is on the W+light/W+hf ratio). 
+ >> It was shown that even pumping this number to 50% doesn’t have any impact on the fit result/sensitivity so it 
+ was decided to stay with the current number. 
+ S28: ok, no need to do excessive work 
+ S29: authors will check again the highlighted A*e numbers 
+
+--- PAGE 21 ---
+ 21 
+ >> Done 
+ S30 : ok, see if the general idea how SRs were chosen can be stated briefly in the paper, bkg stat uncertainty is 
+ still in good range of ~10% 
+ >> Added a sentence for SR optimisation, changed 10% to 30% (more realistic number pre-fit) 
+ S31 if sample exists and can be processed easily, authors can check the contribution 
+ >> Studies were summarized in the Int note, the contamination was found to be small resulting to a few % 
+ change in the limits in mu (which translates to a smaller change in mass exclusion) 
+ S32 ok (maybe citing the impact on the limit would have been a more obvious way to report this) 
+ S33 extra tables and plots are good, as discussed already before. There is some space for the main body, so 
+ anything that can be seen as helping the reader significantly should be added. (but auxiliary material can also be 
+ used) 
+ >> Moved some plots to the main body. 
+ S34 just need to be clear what means  NLO  (nominal ttbar samples) and  NNLO  (needs ref) 
+ >> Done. 
+ ------------------------------------------------------------------------------------------------------- 
+ The PAM is passed, congratulations . Please update to the latest atlaslatex package for the next draft. 
+ We encourage the authors and EB to work together to address the CDS comments on Draft1 and the action 
+ items in a timely fashion. As there will be some changes in the analysis setup and results, a 2nd circulation is 
+ required. A short explanation of changes will need to be drafted and added to the circulation email   if result 
+ changes are extensive, it will require a set of short slides. 
+ Congratulations on this nice achievement! 
+ Jan & Laura 
+ Bertrand (Spokesperson deputy) -  all answered  ✅  
+ Physics / clarity: 
+ Title and abstract: a centre-of-mass energy of -> $\sqrt{s}=$ 
+ >> Adopted 
+ L33: "mostly model-independent" could be misleading, it could be interpreted as "model agnostic". 
+ The searches are optimised for LQ signals, but the LQ model itself may have few free parameters. 
+ Please rephrase. 
+
+--- PAGE 22 ---
+ 22 
+ >> Good point. Rephrased it to “In LQ pair production, the cross section depends only on the 
+ strong coupling constant at leading order, making the searches largely insensitive to the 
+ specific choice of the LQ coupling.” 
+ L36: "high-mass": please define which mass 
+ >> “...high-mass region of the final-state system” 
+ Figure 1: Very minor question about the LQ propagator, it is shown as a dashed line (used for scalars?) while you 
+ study vector LQs so I was expecting a wiggly line? 
+ I m not asking that you change the diagrams, it s just for my understanding. 
+ >> Replaced it to the vector boson. 
+ L105: Maybe remind the reader that you start at M(U1)=1.5 TeV because LQs are excluded up to M(U1)=1.6 TeV 
+ (mentioned in the introduction but it took me some time to make the connection)? 
+ >> Adopted 
+ L135-136: Since Athena Release 22, in the offline tau reconstruction, the classification of tracks as "tau tracks" is 
+ performed by a RNN track classifier that uses as input all the tracks associated with the tau (within R=0.4). 
+ Most often though, tau tracks are within R=0.2 of the tau (eta,phi) axis (especially in your pt regime). 
+ The geometric criterion R 
+ >> OK… checked the PUB note again, and tried to improve the description. 
+ “Candidate $\tau$ leptons are required to have $\pt > 20~\GeV$ and $\left| \eta \right|<2.5$, 
+ excluding the crack region of the EM calorimeter $1.37 < \left|\eta\right| < 1.52$. 
+ The vertex of a $\tau$ decay is determined from tracks within $\Delta R<0.2$ of the axis of 
+ the seed jet. 
+ Tracks associated with the $\tau$ candidate are then selected from all tracks associated with 
+ the seed jet based on geometric and impact-parameter criteria, and classified using an 
+ RNN-based track classifier~\cite{ATL-PHYS-PUB-2022-044}. 
+ Candidates are required to have one or three tracks classified as $\tau$ tracks, with the sum 
+ of their charges equal to $\pm 1$. 
+ Another RNN-based classifier is used to separate $\tau$ leptons from the background 
+ jets~\cite{ATL-PHYS-PUB-2022-044}, using tracks and calorimeter energy clusters 
+ associated with the seed jet, as well as several high-level discriminating variables.” 
+ >> Also changed to $\tauh$ and defined RNN 
+ >> PUB note was checked again, and we tried to improve the description. We’ve also 
+ switched to the $\tauh$ notation and defined RNN 
+ L140 mentions that the loose RNN WP is used to count the number of taus, while L179 mentions that the tight 
+ RNN WP is used in the SR. 
+ Is the loose WP only relevant in the context of tau veto, e.g. for the WCR and VRb definitions? 
+ If so, this could be made a bit more explicit. 
+ >> We use Loose WP to count the number of taus in the events. In the SR, we required 
+ nTau==1 and Tight WP. Added a sentence to clarify it. 
+ Added “Different working points are used in this analysis depending on the analysis region 
+ and purpose. The ``Loose'' working point is used to count the number of $\tau$ leptons, and 
+ the ``Tight'' working point is employed for the $\tau$ lepton in the signal selection. “ 
+
+--- PAGE 23 ---
+ 23 
+ L182-186: SR-Res targets M(U1)~1.5 TeV. SR-NonRes targets the high mT regime, but does that correspond to 
+ a particular range in M(U1)? 
+ >> For non-resonance signals, signal strength scales to ~(g/M)^4. We don’t have any 
+ specific target mass range. 
+ L194: Could you please explain why you use a single-lepton trigger instead of the MET trigger for the CRWs, 
+ where you require offline MET > 200 GeV? 
+ In CRWs, are you still in the trigger turnon for MET~200 GeV? 
+ Or is it to be aligned with the CRTops where you cannot use the MET trigger due to the relaxed offline MET 
+ requirement? 
+ >> Because it is a bit tricky in the muon channel, due to different mET definitions between 
+ online and offline. Yes, in CRW we apply the same mET cut as SR. 
+ L198: It would be worth mentioning how the multijet background is estimated, and what uncertainty is assigned to 
+ it. 
+ Is it negligible both in the SRs and in the CRs/VRs? 
+ >> We confirmed it is negligibly small in all of SR/CR/VRs, after the Tight tau ID, high mET, 
+ and mT requirements.  In particular, the multijet background  is estimated with recommended 
+ di-jets samples. And the source of multi-jets in SRs comes from a mis-measurement of 
+ high-energy hadronic jet, which leads to the fake MET.  We therefore performed the cut on 
+ pT and angular relation between leading jet and MET. This selection significantly drops the 
+ multi-jet and makes it negligible in our analysis, so we would prefer to not mention it 
+ explicitly. 
+ L206 and L212: Regarding the choice of the leading jet as a proxy for the b-jet in the SR, is that for simplicity, or 
+ motivated by something else? 
+ >> It’s just for simplicity 
+ L269: I assume this refers to the interference between signal and SM, not between s-channel and 
+ t-channel LQ exchange. 
+ For the interference, is the event yield negative or positive, and how large is it compared to the 
+ "signal-only" yield? 
+ Could that be mentioned in the text? 
+ >> Indeed this refers to the interference between signal and SM. We found the negative 
+ interference effect is very small, after requiring a b-jet, because SM W+b is suppressed by 
+ CKM matrix. Added the description in the introduction “An advantage of the $\tau\nu b$ 
+ channel is that the corresponding SM backgrounds are highly 
+ suppressed~\cite{Endo:2021lhi}. In the SM, the production of a $\tau\nu$ system with an 
+ associated $b$ quark is CKM-suppressed, making the SM amplitude that interferes with new 
+ physics contribution highly reduced at the high-mass region.” 
+ L274: Would it be worth giving the fitted values and uncertainties for the background normalisation factors? 
+ As the CRs are not 100% pure, we cannot directly read that from the ratio plot in Figure 2. 
+ >> Added. 
+ L275: From Figure 2 and Table 8, it seems that the excess is in VRb-NonRes, not VRb-Res. 
+ >> Yes. Fixed. 
+ Figure 2: Validation regions are called "VRb" in the text, but "VR1b" in the figure. 
+ >> Changed to VRW (since the other one was promoted to a SR) 
+
+--- PAGE 24 ---
+ 24 
+ L300-301: Is there a particular reason to quote limits for $\beta_L^{23}$=2.0 and 0.6, while these values are not 
+ the ones shown in Figure 3? 
+ >> Limits are now quoted for the correct $\beta_L^{23}$ values. 
+ L308: The visible cross section was not defined. 
+ >> Updated. 
+ L312: According to section 3, signal samples are generated up to M(U1)=3 TeV, how do you extrapolate to 4 
+ TeV? 
+ The comment also applies to Table 9. 
+ >> We have specific signal samples at M(U1)=1.5, 2, 3, 4 TeV and 5 TeV with {gU=1.0 and 
+ betaL23=0.2} fixed for both betaR33=0/1 scenarios. Already fixed the text. 
+ Aux material: 
+ Table 3: for the b-jet multiplicity, "(1)" should not be in bold 
+ >> Fixed. 
+ Table 5: pt(tau) should not be in bold 
+ >> Fixed. 
+ Table 9: What SR-Res selection criteria are causing the drop in acc*eff when M(U1) increases? 
+ >> The decrease in acc*eff for the SR-Res categories when M(U1) increases is mainly due to the change in the 
+ signal composition rather than a single selection threshold. As discussed in Section 3, the resonant contribution 
+ decreases with increasing M(U1), while the non-resonant contribution becomes dominant. Since the resonant 
+ regions (basically SR1b-Res) are optimised for the low-mass resonant topology, a progressively smaller fraction 
+ of the total signal satisfies the SR-Res requirements at high M(U1) and more events migrate to the SR-NonRes 
+ categories. 
+ Interestingly, for SR-NonRes, acc*eff seems almost unaffected by the LQ mass. 
+ This behaviour is interesting and could be discussed in the main body of the paper. 
+ >> I suppose it’s simply because the resonance signals are “fading” as LQ mass increases. 
+ As our signal contains both resonance and non-resonance processes. And in the 
+ non-resonance SR, the signal kinematics distribution doesn’t depend on leptoquark mass. 
+ Meanwhile, signal kinematics in resonance SR highly depend on leptoquark mass. 
+ ------------------------------------------------------------------------------------------------------------------------------------------------------ 
+ ---- 
+ Minor, textual comments: 
+ L28: consider moving the footnote to the main text 
+ >> Done 
+ L31: the LQ -> LQ 
+ >> changed to “a” since it was reading better 
+ L34: the single  -> single 
+ >> Fixed 
+ L37: the LQ -> LQ 
+ >> Fixed 
+ L40: a similar -> similar 
+ >> Fixed 
+ L46: "An excess over the SM background has been searched for [...]" -> suggest: "A search for leptoquarks is 
+ performed [...]" or "This letter presents a search for leptoquarks [...]" 
+ >> Adopted 
+
+--- PAGE 25 ---
+ 25 
+ L48: "the magnitude of which is denoted as ETmiss" could be omitted here, as it is also mentioned at L169 
+ >> Adopted 
+ L53: other channels -> in other channels 
+ >> Dropped in new version 
+ L84: Ref. -> Refs. 
+ >> Fixed 
+ L87: parameter -> parameters 
+ >> Fixed 
+ L110: the SM -> SM 
+ >> Fixed 
+ L127: single electron or single muon -> single-electron or single-muon (for consistency with L194) 
+ >> Fixed 
+ L131: is employed -> are employed 
+ >> Kept “is” since it refers to data 
+ L132: maybe not needed to introduce a "PV" acronym, it is only used twice 
+ >> Acronym was dropped. 
+ L142: "Loose" eVeto working point based on the RNN -> "Loose" RNN eVeto working point 
+ >> Adopted 
+ L150: the small -> small 
+ >> Fixed 
+ L179: "Tight" -> the "Tight" 
+ >> Fixed 
+ L186: tail regime -> regime 
+ >> Fixed 
+ L192: where the -> where 
+ >> Fixed 
+ L199: "for each SR using two control regions (CRWs), one for each SR": unclear whether this makes 2 or 4 CRs 
+ in total. Same phrasing used at L207. 
+ >> It makes 2 CRs in total, we think that “one for each SR” clarifies it 
+ L215: to prove the extrapolation "holds"? 
+ >> Fixed 
+ L220: reconstructed by -> computed with 
+ >> Fixed 
+ L230: comparison at -> comparison in 
+ >> Fixed 
+ L238: "corrected by ttbar samples" -> "corrected to match data efficiencies measured in ttbar events" 
+ >> Fixed 
+ L240: to take -> taking 
+ >> Fixed 
+ L243: "(PDFs)" has already been defined at L97 
+ >> Fixed 
+ L258: the SM -> SM 
+ >> Fixed 
+ L262: broken ref 
+ >> Fixed 
+ Figure 2 caption: batched -> hatched 
+ >> Fixed 
+ Figure 2 legend: Bkgd. -> Bkg 
+ >> Fixed 
+ L291 and L292: of the -> of 
+ >> Fixed 
+ L293: on the -> on 
+ >> Fixed 
+ L294: calculated by -> calculated with 
+ >> Fixed 
+ L299: the fixed value -> fixed values 
+ >> Fixed 
+ L303: to be "within" 
+
+--- PAGE 26 ---
+ 26 
+ >> Fixed 
+ Tables 7 and 8: Expected background yields -> Observed yields and expected background yields 
+ >> Fixed 
+ Figure 5: the red arrow is not described in the caption 
+ >> Fixed 
+ Table 9: (TeV) and (fb) -> [TeV] and [fb], for consistency 
+ >> Fixed 
+ Table 9 caption: andSR -> and SR 
+ >> Fixed 
+ Slovak cluster -  all answered  ✅  
+ Major comments: 
+ L122: On the previous line you mentioned that simulated events are weighted to reproduce the pile up 
+ distribution. However, on line 122 you mention that data are rescaled to achieve better agreement. Could you 
+ please clarify if you really also rescale data, and if so, what does it mean? 
+ >> We follow the recommendation in 
+ https://twiki.cern.ch/twiki/bin/view/AtlasProtected/ExtendedPileupReweighting 
+ and the one described in this note (Section 2.2): 
+ https://cds.cern.ch/record/2014726/files/ATL-COM-SOFT-2015-119.pdf 
+ When we calculate the pileup weight, data mu value is first scaled by the DataScaleFactor, 
+ then MC distribution is weighted to that, so we can get better data/MC agreement on Nvtx 
+ distribution. 
+ L231 - 233 you state the factors are consistent with 1 in all pT bins, do you see any shape effect for correction 
+ factors as a function of tau pT? 
+ >> We refer to these slides: 
+ https://indico.cern.ch/event/1406675/contributions/5916743/attachments/2839491/4962789/Slides_TauWG_2024 
+ 0417_ADM.pdf  (1prong) 
+ https://indico.cern.ch/event/1538698/contributions/6479548/attachments/3053342/5397780/Slides_TauWG_2025 
+ 0416.pdf  (3prong) 
+ L269: By the interference term of the signal sample, do you mean the interference between the diagrams shown 
+ in Fig.1(a) and Fig.1(b)? If so, it is not clear to us what is meant by  normalising the events by a factor of 
+ \sqrt(\mu) , given that \mu denotes the signal strength. Furthermore the ratio \mu / \sqrt(\mu) depends on the MC 
+ x-section of the signal sample and would be different for different MC x-sections (even if the measured x-section 
+ was the same). Could you please explain why this behavior is desired? 
+ >> No, it is the interference between signal and SM (off-diagonal term). It is described now. Anyway, we 
+ confirmed its impact is very small at the mu range we are interested in in this analysis. 
+ L275:  In the VRb-Res region, a deviation of about 2 𝜎  ...  Is it really VRb-Res? From Fig.2 it looks like it is 
+ VRb-NonRes, isn t it? 
+ >> It was a typo and fixed. 
+ Minor comments: 
+ L84-85: One may wonder why the couplings \beta^(31}_ 𝐿  and \beta^(32}_ 𝐿  are set to zero, i.e. why the 
+ leptoquark is assumed to couple exclusively to an antiquark and a lepton, and not to a quark and an antilepton? If 
+ this is indeed the intended assumption, a brief explanatory sentence would be desired. 
+ >> Here we don’t consider the 1st and 2nd gen leptons to focus on b->c tau nu transition motivated by R(D) 
+ anomaly. The quark and antilepton interactions are included in h.c. 
+
+--- PAGE 27 ---
+ 27 
+ L86: some explanation of Pati-Salam model would be useful. 
+ >> We now removed these definitions. 
+ L191-192: We suggest rephrasing the sentence  Subdominant contribution  as light-flavour jets.  ->  "A tt-bar 
+ event can mimic the signal if both the tau lepton and the bjet are misidentified as light-flavour jets. In contrast, the 
+ Wt process contributes only if the tau is misreconstructed as a light jet, while the b-jet is correctly identified." 
+ >> We feel that the current description is adequate and we’d like to keep it as is. 
+ L217-221: The definitions of the validation regions VRW and VRTop are well understood. However, the reason for 
+ introducing VRb, particularly its connection to b-jet physics, is not immediately apparent and would be useful to 
+ be clarified. 
+ >> Added: “The \VRb regions are used to test the extrapolation of the background estimation from CRs with a 
+ $b$-jet veto to SRs requiring a $b$-jet.  The \VRW and \VRTop regions probe the validity of the $W$+jets and 
+ \ttbar\ background normalisations obtained in CRs using electron or muon, by testing them in regions with 
+ $\tauh$.” 
+ L218: You use VRb here and in the appendix, while VR1b is used in Fig 2, please unify 
+ >> Changed to VRW in the end (since the other VRW region was promoted to a SR). 
+ L232: The sentence  The correction is less than 1% with an absolute uncertainty of less than 1.5%  is not entirely 
+ clear. Do you mean that the correction itself is smaller than 1% of the \tau energy scale, and that its value is 
+ determined with an uncertainty of less than 1.5%? 
+ >> Yes, for example 100GeV tau in the simulation is calibrated to 101+/-1.5GeV 
+ https://indico.cern.ch/event/1533397/contributions/6452412/attachments/3043941/5378050/25_04_02.pdf 
+ Rephrased a bit to “The correction applied to the simulated tau energy scale is typically below 1\% of the 
+ reconstructed $\tauh$ energy.  The associated absolute uncertainty on the $\tau$ energy scale is smaller than 
+ 1.5\%.” 
+ L262: Please fix the reference to TRExFitter 
+ >> Fixed 
+ L263-268: The background-only fit, performed in four single-bin control regions to constrain the normalisations of 
+ the W+jets and top-quark backgrounds, also includes additional background contributions (such as diboson and 
+ Z+jets processes) that are normalised using Monte Carlo predictions. Could you clarify whether the 
+ normalisations of these additional backgrounds are fixed to their MC expectations, or whether they are allowed to 
+ vary within their associated MC uncertainties? While this may be obvious to experienced TRExFitter users, it is 
+ not immediately clear to a general particle-physics audience. 
+ >> They are allowed to vary within the uncertainties. 
+ L.294-312: Parametric space of leptoquark processes is in general 4-dim. ( 𝑀 _{U1} , 𝑔 _ 𝑈 , 
+ \beta^(23}_ 𝐿  , \beta^{33}_ 𝑅 ) or at least 3-dim( 𝑀 _{U1} , 𝑔 _ 𝑈 , \beta^(23}_ 𝐿 ) in pure left-handed 
+ model. At \sqrt(s) = 13 TeV we cannot expect 𝑀 _{U1} to be higher than a few TeV, so your 
+ choices 1.5, 2, 2.5 and 3 are reasonable. However to expect that \beta^(23}_ 𝐿  is higher than 
+ 1, means that leptoquark coupling to 2nd gen. anti-quarks is bigger than that to the 3rd 
+ generation. We would expect that \beta^(23}_ 𝐿  < \beta^(23}_R = 1. A brief clarification would 
+ be helpful. 
+ >> We assume that beta_R^{23} in the comment refers to β_R^{33}. 
+ In this work, the beta parameters are treated as effective flavour couplings without imposing a 
+ specific flavour symmetry or hierarchy. While certain UV-complete models may favour 
+ beta_L^{23} < 1, we allow a broader parameter space to provide model-independent 
+ constraints, as discussed in the Introduction. 
+ Table 5: tau pT > 200 - it is written bold but it is the same condition as in the SR, i.e. it should not be in bold. 
+ >> Fixed 
+
+--- PAGE 28 ---
+ 28 
+ Warwick -  all answered  ✅  
+ Physics, Signal Modelling 
+ Appendix I of the INT note tries to reassure us that interference is basically negligible. But kinematic plots from 
+ https://indico.cern.ch/event/1353419/  (plots_largestat)  suggest the reverse - interference dominates over BSM. 
+ (They also look incorrect: LQ+interference is not equal to the sum of LQ and interference. ) The paper has one 
+ sentence, saying it is accounted for, and another describing the approach in the fit, and thats it - no clue of the 
+ impact. Does this matter? We should tell the reader. 
+ >> Actually, the interference effect is highly suppressed at high-mass by requiring a b-jet. 
+ We added “An advantage of the $\tau\nu b$ channel is that the corresponding SM backgrounds are highly 
+ suppressed~\cite{Endo:2021lhi}. In the SM, the production of a $\tau\nu$ system with an associated $b$ quark is 
+ CKM-suppressed, making the SM amplitude that interferes with new physics contribution reduced at the 
+ high-mass region. “ to the introduction, and “The interference between the signal and the SM is considered by 
+ normalising the events by a factor of $\sqrt{\mu}$, but its impact to the signal yield is very small for the range of 
+ coupling values considered in this analysis. “ in the Results. 
+ The A*E is a rapidly varying function of 3 parameters. We think we really should have a table of signal strengths 
+ (S+I) some S+I plots of the signal under a few different hypotheses, preferably in the paper but at least in the 
+ auxiliary. You do stress that a new region of space is being probed, but the reader does not know how that 
+ presents. 
+ >> We have added some text to clarify further how these three parameters play out. There were a few plots of 
+ signal distributions for the different parameter points already shown in the PAM, but we think that the length of the 
+ letter doesn’t permit to have additional tables in the main body, especially when the signal strength translates 
+ directly to cross-section limits (which are already shown in Figs 5 and 6). 
+ Figure 7: There seem to be some complex patterns in this figure - or else stat/(sys?) errors are important. One 
+ caught our eyes: the signal at m=2TeV, g_U=2 and beta_L^23= 0.8. The A*E is lower than the points above and 
+ below it in beta.^23. by a noticeable amount. Are we confident we understand this? If it is just statistics, we 
+ should do some smoothing somewhere. If it s real, then do we know why? 
+ >> Former numbers have missed the filter efficiecency. The plots are updated and the difference is smaller. We 
+ also checked the kinematics of those points and found no specific reason for the feature. So we conclude that it’s 
+ from the statistics. 
+ Line 269:  The interference term of the signal sample is considered by normalising the events by a factor of 
+ \sqrt{\mu}. We don t understand why this is valid. 
+ >> This is the interference between signal and SM (off-diagonal term). If we assume the total amplitude is 
+ A=A(SM) + \sqrt(mu)*A(BSM), |A|^2 = |A(SM)|^2 + mu*|A(BSM)|^2 + 2\sqrt(mu)*Re(A(SM)A(BSM)) 
+ According to previous ATLAS measurements [73], Ref 73 is about simulation setups, not ATLAS measurements, 
+ and we failed to find a recommendation for a 30% uncertainty in it. This is the second largest uncertainty, so 
+ perhaps more justification is needed? 
+ >> We picked up 30% uncertainty from the PMG recommendation here: 
+ https://twiki.cern.ch/twiki/bin/view/AtlasProtected/PmgWeakBosonProcesses#Normalisation_discrepancies_due 
+ Indeed, the note describes the MC-to-MC comparisons (Section 5) and there are up-to 30% difference on 
+ W+heavy flavor fraction between different MC samples. 
+ After the discussion at PAM, we updated the reference to H->bb measurement paper. 
+ The width of these LQs is never mentioned. Does it matter? 
+ >> The LQ width is properly calculated based on the LQ model we used in the MadGraph. The LQ width strongly 
+ depends on parameters, from about 10 GeV to several 100 GeV. Anyway, we take into account the LQ width in 
+ our MC samples. 
+ The dependence of A*E can be large. For example, at M_U=1.5 and g_U 0.5 it varies by a factor of more than 10 
+ within the resonant mode. The validation plots we could find for this MC (  https://indico.cern.ch/event/1353419/  ) 
+
+--- PAGE 29 ---
+ 29 
+ do not seem to explore the kinematic dependence on beta^23, so we don t know how we can have confidence in 
+ this. In general, there could be islands in this plane, and it is unclear whether this is handled. [Ref Figure 7] 
+ >> please find the plot in the slides at PAM 
+ Analysis and Background Modelling 
+ Fig 2: The VRW non-Res bin has a prediction of 38 data events (int note table 10.1) and a U1(3TeV) signal 
+ expectation of around 25 events. This seems like the best SR, but it is not used. Why?? 
+ >> After the discussion at PAM, we decided to change VRW to SR0b. 
+ There is no mention of the pileup rewighting or scale factor corrections for the particle identification. 
+ >> Added 
+ Section 8: Line 264: template   binned. Do you need to describe the B-only fit? The interesting fit for the 
+ measurement is the S+B. Can you present the fitted regions side by side? How many free-floating parameters? 
+ Are there 2 or 3 parameters for the background? 
+ >> B-only and S+B fits show almost the same results (given the best fit mu~0). But we show both results, to 
+ discuss about the SM comparison first, and new physics interpretation afterwards. 
+ Updated the fit model, and described the number of free floating parameters. 
+ Line 193-194: The paper mentions that single-lepton triggers are used instead of the Et_miss to obtain some 
+ background samples. Is it OK to take data from a different trigger? Are there any issues with different kinematics 
+ between one trigger and the other, and do these triggers overlap ? 
+ >> We used mET trigger in SR and lepton triggers for CR/VR. Event orthogonality is ensured by the selection 
+ cuts. Using mEt trigger for events containing muons can cause the bias on mEt distribution since muon is not 
+ used for the mEt calculation at the trigger level. For this reason, we used the lepton trigger in CR/VR. We anyway 
+ require offline mEt>200GeV to take the similar topologies between SR and CR. 
+ If we consider the trigger efficiency SF and its uncertainty correctly, there must be no problem to use the different 
+ triggers in SR and CR. 
+ Line 275: In the VRb-Res region, a deviation of about 2sigma. Did you mean NonRes? post unblinded fit (fig 11.4 
+ int) the error on the prediction in that bin shrinks and the ratio data/pred does not decrease. How significant is it 
+ then? 
+ >> Yes. Typo fixed. About 2sigma is the post-fit number. 
+ Section 4: You start by describing the trigger, what about CME, Luminosity and data periods, and pile up 
+ >> Added a new section “Data and MC simulation” 
+ Why do you rely on hybrid fit to estimate the systematic uncertainties? The covariance matrix from the  final S+B 
+ fit will provide you with the full uncertainty list 
+ >> We think estimating the impact of uncertainties on mu=1 using Asimov dataset is a common strategy to 
+ evaluate the impact of systematic uncertainties on the signal strength. If we use the data directly, we would 
+ estimate the uncertainty on the best-fit mu~0, and this is not what we want to quote here. 
+ Paper Structure 
+ Our impression is that the theory is favoured over the actual analysis details. For example, the useful tables of 
+ definitions for control regions, number of expected events, etc., are relegated to auxiliary material, while there is 1 
+ page discussion of the effective Lagrangian. I would have reversed that 
+ >> Added more material in the main body related to the background modelling in CRs and VRs after discussion 
+ in the PAM 
+ Lines 127-133 should be at the top of Section 3, MC simulation section and change the title of Section 3. 
+ >> It is moved to the new section “Data and MC simulation” 
+
+--- PAGE 30 ---
+ 30 
+ Line 199: it is unclear if you have two normalisation parameters for W+jets or just two CRs. Would you add a 
+ summary table for the SR and CR and highlight the orthogonality? 
+ >> We clarified 2 normalisation factors are used for W+jets and ttbar in Section 8. 
+ “Separate normalisation factors are introduced for the resonance and non-resonance regions, resulting in four 
+ independent normalisation factors: two for $W$+jets ($\lambda_{W}^{\Res}$ and $\lambda_{W}^{\NonRes}$) and 
+ two for the top-quark background ($\lambda_{t}^{\Res}$ and $\lambda_{t}^{\NonRes}$). The top-quark 
+ normalisation factors are applied simultaneously to both the \ttbar\ and single-$t$ samples.” 
+ Rates: You provide eqn 2 explaining how the coupling depends on g and beta for b decays, but don t do it for our 
+ search! Either equivalent formulae for the two signals (and interference) or a plot mapping it out to put with fig 7 
+ (or both) would be most welcome 
+ >> We have added some text (see above) about how our signal shapes vary according to the coupling 
+ parameters. This equation is basically used to calculate the regions favoured by the anomalies for each of the 
+ coupling parameter combination. 
+ MC simulation section: Line 74-94 should go to the introduction, as it is a general. 
+ >> we prefer to keep it as it is 
+ Figures and Tables 
+ Fig 3 Maybe Obs. -> "Obs. upper limit"? Also fig 4. 
+ >> At PAM, we agreed to put “95% upper limit” outside the legend box, then Obs, Exp for each line. 
+ Fig 4: We assume these curves are constructed using the efficiencies from fig 7. However, the jagged nature 
+ feels very non-physical. Can we not smooth them in some way? 
+ >> At PAM, agreed to keep it as it is 
+ Figure 6 shows the UL on the visible cross-section. If we only had one SR wouldn t this limit be independent of 
+ the mass? [Or rather extremely close to, as in the CRs the s/b is O(1%) but probably M(U) dependent..] We are 
+ not sure what the purpose of this plot is. Table 9 seems more useful. Figure 6 (page 25): Why is the ratio of cross 
+ sections of the two \beta values significant? 
+ >> If the Res/Non-Res ratio is not changed by adding the right-handed coupling, the visible cross-section upper 
+ limit must be constant, as you say. But as shown in Table 9, right-handed coupling can enhance the signals in 
+ NonRes region more (for SR-Res, on the other hand, sigma*A*eff is not so changed by adding right-handed 
+ coupling). As a result, the limit with |betaR33|=1 is better than |betaR33|=0 at the highest mass region, where the 
+ sensitivity is dominated by SR-NonRes. That is what we wanted to discuss with this plot 
+ Section 6: Can you present some kinematic plots to show the Data/MC agreement? 
+ >> The kinematic plots were shown at the PAM and the N-1 plots were also added in the main body of the paper 
+ eventually. 
+ Figure 5 (auxiliary material) (page 24): What is the significance of the red arrow? 
+ >> Specified in the caption 
+ Line 262: Broken reference; please also cite RooFit, Rootsta? Please add the TRexFiier version. 
+ Also, reference 47 looks like you are citing the ATLAS detector while you are citing the simulation infrastructure; It 
+ should be [47,48] 
+ >> Fixed reference, too technical to add also the version, not done usually. Fix references as suggested 
+ Table 7: What is the difference between < 0.01 and '-'? 
+ >> ‘-’ for exactly 0.  Harmonized to <0.01. 
+ Line by Line editorial comments 
+
+--- PAGE 31 ---
+ 31 
+ As you are going to submit your article to PLB, please use UK English: for example, program (6 times) 
+ programme. 
+ >> Fixed 
+ Use the present tense everywhere except the Data and MC section 
+ >> Done (but if any other instance is found please let us know) 
+ The title: "Search for leptoquarks in events with a hadronically-decaying tau lepton and b -jet, recoiling against 
+ missing transverse momentum using..." 
+ >> We think that the title reads well already, and we would like to complicate it more 
+ The title: Maybe you can add  third generation 
+ >> Same as above 
+ Abstract: The first sentence in the abstract is 4 lines long and repeats the title! Maybe you can split it 
+ Abstract: Does it really help to include so many numbers in the last couple of lines in the abstract? We got lost 
+ and would suggest dropping half the examples 
+ >> Dropped them 
+ Line 12: Do you need  Two signal regions are considered , and maybe you can add the targeted mass range 
+ >> Dropped them 
+ Line 28: which is  3  and  1  in (3,1, ⅔) in bold? We assume it indicates they are vectors, but that is not explicitly 
+ defined 
+ >> It refers to the different group representations and it’s the notation used in the paper cited. 
+ Line 30: Has the program been performed?! Or the search? 
+ >> Changed to “developed” 
+ Line 31: Reference ATLAS and CMS experiments 
+ >> Done 
+ Line 33: drop approximately 
+ >> We would like to keep it since the previous limit was not exactly 1.6 TeV 
+ Line 34: decaying to   decaying into 
+ >> Fixed 
+ Line 35: assuming it was produced in association   assuming associated production 
+ >> Kept it as is since the meaning is the same 
+ Line 38: Is  >~  favoured over \gtrsim? 
+ >> We’re not quite sure if they mean exactly the same thing, we would prefer it as is 
+ Line 42: We would drop  mentioned above  and   that the 
+ Line 45: diagrams   Feynman diagrams 
+ >> Fixed 
+ Line 46-48: Who performed the search? References? 
+ >> Were given already in the previous paragraph 
+ Line 65:  ..... toroids ranges between 2.0 and 6.0 T m across most of the detector   : Is the  T m  a typo? 
+ >> It’s basically the product of T and m 
+ Line 92: I would drop  in general 
+ >> general refers to the UV completion models, i.e. not “in general” as vague expression, decided to keep it 
+ Line 94: Do you need  thoroughly 
+ >> We think yes, since it might be a very strong statement without it 
+ Line 95-99: > 4 lines sentences! 
+ >> Separated to 2 sentences 
+ Line 151:  .... 
+ >> Comment probably for some other line / unspecified 
+ Line 138: define RNN. 
+ >> Defined 
+ Line 145: define excluding  crack region . 
+ >> Defined 
+ Line 158: Reference the overlap removal 
+ >> No need for reference since it’s described explicitly 
+ Line 171-174: rewrite the sentence, as now sound 
+ >> Kept as is 
+ Line 190: I would replace   is from ..   by comes from W+jets and shorten the sentence. 
+ >> Done 
+ Line 77: its   the field mass? 
+
+--- PAGE 32 ---
+ 32 
+ >> Yes, we think it’s clear as is 
+ Line 78: (Gell-Mann matrices)   are the Gell-Mann matrices? 
+ >> Yes 
+ Line 111: boson   bosons 
+ >> It refers to the production, kept as is 
+ Line 112: Please add the Sherpa generator 
+ >> The versions are shown in the table below 
+ Line 119: for Geant4, please usethe atlas macro \GEANT 
+ >> Done 
+ Table 1: I would drop (full leptonic) 
+ >> Done 
+ Line 277: drop  carefully, for example 
+ >> Done 
+ Line 321: "not covered by the previous tautau searches" -> "not covered by the previous tautau leptoquark 
+ searches" 
+ >> Would like to keep it as it to be true for the general pp->tautau that just included LQ interpretations 
+ Liverpool -  all answered  ✅  
+ Title/Abstract 
+ L16 - beta^ij should be defined (in some simple way) for the abstract 
+ >> Dropped the description 
+ Intro 
+ L31  Assuming ..  this sentence doesn t make sense 
+ >> Changed “Assuming the LQ pair production” to “In LQ pair production”. 
+ [L31-32]: This depends if the t-channel diagram is included or not (qq LQLQ) 
+ L31-32 means that for the LQ pair production, g->LQ LQ (see the 3rd term of the 
+ Lagrangian) is dominant. When we have two LQs in the t-channel diagrams, only one of LQs 
+ can be resonance (the other LQ is exchanged in t-channel). So such events are not selected 
+ with a LQ pair production search. 
+ L46 You should make it clear at the start of this paragraph that you are talking about the present analysis. Maybe 
+ start with  In the paper the results of a search ,,, 
+ >> Merged this paragraph to the previous one. 
+ L50 You need to say which channels it has the advantage over (suggest to add that in after "highly suppressed, 
+ compared to X" 
+ >> It is now rephrased and focus on the discussion about the interference effect. 
+ Signal Model and MC Simulation 
+ L77 - M_U1 has already been defined (albeit a forward reference to this sentence) 
+ >> Removed it. 
+ L86 - Pati-Salam model should have a reference 
+ >> Removed these definitions for simplicity. 
+ [L88] Might be worth mentioning that the choice of YM scenario affects only the production cross-section due to 
+ enhanced coupling with SM gauge bosons  the kinematics of the LQ are identical. 
+ We followed the previous LQ search papers’ setting, that is, gluon -> LQ LQ (gLQLQ coupling) is turned on. 
+ Indeed, there are some diagrams which have two LQs in the t-channel with the gLQLQ coupling. So, the 
+
+--- PAGE 33 ---
+ 33 
+ kinematics of tau etc can be changed when we turn off the gLQLQ (kappa=1) in case of LQ mass < ~3 TeV. In 
+ the higher LQ mass, gLQLQ=ON does not affect our analysis. 
+ L91 - It is not clear to me how this highlights the role of beta^23 in the R(D(*)) and I suggest this is spelt our more 
+ explicitly for the reader 
+ >> Added “The term proportional to $\beta_{L}^{23}$ is enhanced by the  ratio 
+ $V_{cs}/V_{cb}$, implying that even moderate values of $\beta_{L}^{23}$ can generate 
+ sizable contribution to \RD\ anomalies” 
+ [L91] - Perhaps it should be clear that $\nu$ is the EW VEV, not some other VEV (i.e the breaking of the 
+ Pati-Salam scale or some other scale?) 
+ >> OK 
+ [L93] Maybe define what is the  high  bL23 regime? I.e 
+ >> Changed “regime” to “region” 
+ L107 - The simulation of the interference term needs more details on the generator version, PS, PDF, tune, etc. 
+ Is it the same as the non-interference term?  If so, this should be made clear. 
+ >> Fixed 
+ Tab 1 - NNLL and NNLO have not been defined 
+ >> Added 
+ Event Reconstruction and Preselection 
+ [L135] using topological cell clusters   [calibrated using a local hadronic calibration (LC)]. (add in the extra info) 
+ >> Added 
+ [L137]  Candidate tau leptons  if referring the $\tau_{had}$ candidates, but the phrasing makes it seem (to me) 
+ like leptonically decay tau candidates. Maybe just use the symbol (introduced after "Hadronically-decaying tau 
+ leptons (tau_had)"  )? 
+ >> Done 
+ [L138] - Reference to 2022 Tau Reco paper, but the cuts defined in the text are using the 2019 Tau reco   i.e 
+ tracks 
+ >> Checked the PUB note again, and tried to improve the description. 
+ [L153] perhaps better to say something like  seeded from EMPflow cells  or something similar to L135 for 
+ consistency? 
+ >> We think it’s ok to keep it as it is 
+ Event Selections 
+ L184 - Since the signal is only LO in QCD can we really trust it to model the distribution of additional jets and, in 
+ fact, also the min dPhi(MET, Jet)? 
+ >> We limit the number of jets in our analysis. 
+ L186 You don t need the word  tail  (implied by high mT) 
+ >> Done 
+ Background Estimation 
+
+--- PAGE 34 ---
+ 34 
+ L195 You may want to say  dominated by Z+jet events with Z->vv 
+ >> We prefer to keep it as it is, since we also have Z->tautau component separately. 
+ L196 - More details are needed for the fake background here for the reader to be confident this is correctly taken 
+ into account. 
+ >> Since this is a minor source of background and it’s taken directly from MC with a very conservative 
+ uncertainty, we feel that there are not more things to discuss here. 
+ L196 Do you really need to say conservative? 
+ >> We prefer to keep it 
+ L199 -  The CR (and VR) selections for both W and top should be summarised in a table, either together with the 
+ SRs in Tab 2 or separately since there are quite some changes that are difficult to follow and keep in mind in the 
+ text. Furthermore, couldn t the description of the electron and muon isolation here be included in the objects 
+ section? The extra selections here are essentially just implying "signal" electrons/muons 
+ >> Due to the limit on number of pages for PLB, these tables were moved to the aux materials. It’s a bit tricky to 
+ discuss the lepton selections earlier (e.g. in the object section) since there we define the looser criteria at 
+ preselection level (used for the region categorisation), which are tightened up later in the CRs. And since the SRs 
+ have a light lepton veto it’s not very natural to discuss them earlier. 
+ L205 This sentence seems to contradict the previous one. Maybe an  and  rather than full stop but it makes a 
+ long sentence 
+ >> Swapped the sentences. Hm, let us keep the current sentences as they are, to avoid a long sentence 
+ L207-L210 It s not clear now what selections are retained for these CRs. You should like you do for CRW state 
+ that all selections are the same and then list the differences (however as above, it would be easier for the reader 
+ if this was a table) 
+ >> Added “All other selection criteria are kept the same as in the SRs.” 
+ L208 Maybe start a new paragraph for the CRTop control regions discussion 
+ >> Adopted 
+ L221 It would be worth explicitly stating that events with b-jets are vetoed in these VRs 
+ >> We think it’s enough with the descriptions in L218-219. 
+ Systematic uncertainties 
+ L224 - It would be good to quantify how much the analysis is dominated by the statistical uncertainties 
+ >>  The upper limit in mu deteriorates by 2% (1%) at  1.5TeV (2.0 TeV) for betaL23=0.2 and by 
+ 15% (9%) 1.5 TeV (3 TeV) for betaL23 = 2.2. 
+ L243 - We should specify by what range the scale is varied.  Same for top. 
+ >> Done 
+ L244 -  On top of that  ->  Additionally 
+ >> Fixed 
+ [L259] - This is a little misleading I think. You state that the minor sources are "normalised" with a 30% 
+ uncertainty but in the results section the normalisation procedure is performed for the W+jets and top-quark 
+ backgrounds (understandably due to the definition of the CRs). I m assuming that the other backgrounds are 
+ allowed to float within their uncertainties (and are not specifically normalised). If that s the case, then I thought 
+ the standard approach was to apply the ATLAS measured cross-section uncertainty as the "theory" uncertainty? 
+ (and not an arbitrary 30%?) with the standard reco/detector uncertainties applied? 
+
+--- PAGE 35 ---
+ 35 
+ >> Already discussed at PAM. We prefer to keep the current 30% uncertainty since even the 
+ uncertainty of 50% won’t have any impact on the fit results. 
+ Results 
+ L262 - Broken reference 
+ >> Fixed 
+ L265 - The fact that it is a single-bin  cut-and-count  fit should be mentioned earlier on in the introduction to frame 
+ the paper e.g. so the reader doesn t expect to see distributions of the final discriminant in the background 
+ section. 
+ >> Added that 
+ L269 - How do you deal with the fact that the interference contribution may be negative? 
+ >> Negative interference effects are taken into account but signal strength (fit/model ratio) is limited to be 
+ positive. Anyway we found the interference effect is quite marginal and do not change the limits/results. 
+ L275 - You talk here about the 2 sigma deviation in the VRb-Res but, from Fig 2, isn t it in fact the 
+ VR1b-NonRes? Also, do I see correctly here that the post-fit results actually describe this region less well than 
+ the pre-fit prediction.  Was this investigated? 
+ >> Yes, fixed it to VRb-NonRes. 
+ We checked it carefully, and concluded it is a statistical fluctuation. Details can be found in Appendix G of the INT 
+ note. The excess is localized in a single mET bin. If we exclude that bin, it is relaxed to ~1sigma level. These 
+ events are not localized in a specific (eta, phi) region. No difference in e and mu channels. We also checked the 
+ region with looser mEt and mT cuts and observed good agreement. 
+ L302 - You discuss the shaded area here but don t make the obvious comment that you exclude all the shaded 
+ regions at least in the parameter space presented in the figures? Unless this is not the case and instead the plots 
+ should be interpreted as moving "towards" sensitivity to the grey areas. Considering the very first lines of the 
+ introduction implies that the B anomalies were a  motivation for this paper you should make the statement that 
+ the models presented do not offer an explanation for the anomalies at least in a certain region of phase space? 
+ >> The curves shown correspond to 95% CL upper limits, such that the excluded region lies above the limit 
+ curve. In the parameter space displayed, the grey shaded region lies below the observed limits and is therefore 
+ not excluded. But this doesn’t mean than the B-anomalies are not a motivation for the search since some of the 
+ couplings used are the ones preferred by the anomalies. It’s just that in the end the analysis was not sensitive 
+ enough to exclude the regions. Added some additional motivation in the intro to clarify. 
+ Figure 3 You should explain why you  show results only  up to  3 TeV even though that is where you obtain the 
+ best limit. Perhaps it s simply due to you not having generated samples but that should be said here. 
+ >> Added: “The lower \MLQ\ boundary is chosen to cover the region around the current 
+ exclusion limits from LQ pair-production searches. At higher masses ($\MLQ > 3~\TeV$), the 
+ signal is dominated by the non-resonant contribution, and both the cross section and 
+ kinematic distributions depend on the coupling-to-mass ratio rather than the explicit mass 
+ value. Therefore, 3.0~\TeV\ is taken as the upper boundary of the scan.” 
+ Conclusions 
+ You need to repeat what this analysis says about the B anomalies. If you are not confident enough to mention it 
+ you should de-emphasis it from the Introduction, where it reads as the main motivation of the paper 
+ >> It’s already evident from the plots that the analysis was not sensitive enough to exclude the region favoured 
+ by the B-anomalies so no additional statement can be made apart from that. Of course we can write this explicitly 
+ in the conclusion, but it might seem weird. 
+
+--- PAGE 36 ---
+ 36 
+ Lailin (PubComm) -  all answered  ✅  
+ L16-18: Is it possible to briefly elaborate the physics meaning of the beta parameters, otherwise it s a bit hard to 
+ appreciate for the general readers? 
+ >> Dropped the description 
+ L27: I think a brief explanation of the features of leptoquark would be useful as for the introduction. Here you 
+ assume everyone knows what leptoquark means. 
+ >> Adopted 
+ L45: probably you can mention again the RD anomaly requirements in L29 to highlight the motivation more 
+ explicitly? 
+ >> Adopted 
+ L83: is this a repetition of L81? 
+ >> Indeed. Removed the first part 
+ L86: probably the  Pati-Salam model  is not clear to everyone? 
+ >> Actually, we don’t use the word “Pati-Salam model” afterwards, so simply we removed 
+ these definitions. 
+ L95-99: the sentence is a bit too long without any pause? 
+ >> Split to 2 sentences 
+ L99-100: I assume with some MadGraph syntax one can separate out the s-channel contribution, or based on the 
+ truth btau invariant mass distribution one can roughly estimate the contribution of the resonant and non-resonant 
+ part? 
+ >> If we check the truth-origin of tau lepton, we can separate s- and t-channels explicitly. 
+ Now we rephrased it to “All relevant production diagrams are considered in the ME 
+ calculation, including both $s$-channel (resonant) and $t$-channel (non-resonant) 
+ topologies.” as suggested by Aurelio 
+ L105: It seems to me the model is a bit complex with a few parameters. I think it would help a lot if you can either 
+ show some representative signal kinematic distributions with some typical sets of parameters (can be even in the 
+ Aux for example), or explain briefly how these parameters would affect the signal modeling. At least I find it hard 
+ to imagine the impact of the beta parameters. And what s the intrinsic width of the LQ? 
+ >> To address this point we’ve added a more concise discussion (in Sec. 3) of how these 
+ parameters affect the signal. Basically, m(U1)   controls the relative importance of the 
+ resonant and non-resonant production, gU  sets the overall signal normalisation and 
+ \beta_L^{23}  modifies the flavour structure and the fraction of signal events containing a 
+ final-state b-quark. We also describe now the corresponding intrinsic width behaviour and 
+ provide a representative example (in which the width is ~7%). Also since the N-1 plots are 
+ part of the main body now they also contain representative kinematic distributions for the 
+ signal for different masses and couplings. 
+ L107-109: How the combination is done exactly? The Interference term and the signal should have different 
+ scaling effects on the coupling parameters? 
+ >> It is scaled by sqrt(mu) and added to the BSM-only sample, as described in Section 8. 
+ We found the effect of the interference term is quite marginal, at the coupling scale we are 
+ looking at. Discussion about the interference effect is added in the introduction. 
+
+--- PAGE 37 ---
+ 37 
+ L171:  electron or muon ? 
+ >> It’s here and indeed it’s not quite clear: 
+ “Events must contain at least one hadronically-decaying 𝜏  lepton, electron or muon, and at least one 
+ jet.” 
+ I would suggest either removing it or change to “zero or one electron or muon candidate”. 
+ L178: which exact triggers used? A bit contradictory to L127? OK, later I realize that lepton triggers are used for 
+ CRs. It might be good to make it clearer along L127? 
+ >> OK, adopted 
+ Sec 5: The selections seem to be quite tight. Can you comment on the typical signal acceptance times 
+ efficiency? It would be useful to add such information in the text. 
+ >> The selection of the regions is motivated by a sensitivity-based optimisation (it’s a 
+ high-pT search after all). The acc x eff numbers are given already in the Aux material, and 
+ probably commenting on them in the main body wouldn’t add much to the picture. 
+ L252: Why take the difference between NNLO, which is assumed to be more accurate, and NLO as an 
+ uncertainty? 
+ >> The ttbar sample is produced in NLO but then its cross section is normalised to the 
+ NNLO prediction. The uncertainty is just to cover for the shape difference between NLO and 
+ NNLO. Clarified it further in the text. 
+ L262: What s the observable used in the fit? From Fig 2 it seems only the event yields are used for all SRs and 
+ CRs. Please make it more explicit in the text. Have you tried using shapes or kinematic distributions in the SRs 
+ for the fit, which I assume should give better sensitivity than the simple counting? 
+ >> Added “The fit is performed using the observed event yields in each region, i.e. a 
+ single-bin likelihood is constructed for all CRs and SRs.” The low statistics in the SRs 
+ doesn’t help in fitting shapes there. 
+ L267: What s the relative contribution of the resonant (non-resonant) signals in the two SRs? 
+ >> It depends on the mass point. As illustrated in Fig.2, at 1.5TeV we see more events in 
+ SR-Res, while at 3TeV more signals in SR-NonRes. 
+ Fig 2: It looks you have more signal yields in VRW regions than in the SRs? It would be useful to comment on 
+ this in the text. 
+ >> At PAM, we agreed to change VRW as SR 
+ L269: What s the typical size of the interference compared to the signal yield? 
+ >> It is very small. Almost no impact on the final results. 
+ L284:  Asimov  is a bit of jargon? 
+ >> Changed to pseudo-experiments (as done in other papers) 
+ Fig 3: I m curious about the relative contribution of the Res and NonRes regions to the sensitivity. Do you happen 
+ to have individual expected limits that can be added to the limit plots? 
+ >> We have Res-only and NonRes-only limits in Fig.8 (aux material) 
+ General: After the event selection description in Sec 5 or in Sec 6, I d expect to see some data/MC kinematic 
+ distributions to have a concrete feeling how the SRs/CRs look like. While the only data/MC plot is in Fig 2 and 
+ only one bin for each region. It would be great to move Fig 5 from Aux, or something like this, to the main body. 
+ >> N-1 plots moved to the main body. 
+
+--- PAGE 38 ---
+ 38 
+ General: It seems to be that the current analysis is not optimal, at least for the following reasons: 1) you have 
+ extremely low signal acceptance times efficiency, from Tab 9 of Aux; 2) you have very low event yields in the SRs 
+ and lower signal yields compared to some other regions; 3) only simple counting with event yields used in the fit. 
+ Of course I might be wrong, but it would be helpful if some statements can be added to the text where 
+ appropriate to justify the choices explicitly. 
+ >>  at PAM, agreed it's ok if we brieﬂy describe how  the SR is optimized and MC stat uncertainty 
+ on bkg is 10%-sh 
+ References: 
+ Please fix issues identified by the reference checker (it may give some false positives): 
+ https://atlaspo.cern.ch/internal/reference_checker/ANA-EXOT-2025-06-PAPER/ 
+ >> Done 
+ Aurelio (PC) -  all answered  ✅  
+ General comments: 
+ I understand this search is cut&count, but it d be nice to at least include some signal vs bkg kinematic 
+ distributions at the preselection level that help motivate the SR cuts. 
+ >> The post-fit N-1 plots in SRs are found in Aux materials. We avoided to put them in the 
+ main body due to the limited number of Figures for PLB. 
+ The SR cuts are very tight, leaving very limited MC statistics (as can be seen from Fig. 5  in the aux material). 
+ How were they optimized? Was there a requirement on a maximum MC statistical error? And was the 
+ optimization done on a background sample different than the one used to perform the statistical analysis to avoid 
+ a bias (analogous to the overtraining in MVA based analyses)? 
+ >> In the SR optimization, we scanned the thresholds of kinematic variables with the guard 
+ requiring the number of total bkg yield to be >2.0. It was a bit arbitrary, but we found that the 
+ requirement can avoid the impact from the negative event weights for W+jets MC. Eventually 
+ we found the MC stat uncertainty ~10% on the SR bkg yield. 
+ Please double-check what requirements should be marked as bold in Tables 3-6. E.g., in Table 5 I think the 
+ pTtau>200 should NOT be in bold. 
+ >> We checked tables and fixed it. 
+ Did you check the signal contamination from tautau(+b) events with beta33L=1? They can also give a 
+ tau+b+ETmiss signature e.g. from a tau that is not identified or decaying leptonically and the lepton is missed. 
+ >> The btautau signals has been processed by ATLAS official AOD samples. It turns out that 
+ the tautau+b events could enter our SR1b to some extend. But the final impact on the 
+ betaL23/gU limit is sizable (~5%). So we would not consider it at this stage. 
+ Detailed comments physics/clarity: 
+ L51: are you trying to argue that the taunub final state has more suppressed backgrounds that tautaub? I wouldn 
+ t think that s the case. In the case of tanub, the W coupling to the b is CKM suppressed, but W+b-jets is easily 
+ produced through g->bb splitting. I think a potential advantage is that the (negative) interference with the SM 
+ background must be smaller compared to the tautau(+b) channel? Was this checked? If so, I think that s 
+ something worthwhile mentioning. 
+ >> True. What we wanted to emphasize is that gc->Wb is highly suppressed compared with 
+ gq->Wq, which is not the case for Z+j, but indeed W+(g->bb) was not considered in that 
+
+--- PAGE 39 ---
+ 39 
+ discussion (though we restrict the number of b-jets==1). Anyway, as you say, the point here 
+ is the interference effect is much smaller by requiring b-jet for W+jets. Yes, we confirmed the 
+ interference at high-mT region can be negligibly small after the b-jet requirement. We 
+ updated the text. 
+ L53: The last sentence seems to be a bit disconnected from the previous discussion. You want to say that, in 
+ contrast with this analysis, the CMS reinterpretation didn t make a b-jet requirement, which significantly improves 
+ the S/B. BTW, how does the sensitivity of this search compare to the CMS reinterpretation? 
+ >>This is a bit tricky to compare the results with CMS reinterpretation since we don’t know their exact value of 
+ betaL23. If we suppose they use the best-fit value (~0.2), and compare the observed limit with our results of 
+ betaL23=0.2. Unfortunately, our limit is a bit worse than CMS. Maybe we can do the rough check with CMS event 
+ selection and see how the significance would change. 
+ L114: What single top backgrounds are considered? 
+ >> All s-, t- and Wt channels are considered. The Wt channel is the main contribution to our 
+ analysis. 
+ L117: This is hard to imagine. How WW->taunu cs, WZ->tanu bb/cc, ZZ->tautau bb/cc would not be more 
+ relevant than the fully-leptonic modes you are listing? 
+ >> We require mT>200GeV. Semi-leptonic diboson events do not lead very high mEt. At the 
+ first round of the analysis, we also produced semi-leptonic diboson samples and found they 
+ are negligible. 
+ L247: The 30% a-priori seems quite optimistic, given the extreme kinematic cuts that are being applied, 
+ compared to any ATLAS measurement. Also, where in the cited PUB can this 30% be found? 
+ >> We followed the PMG recommendation (10-30%) and took the most conservative option, 30%.  It says 
+ Section 5 of this note is the reference of this recommendation. 
+ https://twiki.cern.ch/twiki/bin/view/AtlasProtected/PmgWeakBosonProcesses#Normalisation_discrepancies_due 
+ L252: This is unclear. I assume you are referring to the application or not of the NNLO reweighting to ttbar? What 
+ nominal prediction is being used, w/ or w/o the NNLO reweighting? Please clarify. 
+ >> Nominal prediction is not using the NNLO reweighting. 
+ L257: What was the outcome of that check? How well did the yields agree? If ~100%, that s a fair rather than 
+ conservative uncertainty. 
+ >> As described in Appendix D of INT note, we observed 5-60% mismodeling of Z+fake tau MC. We compared 
+ various uncertainties on this (e.g. 50%), but the results are not changed at all since Z+jets contribution to our SR 
+ is very small. So we took the conservative option, 100%. 
+
+
+--- PAGE 40 ---
+ 40 
+ L259: What makes you believe these are conservative uncertainties given the disagreement seen in 
+ VR1b-NonRes? You are probing a quite extreme kinematic regime and it s not obvious these small backgrounds 
+ are predicted within 30%. 
+ >> Those backgrounds are selected with real tau. So we think 30% is large enough to cover 
+ the difference between prediction and data. 
+ L268: Make explain what background normalizations are considered, to what processes they are applied (e.g., is 
+ the Top normalization applied to ttbar+single top?), and what are the measured values of these normalisations. 
+ >> Updated the description and added the numbers. 
+ Fig. 2: VRW-NonRes has a large signal contamination. This is expected since most of the NonRes signal doesn t 
+ have a b-jet within acceptance. Did you consider using this VR as a SR. What would be the impact on the 
+ sensitivity? 
+ >> Agreed at PAM to change VRW as SR. 
+ On the other hand, VR1b-NonRes shows a significant non-closure. How do you explain the reasonable 
+ agreement in VR1b-Res and the disagreement in VR1b-NonRes? 
+ Did you check the different W+jets fractions (W+light, W+>=1c and W+>=1b) in the different CR/VR/SRs? Did 
+ you relax cuts on the VR1b-NonRes to try to identify what kinematic distribution is responsible for the 
+ disagreement? Why shouldn t this non-closure be propagated as an uncertainty to the corresponding SR? 
+ >> We checked it carefully, and concluded it is a statistical fluctuation. Details can be found in Appendix G of the 
+ INT note. The excess is localized in a single mET bin. If we exclude that bin, it is relaxed to ~1sigma level. These 
+ events are not localized in a specific (eta, phi) region. No difference in e and mu channels. We also checked the 
+ region with looser mEt and mT cuts and observed good agreement. 
+ L297: Is this the difference in observed limits? 10-20% is not that small, in which direction it goes? Are the 
+ asymptotic limits more conservative or aggressive? 
+ >> updated all results with Toy now 
+ L305: Can we report the actual value of beta23L assumed by the tautau analysis? I couldn t find in the paper 
+ what value of beta23L was used to derive limits on gU vs mU1 (assuming beta23L=1). Are you sure it s not 
+ beta23L=0? 
+ >> Tautau analysis used the signal samples produced with beta23L=0. If we understand it 
+ correctly, they assumed their signal strength does not so depend on beta23L, and compared 
+ the results with the B-anomaly favored region for 0.06<beta23L<0.16. That’s why it is tricky 
+ for us to make a fair comparison … 
+ L307: The complementarity is not in probing lower values of GU, but probing higher values of beta23L? 
+ >> tautau search has lower sensitivity on beta23L, while taunu has larger sensitivity on that. On the other hand, 
+ both final states are sensitive to gU. That’s why we emphasize the higher value of beta23L. 
+ L308: You didn t define visible cross-section. 
+ >> Updated. 
+ Textual comments: 
+ It s odd not to see used the $\tau_had$ symbol throughout the paper. I think this should be corrected, since tau 
+ leptons can also decay leptonically. 
+ >> Fixed 
+ Title:  a leptoquark ;  a $b$-jet ;   at $\sqrt{s}=13$ TeV  (can make it a bit shorter) 
+
+--- PAGE 41 ---
+ 41 
+ >> Adopted. 
+ L15:  for the benchmark U1 
+ >> Fixed. 
+ L31: should also cite searches for vector LQ pair production in btau/tnu final states 
+ >> Added. 
+ L38: we use  m  rather than  M  to denote mass (apply throughout) 
+ >> Done 
+ L43: mention the assumption is that the coupling is suppressed because of the cross-generational coupling, 
+ involving a 2 nd  generation quark and 3 rd  generation lepton. But for an explanation of the R(D(*)) anomaly this 
+ coupling must be non-zero, and thus it s well motivated to consider it. 
+ >> Added a sentence there to motivate it even more 
+ L44: for consistency with L42 you should call it taunu(+b) 
+ >> Fixed. 
+ L45:  illustrative Feynman diagrams for the signals targeted by this analysis 
+ >> Fixed. 
+ Fig; 1, caption:  Illustrative Feynman diagrams ;  exchange of a leptoquark ;  with a soft 
+ >> Fixed. 
+ L47:  a jet containing a $b$-hadron ($b$-jet) 
+ >> Fixed. 
+ L48: no need to define ETmiss here, done later 
+ >> Removed. 
+ L73: Avoid excessive capitalization in section headings: e.g.  Signal Model and Monte Carlo Simulation  -> 
+ Signal model and Monte Carlo simulation  (apply elsewhere) 
+ >> Fixed. 
+ L84: I understand you are assuming beta13L=0? If so, set it accordingly 
+ >> We checked it again and found that it is set to 0.2*beta23L. However, we confirmed its contribution to taunub 
+ signals is quite marginal. 
+ L87:  parameters 
+ >> Fixed. 
+ L92:  UV-complete models 
+ >> Fixed. 
+ L94:  not explored thoroughly 
+ >> Fixed. 
+ L95-99: too long sentence, please split in two 
+ >> Fixed. 
+ L99-101: this sentence reads a bit odd  just say that all relevant production diagrams are considered in the ME 
+ calculation. 
+ >> Adopted. 
+
+--- PAGE 42 ---
+ 42 
+ L102-104: this is out of place, since you are discussing the generator level. I would suggest to move it when you 
+ introduce GEANT. You can then explain that fastsim is used for signal, but it should be clear that it s only used for 
+ the calorimeter simulation. The rest is simulated with GEANT. 
+ >> Adopted. 
+ L119: \textsc{Geant4} 
+ >> Fixed. 
+ Table 1: 
+ Remove  (full leptonic) . That information is already given in the text 
+ >> Removed. 
+ L127-133: cite DQ paper and PV reconstruction. Here you can find the recommended references: 
+ https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PubComUsefulBibTex 
+ >> Added. 
+ L134: should introduce tau_had 
+ >> Done. 
+ L142: this is jargon, please rephrase as electrons misidentified a tau-lepton candidates 
+ >> Rephrased 
+ L154: I believe it s more important to say for what pT/eta cuts we apply JVT cuts than the actual working point 
+ used. 
+ >> Done. 
+ L165: remove  using standard ATLAS-Run 2 calibrations 
+ >> Done. 
+ L174: end the paragraph indicating the above requirements constitute the  event preselection . 
+ >> Added “The requirements above define the event preselection, which serves as the 
+ starting point for the subsequent event categorisation and statistical analysis.” 
+ L192: not all taus and b-jets are reconstructed as ligh jets, so this should be rephrased to avoid confusion 
+ >> Updated slightly: 
+ “Subdominant contributions arise from top-quark decays producing $\tau$ leptons ($\ttbar \to 
+ \tau\nu b\tau\nu b$ and $Wt \to \tau\nu \tau\nu b$),  in cases  where the $\tau$ leptons and 
+ $b$ quarks are  misreconstructed  as light-flavour jets.” 
+ L218: In Fig. 2 you VRb is called VR1b. Since it s dominated by W+jets, why not calling it VRWb? 
+ >> Changed it to VRW (since the other one was promoted to a SR) 
+ L239: cite also light jet calibration 
+ >> Added. 

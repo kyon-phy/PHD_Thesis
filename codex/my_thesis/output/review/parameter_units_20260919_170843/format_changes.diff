@@ -1,0 +1,212 @@
+--- Chapters/Appendix/Appendix3.tex (before)
++++ Chapters/Appendix/Appendix3.tex
+@@ -17,10 +17,10 @@
+     \label{tab:app_sr0b_scan}
+     \begin{tabular}{lccc}
+         \toprule
+-        Region & $(\MU~[\TeV],\gU,\beta_L^{23})$ & Scan maximum & Adopted $\met$ cut \\
++        Region & $(\MU,\gU,\beta_L^{23})$ & Scan maximum & Adopted $\met$ cut \\
+         \midrule
+-        $\bVetoSR$-$\Res$ & $(1.5,0.5,1.8)$ & $600~\GeV$ & $>200~\GeV$ \\
+-        $\bVetoSR$-$\NonRes$ & $(3.0,2.0,1.8)$ & $400~\GeV$ & $>400~\GeV$ \\
++        $\bVetoSR$-$\Res$ & $(1.5~\TeV,0.5,1.8)$ & $600~\GeV$ & $>200~\GeV$ \\
++        $\bVetoSR$-$\NonRes$ & $(3.0~\TeV,2.0,1.8)$ & $400~\GeV$ & $>400~\GeV$ \\
+         \bottomrule
+     \end{tabular}
+ \end{table}
+--- Chapters/CH2_theoretical_background.tex (before)
++++ Chapters/CH2_theoretical_background.tex
+@@ -955,8 +955,8 @@
+ This required cancellation is known as fine-tuning.
+ 
+ The hierarchy problem is the question of why the electroweak scale remains so much smaller than a possible ultraviolet scale such as the Planck scale. 
+-It motivates many extensions of the SM, such as supersymmetry, composite Higgs models, and other scenarios in which new physics appears near the TeV scale and stabilises the Higgs mass against large ultraviolet corrections. 
+-More generally, the hierarchy problem provides one of the motivations for experimental searches for new particles at the TeV scale. 
++It motivates many extensions of the SM, such as supersymmetry, composite Higgs models, and other scenarios in which new physics appears near the \TeV{} scale and stabilises the Higgs mass against large ultraviolet corrections. 
++More generally, the hierarchy problem provides one of the motivations for experimental searches for new particles at the \TeV{} scale. 
+ 
+ 
+ \subsection{Neutrino masses}
+--- Chapters/CH3_LQ_search.tex (before)
++++ Chapters/CH3_LQ_search.tex
+@@ -457,7 +457,7 @@
+ \end{align}
+ This benchmark therefore corresponds to the diagonal line in Fig.~\ref{fig:cll_clr_low_energy_fit}, where the right-handed third-generation coupling has the same magnitude as the left-handed coupling.
+ 
+-The two scenarios are described by the parameter space $(\beta_L^{23},\MU,\gU)$ with different fixed values of $\beta_R^{33}$. Particular emphasis is placed on $\beta_L^{23}$, since charged-current low-energy data alone do not provide a stringent constraint on this coupling. For fixed $\MU$ and $\gU$, $\beta_L^{23}$ has a strong impact on $C_{LL}^{c}$ because its contribution is enhanced by the CKM ratio $V_{cs}/V_{cb}$.
++The two scenarios are described by the parameter space $(\MU,\gU,\beta_L^{23})$ with different fixed values of $\beta_R^{33}$. Particular emphasis is placed on $\beta_L^{23}$, since charged-current low-energy data alone do not provide a stringent constraint on this coupling. For fixed $\MU$ and $\gU$, $\beta_L^{23}$ has a strong impact on $C_{LL}^{c}$ because its contribution is enhanced by the CKM ratio $V_{cs}/V_{cb}$.
+ 
+ Indeed, one can constrain the size of $\beta_L^{23}$ by considering possible ultraviolet (UV) completions of the simplified $U_{1}$ model. While the simplified model parametrises the relevant interactions directly in terms of the couplings $\beta_{L}^{ij}$, the UV completion provides a more fundamental description of their origin. One example is the ``4321'' model, which is based on the extended gauge group $\mathcal{G}_{4321}=SU(4)\times SU(3)'\times SU(2)_L \times U(1)'$. In the flavour structure considered in this model, the $U_1$ couplings are non-universal, with $|\beta_{L}^{23}|<|\beta_{L}^{33}|$~\cite{Cornella2019}.
+ 
+--- Chapters/CH4_LHC_ATLAS_experiment.tex (before)
++++ Chapters/CH4_LHC_ATLAS_experiment.tex
+@@ -7,7 +7,7 @@
+ The European Organisation for Nuclear Research (CERN) is an international particle-physics laboratory located near Geneva on the border between France and Switzerland.
+ Since its foundation in 1954, CERN has developed and operated a chain of accelerators and experimental facilities to study the fundamental constituents of matter and their interactions~\cite{CERNAbout}.
+ The Large Hadron Collider~(LHC) is the largest and highest-energy particle collider in the CERN accelerator complex.
+-It is installed in the former Large Electron--Positron Collider~(LEP) tunnel, which has a circumference of about $27~\mathrm{km}$ and lies between approximately $45~\mathrm{m}$ and $170~\mathrm{m}$ below the surface~\cite{Evans2008LHC,CERNLHC}.
++It is installed in the former Large Electron--Positron Collider~(LEP) tunnel, which has a circumference of about $27~\km$ and lies between approximately $45~\metre$ and $170~\metre$ below the surface~\cite{Evans2008LHC,CERNLHC}.
+ A schematic overview of the LHC ring and its interaction points is shown in Fig.~\ref{fig:lhc_layout}.
+ 
+ \begin{figure}[htbp]
+@@ -78,7 +78,7 @@
+ Detector signals may also originate from interactions in neighbouring bunch crossings, depending on the detector response time. This contribution is referred to as out-of-time pile-up.
+ 
+ The mean number of inelastic $pp$ collisions per bunch crossing is commonly denoted by $\mu$.
+-During Run~2, the nominal bunch spacing was $25~\mathrm{ns}$, corresponding to a maximum bunch-crossing frequency of $40~\mathrm{MHz}$.
++During Run~2, the nominal bunch spacing was $25~\ns$, corresponding to a maximum bunch-crossing frequency of $40~\MHz$.
+ The luminosity-weighted mean value over the full Run~2 dataset was $\langle\mu\rangle=33.7$, corresponding to approximately 34 interactions per bunch crossing~\cite{ATLASDataQualityRun2}.
+ 
+ Pile-up has an important impact on event reconstruction.
+@@ -96,7 +96,7 @@
+ It was designed to exploit the full physics potential of the LHC, including precision measurements of SM processes, studies of the Higgs boson, and searches for new physics beyond the SM.
+ The detector surrounds the nominal interaction point and provides nearly full solid-angle coverage, allowing the reconstruction of a wide range of final-state particles produced in proton--proton collisions.
+ 
+-The ATLAS detector is approximately $44~\mathrm{m}$ long, $25~\mathrm{m}$ in diameter, and has a total weight of about $7000~\mathrm{tonnes}$~\cite{ATLASDetector2008}.
++The ATLAS detector is approximately $44~\metre$ long, $25~\metre$ in diameter, and has a total weight of about $7000~\tonnes$~\cite{ATLASDetector2008}.
+ It has a cylindrical, forward--backward symmetric layout centred on the interaction point.
+ A schematic view of the detector is shown in Figure~\ref{fig:ATLAS_view}.
+ 
+@@ -111,7 +111,7 @@
+ 
+ Starting from the beam line and moving outwards, the main detector systems are the Inner Detector~(ID), the calorimeters, and the Muon Spectrometer~(MS):
+ \begin{itemize}
+-    \item \textbf{\textit{Inner Detector (ID)}} is immersed in a $2~\mathrm{T}$ axial magnetic field provided by a thin superconducting solenoid and is used to reconstruct charged-particle trajectories close to the interaction point.
++    \item \textbf{\textit{Inner Detector (ID)}} is immersed in a $2~\tesla$ axial magnetic field provided by a thin superconducting solenoid and is used to reconstruct charged-particle trajectories close to the interaction point.
+     \item \textbf{\textit{Calorimeters}} surround the ID and measure the energies of electrons, photons, hadrons, hadronically decaying $\tau$-leptons, and jets.
+     \item \textbf{\textit{Muon Spectrometer (MS)}} forms the outermost major detector system and measures muons in the magnetic field generated by large superconducting toroids.
+ \end{itemize}
+@@ -166,10 +166,10 @@
+ \label{subsec:atlas_magnet_system}
+ 
+ The ATLAS magnet system consists of four large superconducting magnets: a central solenoid, one barrel toroid, and two end-cap toroids, as shown in Figure~\ref{fig:atlas_magnet_system}.
+-The central solenoid surrounds the Inner Detector with a length of approximately $5.3~\mathrm{m}$ and provides an axial magnetic field of $2~\mathrm{T}$ for charged-particle momentum measurements in the tracking system.
++The central solenoid surrounds the Inner Detector with a length of approximately $5.3~\metre$ and provides an axial magnetic field of $2~\tesla$ for charged-particle momentum measurements in the tracking system.
+ The solenoid is designed to minimise the amount of inactive material in front of the electromagnetic calorimeter.
+ 
+-The toroid system provides magnetic fields of approximately $0.5~\mathrm{T}$ and $1~\mathrm{T}$ in the barrel and end-cap regions of the Muon Spectrometer, respectively.
++The toroid system provides magnetic fields of approximately $0.5~\tesla$ and $1~\tesla$ in the barrel and end-cap regions of the Muon Spectrometer, respectively.
+ The barrel toroid surrounds the calorimeter system in the central region, while the two end-cap toroids provide bending power in the forward regions.
+ The toroidal field bends muon trajectories, allowing their momenta to be measured using the precision tracking chambers of the MS.
+ The air-core design of the toroids reduces multiple scattering and helps preserve the momentum resolution for high-$\pT$ muons~\cite{ATLASDetector2008}.
+@@ -189,7 +189,7 @@
+ \label{subsec:atlas_inner_detector}
+ 
+ The Inner Detector~(ID) is the innermost tracking system of ATLAS and provides tracking for charged particles within $|\eta|<2.5$~\cite{ATLASDetector2008}.
+-It is immersed in the $2~\mathrm{T}$ magnetic field of the central solenoid and records local position measurements, called hits, along their trajectories.
++It is immersed in the $2~\tesla$ magnetic field of the central solenoid and records local position measurements, called hits, along their trajectories.
+ During Run~2, it consisted of the pixel detector, the Semiconductor Tracker~(SCT), and the Transition Radiation Tracker~(TRT). The Insertable B-Layer~(IBL) is installed before Run~2 as the innermost pixel layer~\cite{ATLASIBL2018}.
+ Figure~\ref{fig:atlas_inner_detector} shows a transverse view of the Inner Detector.
+ 
+@@ -312,7 +312,7 @@
+     \item \textbf{\textit{Monitored Drift Tubes~(MDTs)\quad}}
+ 
+     The MDT chambers provide precision tracking over most of the MS acceptance.
+-    They consist of aluminium drift tubes with a diameter of about $30~\mathrm{mm}$, each containing a central sense wire.
++    They consist of aluminium drift tubes with a diameter of about $30~\mm$, each containing a central sense wire.
+     A muon crossing a tube ionises the gas, and the drift time of the electrons to the wire is measured to determine the track position.
+     Several tube layers are grouped into chamber stations, providing precise measurements in the bending plane of the toroidal magnetic field.
+     MDT chambers are used over most of the region $|\eta|<2.7$, except for the innermost forward stations at $2.0<|\eta|<2.7$, where CSCs are used.
+@@ -356,7 +356,7 @@
+ \subsection{Data Acquisition and Trigger System}
+ \label{subsec:atlas_trigger_daq}
+ 
+-At the LHC, proton bunches can cross at a rate of up to $40~\mathrm{MHz}$ for a bunch spacing of $25~\mathrm{ns}$.
++At the LHC, proton bunches can cross at a rate of up to $40~\MHz$ for a bunch spacing of $25~\ns$.
+ This rate is far above the available detector readout and permanent-storage bandwidth.
+ The ATLAS trigger and data acquisition~(TDAQ) system is therefore designed to select potentially interesting events online and reduce the event rate to a manageable level.
+ ATLAS uses a two-level trigger system consisting of a hardware-based Level-1~(L1) trigger and a software-based High-Level Trigger~(HLT)~\cite{ATLASTriggerRun2}.
+@@ -364,8 +364,8 @@
+ \subsubsection*{Level-1 (L1) trigger}
+ 
+ The L1 trigger is the first stage of the ATLAS online event selection.
+-It is implemented in custom hardware and uses reduced-granularity detector information to make a fast decision with a latency of approximately $2.5~\mu\mathrm{s}$.
+-It reduces the input rate from up to $40~\mathrm{MHz}$ to at most $100~\mathrm{kHz}$.
++It is implemented in custom hardware and uses reduced-granularity detector information to make a fast decision with a latency of approximately $2.5~\us$.
++It reduces the input rate from up to $40~\MHz$ to at most $100~\kHz$.
+ The L1 trigger was based on information from the calorimeter and muon trigger systems, together with topological selections applied to L1 trigger objects.
+ A schematic overview of the Run~2 TDAQ system is shown in Figure~\ref{fig:atlas_tdaq}.
+ 
+@@ -412,6 +412,6 @@
+ It is implemented in a large computing farm and runs software algorithms using detector information with substantially finer granularity than is available at L1.
+ The HLT reconstruction is guided by RoIs identified by the L1 trigger, while full-event reconstruction can also be used for signatures such as jets and missing transverse momentum.
+ The HLT algorithms are designed to provide reconstruction performance close to that of the offline algorithms while remaining sufficiently fast for online operation.
+-As a reuslt, the HLT reduced the L1 output rate to an average recording rate of approximately $1~\mathrm{kHz}$ for permanent storage.
++As a reuslt, the HLT reduced the L1 output rate to an average recording rate of approximately $1~\kHz$ for permanent storage.
+ 
+ The trigger menu comprises the active L1 and HLT selections used during data taking with prescale factors, which are applied to selected trigger items to control their rates according to the instantaneous luminosity and available bandwidth.
+--- Chapters/CH5_MC_simulation.tex (before)
++++ Chapters/CH5_MC_simulation.tex
+@@ -251,7 +251,7 @@
+ 
+ Table~\ref{tab:run2_trigger_chains} lists the single-electron, single-muon and $\met$ trigger chains used in this analysis.
+ 
+-In an HLT chain name, \texttt{e}, \texttt{mu} and \texttt{xe} represent an electron, a muon and $\met$, respectively. The following number gives the online threshold in GeV.
++In an HLT chain name, \texttt{e}, \texttt{mu} and \texttt{xe} represent an electron, a muon and $\met$, respectively. The following number gives the online threshold in \GeV.
+ An explicit \texttt{L1} suffix identifies the first-level trigger that seeds the chain.
+ The electron labels \texttt{lhloose}, \texttt{lhmedium} and \texttt{lhtight} specify likelihood-based identification requirements, while \texttt{nod0} indicates that transverse-impact-parameter information is omitted.
+ The labels \texttt{iloose}, \texttt{ivarloose} and \texttt{ivarmedium} specify isolation requirements.
+--- Chapters/CH7_event_selection.tex (before)
++++ Chapters/CH7_event_selection.tex
+@@ -130,7 +130,7 @@
+ % \begin{figure}[htbp]
+ %     \centering
+ %     \includegraphics[width=\linewidth]{Figs/CH7/significance/SR1b_met_significance_scan.pdf}
+-%     \caption[SR1b significance scan in missing transverse momentum]{Approximate significance as a function of the $\met$ threshold for $\bTagSR$-$\Res$ (left) and $\bTagSR$-$\NonRes$ (right), using the pure BSM benchmarks $(\MU~[\TeV],\gU,\beta_L^{23})=(1.5,1.5,0.6)$ and $(2.5,2.5,1.0)$, respectively. The $N-1$ distributions are integrated above each threshold and Eq.~\ref{eq:ch7_optimisation_significance} is evaluated with $\sigma_b=0.30b$. Open markers and dashed segments indicate points with $b\leq2$, which are excluded from the cut choice. The selected thresholds are marked by squares and vertical dotted lines.}
++%     \caption[SR1b significance scan in missing transverse momentum]{Approximate significance as a function of the $\met$ threshold for $\bTagSR$-$\Res$ (left) and $\bTagSR$-$\NonRes$ (right), using the pure BSM benchmarks $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(2.5~\TeV,2.5,1.0)$, respectively. The $N-1$ distributions are integrated above each threshold and Eq.~\ref{eq:ch7_optimisation_significance} is evaluated with $\sigma_b=0.30b$. Open markers and dashed segments indicate points with $b\leq2$, which are excluded from the cut choice. The selected thresholds are marked by squares and vertical dotted lines.}
+ %     \label{fig:ch7_met_significance_scan}
+ % \end{figure}
+ 
+@@ -242,7 +242,7 @@
+ \begin{table}[htbp]
+     \centering
+     \small
+-    \caption{Cumulative pure BSM signal ($S$) and background ($B$) yields in the $\bTagSR$-$\NonRes$ optimisation for $(\MU~[\TeV],\gU,\beta_L^{23})=(2.5,2.5,1.0)$.}
++    \caption{Pure BSM signal ($S$) and background ($B$) cutflow in the $\bTagSR$-$\NonRes$ optimisation for $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$.}
+     \label{tab:ch7_cutflow_nonres}
+     \begin{tabular}{lrr}
+         \toprule
+@@ -270,10 +270,10 @@
+     \label{tab:ch7_prefit_yields}
+     \begin{tabular}{lcrrr}
+         \toprule
+-        SR & $(\MU~[\TeV],\gU,\beta_L^{23})$ & $S$ & $B$ & $Z$ \\
+-        \midrule
+-        $\bTagSR$-$\Res$ & $(1.5,1.5,0.6)$ & 4.262 & 2.439 & 1.95 \\
+-        $\bTagSR$-$\NonRes$ & $(2.5,2.5,1.0)$ & 6.583 & 2.097 & 2.94 \\
++        SR & $(\MU,\gU,\beta_L^{23})$ & $S$ & $B$ & $Z$ \\
++        \midrule
++        $\bTagSR$-$\Res$ & $(1.5~\TeV,1.5,0.6)$ & 4.262 & 2.439 & 1.95 \\
++        $\bTagSR$-$\NonRes$ & $(2.5~\TeV,2.5,1.0)$ & 6.583 & 2.097 & 2.94 \\
+         \bottomrule
+     \end{tabular}
+ \end{table}
+--- Chapters/object_definition/btagging.tex (before)
++++ Chapters/object_definition/btagging.tex
+@@ -3,7 +3,7 @@
+ 
+ Jet flavour tagging is used to distinguish $b$-quark originating jets ($b$-jets) from other jet flavours.
+ 
+-$b$-jets are identified through displaced $b$-hadron decays, which have a lifetime of about $1.5$~ps. Therefore a boosted $b$-hadron can travel several millimetres before decaying.
++$b$-jets are identified through displaced $b$-hadron decays, which have a lifetime of about $1.5~\ps$. Therefore a boosted $b$-hadron can travel several millimetres before decaying.
+ The decay tracks therefore typically have large impact parameters and originate from a secondary vertex displaced from the PV.
+ Charm hadrons produced in the $b$-hadron decay can further decay at an additional displaced vertex.
+ These features are used for jet flavour tagging.
+--- Preamble/preamble.tex (before)
++++ Preamble/preamble.tex
+@@ -253,6 +253,15 @@
+ \newcommand{\TeV}{\ensuremath{\mathrm{TeV}}}
+ \newcommand{\um}{\ensuremath{\mu\mathrm{m}}}
+ \newcommand{\mm}{\ensuremath{\mathrm{mm}}}
++\newcommand{\metre}{\ensuremath{\mathrm{m}}}
++\newcommand{\km}{\ensuremath{\mathrm{km}}}
++\newcommand{\ns}{\ensuremath{\mathrm{ns}}}
++\newcommand{\ps}{\ensuremath{\mathrm{ps}}}
++\newcommand{\us}{\ensuremath{\mu\mathrm{s}}}
++\newcommand{\MHz}{\ensuremath{\mathrm{MHz}}}
++\newcommand{\kHz}{\ensuremath{\mathrm{kHz}}}
++\newcommand{\tesla}{\ensuremath{\mathrm{T}}}
++\newcommand{\tonnes}{\ensuremath{\mathrm{tonnes}}}
+ \newcommand{\fb}{\ensuremath{\mathrm{fb}}}
+ \newcommand{\ifb}{\ensuremath{\mathrm{fb}^{-1}}}
+ \usepackage{url}

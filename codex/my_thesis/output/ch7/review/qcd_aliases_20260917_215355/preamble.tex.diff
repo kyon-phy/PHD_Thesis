@@ -1,0 +1,16 @@
+--- Preamble/preamble.tex.before
++++ Preamble/preamble.tex
+@@ -242,8 +242,11 @@
+ \newcommand*{\RD}{\ensuremath{R(D^{(*)})}}
+ \newcommand{\DphiTauMet}{\ensuremath{\Delta\phi(\tau, \met)}\xspace}
+ \newcommand{\DphiLepMet}{\ensuremath{\Delta\phi(\ell, \met)}\xspace}
+-\newcommand{\DphiJetMet}{\ensuremath{\Delta\phi(\met, \pT^{\text{jet}})}\xspace}
+-\newcommand{\minDphiJetPt}{\ensuremath{\pT^{\text{jet}(\min{\Delta\phi)}}}\xspace}
++\newcommand{\DphiJetMet}{\ensuremath{\Delta\phi(\met,\pt^{\mathrm{jet}})}\xspace}
++\newcommand{\minDphiJetPt}{\ensuremath{\pt^{\mathrm{jet}(\min{\Delta\phi)}}}\xspace}
++% QCD cleaning variables; specify the selection thresholds at the call site.
++\newcommand{\minDphiJetMet}{\ensuremath{\min\DphiJetMet}\xspace}
++\newcommand{\metOverMinDphiJetPt}{\ensuremath{\frac{\met}{\minDphiJetPt}}\xspace}
+ \newcommand{\betaL}{\ensuremath{\beta_L^{23}}\xspace}
+ \newcommand{\MeV}{\ensuremath{\mathrm{MeV}}}
+ \newcommand{\GeV}{\ensuremath{\mathrm{GeV}}}

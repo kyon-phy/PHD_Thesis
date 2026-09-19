@@ -1,0 +1,2160 @@
+{
+  "request": "检查第八章 draft 是否遗漏 skill preferences，包括被动语态。",
+  "mode": "FULL_SECTION_REVIEW",
+  "authorised_scope": "Read-only writing-preference audit of all Chapter 8 prose and captions; recommendations and review records only.",
+  "manuscript_files": [
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH8_Background_estimation.tex",
+      "snapshot": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/review/2026-09-16_preferences/snapshot/Chapters/CH8_Background_estimation.tex",
+      "sha256": "979306ccfdff21f32a13ca4070bf8c7be7ef597d31c90f72f78ad72db2ccda71",
+      "lines": 354
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_emu.tex",
+      "snapshot": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/review/2026-09-16_preferences/snapshot/Chapters/background_estimation/figures_emu.tex",
+      "sha256": "81483a3d830f6a02420c80a88dc7d2195c2dfe3540eec5f0e676913660a2f7ba",
+      "lines": 21
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_fake.tex",
+      "snapshot": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/review/2026-09-16_preferences/snapshot/Chapters/background_estimation/figures_fake.tex",
+      "sha256": "c3bab94e70c63121127c3f7793c1613dd2ed16834ca675f5bd599f22ba89fae0",
+      "lines": 20
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "snapshot": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/review/2026-09-16_preferences/snapshot/Chapters/background_estimation/figures_topcr.tex",
+      "sha256": "7ba635f10d19af5da01e014d448d0570fd57f3bbfc7f9903a2415748f53c1d3c",
+      "lines": 59
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vr_study.tex",
+      "snapshot": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/review/2026-09-16_preferences/snapshot/Chapters/background_estimation/figures_vr_study.tex",
+      "sha256": "31cd965406e71d805fa697b9d712bc98330e0ccd8a8430a17c5f2254bfe706c3",
+      "lines": 13
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "snapshot": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/review/2026-09-16_preferences/snapshot/Chapters/background_estimation/figures_vrtop.tex",
+      "sha256": "719638c01cf04a96997b1a436171a5a47e4de6b2983649684bcd147e9e1d6778",
+      "lines": 59
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "snapshot": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/review/2026-09-16_preferences/snapshot/Chapters/background_estimation/figures_vrw.tex",
+      "sha256": "b525291f6a8214259d8773552cc8c31fe7fffbed83eca3d98688d127ff06c66d",
+      "lines": 59
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "snapshot": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/review/2026-09-16_preferences/snapshot/Chapters/background_estimation/figures_wcr.tex",
+      "sha256": "7d1c6d064b3f832abdb2976c322131ece6536e6a210e5b0d5f0903d58528940f",
+      "lines": 59
+    }
+  ],
+  "paragraph_ledger": [
+    {
+      "id": "P01",
+      "start_line": 4,
+      "end_line": 6,
+      "text": "The background prediction is obtained from the simulated samples introduced in Section~\\ref{sec:background_samples}, with the dominant $W$+jets and top-quark contributions normalised to data in control regions (CRs).\nThis chapter describes these constraints, the treatment of the small fake-$\\tau$ contribution, and the validation of the prediction in regions outside the SRs.\nThe object definitions and SR selections follow Chapters~\\ref{chapter:object_reconstruction} and~\\ref{chapter:event_selection}.",
+      "purpose": "本章范围和模拟输入",
+      "preceding_basis": "前文给出 MC 与对象",
+      "new_point": "引出 CR 约束、fake 与 validation",
+      "forward_dependency": "后续分节解释具体方法",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 4,
+          "text": "The background prediction is obtained from the simulated samples introduced in Section~\\ref{sec:background_samples}, with the dominant $W$+jets and top-quark contributions normalised to data in control regions (CRs).",
+          "finding_ids": []
+        },
+        {
+          "line": 5,
+          "text": "This chapter describes these constraints, the treatment of the small fake-$\\tau$ contribution, and the validation of the prediction in regions outside the SRs.",
+          "finding_ids": []
+        },
+        {
+          "line": 6,
+          "text": "The object definitions and SR selections follow Chapters~\\ref{chapter:object_reconstruction} and~\\ref{chapter:event_selection}.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P02",
+      "start_line": 11,
+      "end_line": 16,
+      "text": "The CRs provide data samples enriched in the backgrounds to be normalised, with little signal contamination.\nFour CRs are used: $\\CRW$-$\\Res$ and $\\CRW$-$\\NonRes$ constrain $W$+jets, while $\\CRTop$-$\\Res$ and $\\CRTop$-$\\NonRes$ constrain top-quark production.\nEach region contributes its total event count to a simultaneous fit.\nThe fitted normalisation factors, $\\lambda_W^{\\Res}$, $\\lambda_W^{\\NonRes}$, $\\lambda_t^{\\Res}$ and $\\lambda_t^{\\NonRes}$, multiply the corresponding simulated yields in the CRs, SRs and validation regions (VRs).\nThe same top-quark factor is applied to $\\ttbar$ and single-top production within each topology.\nSeparate factors for the resonant and non-resonant categories allow the normalisation to differ between the high- and low-jet-$\\pT$ selections.",
+      "purpose": "四个 CR 和归一化因子",
+      "preceding_basis": "章首说明主背景需数据约束",
+      "new_point": "每区总计数、四因子及传播范围",
+      "forward_dependency": "SR/CR 模拟转移",
+      "findings": [
+        "F3"
+      ],
+      "sentence_units": [
+        {
+          "line": 11,
+          "text": "The CRs provide data samples enriched in the backgrounds to be normalised, with little signal contamination.",
+          "finding_ids": []
+        },
+        {
+          "line": 12,
+          "text": "Four CRs are used: $\\CRW$-$\\Res$ and $\\CRW$-$\\NonRes$ constrain $W$+jets, while $\\CRTop$-$\\Res$ and $\\CRTop$-$\\NonRes$ constrain top-quark production.",
+          "finding_ids": []
+        },
+        {
+          "line": 13,
+          "text": "Each region contributes its total event count to a simultaneous fit.",
+          "finding_ids": [
+            "F3"
+          ]
+        },
+        {
+          "line": 14,
+          "text": "The fitted normalisation factors, $\\lambda_W^{\\Res}$, $\\lambda_W^{\\NonRes}$, $\\lambda_t^{\\Res}$ and $\\lambda_t^{\\NonRes}$, multiply the corresponding simulated yields in the CRs, SRs and validation regions (VRs).",
+          "finding_ids": []
+        },
+        {
+          "line": 15,
+          "text": "The same top-quark factor is applied to $\\ttbar$ and single-top production within each topology.",
+          "finding_ids": []
+        },
+        {
+          "line": 16,
+          "text": "Separate factors for the resonant and non-resonant categories allow the normalisation to differ between the high- and low-jet-$\\pT$ selections.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P03",
+      "start_line": 18,
+      "end_line": 23,
+      "text": "The extrapolation from a CR to an SR is supplied by simulation: the fit fixes the background rate in the CR, while the simulated ratio of SR to CR yields determines the rate transferred to the SR.\nThe $W$+jets extrapolation therefore depends on the description of the lepton flavour and jet flavour, and the top-quark extrapolation also depends on the acceptance of the additional lepton and the relaxed CR requirements.\nThe relevant uncertainties are described in Chapter~\\ref{chapter:systematics_uncertainties}.\nDiboson and $Z$+jets production, together with the other small contributions, retain their simulated nominal yields and are allowed to vary within their assigned uncertainties in the fit.\nThe fitted uncertainty parameters are propagated to the SRs and VRs together with the normalisation factors.\nThe multijet suppression is already described in Section~\\ref{subsec:ch7_multijet} and Appendix~\\ref{App:QCD_bkg_study}.",
+      "purpose": "背景约束的外推",
+      "preceding_basis": "已有 CR 归一化",
+      "new_point": "模拟 acceptance ratio、较小背景和不确定度",
+      "forward_dependency": "VR 独立检验",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 18,
+          "text": "The extrapolation from a CR to an SR is supplied by simulation: the fit fixes the background rate in the CR, while the simulated ratio of SR to CR yields determines the rate transferred to the SR.",
+          "finding_ids": []
+        },
+        {
+          "line": 19,
+          "text": "The $W$+jets extrapolation therefore depends on the description of the lepton flavour and jet flavour, and the top-quark extrapolation also depends on the acceptance of the additional lepton and the relaxed CR requirements.",
+          "finding_ids": []
+        },
+        {
+          "line": 20,
+          "text": "The relevant uncertainties are described in Chapter~\\ref{chapter:systematics_uncertainties}.",
+          "finding_ids": []
+        },
+        {
+          "line": 21,
+          "text": "Diboson and $Z$+jets production, together with the other small contributions, retain their simulated nominal yields and are allowed to vary within their assigned uncertainties in the fit.",
+          "finding_ids": []
+        },
+        {
+          "line": 22,
+          "text": "The fitted uncertainty parameters are propagated to the SRs and VRs together with the normalisation factors.",
+          "finding_ids": []
+        },
+        {
+          "line": 23,
+          "text": "The multijet suppression is already described in Section~\\ref{subsec:ch7_multijet} and Appendix~\\ref{App:QCD_bkg_study}.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P04",
+      "start_line": 25,
+      "end_line": 29,
+      "text": "The VRs test these extrapolations without contributing event counts to the background-only fit.\nTheir object multiplicities are summarised in Table~\\ref{tab:ch8_region_roles}.\nIn particular, $\\VRb$ tests the change from a $b$-jet veto to one tagged jet, and $\\VRTop$ tests the prediction for a hadronic $\\tau$ with no selected light lepton.\nThe zero-$b$-jet regions containing a $\\tau$ are the $\\bVetoSR$ regions defined in Section~\\ref{sec:ch7_sr0b}.\nThe likelihood construction and the final fitted normalisation factors are reserved for Chapter~\\ref{chapter:results}.",
+      "purpose": "VR 角色及本章边界",
+      "preceding_basis": "已经解释外推",
+      "new_point": "两类 VR 改变的对象要求、SR0b归属",
+      "forward_dependency": "各 VR 的具体实现",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 25,
+          "text": "The VRs test these extrapolations without contributing event counts to the background-only fit.",
+          "finding_ids": []
+        },
+        {
+          "line": 26,
+          "text": "Their object multiplicities are summarised in Table~\\ref{tab:ch8_region_roles}.",
+          "finding_ids": []
+        },
+        {
+          "line": 27,
+          "text": "In particular, $\\VRb$ tests the change from a $b$-jet veto to one tagged jet, and $\\VRTop$ tests the prediction for a hadronic $\\tau$ with no selected light lepton.",
+          "finding_ids": []
+        },
+        {
+          "line": 28,
+          "text": "The zero-$b$-jet regions containing a $\\tau$ are the $\\bVetoSR$ regions defined in Section~\\ref{sec:ch7_sr0b}.",
+          "finding_ids": []
+        },
+        {
+          "line": 29,
+          "text": "The likelihood construction and the final fitted normalisation factors are reserved for Chapter~\\ref{chapter:results}.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P05",
+      "start_line": 54,
+      "end_line": 59,
+      "text": "The $\\CRW$ regions select $W\\to\\ell\\nu$ events by replacing the $\\tau$ in the corresponding $\\bVetoSR$ selection with an electron or muon.\nThe $b$-jet veto suppresses top-quark production and provides a larger $W$+jets sample than a tagged selection.\nExactly one signal electron or muon and no selected $\\tau$ are required.\nThe signal-lepton requirements are those in Chapter~\\ref{chapter:object_reconstruction}.\nSingle-lepton triggers are used, as listed in Section~\\ref{sec:analysis_triggers}.\nThis choice avoids the different response of the calorimeter-based $\\met$ trigger to electrons and muons, since the trigger-level missing momentum does not include the muon momentum.",
+      "purpose": "WCR 对象及 trigger",
+      "preceding_basis": "前文 SR0b 与对象定义",
+      "new_point": "tau 替换和单轻子 trigger 的直接理由",
+      "forward_dependency": "变量替换与 kinematic 选择",
+      "findings": [
+        "F6"
+      ],
+      "sentence_units": [
+        {
+          "line": 54,
+          "text": "The $\\CRW$ regions select $W\\to\\ell\\nu$ events by replacing the $\\tau$ in the corresponding $\\bVetoSR$ selection with an electron or muon.",
+          "finding_ids": [
+            "F6"
+          ]
+        },
+        {
+          "line": 55,
+          "text": "The $b$-jet veto suppresses top-quark production and provides a larger $W$+jets sample than a tagged selection.",
+          "finding_ids": []
+        },
+        {
+          "line": 56,
+          "text": "Exactly one signal electron or muon and no selected $\\tau$ are required.",
+          "finding_ids": []
+        },
+        {
+          "line": 57,
+          "text": "The signal-lepton requirements are those in Chapter~\\ref{chapter:object_reconstruction}.",
+          "finding_ids": []
+        },
+        {
+          "line": 58,
+          "text": "Single-lepton triggers are used, as listed in Section~\\ref{sec:analysis_triggers}.",
+          "finding_ids": []
+        },
+        {
+          "line": 59,
+          "text": "This choice avoids the different response of the calorimeter-based $\\met$ trigger to electrons and muons, since the trigger-level missing momentum does not include the muon momentum.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P06",
+      "start_line": 61,
+      "end_line": 69,
+      "text": "The lepton replaces the $\\tau$ in the transverse mass and angular separation, giving $m_{\\mathrm{T}}^\\ell$ and $\\DphiLepMet$ through the definitions in Section~\\ref{subsec:ch7_variables}.\nThe leading jet is used for the resonant/non-resonant categorisation and the invariant mass $m_{j\\ell}$.\nTable~\\ref{tab:ch8_wcr_vrw} gives the selections together with those of $\\VRb$.\nThe kinematic correspondence to the SRs restricts the extrapolation to similar hard-scattering configurations.\nThe neutrino from a hadronic $\\tau$ decay changes both the visible $\\tau$ momentum and $\\mpt$, so the lepton replacement does not imply identical reconstructed distributions.\nThese differences are retained in the simulated acceptance ratio.\nThe extrapolation is checked in the lower-mass $W\\to\\tau\\nu$ sample described in Section~\\ref{subsec:ch8_tau1b_vr}.\nBoth CRs have a $W$+jets purity of approximately $70\\%$.\nDiboson production is the largest secondary contribution in $\\CRW$-$\\Res$.",
+      "purpose": "WCR 变量及外推条件",
+      "preceding_basis": "已有 lepton 替换",
+      "new_point": "共同变量、额外中微子导致的分布差别",
+      "forward_dependency": "prefit 比较与低质量验证",
+      "findings": [
+        "F6"
+      ],
+      "sentence_units": [
+        {
+          "line": 61,
+          "text": "The lepton replaces the $\\tau$ in the transverse mass and angular separation, giving $m_{\\mathrm{T}}^\\ell$ and $\\DphiLepMet$ through the definitions in Section~\\ref{subsec:ch7_variables}.",
+          "finding_ids": [
+            "F6"
+          ]
+        },
+        {
+          "line": 62,
+          "text": "The leading jet is used for the resonant/non-resonant categorisation and the invariant mass $m_{j\\ell}$.",
+          "finding_ids": []
+        },
+        {
+          "line": 63,
+          "text": "Table~\\ref{tab:ch8_wcr_vrw} gives the selections together with those of $\\VRb$.",
+          "finding_ids": []
+        },
+        {
+          "line": 64,
+          "text": "The kinematic correspondence to the SRs restricts the extrapolation to similar hard-scattering configurations.",
+          "finding_ids": []
+        },
+        {
+          "line": 65,
+          "text": "The neutrino from a hadronic $\\tau$ decay changes both the visible $\\tau$ momentum and $\\mpt$, so the lepton replacement does not imply identical reconstructed distributions.",
+          "finding_ids": []
+        },
+        {
+          "line": 66,
+          "text": "These differences are retained in the simulated acceptance ratio.",
+          "finding_ids": []
+        },
+        {
+          "line": 67,
+          "text": "The extrapolation is checked in the lower-mass $W\\to\\tau\\nu$ sample described in Section~\\ref{subsec:ch8_tau1b_vr}.",
+          "finding_ids": [
+            "F6"
+          ]
+        },
+        {
+          "line": 68,
+          "text": "Both CRs have a $W$+jets purity of approximately $70\\%$.",
+          "finding_ids": []
+        },
+        {
+          "line": 69,
+          "text": "Diboson production is the largest secondary contribution in $\\CRW$-$\\Res$.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P07",
+      "start_line": 95,
+      "end_line": 100,
+      "text": "The pre-fit comparisons in Figures~\\ref{fig:ch8_wcr_res} and~\\ref{fig:ch8_wcr_nonres} test the simulated distributions before the CR normalisation is fitted.\nThe $N-1$ convention is the one introduced in Section~\\ref{sec:ch7_sr1b}.\nThe electron and muon channels are shown separately to test their consistency before combining them.\nThe plotted bands and the uncertainties in Table~\\ref{tab:ch8_cr_prefit} are statistical only.\nNo clear trend in the data-to-prediction ratio is observed across the displayed kinematic distributions, although their overall normalisations differ.\nThe raw data-to-total-MC ratios are diagnostic quantities: they are not the fitted $W$+jets normalisation factors, since the CRs also contain other backgrounds.",
+      "purpose": "WCR prefit 诊断",
+      "preceding_basis": "已给出区域要求",
+      "new_point": "e/mu 分开、仅统计、raw ratio 与 fitted factor 的区别",
+      "forward_dependency": "e/mu 差别检查",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 95,
+          "text": "The pre-fit comparisons in Figures~\\ref{fig:ch8_wcr_res} and~\\ref{fig:ch8_wcr_nonres} test the simulated distributions before the CR normalisation is fitted.",
+          "finding_ids": []
+        },
+        {
+          "line": 96,
+          "text": "The $N-1$ convention is the one introduced in Section~\\ref{sec:ch7_sr1b}.",
+          "finding_ids": []
+        },
+        {
+          "line": 97,
+          "text": "The electron and muon channels are shown separately to test their consistency before combining them.",
+          "finding_ids": []
+        },
+        {
+          "line": 98,
+          "text": "The plotted bands and the uncertainties in Table~\\ref{tab:ch8_cr_prefit} are statistical only.",
+          "finding_ids": []
+        },
+        {
+          "line": 99,
+          "text": "No clear trend in the data-to-prediction ratio is observed across the displayed kinematic distributions, although their overall normalisations differ.",
+          "finding_ids": []
+        },
+        {
+          "line": 100,
+          "text": "The raw data-to-total-MC ratios are diagnostic quantities: they are not the fitted $W$+jets normalisation factors, since the CRs also contain other backgrounds.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P08",
+      "start_line": 125,
+      "end_line": 128,
+      "text": "The electron and muon channels give pre-fit data/MC ratios differing by $1.4\\sigma$ in $\\CRW$-$\\Res$ and $1.7\\sigma$ in $\\CRW$-$\\NonRes$.\nThe non-resonant difference is investigated through the corrections applied to simulation, the selection cutflow and the leading-jet $\\pT$ distribution.\nThe lepton-dependent efficiency corrections, including the trigger scale factors, are checked separately in the two channels, with no incorrect application identified.\nThe difference becomes visible after imposing $50<\\pT^{j_1}<250~\\GeV$.",
+      "purpose": "e/mu 差别大小与初步定位",
+      "preceding_basis": "已有分通道 raw ratio",
+      "new_point": "1.4/1.7 sigma及cutflow定位",
+      "forward_dependency": "数据与 MC event weights",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 125,
+          "text": "The electron and muon channels give pre-fit data/MC ratios differing by $1.4\\sigma$ in $\\CRW$-$\\Res$ and $1.7\\sigma$ in $\\CRW$-$\\NonRes$.",
+          "finding_ids": []
+        },
+        {
+          "line": 126,
+          "text": "The non-resonant difference is investigated through the corrections applied to simulation, the selection cutflow and the leading-jet $\\pT$ distribution.",
+          "finding_ids": []
+        },
+        {
+          "line": 127,
+          "text": "The lepton-dependent efficiency corrections, including the trigger scale factors, are checked separately in the two channels, with no incorrect application identified.",
+          "finding_ids": []
+        },
+        {
+          "line": 128,
+          "text": "The difference becomes visible after imposing $50<\\pT^{j_1}<250~\\GeV$.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P09",
+      "start_line": 130,
+      "end_line": 134,
+      "text": "Figure~\\ref{fig:ch8_emu_comparison} compares the electron and muon distributions separately in data and simulation.\nThe electron data have an upward fluctuation around $\\pT^{j_1}=80$--$100~\\GeV$.\nThe simulated event-weight distributions reveal a second effect: a small number of events carry weights of order 30.\nMost occur below $50~\\GeV$, but one such event enters the selected muon sample above this threshold, with no corresponding event in the electron sample.\nA single simulated event can therefore increase the predicted muon yield by several tens of weighted events and lower its data/MC ratio.",
+      "purpose": "e/mu 差别的两个统计效应",
+      "preceding_basis": "已有 cutflow threshold",
+      "new_point": "数据局部上浮和单个大权重 MC 事件",
+      "forward_dependency": "约束结论及合并策略",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 130,
+          "text": "Figure~\\ref{fig:ch8_emu_comparison} compares the electron and muon distributions separately in data and simulation.",
+          "finding_ids": []
+        },
+        {
+          "line": 131,
+          "text": "The electron data have an upward fluctuation around $\\pT^{j_1}=80$--$100~\\GeV$.",
+          "finding_ids": []
+        },
+        {
+          "line": 132,
+          "text": "The simulated event-weight distributions reveal a second effect: a small number of events carry weights of order 30.",
+          "finding_ids": []
+        },
+        {
+          "line": 133,
+          "text": "Most occur below $50~\\GeV$, but one such event enters the selected muon sample above this threshold, with no corresponding event in the electron sample.",
+          "finding_ids": []
+        },
+        {
+          "line": 134,
+          "text": "A single simulated event can therefore increase the predicted muon yield by several tens of weighted events and lower its data/MC ratio.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P10",
+      "start_line": 136,
+      "end_line": 139,
+      "text": "These observations are consistent with statistical fluctuations in the electron data and the weighted muon simulation.\nThey do not establish a lepton-dependent correction to the $W$+jets rate.\nThe two channels are therefore combined within each CR, and one $W$+jets normalisation factor is used for each topology.\nThe extrapolation of this combined constraint is checked in the VRs described in Section~\\ref{sec:ch8_validation}.",
+      "purpose": "e/mu 检查结论",
+      "preceding_basis": "已有两个统计效应",
+      "new_point": "与波动相容后合并约束",
+      "forward_dependency": "VR 外推检验",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 136,
+          "text": "These observations are consistent with statistical fluctuations in the electron data and the weighted muon simulation.",
+          "finding_ids": []
+        },
+        {
+          "line": 137,
+          "text": "They do not establish a lepton-dependent correction to the $W$+jets rate.",
+          "finding_ids": []
+        },
+        {
+          "line": 138,
+          "text": "The two channels are therefore combined within each CR, and one $W$+jets normalisation factor is used for each topology.",
+          "finding_ids": []
+        },
+        {
+          "line": 139,
+          "text": "The extrapolation of this combined constraint is checked in the VRs described in Section~\\ref{sec:ch8_validation}.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P11",
+      "start_line": 146,
+      "end_line": 153,
+      "text": "The $\\CRTop$ regions constrain $\\ttbar$ and single-top production by requiring one $\\tau$ and an additional electron or muon.\nThe relevant decays include $\\ttbar\\to b\\tau\\nu\\,\\bar b\\ell\\nu$ and $Wt\\to b\\tau\\nu\\,\\ell\\nu$.\nThe additional lepton selects the second leptonic $W$ decay and separates these regions from the lepton-vetoed SRs.\nRequiring at least one tagged $b$ jet further suppresses $W$+jets production.\nInclusive $\\ttbar$ and single-top samples are used.\nWithin the $\\ttbar$ and $Wt$ samples, the large-$\\met$ selection favours decays in which both $W$ bosons decay leptonically.\nThis explains the dominant modes identified above without restricting the prediction to those modes.\nThe top-quark purity is approximately $90\\%$ after the full CR selections.",
+      "purpose": "top CR 富集机制",
+      "preceding_basis": "已定义 top 归一化角色",
+      "new_point": "tau+lepton、b tag、inclusive 样本和衰变组成",
+      "forward_dependency": "放松阈值",
+      "findings": [
+        "F4",
+        "F5"
+      ],
+      "sentence_units": [
+        {
+          "line": 146,
+          "text": "The $\\CRTop$ regions constrain $\\ttbar$ and single-top production by requiring one $\\tau$ and an additional electron or muon.",
+          "finding_ids": [
+            "F4"
+          ]
+        },
+        {
+          "line": 147,
+          "text": "The relevant decays include $\\ttbar\\to b\\tau\\nu\\,\\bar b\\ell\\nu$ and $Wt\\to b\\tau\\nu\\,\\ell\\nu$.",
+          "finding_ids": []
+        },
+        {
+          "line": 148,
+          "text": "The additional lepton selects the second leptonic $W$ decay and separates these regions from the lepton-vetoed SRs.",
+          "finding_ids": []
+        },
+        {
+          "line": 149,
+          "text": "Requiring at least one tagged $b$ jet further suppresses $W$+jets production.",
+          "finding_ids": []
+        },
+        {
+          "line": 150,
+          "text": "Inclusive $\\ttbar$ and single-top samples are used.",
+          "finding_ids": []
+        },
+        {
+          "line": 151,
+          "text": "Within the $\\ttbar$ and $Wt$ samples, the large-$\\met$ selection favours decays in which both $W$ bosons decay leptonically.",
+          "finding_ids": []
+        },
+        {
+          "line": 152,
+          "text": "This explains the dominant modes identified above without restricting the prediction to those modes.",
+          "finding_ids": [
+            "F5"
+          ]
+        },
+        {
+          "line": 153,
+          "text": "The top-quark purity is approximately $90\\%$ after the full CR selections.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P12",
+      "start_line": 155,
+      "end_line": 158,
+      "text": "The relaxed thresholds in Table~\\ref{tab:ch8_top_regions} increase the CR yields.\nSingle-lepton triggers permit the lower $\\met>100~\\GeV$ threshold.\nIf more than one $b$ jet is selected, the highest-$\\pT$ tagged jet defines the topology and the jet--$\\tau$ observables.\nThe resonant $m_{b\\tau}$ requirement is removed.",
+      "purpose": "top CR 的阈值和 leading b jet",
+      "preceding_basis": "已有富集机制",
+      "new_point": "统计量、trigger阈值和jet选择",
+      "forward_dependency": "表格及prefit表现",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 155,
+          "text": "The relaxed thresholds in Table~\\ref{tab:ch8_top_regions} increase the CR yields.",
+          "finding_ids": []
+        },
+        {
+          "line": 156,
+          "text": "Single-lepton triggers permit the lower $\\met>100~\\GeV$ threshold.",
+          "finding_ids": []
+        },
+        {
+          "line": 157,
+          "text": "If more than one $b$ jet is selected, the highest-$\\pT$ tagged jet defines the topology and the jet--$\\tau$ observables.",
+          "finding_ids": []
+        },
+        {
+          "line": 158,
+          "text": "The resonant $m_{b\\tau}$ requirement is removed.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P13",
+      "start_line": 184,
+      "end_line": 188,
+      "text": "The pre-fit distributions in Figures~\\ref{fig:ch8_topcr_res} and~\\ref{fig:ch8_topcr_nonres} show comparable behaviour in the electron and muon channels.\nThe data/MC ratios in Table~\\ref{tab:ch8_cr_prefit} are near 0.8, with no clear dependence on $\\mT$ or $\\met$ resolved within the statistical precision.\nThe fit constrains the combined top-quark yield, while the relative $\\ttbar$ and single-top contributions are predicted separately in each region.\nTheir ratio is consistent between the SRs and CRs within MC statistical uncertainties.\nThe process-dependent modelling uncertainties are retained, as described in Chapter~\\ref{chapter:systematics_uncertainties}.",
+      "purpose": "top prefit 与组合约束",
+      "preceding_basis": "已有对象和阈值",
+      "new_point": "数据比值、组合产额与独立组成预测",
+      "forward_dependency": "top modeling uncertainties",
+      "findings": [
+        "F3"
+      ],
+      "sentence_units": [
+        {
+          "line": 184,
+          "text": "The pre-fit distributions in Figures~\\ref{fig:ch8_topcr_res} and~\\ref{fig:ch8_topcr_nonres} show comparable behaviour in the electron and muon channels.",
+          "finding_ids": []
+        },
+        {
+          "line": 185,
+          "text": "The data/MC ratios in Table~\\ref{tab:ch8_cr_prefit} are near 0.8, with no clear dependence on $\\mT$ or $\\met$ resolved within the statistical precision.",
+          "finding_ids": []
+        },
+        {
+          "line": 186,
+          "text": "The fit constrains the combined top-quark yield, while the relative $\\ttbar$ and single-top contributions are predicted separately in each region.",
+          "finding_ids": [
+            "F3"
+          ]
+        },
+        {
+          "line": 187,
+          "text": "Their ratio is consistent between the SRs and CRs within MC statistical uncertainties.",
+          "finding_ids": []
+        },
+        {
+          "line": 188,
+          "text": "The process-dependent modelling uncertainties are retained, as described in Chapter~\\ref{chapter:systematics_uncertainties}.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P14",
+      "start_line": 195,
+      "end_line": 199,
+      "text": "The selected SM background is dominated by events containing a genuine hadronically decaying $\\tau$, so the fake-$\\tau$ contribution is small.\nAs discussed in Section~\\ref{sec:ch7_sr1b}, its principal source at large $\\met$ is $Z\\to\\nu\\nu$+jets, where a jet passes the $\\tau$ identification.\nThis contribution is at most about $10\\%$ of the background in the SRs considered in the fake-rate study and is much smaller in the one-$b$-jet SRs.\nIt is retained in the prediction rather than set to zero.\nThe nominal yield is taken from simulation, and a dedicated $Z\\to\\ell\\ell$ study determines an uncertainty for the modelling of jets misidentified as $\\tau$ candidates.",
+      "purpose": "fake 规模与估计方法",
+      "preceding_basis": "前文已有背景组成",
+      "new_point": "小 Zvv fake 成分和 Zll 校验",
+      "forward_dependency": "ZVR 定义",
+      "findings": [
+        "F4",
+        "F5",
+        "F6"
+      ],
+      "sentence_units": [
+        {
+          "line": 195,
+          "text": "The selected SM background is dominated by events containing a genuine hadronically decaying $\\tau$, so the fake-$\\tau$ contribution is small.",
+          "finding_ids": [
+            "F4"
+          ]
+        },
+        {
+          "line": 196,
+          "text": "As discussed in Section~\\ref{sec:ch7_sr1b}, its principal source at large $\\met$ is $Z\\to\\nu\\nu$+jets, where a jet passes the $\\tau$ identification.",
+          "finding_ids": [
+            "F6"
+          ]
+        },
+        {
+          "line": 197,
+          "text": "This contribution is at most about $10\\%$ of the background in the SRs considered in the fake-rate study and is much smaller in the one-$b$-jet SRs.",
+          "finding_ids": []
+        },
+        {
+          "line": 198,
+          "text": "It is retained in the prediction rather than set to zero.",
+          "finding_ids": [
+            "F5"
+          ]
+        },
+        {
+          "line": 199,
+          "text": "The nominal yield is taken from simulation, and a dedicated $Z\\to\\ell\\ell$ study determines an uncertainty for the modelling of jets misidentified as $\\tau$ candidates.",
+          "finding_ids": [
+            "F6"
+          ]
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P15",
+      "start_line": 204,
+      "end_line": 208,
+      "text": "The $Z$ validation region (ZVR) selects a visible $Z$ decay together with a $\\tau$ candidate to test the simulated fake rate in a sample enriched in $Z$+jets.\nTwo signal electrons or two signal muons are required, with $75<m_{\\ell\\ell}<105~\\GeV$, together with exactly one $\\tau$ candidate and a $b$-jet veto.\nThe jet multiplicity satisfies $1\\leq N_j\\leq3$ and $\\pT^\\tau>100~\\GeV$.\nBoth lepton channels are used to increase the statistical precision.\nThe muon channel uses the $\\met$ trigger, whereas the electron channel uses a single-electron trigger.",
+      "purpose": "ZVR 对象及 trigger",
+      "preceding_basis": "已说明 Zll fake study",
+      "new_point": "dilepton质量、tau、jet数、trigger",
+      "forward_dependency": "recoil量和额外要求",
+      "findings": [
+        "F1",
+        "F3"
+      ],
+      "sentence_units": [
+        {
+          "line": 204,
+          "text": "The $Z$ validation region (ZVR) selects a visible $Z$ decay together with a $\\tau$ candidate to test the simulated fake rate in a sample enriched in $Z$+jets.",
+          "finding_ids": []
+        },
+        {
+          "line": 205,
+          "text": "Two signal electrons or two signal muons are required, with $75<m_{\\ell\\ell}<105~\\GeV$, together with exactly one $\\tau$ candidate and a $b$-jet veto.",
+          "finding_ids": []
+        },
+        {
+          "line": 206,
+          "text": "The jet multiplicity satisfies $1\\leq N_j\\leq3$ and $\\pT^\\tau>100~\\GeV$.",
+          "finding_ids": [
+            "F1"
+          ]
+        },
+        {
+          "line": 207,
+          "text": "Both lepton channels are used to increase the statistical precision.",
+          "finding_ids": []
+        },
+        {
+          "line": 208,
+          "text": "The muon channel uses the $\\met$ trigger, whereas the electron channel uses a single-electron trigger.",
+          "finding_ids": [
+            "F3"
+          ]
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P16",
+      "start_line": 210,
+      "end_line": 214,
+      "text": "The quantity $|\\vec p_{\\mathrm{T}}^{\\,\\ell\\ell}+\\mpt|$ is required to exceed $200~\\GeV$.\nAdding the reconstructed dilepton momentum to $\\mpt$ treats the visible leptons as unobserved and provides a recoil quantity analogous to the missing momentum in $Z\\to\\nu\\nu$ events.\nAn additional $\\pT^{\\ell\\ell}>130~\\GeV$ requirement suppresses top-quark contamination.\nA transverse-mass threshold of $100~\\GeV$ is also applied in this study.\nThe common multijet requirement is retained.",
+      "purpose": "ZVR recoil 与附加选择",
+      "preceding_basis": "已有可见 Z",
+      "new_point": "恢复 missing recoil 并给出选择",
+      "forward_dependency": "ZVR yield 与RNN诊断",
+      "findings": [
+        "F6"
+      ],
+      "sentence_units": [
+        {
+          "line": 210,
+          "text": "The quantity $|\\vec p_{\\mathrm{T}}^{\\,\\ell\\ell}+\\mpt|$ is required to exceed $200~\\GeV$.",
+          "finding_ids": []
+        },
+        {
+          "line": 211,
+          "text": "Adding the reconstructed dilepton momentum to $\\mpt$ treats the visible leptons as unobserved and provides a recoil quantity analogous to the missing momentum in $Z\\to\\nu\\nu$ events.",
+          "finding_ids": [
+            "F6"
+          ]
+        },
+        {
+          "line": 212,
+          "text": "An additional $\\pT^{\\ell\\ell}>130~\\GeV$ requirement suppresses top-quark contamination.",
+          "finding_ids": []
+        },
+        {
+          "line": 213,
+          "text": "A transverse-mass threshold of $100~\\GeV$ is also applied in this study.",
+          "finding_ids": []
+        },
+        {
+          "line": 214,
+          "text": "The common multijet requirement is retained.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P17",
+      "start_line": 216,
+      "end_line": 223,
+      "text": "A total of 116 data events pass the ZVR selection, and the simulated $Z$+jets purity is approximately $90\\%$.\nFigure~\\ref{fig:ch8_zvr_pt} shows the $\\pT^\\tau$ distribution with its threshold removed.\nThe simulation overestimates the yield at high $\\pT^\\tau$.\nDifferences of up to $60\\%$ are observed in the overall yields in the validation comparisons.\nThis comparison alone is sensitive to both the fake rate and the production kinematics of $Z$+jets.\nThe RNN-score distributions in Figure~\\ref{fig:ch8_zvr_rnn} provide a further check using looser $\\tau$ identification and a relaxed transverse-mass requirement.\nThey compare samples with $\\pT^\\tau>20~\\GeV$ and $\\pT^\\tau>100~\\GeV$.\nThe better agreement at low RNN scores indicates that the discrepancy is mainly connected to the probability for a jet to pass the $\\tau$ identification.",
+      "purpose": "ZVR 比较和 fake 原因判断",
+      "preceding_basis": "已有 ZVR 选择",
+      "new_point": "yield/RNN比较与生产运动学区别",
+      "forward_dependency": "额外100%uncertainty",
+      "findings": [
+        "F8"
+      ],
+      "sentence_units": [
+        {
+          "line": 216,
+          "text": "A total of 116 data events pass the ZVR selection, and the simulated $Z$+jets purity is approximately $90\\%$.",
+          "finding_ids": []
+        },
+        {
+          "line": 217,
+          "text": "Figure~\\ref{fig:ch8_zvr_pt} shows the $\\pT^\\tau$ distribution with its threshold removed.",
+          "finding_ids": []
+        },
+        {
+          "line": 218,
+          "text": "The simulation overestimates the yield at high $\\pT^\\tau$.",
+          "finding_ids": []
+        },
+        {
+          "line": 219,
+          "text": "Differences of up to $60\\%$ are observed in the overall yields in the validation comparisons.",
+          "finding_ids": []
+        },
+        {
+          "line": 220,
+          "text": "This comparison alone is sensitive to both the fake rate and the production kinematics of $Z$+jets.",
+          "finding_ids": []
+        },
+        {
+          "line": 221,
+          "text": "The RNN-score distributions in Figure~\\ref{fig:ch8_zvr_rnn} provide a further check using looser $\\tau$ identification and a relaxed transverse-mass requirement.",
+          "finding_ids": []
+        },
+        {
+          "line": 222,
+          "text": "They compare samples with $\\pT^\\tau>20~\\GeV$ and $\\pT^\\tau>100~\\GeV$.",
+          "finding_ids": []
+        },
+        {
+          "line": 223,
+          "text": "The better agreement at low RNN scores indicates that the discrepancy is mainly connected to the probability for a jet to pass the $\\tau$ identification.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P18",
+      "start_line": 225,
+      "end_line": 230,
+      "text": "The small SR contribution and the precision of this check do not motivate a differential correction of the simulated fake rate.\nThe nominal MC prediction for $Z\\to\\nu\\nu$+jets is therefore retained with an additional $100\\%$ normalisation uncertainty.\nThis uncertainty covers the discrepancy observed in the ZVR.\nChanging the assigned uncertainty from $50\\%$ to $100\\%$ gives no appreciable change in the tested final results because this background is small.\nIt describes the fake-$\\tau$ modelling in this component and is separate from the uncertainties in genuine-$\\tau$ reconstruction and identification.\nNo independent fake-factor prediction is used for the SR yield.",
+      "purpose": "fake nominal prediction 与 uncertainty",
+      "preceding_basis": "已有有限fake贡献及观测差异",
+      "new_point": "保留 MC、100%及敏感度影响",
+      "forward_dependency": "与 genuine tau uncertainties 区分",
+      "findings": [
+        "F2",
+        "F6"
+      ],
+      "sentence_units": [
+        {
+          "line": 225,
+          "text": "The small SR contribution and the precision of this check do not motivate a differential correction of the simulated fake rate.",
+          "finding_ids": []
+        },
+        {
+          "line": 226,
+          "text": "The nominal MC prediction for $Z\\to\\nu\\nu$+jets is therefore retained with an additional $100\\%$ normalisation uncertainty.",
+          "finding_ids": [
+            "F6"
+          ]
+        },
+        {
+          "line": 227,
+          "text": "This uncertainty covers the discrepancy observed in the ZVR.",
+          "finding_ids": []
+        },
+        {
+          "line": 228,
+          "text": "Changing the assigned uncertainty from $50\\%$ to $100\\%$ gives no appreciable change in the tested final results because this background is small.",
+          "finding_ids": [
+            "F2"
+          ]
+        },
+        {
+          "line": 229,
+          "text": "It describes the fake-$\\tau$ modelling in this component and is separate from the uncertainties in genuine-$\\tau$ reconstruction and identification.",
+          "finding_ids": [
+            "F2"
+          ]
+        },
+        {
+          "line": 230,
+          "text": "No independent fake-factor prediction is used for the SR yield.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P19",
+      "start_line": 237,
+      "end_line": 240,
+      "text": "The VRs test the prediction in selections that isolate the main changes between the CRs and SRs.\nThe nominal $\\VRb$ and $\\VRTop$ definitions are given in Tables~\\ref{tab:ch8_wcr_vrw} and~\\ref{tab:ch8_top_regions}.\nTheir pre-fit distributions are used to inspect the simulation before fitting, while their post-fit yields test the extrapolation of the CR constraints.\nThe VR observations are not used to determine those constraints.",
+      "purpose": "VR 比较方式",
+      "preceding_basis": "策略部分已介绍 VR 独立性",
+      "new_point": "prefit检查与postfit外推的区别",
+      "forward_dependency": "单b与双b验证",
+      "findings": [
+        "F5"
+      ],
+      "sentence_units": [
+        {
+          "line": 237,
+          "text": "The VRs test the prediction in selections that isolate the main changes between the CRs and SRs.",
+          "finding_ids": []
+        },
+        {
+          "line": 238,
+          "text": "The nominal $\\VRb$ and $\\VRTop$ definitions are given in Tables~\\ref{tab:ch8_wcr_vrw} and~\\ref{tab:ch8_top_regions}.",
+          "finding_ids": []
+        },
+        {
+          "line": 239,
+          "text": "Their pre-fit distributions are used to inspect the simulation before fitting, while their post-fit yields test the extrapolation of the CR constraints.",
+          "finding_ids": []
+        },
+        {
+          "line": 240,
+          "text": "The VR observations are not used to determine those constraints.",
+          "finding_ids": [
+            "F5"
+          ]
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P20",
+      "start_line": 245,
+      "end_line": 248,
+      "text": "The $\\VRb$ regions retain the single-electron or single-muon final state of $\\CRW$ and require exactly one tagged $b$ jet.\nThe tagged jet replaces the leading untagged jet in the topology and invariant-mass selections.\nThis change tests the prediction for the tagged sample, including the simulated heavy-flavour fraction of $W$+jets, before replacing the light lepton with a $\\tau$ in the SR.\nThe top-quark contribution increases under this selection and is predicted using the constraint from $\\CRTop$.",
+      "purpose": "VRW 的对象转移",
+      "preceding_basis": "已有WCR与SR的差别",
+      "new_point": "b-veto转一b、top约束",
+      "forward_dependency": "heavy/light flavor ratio",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 245,
+          "text": "The $\\VRb$ regions retain the single-electron or single-muon final state of $\\CRW$ and require exactly one tagged $b$ jet.",
+          "finding_ids": []
+        },
+        {
+          "line": 246,
+          "text": "The tagged jet replaces the leading untagged jet in the topology and invariant-mass selections.",
+          "finding_ids": []
+        },
+        {
+          "line": 247,
+          "text": "This change tests the prediction for the tagged sample, including the simulated heavy-flavour fraction of $W$+jets, before replacing the light lepton with a $\\tau$ in the SR.",
+          "finding_ids": []
+        },
+        {
+          "line": 248,
+          "text": "The top-quark contribution increases under this selection and is predicted using the constraint from $\\CRTop$.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P21",
+      "start_line": 250,
+      "end_line": 254,
+      "text": "The flavour composition of vector-boson-plus-jets production depends on the kinematics and the simulation, as investigated in ATLAS modelling studies and measurements~\\cite{PMGR-2021-01,STDM-2018-43,HIGG-2020-20}.\nA $30\\%$ uncertainty is assigned to the ratio of $W$ production with heavy-flavour hadrons, containing $b$ or $c$ quarks, to production with light-flavour hadrons in the tagged regions.\nThis uncertainty covers possible differences in the flavour composition when transferring the $b$-vetoed CR constraint to a tagged sample.\nIt is treated as uncorrelated between the resonant and non-resonant categories because they select different jet-$\\pT$ ranges.\nIts implementation and the remaining modelling uncertainties are described in Chapter~\\ref{chapter:systematics_uncertainties}.",
+      "purpose": "W HF/LF uncertainty",
+      "preceding_basis": "已有tagged sample外推",
+      "new_point": "30%、分类间不相关及直接原因",
+      "forward_dependency": "VRW数据比较",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 250,
+          "text": "The flavour composition of vector-boson-plus-jets production depends on the kinematics and the simulation, as investigated in ATLAS modelling studies and measurements~\\cite{PMGR-2021-01,STDM-2018-43,HIGG-2020-20}.",
+          "finding_ids": []
+        },
+        {
+          "line": 251,
+          "text": "A $30\\%$ uncertainty is assigned to the ratio of $W$ production with heavy-flavour hadrons, containing $b$ or $c$ quarks, to production with light-flavour hadrons in the tagged regions.",
+          "finding_ids": []
+        },
+        {
+          "line": 252,
+          "text": "This uncertainty covers possible differences in the flavour composition when transferring the $b$-vetoed CR constraint to a tagged sample.",
+          "finding_ids": []
+        },
+        {
+          "line": 253,
+          "text": "It is treated as uncorrelated between the resonant and non-resonant categories because they select different jet-$\\pT$ ranges.",
+          "finding_ids": []
+        },
+        {
+          "line": 254,
+          "text": "Its implementation and the remaining modelling uncertainties are described in Chapter~\\ref{chapter:systematics_uncertainties}.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P22",
+      "start_line": 256,
+      "end_line": 260,
+      "text": "The pre-fit $N-1$ comparisons are shown in Figures~\\ref{fig:ch8_vrw_res} and~\\ref{fig:ch8_vrw_nonres}.\nThe electron and muon channels are combined in the plots, and their inclusive yields are listed separately in Table~\\ref{tab:ch8_vrw_prefit}.\nThe resonant region shows agreement within the statistical precision.\nThe non-resonant region contains more data events than predicted in both lepton channels.\nThe investigation of this excess and the additional check with a $\\tau$ and one $b$ jet are described below.",
+      "purpose": "VRW prefit 结果",
+      "preceding_basis": "已有region定义及uncertainty",
+      "new_point": "Res相容、NonRes双channel excess",
+      "forward_dependency": "局部 excess investigation",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 256,
+          "text": "The pre-fit $N-1$ comparisons are shown in Figures~\\ref{fig:ch8_vrw_res} and~\\ref{fig:ch8_vrw_nonres}.",
+          "finding_ids": []
+        },
+        {
+          "line": 257,
+          "text": "The electron and muon channels are combined in the plots, and their inclusive yields are listed separately in Table~\\ref{tab:ch8_vrw_prefit}.",
+          "finding_ids": []
+        },
+        {
+          "line": 258,
+          "text": "The resonant region shows agreement within the statistical precision.",
+          "finding_ids": []
+        },
+        {
+          "line": 259,
+          "text": "The non-resonant region contains more data events than predicted in both lepton channels.",
+          "finding_ids": []
+        },
+        {
+          "line": 260,
+          "text": "The investigation of this excess and the additional check with a $\\tau$ and one $b$ jet are described below.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P23",
+      "start_line": 284,
+      "end_line": 287,
+      "text": "The $\\VRTop$ regions require one $\\tau$, no electron or muon, and exactly two tagged $b$ jets.\nThe lepton veto reproduces the SR requirement, while the second tag increases the top-quark fraction.\nThe lower $\\pT^\\tau$ and mass thresholds in Table~\\ref{tab:ch8_top_regions} provide sufficient events for the check, and $\\met>200~\\GeV$ keeps the selection on the $\\met$-trigger plateau.\nThe top-quark fractions are approximately $75\\%$ and $87\\%$ in the resonant and non-resonant regions, respectively.",
+      "purpose": "VRTop 选择与富集",
+      "preceding_basis": "已有top CR",
+      "new_point": "第二tag和leptonveto、trigger plateau",
+      "forward_dependency": "prefit检查",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 284,
+          "text": "The $\\VRTop$ regions require one $\\tau$, no electron or muon, and exactly two tagged $b$ jets.",
+          "finding_ids": []
+        },
+        {
+          "line": 285,
+          "text": "The lepton veto reproduces the SR requirement, while the second tag increases the top-quark fraction.",
+          "finding_ids": []
+        },
+        {
+          "line": 286,
+          "text": "The lower $\\pT^\\tau$ and mass thresholds in Table~\\ref{tab:ch8_top_regions} provide sufficient events for the check, and $\\met>200~\\GeV$ keeps the selection on the $\\met$-trigger plateau.",
+          "finding_ids": []
+        },
+        {
+          "line": 287,
+          "text": "The top-quark fractions are approximately $75\\%$ and $87\\%$ in the resonant and non-resonant regions, respectively.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P24",
+      "start_line": 289,
+      "end_line": 292,
+      "text": "Figures~\\ref{fig:ch8_vrtop_res} and~\\ref{fig:ch8_vrtop_nonres} show the pre-fit $N-1$ distributions.\nThe data are compatible with the simulated distributions within their statistical precision.\nSingle-top production is more prominent in the resonant category, while $\\ttbar$ dominates the non-resonant category.\nTogether with $\\VRb$, these regions test the changes in tagged-jet multiplicity and selected-lepton multiplicity on which the SR prediction depends.",
+      "purpose": "VRTop 结果",
+      "preceding_basis": "已有VRTop要求",
+      "new_point": "统计相容及两类top组成",
+      "forward_dependency": "signal contamination",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 289,
+          "text": "Figures~\\ref{fig:ch8_vrtop_res} and~\\ref{fig:ch8_vrtop_nonres} show the pre-fit $N-1$ distributions.",
+          "finding_ids": []
+        },
+        {
+          "line": 290,
+          "text": "The data are compatible with the simulated distributions within their statistical precision.",
+          "finding_ids": []
+        },
+        {
+          "line": 291,
+          "text": "Single-top production is more prominent in the resonant category, while $\\ttbar$ dominates the non-resonant category.",
+          "finding_ids": []
+        },
+        {
+          "line": 292,
+          "text": "Together with $\\VRb$, these regions test the changes in tagged-jet multiplicity and selected-lepton multiplicity on which the SR prediction depends.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P25",
+      "start_line": 294,
+      "end_line": 297,
+      "text": "Signal contamination is checked using samples that include both hadronic and leptonic $\\tau$ decays.\nThe benchmarks are $(\\MU,\\gU,\\beta_L^{23})=(1.5~\\TeV,1.5,0.2)$ for the resonant regions and $(2.5~\\TeV,1.5,1.0)$ for the non-resonant regions.\nThe contamination is about $1.3\\%$ and $0.7\\%$ in $\\VRb$, and $1.2\\%$ and $0.6\\%$ in $\\VRTop$, respectively.\nThese checks establish the small contamination for the stated benchmarks rather than for arbitrary signal couplings.",
+      "purpose": "nominal VR 的 signal contamination",
+      "preceding_basis": "已比较VR数据/MC",
+      "new_point": "明确benchmark和小污染",
+      "forward_dependency": "附加VR沿用benchmark",
+      "findings": [
+        "F5"
+      ],
+      "sentence_units": [
+        {
+          "line": 294,
+          "text": "Signal contamination is checked using samples that include both hadronic and leptonic $\\tau$ decays.",
+          "finding_ids": []
+        },
+        {
+          "line": 295,
+          "text": "The benchmarks are $(\\MU,\\gU,\\beta_L^{23})=(1.5~\\TeV,1.5,0.2)$ for the resonant regions and $(2.5~\\TeV,1.5,1.0)$ for the non-resonant regions.",
+          "finding_ids": []
+        },
+        {
+          "line": 296,
+          "text": "The contamination is about $1.3\\%$ and $0.7\\%$ in $\\VRb$, and $1.2\\%$ and $0.6\\%$ in $\\VRTop$, respectively.",
+          "finding_ids": []
+        },
+        {
+          "line": 297,
+          "text": "These checks establish the small contamination for the stated benchmarks rather than for arbitrary signal couplings.",
+          "finding_ids": [
+            "F5"
+          ]
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P26",
+      "start_line": 304,
+      "end_line": 309,
+      "text": "The excess in $\\VRb$-$\\NonRes$ remains a deviation of about $2\\sigma$ after the background-only fit and the assigned uncertainties are included.\nIts origin is examined through the cutflow, nearby $\\met$ selections and the properties of the selected data events.\nThe pre-fit ratio stays close to unity until the $\\met>400~\\GeV$ requirement is imposed.\nA finer-binned comparison locates much of the excess in $425<\\met<450~\\GeV$, as shown in Figure~\\ref{fig:ch8_vrw_met_study}.\nChanging the $\\met$ threshold to $300~\\GeV$ or $500~\\GeV$ reduces the discrepancy in the statistical-only checks to $1.8\\sigma$ and $1.5\\sigma$, respectively.\nThis behaviour indicates a local excess rather than a persistent offset throughout the high-$\\met$ tail.",
+      "purpose": "VRW NonRes excess 的局部性",
+      "preceding_basis": "先前已有NonRes excess",
+      "new_point": "postfit量级、阈值变化和MET局部bin",
+      "forward_dependency": "事件检查",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 304,
+          "text": "The excess in $\\VRb$-$\\NonRes$ remains a deviation of about $2\\sigma$ after the background-only fit and the assigned uncertainties are included.",
+          "finding_ids": []
+        },
+        {
+          "line": 305,
+          "text": "Its origin is examined through the cutflow, nearby $\\met$ selections and the properties of the selected data events.",
+          "finding_ids": []
+        },
+        {
+          "line": 306,
+          "text": "The pre-fit ratio stays close to unity until the $\\met>400~\\GeV$ requirement is imposed.",
+          "finding_ids": []
+        },
+        {
+          "line": 307,
+          "text": "A finer-binned comparison locates much of the excess in $425<\\met<450~\\GeV$, as shown in Figure~\\ref{fig:ch8_vrw_met_study}.",
+          "finding_ids": []
+        },
+        {
+          "line": 308,
+          "text": "Changing the $\\met$ threshold to $300~\\GeV$ or $500~\\GeV$ reduces the discrepancy in the statistical-only checks to $1.8\\sigma$ and $1.5\\sigma$, respectively.",
+          "finding_ids": []
+        },
+        {
+          "line": 309,
+          "text": "This behaviour indicates a local excess rather than a persistent offset throughout the high-$\\met$ tail.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P27",
+      "start_line": 311,
+      "end_line": 315,
+      "text": "Within $425<\\met<450~\\GeV$, the excess is concentrated in the $300<\\pT^\\ell<400~\\GeV$ bin, above the $200~\\GeV$ lepton threshold.\nThe 12 data events in this interval comprise seven electron and five muon events.\nTheir lepton and $b$-jet positions show no concentration in a particular detector region.\nNo specific detector problem is identified, and the neighbouring selections give no evidence for a broad failure of the background prediction.\nThe observations are consistent with a statistical fluctuation, although these checks alone do not determine the origin of each excess event.",
+      "purpose": "局部 excess 的事件检查",
+      "preceding_basis": "已识别MET区间",
+      "new_point": "lepton pT、7e/5mu、detector位置",
+      "forward_dependency": "相邻tau1b验证",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 311,
+          "text": "Within $425<\\met<450~\\GeV$, the excess is concentrated in the $300<\\pT^\\ell<400~\\GeV$ bin, above the $200~\\GeV$ lepton threshold.",
+          "finding_ids": []
+        },
+        {
+          "line": 312,
+          "text": "The 12 data events in this interval comprise seven electron and five muon events.",
+          "finding_ids": []
+        },
+        {
+          "line": 313,
+          "text": "Their lepton and $b$-jet positions show no concentration in a particular detector region.",
+          "finding_ids": []
+        },
+        {
+          "line": 314,
+          "text": "No specific detector problem is identified, and the neighbouring selections give no evidence for a broad failure of the background prediction.",
+          "finding_ids": []
+        },
+        {
+          "line": 315,
+          "text": "The observations are consistent with a statistical fluctuation, although these checks alone do not determine the origin of each excess event.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P28",
+      "start_line": 322,
+      "end_line": 327,
+      "text": "The additional $1\\tau0\\ell1b$ regions test the background with the same object multiplicities as $\\SR$ in adjacent mass intervals.\nThey provide a direct check of the one-$b$-jet, hadronic-$\\tau$ prediction following the excess in the light-lepton validation sample.\nThe resonant region requires $400<m_{b\\tau}<800~\\GeV$, and the non-resonant region requires $500<\\mT<600~\\GeV$.\nThese upper bounds keep the regions separate from the corresponding SRs.\nFurther reductions in $\\pT^\\tau$, $\\met$ and $\\mT$ increase the event yields, as summarised in Table~\\ref{tab:ch8_tau1b_vr}.\nAll other requirements follow the corresponding $\\SR$ selections.",
+      "purpose": "supplementary tau1b VR 的定义",
+      "preceding_basis": "已有light-lepton VR excess",
+      "new_point": "同object multiplicity和邻近mass intervals",
+      "forward_dependency": "postfit yield检查",
+      "findings": [],
+      "sentence_units": [
+        {
+          "line": 322,
+          "text": "The additional $1\\tau0\\ell1b$ regions test the background with the same object multiplicities as $\\SR$ in adjacent mass intervals.",
+          "finding_ids": []
+        },
+        {
+          "line": 323,
+          "text": "They provide a direct check of the one-$b$-jet, hadronic-$\\tau$ prediction following the excess in the light-lepton validation sample.",
+          "finding_ids": []
+        },
+        {
+          "line": 324,
+          "text": "The resonant region requires $400<m_{b\\tau}<800~\\GeV$, and the non-resonant region requires $500<\\mT<600~\\GeV$.",
+          "finding_ids": []
+        },
+        {
+          "line": 325,
+          "text": "These upper bounds keep the regions separate from the corresponding SRs.",
+          "finding_ids": []
+        },
+        {
+          "line": 326,
+          "text": "Further reductions in $\\pT^\\tau$, $\\met$ and $\\mT$ increase the event yields, as summarised in Table~\\ref{tab:ch8_tau1b_vr}.",
+          "finding_ids": []
+        },
+        {
+          "line": 327,
+          "text": "All other requirements follow the corresponding $\\SR$ selections.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    },
+    {
+      "id": "P29",
+      "start_line": 350,
+      "end_line": 354,
+      "text": "Signal contamination is evaluated before examining the data, using the same benchmarks as in Section~\\ref{subsec:ch8_vrtop}.\nThe estimated contributions are about $2\\%$ and $7\\%$ in the resonant and non-resonant regions, respectively.\nThe CR fit then predicts $25.4\\pm1.5$ and $8.0\\pm1.7$ background events, compared with 24 and 9 observed events.\nThe agreement supports the transfer of the background normalisation to the $1\\tau0\\ell1b$ final state in these lower-mass intervals.\nNo additional uncertainty for the changed $m_{b\\tau}$ or $\\mT$ selections is included in this supplementary study, so its agreement is a cross-check rather than a separate determination of the uncertainty in the high-mass SR prediction.",
+      "purpose": "supplementary VR 的结果与边界",
+      "preceding_basis": "已有regions和benchmark",
+      "new_point": "小污染、postfit/observed比较",
+      "forward_dependency": "保留mass-window uncertainty限制",
+      "findings": [
+        "F3"
+      ],
+      "sentence_units": [
+        {
+          "line": 350,
+          "text": "Signal contamination is evaluated before examining the data, using the same benchmarks as in Section~\\ref{subsec:ch8_vrtop}.",
+          "finding_ids": []
+        },
+        {
+          "line": 351,
+          "text": "The estimated contributions are about $2\\%$ and $7\\%$ in the resonant and non-resonant regions, respectively.",
+          "finding_ids": []
+        },
+        {
+          "line": 352,
+          "text": "The CR fit then predicts $25.4\\pm1.5$ and $8.0\\pm1.7$ background events, compared with 24 and 9 observed events.",
+          "finding_ids": [
+            "F3"
+          ]
+        },
+        {
+          "line": 353,
+          "text": "The agreement supports the transfer of the background normalisation to the $1\\tau0\\ell1b$ final state in these lower-mass intervals.",
+          "finding_ids": []
+        },
+        {
+          "line": 354,
+          "text": "No additional uncertainty for the changed $m_{b\\tau}$ or $\\mT$ selections is included in this supplementary study, so its agreement is a cross-check rather than a separate determination of the uncertainty in the high-mass SR prediction.",
+          "finding_ids": []
+        }
+      ],
+      "claim_boundary_review": "Preserve original conditions, quantities and claim strength; source revalidation limited to the recorded checks below."
+    }
+  ],
+  "readers": {
+    "requested": false,
+    "status": "not activated; not an incomplete check"
+  },
+  "source_priority": "Current user instruction: paper takes priority over INT where they disagree; overrides stale skill wording.",
+  "findings": [
+    {
+      "id": "F1",
+      "category": "grammar_and_condition_scope",
+      "lines": [
+        206
+      ],
+      "paragraph_ids": [
+        "P15"
+      ],
+      "report_section": "1",
+      "evidence": "jet multiplicity is the subject of both N_j and tau-pT conditions",
+      "recommendation": "Use events as the subject; preserve both requirements."
+    },
+    {
+      "id": "F2",
+      "category": "referent_clarity",
+      "lines": [
+        228,
+        229
+      ],
+      "paragraph_ids": [
+        "P18"
+      ],
+      "report_section": "2",
+      "evidence": "It follows a sentence ending in this background, but refers to the additional uncertainty",
+      "recommendation": "Use This additional uncertainty."
+    },
+    {
+      "id": "F3",
+      "category": "recorded_voice_preference",
+      "lines": [
+        13,
+        186,
+        208,
+        352
+      ],
+      "paragraph_ids": [
+        "P02",
+        "P13",
+        "P15",
+        "P29"
+      ],
+      "report_section": "3",
+      "evidence": "Region, fit or channel acts as subject of an experimental procedure; natural object-first passive alternatives exist.",
+      "recommendation": "Use the concrete input or constrained quantity as subject; do not convert causal active sentences mechanically."
+    },
+    {
+      "id": "F4",
+      "category": "section_topic_placement",
+      "lines": [
+        146,
+        195
+      ],
+      "paragraph_ids": [
+        "P11",
+        "P14"
+      ],
+      "report_section": "4",
+      "evidence": "Top estimation starts with CRTop; fake estimation starts with the entire SM background.",
+      "recommendation": "Introduce the top backgrounds and fake contribution as the respective section subjects."
+    },
+    {
+      "id": "F5",
+      "category": "local_repetition",
+      "lines": [
+        152,
+        198,
+        240,
+        297
+      ],
+      "paragraph_ids": [
+        "P11",
+        "P14",
+        "P19",
+        "P25"
+      ],
+      "report_section": "5",
+      "evidence": "Inclusive sample qualification, retaining the fake component, VR fit independence and benchmark scope are already established nearby or in the strategy.",
+      "recommendation": "Remove redundant summary/defensive sentences; preserve quantitative claim boundaries."
+    },
+    {
+      "id": "F6",
+      "category": "macro_consistency",
+      "lines": [
+        54,
+        61,
+        67,
+        84,
+        196,
+        199,
+        201,
+        211,
+        226
+      ],
+      "paragraph_ids": [
+        "P05",
+        "P06",
+        "P14",
+        "P16",
+        "P18"
+      ],
+      "report_section": "6",
+      "evidence": "Manual expansions coexist with already-defined mT,wlnu,wtaunu,znunu,zll,wjets,zjets macros.",
+      "recommendation": "Use existing equivalent macros in a later authorised revision; do not invent notation."
+    },
+    {
+      "id": "F7",
+      "category": "punctuation_preference",
+      "lines": [
+        74
+      ],
+      "paragraph_ids": [],
+      "report_section": "7",
+      "evidence": "One prose semicolon joins two clauses in the WCR/VRW table caption.",
+      "recommendation": "Use a full stop and capitalise Its."
+    },
+    {
+      "id": "F8",
+      "category": "optional_caption_concision",
+      "file": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_fake.tex",
+      "lines": [
+        4
+      ],
+      "paragraph_ids": [
+        "P17"
+      ],
+      "report_section": "8",
+      "evidence": "The high-pT yield interpretation repeats the main-text interpretation at line 218.",
+      "recommendation": "Keep the interpretation in the main text; retain plot-reading conditions in the caption."
+    }
+  ],
+  "context_sources": [
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Preamble/preamble.tex",
+      "sha256": "754e5872c30f41f9b9cc2fec9b0370b534a3606acefbffe1acdad6d95086c431"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH7_event_selection.tex",
+      "sha256": "12c38d07638bd0620d32b5214a4605a199da350eb783f1ca4babc33c2ab51181"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH5_MC_simulation.tex",
+      "sha256": "13bdad78417a93c011592a9b2390e654dcdcd5ef5f15ca68c0cc7214a47b7455"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH6_object_definition.tex",
+      "sha256": "64b12c10a4f1314b3607199329c2a66fc417aa0eee74bdb0047505e723ba4b6b"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/object_definition/taus.tex",
+      "sha256": "8dfdf0ba9fd3ec9d7cea1dff2df5a09246097e940c75913795633bf3f617f106"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/CH8_source_notes.md",
+      "sha256": "83b458556e1b000e504d3790fa913510dea9a87a078beb57f6c67bc10dcd7fc9"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/paper_draft/ANA-EXOT-2025-06-PAPER/sections/background.tex",
+      "sha256": "32d962f11e4f5c93011f97bcc9795e7beb9686f846c6dac64e551266c3c1f4ed"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/paper_draft/ANA-EXOT-2025-06-PAPER/sections/systeamtics.tex",
+      "sha256": "8106022287264cc958c1bcf6ca3fcb9fd72b013fcac0ab533ec87a1999644877"
+    },
+    {
+      "path": "/Users/zang/.codex/skills/academic-writing-pipeline/SKILL.md",
+      "sha256": "faa635728766861841f7ced27a627e07d83c37e5afd901b525da6b64a47f0cc1"
+    },
+    {
+      "path": "/Users/zang/.codex/skills/academic-writing-pipeline/references/full-review.md",
+      "sha256": "00119cbd4400179670c1ed4df4ee0e8a16b51683c515cef786438a911db4104c"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/.agents/skills/atlas-u1-thesis-writing/SKILL.md",
+      "sha256": "5f538080c80a3dd2a6ca479858031bf644dc7b3125bad3046121fd5384dff70f"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/.agents/skills/atlas-u1-thesis-writing/references/writing-latex-review.md",
+      "sha256": "b1e46065ec4bc6598f5b1123661af52730e829ed5223010dbf90cc8192c0a74a"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/tmp/ch8/journal_review.txt",
+      "sha256": "60794e91ca3acca1bc2db5702d0c0aefdd930dcddad5ac30696604e09b5482f7",
+      "type": "existing local text extraction of journal reply"
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Preamble/preamble.tex",
+      "location": "lines 219-236",
+      "check": "Existing notation and process macros",
+      "outcome": "Manual expansions in draft can use the equivalent defined aliases."
+    },
+    {
+      "source": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH7_event_selection.tex",
+      "location": "lines 221-222, 288-297; Chapter 5 trigger section; assembled Chapter 6 tau section",
+      "check": "First use and repetition",
+      "outcome": "N-1 and RNN already defined; CR/VR abbreviations not previously defined. Fake-source reminder supports the new ZVR method."
+    },
+    {
+      "source": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/paper_draft/ANA-EXOT-2025-06-PAPER/sections/background.tex",
+      "location": "lines 11-14,24-32,34-43",
+      "check": "Paper priorities and region topics",
+      "outcome": "CRW purity70%, top purity90%, and nominal VR object multiplicities agree; recommendations do not change selections."
+    },
+    {
+      "source": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/paper_draft/ANA-EXOT-2025-06-PAPER/sections/systeamtics.tex",
+      "location": "lines 24-36",
+      "check": "30% W HF/LF uncertainty, up-to60% overall yield differences,100%fake uncertainty",
+      "outcome": "Current draft preserves these paper choices and separates the overall yield comparison from the high-pT shape. Res/NonRes decorrelation is explicit in the journal reply, recorded separately."
+    },
+    {
+      "source": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/CH8_source_notes.md",
+      "location": "章节对应关系 and 取舍及来源边界",
+      "check": "Prior source audit boundaries",
+      "outcome": "INT Appendix D/F/G/M provenance retained as prior verification; exact ZVR transverse-mass object and one unretrieved public reference remain unresolved. No fresh full physics audit is claimed."
+    },
+    {
+      "source": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/tmp/ch8/journal_review.txt",
+      "location": "lines85-96",
+      "check": "W HF/LF uncertainty decorrelation",
+      "outcome": "Journal reply explicitly states30% and decorrelation between Res/NonRes for possible kinematic dependence."
+    }
+  ],
+  "claim_ledger": [
+    {
+      "paragraph_ids": [
+        "P02",
+        "P03",
+        "P13"
+      ],
+      "claim": "CR counts constrain background normalisations; simulation transfers yields",
+      "observation_unit": "region yield",
+      "aggregation": "four CR counts; combined e/mu within each CR",
+      "scope": "normalisation plus retained process uncertainties",
+      "source_status": "paper checked for general strategy; original detailed source record retained",
+      "proposal_boundary": "No change to fit inputs, factors or correlations."
+    },
+    {
+      "paragraph_ids": [
+        "P07",
+        "P08",
+        "P09",
+        "P10"
+      ],
+      "claim": "e/mu data/MC discrepancy and weight diagnostic",
+      "observation_unit": "region data/total-MC ratio and individual weighted MC events",
+      "comparison": "electron versus muon",
+      "aggregation": "within the same topology",
+      "denominator": "total simulated background, not W-only",
+      "claim_ceiling": "consistent with fluctuations; does not prove an event-level cause",
+      "source_status": "prior Appendix F mapping retained; not numerically re-fitted"
+    },
+    {
+      "paragraph_ids": [
+        "P14",
+        "P17",
+        "P18"
+      ],
+      "claim": "small retained fake contribution, ZVR differences and100%uncertainty",
+      "observation_unit": "background yield or RNN-bin comparison",
+      "denominator": "total selected background for quoted at-most10%study fraction",
+      "quantifier": "study-specific SRs; overall yield difference up to60%",
+      "claim_ceiling": "does not set fake to zero or equate60%with a high-pT correction",
+      "source_status": "paper qualitative treatment and60/100numbers checked; detailed AppendixD counts carried from prior record"
+    },
+    {
+      "paragraph_ids": [
+        "P21"
+      ],
+      "claim": "30%W HF/LFuncertainty",
+      "observation_unit": "ratio of heavy-flavour to light-flavour contributions",
+      "aggregation": "tagged regions, independent Res/NonRes",
+      "claim_ceiling": "analysis uncertainty choice, not a30%measurement by external literature",
+      "source_status": "current paper systematics passage checked; underlying public citations not re-audited"
+    },
+    {
+      "paragraph_ids": [
+        "P22",
+        "P24",
+        "P26",
+        "P27"
+      ],
+      "claim": "VR prefit comparisons and local NonRes excess",
+      "observation_unit": "selected region yields and named kinematic bins",
+      "comparison": "data versus prediction",
+      "scope": "prefit statistical plots distinguished from background-only postfit statement",
+      "claim_ceiling": "local checks compatible with a fluctuation; no global significance or proof of detector causation",
+      "source_status": "prior source mapping retained; no new significance calculation"
+    },
+    {
+      "paragraph_ids": [
+        "P25",
+        "P28",
+        "P29"
+      ],
+      "claim": "benchmark-specific signal contamination and supplementaryVR postfit agreement",
+      "observation_unit": "selected VR yield",
+      "comparison": "25.4+-1.5vs24;8.0+-1.7vs9",
+      "scope": "stated benchmarks and lower mass windows",
+      "claim_ceiling": "no independent determination of high-mass SR uncertainty; contamination denominator not independently rederived in this language audit",
+      "source_status": "prior AppendixM source mapping retained; no new fit"
+    }
+  ],
+  "diagnostics": {
+    "disliked_word_matches": {
+      "account_for": [],
+      "approach": [],
+      "exploit": [],
+      "subsequently": [],
+      "associate_with": [],
+      "relative_to": [],
+      "content": []
+    },
+    "semicolon_count": 1,
+    "itemize_count": 0,
+    "main_figures": 12,
+    "tables": 6
+  },
+  "caption_ledger": [
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH8_Background_estimation.tex",
+      "line": 34,
+      "text": "\\caption{Roles and object multiplicities of the CRs and nominal VRs. Each row represents separate resonant and non-resonant regions. The supplementary $1\\tau0\\ell1b$ regions are defined in Section~\\ref{subsec:ch8_tau1b_vr}.}",
+      "type": "table",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH8_Background_estimation.tex",
+      "line": 74,
+      "text": "\\caption{Selections for $\\CRW$ and $\\VRb$. Both require $N_\\tau=0$, $N_\\ell=1$ and a single-lepton trigger. The common event-quality and multijet requirements are retained. The selected jet is the leading jet in $\\CRW$ and the tagged jet in $\\VRb$; its momentum is denoted by $\\pT^J$.}",
+      "type": "table",
+      "finding_ids": [
+        "F7"
+      ]
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH8_Background_estimation.tex",
+      "line": 105,
+      "text": "\\caption{Observed counts and data/total-MC ratios in the CRs before fitting. The uncertainties are statistical.}",
+      "type": "table",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH8_Background_estimation.tex",
+      "line": 163,
+      "text": "\\caption{Selections for $\\CRTop$ and $\\VRTop$. All regions require $N_\\tau=1$. Single-lepton triggers are used in $\\CRTop$ and $\\met$ triggers in $\\VRTop$. The highest-$\\pT$ tagged jet is used when $N_b>1$. Common event-quality and multijet requirements are retained.}",
+      "type": "table",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH8_Background_estimation.tex",
+      "line": 265,
+      "text": "\\caption{Pre-fit background predictions and observed yields after the complete $\\VRb$ selections. The prediction uncertainties are statistical only.}",
+      "type": "table",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/CH8_Background_estimation.tex",
+      "line": 332,
+      "text": "\\caption{Selections and yields in the supplementary $1\\tau0\\ell1b$ validation regions. Both use $\\met$ triggers and the remaining $\\SR$ requirements. The background-only fit to the CRs is extrapolated to these regions. The quoted prediction uncertainties are those of this validation study, without an additional uncertainty for the changed mass intervals.}",
+      "type": "table",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_emu.tex",
+      "line": 5,
+      "text": "\\caption[]{Leading-jet $\\pT$ in data}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_emu.tex",
+      "line": 9,
+      "text": "\\caption[]{Leading-jet $\\pT$ in simulation}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_emu.tex",
+      "line": 13,
+      "text": "\\caption[]{Event weights in the electron simulation}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_emu.tex",
+      "line": 17,
+      "text": "\\caption[]{Event weights in the muon simulation}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_emu.tex",
+      "line": 19,
+      "text": "\\caption[Electron--muon comparison in CRW-NonRes]{Electron--muon consistency checks in $\\CRW$-$\\NonRes$. In (a) and (b), red and blue denote the electron and muon channels, and the lower panels show their ratio. Panels (c) and (d) show the simulated event weights against leading-jet $\\pT$. The marked high-weight muon event illustrates the statistical effect discussed in the text.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_fake.tex",
+      "line": 4,
+      "text": "\\caption[Pre-fit tau momentum distribution in the ZVR]{Pre-fit $N-1$ distribution of $\\pT^\\tau$ in the ZVR. The red arrow indicates the $100~\\GeV$ threshold. The lower panel compares data with the total simulation. The high-$\\pT^\\tau$ prediction exceeds the observed yield.}",
+      "type": "figure",
+      "finding_ids": [
+        "F8"
+      ]
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_fake.tex",
+      "line": 12,
+      "text": "\\caption[]{$\\pT^\\tau>20~\\GeV$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_fake.tex",
+      "line": 16,
+      "text": "\\caption[]{$\\pT^\\tau>100~\\GeV$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_fake.tex",
+      "line": 18,
+      "text": "\\caption[Tau-identification RNN distributions in the ZVR]{The $\\tau$-identification RNN score in $Z$+jets-enriched samples with (a) $\\pT^\\tau>20~\\GeV$ and (b) $\\pT^\\tau>100~\\GeV$. Looser $\\tau$ identification and a relaxed transverse-mass requirement are used to compare the low- and high-score regions. These selections differ from the nominal ZVR.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 5,
+      "text": "\\caption[]{$\\pT^b$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 9,
+      "text": "\\caption[]{$\\pT^b$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 13,
+      "text": "\\caption[]{$\\met$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 17,
+      "text": "\\caption[]{$\\met$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 21,
+      "text": "\\caption[]{$\\mT$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 25,
+      "text": "\\caption[]{$\\mT$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 27,
+      "text": "\\caption[Pre-fit N-1 distributions in CRTop-Res]{Pre-fit $N-1$ distributions in CRTop-Res, with the electron channel in the left column and the muon channel in the right column. The stacked prediction contains all simulated backgrounds. The lower panels show data divided by the total prediction, and the hatched bands show the statistical uncertainty in that prediction. Arrows indicate the selection boundaries. The last bin includes the overflow.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 35,
+      "text": "\\caption[]{$\\pT^b$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 39,
+      "text": "\\caption[]{$\\pT^b$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 43,
+      "text": "\\caption[]{$\\met$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 47,
+      "text": "\\caption[]{$\\met$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 51,
+      "text": "\\caption[]{$\\mT$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 55,
+      "text": "\\caption[]{$\\mT$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_topcr.tex",
+      "line": 57,
+      "text": "\\caption[Pre-fit N-1 distributions in CRTop-NonRes]{Pre-fit $N-1$ distributions in CRTop-NonRes, with the electron channel in the left column and the muon channel in the right column. The stacked prediction contains all simulated backgrounds. The lower panels show data divided by the total prediction, and the hatched bands show the statistical uncertainty in that prediction. Arrows indicate the selection boundaries. The last bin includes the overflow.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vr_study.tex",
+      "line": 5,
+      "text": "\\caption[]{$\\met$ with its threshold removed}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vr_study.tex",
+      "line": 9,
+      "text": "\\caption[]{$\\pT^\\ell$ for $425<\\met<450~\\GeV$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vr_study.tex",
+      "line": 11,
+      "text": "\\caption[Localised excess in VRW-NonRes]{Diagnostic pre-fit distributions for the excess in $\\VRb$-$\\NonRes$. The finer $\\met$ binning in (a) resolves the interval $425<\\met<450~\\GeV$. Panel (b) shows the lepton $\\pT$ within that interval. The lower panels show data divided by the simulated prediction.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 5,
+      "text": "\\caption[]{$\\met$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 9,
+      "text": "\\caption[]{$\\mT$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 13,
+      "text": "\\caption[]{$\\pT^\\tau$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 17,
+      "text": "\\caption[]{$\\pT^b$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 21,
+      "text": "\\caption[]{$m_{b\\tau}$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 25,
+      "text": "\\caption[]{$N_b$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 27,
+      "text": "\\caption[Pre-fit N-1 distributions in VRTop-Res]{Pre-fit $N-1$ distributions in VRTop-Res. The lower panels show data divided by the total simulated background. The hatched bands represent the statistical uncertainty in the prediction. The last bin includes the overflow. The leading tagged jet is used for the jet-dependent variables.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 35,
+      "text": "\\caption[]{$\\met$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 39,
+      "text": "\\caption[]{$\\mT$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 43,
+      "text": "\\caption[]{$\\pT^\\tau$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 47,
+      "text": "\\caption[]{$\\pT^b$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 51,
+      "text": "\\caption[]{$\\DphiTauMet$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 55,
+      "text": "\\caption[]{$N_b$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrtop.tex",
+      "line": 57,
+      "text": "\\caption[Pre-fit N-1 distributions in VRTop-NonRes]{Pre-fit $N-1$ distributions in VRTop-NonRes. The lower panels show data divided by the total simulated background. The hatched bands represent the statistical uncertainty in the prediction. The last bin includes the overflow. The leading tagged jet is used for the jet-dependent variables.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 5,
+      "text": "\\caption[]{$\\met$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 9,
+      "text": "\\caption[]{$m_{\\mathrm{T}}^\\ell$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 13,
+      "text": "\\caption[]{$\\pT^\\ell$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 17,
+      "text": "\\caption[]{$\\pT^b$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 21,
+      "text": "\\caption[]{$m_{b\\ell}$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 25,
+      "text": "\\caption[]{$N_b$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 27,
+      "text": "\\caption[Pre-fit N-1 distributions in VRW-Res]{Pre-fit $N-1$ distributions in VRW-Res. The electron and muon channels are combined. The lower panels show data divided by the total simulated background. The hatched bands represent the statistical uncertainty in the prediction. The last bin includes the overflow. The original plot labels $0\\tau$VR denote $\\VRb$.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 35,
+      "text": "\\caption[]{$\\met$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 39,
+      "text": "\\caption[]{$m_{\\mathrm{T}}^\\ell$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 43,
+      "text": "\\caption[]{$\\pT^\\ell$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 47,
+      "text": "\\caption[]{$\\pT^b$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 51,
+      "text": "\\caption[]{$\\DphiLepMet$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 55,
+      "text": "\\caption[]{$N_b$}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_vrw.tex",
+      "line": 57,
+      "text": "\\caption[Pre-fit N-1 distributions in VRW-NonRes]{Pre-fit $N-1$ distributions in VRW-NonRes. The electron and muon channels are combined. The lower panels show data divided by the total simulated background. The hatched bands represent the statistical uncertainty in the prediction. The last bin includes the overflow. The original plot labels $0\\tau$VR denote $\\VRb$.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 5,
+      "text": "\\caption[]{$\\pT^{j_1}$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 9,
+      "text": "\\caption[]{$\\pT^{j_1}$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 13,
+      "text": "\\caption[]{$\\met$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 17,
+      "text": "\\caption[]{$\\met$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 21,
+      "text": "\\caption[]{$m_{\\mathrm{T}}^\\ell$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 25,
+      "text": "\\caption[]{$m_{\\mathrm{T}}^\\ell$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 27,
+      "text": "\\caption[Pre-fit N-1 distributions in CRW-Res]{Pre-fit $N-1$ distributions in CRW-Res, with the electron channel in the left column and the muon channel in the right column. The stacked prediction contains all simulated backgrounds. The lower panels show data divided by the total prediction, and the hatched bands show the statistical uncertainty in that prediction. Arrows indicate the selection boundaries. The last bin includes the overflow.}",
+      "type": "figure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 35,
+      "text": "\\caption[]{$\\pT^{j_1}$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 39,
+      "text": "\\caption[]{$\\pT^{j_1}$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 43,
+      "text": "\\caption[]{$\\met$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 47,
+      "text": "\\caption[]{$\\met$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 51,
+      "text": "\\caption[]{$m_{\\mathrm{T}}^\\ell$, $e$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 55,
+      "text": "\\caption[]{$m_{\\mathrm{T}}^\\ell$, $\\mu$ channel}",
+      "type": "subfigure",
+      "finding_ids": []
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapters/background_estimation/figures_wcr.tex",
+      "line": 57,
+      "text": "\\caption[Pre-fit N-1 distributions in CRW-NonRes]{Pre-fit $N-1$ distributions in CRW-NonRes, with the electron channel in the left column and the muon channel in the right column. The stacked prediction contains all simulated backgrounds. The lower panels show data divided by the total prediction, and the hatched bands show the statistical uncertainty in that prediction. Arrows indicate the selection boundaries. The last bin includes the overflow.}",
+      "type": "figure",
+      "finding_ids": []
+    }
+  ],
+  "reviewed_coverage": {
+    "body_paragraphs": 29,
+    "body_statement_lines": 152,
+    "caption_units": 74,
+    "table_bodies": "all six read in context; numeric data unchanged",
+    "heading_order": "all section/subsection openings checked against topic-placement rule",
+    "excluded": "Other chapters not edited; new simulation/fit and comprehensive source validation outside this preference audit."
+  },
+  "final_validation": {
+    "status": "complete with findings; manuscript unchanged",
+    "report": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/ch8/review/2026-09-16_preferences/CH8_preference_review.md",
+    "manuscript_hashes_unchanged": true,
+    "compile": "not run because manuscript and layout were not changed",
+    "independent_readers": "not requested",
+    "recommendations_applied": false,
+    "report_sha256": "22f2a9c3981d31d831cd277f6841d08a34c6350b838f0e926580b268f90a2e6b"
+  }
+}

@@ -1,0 +1,28 @@
+--- before/btagging.tex
++++ after/btagging.tex
+@@ -8,20 +8,19 @@
+ Charm hadrons produced in the $b$-hadron decay can further decay at an additional displaced vertex.
+ These features are used for jet flavour tagging.
+ 
+-The tagger uses the GN2v01 algorithm, which is based on a transformer neural network~\cite{ATLAS2026GN2}.
++The tagger uses the GN2v01 algorithm, which is based on a transformer neural network trained on simulated events~\cite{ATLAS2026GN2}.
+ Its inputs include jet and track kinematics, track impact parameters, and hit variables.
+ These variables are first encoded as a numerical vector for each track.
+ Within the transformer, each vector is updated through self-attention, using information from the other tracks.
+ Correlations between tracks can thereby be used to recognise a common displaced origin without requiring explicitly reconstructed secondary vertices as separate inputs.
+ The network then calculates a weight for each track using its updated vector and adds the weighted vectors together, which is called attention pooling.
+-The resulting vector summarises the track information used to classify the jet flavour.
+ 
+-The network is trained on simulated events and .
+-Jet-flavour classification is trained jointly with two auxiliary tasks: identifying track origins and predicting whether pairs of tracks originate from the same vertex.
+-These tasks share the transformer, encouraging it to learn the decay structure relevant to flavour tagging.
++The resulting vector is used for the main task of jet-flavour classification.
++It is also combined with the individual track vectors for two auxiliary tasks: identifying track origins and predicting whether pairs of tracks originate from the same vertex.
++The three tasks share the transformer and are trained jointly, helping it learn the decay structure relevant to flavour tagging.
+ The network and its three tasks are illustrated in Figure~\ref{fig:ch6_gn2}.
+ 
+-From this combined vector, four classifier outputs are obtained for the $b$-jet, $c$-jet, hadronic-$\tau$ and light-jet hypotheses, where light jets originate from $u$, $d$ or $s$ quarks or gluons.
++The jet-flavour classifier produces four outputs for the $b$-jet, $c$-jet, hadronic-$\tau$ and light-jet hypotheses, where light jets originate from $u$, $d$ or $s$ quarks or gluons.
+ These outputs are combined into a single discriminant, $D_b$, which compares the $b$-jet output with a weighted combination of the other three outputs.
+ Larger values favour the $b$-jet hypothesis~\cite{ATLAS2026GN2}.
+ The GN2v01 85\% working point is used in this analysis.

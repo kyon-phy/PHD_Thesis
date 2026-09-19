@@ -1,0 +1,87 @@
+{
+  "validated_yields": [
+    {
+      "region": "SR1b-Res",
+      "mass_GeV": 1500,
+      "gU": 1.5,
+      "betaL23": 0.6,
+      "S": 4.261972633114382,
+      "B": 2.4392447031123132,
+      "sigma_b": 0.731773410933694,
+      "Z": 1.949858967026139,
+      "Z_absolute_sigma_0p3": 2.181950888733987
+    },
+    {
+      "region": "SR1b-NonRes",
+      "mass_GeV": 2500,
+      "gU": 2.5,
+      "betaL23": 1.0,
+      "S": 6.583055998724099,
+      "B": 2.0968182259613255,
+      "sigma_b": 0.6290454677883976,
+      "Z": 2.9417175920244727,
+      "Z_absolute_sigma_0p3": 3.267834609831442
+    },
+    {
+      "region": "SR1b-NonRes",
+      "mass_GeV": 3000,
+      "gU": 2.5,
+      "betaL23": 1.0,
+      "S": 4.171363527214711,
+      "B": 2.0968182259613255,
+      "sigma_b": 0.6290454677883976,
+      "Z": 2.046514725989768,
+      "Z_absolute_sigma_0p3": 2.2478520768515353
+    }
+  ],
+  "scan_diagnostics": [
+    {
+      "topo": "Res",
+      "point": "MU1500_gU1_5_23L0_6",
+      "path": "/Users/zang/Desktop/fit_results/fit_taunub_nom_1l_allVR_BONLY_MU1500_gU1_5_23L0_6_alldecay_corrected_N_minus_1/Plots/SR_1tau0l1b_sch_met_N_minus_1_met_prefit.yaml",
+      "nominal": 200,
+      "single_bin_B": 2.434960760434229,
+      "scan_S_at_nominal": 4.236916107666277,
+      "scan_B_at_nominal": 2.4349593536649965,
+      "scan_Z_at_nominal": 1.9419029069847507,
+      "best_allowed_threshold": 200.0,
+      "numerical_bins_unchanged": true
+    },
+    {
+      "topo": "NonRes",
+      "point": "MU2500_gU2_5_23L1_0",
+      "path": "/Users/zang/Desktop/fit_results/fit_taunub_nom_1l_allVR_BONLY_MU2500_gU2_5_23L1_0_alldecay_corrected_N_minus_1/Plots/SR_1tau0l1b_tch_met_N_minus_1_met_prefit.yaml",
+      "nominal": 400,
+      "single_bin_B": 2.0983770582685417,
+      "scan_S_at_nominal": 6.583055998724098,
+      "scan_B_at_nominal": 2.1073549382137435,
+      "scan_Z_at_nominal": 2.9359126871607506,
+      "best_allowed_threshold": 400.0,
+      "numerical_bins_unchanged": true
+    }
+  ],
+  "figure_7_3_integrals": [
+    {
+      "region": "Res",
+      "nominal_threshold": 200,
+      "all_displayed_bins_B": 2.434959353664997,
+      "SR_range_bins_B": 2.4349593536649965,
+      "same_batch_SR_yaml_B": 2.434960760434229,
+      "difference": -1.4067692326591441e-06,
+      "relative_difference_percent": -5.7773794781557086e-05,
+      "paper_matched_SR_yaml_B": 2.4392447031123132,
+      "paper_difference_percent": -0.175683458156084
+    },
+    {
+      "region": "NonRes",
+      "nominal_threshold": 400,
+      "all_displayed_bins_B": 7.963060774873617,
+      "SR_range_bins_B": 2.1073549382137435,
+      "same_batch_SR_yaml_B": 2.0983770582685417,
+      "difference": 0.008977879945201828,
+      "relative_difference_percent": 0.4278487467171299,
+      "paper_matched_SR_yaml_B": 2.0968182259613255,
+      "paper_difference_percent": 0.5025095700695426
+    }
+  ]
+}

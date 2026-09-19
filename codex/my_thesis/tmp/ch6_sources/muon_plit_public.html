@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Muon isolation with Machine Learning algorithms with the ATLAS detector
+            </title>
+        <link rel="icon" type="image/png" href="https://atlaspo.cern.ch/public/support/images/favicon.ico">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://atlaspo.cern.ch/public/support/figurepages.css">
+        <link rel="stylesheet" href="https://atlaspo.cern.ch/public/support/mathjax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}};</script>
+
+        <!-- Navbar -->
+        <div class="w3-top header_menu" id="header_menu">
+            <nav class="navigation_header">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">ATLAS Web Sites <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href=" https://atlas.cern/" class="twikiLink">ATLAS Public Site</a>
+                            <a href="https://cern.ch/atlas-collaboration" class="twikiLink">ATLAS Collaboration Site <i class="fa-solid fa-lock"></i></a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">Physics Results <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/BPhysPublicResults" class="twikiLink">B Physics and Light States</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/StandardModelPublicResults" class="twikiLink">Standard Model Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/TopPublicResults" class="twikiLink">Top Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/viewauth/AtlasPublic/HiggsAndDiHiggsPublicResults" class="twikiLink">Higgs and Di-Higgs Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/SearchesPublicResults" class="twikiLink">Searches</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/HeavyIonsPublicResults" class="twikiLink">Heavy Ions Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/MCPublicResults" class="twikiLink">Physics Modelling</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/UpgradePhysicsStudies" class="twikiLink">Upgrade Physics Studies</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">Performance Results <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/InDetTrackingPerformanceApprovedPlots" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Tracking</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/ElectronGammaPublicCollisionResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Electron and Photon</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/MuonPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Muon</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/TauPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Tau</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/JetEtmissPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Jets and Etmiss</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/FlavourTaggingPublicResultsCollisionData" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Flavour Tagging</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/SimulationPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Simulation</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">Detector <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/WebHome#Detector" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Detector Systems, Trigger, Luminosity, Data Taking</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/WebHome#Upgrade_Projects_and_Physics_Pro" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Upgrade</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Sidebar -->
+        <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar" style="z-index: 1;">
+            <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-blue w3-hide-large" title="Close Menu">
+                <i class="fa fa-remove"></i>
+            </a>
+            <h4 class="w3-bar-item"><img class="sidebar_image" src="https://atlaspo.cern.ch/public/support/images/ATLAS-logo-transparent.png"></h4>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic">
+                <i class="fa-solid fa-book"></i>
+                Public Results<br>
+                <span style="font-size: small;">(including search fields)</span>
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/Publications">
+                <i class="fa-solid fa-book"></i>
+                Papers
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/CONFnotes">
+                <i class="fa-solid fa-book"></i>
+                CONF Notes
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/PUBnotes">
+                <i class="fa-solid fa-book"></i>
+                PUB Notes
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://atlaspo.cern.ch/public/event_display/">
+                <i class="fa-solid fa-book"></i>
+                Event Displays
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/WebHome#Papers_Conference_notes_Public_n" target="_blank">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+            </a>
+        </nav>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+        <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+        <div class="w3-main main_page_content">
+
+
+            <div id="top" class="w3-row">
+                <div class="w3-container title_section">
+
+                
+                    <!-- TITLE -->
+                    <h2 class="w3-text-teal title_h2">
+                        
+                            Muon isolation with Machine Learning algorithms with the ATLAS detector
+                        
+                    </h2>
+                </div>
+                <!-- ABSTRACT -->
+                <div class="w3-container abstract_section" style="width: 100%;">
+                    <p style="font-size: math;">
+                        
+                            The Prompt Lepton Isolation Tagger (PLIT) is an isolation algorithm using a transformer neural network architecture to separate prompt leptons (electrons and muons) arising in decays of electroweak $W$ and $Z$ bosons from non-prompt leptons produced in semi-leptonic decays of $b$- and $c$ hadrons. It plays a crucial role in various multi-lepton final states, by effectively suppressing the presence of non-prompt leptons. This document presents preliminary results on the the performance of the algorithm using simulated events produced with setups corresponding to the Run 2 (2015--2018), as well as the partial Run 3 (2022 and 2023) data acquisition configurations of ATLAS. The PLIT algorithm is based on the same multi-task transformer neural network architecture used in ATLAS for the identification of jets originating from heavy-flavour quarks <a href="https://cds.cern.ch/record/2811135"> ATL-PHYS-PUB-2022-027 </a>, <a href="https://cds.cern.ch/record/2866601"> ATL-PHYS-PUB-2023-021 </a>. It uses features from the lepton, features from tracks within a cone of $\Delta R < 0.4$ of the lepton, and some features which are computed with respect to the variable-radius track jet <a href="https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2017-010/"> ATL-PHYS-PUB-2017-010 </a> closest in $\Delta R$ with $\Delta R < 0.4$ to the lepton. A final PLIT discriminant score is evaluated to discriminate signal prompt muons from background non-prompt muons. The training is performed on 40 million muons from a mixture of samples of simulated $t\overline{t}$ events with centre of mass energies of 13 and 13.6 TeV generated at next-to-leading order (NLO) in the quantum chromodynamics (QCD) coupling constant $\alpha_s$ with the Powheg Box v2 event generator (<a href="https://link.springer.com/article/10.1007/JHEP06(2010)043"> JHEP 06 (2010) 043 </a>) interfaced with Pythia 8.230 (<a href="https://www.sciencedirect.com/science/article/pii/S0010465515000442?via%3Dihub"> Comput. Phys. Commun. 191 (2015) 159 </a>), using a full detector simulation (<a href="https://link.springer.com/article/10.1140/epjc/s10052-010-1429-9"> Eur. Phys. J. C 70 (2010) 823 </a>) based on Geant4 (<a href="https://www.sciencedirect.com/science/article/pii/S0168900203013688?via%3Dihub"> Nucl. Instrum. Meth. A 506 (2003) 250 </a>) and the EvtGen 1.2.0 program (<a href="https://www.sciencedirect.com/science/article/pii/S0168900201000894?via%3Dihub"> Nucl. Instrum. Meth. A 462 (2001) 152 </a>) for the modelling of heavy-flavour hadron decays. The muons in the training dataset are required to pass the Medium identification working point (<a href="https://doi.org/10.1140/epjc/s10052-021-09233-2">Eur. Phys. J. C 81 (2021) 578</a>), satisfy ($p_{T} > $ 10 GeV and $|\eta| < 2.5$), and an associated track with impact parameters consistent with the primary vertex by requiring ($d_{0} / sigma(d_{0}) < 3$ and $(z_{0} /sin \theta < 0.5$ mm). The supervised training is based on preserved generator-level information to match the track of each reconstructed lepton candidate to a suitable stable particle produced by the generator or the Geant4 simulation. Muons in this dataset are labelled as prompt if they are matched to a generator-level muon originating from the decay of a top quark or a $W$ boson. They are labelled non-prompt otherwise. The training sample is prepared with a resampling procedure to ensure a proportion of 3:1 and equal $p_{\textrm{T}}$ and $\eta$ distributions between prompt muons and non-prompt muons.
+                        
+                    </p>
+                </div>
+                
+                <p class="centered_text">
+                    24-05-2024
+                </p>
+                
+            </div>
+            <!-- LINKS SECTION -->
+            
+            <div class="w3-row links_section">
+                <!-- 1st ROW -->
+                <p class="centered_text"> 
+                    <a href="#figures_header">Figures</a>   
+                    
+                    
+                    
+                </p>
+            </div>
+            
+
+            <!-- FIGURES -->
+            <div class="section_div" id="figures_div">
+                <!-- FIGURES HEADER -->
+                <div class="w3-row">
+                    <div class="w3-container section_title">
+                        <p id="figures_header" class="left_text material_header" onclick="hide_show('figures');"><b>Figures</b> <i class="fa-solid fa-circle-up show_hide_arrows"></i></p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01</b></p>
+                            <br>
+                            The network architecture of the Prompt Lepton Isolation Tagger (PLIT). The PLIT algorithm is based on the same multi-task transformer architecture used in ATLAS for the identification of jets originating from heavy-flavour quarks <a href="https://cds.cern.ch/record/2811135"> ATL-PHYS-PUB-2022-027 </a>, <a href="https://cds.cern.ch/record/2866601"> ATL-PHYS-PUB-2023-021 </a>. First, input features associated with the lepton are concatenated with features of tracks within a cone of $\Delta R < 0.4$ of the lepton. Next, an initial embedding to a representation space is performed with a Deep Sets (<a href="https://arxiv.org/abs/1703.06114">Deep Sets, 2017 </a>) network without using the aggregation over the output track representations. The track representations are fed into a transformer encoder <a href="https://arxiv.org/abs/2110.09456">NormFormer 2021 </a>. The output representation of each track is then combined to form a global representation of the lepton to be used for classification. This global representation is formed by a weighted sum over the track representations, where the attention weights for the sum are learned during training. In addition to the primary lepton classification task, PLIT also has auxiliary training objectives to classify the track origin and grouping tracks into common vertices. Each of the tasks consists of three hidden layers containing 128, 64 and 32 neurons respectively. These auxiliary tasks enhance the sensitivity to leptons from semi-leptonic $B$-decays which often have decay secondary vertices.
+
+                            <br>
+                            <br>
+                            <a href="fig_01.png">png (434kB)</a>&nbsp;
+                            <a href="fig_01.pdf">pdf (160kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01.png">
+                                <img src=".thumb_fig_01.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 02</b></p>
+                            <br>
+                            Distributions of the PLIT discriminant for prompt (blue) and non-prompt muons (red), obtained on a sample of 3.5 million muons from <i>t<span style="text-decoration:overline">t</span></i> events simulated  at centre-of-mass energies of 13 and $13.6\, \text{TeV}$ with the Powheg Box v2 event generator (<a href="https://link.springer.com/article/10.1007/JHEP06(2010)043"> JHEP 06 (2010) 043 </a>) interfaced with Pythia 8.230 (<a href="https://www.sciencedirect.com/science/article/pii/S0010465515000442?via%3Dihub"> Comput. Phys. Commun. 191 (2015) 159 </a>), using a full detector simulation (<a href="https://link.springer.com/article/10.1140/epjc/s10052-010-1429-9">  Eur. Phys. J. C 70 (2010) 823 </a>) based on Geant4 (<a href="https://www.sciencedirect.com/science/article/pii/S0168900203013688?via%3Dihub"> Nucl. Instrum. Meth. A 506 (2003) 250 </a>) and the EvtGen 1.2.0 program (<a href="https://www.sciencedirect.com/science/article/pii/S0168900201000894?via%3Dihub"> Nucl. Instrum. Meth. A 462 (2001) 152 </a>) for the modelling of heavy-flavour hadron decays. The muons are required to pass the Medium identification working point (<a href="https://doi.org/10.1140/epjc/s10052-021-09233-2">Eur. Phys. J. C 81 (2021) 578</a>), satisfy ($p_{T} > $ 10 GeV and $|\eta| < 2.5$), and an associated track with impact parameters consistent with the primary vertex by requiring ($d_{0} / sigma(d_{0}) < 3$ and $(z_{0} /sin \theta < 0.5$ mm). The statistical uncertainties are indicated as coloured bands.
+
+                            <br>
+                            <br>
+                            <a href="fig_02.png">png (30kB)</a>&nbsp;
+                            <a href="fig_02.pdf">pdf (30kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_02.png">
+                                <img src=".thumb_fig_02.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 03</b></p>
+                            <br>
+                                 The non-prompt  muon rejection factors as a function of $\epsilon_{prompt}$ for PLIT as well as for some cut-based isolation working points (PFlow Loose VarRad, PFlow Tight VarRad, Loose VarRad and Tight VarRad), as described in (<a href="https://doi.org/10.1140/epjc/s10052-021-09233-2">Eur. Phys. J. C 81 (2021) 578</a>). These results are obtained on a sample of 3.5 million muons from <i>t<span style="text-decoration:overline">t</span></i> events simulated  at centre-of-mass energies of 13 and $13.6\, \text{TeV}$ with the Powheg Box v2 event generator 
+(<a href="https://link.springer.com/article/10.1007/JHEP06(2010)043"> JHEP 06 (2010) 043 </a>) interfaced with Pythia 8.230 (<a href="https://www.sciencedirect.com/science/article/pii/S0010465515000442?via%3Dihub"> Comput. Phys. Commun. 191 (2015) 159 </a>), using a full detector simulation (<a href="https://link.springer.com/article/10.1140/epjc/s10052-010-1429-9">  Eur. Phys. J. C 70 (2010) 823 </a>) based on Geant4 (<a href="https://www.sciencedirect.com/science/article/pii/S0168900203013688?via%3Dihub"> Nucl. Instrum. Meth. A 506 (2003) 250 </a>) and the EvtGen 1.2.0 program (<a href="https://www.sciencedirect.com/science/article/pii/S0168900201000894?via%3Dihub"> Nucl. Instrum. Meth. A 462 (2001) 152 </a>) for the modelling of heavy-flavour hadron decays. The muons are required to pass the Medium identification working point (<a href="https://doi.org/10.1140/epjc/s10052-021-09233-2">Eur. Phys. J. C 81 (2021) 578</a>), satisfy (<i>p</i><sub>T</sub> $>$ 10 GeV and $|\eta| < 2.5$), and an associated track with impact parameters consistent with the primary vertex by requiring ($d_0 / sigma(d_{0}) < 3$ and $(z_{0} /sin \theta < 0.5$ mm). The statistical uncertainties are indicated as coloured bands.
+
+
+                            <br>
+                            <br>
+                            <a href="fig_03.png">png (88kB)</a>&nbsp;
+                            <a href="fig_03.pdf">pdf (33kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_03.png">
+                                <img src=".thumb_fig_03.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 04</b></p>
+                            <br>
+                                 The non-prompt  muon efficiency as a function of the muon $p_T$ for PLIT, for a fixed prompt muon $\epsilon_\text{prompt}=90\%$, obtained on a sample of 3.5 million muons from <i>t<span style="text-decoration:overline">t</span></i> events simulated  at centre-of-mass energies of 13 and $13.6\, \text{TeV}$ with the Powheg Box v2 event generator 
+(<a href="https://link.springer.com/article/10.1007/JHEP06(2010)043"> JHEP 06 (2010) 043 </a>) interfaced with Pythia 8.230 (<a href="https://www.sciencedirect.com/science/article/pii/S0010465515000442?via%3Dihub"> Comput. Phys. Commun. 191 (2015) 159 </a>), using a full detector simulation (<a href="https://link.springer.com/article/10.1140/epjc/s10052-010-1429-9">  Eur. Phys. J. C 70 (2010) 823 </a>) based on Geant4 (<a href="https://www.sciencedirect.com/science/article/pii/S0168900203013688?via%3Dihub"> Nucl. Instrum. Meth. A 506 (2003) 250 </a>) and the EvtGen 1.2.0 program (<a href="https://www.sciencedirect.com/science/article/pii/S0168900201000894?via%3Dihub"> Nucl. Instrum. Meth. A 462 (2001) 152 </a>) for the modelling of heavy-flavour hadron decays. The muons are required to pass the \textsc{Medium} identification working point (<a href="https://doi.org/10.1140/epjc/s10052-021-09233-2">Eur. Phys. J. C 81 (2021) 578</a>), satisfy (<i>p</i><sub>T</sub> $>$ 10 GeV and $|\eta| < 2.5$), and an associated track with impact parameters consistent with the primary vertex by requiring ($d_0 / sigma(d_{0}) < 3$ and $(z_{0} /sin \theta < 0.5$ mm). The statistical uncertainties are indicated as coloured bands.
+
+                            <br>
+                            <br>
+                            <a href="fig_04.png">png (25kB)</a>&nbsp;
+                            <a href="fig_04.pdf">pdf (27kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_04.png">
+                                <img src=".thumb_fig_04.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- FOOTER -->
+            <footer id="myFooter">
+                <div class="w3-container w3-theme-l2 footer">
+                    <p>
+                        © 2026 CERN for the benefit of the ATLAS Collaboration.
+                        <br>
+                        <span class="footer_subsection">
+                            Reproduction of the article, figures and tables on this page is allowed as specified in the <a href="https://creativecommons.org/licenses/by/4.0/legalcode">CC-BY-4.0</a> license.
+                            <br><br>
+                            2026-09-11 00:14:19
+                        </span>
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            // Get the Sidebar
+            var mySidebar = document.getElementById("mySidebar");
+            // Get the DIV with overlay effect
+            var overlayBg = document.getElementById("myOverlay");
+            // Toggle between showing and hiding the sidebar, and add overlay effect
+            function w3_open() {
+                if (mySidebar.style.display === 'block') {
+                    mySidebar.style.display = 'none';
+                    overlayBg.style.display = "none";
+                } else {
+                    mySidebar.style.display = 'block';
+                    overlayBg.style.display = "block";
+                }
+            }
+            // Close the sidebar with the close button
+            function w3_close() {
+                mySidebar.style.display = "none";
+                overlayBg.style.display = "none";
+            }
+
+            function hide_show(section){
+                var header = document.getElementById(section+"_header");
+                var elements = document.getElementsByClassName(section+"_section");
+                var show = false;
+                var text = "Tables";
+                if (section == 'figures'){
+                    text = "Figures";
+                } else if (section == 'auxiliary'){
+                    text = "Auxiliary material";
+                } else if (section == 'animated'){
+                    text = "Animated plots";
+                }
+                var w = window.innerWidth;
+                for (var i=0; i<elements.length; i++){
+                    if (elements[i].style.display == "flex" || elements[i].style.display == "" || elements[i].style.display == "block"){
+                        elements[i].style.display = "none";
+                        show = false
+                    }else{
+                        if (w <= 800){
+                            elements[i].style.display = "block";
+                        }else{
+                            elements[i].style.display = "flex";
+                        }
+                        show = true;
+                    }
+                }
+                if (show){
+                    header.innerHTML = '<b>'+text+'</b> <i class="fa-solid fa-circle-up show_hide_arrows"></i>'
+                }else{
+                    header.innerHTML = '<b>'+text+'</b> <i class="fa-solid fa-circle-down show_hide_arrows"></i>'
+                }
+            }
+
+            /*
+            // Get the button
+            let mybutton = document.getElementById("myBtn");
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }*/
+
+            function toggleDropdown(id) {
+                var dropdown = document.getElementById(id);
+                if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                    dropdown.style.display = "block";
+                } else {
+                    dropdown.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>

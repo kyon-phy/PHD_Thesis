@@ -1,0 +1,151 @@
+https://atlas-project-topreconstruction.web.cern.ch/fastframesdocumentation/latest/documentation/histogramming/
+Histogramming - FastFrames
+:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}
+__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}
+Skip to content
+FastFrames
+Histogramming
+Initializing search
+atlas-amglab/fastframes
+FastFrames
+atlas-amglab/fastframes
+Home
+Tutorial
+Documentation
+Documentation
+Installation
+Metadata Production
+Custom Classes
+Histogramming
+Histogramming
+Table of contents
+Event Weights
+Ntupling
+Truth Processing
+Unfolding
+Systematics
+Cutflows
+ONNX Inference
+Distributed Computing
+Helper Functions
+TRExFitter Integration
+Configuration
+Recommendations for running FastFrames
+Code flow
+Event Tutorials
+Event Tutorials
+Top Workshop 2025
+Changelog
+Table of contents
+Event Weights
+Histogramming
+The detector-level histograms that will be produced are defined in the
+regions
+block of the configuration file.
+For truth-level histograms, see
+Truth Processing
+.
+A "simple" region definition looks like this:
+regions
+:
+-
+name
+:
+signal_5j3b
+selection
+:
+is_5j3b_NOSYS
+variables
+:
+-
+name
+:
+5j3b_n_jets
+type
+:
+unsigned long
+definition
+:
+n_jets_NOSYS
+binning
+:
+&5j3b_n_jets_binning
+min
+:
+4.5
+max
+:
+12.5
+number_of_bins
+:
+8
+FastFrames.py
+produces histograms by default, but you can be explicit with
+--step h
+if you'd like.
+2D, 3D, and ND histograms
+FastFrames allow to also produce 2D, 3D, and ND histograms. Have a look at the
+histograms_2d
+,
+histograms_3d
+, and
+histograms_nd
+option in the
+regions
+block. This is also demonstrated in the config file for CI tests
+here
+. Note that for 3D histograms you need to use at least version v1.1.0.
+Event Weights
+Event weights are configured in the
+general
+block of your config file:
+general
+:
+default_sumweights
+:
+"NOSYS"
+default_event_weights
+:
+"weight_mc_NOSYS
+*
+weight_pileup_NOSYS
+*
+weight_jvt_effSF_NOSYS
+*
+weight_btagSF_DL1dv01_Continuous_NOSYS
+*
+globalTriggerEffSF_NOSYS
+*
+weight_leptonSF_tight_NOSYS"
+default_sumweights
+specifies which sum-of-weights variation to use for normalisation.
+default_event_weights
+is the per-event weight formula.
+The full weight applied to each histogram entry is:
+weight_total = default_event_weights × (luminosity × cross-section / sum-of-weights)
+The normalisation factor is added automatically — you only need to provide the per-event piece. To disable normalisation to luminosity, set
+normalise_to_luminosity: false
+in the
+general
+block (default is
+true
+).
+By default, the squares of the weights are also stored as
+weight_total_squared_XXX
+, which are needed for correct statistical uncertainty propagation when merging histograms.
+If you run histogramming on top of an ntuple that already has
+weight_total_XXX
+branches (produced during a previous ntupling step), FastFrames will use them directly rather than recalculating. To force recalculation, set
+overwrite_event_weights: true
+in the
+general
+block.
+var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))
+Previous
+Custom Classes
+Next
+Ntupling
+Copyright © 2002-2026 CERN for the benefit of the ATLAS Collaboration
+Made with
+Material for MkDocs
+{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.footer", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}

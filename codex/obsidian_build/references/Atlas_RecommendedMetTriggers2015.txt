@@ -1,0 +1,72 @@
+=== PDF PAGE 1 ===
+Table of Contents
+ RecommendedMetTriggers2015.......................................................................................................................1
+i
+
+=== PDF PAGE 2 ===
+RecommendedMetTriggers2015
+Trigger
+Group
+Single jet Multi jets MET jet+MET Sum
+Et
+HT
+period
+C2-C4,
+D3-D6,
+E, F, G,
+H, J
+HLT_j260_320eta490
+HLT_j360
+HLT_j360_a10_lcw_sub_L1J100
+(****)
+HLT_j360_a10r_L1J100
+(***)(****)
+HLT_j360_a10_sub_L1J100
+(****)
+HLT_3j175
+HLT_4j85
+HLT_5j60
+HLT_6j45
+HLT_xe70_mht
+(**)
+HLT_j80_xe80 HLT_ht850_L1J75
+(*)
+Note:
+(*) HLT_ht850_L1J100 is the lowest unprescaled for the whole run, in run 271595 (L>1.5E33) and run
+276689; collecting roughly 2% more integrated luminosity.
+(**) HLT_xe70_tc_lcw and HLT_xe70 were also unprescaled. Unprescaled variants of these triggers also
+exist with muon corrections, which may be preferable in certain contexts.
+(***) HLT_j360_a10r_L1J100 had a bug in 2015, and is not recommended for usage
+(****) Large-R jet primaries HLT_j360_a10_lcw_sub_L1J100, HLT_j360_a10r_L1J100 and
+HLT_j360_a10_sub_L1J100 have been removed from MC after a menu slimming. See a full list of removed
+chains in ATR-16556.
+Analyses using MET triggers should also check events that fire HLT_noalg_L1J400 to see if any of these
+events were not fired by the met trigger in the analysis phase-space.
+The menu evolution for the un-prescaled triggers can also be found at LowestUnprescaledMET.
+Triggers monitored in the express stream are listed on the twiki
+During the 2015 data-taking, a variety of MET trigger algorithms was being tested. The most frequently used
+algorithm was the cell algorithm, with lowest unprescaled trigger of 70 GeV, known as xe70. Other
+algorithms under test included a topo-cluster-based algorithm, xe70_tc_lcw and two variations of that
+algorithm with pileup mitigation https://cds.cern.ch/record/2140103/. Analyses which compared the
+performance of this algorithm to the topo-cluster-based algorithm found that the topo-cluster based algorithm
+had a sharper efficiency-turn-on as a function of offline MET, therefore higher efficiency at the same rate.
+Major updates:
+-- MoritzBackes - 2017-10-05
+ Responsible: MoritzBackes
+ Last reviewed by: Never reviewed
+ RecommendedMetTriggers2015 1
+
+=== PDF PAGE 3 ===
+This topic: Atlas > RecommendedMetTriggers2015
+Topic revision: r1 - 2017-05-10 - MoritzBackes
+Copyright &© 2008-2026 by the contributing authors. All material on this
+collaboration platform is the property of the contributing authors.
+or Ideas, requests, problems regarding TWiki? use Discourse or Send feedback
+ var _paq = window._paq = window._paq || []; /* tracker methods like "setCustomDimension" should be
+called before "trackPageView" */ _paq.push(['trackPageView']); _paq.push(['enableLinkTracking']);
+(function() { var u="https://webanalytics.web.cern.ch/"; _paq.push(['setTrackerUrl', u+'matomo.php']);
+_paq.push(['setSiteId', '5']); var d=document, g=d.createElement('script'),
+s=d.getElementsByTagName('script')[0]; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+})();
+ RecommendedMetTriggers2015 < Atlas < TWiki
+ RecommendedMetTriggers2015 2

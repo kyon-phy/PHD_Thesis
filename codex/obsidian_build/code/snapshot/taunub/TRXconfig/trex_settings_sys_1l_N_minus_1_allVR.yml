@@ -1,0 +1,1480 @@
+# --------------- %
+# ---  JOB    --- %
+# --------------- %
+
+Job:
+  Name: "fit_taunub_nom_1l_allVR_N_minus_1"
+  # Name: "fit_taunub_nom_1l_allVR"
+  # Name: "fit_taunub_nom_1l_VR_test"
+  # Name: "fit_taunub_sys_1l_allVR"
+  # Name: "fit_taunub_sys_1l_allVR_SPLUSB_M1500"
+  # Name: "fit_taunub_sys_1l_allVR_SPLUSB_MU2500_gU2_5_23L1_0_HadtauFixed"
+  # Name: "fit_taunub"
+  # # CmeLabel: "13 TeV"
+  # POI: "gU_square"
+  POI: "gU"
+  Label: "Run-2"
+  LumiLabel: "140 fb^{-1}"
+  # Lumi: XXX_LUMI
+  PlotOptions: "NOSIG,YIELDS" #,"CHI2","NOXERR","PREFITONPOSTFIT" #"NORMSIG","NOSIG"
+  PlotLabel: "Internal"
+  MCstatThreshold: 0.01
+  # #UseGammasForCorr: TRUE
+  # #GuessMCStatEmptyBins: FALSE
+  # SystErrorBars: TRUE
+  SystControlPlots: FALSE
+  SystPruningShape: 0.0001
+  SystPruningNorm: 0.0001
+  # SystLarge: 0.90
+  SystCategoryTables: TRUE
+  CleanTables: TRUE
+  CorrelationThreshold: 0.1
+  # HistoChecks: NOCRASH
+  PrePostFitCanvasSize: 800,600
+  LegendX1: 0.46
+  # #SplitHistoFiles: TRUE   # set this in order to have separated .root files in Histograms/ for different regions
+  # ImageFormat: "png" #,"eps","pdf"
+  ImageFormat: "pdf" #,"eps","pdf"
+  DoSummaryPlot: TRUE
+  DoTables: TRUE
+  # DoSignalRegionsPlot: TRUE
+  DoPieChartPlot: TRUE
+  # SummaryPlotYmin: 1
+  SummaryPlotYmax: 1e5 #CRs
+  LegendX1Summary: 0.35
+  LegendX2Summary: 0.9
+  RatioType: "DATAOVERBKG"
+  RatioYmin: 0 #0.5
+  RatioYmax: 2 #1.5
+  # # RatioYtitle: "S/(S+B)"
+  BlindingThreshold: 0.05
+  BlindingType: SOVERB
+  # ReplacementFile: /afs/cern.ch/work/z/zang/LQanalysis/TRExFitter_xTAU/TRExFitter/config/replacement_TauX_jiaqi.txt
+  RankingMaxNP: 20
+  # RankingPlot: Merge
+  RankingPlot: All
+  # DebugLevel: 2
+  # #RemoveSystOnEmptySample: TRUE
+  # #RemoveLargeSyst: TRUE
+  # BlindingThreshold: 0.05
+  # GetChi2: STAT
+  BlindSRs: FALSE
+  RatioYminPostFit: 0 #0.5
+  RatioYmaxPostFit: 2 #1.5
+  # StatOnly: True
+  # # test options
+  # #HideNP: SigXsecOverSM
+  RecreateBinningFiles: True
+  SmoothingOption: "MAXVARIATION"
+  MergeUnderOverFlow: True
+  UseGammaPulls: True
+  SystCategoryTables: True
+  # NPRankingCanvasSize: 1100,1000
+  # SuppressNegativeBinWarnings: True
+
+# --------------- %
+# ---  FIT    --- %
+# --------------- %
+
+Fit:
+  #  FitType: SPLUSB
+  #  FitRegion: CRSR
+   FitType: BONLY
+   FitRegion: CRONLY
+   FitBlind: False
+   POIAsimov: 1
+  #  UseMinos: "gU_square"
+  #  UseMinos: "gU"
+   #UseMinos: "gU_quad"
+   UseMinos: all
+   NumCPU: 8
+  #  doLHscan: "gU_square"
+   doLHscan: "gU"
+   ToleranceScale: 0.01
+   #DoNonProfileFit: True
+   LHscanSteps: 20
+  #  FitStrategy: 3
+
+
+# --------------- %
+# ---  LIMIT and Significance --- %
+# --------------- %
+
+BlocksToCopy:
+  Limit:
+    - name: "limit"
+      LimitType: ASYMPTOTIC
+      LimitBlind: FALSE
+      SignalInjection: TRUE
+
+  Significance:
+    - name: "sig"
+      SignificanceBlind: False
+      POI: "gU"
+      POIAsimov: 1
+
+
+# --------------- %
+# --- REGIONS --- %
+# --------------- %
+
+Regions:
+  - name: "SR_*"
+    Type: SIGNAL
+    Ymax: 1e2
+    Ymin: 1e-1
+    LogScale: TRUE
+    Rebinning: 0,1500
+    DataType: ASIMOV
+    SkipSmoothing: TRUE
+    
+  
+  - name: "WCR_0tau1l0b_sch*"
+    Type: CONTROL
+    Label: "0#tau1l0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    # Rebinning: 200,1200
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,1500
+    SkipSmoothing: TRUE
+
+  - name: "WCR_0tau1l0b_tch*"
+    Type: CONTROL
+    # Rebinning: 200,1200
+    Label: "0#tau1l0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,1500
+    SkipSmoothing: TRUE
+
+  - name: "topCR_1tau1l_sch*"
+    Type: CONTROL
+    Label: "1#tau1l1b, Resonance topCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    # Rebinning: 0,700
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,1500
+    SkipSmoothing: TRUE
+
+  - name: "topCR_1tau1l_tch*"
+    Type: CONTROL
+    # Rebinning: 0,700
+    Label: "1#tau1l1b, Non-Resonance topCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,1500
+    SkipSmoothing: TRUE
+
+  - name: "VR_0tau1l1b_sch*"
+    Type: VALIDATION
+    Label: "0#tau1l1b, Resonance 0tauVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+
+  - name: "VR_0tau1l1b_tch*"
+    Type: VALIDATION
+    Label: "0#tau1l1b, Non-Resonance 0tauVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+
+  - name: "WVR_1tau0l0b_sch*"
+    Type: VALIDATION
+    Label: "1#tau0l0b, Resonance WVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+
+  - name: "WVR_1tau0l0b_tch*"
+    Type: VALIDATION
+    Label: "1#tau0l0b, Non-Resonance WVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+
+  - name: "topVR_1tau0l2b_sch*"
+    Type: VALIDATION
+    Label: "1#tau0l2b, Resonance topVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+
+  - name: "topVR_1tau0l2b_tch*"
+    Type: VALIDATION
+    Label: "1#tau0l2b, Non-Resonance topVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+
+
+
+# --------------- %
+# --- SAMPLES --- %
+# --------------- %
+
+## Signal samples ##
+
+## Background samples ##
+
+samples:
+  # - name: "LQ_taunub_M1500"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2"
+  #   # TexTitle: $LQ$ (U1, 1.5 TeV), BF
+  #   # Group: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2, BSM+Inf"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*sch*"
+  
+  # - name: "LQ_taunub_M2500"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1"
+  #   # TexTitle: $LQ$ (U1, 2.5 TeV), NET150
+  #   # Group: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, BSM+Inf"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*tch*"
+
+
+  # - name: "BSM_M1500_gU1_0_23L0_2"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.0, #beta_{23}=0.2, BSM"
+  #   Group: "M1500"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*"
+  #   # Regions: "SR_*sch*"
+  
+  # - name: "INF_M1500_gU1_0_23L0_2"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.0, #beta_{23}=0.2, Inf"
+  #   Group: "M1500"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*sch*"
+
+  # - name: "M1500_gU1_0_23L0_2"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.0, #beta_{23}=0.2, BSM+Inf"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*"
+
+  # - name: "BSM_M2500_gU2_5_23L1_0"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, BSM"
+  #   Group: "M2500"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*"
+    # Regions: "SR_*tch*"
+  
+  # - name: "INF_M2500_gU2_5_23L1_0"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, Inf"
+  #   Group: "M2500"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*tch*"
+
+  - name: "MU2500_gU2_5_23L1_0_sch"
+    Type: SIGNAL
+    Title: "MU2500_gU2_5_23L1_0, BSM+Inf, resonance"
+    Group: "MU2500_gU2_5_23L1_0"
+    FillColor: 2
+    LineColor: 2
+    Regions: "SR_*sch*"
+
+  - name: "MU2500_gU2_5_23L1_0_tch"
+    Type: SIGNAL
+    Title: "MU2500_gU2_5_23L1_0, BSM+Inf, non-resonance"
+    Group: "MU2500_gU2_5_23L1_0"
+    FillColor: 2
+    LineColor: 2
+    Regions: "SR_*tch*"
+
+  - name: "Data"
+    Type: DATA
+    Title: "Data"
+    TexTitle: Data
+    FillColor: 1
+    LineColor: 1
+
+  # - name: "ttbar_dilep"
+  #   Type: BACKGROUND
+  #   Title: "t#bar{t}_dilep"
+  #   FillColor: 117 #"kP10Blue"
+  #   LineColor: 117 #"kP10Blue"
+  #   Group: "ttbar"
+
+  # - name: "ttbar_nonallhad"
+  #   Type: BACKGROUND
+  #   Title: "t#bar{t}_nonallhad"
+  #   FillColor: 117 #"kP10Blue"
+  #   LineColor: 117 #"kP10Blue"
+  #   Group: "ttbar"
+  
+  - name: "ttbar"
+    Type: BACKGROUND
+    Title: "t#bar{t}"
+    FillColor: 117 #"kP10Blue"
+    LineColor: 117 #"kP10Blue"
+    Group: "ttbar"
+
+  # - name: "SingleTop_tch"
+  #   Type: BACKGROUND
+  #   Title: "Single Top"
+  #   FillColor: 119 #"kP10Red"
+  #   LineColor: 119 #"kP10Red"
+  #   Group: "SingleTop"
+
+  # - name: "SingleTop_sch"
+  #   Type: BACKGROUND
+  #   Title: "Single Top"
+  #   FillColor: 119 #"kP10Red"
+  #   LineColor: 119 #"kP10Red"
+  #   Group: "SingleTop"
+
+
+  # - name: "SingleTop_tW"
+  #   Type: BACKGROUND
+  #   Title: "Single Top"
+  #   FillColor: 119 #"kP10Red"
+  #   LineColor: 119 #"kP10Red"
+  #   Group: "SingleTop"
+
+  - name: "SingleTop"
+    Type: BACKGROUND
+    Title: "Single Top"
+    FillColor: 119 #"kP10Red"
+    LineColor: 119 #"kP10Red"
+    Group: "SingleTop"
+
+  
+  # - name: "ttZ"
+  #   Type: BACKGROUND
+  #   Title: "ttZ"
+  #   FillColor: 120 #"kP10Gray"
+  #   LineColor: 120 #"kP10Gray"
+  #   Group: "ttbar"
+  
+  # - name: "Zll"
+  #   Type: BACKGROUND
+  #   Title: "Zll+j"
+  #   FillColor: 121 #"kP10Violet"
+  #   LineColor: 121 #"kP10Violet"
+  #   Group: "Z+jets"
+  
+  # - name: "Znunu"
+  #   Type: BACKGROUND
+  #   Title: "Z#nu#nu+j"
+  #   FillColor: 122 #"kP10Brown"
+  #   LineColor: 122 #"kP10Brown"
+  #   Group: "Z+jets"
+  
+  # - name: "Ztautau"
+  #   Type: BACKGROUND
+  #   Title: "Z#tau#tau+j"
+  #   FillColor: 123 #"kP10Orange"
+  #   LineColor: 123 #"kP10Orange"
+  #   Group: "Z+jets"
+  
+  - name: "Zjets"
+    Type: BACKGROUND
+    Title: "Zjets"
+    Group: "Z+jets"
+    FillColor: 106 #"kP8 Grape"
+    LineColor: 106 #"kP8 Grape"
+  
+  # - name: "Wtaunu_METTAU"
+  #   Type: BACKGROUND
+  #   Title: "W#tau#nu+j"
+  #   Group: "W+jets"
+  #   FillColor: 126 #"kP10Cyan"
+  #   LineColor: 126 #"kP10Cyan"
+
+  # - name: "Wtaunu_HF"
+  #   Type: BACKGROUND
+  #   Title: "W#tau#nu+j"
+  #   Group: "W+jets"
+  #   FillColor: 126 #"kP10Cyan"
+  #   LineColor: 126 #"kP10Cyan"
+
+  # - name: "Wlnu"
+  #   Type: BACKGROUND
+  #   Title: "Wl#nu+j"
+  #   Group: "W+jets"
+  #   # Smooth: TRUE
+  #   FillColor: 125 #"kP10Azure"
+  #   LineColor: 125 #"kP10Azure"
+
+  - name: "Wjets"
+    Type: BACKGROUND
+    Title: "W+jets"
+    Group: "W+jets"
+    # Smooth: TRUE
+    FillColor: 125 #"kP10Azure"
+    LineColor: 125 #"kP10Azure"
+
+
+  - name: "Diboson"
+    Type: BACKGROUND
+    Title: "Diboson"
+    Group: "Diboson"
+    # Smooth: TRUE
+    FillColor: 118 #"kP10Yellow"
+    LineColor: 118 #"kP10Yellow"
+
+  
+  # - name: "Dijet"
+  #   Type: BACKGROUND
+  #   Title: "Dijet"
+  #   FillColor: 124 #"kP10Green"
+  #   LineColor: 124 #"kP10Green"
+
+
+# --------------- %
+# - NORMFACTORS - %
+# --------------- %
+
+NormFactors:
+  - name: "gU"
+    Title: "#mu(signal)"
+    Nominal: 1
+    Min: 0
+    Max: 10
+    Samples: "MU2500_gU2_5_23L1_0*"
+    # Samples: "M1500_gU1_0_23L0_2"
+    Category: "Theory"
+
+  # - name: "gU_square"
+  #   Title: "#gu^2(signal)"
+  #   Nominal: 1
+  #   Min: -0.5
+  #   Max: 10
+  #   Samples: "INF_M1500_gU1_0_23L0_2"
+  #   Category: "Theory"
+
+  # - name: "gU_quad"
+  #   Title: "#gu^4(signal)"
+  #   Expression: "gU_square*gU_square: gU_square[1,0,10]"
+  #   Nominal: 1
+  #   Min: -0.5
+  #   Max: 10
+  #   Samples: "BSM_M1500_gU1_0_23L0_2"
+  #   Category: "Theory"
+
+
+  - name: "top_Norm_tch"
+    Title: "#lambda_{t}^{Non-Res}"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Samples: ["tt*","SingleTop*"]
+    Constant: False
+    Category: "top"
+    Regions: "*tch*"
+
+  - name: "Wjets_Norm_tch"
+    Title: "#lambda_{W}^{Non-Res}"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Constant: False
+    Samples: "W*"
+    Category: "W+jets"
+    Regions: "*tch*"
+
+  - name: "top_Norm_sch"
+    Title: "#lambda_{t}^{Res}"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Samples: ["tt*","SingleTop*"]
+    Constant: False
+    Category: "top"
+    Regions: "*sch*"
+
+  - name: "Wjets_Norm_sch"
+    Title: "#lambda_{W}^{Res}"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Constant: False
+    Samples: "W*"
+    Category: "W+jets"
+    Regions: "*sch*"
+
+# --------------- #
+# - SYSTEMATICS - #
+# --------------- #
+
+# Systematics:
+# # #########################
+# # #### MC modeling ####
+# # #########################
+#   - name: "Zfake_modeling"
+#     Title: "fake tau modeling for Znunu"
+#     Type: OVERALL
+#     OverallUp: 0.5
+#     OverallDown: -0.5
+#     Category: Theory
+#     Samples: "Znunu,Zll"
+#     Regions: "*1tau*"
+
+#   - name: "Zll_modeling"
+#     Title: "Zll modeling"
+#     Type: OVERALL
+#     OverallUp: 0.3
+#     OverallDown: -0.3
+#     Category: Theory
+#     Samples: "Ztautau,Zll"
+#     Regions: "SR*,*VR*"
+
+#   - name: "Diboson_modeling"
+#     Title: "Diboson modeling"
+#     Type: OVERALL
+#     OverallUp: 0.3
+#     OverallDown: -0.3
+#     Category: Theory
+#     Samples: "Diboson"
+#     Regions: "SR*,*VR*"
+
+#   - name: "top_modeling_sch"
+#     Title: "top modeling (resonance)"
+#     Type: OVERALL
+#     OverallUp: 0.1
+#     OverallDown: -0.1
+#     Category: Theory
+#     Samples: "ttbar,SingleTop"
+#     Regions: "SR*sch*,*VR*sch*"
+
+#   - name: "top_modeling_tch"
+#     Title: "top modeling (non-resonance)"
+#     Type: OVERALL
+#     OverallUp: 0.05
+#     OverallDown: -0.05
+#     Category: Theory
+#     Samples: "ttbar,SingleTop"
+#     Regions: "SR*tch*,*VR*tch*"
+
+#   - name: "Wjets_modeling_sch"
+#     Title: "Wjets modeling (resonance)"
+#     Type: OVERALL
+#     OverallUp: 0.1
+#     OverallDown: -0.1
+#     Category: Theory
+#     Samples: "W*"
+#     Regions: "SR*sch*,*VR*sch*"
+
+#   - name: "Wjets_modeling_tch"
+#     Title: "Wjets modeling (non-resonance)"
+#     Type: OVERALL
+#     OverallUp: 0.05
+#     OverallDown: -0.05
+#     Category: Theory
+#     Samples: "W*"
+#     Regions: "SR*tch*,*VR*tch*"
+
+#   - name: "Wjets_HF_modeling"
+#     Category: Theory
+#     Title: "Wjets HF modeling"
+#     Type: OVERALL
+#     OverallUp: 0.2
+#     OverallDown: -0.2
+#     Samples: "W*"
+#     Regions: "*1b*"
+
+# # # ####################################
+# # # ##### top theory Systematics #####
+# # # ####################################
+# # # # PDF
+# #   - name: "ttbar_theory_AlphaS"
+# #     Title: "TTBar AlphaS"
+# #     HistoFolderNameUp: "GEN*266000"
+# #     HistoFolderNameDown: "GEN*265000"
+# #     Samples: "ttbar_dilep"
+# #     Type: HISTO
+# #     # Symmetrisation: TWOSIDED
+# #     Category: "Top theory"
+# #     SubCategory: "ttbar"
+# #     # CombineName: "ttbar_PDF_NNPDF_NLO_0117"
+# #     # CombineType: STANDARDDEVIATIONNODDOF
+# # # #     Regions: "WVR*"
+
+#   # - name: "top_theory_ISR"
+#   #   Title: "Top ISR"
+#   #   Samples: "SingleTop*,ttbar_dilep"
+#   #   # Samples: "ttbar_dilep"
+#   #   HistoFolderNameUp: "GEN_Var3cUp"
+#   #   HistoFolderNameDown: "GEN_Var3cDown"
+#   #   Type: HISTO
+#   #   # Symmetrisation: TWOSIDED
+#   #   Category: "Top theory"
+#   #   # Regions: "VR*"
+
+# # #   - name: "ttbar_theory_FSR"
+# # #     Title: "TTBar FSR"
+# # #     Samples: "ttbar_dilep"
+# # #     HistoFolderNameUp: "GEN_isrmuRfac10_fsrmuRfac20"
+# # #     HistoFolderNameDown: "GEN_isrmuRfac10_fsrmuRfac05"
+# # #     Type: HISTO
+# # #     Symmetrisation: TWOSIDED
+# # #     Category: "Top theory"
+# # #     SubCategory: "ttbar"
+# # #     Regions: "WVR*"
+
+# # #   - name: "GEN_muR_#muR_muF_#muF"
+# # #     Title: "TTBar muR_#muR_muF_#muF"
+# # #     Samples: "ttbar_dilep"
+# # #     HistoFolderNameUp: "GEN_muR_#muR_muF_#muF"
+# # #     Type: HISTO
+# # #     Symmetrisation: ONESIDED
+# # #     Category: "Top theory"
+# # #     SubCategory: "ttbar"
+# # #     CombineName: "ttbar_theory_scale"
+# # #     CombineType: "ENVELOPE"
+# # #     numbering_sequence:
+# # #       - replacement_string: '#muR'
+# # #         values: ["05","10","20"]
+# # #       - replacement_string: '#muF'
+# # #         values: ["05","10","20"]
+# # #     Regions: "WVR*"
+
+# # #   - name: "ttbar_theory_PDF"
+# # #     Title: "TTBar NNPDF #N"
+# # #     Samples: "ttbar_dilep"
+# # #     HistoFolderNameUp: "GEN_PDF_26000#N"
+# # #     Symmetrisation: ONESIDED
+# # #     Category: "Top theory"
+# # #     SubCategory: "ttbar"
+# # #     numbering_sequence:
+# # #       - replacement_string: '#N'≠=
+# # #         min: 1
+# # #         max: 9
+# # #     Regions: "WVR*"
+
+# # #   - name: "ttbar_theory_PDF"
+# # #     Title: "TTBar NNPDF #N"
+# # #     Samples: "ttbar_dilep"
+# # #     HistoFolderNameUp: "GEN_PDF_2600#N"
+# # #     Symmetrisation: ONESIDED
+# # #     Category: "Top theory"
+# # #     SubCategory: "ttbar"
+# # #     numbering_sequence:
+# # #       - replacement_string: '#N'
+# # #         min: 10
+# # #         max: 99
+# # #     Regions: "WVR*"
+
+# # #   - name: "ttbar_theory_PDF"
+# # #     Title: "TTBar NNPDF 100"
+# # #     Samples: "ttbar_dilep"
+# # #     HistoFolderNameUp: "GEN_PDF_260100"
+# # #     Symmetrisation: ONESIDED
+# # #     Category: "Top theory"
+# # #     SubCategory: "ttbar"
+# # #     Regions: "WVR*"
+
+
+
+# # # ####################################
+# # # ##### W theory Systematics #####
+# # # ####################################
+
+
+
+# # # ####################################
+# # # ##### Ftag Systematics #####
+# # # ####################################
+
+#   - name: "FT_EFF_Eigen_B_#N"
+#     Title: "FT_EFF_Eigen_B_#N"
+#     Type: HISTO
+#     HistoFolderNameUp: "FT_EFF_Eigen_B_#N__1up"
+#     HistoFolderNameDown: "FT_EFF_Eigen_B_#N__1down"
+#     Category: "Jet"
+#     SubCategory: "FTag"
+#     Exclude: "*0b*"
+#     numbering_sequence:
+#       - replacement_string: '#N'
+#         min: 0
+#         max: 84
+
+#   - name: "FT_EFF_Eigen_C_#N"
+#     Title: "FT_EFF_Eigen_C_#N"
+#     Type: HISTO
+#     HistoFolderNameUp: "FT_EFF_Eigen_C_#N__1up"
+#     HistoFolderNameDown: "FT_EFF_Eigen_C_#N__1down"
+#     Category: "Jet"
+#     SubCategory: "FTag"
+#     Exclude: "*0b*"
+#     numbering_sequence:
+#       - replacement_string: '#N'
+#         min: 0
+#         max: 55
+
+#   - name: "FT_EFF_Eigen_Light_#N"
+#     Title: "FT_EFF_Eigen_Light_#N"
+#     Type: HISTO
+#     HistoFolderNameUp: "FT_EFF_Eigen_Light_#N__1up"
+#     HistoFolderNameDown: "FT_EFF_Eigen_Light_#N__1down"
+#     Category: "Jet"
+#     SubCategory: "FTag"
+#     Exclude: "*0b*"
+#     numbering_sequence:
+#       - replacement_string: '#N'
+#         min: 0
+#         max: 41
+
+# # # ####################################
+# # # ##### Jet Systematics #####
+# # # ####################################
+
+
+#   - name: "JET_BJES_Response"
+#     Title: "JET BJES Response"
+#     Type: HISTO
+#     HistoFolderNameUp:   "JET_BJES_Response__1up"
+#     HistoFolderNameDown: "JET_BJES_Response__1down"
+#     Category: "Jet"
+#     SubCategory: "JES"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_EffectiveNP_Detector#N"
+#     Title: "JET_EffectiveNP_Detector#N"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_EffectiveNP_Detector#N__1up"
+#     HistoFolderNameDown: "JET_EffectiveNP_Detector#N__1down"
+#     Category: "Jet"
+#     SubCategory: "EffectiveNP"
+#     #Symmetrisation: TWOSIDED
+#     numbering_sequence:
+#       - replacement_string: '#N'
+#         min: 1
+#         max: 2
+
+#   - name: "JET_EffectiveNP_Mixed#N"
+#     Title: "JET_EffectiveNP_Mixed#N"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_EffectiveNP_Mixed#N__1up"
+#     HistoFolderNameDown: "JET_EffectiveNP_Mixed#N__1down"
+#     Category: "Jet"
+#     SubCategory: "EffectiveNP"
+#     #Symmetrisation: TWOSIDED
+#     CombineName: "JET_EffectiveNP_Mixed"
+#     CombineType: STANDARDDEVIATIONNODDOF
+#     numbering_sequence:
+#       - replacement_string: '#N'
+#         min: 1
+#         max: 3
+
+#   - name: "JET_EffectiveNP_Modelling#N"
+#     Title: "JET_EffectiveNP_Modelling#N"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_EffectiveNP_Modelling#N__1up"
+#     HistoFolderNameDown: "JET_EffectiveNP_Modelling#N__1down"
+#     Category: "Jet"
+#     SubCategory: "EffectiveNP"
+#     #Symmetrisation: TWOSIDED
+#     CombineName: "JET_EffectiveNP_Modelling"
+#     CombineType: STANDARDDEVIATIONNODDOF
+#     numbering_sequence:
+#       - replacement_string: '#N'
+#         min: 1
+#         max: 4
+
+#   - name: "JET_EffectiveNP_Statistical#N"
+#     Title: "JET_EffectiveNP_Statistical#N"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_EffectiveNP_Statistical#N__1up"
+#     HistoFolderNameDown: "JET_EffectiveNP_Statistical#N__1down"
+#     Category: "Jet"
+#     SubCategory: "EffectiveNP"
+#     #Symmetrisation: TWOSIDED
+#     CombineName: "JET_EffectiveNP_Statistical"
+#     CombineType: STANDARDDEVIATIONNODDOF
+#     numbering_sequence:
+#       - replacement_string: '#N'
+#         min: 1
+#         max: 6
+
+#   - name: "JET_EtaIntercalibration_Modelling"
+#     Title: "JET_EtaIntercalibration_Modelling"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_EtaIntercalibration_Modelling__1up"
+#     HistoFolderNameDown: "JET_EtaIntercalibration_Modelling__1down"
+#     Category: "Jet"
+#     SubCategory: "EtaIntercalibration"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_EtaIntercalibration_NonClosure_PreRec"
+#     Title: "JET_EtaIntercalibration_NonClosure_PreRec"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_EtaIntercalibration_NonClosure_PreRec__1up"
+#     HistoFolderNameDown: "JET_EtaIntercalibration_NonClosure_PreRec__1down"
+#     Category: "Jet"
+#     SubCategory: "PreRec"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_EtaIntercalibration_TotalStat"
+#     Title: "JET_EtaIntercalibration_TotalStat"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_EtaIntercalibration_TotalStat__1up"
+#     HistoFolderNameDown: "JET_EtaIntercalibration_TotalStat__1down"
+#     Category: "Jet"
+#     SubCategory: "EtaIntercalibration"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_Flavor_Composition"
+#     Title: "JET_Flavor_Composition"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_Flavor_Composition__1up"
+#     HistoFolderNameDown: "JET_Flavor_Composition__1down"
+#     Category: "Jet"
+#     SubCategory: "Flavor"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_Flavor_Response"
+#     Title: "JET_Flavor_Response"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_Flavor_Response__1up"
+#     HistoFolderNameDown: "JET_Flavor_Response__1down"
+#     Category: "Jet"
+#     SubCategory: "Flavor"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_InSitu_NonClosure_PreRec"
+#     Title: "JET_InSitu_NonClosure_PreRec"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_InSitu_NonClosure_PreRec__1up"
+#     HistoFolderNameDown: "JET_InSitu_NonClosure_PreRec__1down"
+#     Category: "Jet"
+#     SubCategory: "PreRec"
+#     #Symmetrisation: TWOSIDED
+
+
+#   - name: "JET_JERUnc_Noise_PreRec"
+#     Title: "JET_JERUnc_Noise_PreRec"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_JERUnc_Noise_PreRec__1up"
+#     HistoFolderNameDown: "JET_JERUnc_Noise_PreRec__1down"
+#     Category: "Jet"
+#     SubCategory: "PreRec"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_JER_DataVsMC_MC16"
+#     Title: "JET_JER_DataVsMC_MC16"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_JER_DataVsMC_MC16__1up"
+#     HistoFolderNameDown: "JET_JER_DataVsMC_MC16__1down"
+#     Category: "Jet"
+#     SubCategory: "JER"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_JER_EffectiveNP_#N"
+#     Title: "JET_JER_EffectiveNP_#N"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_JER_EffectiveNP_#N__1up"
+#     HistoFolderNameDown: "JET_JER_EffectiveNP_#N__1down"
+#     Category: "Jet"
+#     SubCategory: "JER"
+#     CombineName: "JET_JER_EffectiveNP"
+#     CombineType: STANDARDDEVIATIONNODDOF
+#     numbering_sequence:
+#       - replacement_string: '#N'
+#         min: 1
+#         max: 11
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_JER_EffectiveNP_12restTerm"
+#     Title: "JET_JER_EffectiveNP_12restTerm"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_JER_EffectiveNP_12restTerm__1up"
+#     HistoFolderNameDown: "JET_JER_EffectiveNP_12restTerm__1down"
+#     Category: "Jet"
+#     SubCategory: "JER"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_JESUnc_Noise_PreRec"
+#     Title: "JET_JESUnc_Noise_PreRec"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_JESUnc_Noise_PreRec__1up"
+#     HistoFolderNameDown: "JET_JESUnc_Noise_PreRec__1down"
+#     Category: "Jet"
+#     SubCategory: "JES"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_JESUnc_VertexingAlg_PreRec"
+#     Title: "JET_JESUnc_VertexingAlg_PreRec"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_JESUnc_VertexingAlg_PreRec__1up"
+#     HistoFolderNameDown: "JET_JESUnc_VertexingAlg_PreRec__1down"
+#     Category: "Jet"
+#     SubCategory: "PreRec"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_NNJvtEfficiency"
+#     Title: "JET_NNJvtEfficiency"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_NNJvtEfficiency__1up"
+#     HistoFolderNameDown: "JET_NNJvtEfficiency__1down"
+#     Category: "Jet"
+#     SubCategory: "NNJvt"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_Pileup_OffsetMu"
+#     Title: "JET_Pileup_OffsetMu"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_Pileup_OffsetMu__1up"
+#     HistoFolderNameDown: "JET_Pileup_OffsetMu__1down"
+#     Category: "Jet"
+#     SubCategory: "Pileup"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_Pileup_OffsetNPV"
+#     Title: "JET_Pileup_OffsetNPV"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_Pileup_OffsetNPV__1up"
+#     HistoFolderNameDown: "JET_Pileup_OffsetNPV__1down"
+#     Category: "Jet"
+#     SubCategory: "Pileup"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_Pileup_PtTerm"
+#     Title: "JET_Pileup_PtTerm"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_Pileup_PtTerm__1up"
+#     HistoFolderNameDown: "JET_Pileup_PtTerm__1down"
+#     Category: "Jet"
+#     SubCategory: "Pileup"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_Pileup_RhoTopology"
+#     Title: "JET_Pileup_RhoTopology"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_Pileup_RhoTopology__1up"
+#     HistoFolderNameDown: "JET_Pileup_RhoTopology__1down"
+#     Category: "Jet"
+#     SubCategory: "Pileup"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_PunchThrough_MC16"
+#     Title: "JET_PunchThrough_MC16"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_PunchThrough_MC16__1up"
+#     HistoFolderNameDown: "JET_PunchThrough_MC16__1down"
+#     Category: "Jet"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_RelativeNonClosure_MC20"
+#     Title: "JET_RelativeNonClosure_MC20"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_RelativeNonClosure_MC20__1up"
+#     HistoFolderNameDown: "JET_RelativeNonClosure_MC20__1down"
+#     Category: "Jet"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "JET_SingleParticle_HighPt"
+#     Title: "JET_SingleParticle_HighPt"
+#     Type: HISTO
+#     HistoFolderNameUp: "JET_SingleParticle_HighPt__1up"
+#     HistoFolderNameDown: "JET_SingleParticle_HighPt__1down"
+#     Category: "Jet"
+#     #Symmetrisation: TWOSIDED
+
+# # # ####################################
+# # # ##### Electron Systematics #####
+# # # ####################################
+
+#   - name: "EG_RESOLUTION_ALL"
+#     Title: "EG RESOLUTION ALL"
+#     Type: HISTO
+#     HistoFolderNameDown: "EG_RESOLUTION_ALL__1down"
+#     HistoFolderNameUp: "EG_RESOLUTION_ALL__1up"
+#     Category: "Electron"
+#     Regions: "*1l*"
+
+#   - name: "EG_SCALE_AF3"
+#     Title: "EG SCALE AF3"
+#     Type: HISTO
+#     HistoFolderNameDown: "EG_SCALE_AF3__1down"
+#     HistoFolderNameUp: "EG_SCALE_AF3__1up"
+#     Category: "Electron"
+#     Regions: "*1l*"
+
+#   - name: "EG_SCALE_ALL"
+#     Title: "EG SCALE ALL"
+#     Type: HISTO
+#     HistoFolderNameDown: "EG_SCALE_ALL__1down"
+#     HistoFolderNameUp: "EG_SCALE_ALL__1up"
+#     Category: "Electron"
+#     Regions: "*1l*"
+
+#   - name: "EL_EFF_ID_TOTAL_1NPCOR_PLUS_UNCOR"
+#     Title: "EL EFF ID TOTAL 1NPCOR PLUS UNCOR"
+#     Type: HISTO
+#     HistoFolderNameDown: "EL_EFF_ID_TOTAL_1NPCOR_PLUS_UNCOR__1down"
+#     HistoFolderNameUp: "EL_EFF_ID_TOTAL_1NPCOR_PLUS_UNCOR__1up"
+#     Category: "Electron"
+#     Regions: "*1l*"
+
+#   - name: "EL_EFF_Iso_TOTAL_1NPCOR_PLUS_UNCOR"
+#     Title: "EL EFF Iso TOTAL 1NPCOR PLUS UNCOR (adjusted)"
+#     Type: OVERALL
+#     OverallUp: 0.01
+#     OverallDown: -0.01
+#     #Symmetrisation: TWOSIDED
+#     Category: "Electron"
+#     Regions: "*1l*"
+
+#   - name: "EL_EFF_Reco_TOTAL_1NPCOR_PLUS_UNCOR"
+#     Title: "EL EFF Reco TOTAL 1NPCOR PLUS UNCOR"
+#     Type: HISTO
+#     HistoFolderNameDown: "EL_EFF_Reco_TOTAL_1NPCOR_PLUS_UNCOR__1down"
+#     HistoFolderNameUp: "EL_EFF_Reco_TOTAL_1NPCOR_PLUS_UNCOR__1up"
+#     Category: "Electron"
+#     Regions: "*1l*"
+
+#   - name: "EL_EFF_Trigger_TOTAL_1NPCOR_PLUS_UNCOR"
+#     Title: "EL EFF Trigger TOTAL 1NPCOR PLUS UNCOR"
+#     Type: HISTO
+#     HistoFolderNameDown: "EL_EFF_Trigger_TOTAL_1NPCOR_PLUS_UNCOR__1down"
+#     HistoFolderNameUp: "EL_EFF_Trigger_TOTAL_1NPCOR_PLUS_UNCOR__1up"
+#     Category: "Electron"
+#     Regions: "*1l*"
+
+#   - name: "EL_EFF_TriggerEff_TOTAL_1NPCOR_PLUS_UNCOR"
+#     Title: "EL EFF TriggerEff TOTAL 1NPCOR PLUS UNCOR"
+#     Type: OVERALL
+#     OverallUp: 0.001
+#     OverallDown: -0.001
+#     Category: "Electron"
+#     Regions: "*1l*"
+#     #Symmetrisation: TWOSIDED
+
+
+# # # ####################################
+# # # ##### Muon Systematics #####
+# # # ####################################
+
+
+#   - name: "MUON_CB"
+#     Title: "MUON CB"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_CB__1up"
+#     HistoFolderNameDown: "MUON_CB__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+#     #Symmetrisation: TWOSIDED
+
+#   - name: "MUON_EFF_BADMUON_SYS"
+#     Title: "MUON EFF BADMUON SYS"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_EFF_BADMUON_SYS__1up"
+#     HistoFolderNameDown: "MUON_EFF_BADMUON_SYS__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_ISO_STAT"
+#     Title: "MUON EFF ISO STAT"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_EFF_ISO_STAT__1up"
+#     HistoFolderNameDown: "MUON_EFF_ISO_STAT__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_ISO_SYS"
+#     Title: "MUON EFF ISO SYS"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_EFF_ISO_SYS__1up"
+#     HistoFolderNameDown: "MUON_EFF_ISO_SYS__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_RECO_STAT"
+#     Title: "MUON EFF RECO STAT"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_EFF_RECO_STAT__1up"
+#     HistoFolderNameDown: "MUON_EFF_RECO_STAT__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_RECO_STAT_LOWPT"
+#     Title: "MUON EFF RECO STAT LOWPT"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_EFF_RECO_STAT_LOWPT__1up"
+#     HistoFolderNameDown: "MUON_EFF_RECO_STAT_LOWPT__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_RECO_SYS"
+#     Title: "MUON EFF RECO SYS (adjusted)"
+#     Type: OVERALL
+#     OverallUp: 0.01
+#     OverallDown: -0.01
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_RECO_SYS_LOWPT"
+#     Title: "MUON EFF RECO SYS LOWPT"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_EFF_RECO_SYS_LOWPT__1up"
+#     HistoFolderNameDown: "MUON_EFF_RECO_SYS_LOWPT__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_TTVA_STAT"
+#     Title: "MUON EFF TTVA STAT"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_EFF_TTVA_STAT__1up"
+#     HistoFolderNameDown: "MUON_EFF_TTVA_STAT__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_TTVA_SYS"
+#     Title: "MUON EFF TTVA SYS"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_EFF_TTVA_SYS__1up"
+#     HistoFolderNameDown: "MUON_EFF_TTVA_SYS__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_TrigStatUncertainty"
+#     Title: "MUON EFF TrigStatUncertainty"
+#     Type: HISTO
+#     HistoFolderNameUp: "MUON_EFF_TrigStatUncertainty__1up"
+#     HistoFolderNameDown: "MUON_EFF_TrigStatUncertainty__1down"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_EFF_TrigSystUncertainty"
+#     Title: "MUON EFF TrigSystUncertainty"
+#     Type: HISTO
+#     HistoFolderNameDown: "MUON_EFF_TrigSystUncertainty__1down"
+#     HistoFolderNameUp: "MUON_EFF_TrigSystUncertainty__1up"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_SAGITTA_DATASTAT"
+#     Title: "MUON SAGITTA DATASTAT"
+#     Type: HISTO
+#     HistoFolderNameDown: "MUON_SAGITTA_DATASTAT__1down"
+#     HistoFolderNameUp: "MUON_SAGITTA_DATASTAT__1up"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_SAGITTA_GLOBAL"
+#     Title: "MUON SAGITTA GLOBAL"
+#     Type: HISTO
+#     HistoFolderNameDown: "MUON_SAGITTA_GLOBAL__1down"
+#     HistoFolderNameUp: "MUON_SAGITTA_GLOBAL__1up"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_SAGITTA_PTEXTRA"
+#     Title: "MUON SAGITTA PTEXTRA"
+#     Type: HISTO
+#     HistoFolderNameDown: "MUON_SAGITTA_PTEXTRA__1down"
+#     HistoFolderNameUp: "MUON_SAGITTA_PTEXTRA__1up"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_SAGITTA_RESBIAS"
+#     Title: "MUON SAGITTA RESBIAS"
+#     Type: HISTO
+#     HistoFolderNameDown: "MUON_SAGITTA_RESBIAS__1down"
+#     HistoFolderNameUp: "MUON_SAGITTA_RESBIAS__1up"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+#   - name: "MUON_SCALE"
+#     Title: "MUON SCALE"
+#     Type: HISTO
+#     HistoFolderNameDown: "MUON_SCALE__1down"
+#     HistoFolderNameUp: "MUON_SCALE__1up"
+#     Category: "Muon"
+#     Regions: "*1l*"
+
+# # # ####################################
+# # # ##### Tau Systematics #####
+# # # ####################################
+
+#   - name: "TAUS_SF_EFF_ELERNN_STAT"
+#     Title: "TAUS SF EFF ELERNN STAT"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_SF_EFF_ELERNN_STAT__1down"
+#     HistoFolderNameUp: "TAUS_SF_EFF_ELERNN_STAT__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_SF_EFF_ELERNN_SYST"
+#     Title: "TAUS SF EFF ELERNN SYST"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_SF_EFF_ELERNN_SYST__1down"
+#     HistoFolderNameUp: "TAUS_SF_EFF_ELERNN_SYST__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_ELEOLR_TOTAL"
+#     Title: "TAUS TRUEHADTAU EFF ELEOLR TOTAL"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_ELEOLR_TOTAL__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_ELEOLR_TOTAL__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RECO_TOTAL"
+#     Title: "TAUS TRUEHADTAU EFF RECO TOTAL"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RECO_TOTAL__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RECO_TOTAL__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST2025"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 1PRONGSTATSYST2025"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST2025__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST2025__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST2530"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 1PRONGSTATSYST2530"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST2530__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST2530__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST3040"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 1PRONGSTATSYST3040"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST3040__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST3040__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST4060"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 1PRONGSTATSYST4060"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST4060__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST4060__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST6080"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 1PRONGSTATSYST6080"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST6080__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST6080__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST80120"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 1PRONGSTATSYST80120"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST80120__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYST80120__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYSTGE120"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 1PRONGSTATSYSTGE120"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYSTGE120__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_1PRONGSTATSYSTGE120__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST2030"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 3PRONGSTATSYST2030"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST2030__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST2030__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST3040"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 3PRONGSTATSYST3040"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST3040__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST3040__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST4060"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 3PRONGSTATSYST4060"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST4060__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST4060__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST6080"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 3PRONGSTATSYST6080"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST6080__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST6080__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST80120"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 3PRONGSTATSYST80120"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST80120__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYST80120__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYSTGE120"
+#     Title: "TAUS TRUEHADTAU EFF RNNID 3PRONGSTATSYSTGE120"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYSTGE120__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_RNNID_3PRONGSTATSYSTGE120__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_TRIGGER_STATDATA161718"
+#     Title: "TAUS TRUEHADTAU EFF TRIGGER STATDATA161718"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_TRIGGER_STATDATA161718__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_TRIGGER_STATDATA161718__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_TRIGGER_STATMC161718"
+#     Title: "TAUS TRUEHADTAU EFF TRIGGER STATMC161718"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_TRIGGER_STATMC161718__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_TRIGGER_STATMC161718__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_TRIGGER_SYST161718"
+#     Title: "TAUS TRUEHADTAU EFF TRIGGER SYST161718"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_TRIGGER_SYST161718__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_TRIGGER_SYST161718__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_EFF_TRIGGER_SYSTMU161718"
+#     Title: "TAUS TRUEHADTAU EFF TRIGGER SYSTMU161718"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_EFF_TRIGGER_SYSTMU161718__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_EFF_TRIGGER_SYSTMU161718__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_SME_TES_DETECTOR"
+#     Title: "TAUS TRUEHADTAU SME TES DETECTOR"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_SME_TES_DETECTOR__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_SME_TES_DETECTOR__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_SME_TES_INSITUEXP"
+#     Title: "TAUS TRUEHADTAU SME TES INSITUEXP"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_SME_TES_INSITUEXP__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_SME_TES_INSITUEXP__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_SME_TES_INSITUFIT"
+#     Title: "TAUS TRUEHADTAU SME TES INSITUFIT"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_SME_TES_INSITUFIT__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_SME_TES_INSITUFIT__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_SME_TES_MODEL_CLOSURE"
+#     Title: "TAUS TRUEHADTAU SME TES MODEL CLOSURE"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_SME_TES_MODEL_CLOSURE__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_SME_TES_MODEL_CLOSURE__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+#   - name: "TAUS_TRUEHADTAU_SME_TES_PHYSICSLIST"
+#     Title: "TAUS TRUEHADTAU SME TES PHYSICSLIST"
+#     Type: HISTO
+#     HistoFolderNameDown: "TAUS_TRUEHADTAU_SME_TES_PHYSICSLIST__1down"
+#     HistoFolderNameUp: "TAUS_TRUEHADTAU_SME_TES_PHYSICSLIST__1up"
+#     Category: "Tau"
+#     Regions: "*1tau*"
+
+
+# # # ####################################
+# # # ##### mET Systematics #####
+# # # ####################################
+
+#   - name: "MET_SoftTrk_ResoPara"
+#     Title: "MET SoftTrk ResoPara"
+#     Type: HISTO
+#     HistoFolderNameUp: "MET_SoftTrk_ResoPara"
+#     Symmetrisation: ONESIDED
+#     Category: "Other"
+#     SubCategory: "MET"
+
+#   - name: "MET_SoftTrk_ResoPerp"
+#     Title: "MET SoftTrk ResoPerp"
+#     Type: HISTO
+#     HistoFolderNameUp: "MET_SoftTrk_ResoPerp"
+#     Category: "Other"
+#     SubCategory: "MET"
+
+#   - name: "MET_SoftTrk_Scale"
+#     Title: "MET SoftTrk Scale"
+#     Type: HISTO
+#     HistoFolderNameUp: "MET_SoftTrk_Scale__1up"
+#     HistoFolderNameDown: "MET_SoftTrk_Scale__1down"
+#     Category: "Other"
+#     SubCategory: "MET"
+
+
+# # # ####################################
+# # # ##### luminosity Systematics #####
+# # # ####################################
+#   - name: "luminosity"
+#     Title: "Luminosity"
+#     Type: OVERALL
+#     OverallUp: 0.0083
+#     OverallDown: -0.0083
+#     #Symmetrisation: TWOSIDED
+#     Category: "Other"
+#     SubCategory: "Luminosity"
+
+# # # ####################################
+# # # ##### Pileup Systematics #####
+# # # ####################################
+#   - name: "pileup"
+#     Title: "Pileup"
+#     Type: HISTO
+#     HistoFolderNameUp: "PRW_DATASF__1up"
+#     HistoFolderNameDown: "PRW_DATASF__1down"
+#     # Symmetrisation: ONESIDED
+#     Category: "Other"
+#     SubCategory: "Pileup"
+
+
+

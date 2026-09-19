@@ -1,0 +1,254 @@
+
+===== PAGE 1 =====
+ Referee comments PLB
+
+ https://arxiv.org/pdf/2606.02067
+
+ Reviewer #1:
+
+ Dear authors,
+
+ Thank you for this nicely well-written paper. The manuscript is well-written, the results are
+ interesting and I believe the paper deserves to be published after some minor revisions.
+ Please find my detailed comments below.
+
+ Introduction:
+
+ In the SM, the production of a tvau system with an associated n-quark is SM suppressed.
+ ->I feel the statement is too generic. There are SM processes (e.g. top quark decay) where
+ there is no issue. So it would be good to be a more precise here. I assume it is referring to
+ b-meson decays.
+
+
+ → We meant the process gq → Wb -> taunub, rather than all SM processes yielding a
+ taunu+b final state. This process is CKM-suppressed by the small Vub and Vcb. We have
+ rewrited it as:
+
+ “In the SM, the production amplitudes of a $\tau\nu$ system with an associated $b$-quark,
+ which can directly interfere with the BSM signal, are CKM-suppressed. Consequently, the
+ SM-BSM interference is expected to be small in the high-mass region.”
+
+
+
+
+ Section 3
+
+ Signal model footnote. This is a bit confusing to me. You say that the beta_13 is roughly
+ 0.2beta_23 and then you say it is ignored. Does this mean that you actually put it to 0 in the
+ end?
+
+ -> No, beta_13 in our signals is computed as V_td/V_ts*beta^23. It is omitted from Eq. (1)
+ since it has a negligible impact of  |(V_cd*beta_13)/(V_cs*beta_23)| ~ 0.05 on coefficient
+ CLL.
+
+ Section 5
+
+ Why is there no muon veto for hadronic tau candidates?
+ → the probability of a muon to be mis-identified as a had tau candidate is much smaller than
+ that for an electron. Therefore we only apply eVeto RNN for tau candidates.
+
+ Define a calorimeter-tagged muon before
+
+===== PAGE 2 =====
+ → Will define a calorimeter-tagged muon:
+
+ “calorimeter-tagged muons (identified from ID tracks matched with calorimeter energy
+ deposit compatible with a minimum ionizing particle) sharing an ID track with an electron”
+
+ Why is for an electron only the closest jet vetoes, while for muons all jets close by are vetoed
+ if they have max. 2 tracks?
+ →Not all jets near a muon are vetoed. We only reject a jet to which a muon is
+ ghost-associated to within DeltaR=0.4 and it has not many associated tracks. Electrons
+ typically produce sizable calorimeter showers, while muons are usually minimum-ionising.
+ This leads to the different strategy for jet-electron and jet-muon overlap removal. We agree
+ that the current wording is a bit misleading and propose to revise it to:
+
+ “jets within $De\ta R=0.4$ of a muon if they have at most two associated tracks and the
+ muon is ghost-associated with the jet.”
+
+ ETmiss is redefined here while it was defined before
+ Will remove “The magnitude of this vector is denoted by ETmiss.”
+
+ Event selection
+
+ In general it could use some more motivation for some of the cuts. Now they are mostly
+ listed. It is nice to connect the requirements to the background which is being rejected (e.g.
+ why max. 4 jets). What kind of criterion was used? I see that the stat. unc. on bkg is kept
+ small but assume there was also a specific criterion used to extract signal?
+ -> The jet multiplicity is required to suppress top quark background. The high-jet pT and the
+ invariant mass requirements are used to select events consistent with an on-shell LQ decay,
+ whereas the large mT, mET and deltaphi requirements target the high-mass, back-to-back
+ taunu topology for the non-resonant LQ process.
+ The specific value for each selection were determined through the SR optimisation by
+ scanning the selection thresholds and maximising the expected significance, while requiring
+ the statistical uncertainty on bkg. remain below 30%.
+
+ For the m_jthad the light jet is a proxy for the b-quark, otherwise it could not give the
+ leptoquark mass. What is the purity of this selection? Have you checked that it would not be
+ better to use the highest GN-2 value instead? Maybe that would have more purity?
+
+ → The light jet in SR0b is not selected simply as a proxy for b-quark. For large beta23, the
+ SR0b-Res has a sizeable contribution from resonant U1->stau decay. In particular,
+ U1->charged lepton decay width for btau:stau:dtau is approximately 1:|beta23|^2:|beta13|^2,
+ which means that fraction of stau decay increase from ~3.8% to ~74% when beta23
+ increase from 0.2 to 1.8. Selecting the light jets with highest GN-2 value is therefore not
+ appropriate for the SR0b.
+
+ Background estimation
+
+ Why are we only considering fully leptonic ttbar and tW decays? Explain why this is
+ dominant. Also, we estimate both together, but they must behave quite a bit different in
+
+===== PAGE 3 =====
+ different bins and also in the extrapolation? How is that dealt with? Do you have a ratio
+ uncertainty for them?
+ → We studied the inclusive ttbar and single top production and confirmed that the leptonic
+ ttbar and tW decays constitute the majority of top background since we require large missing
+ ET. The single-top/ttbar ratio was also compared between the SRs and CRs and found to be
+ consistent within the MC statistical uncertainties.
+
+
+ I would swap ttbar and W-jets section to be consistent with the discussion before.
+
+
+ For the W+jets section, in the final hadronic tau case, there will be extra neutrino's wrt
+ leptonic case? How do you make sure this does not mess up your modeling?
+ → We have confirmed the W→e/mu nu to W→taunu extrapolation in the low-mass
+ W->taunu region. The data and simulation show good consistency.
+
+ Systematic uncertainties
+
+ 30% uncertainty on W+HF vs. W+LF. Was a cross-check made for this analysis too? Why
+ would these old ATLAS studies be valid for this analysis, in another phase space. It would be
+ good to justify this.
+ → As shown in Refs. 87-90, mismodeling of W+HF/LF ratio depends on the event
+ kinematics indeed. The 30% uncertainty is chosen conservatively based on the largest
+ deviations observed in the previous ATLAS studies.
+ Since the analysis is stat-dominant, further increasing this uncertainty would have a
+ negligible impact on the final result. We also decorrelated this uncertainty between the
+ resonant and non-resonant regions to account for possible kinematic dependence.
+
+ For the Z->nunu background, why was the choice made not to use a fake tau method, like
+ almost all similar searches do? We know that the modeling is bad and it is confirmed by the
+ 60% differences you are already seeing. Would it not be better to correct using such a
+ method? Now we apply a 100% uncertainty on a MC method. The 100% is also not really
+ motivated.
+ → The contribution from the fake background in this analysis is negligibly small. Even the
+ 100% uncertainty would have less than 1% impact on the final result. So we decided not to
+ use a dedicated fake tau method for this background. The 100% uncertainty is assigned
+ conservatively from the fake study.
+
+ Results
+
+ Motivate why you completely uncorrelated the W normalization (same for top) in the two
+ regions. Connected to this. For top the two factors are roughly similar, but for the W they are
+ very different. Do you understand why the W normalization in both regions would be so
+ different?
+ → We decorrelated the normalization in the Res/Non-Res region since they probe different
+ kinematics regimes. The difference between W+jets normalisation factors can be explained
+ as a result of the different jet-pT range in the two regions.
+
+===== PAGE 4 =====
+ It is mentioned that it is verified that the total yield stays positive in all cases, but is this also
+ the case during the limit setting when mu is allowed to vary or could weird things happen
+ there? Do you constrain how much mu can vary?
+ → The contribution from BSM+interference could become negative in case the mu is small
+ enough. But in the parameter region where the analysis is sensitive to, it does not affect the
+ upper-limit determination since the interference contribution is small compared with the pure
+ BSM contribution.
+
+
+ Discrepancy in Validation Region. For this discrepancy, could it be related to the big
+ difference in normalization factors? If there is a specific distribution that convinced you that it
+ is a stastitical fluctuation, consider adding it to the supplementary material
+ → The mET distribution and dedicated check in the low mass VR convinced us that it’s a
+ statistical fluctuation.
+
+ I am also missing a bit of information about the correlation model of the nuisances. Which
+ ones are correlated between signal and background, across bins, across years?
+ → the nuisances parameters are generally correlated across regions and between signal
+ and backgrounds. Theoretical uncertainties are processed specifically, and W+jets HF
+ modeling uncertainties are decorrelated between resonant and non-resonant regions. The fit
+ is performed with one bin per region, and no special treatment is applied across the years.
+
+
+
+
+ Reviewer #2:
+
+ First of all, congratulations on this interesting result by ATLAS. The overall quality of the
+ document is really good. I have some comments that will help you improve your paper.
+ Please find them below:
+
+ page 2 last paragraph: Two types…
+ In the resonant and non-resonant categories, do you consider only the signal that each
+ category is dedicated to?
+ Similarly, for the b-tagging categories. What is considered as signal in each category and
+ what do you do for the other signals? Is each signal extracted from the dedicated category?
+ → We do not separate signals according to the categories. The resonant and non-resonant
+ SRs are optimised for the corresponding topologies, while both can contain contributions
+ from the other topology (although usually much smaller). The same applies to the
+ b-tagging/b-veto categories.
+
+ page 4 4rth paragraph:
+ How reasonable is it to look only in the left handed scenario?
+ → The pure left-handed scenario already probes the b->ctaunu transition and is therefore
+ chosen as the main benchmark scenario.  A benchmark with a sizable right-handed
+ coupling, betaR33=1, has been also studied. We found that it enhances the non-resonant
+ process more than resonant process and lead to a better sensitivity at high LQ masses. The
+ upper limit on the combined resonant and non-resonant visible cross section therefore show
+
+===== PAGE 5 =====
+ the dependence on the LQ mass.   We could add a short description of this study in the text,
+ something like “The impact of a sizable right-handed coupling is also investigated and is
+ found to enhance the non-resonant process relative to the resonant one, resulting in
+ stronger sensitivity at high LQ masses.”
+
+ page 4 last paragraph/ page 5 first: The relative contributions of…
+ Can you explain more the interference between resonant and non resonant signal and how
+ this is taken into account in the signal extraction.
+ →All resonant and non-resonant signals are included simultaneously in the matrix-element
+ calculation. Therefore, any interference between resonant and non-resonant diagrams is
+ naturally included in the nominal BSM samples, and no specific treatment is needed in the
+ signal extraction.
+
+
+ page 5 second paragraph: no hadronic tau triggers? a bit surprising, you may want to
+ comment.
+ → The missing ET trigger is already fully efficient for the signal-region selection, since all
+ SRs require missing ET > 200 GeV. Therefore, no dedicated hadronic tau trigger is needed
+ for the signal efficiency. Single lepton triggers are used for CRs and VRs.
+
+ page 5 third paragraph: The contribution from interference between the signal process and
+ the SM …
+ Can you explaining more this interference as well? Later on (page 11 in the resulst) you
+ mention that the μ is set to sqrt(mu), it is not obvious why.
+ → The interference occurs between the BSM and SM taunu amplitudes.
+ Two kinds of samples are used, corresponding to the pure BSM term (S) and the
+ interference term (I), which scale with mu and sqrt(mu) in the fit, respectively. And the signal
+ model is therefore treated as (mu * S + sqrt(mu) * I + B) in the likelihood.
+
+
+ page 6 and page 9 second paragraph:
+ The names of the working points dont mean much to those of us out of ATLAS. This is
+ especially true on page 9. Either numerical description of the efficiency or simply the mention
+ that a "tight" selection is applied to ID and Iso is enough. My understanding is that the
+ preselection leptons are used for the overlap removal, while the CR is tighter. It seems to me
+ that this is fairly standard practice.
+ If there is a another point that I have missed, and requires the exact names? If so make it
+ more clear because as an educated reader I didn't get it.
+ →  The understanding is correct.
+
+ page 11, results, first paragraph:
+ The interference is not very well described, apears almost out of context here. It is implied
+ earlier but not enough information is given. also this is interference between the signal and
+ the SM bkg right?
+ Is there also interference between resonanly and non-resonant signal?
+ Why sqrt(μ)?
+ → Already addressed for the similar question.
+
+===== PAGE 6 =====
+ page 11, results, third paragraph:
+ can you quantify satisfactory?
+ → The post-fit background predictions agree with data within approximately 1sigma in all
+ VRs except VRW-NonRes, where a deviation of about 2sigma is observed.

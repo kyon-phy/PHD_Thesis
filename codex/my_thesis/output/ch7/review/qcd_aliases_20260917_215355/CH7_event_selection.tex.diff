@@ -1,0 +1,39 @@
+--- Chapters/CH7_event_selection.tex.before
++++ Chapters/CH7_event_selection.tex
+@@ -49,14 +49,14 @@
+     \label{fig:ch7_fake_met}
+ \end{figure}
+ 
+-The minimum jet--$\mpt$ separation in $\phi$ and the ratio $\met/\minDphiJetPt$ are used as discriminating variables.
+-Here $\minDphiJetPt$ is the $\pT$ of the jet with the smallest $\Delta\phi(j,\met)$.
+-Since fake $\met$ is calculated from a mismeasured jet, multijet events tend to have small $\min\Delta\phi(j,\met)$ and $\met/\minDphiJetPt$.
++The minimum jet--$\mpt$ separation in $\phi$ and the ratio $\metOverMinDphiJetPt$ are used as discriminating variables.
++Here $\minDphiJetPt$ is the $\pT$ of the jet with the smallest $\DphiJetMet$.
++Since fake $\met$ is calculated from a mismeasured jet, multijet events tend to have small $\minDphiJetMet$ and $\metOverMinDphiJetPt$.
+ By contrast, the neutrinos in signal events can produce large $\met$ even when a much softer jet happens to lie nearby in $\phi$.
+ 
+ Events are therefore retained if
+ \begin{equation}
+-    \min\Delta\phi(j,\met)>0.4 \quad\text{or}\quad \frac{\met}{\minDphiJetPt}>6.
++    \minDphiJetMet>0.4 \quad\text{or}\quad \metOverMinDphiJetPt>6.
+     \label{eq:ch7_qcd_cut}
+ \end{equation}
+ A detailed study is introduced in Appendix~\ref{App:QCD_bkg_study}.
+@@ -105,7 +105,7 @@
+ 
+ Note that only the $m_{b\tau}>0$ and $800~\GeV$ are tested here. Since the signal mass resolution is only about 50\% and very few background events are remained in the SRs, little improvement in sensitivity is expected from a finer mass threshold scan.
+ 
+-Regarding the signal selection, fifferent signal benchmarks are selected for each signal region. The optimisation for $\bTagSR$-$\Res$ uses $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, where on-shell production is dominant.
++Regarding the signal used for the optimisation, different signal benchmarks are selected for each signal region. The optimisation for $\bTagSR$-$\Res$ uses $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, where on-shell production is dominant.
+ For $\bTagSR$-$\NonRes$, the optmisation uses $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, where t-chnnel exchange process is dominaant.
+ Interference is not included in the scan because its contribution is around $5$--$10\%$ in the parameter range probed by the $\bTagSR$ regions, as discussed in Appendix~\ref{app:signal_interference_study}. The selected cut combination is therefore not expected to change significantly when interference is included.
+ 
+@@ -387,7 +387,7 @@
+         Trigger & \multicolumn{4}{c}{Lowest-threshold unprescaled $\met$ trigger} \\
+         $N_\tau$ & \multicolumn{4}{c}{1} \\
+         $N_\ell=N_e+N_\mu$ & \multicolumn{4}{c}{0} \\
+-        Multijet suppression & \multicolumn{4}{c}{$\min\Delta\phi(j,\met)>0.4$ or $\met/\minDphiJetPt>6$} \\
++        Multijet suppression & \multicolumn{4}{c}{$\minDphiJetMet>0.4$ or $\metOverMinDphiJetPt>6$} \\
+         \midrule
+         & \multicolumn{2}{c}{Resonant} & \multicolumn{2}{c}{Non-resonant} \\
+         Requirement & $\bTagSR$-$\Res$ & $\bVetoSR$-$\Res$ & $\bTagSR$-$\NonRes$ & $\bVetoSR$-$\NonRes$ \\

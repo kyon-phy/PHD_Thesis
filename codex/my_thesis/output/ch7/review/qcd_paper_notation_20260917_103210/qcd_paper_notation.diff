@@ -1,0 +1,71 @@
+--- CH7_event_selection.tex (before)
++++ Chapters/CH7_event_selection.tex
+@@ -49,22 +49,15 @@
+     \label{fig:ch7_fake_met}
+ \end{figure}
+ 
+-The minimum jet--$\mpt$ $\phi$ separation and the ratio of $\met$ to the $\pT$ of the closest jet in $\phi$ are used as discriminating variables:
+-\begin{align}
+-    \Delta\phi_{\min} &= \min_j\Delta\phi(\mpt,\vec p_{\mathrm{T}}^{\,j}),
+-    &R_{\mathrm{miss}/j} &= \frac{\met}{\pT^{j_{\min}}},
+-    \label{eq:ch7_qcd_variables}
+-\end{align}
+-where $j_{\min}$ is the jet with the smallest separation in $\phi$ from $\mpt$.
+-It need not be the leading jet.
+-Mismeasured multijet events tend to have small $\Delta\phi_{\min}$ and a modest $R_{\mathrm{miss}/j}$.
++The minimum jet--$\mpt$ separation in $\phi$, $\min\Delta\phi(j,\met)$, and the ratio $\met/\minDphiJetPt$ are used as discriminating variables.
++Here $\minDphiJetPt$ is the $\pT$ of the jet with the smallest $\Delta\phi(j,\met)$.
++This jet need not be the leading jet.
++Mismeasured multijet events tend to have small $\min\Delta\phi(j,\met)$ and a modest $\met/\minDphiJetPt$.
+ By contrast, the neutrinos in signal events can produce large $\met$ even when a much softer jet happens to lie nearby in $\phi$.
+ 
+ Events are retained if
+ \begin{equation}
+-    \Delta\phi_{\min}>0.4
+-    \quad\text{or}\quad
+-    R_{\mathrm{miss}/j}>6.
++    \min\Delta\phi(j,\met)>0.4 \quad\text{or}\quad \frac{\met}{\minDphiJetPt}>6.
+     \label{eq:ch7_qcd_cut}
+ \end{equation}
+ The second condition retains signal events that would be lost with the angular requirement alone.
+@@ -367,7 +360,7 @@
+         Trigger & \multicolumn{4}{c}{Lowest-threshold unprescaled $\met$ trigger} \\
+         $N_\tau$ & \multicolumn{4}{c}{1} \\
+         $N_\ell=N_e+N_\mu$ & \multicolumn{4}{c}{0} \\
+-        Multijet suppression & \multicolumn{4}{c}{$\Delta\phi_{\min}>0.4$ or $R_{\mathrm{miss}/j}>6$} \\
++        Multijet suppression & \multicolumn{4}{c}{$\min\Delta\phi(j,\met)>0.4$ or $\met/\minDphiJetPt>6$} \\
+         \midrule
+         & \multicolumn{2}{c}{Resonant} & \multicolumn{2}{c}{Non-resonant} \\
+         Requirement & $\SR$-$\Res$ & $\bVetoSR$-$\Res$ & $\SR$-$\NonRes$ & $\bVetoSR$-$\NonRes$ \\
+--- Appendix2.tex (before)
++++ Chapters/Appendix/Appendix2.tex
+@@ -29,9 +29,9 @@
+ \end{table}
+ 
+ Figure~\ref{fig:app_qcd_correlations} shows the two-dimensional distributions after this selection.
+-The multijet sample is concentrated at small $\Delta\phi_{\min}$ and relatively small $R_{\mathrm{miss}/j}$.
++The multijet sample is concentrated at small $\min\Delta\phi(j,\met)$ and relatively small $\met/\minDphiJetPt$.
+ The signal occupies a broader angular range and extends to larger momentum ratios.
+-Approximately $90\%$ of the multijet events have $R_{\mathrm{miss}/j}<6$, compared with approximately $55\%$ of the signal in the study sample.
++Approximately $90\%$ of the multijet events have $\met/\minDphiJetPt<6$, compared with approximately $55\%$ of the signal in the study sample.
+ The ratio requirement alone would therefore reject a substantial fraction of the signal.
+ It is instead combined with the angular requirement so that either a large angle or a large ratio is sufficient to retain an event.
+ 
+@@ -55,7 +55,7 @@
+ The angular threshold is scanned while the momentum-ratio threshold is fixed at six.
+ For an angular threshold $X$, the rejected fraction is defined as
+ \begin{equation}
+-    \text{Rejection ratio}=\frac{N\!\left(\Delta\phi_{\min}<X\ \text{and}\ R_{\mathrm{miss}/j}<6\right)}{N(\text{all events after preselection})}.
++    \text{Rejection ratio}=\frac{N\!\left(\min\Delta\phi(j,\met)<X\ \text{and}\ \met/\minDphiJetPt<6\right)}{N(\text{all events after preselection})}.
+     \label{eq:app_qcd_rejection}
+ \end{equation}
+ The numerator requires both small angular separation and a small momentum ratio.
+@@ -71,7 +71,7 @@
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.70\linewidth]{Figs/CH7/QCD/rejection_scan.pdf}
+-    \caption[Scan of the multijet rejection threshold]{Rejected fractions of simulated signal and multijet events as a function of the minimum jet--$\mpt$ angular threshold $X$, with $R_{\mathrm{miss}/j}<6$ also required in the rejected sample. The red and black curves show signal loss and multijet rejection, respectively. The vertical dotted line marks the adopted threshold $X=0.4$. The denominator is the loose selection in Table~\ref{tab:app_qcd_preselection}.}
++    \caption[Scan of the multijet rejection threshold]{Rejected fractions of simulated signal and multijet events as a function of the minimum jet--$\mpt$ angular threshold $X$, with $\met/\minDphiJetPt<6$ also required in the rejected sample. The red and black curves show signal loss and multijet rejection, respectively. The vertical dotted line marks the adopted threshold $X=0.4$. The denominator is the loose selection in Table~\ref{tab:app_qcd_preselection}.}
+     \label{fig:app_qcd_rejection_scan}
+ \end{figure}
+ 

@@ -1,0 +1,360 @@
+### PAGE 1
+leptoquark search in LHC-ATLAS 
+motivated by B anomaly
+Jiaqi Zang
+12/02/2026
+1
+Based on https://arxiv.org/abs/2111.04748
+12.02.26 Jiaqi ZANGAJ tau meeting
+NOTES: 
+
+### PAGE 2
+Updates
+• Toy limit with all systematics included using new signals is performed with config:
+• SPLUSB TOY:3000
+• Mu Scan step: 15
+• Mu Scan Min: (Asymptotic -2sigma limit) - 2
+• Mu Scan Max: exp. (Asymptotic +2sigma limit) + 2
+• Checked limit w/wo interference. Difference less than 1%.
+• New limits is drawn with updated signals (BSM only) and anomaly regions.
+(BSM+interference process had a bit issue. Will update later this week.)
+• New anomaly regions is drawn followed by
+𝑔𝑈
+2 𝑣2
+4𝑀𝐿𝑄
+2 1 +
+𝑉𝑐𝑠
+𝑉𝑐𝑏 𝛽𝐿
+23 = 0.051 ± 0.027 (best-fit coupling
+𝐶𝐿𝐿
+𝑐 within 1𝜎).
+• The original anomaly region from the paper is obtained by scanning 𝛽𝐿
+23 ∈ [0.06 0.16] with the
+relation above, and converted regions by us are based on the original anomaly region.
+• The updated region is calculated based on the fixed 𝛽𝐿
+23 or 𝑀𝐿𝑄, which is the most accurate but
+narrower than before.
+12.02.26 Jiaqi ZANG AJ tau meeting 2
+NOTES: 
+
+### PAGE 3
+Anomaly region
+• Updated region is narrower than before since we have a specific 𝛽𝐿
+23.
+• Followed by
+𝑔𝑈
+2 𝑣2
+4𝑀𝐿𝑄
+2 1 +
+𝑉𝑐𝑠
+𝑉𝑐𝑏 𝛽𝐿
+23 = 𝐶𝐿𝐿
+𝑐  
+12.02.26 Jiaqi ZANG AJ tau meeting 3
+Before After
+
+NOTES: 
+
+### PAGE 4
+Anomaly region
+12.02.26 Jiaqi ZANG AJ tau meeting 4
+Before After
+• Updated region is narrower than before since we have a specific 𝛽𝐿
+23.
+• Followed by
+𝑔𝑈
+2 𝑣2
+4𝑀𝐿𝑄
+2 1 +
+𝑉𝑐𝑠
+𝑉𝑐𝑏 𝛽𝐿
+23 = 0.051 ± 0.027
+NOTES: 
+
+### PAGE 5
+Limit with Interference
+12.02.26 Jiaqi ZANG AJ tau meeting 5
+BSM-only limits BSM+Interference limits
+• Limits w/wo interference has little difference. (<1%)
+
+NOTES: 
+
+### PAGE 6
+Limit with Interference
+12.02.26 Jiaqi ZANG AJ tau meeting 6
+BSM-only limits BSM+Interference limits
+• Limits w/wo interference has little difference. (<1%)
+
+NOTES: 
+
+### PAGE 7
+Limit with new signals
+12.02.26 Jiaqi ZANG AJ tau meeting 7
+Original grids Grids after interpolation
+• Many parameter points near limit are added, instead, the points apart from limit are omitted as expected.
+• Interpolation between the grids are needed to draw the mu=1 limit.
+• A linear interpolation in (mu, gu, beta) 3D grids are performed using griddata funcition.
+
+NOTES: 
+
+### PAGE 8
+Limits with new samples
+12.02.26 Jiaqi ZANG AJ tau meeting 8
+• Asymptotic limits with new samples are drawn
+
+NOTES: 
+
+### PAGE 9
+Limits with new samples
+12.02.26 Jiaqi ZANG AJ tau meeting 9
+• Asymptotic limits with new samples are drawn
+
+NOTES: 
+
+### PAGE 10
+ToyLimits
+12.02.26 Jiaqi ZANG AJ tau meeting 10
+• Asymtotic vs. Toy limits:
+NOTES: 
+
+### PAGE 11
+Asymptoticsvs. toy limits
+12.02.26 Jiaqi ZANG AJ tau meeting 11
+• MU= 1.5TeV,(𝜇𝑡𝑜𝑦 − 𝜇𝐴𝑠𝑦𝑚.)/𝜇𝐴𝑠𝑦𝑚.
+NOTES: 
+
+### PAGE 12
+Asymptoticsvs. toy limits
+12.02.26 Jiaqi ZANG AJ tau meeting 12
+• MU= 2 TeV,(𝜇𝑡𝑜𝑦 − 𝜇𝐴𝑠𝑦𝑚.)/𝜇𝐴𝑠𝑦𝑚.
+
+NOTES: 
+
+### PAGE 13
+Asymptoticsvs. toy limits
+12.02.26 Jiaqi ZANG AJ tau meeting 13
+• MU= 3TeV,(𝜇𝑡𝑜𝑦 − 𝜇𝐴𝑠𝑦𝑚.)/𝜇𝐴𝑠𝑦𝑚.
+
+NOTES: 
+
+### PAGE 14
+TODOs
+• Limit Plot Cosmetics.
+• Legend/Texts/Axis range should be adjust based on mass and beta?
+• TOY limits
+• fiducial limit comparison in Res./NonRes. Region for signals with |𝛽𝑅
+33| = 1
+and 0
+• Report the status and discuss the remained action items in EB meeting on
+Friday.
+12.02.26 Jiaqi ZANG AJ tau meeting 14
+NOTES: 
+
+### PAGE 15
+BACKUP
+12.02.26 Jiaqi ZANG AJ tau meeting 15
+NOTES: 
+
+### PAGE 16
+Check on 𝜷𝑹
+𝟑𝟑 samples
+• Two difference kinds of samples are used here
+• Sample1: generated with (𝛽𝑅
+33 = −1, 𝑔𝑈 = 1.0, 𝛽𝐿
+23 = 0.2)
+• Sample2: generated with (𝛽𝑅
+33 = 0, 𝑔𝑈 = 1.0, 𝛽𝐿
+23 = 0.2) but using 𝛽𝑅
+33 =
+− 1 internal weight with additional corrected weights.
+• Each set is compared at different mass points. (1.5/2/2.5/3 TeV)
+• 1.5 TeV: 1.09 (Res.)/1.20 (NonRes.)
+• 2.0 TeV: 0.98 (Res.)/ 1.27 (NonRes.)
+• 2.5 TeV: 0.92 (Res)/1.12 (NonRes.)
+• 3.0 TeV: 1.02 (Res)/1.15 (NonRes.)
+• 1.5 TeV Interference: 0.85 (Res.) / 1.28 (NonRes.)
+12.02.26 Jiaqi ZANG AJ tau meeting 16
+NOTES: 
+
+### PAGE 17
+Check on 𝜷𝑹
+𝟑𝟑 samples (1.5 TeV)
+12.02.26 Jiaqi ZANG AJ tau meeting 17
+• N-1 plots
+NOTES: 
+
+### PAGE 18
+Check on 𝜷𝑹
+𝟑𝟑 samples (2.5 TeV)
+12.02.26 Jiaqi ZANG AJ tau meeting 18
+• N-1 plots
+
+NOTES: 
+
+### PAGE 19
+Toy test (nominal-only)
+• Signal samples: MU1500_gU1_5_23L0_2/MU1500_gU1_5_23L0_6
+• SPLUSB TOY: 500
+• Mu Scan step: 100
+• Mu Scan Min: 0
+• Mu Scan Max: 10
+• Expected mu: 4.919/0.988
+• Asymptotic expected mu: 5.097/0.957
+12.02.26 Jiaqi ZANG AJ tau meeting 19
+𝛽𝐿
+23 = 0.2
+𝛽𝐿
+23 = 0.6
+NOTES: 
+
+### PAGE 20
+BACKUP
+12.02.26 Jiaqi ZANG AJ tau meeting 20
+NOTES: 
+
+### PAGE 21
+New signals validation
+• New signals with default mc weight (Red) is compared with old samples with
+additional weights (Blue).
+12.02.26 Jiaqi ZANG AJ tau meeting 21
+𝑀𝐿𝑄, 𝛽𝐿
+23, 𝑔𝑈 = (1.5𝑇𝑒𝑉, 0.6,1.5)
+𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 1.00 𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.99
+NOTES: 
+
+### PAGE 22
+New signals validation
+• New signals with default mc weight (Red) is compared with old samples with
+additional weights (Blue).
+12.02.26 Jiaqi ZANG AJ tau meeting 22
+𝑀𝐿𝑄, 𝛽𝐿
+23, 𝑔𝑈 = (2.0𝑇𝑒𝑉, 1.0,2.5)
+𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.87 𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.97
+
+NOTES: 
+
+### PAGE 23
+New signals validation
+• New signals with default mc weight (Red) is compared with old samples with
+additional weights (Blue).
+12.02.26 Jiaqi ZANG AJ tau meeting 23
+𝑀𝐿𝑄, 𝛽𝐿
+23, 𝑔𝑈 = (2.5𝑇𝑒𝑉, 1.0,2.5)
+𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.97 𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.91
+
+NOTES: 
+
+### PAGE 24
+New signals validation
+• New signals with default mc weight (Red) is compared with old samples with
+additional weights (Blue).
+12.02.26 Jiaqi ZANG AJ tau meeting 24
+𝑀𝐿𝑄, 𝛽𝐿
+23, 𝑔𝑈 = (3.0𝑇𝑒𝑉, 1.0,2.5)
+𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.95 𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 1.09
+
+NOTES: 
+
+### PAGE 25
+WCR study
+12.02.26 Jiaqi ZANG AJ tau meeting 25
+NOTES: 
+
+### PAGE 26
+• ~2 sigma discrepancy observed in VR0tau (0tau1b).
+➢ Concern about 0b→1b extrapolation.
+• LPX coveners suggested to use VR0tau as WCR.
+➢No need to assign the ad-hoc uncertainty on W+HF/LF ratio, but poor statistics
+• both regions in the fit are test.
+12.02.26 Jiaqi ZANG AJ tau meeting 26
+Test of differentCR strategies
+NOTES: 
+
+### PAGE 27
+12.02.26 Jiaqi ZANG AJ tau meeting 27
+• S+B fit. 𝑚𝑈, 𝛽𝐿
+23, 𝑔𝑈 = (1.5 𝑇𝑒𝑉, 1.5, 0.6)
+0tau0b WCR (former)
+Test on 0tau1bCR/0tau1b+0tau0bCR
+0tau1b+0tau0b CR (new)
+
+NOTES: 
+
+### PAGE 28
+12.02.26 Jiaqi ZANG AJ tau meeting 28
+Test on 0tau1bCR/0tau1b+0tau0bCR
+• Limits at 1.5 TeV
+0tau0b WCR (former) 0tau1b+0tau0b WCR (new)
+
+NOTES: 
+
+### PAGE 29
+1tau0l1bVR
+• Defined a new VR in the 1tau0l1b region by reverting
+the m(tau,b) and mT cut for resonance and non-
+resonance regions, respectively.
+• mET and tau pT are also relaxed to gain more
+statistics.
+• B-only fit with 0tau1l0b CR is performed without
+systematics included.
+• Observed good agreement in the post-fit data/MC
+comparison.
+12.02.26 Jiaqi ZANG AJ tau meeting 29
+Res:
+NonRes:
+1tau0l1b Res
+1tau0l1b Non-Res
+Config of 0tau0b WCR + 0tau1b VR is kept in the end
+NOTES: 
+
+### PAGE 30
+Unblinded results
+12.02.26 Jiaqi ZANG AJ tau meeting 30
+NOTES: 
+
+### PAGE 31
+UnblindedB-only fit
+12.02.26 Jiaqi ZANG AJ tau meeting 31
+• Fit results and Summary plots
+Resonance SR: 3 events
+Non-resonance SR: 2 event
+• Blinded expected Resonance SR: 2.69 ± 0.71
+• Blinded expected Non-resonance SR: 1.88 ± 0.65
+Unblind
+
+NOTES: 
+
+### PAGE 32
+• Pull plots
+12.02.26 Jiaqi ZANG AJ tau meeting 32
+UnblindedB-only fit
+
+NOTES: 
+
+### PAGE 33
+12.02.26 Jiaqi ZANG AJ tau meeting 33
+UnblindedB-only fit
+• Correlation Matrix
+NOTES: 
+
+### PAGE 34
+Unblinded S+B fit
+• 𝑀𝐿𝑄 = 1.5 TeV,𝑔𝑈 = 1.5, 𝛽𝐿
+23 = 0.6
+12.02.26 Jiaqi ZANG AJ tau meeting 34
+
+NOTES: 
+
+### PAGE 35
+Unblinded S+B fit
+• 𝑀𝐿𝑄 = 2.5 TeV,𝑔𝑈 = 2.5, 𝛽𝐿
+23 = 1
+12.02.26 Jiaqi ZANG AJ tau meeting 35
+
+NOTES: 
+
+### PAGE 36
+Limit
+12.02.26 Jiaqi ZANG AJ tau meeting 36
+
+NOTES: 

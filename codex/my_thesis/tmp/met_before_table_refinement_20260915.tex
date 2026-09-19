@@ -1,0 +1,73 @@
+\section{Missing transverse momentum}
+\label{sec:ch6_met}
+
+The incoming partons at the LHC carry little transverse momentum, so the vector sum of the transverse momenta of all the particles is expected to be approximately zero.
+An imbalance in the visible transverse momentum can therefore indicate undetected particles, such as neutrinos or weakly interacting BSM particles.
+In this analysis, the neutrino produced in the LQ process and the tau-decay neutrino can together give rise to sizeable missing transverse momentum ($\mpt$).
+$\mpt$ is reconstructed as the negative vector sum of the calibrated visible contributions, with its magnitude denoted by $\met$~\cite{ATLAS2025METPerformance}:
+\begin{align}
+    \mpt
+    &=-\left(
+    \sum_e\vec p_{\mathrm{T}}^{\,e}
+    +\sum_\mu\vec p_{\mathrm{T}}^{\,\mu}
+    +\sum_{\tau_{\mathrm{had}}}\vec p_{\mathrm{T}}^{\,\tau}
+    +\sum_j\vec p_{\mathrm{T}}^{\,j}
+    +\vec p_{\mathrm{T}}^{\,\mathrm{soft}}
+    \right),
+    \label{eq:ch6_met_vector}\\
+    \met&=\left|\mpt\right|.
+    \label{eq:ch6_met_magnitude}
+\end{align}
+Two types of contribution are included in the reconstruction:
+\begin{itemize}
+    \item \textbf{hard term}: The electron, muon, hadronic-tau and jet contributions selected for $\mpt$ reconstruction.
+    The jet contribution is selected using the \texttt{Tight} $\mpt$ working point to suppress pile-up jets.
+    This requires jet $\pT>20~\GeV$ for $|\eta|<2.5$ and $\pT>30~\GeV$ for $2.5\leq|\eta|<4.5$.
+    \item \textbf{track soft term}: The vector sum of transverse momenta of selected PV tracks not used in the hard term.
+\end{itemize}
+
+\section{Object definitions in the analysis}
+\label{sec:ch6_analysis_objects}
+
+Baseline and signal objects are defined to provide two levels of selection in the analysis.
+After overlap removal as described in Section~\ref{sec:ch6_overlap}, baseline objects are used for object counting and lepton vetoes.
+Signal objects are selected from these baseline collections with tighter identification or isolation requirements, as summarised in Table~\ref{tab:ch6_analysis_objects}.
+
+\begin{table}[htbp]
+    \begin{spacing}{1}
+    \centering
+    \small
+    \setlength{\tabcolsep}{4pt}
+    \renewcommand{\arraystretch}{1.12}
+    \caption[Baseline and signal object definitions]{Baseline object definitions and additional signal requirements used in the analysis. All baseline requirements are retained for signal objects.}
+    \label{tab:ch6_analysis_objects}
+    \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.54\textwidth}>{\raggedright\arraybackslash}p{0.26\textwidth}@{}}
+        \toprule
+        Object & Baseline & Additional signal requirement \\
+        \midrule
+        Electron & $\pT>10~\GeV$, $|\eta|<2.47$, excluding $1.37<|\eta|<1.52$.\newline
+        \texttt{TightLH} identification; \texttt{Loose\_VarRad} isolation.\newline
+        $|d_0|/\sigma_{d_0}<5$; $|\Delta z_0\sin\theta|<0.5~\mm$.\newline
+        Calorimeter quality requirements.
+        & \texttt{HighPtCaloOnly} isolation. \\
+        \addlinespace[0.6em]
+        Muon & $\pT>10~\GeV$, $|\eta|<2.5$.\newline
+        \texttt{Loose} identification; \texttt{Loose\_VarRad} isolation.\newline
+        $|d_0|/\sigma_{d_0}<3$; $|\Delta z_0\sin\theta|<0.5~\mm$.
+        & \texttt{Medium} identification; \texttt{Tight\_VarRad} isolation. \\
+        \addlinespace[0.6em]
+        Hadronic tau & $\pT>20~\GeV$, $|\eta|<2.5$, excluding $1.37<|\eta|<1.52$.\newline
+        One or three tau-decay tracks with total charge $\pm1$.\newline
+        \texttt{Loose} RNN identification; \texttt{Loose} RNN electron rejection.
+        & \texttt{Tight} RNN identification. \\
+        \addlinespace[0.6em]
+        Jet & PFlow anti-$k_t$ jets with $R=0.4$.\newline
+        $\pT>20~\GeV$, $|\eta|<2.5$.\newline
+        \texttt{LooseBad} cleaning; NNJVT \texttt{FixedEffPt} within its applicable kinematic range.
+        & Same jet-quality requirements. \\
+        \bottomrule
+    \end{tabular}
+    \par\smallskip
+    \raggedright Jets passing the GN2v01 85\% working point are classified as $b$-jets.
+    \end{spacing}
+\end{table}

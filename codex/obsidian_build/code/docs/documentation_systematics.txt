@@ -1,0 +1,492 @@
+https://atlas-project-topreconstruction.web.cern.ch/fastframesdocumentation/latest/documentation/systematics/
+Systematics - FastFrames
+:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}
+__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}
+Skip to content
+FastFrames
+Systematics
+Initializing search
+atlas-amglab/fastframes
+FastFrames
+atlas-amglab/fastframes
+Home
+Tutorial
+Documentation
+Documentation
+Installation
+Metadata Production
+Custom Classes
+Histogramming
+Ntupling
+Truth Processing
+Unfolding
+Systematics
+Systematics
+Table of contents
+Automatic Systematics
+Defining Systematic Uncertainties in the Configuration File
+Defining Systematics in a Custom Class
+Defining Truth-Level Systematics in a Custom Class
+Cutflows
+ONNX Inference
+Distributed Computing
+Helper Functions
+TRExFitter Integration
+Configuration
+Recommendations for running FastFrames
+Code flow
+Event Tutorials
+Event Tutorials
+Top Workshop 2025
+Changelog
+Table of contents
+Automatic Systematics
+Defining Systematic Uncertainties in the Configuration File
+Defining Systematics in a Custom Class
+Defining Truth-Level Systematics in a Custom Class
+Systematics
+Automatic Systematics
+FastFrames can automatically define systematic variations. Add
+automatic_systematics: true
+to your
+general
+block to turn on this feature.
+Defining Systematic Uncertainties in the Configuration File
+It might be important/convenient to provide a list of systematic uncertainties manually in the config file.
+For this, FastFrames provides an option block
+systematics
+that allows you to manually define systematic variations.
+For example the following block:
+systematics
+:
+-
+samples
+:
+[
+"ttbar_FS"
+]
+regions
+:
+[
+"Electron"
+,
+"Muon"
+]
+variation
+:
+up
+:
+"JET_BJES_Response__1up"
+down
+:
+"JET_BJES_Response__1down"
+represents a manual definition of
+JET_BJES_Response__1up
+and
+JET_BJES_Response__1down
+systematics.
+The up and down variation is not important here, but might be important when producing the TRExFitter config file (if automatic systematics are not switched on).
+Defining Systematics in a Custom Class
+The block below illustrates how to manually create a systematic inside a custom class.
+bool
+isNominalOnly
+=
+sample
+->
+nominalOnly
+();
+const
+TGraphAsymmErrors
+*
+graph
+=
+/*assuming this is the BJES-vs-eta calibration file*/
+;
+std
+::
+vector
+<
+std
+::
+string
+>
+variations
+=
+{
+"NOSYS"
+,
+"JET_BJES_Response__1up"
+,
+// this should match the name of variation in yaml systematics block
+"JET_BJES_Response__1down"
+// this should match the name of variation in yaml systematics block
+}
+// Step 1: manually Define a column per variation, i.e.:
+// nominal: jet_BJES_NOSYS
+// up:      jet_BJES_JET_BJES_Response__1up
+// down:    jet_BJES_JET_BJES_Response__1down
+for
+(
+std
+::
+string
+&
+variation
+:
+variations
+)
+{
+if
+(
+isNominalOnly
+and
+variation
+!=
+"NOSYS"
+)
+continue
+;
+auto
+Apply_BJES_calibration
+=
+[
+graph
+,
+variation
+](
+const
+ROOT
+::
+VecOps
+::
+RVec
+<
+float
+>
+jet_pt
+,
+const
+ROOT
+::
+VecOps
+::
+RVec
+<
+float
+>
+jet_eta
+)
+->
+ROOT
+::
+VecOps
+::
+RVec
+<
+float
+>
+{
+ROOT
+::
+VecOps
+::
+RVec
+<
+float
+>
+jet_pt_corr
+;
+jet_pt_corr
+.
+reserve
+(
+jet_pt
+.
+size
+());
+for
+(
+size_t
+i
+=
+0
+;
+i
+<
+jet_pt
+.
+size
+();
+++
+i
+)
+{
+float
+eta
+=
+jet_eta
+[
+i
+];
+int
+bin
+=
+graph
+->
+GetXaxis
+()
+->
+FindBin
+(
+eta
+);
+bin
+=
+std
+::
+max
+(
+1
+,
+std
+::
+min
+(
+bin
+,
+graph
+->
+GetN
+()));
+// optional to bound the bin between 1 and N
+float
+scale
+=
+1.0
+;
+if
+(
+variation
+==
+"NOSYS"
+)
+{
+scale
+=
+graph
+->
+GetPointY
+(
+bin
+-1
+);
+}
+else
+if
+(
+variation
+==
+"JET_BJES_Response__1up"
+)
+{
+scale
+=
+graph
+->
+GetPointY
+(
+bin
+-1
+)
++
+graph
+->
+GetErrorYhigh
+(
+bin
+-1
+);
+}
+else
+if
+(
+variation
+==
+"JET_BJES_Response__1down"
+)
+{
+scale
+=
+graph
+->
+GetPointY
+(
+bin
+-1
+)
+-
+graph
+->
+GetErrorYlow
+(
+bin
+-1
+);
+}
+else
+{
+LOG
+(
+WARNING
+)
+<<
+"Unknown variation: "
+<<
+variation
+<<
+", will not calibrate!"
+;
+}
+corrected_pt
+.
+push_back
+(
+jet_pt
+[
+i
+]
+*
+scale
+);
+}
+return
+jet_pt_corr
+;
+};
+mainNode
+=
+mainNode
+.
+Define
+(
+"jet_BJES_"
++
+variation
+,
+Apply_BJES_calibration
+,
+{
+"jet_pt_NOSYS"
+,
+"jet_eta"
+});
+}
+// Step 2: claim "JET_BJES_Response__1up", "JET_BJES_Response__1down" are the variantion of "NOSYS" for the variable "jet_BJES"
+if
+(
+!
+isNominalOnly
+)
+{
+this
+->
+addVariableAndEffectiveSystematics
+(
+"jet_BJES_NOSYS"
+,
+{
+"JET_BJES_Response__1up"
+,
+"JET_BJES_Response__1down"
+}
+// this should match the name of variation in yaml systematics block
+);
+}
+The above definition will replace all occurrences of
+NOSYS
+with
+JET_BJES_Response__1up
+and
+JET_BJES_Response__1down
+to define two systematic variations.
+This includes the event weights, sumWeights and selections.
+You can restrict a given variation only to some regions or samples.
+For the list of provided options see the
+documentation
+.
+When automatic systematics are turned on and some systematics are defined in the config file, the definition in the config file will be used in case of identical names as the automatic systematic.
+If the systematic variation in the config file does not match any automatic systematic it will still be included as defined in the config file.
+Defining Truth-Level Systematics in a Custom Class
+Truth-level uncertainties can affect only the event weight, not the event reconstruction.
+In order to add truth-level systematic uncertainties, one has to make 3 steps:
+Define the alternative weight inside of
+defineVariablesTruth
+method. Such as:
+mainNode
+=
+mainNode
+.
+Define
+(
+"weight_mc_MY_AWESOME_SYST"
+,
+[](
+float
+weight_mc
+,
+float
+truth_t_pt
+){
+return
+weight_mc
+*
+(
+1
++
+truth_t_pt
+/
+1e6
+)},
+{
+"weight_mc_NOSYS"
+,
+"trruth_pt_t"
+});
+Add it as a systematic uncertainty in customframe (again in
+defineVariablesTruth
+method):
+this
+->
+addVariableAndEffectiveSystematicsTruth
+(
+"name of your truth block"
+,
+"MY_AWESOME_SYST"
+,
+{
+"weight_mc_NOSYS"
+});
+Define the systematics in your config:
+-
+samples
+:
+[
+"ttbar_FS"
+]
+variation
+:
+up
+:
+"MY_AWESOME_SYST"
+The systematic uncertainty will be normalized to the
+NOSYS
+sum of weights (unless set otherwise from your config). If you need a different normalization for your custom-code truth uncertainty, the best way to achieve this is to incorporate this directly into the event weight.
+var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))
+Previous
+Unfolding
+Next
+Cutflows
+Copyright © 2002-2026 CERN for the benefit of the ATLAS Collaboration
+Made with
+Material for MkDocs
+{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.footer", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}

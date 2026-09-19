@@ -1,0 +1,64 @@
+--- Chapters/CH7_event_selection.tex (before)
++++ Chapters/CH7_event_selection.tex (after)
+@@ -17,5 +17,5 @@
+     \end{equation}
+ Here $\DphiTauMet$ is the azimuthal separation between the $\tau$ momentum and $\mpt$.
+-Since the neutrino longitudinal momenta are unmeasured, $\mT$ is used to characterise the $\tau\nu$ mass scale using only transverse quantities.
++The variable $\mT$ probes the high-energy tail of the $\tau\nu$ final state, which is particularly sensitive to non-resonant leptoquark contributions~\cite{Endo2022NonResonant}.
+ 
+ The invariant masses $m_{b\tau}$ and $m_{j\tau}$ are defined as:
+@@ -89,6 +89,7 @@
+ \label{sec:ch7_sr1b}
+ 
+-The $\SR$ regions select exactly one $b$-tagged jet to target the $b\tau$ interaction in the $U_1$ model.
+-The tag reduces the inclusive $W$+jets background, as in the high-$\mT$ $\tau\nu+b$ strategy of Ref.~\cite{Endo2022NonResonant}.
++The $\SR$ regions select exactly one $b$-tagged jet to target the $b\tau$ interaction in the $U_1$ model and suppress inclusive $W$+jets production.
++The SM subprocesses $gu\to b\tau\nu$ and $gc\to b\tau\nu$ are suppressed by the small CKM elements $V_{ub}$ and $V_{cb}$, respectively~\cite{Endo2022NonResonant}.
++Competing SM $\tau\nu+\mathrm{jets}$ events without a genuine $b$-jet enter this category through mistagging.
+ 
+ The $b$-jet $\pT$ distinguishes resonant $U_1\to b\tau$ decays, which produce an energetic decay jet, from non-resonant production, where the radiated jet is typically softer.
+@@ -98,17 +99,19 @@
+ \label{subsec:ch7_scan}
+ 
+-Large $\pT^\tau$ and $\met$ are more characteristic of heavy-leptoquark production than of the bulk of the $W$+jets and top-quark backgrounds.
+-Lower thresholds on both quantities therefore improve the signal-to-background ratio.
+-
+-The $\mT$ distribution from on-shell $W\to\tau\nu$ decays is bounded by the $W$-boson mass for correctly reconstructed momenta and no additional source of $\mpt$.
+-Off-shell $W$ production, additional neutrinos and detector resolution generate a high-$\mT$ background tail, which can be enhanced by non-resonant leptoquark exchange.
+-A lower $\mT$ threshold targets this signal contribution.
+-
+-The invariant masses $m_{b\tau}$ and $m_{j\tau}$ probe resonant $U_1\to b\tau$ and $U_1\to s\tau$ decays, respectively, while the SM backgrounds have no corresponding heavy resonance.
+-The $\tau$-decay neutrino shifts the signal distributions below $\MU$ and broadens them, with additional smearing from the jet and $\tau$ energy resolutions.
++The $\tau$ $\pT$ spectrum from heavy-leptoquark production extends to higher values than the bulk of the SM background.
++A lower $\pT^\tau$ threshold selects energetic $\tau$ leptons and improves the signal-to-background ratio.
++
++A high $\met$ threshold suppresses the large contribution from resonant SM $W$ production.
++The leptoquark signal extends to larger $\met$, motivating a lower threshold in both categories.
++
++High values of $\mT$ select the region where non-resonant leptoquark exchange can be distinguished from the falling SM background.
++The $\SR$-$\NonRes$ selection therefore imposes a tighter $\mT$ threshold than $\SR$-$\Res$, which also uses the $b\tau$ mass.
++
++The invariant mass $m_{b\tau}$ probes resonant $U_1\to b\tau$ decays, while the SM backgrounds have no corresponding heavy resonance.
++The $\tau$-decay neutrino shifts the signal distribution below $\MU$ and broadens it, with additional smearing from the jet and $\tau$ energy resolutions.
+ A lower mass threshold suppresses the SM backgrounds while retaining this broad signal.
+ 
+-The separation $\DphiTauMet$ tends towards $\pi$ in non-resonant production with a soft recoiling jet, whereas top-quark events have more complex decay kinematics.
+-A lower threshold favours this signal geometry; an upper threshold is also tested for resonant production, where the energetic decay jet changes the transverse momentum balance.
++The separation $\DphiTauMet$ is used to select the approximately back-to-back $\tau$ and $\mpt$ configuration of the non-resonant signal, which helps suppress top-quark backgrounds.
++A strong back-to-back requirement also suppresses resonant leptoquark production, where the decay jet changes the transverse momentum balance.
+ 
+ The jet multiplicity $N_j-N_b$ tends to be larger in $\ttbar$ events because the two top-quark decays produce additional jets.
+@@ -172,5 +175,4 @@
+ 
+ The requirements on $\pT^\tau$, $\met$ and $\mT$ suppress the low-energy phase space in which interference with SM $W$ production is most important.
+-The $b$-jet requirement also reduces the relevant SM amplitudes, for which charged-current transitions involving a $b$ quark are suppressed by the small CKM elements $V_{cb}$ and $V_{ub}$.
+ In particular, the non-resonant requirements $\pT^\tau>200~\GeV$, $\met>400~\GeV$ and $\mT>600~\GeV$ retain the hard tail while reducing the destructive contribution.
+ The residual interference has a negligible effect on the sensitivity of the one-$b$-jet regions in the parameter range probed by the analysis.
+--- output/ch7/CH7_source_notes.md (before)
++++ output/ch7/CH7_source_notes.md (after)
+@@ -7,4 +7,5 @@
+ - 7.1/7.2: INT sections/SR_Optimization.tex and reference-PDF Chapter 6, pp.28–36. The baseline block is Table 6.4 (the user's “6.4”). The scan grid is Table 6.1, the cutflows Tables 6.2–6.3, and the significance Eq.(6.1). The thesis uses the same Z expression with an absolute background uncertainty sigma_b=0.30b, rather than the INT's dimensionally ambiguous “sigma=30%”.
+ - Kinematic motivation: Endo, Iguro et al., arXiv:2111.04748v3, pp.3–4, 7–8, 12. Existing public key Endo2022NonResonant remains. Analysis cuts are not replaced by the phenomenology proposal.
++- 16 September 2026 update: the variable-by-variable source check is recorded in Iguro_variable_motivations.md beside this file. Section 7.1.1 now motivates mT through sensitivity in the high-energy tail, following Eq.(2), Section 4.2 and Section 5 of Endo et al.; the previously added longitudinal-momentum explanation was general reconstruction reasoning, not the paper's stated search motivation. SR1b separates tau-pT, MET, mT, invariant-mass, angle and multiplicity explanations. Iguro's balance cut, charge selection and proposed model-discriminating angles are not imported into the analysis.
+ - Significance: the INT's original public reference ATL-PHYS-PUB-2020-025, Formulae for Estimating Significance, Eq.(1). Metadata and formula checked in the preceding draft at https://cds.cern.ch/record/2736148 and in the local reference PDF. Z is on the left, with the square root on the right, in one displayed line.
+ - Interference: INT Appendices/SignalValidation.tex, Interference_study.tex, reference-PDF §12.2 and Appendix N. Thesis Eq.(5.4) supplies the earlier SM–BSM decomposition. The scan uses pure BSM yields; the final excess contains S+I. Hard tau pT, MET and mT selections suppress interference in SR1b. Paper sections/results.tex controls the SR0b reduction: about 20% at 1.5 TeV and 30–40% at higher masses.

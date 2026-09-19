@@ -1,0 +1,1270 @@
+                                          Prepared for submission to JHEP
+
+
+
+
+                                          Top-pair production at the LHC through NNLO QCD
+                                          and NLO EW
+
+
+                                          Michal Czakon,a David Heymes,b Alexander Mitov,b Davide Pagani,c,d Ioannis
+
+
+
+
+arXiv:1705.04105v2 [hep-ph] 15 Nov 2017
+                                          Tsinikosc and Marco Zaroe,f
+                                          a
+                                            Institut für Theoretische Teilchenphysik und Kosmologie, RWTH Aachen University, Aachen,
+                                            D-52056 Germany
+                                          b
+                                            Cavendish Laboratory, University of Cambridge, Cambridge CB3 0HE, UK
+                                          c
+                                            Centre for Cosmology, Particle Physics and Phenomenology (CP3), Université Catholique de
+                                            Louvain, Chemin du Cyclotron 2, Louvain la Neuve, B-1348 Belgium
+                                          d
+                                            Technische Universität München, James-Franck-Str. 1, Garching, D-85748 Germany
+                                          e
+                                            Sorbonne Universités, UPMC Univ. Paris 06, UMR 7589, LPTHE, Paris, F-75005 France
+                                          f
+                                            CNRS, UMR 7589, LPTHE, Paris, F-75005 France
+                                              E-mail: mczakon@physik.rwth-aachen.de, dheymes@hep.phy.cam.ac.uk,
+                                              adm74@cam.ac.uk, davide.pagani@tum.de, ioannis.tsinikos@uclouvain.be,
+                                              marco.zaro@lpthe.jussieu.fr
+
+                                          Abstract: In this work we present for the first time predictions for top-quark pair dif-
+                                          ferential distributions at the LHC at NNLO QCD accuracy and including EW corrections.
+                                          For the latter we include not only contributions of O(αs2 α), but also those of order O(αs α2 )
+                                          and O(α3 ). Besides providing phenomenological predictions for all main differential dis-
+                                          tributions with stable top quarks, we also study the following issues. 1) The effect of the
+                                          photon PDF on top-pair spectra: we find it to be strongly dependent on the PDF set
+                                          used – especially for the top pT distribution. 2) The difference between the additive and
+                                          multiplicative approaches for combining QCD and EW corrections: with our scale choice,
+                                          we find relatively small differences between the central predictions, but reduced scale de-
+                                          pendence within the multiplicative approach. 3) The potential effect from the radiation of
+                                          heavy bosons on inclusive top-pair spectra: we find it to be, typically, negligible.
+
+
+
+
+                                              1
+                                                  Preprint: Cavendish-HEP-17/07, CP3-17-12, TUM-HEP-1084/17, TTK-17-15
+Contents
+
+1 Introduction                                                                            1
+
+2 Phenomenological predictions for the LHC at 13 TeV                                      2
+
+3 Comparison of two approaches for combining NNLO QCD predictions
+  and EW corrections                                                  5
+  3.1 Additive combination                                            6
+  3.2 Multiplicative combination and comparison with the additive one 8
+
+4 Impact of the photon PDF                                                               12
+
+5 Contributions from heavy boson radiation                                               12
+
+6 Conclusions                                                                            14
+
+A Notation                                                                               16
+
+
+
+
+1   Introduction
+
+The availability of NNLO QCD predictions for stable top-pair production at the LHC, both
+for the total cross-section [1–4] with NNLL soft-gluon resummation [5, 6] and for all the
+main differential distributions [7, 8], has made it possible to compare Standard Model (SM)
+theory with LHC data at the few-percent level accuracy. Such a high precision has led,
+among others, to further scrutiny of the differences between LHC measurements [9] and
+the ability of Monte-Carlo event generators to describe hadronic tt̄ production. As a result
+of these ongoing studies, new MC developments are taking place, such as the incorporation
+of non-resonant and interference effects [10, 11], which builds upon previous works that
+included NLO top decay corrections through-fixed order [12–16] and/or showered [17–19]
+calculations.
+     One of the remaining ways for further improving SM theory predictions is by consis-
+tently including the so called Electro-Weak (EW) corrections on top of the NNLO QCD
+ones. Weak [20–28], QED [29] and EW (weak+QED) [30–34] corrections to top-quark
+pair production have been known for quite some time, and also EW corrections to the fully
+off-shell dilepton signature are nowadays available [35]. As it has been documented in the
+literature, although EW effects are rather small at the level of total cross-section, they
+can have a sizeable impact on differential distributions and also on the top-quark charge
+asymmetry.
+     The goal of this work is to consistently merge existing NNLO QCD predictions with
+EW corrections into a single coherent prediction and to study its phenomenological impact.
+
+
+
+
+                                           –1–
+This is achieved by combining the NNLO QCD predictions from ref. [8] with the complete
+LO and NLO contributions derived within the framework of ref. [34]. Specifically, we
+include the NLO EW effects of O(αs2 α), all subleading NLO (O(αs α2 ) and O(α3 )) terms
+as well as the LO (O(αs α) and O(α2 )) contributions.
+     Another motivation for this study stems from recent developments in understand-
+ing the photon content of the proton [36, 37]. As shown in ref. [34], depending on the
+PDF set, photon-initiated contributions can be numerically significant in some regions of
+phase space. 1 If the photon density from the NNPDF3.0QED set [40, 41] is employed,
+the photon-initiated contribution is large in size and of opposite sign with respect to the
+Sudakov EW corrections, leading to the almost complete cancellation of the two effects.
+Nevertheless, large PDF uncertainties from the photon PDF are still present after this
+cancellation. On the other hand, theoretical consensus about the correctness of the novel
+approach introduced in ref. [37] appears to have emerged by now. 2 The PDF set pro-
+vided with ref. [37], named LUXQED, includes a photon PDF whose central value and
+relative uncertainty are both much smaller than in the case of NNPDF3.0QED. Thus,
+at variance with the NNPDF3.0QED set, neither large cancellation between Sudakov ef-
+fects and photon-induced contributions nor large photon PDF uncertainty is present in
+LUXQED-based predictions.
+     In order to document the ambiguity arising from the differences between the photon
+densities in the available PDF sets, with the exception of sec. 2, in this work we always
+give predictions for top-pair differential distributions at the LHC based on the LUXQED
+[37] and NNPDF3.0QED [40, 41] PDF sets. We believe that our findings will provide a
+valuable input to future PDF determinations including EW effects.
+     This paper is organised as follows: sec. 2 is devoted to the phenomenological study of
+our combined QCD and EW predictions for the LHC at 13 TeV. The reasons behind some
+of the choices made in sec. 2 – like the choice of PDF set and combination approach – are
+revealed in sec. 3, where we compare in great detail two approaches for combining NNLO
+QCD and EW corrections in top-pair differential distributions. The so-called additive
+approach is discussed in sec. 3.1, while the multiplicative one in sec. 3.2. Section 4 is
+dedicated to studying the impact of the photon PDF on top-pair spectra. In sec. 5 we
+provide an estimate of the impact of inclusive Heavy Boson Radiation (HBR), namely the
+contribution from tt̄V final states with V = H, W ± , Z. While most of the notation is
+introduced in the main text some technical details are delegated to Appendix A.
+
+
+2       Phenomenological predictions for the LHC at 13 TeV
+
+In this section we present predictions for tt̄ distributions for the LHC at 13 TeV at NNLO
+QCD accuracy including also EW corrections. We focus on the following distributions: the
+top-pair invariant mass m(tt̄), the top/antitop average transverse momentum (pT,avt ) and
+rapidity (yavt ) and the rapidity y(tt̄) of the tt̄ system. The pT,avt (yavt ) distributions are
+    1
+    This has been studied also in refs. [38, 39] for the case of neutral-current Drell-Yan production.
+    2
+    The consensus has been also supported by a preliminary study in the determination of the photon PDF
+including new LHC data [42].
+
+
+
+
+                                                –2–
+calculated not on an event-by-event basis but by averaging the results of the histograms
+for the transverse momentum (rapidity) of the top and the antitop.
+     Our calculation is performed using the following input parameters
+
+  mt = 173.3 GeV ,      mH = 125.09 GeV ,       mW = 80.385 GeV ,  mZ = 91.1876 GeV ,
+                                                                                     (2.1)
+while all other fermion masses are set to zero. All masses are renormalised on-shell and
+all decay widths are set to zero. The renormalisation of αs is performed in the 5-flavour
+scheme while EW input parameters and the associated α renormalisation condition are in
+the Gµ -scheme, with
+                              Gµ = 1.1663787 · 10−5 GeV−2 .                          (2.2)
+
+     The EW corrections have been calculated in a completely automated way via an
+extension of the MadGraph5 aMC@NLO code [43] that has been already validated in
+refs. [44, 45], and in ref. [46] for the calculation of the complete NLO corrections.
+     We work with dynamical renormalisation (µr ) and factorisation (µf ) scales. Their
+common central value is defined as
+                         mT,t
+                  µ=            for the pT,t distribution,                               (2.3)
+                          2
+                         mT,t̄
+                   µ=           for the pT,t̄ distribution,                              (2.4)
+                          2
+                         HT      1                
+                   µ=         =     mT,t + mT,t̄ for all other distributions,            (2.5)
+                          4      4
+                q                             q
+where mT,t ≡ m2t + p2T,t and mT,t̄ ≡ m2t + p2T,t̄ are the transverse masses of the top
+and antitop quarks. As already mentioned, pT,avt and yavt distributions are obtained by
+averaging the top and antitop distributions for the transverse momentum and rapidity,
+respectively.
+      These scale choices have been motivated and studied at length in ref. [8]. In all cases
+theoretical uncertainties due to missing higher orders are estimated via the 7-point variation
+of µr and µf in the interval {µ/2, 2µ} with 1/2 ≤ µr /µf ≤ 2. We remark that the
+combination of QCD and EW corrections is independently performed for each value of
+µf,r .
+      For theoretical consistency, a set of PDFs including QED effects in the DGLAP evolu-
+tion should always be preferred whenever NLO EW corrections are computed. At the mo-
+ment, the only two NNLO QCD accurate PDF sets that include them are NNPDF3.0QED
+and LUXQED. 3 Both sets have a photon density, which induces additional contributions
+to tt̄ production [29, 34].
+      As motivated and discussed at length in sec. 3, the phenomenological predictions in
+this section are based on the LUXQED PDF set and on the multiplicative approach for
+combining QCD and EW corrections, which we will denote as QCD × EW. We invite the
+  3
+    The PDF sets MRST2004QED [47] and CT14QED [48] also include QED effects in the DGLAP
+evolution, but they are not NNLO QCD accurate. A PDF set including full SM LO evolution (not only
+QCD and QED but also weak effects) has also recently become available [49].
+
+
+
+
+                                             –3–
+                                     -                                                                                                -
+                      10
+                           1        tt, LHC13, LUXQED                                QCD                                 101
+                                                                                                                                     tt, LHC13, LUXQED                                  QCD
+                         0                                                        QCD×EW                                                                                             QCD×EW
+                      10                                                                                                 100
+
+
+
+  dσ/dpT [pb/GeV]
+                                                                                                     dσ/dm [pb/GeV]
+                     10−1
+                                                                                                                        10−1
+                     10−2
+                     10−3                                                                                               10−2
+                     10−4                                                                                               10−3
+                                                                                                                           −4
+                     10−5                                                                                               10
+                     10−6                                                                                               10−5
+                     10−7                                                                                               10
+                                                                                                                           −6
+                        −8
+                     10                                                                                                 10
+                                                                                                                           −7
+
+                      1.2          total unc.         PDF unc.          scale unc.                                       1.4        total unc.         PDF unc.            scale unc.
+                                   QCD×EW                                                                                1.2        QCD×EW
+                        1                                                                                                   1
+                      0.8                                                                                                0.8
+                                                                                                                         0.6
+                                                          (QCD×EW)/QCD                                                  1.02                               (QCD×EW)/QCD
+                        1
+                                                                                                                           1
+                      0.9
+                                                                                                                        0.98
+                      0.8
+                                                                                                                        0.96
+                      0.7
+                               0          500        1000        1500    2000        2500    3000                               0          1000       2000        3000      4000        5000    6000
+                                                          pT,avt [GeV]                                                                                     m(tt-) [GeV]
+
+                                    tt-, LHC13, LUXQED                               QCD                                             tt-, LHC13, LUXQED                                 QCD
+                                                                                  QCD×EW                                                                                             QCD×EW
+
+
+
+
+        dσ/dy [pb]                                                                                         dσ/dy [pb]
+                                                                                                                         102
+                           2
+                      10
+
+
+
+                                                                                                                         101
+                                        total unc.          PDF unc.        scale unc.                                                   total unc.          PDF unc.          scale unc.
+                     1.05                                                                                                1.1
+                                                             QCD×EW                                                                                           QCD×EW
+
+                        1                                                                                                  1
+
+                     0.95                                                                                                0.9
+               1.004                                      (QCD×EW)/QCD                                                                                     (QCD×EW)/QCD
+                                                                                                                        1.01
+               1.002
+                        1
+                                                                                                                           1
+               0.998
+                                       −2            −1           0           1          2                                              −2            −1            0            1          2
+                                                                 yavt                                                                                             y(tt-)
+
+
+
+Figure 1. Our best predictions for the four LHC 13 TeV tt̄ differential distributions considered in
+this work. The predictions are based on the multiplicative approach. Shown are the scale, PDF and
+combined (in quadrature) theory uncertainties for each QCD × EW distribution. The boundaries
+of the PDF variation band are marked with black dashed lines. Also shown is the ratio of central
+scales for the combined QCD and EW prediction with respect to the NNLO QCD one.
+
+
+
+interested reader to consult secs. 3 and 4 where detailed comparisons between the two PDF
+sets as well as between the two approaches for combining QCD and EW corrections can
+be found.
+     From the plots shown in fig. 1 we conclude that the impact of the EW corrections
+relative to NNLO QCD depends strongly on the kinematic distribution. The smallest
+impact is observed in the two rapidity distributions: the relative effect for yavt is around
+2 permil and is much smaller than the scale uncertainty. The y(tt̄) distribution is slightly
+
+
+
+
+                                                                                               –4–
+more sensitive, with a relative impact of slightly above 1% for large values of y(tt̄). This
+correction is also well within the scale-variation uncertainty band. The impact of EW
+corrections on the m(tt̄) distribution is larger. Relative to NNLO QCD it varies between
++2% at the absolute threshold and -6% at high energies. Still, this correction is well within
+the scale variation uncertainty. The small sensitivity of the yavt and y(tt̄) distributions to
+EW corrections supports the findings of ref. [9] where these two distributions were used for
+constraining the PDF of the gluon.
+     The largest correction due to EW effects is observed in the pT,avt distribution. Relative
+to NNLO QCD, the correction ranges from +2% at low pT,avt to -25% at pT,avt ∼ 3 TeV.
+The correction is significant and is comparable to the scale variation band already for
+pT,avt ∼ 500 GeV. Overall, the EW contribution to the pT,avt distribution is as large as the
+total theory uncertainty band in the full kinematic range pT,avt ≤ 3 TeV considered in this
+work.
+     The fraction of the theory uncertainty induced by PDFs is strongly dependent on
+kinematics. For the yavt and y(tt̄) distributions, the PDF error is slightly smaller than the
+scale uncertainty for central rapidities, but is larger in the peripheral region, especially for
+the y(tt̄) distribution. The PDF uncertainty becomes the dominant source of theory error
+in the pT,avt distribution for pT,avt as large as 500 GeV, while for the m(tt̄) distribution it
+begins to dominate over the scale uncertainty for m(tt̄) ∼ 2.5 TeV.
+     There are many applications for the results derived in this work. Examples are: in-
+clusion of EW effects in PDF determinations from LHC tt̄ distributions, high-mass LHC
+searches, precision SM LHC measurements and benchmarking of LHC event generators. A
+practical and sufficiently accurate procedure for the utilisation of our results could be as
+follows. One starts by deriving an analytic fit for the QCD × EW/QCD K-factor (all K-
+factors in fig. 1 are available in electronic form 4 ); as evident from fig. 1 it is a very smooth
+function for all four differential distributions. Under the assumption that this K-factor
+is PDF independent, such an analytic fit could then be used to rescale the NNLO–QCD–
+accurate differential distributions derived with any PDF set from existing NNLO QCD [50]
+fastNLO [51, 52] tables. Regarding the PDF error of NNLO QCD differential distribu-
+tions, it can be calculated very fast with any PDF set with the help of the fastNLO tables
+of ref. [50]. As we show in the following the PDF error of the QCD and combined QCD
+and EW predictions is almost the same, especially for the LUXQED PDF set used for our
+phenomenological predictions.
+
+3       Comparison of two approaches for combining NNLO QCD predictions
+        and EW corrections
+
+In this work we compare two approaches for combining QCD and EW corrections. For
+brevity, we will refer to them as additive and multiplicative approaches. As already men-
+tioned, the results presented in sec. 2 have been calculated using the multiplicative ap-
+proach.
+    4
+    Repository with results and additional plots of NNLO QCD + EW tt̄ differential distributions: http:
+//www.precision.hep.phy.cam.ac.uk/results/ttbar-nnloqcd-nloew/
+
+
+
+
+                                                –5–
+       In the additive approach the NNLO QCD predictions (defined as the complete set of
+O(αsn ) terms up to n = 4) are combined with all possible remaining LO and NLO terms
+arising from QCD and electroweak interactions in the Standard Model. In other words, at
+LO we include not only the purely QCD O(αs2 ) contribution, but also all O(αs α) and O(α2 )
+terms. Similarly, at NLO we take into account not only the NLO QCD O(αs3 ) contribution
+but also the O(αs2 α) one, the so-called NLO EW, as well as the subleading contributions
+of O(αs α2 ) and O(α3 ). For brevity, we will denote as “EW corrections” the sum of all LO
+and NLO terms of the form O(αsm αn ) with n > 0. Moreover, when we will refer to “QCD”
+results, we will understand predictions at NNLO QCD accuracy. For a generic observable
+Σ in the additive approach we denote the prediction at this level of accuracy as ΣQCD+EW .
+     In the multiplicative approach one assumes complete factorisation of NLO QCD and
+NLO EW effects. This approach is presented in sec. 3.2 and is denoted as ΣQCD×EW .
+The precise definition of the various quantities mentioned in the text is given in appendix
+A where an appropriate notation for the classification of the different contributions is
+introduced. Here, we just state the most relevant definitions for the following discussion,
+
+                         ΣQCD       ≡ ΣLO QCD + ΣNLO QCD + ΣNNLO QCD ,
+                          ΣEW       ≡ ΣLO EW + ΣNLO EW + Σres ,
+                       ΣQCD+EW ≡ ΣQCD + ΣEW ,
+                                             NLO
+                       ΣQCD×EW ≡ ΣQCD+EW + (KQCD − 1) × ΣNLO EW ,                                    (3.1)
+
+where Σ denotes a generic observable in tt̄ production and KQCDNLO is the standard NLO/LO
+
+K-factor in QCD. A variation of the multiplicative approach denoted as ΣQCD2 ×EW will
+also be considered; it is defined similarly to ΣQCD×EW in eq. (3.1) but with NNLO/LO
+QCD K-factor.
+     As it has been discussed in ref. [34], the usage of different PDF sets leads to a very
+different impact of the photon-induced contribution on tt̄ distributions. While in the case
+of NNPDF3.0QED the impact of photon-induced contributions is relatively large and with
+very large uncertainties, in the case of LUXQED it is expected to be negligible. For this
+reason in the rest of this work we always show predictions with both PDF sets.
+
+3.1     Additive combination
+Distributions for pT,avt and m(tt̄) are shown in fig. 2, while the yavt and y(tt̄) distributions
+are shown in fig. 3. The format of the plots for all distributions is as follows: for each
+observable, we show two plots side-by-side, with the same layout. The plot on the left-
+hand side shows predictions obtained using the LUXQED set, while for the one on the
+right the NNPDF3.0QED set is employed. Results at NNLO QCD accuracy are labelled
+as “QCD” while the combination of NNLO QCD predictions and EW corrections in the
+additive approach are labelled as “QCD+EW”.
+     In each plot the three insets display ratios of different quantities 5 over the central-
+scale QCD result (i.e., in the case of LUXQED, the black line in the main panel of fig. 1).
+   5
+    It is actually in all cases the ΣQCD+EW /ΣQCD ratio, but the bands refer to three different quantities,
+as explained in the text.
+
+
+
+
+                                                  –6–
+                               tt-, LHC13, LUXQED                                                tt-, LHC13, NNPDF3.0QED
+                (QCD+EW)/QCD; scale unc.     QCD      EW                             (QCD+EW)/QCD; scale unc.     QCD      EW
+        1                                                                    1
+      0.8                                                                  0.8
+      0.6                                                                  0.6
+                (QCD+EW)/QCD; scale unc. QCD       QCD+EW                            (QCD+EW)/QCD; scale unc. QCD       QCD+EW
+        1                                                                    1
+      0.8                                                                  0.8
+      0.6                                                                  0.6
+                (QCD+EW)/QCD; PDF unc. QCD         QCD+EW                            (QCD+EW)/QCD; PDF unc. QCD         QCD+EW
+      1.4                                                                  1.4
+        1                                                                    1
+      0.6                                                                  0.6
+            0         500      1000        1500    2000     2500   3000          0         500      1000        1500    2000     2500   3000
+                                    pT,avt [GeV]                                                         pT,avt [GeV]
+
+                               tt-, LHC13, LUXQED                                                tt-, LHC13, NNPDF3.0QED
+                (QCD+EW)/QCD; scale unc.     QCD      EW                             (QCD+EW)/QCD; scale unc.     QCD      EW
+      1.2                                                                  1.2
+       1                                                                    1
+      0.8                                                                  0.8
+                (QCD+EW)/QCD; scale unc. QCD       QCD+EW                            (QCD+EW)/QCD; scale unc. QCD       QCD+EW
+      1.2                                                                  1.2
+       1                                                                    1
+      0.8                                                                  0.8
+      1.4       (QCD+EW)/QCD; PDF unc. QCD         QCD+EW                  1.4       (QCD+EW)/QCD; PDF unc. QCD         QCD+EW
+
+       1                                                                    1
+      0.6                                                                  0.6
+            0        1000      2000        3000    4000     5000   6000          0        1000      2000        3000    4000     5000   6000
+                                    m(tt-) [GeV]                                                         m(tt-) [GeV]
+
+
+
+Figure 2. Differential distributions for pT,avt and m(tt̄) at 13 TeV. Predictions are based on the
+additive approach. The format of the plots is described in the text.
+
+
+In the first inset we show the scale uncertainty due to EW corrections alone (red band),
+without QCD contributions (ΣEW using the notation of Appendix A). This quantity can
+be compared to the scale uncertainty of the QCD prediction at NNLO accuracy (grey
+band). In the second inset we present the scale-uncertainty band (red) for the combined
+QCD+EW prediction. The grey band corresponds to the NNLO QCD scale-uncertainty
+band already shown in the first inset. The third inset is equivalent to the second one, but
+it shows the PDF uncertainties. We combine, for each one of the PDF members, the QCD
+prediction and the EW corrections into the QCD+EW result. The PDF uncertainty band
+of the QCD+EW prediction is shown in red while the grey band corresponds to the PDF
+uncertainty of the QCD prediction. For all insets, when the grey band is covered by the
+red one, its borders are displayed as black dashed lines.
+     As can be seen in figs. 2 and 3, the effect of EW corrections is, in general, within the
+NNLO QCD scale uncertainty. A notable exception is the case of the pT,avt distribution
+with LUXQED. In the tail of this distribution the effect of Sudakov logarithms is large and
+negative, of the order of -(10–20%), and is not compensated by the photon-induced con-
+tribution. On the contrary, in the case of NNPDF3.0QED, photon-induced contributions
+mostly compensate the negative corrections due to Sudakov logarithms. As it has already
+been noted in ref. [34], with this PDF set, the effect of photon-induced contributions is not
+negligible also for large values of m(tt̄), yavt and y(tt̄).
+     As it can be seen in the first inset, in the large pT,avt regime the scale dependence of
+
+
+
+
+                                                                     –7–
+                            tt-, LHC13, LUXQED                                           tt-, LHC13, NNPDF3.0QED
+             (QCD+EW)/QCD; scale unc.       QCD         EW                    (QCD+EW)/QCD; scale unc.       QCD         EW
+      1.05                                                             1.05
+        1                                                                1
+      0.95                                                             0.95
+      1.05   (QCD+EW)/QCD; scale unc. QCD         QCD+EW
+                                                                       1.05   (QCD+EW)/QCD; scale unc. QCD         QCD+EW
+
+        1                                                                1
+      0.95                                                             0.95
+             (QCD+EW)/QCD; PDF unc. QCD           QCD+EW                      (QCD+EW)/QCD; PDF unc. QCD           QCD+EW
+      1.05                                                             1.05
+        1                                                                1
+      0.95                                                             0.95
+                −2         −1             0         1        2                   −2         −1             0         1        2
+                                        yavt                                                             yavt
+
+                            tt-, LHC13, LUXQED                                           tt-, LHC13, NNPDF3.0QED
+             (QCD+EW)/QCD; scale unc.       QCD         EW                    (QCD+EW)/QCD; scale unc.       QCD         EW
+      1.05                                                             1.05
+         1                                                                1
+      0.95                                                             0.95
+             (QCD+EW)/QCD; scale unc. QCD         QCD+EW                      (QCD+EW)/QCD; scale unc. QCD         QCD+EW
+      1.05                                                             1.05
+         1                                                                1
+      0.95                                                             0.95
+             (QCD+EW)/QCD; PDF unc. QCD           QCD+EW                      (QCD+EW)/QCD; PDF unc. QCD           QCD+EW
+       1.1                                                              1.1
+         1                                                                1
+       0.9                                                              0.9
+                −2         −1             0         1        2                   −2         −1             0         1        2
+                                        y(tt-)                                                           y(tt-)
+
+
+
+                Figure 3. As in fig.2 but for the yavt and y(tt̄) differential distributions.
+
+
+the EW corrections alone is of the same size as, or even larger than, the scale variation
+at NNLO QCD accuracy. For this reason, as evident from the second inset, the scale
+uncertainty of the combined QCD+EW prediction is much larger than in the purely QCD
+case, both with the LUXQED and NNPDF3.0QED PDF sets. This feature is present only
+in the tail of the pT,avt distribution.
+     The PDF uncertainties (third inset) for all distributions do not exhibit large differ-
+ences between QCD and QCD+EW predictions, despite the fact that the photon-induced
+contribution in NNPDF3.0QED is large and has very large PDF uncertainty (relative to
+LUXQED).
+
+3.2    Multiplicative combination and comparison with the additive one
+The additive approach ΣQCD+EW for combining QCD and EW corrections discussed in
+sec. 3.1 is exact to the order at which the perturbative expansion of the production cross-
+section is truncated. An alternative possibility for combining QCD and EW corrections is
+what we already called the multiplicative approach, ΣQCD×EW . This approach is designed
+to approximate the leading EW corrections at higher orders. In the case of tt̄ production
+these are NNLO EW contributions of order O(αs3 α).
+     The multiplicative approach is motivated by the fact that soft QCD and EW Su-
+dakov logarithms factorise, with the latter typically leading to large negative corrections
+for boosted kinematics. Thus, when dominant NLO EW and NLO QCD corrections are
+at the same time induced by these two effects, the desired fixed order can be very well
+
+
+
+
+                                                                 –8–
+approximated via rescaling NLO EW corrections with NLO QCD K-factors. 6 Otherwise,
+if one is in a kinematical regime for which the dominant NLO EW or NLO QCD corrections
+are of different origin (i.e. not Sudakov or soft), the difference between the multiplicative
+and additive approaches given by the term Σmixed in eq. (A.8) can be considered as an
+indication of theory uncertainty in that kinematics. It must be stressed that the perturba-
+tive orders involved in the additive approach are included exactly also in the multiplicative
+approach; the only addition the multiplicative approach introduces on top of the additive
+one is the approximated O(αs3 α) contribution.
+        One of the advantages of the multiplicative approach is the stabilisation of scale de-
+pendence. As we saw in sec. 3.1, when QCD and EW corrections are combined in the
+additive approach, the scale dependence at large pT,avt can exceed that of the NNLO QCD
+prediction. On the other hand, the large pT,avt limit is precisely the kinematic regime where
+the multiplicative approach is a good approximation and can be trusted: at large pT,avt
+the NLO EW and NLO QCD corrections are mainly induced by Sudakov logarithms and
+soft emissions, respectively, and as we just pointed out these two contributions factorise.
+The presence of large Sudakov logarithms in the NLO EW result at large pT,avt is easy
+to see since for Born kinematics large pT,t implies large pT,t̄ which, in turn, implies large
+ŝ, t̂ and û Mandelstam variables. That NLO QCD corrections at large pT,avt are mainly of
+soft origin can be shown with an explicit NLO calculation; by applying appropriate cuts
+on the jet, the top and/or the antitop one can easily see that the differential cross-section
+is dominated by kinematic configurations containing almost back-to-back hard top and
+antitop and a jet with small pT . Plots demonstrating this can be found in footnote 4.
+        In the following, for all observables Σ considered in this work, we present predictions in
+the multiplicative approach denoted as ΣQCD×EW . As a further check of the stability of the
+multiplicative approach we display also the quantity ΣQCD2 ×EW , whose precise definition
+can be found in appendix A. ΣQCD2 ×EW is defined analogously to ΣQCD×EW , but by
+rescaling NLO EW corrections via NNLO QCD K-factors. By comparing ΣQCD×EW and
+ΣQCD2 ×EW one can further estimate the uncertainty due to mixed QCD-EW higher orders.
+        Figure 4 shows the pT,avt and m(tt̄) distributions, while fig. 5 refers to yavt and y(tt̄).
+As in sec. 3.1, the plots on the left are produced using the LUXQED PDF set, while those
+on the right using the NNPDF3.0QED PDF set. We next describe the format of the plots.
+        Each plot consists of five insets, which all show ratios of different quantities over the
+central value of ΣQCD . In the first inset we compare the central-scale results for the
+three alternative predictions: ΣQCD+EW /ΣQCD (red line), ΣQCD×EW /ΣQCD (green line)
+and ΣQCD2 ×EW /ΣQCD (violet line). These quantities are further displayed in the second,
+third and fourth inset, respectively, where not only the central value but also the scale
+dependence of the numerator is shown. In all cases we calculate the scale-uncertainty
+band as a scale-by-scale combination and subsequent variation in the 7-point approach.
+Scale variation bands have the same colour as the corresponding central-value line. For
+comparison we also display (grey band) the relative scale uncertainty of ΣQCD . Thus, the
+second inset is exactly the same as the second inset in the corresponding plots in sec. 3.1.
+  6
+      The precise definitions of ΣQCD×EW is given in eq. (A.13)
+
+
+
+
+                                                   –9–
+                                  -                                                                             -
+                                 tt, LHC13, LUXQED                                                             tt, LHC13, NNPDF3.0QED
+                                                                 2                                                                            2
+     1.2       (QCD+EW)/QCD          (QCD×EW)/QCD        (QCD ×EW)/QCD                1.2       (QCD+EW)/QCD          (QCD×EW)/QCD        (QCD ×EW)/QCD
+
+       1                                                                               1
+     0.8                                                                              0.8
+               (QCD+EW)/QCD; scale unc.     QCD         QCD+EW                                  (QCD+EW)/QCD; scale unc.     QCD         QCD+EW
+       1                                                                                1
+     0.8                                                                              0.8
+     0.6                                                                              0.6
+               (QCD×EW)/QCD; scale unc.     QCD         QCD×EW                                  (QCD×EW)/QCD; scale unc.     QCD         QCD×EW
+       1                                                                                1
+     0.8                                                                              0.8
+     0.6                                                                              0.6
+               (QCD2×EW)/QCD; scale unc.    QCD        QCD2×EW                                  (QCD2×EW)/QCD; scale unc.    QCD        QCD2×EW
+       1                                                                                1
+     0.8                                                                              0.8
+     0.6                                                                              0.6
+               (QCD+EW)/QCD       (QCD+EW−EWres)/QCD                                            (QCD+EW)/QCD       (QCD+EW−EWres)/QCD
+       1                                                                               1
+
+     0.8                                                                              0.8
+
+           0           500      1000       1500       2000           2500   3000            0          500       1000       1500       2000       2500    3000
+                                       pT,avt [GeV]                                                                     pT,avt [GeV]
+
+                                 tt-, LHC13, LUXQED                                                            tt-, LHC13, NNPDF3.0QED
+                                                                 2
+     1.1       (QCD+EW)/QCD          (QCD×EW)/QCD        (QCD ×EW)/QCD                1.1       (QCD+EW)/QCD          (QCD×EW)/QCD        (QCD2×EW)/QCD
+
+       1                                                                               1
+     0.9                                                                              0.9
+     1.5       (QCD+EW)/QCD; scale unc.     QCD         QCD+EW                        1.5       (QCD+EW)/QCD; scale unc.     QCD         QCD+EW
+
+
+       1                                                                               1
+
+     1.5       (QCD×EW)/QCD; scale unc.     QCD         QCD×EW                        1.5       (QCD×EW)/QCD; scale unc.     QCD         QCD×EW
+
+
+       1                                                                               1
+
+     1.5           2
+               (QCD ×EW)/QCD; scale unc.    QCD              2
+                                                       QCD ×EW                        1.5       (QCD2×EW)/QCD; scale unc.    QCD        QCD2×EW
+
+
+       1                                                                               1
+
+     1.1       (QCD+EW)/QCD       (QCD+EW−EWres)/QCD                                  1.1       (QCD+EW)/QCD       (QCD+EW−EWres)/QCD
+
+       1                                                                               1
+     0.9                                                                              0.9
+           0           1000     2000       3000       4000           5000   6000            0         1000       2000       3000       4000       5000    6000
+                                       m(tt-) [GeV]                                                                     m(tt-) [GeV]
+
+
+
+Figure 4. Additive (ΣQCD+EW ) versus multiplicative (ΣQCD×EW ) approach: pT,avt and m(tt̄)
+differential distributions at 13 TeV. The format of the plots is described in the text.
+
+
+The last inset shows a comparison of the ratio ΣQCD+EW /ΣQCD including (red line) or not
+(orange line) the contribution Σres , where “res” stands for residual and denotes the fact
+that Σres are contributions to ΣEW that are expected to be small, regardless of the PDF
+set used (see eq. (A.6)).
+     As expected, the multiplicative approach shows much smaller dependence on the scale
+variation. This is particularly relevant for the tail of the pT,avt distribution, where the scale
+uncertainty of ΣEW alone is comparable in size with the one of ΣQCD ; with this reduction
+of the scale uncertainty the ΣQCD×EW and ΣQCD uncertainty bands do not overlap when
+LUXQED is used. In the case of m(tt̄) and yavt distributions, the ΣQCD×EW central-value
+predictions are typically larger in absolute value than those of ΣQCD+EW , while they are all
+almost of the same size for the y(tt̄) distribution. In the case of yavt the difference between
+the additive and multiplicative approaches is completely negligible compared to their scale
+uncertainty. Therefore, besides the kinematic region where Sudakov effects are the dom-
+
+
+
+
+                                                                             – 10 –
+                               -                                                                     -
+                              tt, LHC13, LUXQED                                                     tt, LHC13, NNPDF3.0QED
+                                                         2                                                                        2
+            (QCD+EW)/QCD          (QCD×EW)/QCD       (QCD ×EW)/QCD                   (QCD+EW)/QCD          (QCD×EW)/QCD       (QCD ×EW)/QCD
+     1.01                                                                     1.01
+
+       1                                                                        1
+     1.05   (QCD+EW)/QCD; scale unc.      QCD       QCD+EW                    1.05   (QCD+EW)/QCD; scale unc.      QCD       QCD+EW
+
+       1                                                                        1
+     0.95                                                                     0.95
+     1.05   (QCD×EW)/QCD; scale unc.      QCD       QCD×EW                    1.05   (QCD×EW)/QCD; scale unc.      QCD       QCD×EW
+
+       1                                                                        1
+     0.95                                                                     0.95
+     1.05   (QCD2×EW)/QCD; scale unc.     QCD       QCD2×EW                   1.05   (QCD2×EW)/QCD; scale unc.     QCD       QCD2×EW
+
+       1                                                                        1
+     0.95                                                                     0.95
+            (QCD+EW)/QCD       (QCD+EW−EWres)/QCD                                    (QCD+EW)/QCD       (QCD+EW−EWres)/QCD
+     1.01                                                                     1.01
+        1                                                                        1
+     0.99                                                                     0.99
+                −2          −1            0          1        2                          −2          −1            0          1        2
+                                        yavt                                                                     yavt
+
+                              tt-, LHC13, LUXQED                                                    tt-, LHC13, NNPDF3.0QED
+     1.05   (QCD+EW)/QCD          (QCD×EW)/QCD           2
+                                                     (QCD ×EW)/QCD            1.05   (QCD+EW)/QCD          (QCD×EW)/QCD       (QCD2×EW)/QCD
+
+
+       1                                                                        1
+            (QCD+EW)/QCD; scale unc.      QCD       QCD+EW                           (QCD+EW)/QCD; scale unc.      QCD       QCD+EW
+     1.05                                                                     1.05
+        1                                                                        1
+     0.95                                                                     0.95
+            (QCD×EW)/QCD; scale unc.      QCD       QCD×EW                           (QCD×EW)/QCD; scale unc.      QCD       QCD×EW
+     1.05                                                                     1.05
+        1                                                                        1
+     0.95                                                                     0.95
+            (QCD2×EW)/QCD; scale unc.     QCD       QCD2×EW                          (QCD2×EW)/QCD; scale unc.     QCD       QCD2×EW
+     1.05                                                                     1.05
+        1                                                                        1
+     0.95                                                                     0.95
+     1.05   (QCD+EW)/QCD       (QCD+EW−EWres)/QCD                             1.05   (QCD+EW)/QCD       (QCD+EW−EWres)/QCD
+
+
+       1                                                                        1
+
+                −2          −1            0          1        2                          −2          −1            0          1        2
+                                        y(tt-)                                                                   y(tt-)
+
+
+
+                Figure 5. As in fig. 4 but for the yavt and y(tt̄) differential distributions.
+
+
+inant contribution, the multiplicative and additive approaches are equivalent. Moreover,
+the difference between ΣQCD×EW and ΣQCD2 ×EW is in general small; a sizeable difference
+between their scale dependences can be noted only in the tail of the pT,avt distribution.
+     For all the reasons mentioned above we believe that the multiplicative approach should
+be preferred over the additive one and, indeed, it has been used for the calculation of our
+best predictions in sec. 2. As can be seen from figs. 4 and 5 and their threshold-zoomed-in
+versions in footnote 4 the difference between ΣQCD+EW and ΣQCD×EW for non-boosted
+kinematics is much smaller than the total theory uncertainty (scale+PDF) shown in fig. 1.
+Thus, the difference between the two approaches can be safely ignored in the estimation
+of the theory uncertainty. One should bear in mind that this conclusion depends on the
+choice of scale, which in our case, as explained in ref. [8], is based on the principle of fastest
+convergence. A different scale choice with larger K factors would likely artificially enhance
+the difference between ΣQCD+EW and ΣQCD×EW .
+     In the last inset in figs. 4 and 5 we compare the quantities ΣEW and ΣEW − Σres , where
+
+
+
+
+                                                                     – 11 –
+the Σres contribution is exactly included in both the additive and multiplicative approaches.
+As expected, one can see that the Σres contribution is typically flat and very small. The
+only exception is the m(tt̄) distribution where a visible difference between the two curves
+(ΣEW and ΣEW − Σres ) is present, especially in the tail. The Σres contribution includes the
+squared EW tree-level diagrams, the O(α2 ) contribution denoted as ΣLO,3 in (A.2), and
+the two subleading NLO corrections of respectively O(αs α2 ) and O(α3 ), denoted as ΣNLO,3
+and ΣNLO,4 in (A.2). While the O(α3 ) corrections are completely negligible, the O(α2 ) and
+O(αs α2 ) ones both lead to positive non-negligible contributions of similar size to the m(tt̄)
+distribution. Indeed, the O(α2 ) contribution involves bb̄ → tt̄ squared diagrams with a W
+boson in the t-channel, which at large m(tt̄) are not as much suppressed as the contributions
+from the other initial states. Similarly, the O(αs α2 ) contributions contain QCD corrections
+to them, featuring the same beahaviour. Relevant plots displaying individually all the
+aforementioned contributions can be found at 4.
+
+
+4   Impact of the photon PDF
+
+In this section we quantify the impact on tt̄ differential distributions of the difference
+between the photon densities provided by the LUXQED and NNPDF3.0QED PDF sets.
+In other words, we repeat the study performed in ref. [34] for these two PDF sets since they
+were not considered in that work. We compare the size of the electroweak corrections with
+and without the photon PDF for both PDF sets. In each plot of fig. 6 we show the relative
+impact induced by the electroweak corrections (the ratio ΣEW /ΣQCD ; see definitions in
+Appendix A) for four cases: NNPDF3.0QED setting the photon PDF equal to zero (red)
+or not (green), and LUXQED setting the photon PDF equal to zero (violet) or not (blue).
+For the cases including the photon PDF, we also show the PDF-uncertainty band of ΣEW .
+    The impact of the photon-induced contribution can be evaluated via the difference
+between the green and red lines in the case of NNPDF3.0QED and the difference between
+the blue and violet lines in the case of LUXQED. As can be seen in fig. 6, the impact of
+the photon PDF on the pT,avt , m(tt̄), yavt and y(tt̄) distributions is negligible in the case of
+LUXQED, while it is large and with very large uncertainties for the case of NNPDF3.0QED,
+as already pointed out in ref. [34] for NNPDF2.3QED. At very large pT,avt and m(tt̄) also
+LUXQED show a non-negligible relative PDF uncertainty, which is not induced by the
+photon but from the PDFs of the coloured partons at large x. We checked that a similar
+behaviour is exhibited also by NNPDF3.0QED when its photon PDF is set to zero.
+
+
+5   Contributions from heavy boson radiation
+
+In the calculation of EW corrections to QCD processes the inclusion of real emissions of
+massive gauge bosons (heavy boson radiation or HBR) is not mandatory since, due to
+the finite mass of the gauge bosons, real and virtual weak corrections are separately finite
+(albeit the virtual corrections are enhanced by large Sudakov logarithms). Furthermore,
+such emissions are typically resolved in experimental analyses and are generally considered
+
+
+
+
+                                             – 12 –
+                            tt-, LHC13, EW/QCD                                                         tt-, LHC13, EW/QCD
+   0.2          NNPDF3.0QED                     LUXQED                                      NNPDF3.0QED                     LUXQED
+             NNPDF3.0QED, no γ              LUXQED, no γ                                 NNPDF3.0QED, no γ              LUXQED, no γ
+    0                                                                          0.1
+
+  −0.2                                                                           0
+
+         0        500      1000        1500        2000         2500   3000          0     1000       2000        3000         4000         5000   6000
+                                  pT,avt [GeV]                                                                  -
+                                                                                                             m(tt) [GeV]
+
+                            tt-, LHC13, EW/QCD                                                         tt-, LHC13, EW/QCD
+  0.02                NNPDF3.0QED                    LUXQED                   0.06               NNPDF3.0QED                     LUXQED
+                   NNPDF3.0QED, no γ             LUXQED, no γ                                 NNPDF3.0QED, no γ              LUXQED, no γ
+                                                                              0.04
+  0.01
+                                                                              0.02
+    0                                                                            0
+             −2           −1            0              1           2                     −2          −1             0              1           2
+                                       yavt                                                                          -
+                                                                                                                  y(tt)
+
+
+
+Figure 6. Impact of the photon PDF on the pT,avt , m(tt̄), yavt and y(tt̄) differential distributions
+at 13 TeV. The format of the plots is described in the text.
+
+
+as a different process tt̄V (+X) with V = H, W ± , Z. For these reasons, the results in sec. 2
+do not include HBR contributions.
+     It is, nonetheless, interesting to estimate the contribution of HBR to inclusive tt̄ pro-
+duction. Our motivation is threefold: First, resolved or not, HBR is a legitimate contribu-
+tion to the tt̄(+X) final state considered in this work. Secondly, it is clear that one cannot
+guarantee that HBR is resolved with 100% efficiency. Therefore, it is mandatory to have a
+prior estimate for the size of the effect. Finally, we are unaware of prior works where the
+HBR contribution has been estimated in inclusive tt̄ production. Recently, refs. [44, 53]
+have provided estimates for HBR in the processes tt̄V (+X), with V = H, Z, W .
+     We have investigated the impact of HBR on all four distributions considered in this
+work: pT,avt , m(tt̄), yavt and y(tt̄). Our results are shown in fig. 7, where we plot the effect
+of HBR on the central scale normalised to the QCD prediction. We show separately the
+LO HBR effect of order O(αs2 α) as well as the NLO QCD HBR prediction which includes
+terms of order O(αs3 α). As a reference we also show the EW corrections for tt̄.
+     In our calculations we include HBR due to H, W and Z. We are fully inclusive in
+HBR, i.e., no cuts on the emitted heavy bosons are applied. Clearly, any realistic experi-
+mental analysis will require an estimate of HBR subject to experimental cuts, but such an
+investigation would be well outside the scope of the present work.
+     From fig. 7 we conclude that the effect of HBR is generally much smaller than the EW
+corrections. In particular, higher-order QCD corrections to HBR are completely negligible,
+i.e. HBR is well described in LO for all the tt̄ inclusive distributions and for the full
+kinematic ranges considered here. The absolute effect of HBR on the pT,avt distribution
+is positive and small; it never exceeds 2-3% (relative to the tt̄ prediction at NNLO QCD
+accuracy) and is always much smaller than the EW correction. The only distribution
+where the HBR contribution is not negligible compared to the EW one is m(tt̄) computed
+with LUXQED. For this distribution the HBR correction is positive and only about half the
+absolute size of the (negative) EW correction. Still, the absolute size of the HBR, relative to
+the prediction at NNLO QCD accuracy, is within 1% and so its phenomenological relevance
+
+
+
+
+                                                                        – 13 –
+                              tt-, LHC13, LUXQED                                                           tt-, LHC13, NNPDF3.0QED
+     0.1        EW/QCD         HBR(α2s α)/QCD       HBR(α2s α+α3s α)/QCD           0.1       EW/QCD           HBR(α2s α)/QCD       HBR(α2s α+α3s α)/QCD
+
+       0                                                                             0
+    −0.1                                                                          −0.1
+    −0.2                                                                          −0.2
+            0           500   1000      1500        2000      2500         3000          0           500     1000        1500      2000       2500        3000
+                                     pT,avt [GeV]                                                                   pT,avt [GeV]
+
+                              tt-, LHC13, LUXQED                                                           tt-, LHC13, NNPDF3.0QED
+     0.1        EW/QCD         HBR(α2s α)/QCD       HBR(α2s α+α3s α)/QCD           0.1       EW/QCD           HBR(α2s α)/QCD       HBR(α2s α+α3s α)/QCD
+
+    0.05                                                                          0.05
+        0                                                                            0
+
+            0       1000      2000      3000        4000      5000         6000          0       1000        2000        3000      4000       5000        6000
+                                        -                                                                              -
+                                     m(tt) [GeV]                                                                    m(tt) [GeV]
+                               -                                                                            -
+                              tt, LHC13, LUXQED                                                            tt, LHC13, NNPDF3.0QED
+                EW/QCD         HBR(α2s α)/QCD       HBR(α2s α+α3s α)/QCD                     EW/QCD           HBR(α2s α)/QCD       HBR(α2s α+α3s α)/QCD
+    0.01                                                                          0.01
+
+
+        0                                                                            0
+                   −2         −1           0           1            2                           −2          −1             0          1            2
+                                         yavt                                                                            yavt
+
+                              tt-, LHC13, LUXQED                                                           tt-, LHC13, NNPDF3.0QED
+                                    2                    2    3                                                      2                    2   3
+    0.04        EW/QCD         HBR(αs α)/QCD        HBR(αs α+αs α)/QCD            0.04       EW/QCD           HBR(αs α)/QCD        HBR(αs α+αs α)/QCD
+
+    0.02                                                                          0.02
+
+        0                                                                            0
+                   −2         −1           0           1            2                           −2          −1             0          1            2
+                                         y(tt-)                                                                          y(tt-)
+
+
+
+Figure 7. Impact of heavy boson radiation (HBR) on the pT,avt , m(tt̄), yavt and y(tt̄) differential
+distributions at 13 TeV. The format of the plots is described in the text.
+
+
+is unclear. The impact of HBR on the two rapidity distributions is tiny, typically within 3
+permil of the NNLO QCD prediction.
+
+
+6       Conclusions
+
+In this work we derive for the first time predictions for all main top-quark pair differential
+distributions 7 with stable top quarks at the LHC at NNLO QCD accuracy and including
+the following EW corrections: the NLO EW effects of O(αs2 α), all subleading NLO terms
+of order O(αs α2 ) and O(α3 ) as well as the LO contributions of order O(αs α) and O(α2 ).
+     We present a detailed analysis of top-pair production at the LHC at 13 TeV and we
+find that the effect of EW corrections on differential distributions with stable top quarks
+is in general within the current total (scale+PDF) theory uncertainty. A notable excep-
+tion is the pT,avt distribution in the boosted regime where the effect of EW corrections is
+significant with respect to the current total theory error. We have checked that similar
+conclusions apply also for LHC at 8 TeV. All results derived in this work in the multiplica-
+    7
+   One distribution we do not consider is pT,tt̄ which is not known in NNLO QCD, and for which resum-
+mation is mandatory in order to have reliable predictions.
+
+
+
+
+                                                                            – 14 –
+tive approach, for both 8 and 13 TeV, are available in electronic form 4 as well as with the
+ArXiv submission of this paper.
+      Providing phenomenological predictions for the LHC is only one of the motivations for
+the present study. In this work we also quantify the impact of the photon PDF on top-pair
+differential distributions and study the difference between the additive and multiplicative
+approaches for combining QCD and EW corrections. Moreover, we analyse the contribution
+from inclusive Heavy Boson Radiation on inclusive top-pair differential distributions.
+      In order to quantify the impact of the photon PDF, we use two recent PDF sets
+whose photon components are constructed within very different approaches. The first set,
+LUXQED, is based on the PDF4LHC15 set [54] and adds to it a photon contribution that is
+derived from the structure function approach of ref. [37]. The second set, NNPDF3.0QED,
+is based on the NNPDF3.0 family of PDFs and adds a photon component that is extracted
+from a fit to collider data. NNPDF3.0QED photon density has both a much larger central
+value and PDF uncertainty than those of LUXQED. On the other hand, the two sets are
+compatible within PDF errors and they both include QED effects in the DGLAP evolution
+on top of the usual NNLO QCD evolution.
+      We confirm the observations already made in ref. [34], namely, the way the photon
+PDF is included impacts all differential distributions. The size of this impact is different
+for the various distributions; the most significant impact can be observed in the pT,avt
+distribution at moderate and large pT where the net effect from EW corrections based on
+NNPDF3.0QED is rather small and with large PDF uncertainties, while using LUXQED
+it is negative, with small PDF uncertainties and comparable to the size of the NNLO QCD
+scale error. The m(tt̄) distribution displays even larger effects, but only at extremely high
+m(tt̄). The y(tt̄) distribution is also affected at large y(tt̄) values.8
+      It seems to us that a consensus is emerging around the structure-function approach
+of ref. [37]. Given its appealing predictiveness, this approach will likely be utilised in the
+future in other PDF sets. Therefore, at present, it seems to us that as far as the photon
+PDF is concerned predictions based on the LUXQED set should be preferred.
+      Our best predictions in this work are based on the so-called multiplicative approach
+for combining QCD and EW corrections. We have also presented predictions based on
+the standard additive approach. In general, we find that the difference between the two
+approaches is small and well within the scale uncertainty band. The difference between the
+two approaches is more pronounced for the m(tt̄) and pT,avt distributions. Nevertheless,
+both approaches agree within the scale variation. The scale uncertainty is smaller within
+the multiplicative approach and, especially in the case of the pT,avt distribution, does not
+overlap with the NNLO QCD uncertainty band. We stress that these features may be
+sensitive to the choice of factorisation and renormalisation scales.
+      Since we are unaware of a past study of Heavy Boson Radiation (i.e. H, W ± and
+Z) in inclusive tt̄ production, for completeness, we have also presented the impact of
+inclusive HBR on the inclusive top-pair differential spectrum. While it is often assumed
+   8
+    As it has been lengthly motivated and discussed in ref. [34], effects due to the photon PDF á la NNPDF
+are even more pronounced at 8 TeV.
+
+
+
+
+                                                 – 15 –
+that additional HBR emissions can be removed in the measurements, it is nevertheless
+instructive to consider the contribution of such final states. We find that, typically, the
+HBR contribution is negligible, except for the m(tt̄) distribution, where it tends to partially
+offset the EW correction (when computed with LUXQED). We have also checked that
+NLO QCD corrections to the LO HBR result are negligible for all inclusive tt̄ distributions
+considered by us.
+
+
+
+Acknowledgments
+
+We thank Stefano Frixione for his suggestions and interest at the early stage of this project.
+D.P., I.T. and M.Z. acknowledge also Fabio Maltoni for his strong encouragement and
+support in pursuing this study.
+    The work of M.C. is supported in part by grants of the DFG and BMBF. The work of
+D.H. and A.M. is supported by the UK STFC grants ST/L002760/1 and ST/K004883/1.
+A.M. is also supported by the European Research Council Consolidator Grant “NNLO-
+forLHC2”. The work of D.P is partially supported by the ERC grant 291377 “LHCtheory:
+Theoretical predictions and analyses of LHC physics: advancing the precision frontier” and
+by the Alexander von Humboldt Foundation, in the framework of the Sofja Kovalevskaja
+Award Project “Event Simulation for the Large Hadron Collider at High Precision”. The
+work of I.T. is supported by the F.R.S.-FNRS “Fonds de la Recherche Scientifique” (Bel-
+gium) and in part by the Belgian Federal Science Policy Office through the Interuniversity
+Attraction Pole P7/37. The work of M.Z. is supported by the European Union’s Horizon
+2020 research and innovation programme under the Marie Sklodovska-Curie grant agree-
+ment No 660171 and in part by the ILP LABEX (ANR-10-LABX-63), in turn supported
+by French state funds managed by the ANR within the “Investissements d’Avenir” pro-
+gramme under reference ANR-11-IDEX-0004-02.
+
+
+
+
+A    Notation
+
+In this appendix we specify how EW corrections and NNLO QCD results are combined
+in the additive and multiplicative approaches. The notation matches the one introduced
+in [53]. The phenomenology of tt̄ production within the additive approach is presented in
+sec. 3.1. The multiplicative approach is studied in sec. 3.2 where it is also compared to the
+additive one.
+     A generic observable Σtt̄ in the process pp → tt̄(+X) can be expanded simultaneously
+in the QCD and EW coupling constants as:
+
+                                                X
+                             Σtt̄ (αs , α) =           αsm αn Σm+n,n .                   (A.1)
+                                               m+n≥2
+
+
+
+
+                                               – 16 –
+The LO (m + n = 2), NLO (m + n = 3) and NNLO (m + n = 4) contributions read
+
+           ΣtLO
+              t̄
+                 (αs , α) = αs2 Σ2,0 + αs αΣ2,1 + α2 Σ2,2
+                        ≡ ΣLO,1 + ΣLO,2 + ΣLO,3 ,
+          ΣtNLO
+            t̄
+                (αs , α) = αs3 Σ3,0 + αs2 αΣ3,1 + αs α2 Σ3,2 + α3 Σ3,3
+                        ≡ ΣNLO,1 + ΣNLO,2 + ΣNLO,3 + ΣNLO,4 ,
+          tt̄
+         ΣNNLO (αs , α) = αs4 Σ4,0 + αs3 αΣ4,1 + αs2 α2 Σ4,2 + αs α3 Σ4,3 + α4 Σ4,4
+                        ≡ ΣNNLO,1 + ΣNNLO,2 + ΣNNLO,3 + ΣNNLO,4 + ΣNNLO,5 .                    (A.2)
+
+In order to simplify the notation, we further define the following purely QCD quantities
+
+        ΣLO QCD ≡ ΣLO,1 ,          ΣNLO QCD ≡ ΣNLO,1 ,                                         (A.3)
+      ΣNNLO QCD ≡ ΣNNLO,1 ,             ΣQCD ≡ ΣLO QCD + ΣNLO QCD + ΣNNLO QCD                  (A.4)
+
+and those involving EW corrections
+
+               ΣLO EW ≡ ΣLO,2 ,                  Σres ≡ ΣLO,3 + ΣNLO,3 + ΣNLO,4 ,              (A.5)
+             ΣNLO EW ≡ ΣNLO,2 ,                 ΣEW ≡ ΣLO EW + ΣNLO EW + Σres .                (A.6)
+
+    Throughout this work with the term “EW corrections” we refer to the quantity ΣEW ,
+while the term “NLO EW corrections” will only refer to ΣNLO EW . In the additive ap-
+proach, which is presented in section 3.1, QCD and electroweak corrections are combined
+through the linear combination
+
+                                   ΣQCD+EW ≡ ΣQCD + ΣEW .                                      (A.7)
+
+     The so called “multiplicative approach”, which has been discussed in sec. 3.1, is pre-
+cisely defined in the following. The purpose of the multiplicative approach is to estimate
+the size of ΣNNLO,2 , which for convenience we rename Σmixed and assuming complete fac-
+torisation of NLO QCD and NLO EW effects we estimate as
+
+                                                 ΣNLO QCD × ΣNLO EW
+                          Σmixed ≡ ΣNNLO,2 ≈                        .                          (A.8)
+                                                      ΣLO QCD
+
+In the regime where NLO QCD corrections are dominated by soft interactions and NLO
+EW by Sudakov logarithms, eq. (A.8) is a very good approximation, since the two effects
+factorise and are dominant. In other regimes Σmixed can be used as an estimate of the
+leading missing mixed QCD–EW higher orders. The advantage of the inclusion of Σmixed
+is the stabilisation of the scale dependence of the term ΣNLO EW , which in tt̄ production
+has almost 9 the same functional form of ΣLO QCD . To this end we define the multiplicative
+  9
+    We say “almost” because this order receives also QCD corrections to the ΣLO EW contributions from
+                                                                                   Σ      (µ )
+the gγ and bb̄ initial states. Besides these effects ΣNLO EW (µ2 ) = ΣNLO EW (µ1 ) ΣLO QCD 2 .
+                                                                             LO QCD(µ1 )
+
+
+
+
+                                               – 17 –
+approach as
+
+               NLO
+    ΣQCD×EW ≡ KEW  (ΣLO QCD + ΣNLO QCD ) + ΣLO EW + ΣNNLO QCD + Σres                     (A.9)
+                  NLO
+               = KQCD (ΣLO QCD + ΣNLO EW ) + ΣLO EW + ΣNNLO QCD + Σres                  (A.10)
+                         NLO
+               = ΣQCD + KQCD ΣNLO EW + ΣLO EW + Σres                                    (A.11)
+                              NLO
+               = ΣQCD+EW + (KQCD  − 1) × ΣNLO EW                                        (A.12)
+               ≈ ΣQCD+EW + Σmixed ,                                                     (A.13)
+
+where we used the standard K-factors
+
+        NLO      ΣLO QCD + ΣNLO QCD             NLO      ΣLO QCD + ΣNLO EW
+       KQCD ≡                       ,          KEW  ≡                      .            (A.14)
+                      ΣLO QCD                                 ΣLO QCD
+
+    In order to test the stability of the multiplicative approach under even higher mixed
+QCD-EW orders, we combine NNLO QCD corrections and NLO EW corrections in order
+to estimate, besides the Σmixed term, also NNNLO contributions of order αs4 α. For this
+purpose we define the quantity
+
+                           NLO
+              ΣQCD2 ×EW ≡ KEW  ΣQCD + ΣLO EW + Σres                                     (A.15)
+                             NNLO
+                          = KQCD  (ΣLO QCD + ΣNLO EW ) + ΣLO EW + Σres                  (A.16)
+                                    NNLO
+                          = ΣQCD + KQCD   ΣNLO EW + ΣLO EW + Σres                       (A.17)
+                                         NNLO
+                          = ΣQCD+EW + (KQCD   − 1) × ΣNLO EW ,                          (A.18)
+
+where we introduced the K-factor
+
+                                     NNLO       ΣQCD
+                                    KQCD  ≡            .                                (A.19)
+                                               ΣLO QCD
+
+     Finally, we briefly describe how the dependence on the photon PDF enters the differ-
+ent perturbative orders. At LO and NLO accuracy, all contributions, with the exception
+of ΣLO QCD and ΣNLO QCD , depend on the photon PDF. The dominant photon-induced
+process is gγ → tt̄, which contributes to ΣLO EW and, via QCD corrections to this order,
+to ΣNLO EW . In addition, ΣNLO EW , but also ΣNLO,3 and ΣNLO,4 , receive contributions
+from the qγ → tt̄q and q̄γ → tt̄q̄ processes. Moreover, in the case of ΣLO,3 and ΣNLO,4 , also
+the γγ initial state contributes. As already discussed in ref. [34], almost all of the photon-
+induced contribution arises form ΣLO EW . In this work, at variance with ref. [34], we also
+include the term Σres in our calculations. However, since the size of Σres is in general small,
+the previous argument still applies. The numerical impact of Σres is discussed in sec. 3.2.
+     Given the structure of the photon-induced contributions described before, it is also im-
+portant to note that, with LUXQED, the multiplicative approach is a better approximation
+of Σmixed than in the case of NNPDF3.0QED. Indeed, the order ΣNLO EW contains also
+terms that can be seen as “QCD corrections” to the gγ contributions in ΣLO,2 (negligible
+only with the LUXQED), but are not taken into account in the multiplicative approach.
+
+
+
+
+                                            – 18 –
+References
+ [1] P. Bärnreuther, M. Czakon and A. Mitov, Percent Level Precision Physics at the Tevatron:
+     First Genuine NNLO QCD Corrections to q q̄ → tt̄ + X, Phys. Rev. Lett. 109 (2012) 132001,
+     [1204.5201].
+ [2] M. Czakon and A. Mitov, NNLO corrections to top-pair production at hadron colliders: the
+     all-fermionic scattering channels, JHEP 12 (2012) 054, [1207.0236].
+ [3] M. Czakon and A. Mitov, NNLO corrections to top pair production at hadron colliders: the
+     quark-gluon reaction, JHEP 01 (2013) 080, [1210.6832].
+ [4] M. Czakon, P. Fiedler and A. Mitov, Total Top-Quark Pair-Production Cross Section at
+     Hadron Colliders Through O(αS4 ), Phys. Rev. Lett. 110 (2013) 252004, [1303.6254].
+ [5] M. Cacciari, M. Czakon, M. Mangano, A. Mitov and P. Nason, Top-pair production at
+     hadron colliders with next-to-next-to-leading logarithmic soft-gluon resummation, Phys. Lett.
+     B710 (2012) 612–622, [1111.5869].
+ [6] M. Czakon and A. Mitov, Top++: A Program for the Calculation of the Top-Pair
+     Cross-Section at Hadron Colliders, Comput. Phys. Commun. 185 (2014) 2930, [1112.5675].
+ [7] M. Czakon, D. Heymes and A. Mitov, High-precision differential predictions for top-quark
+     pairs at the LHC, Phys. Rev. Lett. 116 (2016) 082003, [1511.00549].
+ [8] M. Czakon, D. Heymes and A. Mitov, Dynamical scales for multi-TeV top-pair production at
+     the LHC, JHEP 04 (2017) 071, [1606.03350].
+ [9] M. Czakon, N. P. Hartland, A. Mitov, E. R. Nocera and J. Rojo, Pinning down the large-x
+     gluon with NNLO top-quark pair differential distributions, JHEP 04 (2017) 044,
+     [1611.08609].
+[10] T. Ježo, J. M. Lindert, P. Nason, C. Oleari and S. Pozzorini, An NLO+PS generator for tt̄
+     and W t production and decay including non-resonant and interference effects, Eur. Phys. J.
+     C76 (2016) 691, [1607.04538].
+[11] R. Frederix, S. Frixione, A. S. Papanastasiou, S. Prestel and P. Torrielli, Off-shell single-top
+     production at NLO matched to parton showers, JHEP 06 (2016) 027, [1603.01178].
+[12] K. Melnikov and M. Schulze, NLO QCD corrections to top quark pair production and decay
+     at hadron colliders, JHEP 08 (2009) 049, [0907.3090].
+[13] G. Bevilacqua, M. Czakon, A. van Hameren, C. G. Papadopoulos and M. Worek, Complete
+     off-shell effects in top quark pair hadroproduction with leptonic decay at next-to-leading
+     order, JHEP 02 (2011) 083, [1012.4230].
+[14] A. Denner, S. Dittmaier, S. Kallweit and S. Pozzorini, NLO QCD corrections to off-shell
+     top-antitop production with leptonic decays at hadron colliders, JHEP 10 (2012) 110,
+     [1207.5018].
+[15] G. Bevilacqua, H. B. Hartanto, M. Kraus and M. Worek, Top Quark Pair Production in
+     Association with a Jet with Next-to-Leading-Order QCD Off-Shell Effects at the Large
+     Hadron Collider, Phys. Rev. Lett. 116 (2016) 052003, [1509.09242].
+[16] G. Bevilacqua, H. B. Hartanto, M. Kraus and M. Worek, Off-shell Top Quarks with One Jet
+     at the LHC: A comprehensive analysis at NLO QCD, JHEP 11 (2016) 098, [1609.01659].
+[17] E. Norrbin and T. Sjostrand, QCD radiation off heavy particles, Nucl. Phys. B603 (2001)
+     297–342, [hep-ph/0010012].
+
+
+
+
+                                               – 19 –
+[18] J. M. Campbell, R. K. Ellis, P. Nason and E. Re, Top-Pair Production and Decay at NLO
+     Matched with Parton Showers, JHEP 04 (2015) 114, [1412.1828].
+[19] T. Jeo and P. Nason, On the Treatment of Resonances in Next-to-Leading Order Calculations
+     Matched to a Parton Shower, JHEP 12 (2015) 065, [1509.09071].
+[20] W. Beenakker, A. Denner, W. Hollik, R. Mertig, T. Sack and D. Wackeroth, Electroweak one
+     loop contributions to top pair production in hadron colliders, Nucl. Phys. B411 (1994)
+     343–380.
+[21] J. H. Kühn, A. Scharf and P. Uwer, Electroweak corrections to top-quark pair production in
+     quark-antiquark annihilation, Eur. Phys. J. C45 (2006) 139–150, [hep-ph/0508092].
+[22] W. Bernreuther, M. Fuecker and Z. G. Si, Mixed QCD and weak corrections to top quark pair
+     production at hadron colliders, Phys. Lett. B633 (2006) 54–60, [hep-ph/0508091].
+[23] J. H. Kühn, A. Scharf and P. Uwer, Electroweak effects in top-quark pair production at
+     hadron colliders, Eur. Phys. J. C51 (2007) 37–53, [hep-ph/0610335].
+[24] W. Bernreuther, M. Fuecker and Z.-G. Si, Weak interaction corrections to hadronic top quark
+     pair production, Phys. Rev. D74 (2006) 113005, [hep-ph/0610334].
+[25] W. Bernreuther, M. Fucker and Z.-G. Si, Weak interaction corrections to hadronic top quark
+     pair production: Contributions from quark-gluon and b anti-b induced reactions, Phys. Rev.
+     D78 (2008) 017503, [0804.1237].
+[26] A. V. Manohar and M. Trott, Electroweak Sudakov Corrections and the Top Quark
+     Forward-Backward Asymmetry, Phys. Lett. B711 (2012) 313–316, [1201.3926].
+[27] J. H. Kühn, A. Scharf and P. Uwer, Weak Interactions in Top-Quark Pair Production at
+     Hadron Colliders: An Update, Phys. Rev. D91 (2015) 014020, [1305.5773].
+[28] J. M. Campbell, D. Wackeroth and J. Zhou, Electroweak Corrections at the LHC with
+     MCFM, PoS DIS2015 (2015) 130, [1508.06247].
+[29] W. Hollik and M. Kollar, NLO QED contributions to top-pair production at hadron collider,
+     Phys. Rev. D77 (2008) 014008, [0708.1697].
+[30] W. Bernreuther and Z.-G. Si, Distributions and correlations for top quark pair production
+     and decay at the Tevatron and LHC., Nucl. Phys. B837 (2010) 90–121, [1003.3926].
+[31] W. Hollik and D. Pagani, The electroweak contribution to the top quark forward-backward
+     asymmetry at the Tevatron, Phys. Rev. D84 (2011) 093003, [1107.2606].
+[32] J. H. Kühn and G. Rodrigo, Charge asymmetries of top quarks at hadron colliders revisited,
+     JHEP 01 (2012) 063, [1109.6830].
+[33] W. Bernreuther and Z.-G. Si, Top quark and leptonic charge asymmetries for the Tevatron
+     and LHC, Phys. Rev. D86 (2012) 034026, [1205.6580].
+[34] D. Pagani, I. Tsinikos and M. Zaro, The impact of the photon PDF and electroweak
+     corrections on tt̄ distributions, Eur. Phys. J. C76 (2016) 479, [1606.01915].
+[35] A. Denner and M. Pellen, NLO electroweak corrections to off-shell top-antitop production
+     with leptonic decays at the LHC, JHEP 08 (2016) 155, [1607.05571].
+[36] L. A. Harland-Lang, V. A. Khoze and M. G. Ryskin, Photon-initiated processes at high mass,
+     Phys. Rev. D94 (2016) 074008, [1607.04635].
+
+
+
+
+                                             – 20 –
+[37] A. Manohar, P. Nason, G. P. Salam and G. Zanderighi, How bright is the proton? A precise
+     determination of the photon parton distribution function, Phys. Rev. Lett. 117 (2016)
+     242002, [1607.04266].
+[38] E. Accomando, J. Fiaschi, F. Hautmann, S. Moretti and C. H. Shepherd-Themistocleous,
+     Photon-initiated production of a dilepton final state at the LHC: Cross section versus
+     forward-backward asymmetry studies, Phys. Rev. D95 (2017) 035014, [1606.06646].
+[39] E. Accomando, J. Fiaschi, F. Hautmann, S. Moretti and C. H. Shepherd-Themistocleous,
+     The effect of real and virtual photons in the di-lepton channel at the LHC, Phys. Lett. B770
+     (2017) 1–7, [1612.08168].
+[40] NNPDF collaboration, R. D. Ball et al., Parton distributions with QED corrections, Nucl.
+     Phys. B877 (2013) 290–320, [1308.0598].
+[41] NNPDF collaboration, R. D. Ball et al., Parton distributions for the LHC Run II, JHEP 04
+     (2015) 040, [1410.8849].
+[42] ATLAS collaboration, G. Aad et al., Measurement of the double-differential high-mass
+                                                √
+     Drell-Yan cross section in pp collisions at s = 8 TeV with the ATLAS detector, JHEP 08
+     (2016) 009, [1606.01736].
+[43] J. Alwall, R. Frederix, S. Frixione, V. Hirschi, F. Maltoni, O. Mattelaer et al., The
+     automated computation of tree-level and next-to-leading order differential cross sections, and
+     their matching to parton shower simulations, JHEP 07 (2014) 079, [1405.0301].
+[44] S. Frixione, V. Hirschi, D. Pagani, H. S. Shao and M. Zaro, Electroweak and QCD
+     corrections to top-pair hadroproduction in association with heavy bosons, JHEP 06 (2015)
+     184, [1504.03446].
+[45] J. R. Andersen et al., Les Houches 2015: Physics at TeV Colliders Standard Model Working
+     Group Report, in 9th Les Houches Workshop on Physics at TeV Colliders (PhysTeV 2015)
+     Les Houches, France, June 1-19, 2015, 2016. 1605.04692.
+[46] R. Frederix, S. Frixione, V. Hirschi, D. Pagani, H.-S. Shao and M. Zaro, The complete NLO
+     corrections to dijet hadroproduction, JHEP 04 (2017) 076, [1612.06548].
+[47] A. D. Martin, R. G. Roberts, W. J. Stirling and R. S. Thorne, Parton distributions
+     incorporating QED contributions, Eur. Phys. J. C39 (2005) 155–161, [hep-ph/0411040].
+[48] C. Schmidt, J. Pumplin, D. Stump and C. P. Yuan, CT14QED parton distribution functions
+     from isolated photon production in deep inelastic scattering, Phys. Rev. D93 (2016) 114015,
+     [1509.02905].
+[49] C. W. Bauer, N. Ferland and B. R. Webber, Standard Model Parton Distributions at Very
+     High Energies, 1703.08562.
+[50] M. Czakon, D. Heymes and A. Mitov, fastNLO tables for NNLO top-quark pair differential
+     distributions, 1704.08551.
+[51] T. Kluge, K. Rabbertz and M. Wobisch, FastNLO: Fast pQCD calculations for PDF fits, in
+     Deep inelastic scattering. Proceedings, 14th International Workshop, DIS 2006, Tsukuba,
+     Japan, April 20-24, 2006, pp. 483–486, 2006. hep-ph/0609285.
+[52] fastNLO collaboration, D. Britzger, K. Rabbertz, F. Stober and M. Wobisch, New features
+     in version 2 of the fastNLO project, in Proceedings, 20th International Workshop on
+     Deep-Inelastic Scattering and Related Subjects (DIS 2012): Bonn, Germany, March 26-30,
+     2012, pp. 217–221, 2012. 1208.3641. DOI.
+
+
+
+
+                                              – 21 –
+[53] S. Frixione, V. Hirschi, D. Pagani, H. S. Shao and M. Zaro, Weak corrections to Higgs
+     hadroproduction in association with a top-quark pair, JHEP 09 (2014) 065, [1407.0823].
+[54] J. Butterworth et al., PDF4LHC recommendations for LHC Run II, J. Phys. G43 (2016)
+     023001, [1510.03865].
+
+
+
+
+                                            – 22 –
+

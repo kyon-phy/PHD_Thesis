@@ -1,0 +1,93 @@
+Variable Description 1-prong 3-prong
+Track inputs
+p
+τhad-vis
+T Transverse momentum of the τhad-vis candidate X X
+p
+track
+T Transverse momentum of each associated track X X
+∆η
+track Angular distance between the track and τhad-vis axis X X
+∆φ
+track Angular distance between the track and τhad-vis axis X X
+NIBL Number of hits in the innermost layer of the pixel detector X X
+Npixel Number of hits in the pixel detector X X
+NSCT Number of hits in the SCT X X
+z
+TJVA
+0 sin θ Tau vertex longitudinal impact parameter X X
+d
+TJVA
+0 Tau vertex transverse impact parameter X X
+S(z
+TJVA
+0 sin θ) Tau vertex longitudinal impact parameter divided by its uncertainty X X
+S(d
+TJVA
+0 ) Tau vertex transverse impact parameter divided by its uncertainty X X
+Cluster inputs
+p
+τhad-vis
+T Transverse momentum of the τhad-vis candidate X X
+E
+cluster
+T TopoCluster transverse energy X X
+∆η
+cluster The angular distance between the TopoCluster and the τhad-vis axis X X
+∆φ
+cluster The angular distance between the TopoCluster and the τhad-vis axis X X
+hλcentre
+i Mean distance of the cluster shower centre from the calorimeter X X
+front face measured along the shower axis.
+hλ
+2
+D
+i Mean distance of a cell from the shower centre along the shower axis X X
+r
+2
+E
+Second moment in the radial distance of cluster cells from the cluster axis. X X
+High-level inputs
+p
+τhad-vis
+T Transverse momentum of the τhad-vis candidate X X
+f
+∆R<0.1
+cent Fraction of transverse energy at EM scale deposited in the region X X
+∆R < 0.1 with respect to all energy deposited in ∆R < 0.2
+around the τhad-vis candidate axis
+f
+−1
+lead-track The transverse energy sum, calibrated at the EM energy scale, deposited in all X X
+cells belonging to TopoClusters in the core region, divided by the
+transverse momentum of the highest-pT core track of the τhad-vis candidate.
+∆Rmax(track, τhad
+) The maximum ∆R between a core track associated with X X
+the τhad-vis candidate and the τhad-vis direction.
+S
+flight
+T The decay length of the secondary vertex in the transverse plane, calculated X
+with respect to the τ vertex, divided by its estimated uncertainty
+f
+iso
+track Scalar sum of the pT of isolation tracks associated with the τhad-vis candidate X X
+divided by the sum of the pT of all the associated core and isolation tracks.
+f
+EM
+track Ratio of the sum of cluster energy deposited in the electromagnetic part of X X
+the TopoClusters (pre-sampler, first and second layers of the LAr calorimeter)
+to the sum of the momentum of core tracks.
+p
+EM+track
+T /pT Ratio of the τhad-vis pT, estimated using the vector sum of core track X X
+momenta and up to two most energetic EM clusters in the core region to
+the calorimeter-only measurement of τhad-vis pT.
+m
+EM+track
+Invariant mass of the system composed of the core tracks and up to two most X X
+energetic EM clusters in the core region and the four-momentum of an EM
+cluster is calculated assuming zero mass and using TopoCluster seed direction.
+m
+track
+Invariant mass calculated from the sum of the four-momenta of all core X
+and isolation tracks, assuming a pion mass for each track

@@ -1,0 +1,234 @@
+### PAGE 1
+𝜏𝜈+bsearch in LHC-ATLAS motivated by B anomaly:Status reportJiaqi Zang,T akuyaNobe,To m o y aIizawa,JunichiT anakaTheUniversityofTo k y o22/08/2025
+1
+Based on https://arxiv.org/abs/2111.047482025/08/22 Jiaqi ZANGTau+X weekly meeting
+NOTES: 
+
+### PAGE 2
+2025/08/22 Jiaqi ZANGTau+X weekly meeting2
+Currentstatus•ProcesschainTopCPToolKitàFastFrameàTRexFitterisused.•TheFFconfigfileandTrexFittersettingfiles(.yml)arepushedtogitinthe“taunub_sys”branch(git)•ThesignificanceandlimitblockinTREx.configfileneedtobeaddedbyhandforthecurrentFFversion(v5.3.0)•Theoreticalsystematicuncertaintiesestimationisperformed.ØSmoothingisappliedtomitigatetheaffectionfromthelowstatsinthetailregion.•S+B Fit with full systematics is performed.ØSystematicsthatbuggedissetto1% (MUON_EFF_RECO_SYS, EL_EFF_Iso_TOTAL_1NPCOR_PLUS_UNCOR).•New95% limit is drawn with full systematics fit result.ØSignificance is calculated by different (𝑚!,𝛽"#$,𝑔!)set.•Theinternalnoteisupdatedfortheaboveupdates.
+NOTES: 
+
+### PAGE 3
+Regiondefinition
+2025/08/22 Jiaqi ZANGTau+X weekly meeting3
+SRandCRdefinition:•SR:1tau+mET+1b•WCR:1e/1mu+mET+bveto•TopCR:1e/1mu+1tau+bjetsValidationregionselection:•1e/1muà1tauextrapolation:validatedinWVR1tau.•bvetoàbtagextrapolation:validatedinVR0tau.
+NOTES: 
+
+### PAGE 4
+Theory uncertainty estimation
+2025/08/22 Jiaqi ZANGTau+X weekly meeting4
+NOTES: 
+
+### PAGE 5
+Theory uncertainty estimation•TheoryuncertaintiesforW+jetsandtopbackgroundareestimated,byfollowingPMGrecommendations.•Theuncertaintyisestimatedonthe“transferfactor”.•The alternative samples are normalized to the nominal sample in the CRs and applied to SR/VR only.•Mostofuncertaintiesarecancelledout between SR/VR and CRandfoundtobe~5%.•CRdefinitionisgood,andwecanusethephasespaceverysimilartoSR/VR.•SomeuncertaintieswithlargedifferencebetweenSR/VRandCRsisinvestigated.•Theyaretheoneswithalternativesamplese.g.TopPS,couldbeduetothestatuncertainty.•The353QHsmoothalgorithmisappliedtothoseuncertainties.
+2025/08/22 Jiaqi ZANGTau+X weekly meeting5
+NOTES: 
+
+### PAGE 6
+W+jets HF modeling undertainty•Thefractionofb/cjetscouldbethesourceoftheW+jetsmodelinguncertaintieswhenextrapolatingthefitresultsfromb-vetoCRtotheb-tagSR/VRs.•Aconservativeuncertaintyestimationof20%forthissystematicisappliedtotheb-taggedSR/VRs.•Withthisuncertaintyadded,thediscrepancyofVR0tauisreducedfrom2.8sigmaà2.5sigma.•Thisalsoleadtothe2.3%reductionofthesensitivity.
+2025/08/22 Jiaqi ZANGTau+X weekly meeting6
+NOTES: 
+
+### PAGE 7
+Theoryuncertaintyestimation
+2025/08/22 Jiaqi ZANGTau+X weekly meeting7
+•Theoryuncertaintiesintheresonanceregion
+NOTES: 
+
+### PAGE 8
+Theoryuncertaintyestimation
+2025/08/22 Jiaqi ZANGTau+X weekly meeting8
+•Theoryuncertaintiesinthenon-resonanceregion
+
+NOTES: 
+
+### PAGE 9
+•Thesmoothisappliedbyfollowing:1)AlternativesampleisnormalizedtothenominalintheCR.2)Smoothingisappliedfor𝑀!"#and𝐸$%&''N-1distributiontoobtainthereasonabletailestimation.3)ApplythecutforSR/VRandintegratetheyieldsinthetailregion.•TopPS(relaxdresonanceSR0.18à0.03)
+2025/08/22 Jiaqi ZANGTau+X weekly meeting9
+BeforesmoothingAftersmoothing
+Smoothingforthetheoryuncertainties
+SR
+ SR
+NOTES: 
+
+### PAGE 10
+•Thesmoothisappliedbyfollowing:1)AlternativesampleisnormalizedtothenominalintheCR.2)Smoothingisappliedfor𝑀!"#and𝐸$%&''N-1distributiontoobtainthereasonabletailestimation.3)ApplythecutforSR/VRandintegratetheyieldsinthetailregion.•TopFSRdown(relaxedresonanceTopCR,0.24à0.06)
+2025/08/22 Jiaqi ZANGTau+X weekly meeting10
+BeforesmoothingAftersmoothing
+Smoothingforthetheoryuncertainties
+TopVR
+TopVR
+NOTES: 
+
+### PAGE 11
+B-onlyfitwithfullsystematics
+2025/08/22 Jiaqi ZANGTau+X weekly meeting11
+NOTES: 
+
+### PAGE 12
+B-onlyfitwithfullsystematics
+2025/08/22 Jiaqi ZANGTau+X weekly meeting12
+•Normfactors:•Toptch:NFinnon-resonanceregionforTop.•Topsch:NFinresonanceregionforTop.•Wjetstch:NFinnon-resonanceregionforW+jets.•Wjetstch:NFinresonanceregionforW+jets.
+•Thedisrepancyinnon-resonanceVRisreducedto2.5sigmadueto theincreaseduncertaintiescomparingwiththenominal-onlyfit.
+NOTES: 
+
+### PAGE 13
+S+Bfitwithfullsystematics
+2025/08/22 Jiaqi ZANGTau+X weekly meeting13
+NOTES: 
+
+### PAGE 14
+Fitresultswithfullsystematics
+2025/08/22 Jiaqi ZANGTau+X weekly meeting14
+•𝑚!,𝛽"#$,𝑔!=(1500,1.5,0.2)
+•Leadingsystematics•WjetsHFmodeling•TauTESsmearing•FTefficiency(light)
+NOTES: 
+
+### PAGE 15
+Fitresultswithfullsystematics
+2025/08/22 Jiaqi ZANGTau+X weekly meeting15
+•𝑚!,𝛽"#$,𝑔!=(2500,2.5,0.6)
+•Comparing with result form 𝑚!=1.5 TeVØThe component of Flavor tagging is changed. (light jet à bjets)ØThenon-resonancesignalbecomemoreimportantinthehigh-massregion,whichrequireshighb-jetpT.
+•Leadingsystematics•TauTESsmearing•WjetsHFmodeling•Pileup•FT(b)
+
+NOTES: 
+
+### PAGE 16
+Limitplots
+2025/08/22 Jiaqi ZANGTau+X weekly meeting16
+•LimitwhereZ=1.645isdrawnMU=1.5TeV
+ Beta=0.2TeV
+NOTES: 
+
+### PAGE 17
+Summary•Thetheoryuncertaintyestimationisperformed.Theuncertaintiesinresonanceandnon-resonanceregionisabout10%and5%,respectively.AdditionalW+jetsHFmodelinguncertaintyisintroduced.•TheB-onlyandS+Bfitwithfullsystematicsisperformed.Thedata/MCdiscrepancyintheVR0tauisdownto2.5sigmacomparingtothenominal-onlyfitresult.•TheleadingsystematicsuncertaintiescomefromtauTES/IDandFTefficiency,whichisexpectedasCRsaredefinedinthetau/bvetoregions.•Thepreliminaryexpectedlimitplotisalsodrawn.Agoodagreementwiththeformerstudyisseen.
+2025/08/22 Jiaqi ZANGTau+X weekly meeting17
+Plan•UpdatethevalidationregionplotsbeforeandafterthefitfortheinternalnoteanddiscusstheEBrequest.•UpdatethecorrectionfunctionsforthenewsignalreweightingintheTopCPToolKit.
+NOTES: 
+
+### PAGE 18
+18
+Backup
+2025/08/22 Jiaqi ZANGTau+X weekly meeting
+NOTES: 
+
+### PAGE 19
+•SmoothisappliedbyROOTfunction(353QH, twice)•TopME(RelaxedresonanceTopVR,0.21à0.06)
+2025/08/22 Jiaqi ZANGTau+X weekly meeting19
+BeforesmoothingAftersmoothing
+TopVRTopVR
+Smoothingforthetheoryuncertainties
+NOTES: 
+
+### PAGE 20
+•SmoothisappliedbyROOTfunction(353QH, twice)•Wtinterference(RelaxedresonanceSR,0.16à0.12)
+2025/08/22 Jiaqi ZANGTau+X weekly meeting20
+BeforesmoothingAftersmoothing
+SRSR
+Smoothingforthetheoryuncertainties
+NOTES: 
+
+### PAGE 21
+•SmoothisappliedbyROOTfunction(353QH, twice)•Wtinterference(RelaxedresonanceTopVR,-0.17à-0.11)
+2025/08/22 Jiaqi ZANGTau+X weekly meeting21
+BeforesmoothingAftersmoothing
+TopVR
+ TopVR
+TopCR
+Smoothingforthetheoryuncertainties
+NOTES: 
+
+### PAGE 22
+•SmoothisappliedbyROOTfunction(353QH, twice)•TopME(relaxednon-resonanceSR,-0.16à-0.08)
+2025/08/22 Jiaqi ZANGTau+X weekly meeting22
+BeforesmoothingAftersmoothing
+SR SR
+Smoothingforthetheoryuncertainties
+NOTES: 
+
+### PAGE 23
+B-onlyfitinCR
+2025/08/22 Jiaqi ZANGTau+X weekly meeting23
+NOTES: 
+
+### PAGE 24
+Nominal-only fitinCR
+2025/08/22 Jiaqi ZANGTau+X weekly meeting24
+•Fit result:
+
+NOTES: 
+
+### PAGE 25
+2025/08/22 Jiaqi ZANGTau+X weekly meeting25
+•Summary plots:
+Nominal-only fitinCR
+•GoodagreementbetweendataandMCinmostofVRs.•OnlyinNon-ResonanceVR0tau.~3sigmadiscrepancyobserved.
+NOTES: 
+
+### PAGE 26
+0tau1l1bvalidation regioninvestigation
+2025/08/22 Jiaqi ZANGTau+X weekly meeting26
+•Cutflow
+•Discrepancy(mainlyfromWmunu)appearedsincemetcut,nexttocheckN-1distribution…
+NOTES: 
+
+### PAGE 27
+2025/08/22 Jiaqi ZANGTau+X weekly meeting27
+0tau1l1bvalidation regioninvestigation•N-1distribution
+MetN-1 metN-1(mT>400GeV)•Discrepancyislocalizedin425<mET<450GeV.•IfweloosenthemETcut>300GeV,data/MCagreementisimprovedto1.8sigma.•IfwetightenthemETcut>500GeV,data/MCagreementisalsoimprovedto1.5sigma.•IfweloosenthemTcutto>400GeV,agreementisimprovedtosigma2.1.
+NOTES: 
+
+### PAGE 28
+0tau1l1bvalidation regioninvestigation
+2025/08/22 Jiaqi ZANGTau+X weekly meeting28
+•Cutflow
+MetN-1•425 < mET< 450 GeV && 300 < lep0 pT < 400 GeV is off.•e-channel:5events.•Mu-channel:7events.
+
+NOTES: 
+
+### PAGE 29
+•Acloserlookatjet/leptoneta/phiinthe0tauVRwithcut425 < mET< 450 GeV.
+2025/08/22 Jiaqi ZANGTau+X weekly meeting29
+0tau1l1bvalidation regioninvestigation
+•Nodistinctfeaturefoundinspecificregion/period.Couldduetolackofstats.
+NOTES: 
+
+### PAGE 30
+2025/08/22 Jiaqi ZANGTau+X weekly meeting30
+0tau1l1bvalidation regioninvestigation
+Electron channel
+Muon channel
+
+NOTES: 
+
+### PAGE 31
+Expectedlimitcalculation
+2025/08/22 Jiaqi ZANGTau+X weekly meeting31
+NOTES: 
+
+### PAGE 32
+•NormalizationofsignalstrengthiscontrolbyPOIlinearly.(Xsec*mu)•IncaseofgettingalimitofgUwithdifferentmasspoints/beta23•BSM:(g!%∝𝜇)•Interference:(g!#∝𝜇)•Whichmeans𝜇shouldtreatdifferentlyforBSMandinterference?•Thenitcanbeusedfordrawingthelimitplot.
+2025/08/22 Jiaqi ZANGTau+X weekly meeting32
+Expectedlimitcalculation
+
+NOTES: 
+
+### PAGE 33
+!"
+2025/08/22 Jiaqi ZANGTau+X weekly meeting33
+Signal(non-resonance)•Eventtopology•Targetsignal:𝜏𝜈+bjet(hard/soft)
+*high𝑝!"andhigh𝐸!#$%%
+•Final state never explored by ATLAS/CMS.•Lookfortheuniqueparameterspacethatsensitiveto𝑐𝜈coupling
+Softbjet Signal(resonance)
+* Hardbjet(>250GeV)
+Analysisoverview
+•Agreed to use the Run-2 data only.•Waitingforthenewntuplesproductionforsystematicsstudy.•1stversiondraftofInternalnoteisuploadedtoCDS.•Newsignalsamplesrequeston-going.(JIRA)
+NOTES: 
+
+### PAGE 34
+ObjectdefinitionsandSFs
+2025/08/22 Jiaqi ZANGTau+X weekly meeting34
+Electron(signal: TightLH+HighPtCaloOnly)Muon(signal:medium_nonIso)
+Tau(signal:TightRNN)
+NOTES: 

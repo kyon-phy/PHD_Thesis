@@ -1,0 +1,1725 @@
+Not reviewed, for internal circulation only
+ATLAS PUB Note
+ATL-PHYS-PUB-2020-025
+26th September 2020
+Formulae for Estimating Signiﬁcance
+The ATLAS Collaboration
+This note compares several methods for estimating signiﬁcance of an observation of a number
+of events given a predicted rate with some uncertainty. A recommendation is made for the
+nominal formula to use in the absence of any strong justiﬁcation for choosing an alternative.
+©2020 CERN for the beneﬁt of the ATLAS Collaboration.
+Reproduction of this article or parts of it is allowed as speciﬁed in the CC-BY-4.0 license.
+Not reviewed, for internal circulation only
+1 Introduction
+The need for a simple formula for calculating the signiﬁcance of an event count with respect to a prediction
+– with or without uncertainty – is anticipated in a number of areas of physics analysis:
+• Data-vs-prediction plots are sometimes augmented with auxiliary signiﬁcance plots to show the
+bin-by-bin signiﬁcance.
+• Event selections may be optimized with respect to an expected signiﬁcance, where the mean event
+count is assumed to be⟨n⟩ = s + band wheres is the mean expected signal count andbis the mean
+expected background count, possibly with an uncertaintyσ; hence⟨n⟩ = bfor the background-only
+hypothesis.
+A recommendation for calculating the signiﬁcance for the background-only hypothesis is ﬁrst presented
+in section 2. Following a deﬁnition of signiﬁcance fromp-values in section 3, section 4 surveys a few
+methods to calculate the signiﬁcance for the background-only hypothesis, and compares results for various
+choices of n, b and σ. The recommended formula is selected in section 5 by comparing results with
+signiﬁcances obtained from toy data. Lown count cases are studied in section 6.
+2 Recommendation
+The recommended formula to use for estimating signiﬁcanceZ of observingn events given a prediction of
+b±σ events is:
+Z =
+
++
+√
+2
+(
+nln
+[ n(b+σ2)
+b2+nσ2
+]
+− b2
+σ2ln
+[
+1 + σ2 (n−b)
+b(b+σ2)
+] )
+if n ⩾ b
+−
+√
+2
+(
+nln
+[ n(b+σ2)
+b2+nσ2
+]
+− b2
+σ2ln
+[
+1 + σ2 (n−b)
+b(b+σ2)
+] )
+if n < b.
+(1)
+In the case ofn ⩾ b, this formula corresponds to equation 25 in [1]. In the case of vanishing uncertainty
+(σ = 0) this formula reduces to:
+Z =
+
++
+√
+2
+(
+nln
+[ n
+b
+]
+− (n− b)
+)
+if n ⩾ b
+−
+√
+2
+(
+nln
+[ n
+b
+]
+− (n− b)
+)
+if n < b.
+(2)
+The origin of this formula is discussed section 4, and is consistent with a Poisson-counting likelihood
+where the background rate nuisance parameter is constrained by an auxiliary Poisson measurement. The
+formula derives from use of the asymptotic formulae for the distributions of proﬁle likelihood test statistics.
+It reproduces well the signiﬁcance calculated through a toy (frequentist) approach for a corresponding
+model, as shown in Fig. 6. Similarly to the use of these asymptotic formulae for the derivation of limits,
+this formula is found to slightly overestimate the magnitude of the true signiﬁcance in the case of very low
+event counts (fewer than 2 events), as seen in Fig. 7.
+Code implementations of the recommended formula and other formulae studied in this note is publicly
+available from details given in appendix C.
+2
+Not reviewed, for internal circulation only
+3 Deﬁning signiﬁcances from p-values
+Consider the observation ofn events with the probabilityP(n) such that∑∞
+n=0 P(n) = 1. The background-
+only hypothesis predicts the expected number of events to beb =⟨n⟩. Compared to a prediction, the
+p-value pe suitable for an excess and thep-value pd suitable for a deﬁcit are given by
+pe (n) =
+∞∑
+j=n
+P( j) (p-value suitable for excess) (3)
+pd (n) =
+n∑
+j=0
+P( j) = 1−
+∞∑
+j=n+1
+P( j) . (p-value suitable for deﬁcit) (4)
+Note thatpe (n) + pd (n) = 1 + P(n) > 1.
+The related signiﬁcances are obtained as usual by specifying the corresponding number of standard
+deviations in a one-tailed test of a Gaussian variate. In order to obtain a negative signiﬁcance for a large
+deﬁcit, we choose
+Zd = Φ−1(pd) Ze = Φ−1(1− pe) , (5)
+where
+Φ(Z ) = 1√
+2π
+∫ Z
+−∞
+dt e−t2/2 . (6)
+We therefore havepe = 1/2 ⇐⇒ Ze = 0, andpd = 1/2 ⇐⇒ Zd = 0.
+In the limit of largen, or when thep-value is deﬁned using an asymptotic test statistic,pe (n) + pd (n) = 1
+andtherefore Ze and Zd arethesame,and ⟨n⟩isequaltothemedianof n,Med(n). Insuchcases,including
+the signiﬁcance formula recommended in this note, we have the intuitive outcome thatZ > 0for n > band
+Z < 0 for n < b. The rest of this section is therefore not relevant for this recommendation.
+But in general, for display purposes, a prescription is necessary in order to deﬁne the signiﬁcanceZ in
+terms ofZe and Zd. Strictly speakingpe and pd, and henceZe and Zd, cannot be deﬁned at the same time
+as they belong to diﬀerent classes of outcomes. But for display purposes, it is desirable in practice to have
+one signiﬁcanceZ encapsulating the signiﬁcance of an event count given a background estimate and its
+uncertainty, such thatZ is negative for a deﬁcit and positive for an excess - this is what is usually needed
+when plotting the bin-by-bin signiﬁcance of a data-vs-prediction histogram.
+3.1 Signiﬁcance prescriptions
+Themedianof n,Med(n),isdeﬁned[2][3]astheleastinteger nsuchthat ∑n
+j=0 P( j) ⩾ 1
+2. Fromequations3
+and 4, we therefore obtain1
+pe (Med(n)) > 1
+2 and pd (Med(n)) ⩾ 1
+2 (7)
+1 We are assuming thatP(n) does not have any interval ofn for whichP(n) = 0 such thatP(n) > 0 on both sides of the interval.
+3
+Not reviewed, for internal circulation only
+and the special casespe (n) = 1
+2 =⇒ n = Med(n) + 1and pd (n) = 1
+2 =⇒ n = Med(n). WhenMed(n)
+is suﬃciently diﬀerent from⟨n⟩, cases may occur for whichZ < 0 for n > bor Z > 0 for n < b. Since the
+expressions“excess”and“deﬁcit”refertocomparing nto⟨n⟩insteadofto Med(n), onecanhave Z < 0for
+an “excess” orZ > 0 for a “deﬁcit”; such cases are counter-intuitive but expected since the median should
+really be considered in deﬁning excess or deﬁcit in the context of a signiﬁcance. Following equation 7, it is
+therefore desirable to deﬁneZ in terms ofZe and Zd such that
+Z = 0 ⇐⇒ bsuch thatn = Med(n) or pe (n) = 1
+2 or pd (n) = 1
+2. (8)
+Note that the termpd (n) = 1/2is redundant since it is included in the termn = Med(n) by virtue of the
+median deﬁnition.
+Three diﬀerent prescriptions are described here, with our recommendation being to use Prescription 3 for
+display purposes where a prescription is necessary.
+Prescription 1
+Z =
+
+Ze if n ⩾ b
+Zd if n < b . (9)
+Since this prescription ignores Med(n), the condition 8 is not satisﬁed. Cases do occur whereZ < 0for
+n > b or where Z > 0 for n < b. The behaviour of this prescription as a function ofb is illustrated in
+Fig. 1 as a blue line. Note that in general with this prescriptionZ is a discontinuous function ofbat b = n;
+furthermore the discontinuity is such thatZ increasesas bincreases.
+Prescription 2
+Z =
+
+Ze if n ⩾ band Ze > 0
+Zd if n < band Zd < 0
+0 otherwise.
+(10)
+This is the prescription proposed for display purposes in [4] section 2.4. With this prescription, in some
+cases Z is a discontinuous function ofb at b = n; such a case is illustrated in Fig. 1 (green line). By
+deﬁnition, cases whereZ < 0 for n > bor whereZ > 0 for n < bcannot occur. Since this prescription
+ignores Med(n), the condition 8 is not satisﬁed.
+Prescription 3
+Z =
+
+Ze if Ze > 0 and Zd > 0
+Zd if Ze < 0 and Zd < 0
+0 otherwise.
+(11)
+Since pe ⩾ 1− pd, we haveZe ⩽ Zd. Therefore with this prescriptionZ is always a continuous function
+of bfor alln. From equation 7, Prescription 3 ensures that the condition 8 is fulﬁlled, by deﬁnition. Cases
+do occur whereZ < 0 for n > bor whereZ > 0 for n < b, but as previously noted this is not an issue. An
+exampleofacasewhere Z > 0for n < bisillustratedinFig.1(magentaline). Thiscounter-intuitiveresult
+is due to the fact that the observed number of eventsn = 12 is not included in the range ofb values for
+whichMed(n) = n = 12. In Fig. 1Med(n) is shown in orange with the values given on the right vertical
+4
+Not reviewed, for internal circulation only
+axis; notethatMed(n) = n = 12 =⇒ Z = 0forPrescription3. ForthePoisson-Gammamodelthisoccurs
+whenσ ⩾
+√
+b (see section 4.8 and appendix B), while this never occurs for the Poisson model without
+uncertainty (see section 4.3).
+Note that for scenarios wheren > b =⇒ Ze > 0 and n < b =⇒ Zd < 0 Prescription 3 is identical to
+Prescription 2. In these cases the range ofbvalues for whichMed(n) = n includes the observed number of
+events n. Fig. 1 illustrates an unusual case where all three prescriptions behave diﬀerently.
+10
+11 12 13 14 15 16 Background (b)
+1
+−0.8
+−0.6
+−0.4
+−0.2
+−0
+0.2
+0.4
+0.6
+0.8
+1
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 12, Rel Error )
+d Z≤ (eZd
+ZPrescription 1
+Prescription 3
+Prescription 2
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+Median
+Figure 1: Signiﬁcance as a function of the expected backgroundb =⟨n⟩for a Poisson-Gamma Bayesian treatment
+(see section 4.8) for the case of an observed number of events ofn = 12with a 50% relative uncertainty onb. The
+behaviour of the three prescriptions for convertingZe and Zd into a ﬁnal signiﬁcance valueZ are shown.Med(n) is
+shown in orange with the values given on the right vertical axis. Prescription 3 is the only prescription that hasZ = 0
+when n = Med(n) (equation 8)and Z > 0 when n > Med(n), which occurs forb ≲ 12.7.
+3.2 Signiﬁcance distributions
+When thep-value is continuous between 0 and 1, as is the case in the limit of largenor when thep-value is
+deﬁned using an asymptotic test statistic, equations 5 and 6 ensure that asn ﬂuctuates the signiﬁcance
+will follow a Gaussian distribution of 0 mean and unit standard deviation,N (0, 1). In this case, as already
+mentioned, Ze and Zd are the same and the signiﬁcance prescription is irrelevant.
+When thep-value is a discrete variable, as is the case in general when observing a number of eventsn,
+the signiﬁcance distribution will depart fromN (0, 1), for any prescription. In this case, the choice of
+the prescription will aﬀect the signiﬁance distribution, but without aﬀecting which prescription is to be
+favoured.
+Examples of signiﬁcance distributions are given in appendix A.
+5
+Not reviewed, for internal circulation only
+4 Comparison of diﬀerent formulae
+Where necessary, ﬁgures in this section will use Prescription 3 for the deﬁnition of signiﬁcanceZ in terms
+of Zd and Ze.
+4.1 Gaussian approximation without uncertainty
+Equation 12 comes from using the Gaussian approximation for the Poisson distribution ofn events given a
+background rate ofb. Under this approximation, the signiﬁcance is simply given as:
+Z = n− b√
+b
+. (12)
+This formula cannot account for uncertainty of the background rateb. The behaviour of this formula as a
+function ofbfor four diﬀerent choices ofn is shown in orange in Figs. 2 and 3, and onwards.
+4.2 Gaussian approximation with uncertainty
+A simplistic way to introduce uncertainty into this approximation is to assume that the background
+distribution is approximated by the combination of a Gaussian with meanband varianceb, and another
+Gaussian with mean0 and varianceσ2. Conceptually, you might say that the background event count
+would be a random variable that is the sum of two random variables drawn from these Gaussians. This new
+variable will be Gaussian distributed with meanband variance ofb +σ2, leading to the following formula
+for the signiﬁcance:
+Z = n− b√
+b +σ2
+. (13)
+This formula is shown in yellow in Figs. 2 and 3, and onwards.
+4.3 Poisson model without uncertainty
+Consider the observation ofn events given a prediction of exactlyb =⟨n⟩ events, with the probability of
+observing n events given by the Poisson distribution
+P(n|b) = bn
+n! e−b . (14)
+p-values suitable for excess or deﬁcit are respectively given by
+pe (n|b) =
+∞∑
+j=n
+P( j|b) = Fχ2 (2b, 2n) , (15)
+pd (n|b) =
+n∑
+j=0
+P( j|b) = 1−
+∞∑
+j=n+1
+P( j|b) = 1− Fχ2 (2b, 2(n + 1)) , (16)
+6
+Not reviewed, for internal circulation only
+where Fχ2 is the cumulative chi-square distribution (see page 167 of [5]). The signiﬁcance of the observed
+n is obtained as described in section 3. Figs. 2 and 3 illustrate a few cases (in blue) for this formula. As
+for the Gaussian approximation formula, this expression for signiﬁcance does not account for uncertainty
+on b. With the bounds on Med(n) given [2] byb− ln 2 ⩽ Med(n) < b + 1/3, the range ofb such that
+Med(n) = n is n− 1/3 < b ⩽ n + ln 2. Therefore the range ofb values such thatMed(n) = n always
+includes the observedn, ensuring that the signiﬁcance Prescriptions 2 and 3 are equivalent.
+The p-values calculation can be reformulated using a likelihood ratio. Consider the likelihood function
+L(s) = P(n|s + b) where s + bis the prediction of the number of signal plus background events. The case
+s = 0 corresponds to the background-only hypothesis. The likelihood is maximized forˆs = n− b, and
+the likelihood ratio0 ⩽ λ(s)≡ L(s)/L( ˆs) ⩽ 1 becomes λ(0) = (b/n)ne(n−b) for the background-only
+hypothesis. We then consider the uncapped test statistic
+q◦ =
+
+−2 lnλ(0) ˆs ⩾ 0
++2 lnλ(0) ˆs < 0 . (17)
+The p-value for the background-only hypothesis suitable for an excess (deﬁcit) is the probability thatq◦ is
+greater or equal than (is less or equal than) the observedq◦. Since q◦ increases withn, thep-values are
+equivalent to the ones obtained in equations 15 and 16.
+For a suﬃciently largen, Wilks’ theorem can be used. This gives
+Z =
+
++√−2 lnλ(0) n ⩾ b
+−√−2 lnλ(0) n < b, (18)
+which results in equation 2, the zero-uncertainty case of the formula that is described in section 4.4. This
+asymptotic result can be written as
+Z = n− b√
+b
+[
+1 + O
+(n− b
+b
+)]
+, (19)
+and reduces to the Gaussian approximation for
+n−b
+b
+≪ 1.
+4.4 Poisson-Poisson model with asymptotic formulae
+This formula comes from applying the likelihood ratio treatment described in the previous section to a
+likelihood function corresponding to a product of Poisson distributions. The motivation for this likelihood
+is that the nuisance parameter representing the true-but-unknown background rateb is constrained by
+an auxiliary measurementm. While in many real-life cases no such auxiliary measurement is made,
+uncertainties are usually incorporated into LHC statistical analyses in this fashion. The transfer-factorτ
+relating the event rates in the two regions is a function of the backgroundband its uncertaintyσ through
+τ = b/σ2 (see equation 8 in [1]) and the full likelihood is expressed as:
+L(s) = P(n|s + b)P(m|τb). (20)
+For the purpose of computing signiﬁcance, the“observed”value ofm is taken to beτb. Note that this is
+not required to be an integer, and so the second Poisson distribution given here is actually the continuation
+7
+Not reviewed, for internal circulation only
+of the discrete case, implemented using gamma functions.2 The likelihood is maximized forˆs = n− m/τ,
+ˆb = m/τ. For the background-only hypothesis, the maximum likelihood is forˆˆb = (n + m)/(1 +τ). The
+proﬁle likelihood ratio0 ⩽ λ(s, b)≡ L(s, b)/L( ˆs, ˆb) ⩽ 1 becomes for the background-only hypothesis
+λ(0)≡ L(0, ˆˆb)
+L( ˆs, ˆb)
+=
+(n + m
+1 +τ
+)n+m τm
+nnmm . (21)
+Using the uncapped test statistic of equation 17 and Wilk’s approximation for the test statistic distribution
+yields
+Z =
+
++√−2 lnλ(0) τn ⩾ m
+−√−2 lnλ(0) τn < m, (22)
+which, settingm =τb, yields equation 1, repeated here:
+Z =
+
++
+√
+2
+(
+nln
+[ n(b+σ2)
+b2+nσ2
+]
+− b2
+σ2ln
+[
+1 + σ2 (n−b)
+b(b+σ2)
+] )
+if n ⩾ b
+−
+√
+2
+(
+nln
+[ n(b+σ2)
+b2+nσ2
+]
+− b2
+σ2ln
+[
+1 + σ2 (n−b)
+b(b+σ2)
+] )
+if n < b.
+(23)
+This formula is shown in red in Figs. 2 and 3, and onwards. In the case ofn ⩾ b, this formula corresponds
+to equation 25 in [1].
+4.5 Poisson-Gaussian model with asymptotic formulae
+An alternative to the formula given in the previous section comes from repeating the likelihood ratio
+treatment to a model consisting of a Poisson and a Gaussian, i.e.:
+L(s) = P(n|s + b)G(m|b,σ ), (24)
+where G is the Gaussian formula andm is taken to be equal to the nominal prediction forb. The resulting
+expression forZ is given by:
+Z =
+
++
+√
+2
+(
+nln
+[
+n
+ˆˆb
+]
++ ˆˆb− n + (b− ˆˆb)2
+2σ2
+)
+if n ⩾ b
+−
+√
+2
+(
+nln
+[
+n
+ˆˆb
+]
++ ˆˆb− n + (b− ˆˆb)2
+2σ2
+)
+if n < b,
+(25)
+where the conditional maximum likelihood estimate ofbis given by:
+ˆˆb = 1
+2
+(
+b−σ2 +
+√
+(b−σ2)2 + 4nσ2
+)
+. (26)
+2 This is, in fact, exactly how ROOT’sTMath::Poissonmethod is implemented.
+8
+Not reviewed, for internal circulation only
+1
+2 3 4 5 6 7 8 9 10 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.1
+σEvents Observed n = 4, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+1
+2 3 4 5 6 7 8 9 10 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 4, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+6
+8 10 12 14 16 18 20 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.1
+σEvents Observed n = 12, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+6
+8 10 12 14 16 18 20 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 12, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+Figure 2: Diﬀerent formulae for signiﬁcance, shown as a function of the expected backgroundb =⟨n⟩, for diﬀerent
+choices of the number of observed eventsn and the relative uncertainty on the backgroundσ/b. The Gaussian
+approximation (orange) and Poisson (blue) formulae do not depend on the relative uncertainty. Where necessary,
+Prescription 3 from section 3 has been used.
+The formula yields similar results to the formula of the previous section, but can exhibit non-negligible
+diﬀerences in extreme cases. Under situations where the background estimate is strongly believed to be
+Gaussian rather than Poisson constrained, this particular formula may be preferable to the one given in the
+previous section.
+Examples of this formula as a function of the backgroundbare shown in green in Figs. 4 and 5.
+4.6 Poisson-Binomial model
+Another formula can be obtained by starting from the Poisson-Poisson model but converting this into a
+model consisting of a Poisson and a Binominal. Under this scenario,n + m (the total number of “events”)
+is a ﬁxed quantity (i.e.m and n do not ﬂuctuate independently). Further discussion of this model can be
+found in [1]. This type of model is not consistent with the usual type of model built for LHC statistical
+analysis, but is included here because theRooStatssoftware provides a built-in method for computing the
+signiﬁcance for such a model:RooStats::NumberCountingUtils::BinomialObsZ.
+9
+Not reviewed, for internal circulation only
+0
+1 2 3 Observed n
+1
+−0
+1
+2
+3
+4
+5
+6
+7
+Significance (Z)
+/b = 0.5
+σExpected yield b = 0.1, Rel Error 1. Gaussian Approx
+σ
+2. Gaussian and 3. Poisson
+4. Poisson-Poisson
+0
+1 2 3 4 5 6 7 8 9 10 Observed n
+3
+−2
+−1
+−0
+1
+2
+3
+4
+5
+Significance (Z)
+/b = 0.5
+σExpected yield b = 2.5, Rel Error 1. Gaussian Approx
+σ
+2. Gaussian and 3. Poisson
+4. Poisson-Poisson
+0
+2 4 6 8 10 12 14 Observed n
+4
+−3
+−2
+−1
+−0
+1
+2
+3
+4
+Significance (Z)
+/b = 0.5
+σExpected yield b = 6.5, Rel Error 1. Gaussian Approx
+σ
+2. Gaussian and 3. Poisson
+4. Poisson-Poisson
+0
+2 4 6 8 10 12 14 16 18 20 22 24 Observed n
+5
+−4
+−3
+−2
+−1
+−0
+1
+2
+3
+4
+Significance (Z)
+/b = 0.5
+σExpected yield b = 12.5, Rel Error 1. Gaussian Approx
+σ
+2. Gaussian and 3. Poisson
+4. Poisson-Poisson
+Figure 3: Diﬀerent formulae for signiﬁcance, shown as a function of the number of observed eventsn, for diﬀerent
+choices of the expected backgroundb =⟨n⟩ and its relative uncertaintyσ/b. The Gaussian approximation (orange)
+andPoisson(blue)formulaedonotdependontherelativeuncertainty. Wherenecessary,Prescription3fromsection3
+has been used.
+The implementation of the Poisson-Binomial model inRooStats yields thep-value pe as described in
+section 3:
+pe (n, m|b,σ ) =
+n+m∑
+i=n
+B
+(
+i|n + m;ρ = σ2
+σ2 + b
+)
+= I σ2
+σ2+b
+(
+n, 1 + b2
+σ2
+)
+, (27)
+where B is the binominal distribution for an observation ofi passing events from a sample ofn + m events,
+assuming a pass rate ofρ, and whereI is the regularized incomplete beta function
+Ix (a, b) = Γ(a + b)
+Γ(a)Γ(b)
+∫ x
+0
+dt t a−1(1− t)b−1, (28)
+with I1(a, b) = 1. The signiﬁcance obtained from this model is shown in grey in Figs. 4 and 5 (on the
+left-side of each plot of Fig. 4 the grey line is obscured by the black line, and on the right-side of each
+plot of Fig. 5 the grey squares are obscured by black squares, where black corresponds to the formula
+described by the following section). For reasons discussed in the next section, this function should not be
+used directly as an expression for signiﬁcances of deﬁcits.
+10
+Not reviewed, for internal circulation only
+4.7 Modiﬁed Poisson-Binomial model
+The modiﬁcation introduced in this section is to correctly computepd as:
+pd (n, m|b,σ ) = 1−
+n+m∑
+i=n+1
+B
+(
+i|n + m;ρ = σ2
+σ2 + b
+)
+= 1− I σ2
+σ2+b
+(
+n + 1, b2
+σ2
+)
+, (29)
+and, using thispd and pe from equation 27, a signiﬁcance can be obtained from one of the prescriptions
+described in section 3. The behaviour of this formula, using the recommended Prescription 3, is shown
+in black in Figs. 4 and 5. Sincepd is identical to that of the Poisson-Gamma mixture (section 4.8), the
+black line or squares are covered by magenta line or squares. An improved behaviour is recovered with this
+modiﬁcation, although the absolute signiﬁcances estimated with this formula, as will be seen later, are
+underestimates of the true signiﬁcance. Note that the upper limit of the sum in equation 29 depends onn,
+yielding an increase ofMed(n) with n for ﬁxedbandσ. As seen in Fig. 5, this results in more than onen
+for whichZ = 0for ﬁxedbandσ. For all other formulaeMed(n) depends only onband possiblyσ, so
+that at most only onen value can produceZ = 0.
+4.8 Poisson-Gamma mixture Bayesian formula
+This ﬁnal formula for signiﬁcance is described in [4] and is based on a model consisting of a Poisson
+distribution for which the mean is assumed to be drawn from a Gamma distribution of meanband variance
+σ2. The Poisson mean is marginalized over to obtain the Poisson-Gamma mixture, also known as negative
+binomial distribution, here parametrized in terms ofbandσ:
+P(n|b,σ ) =
+∫ ∞
+0
+dx P (n|x)Gamma(x|α, β) =
+∫ ∞
+0
+dx
+(xn
+n! e−x
+) ( βα
+Γ(α) xα−1e−βx
+)
+(30)
+= Γ(n +α)
+Γ(α)n!
+βα
+(1 + β)n+α, (31)
+where
+α = b2
+σ2 β = b
+σ2 α, β,b,σ > 0 (32)
+The resulting distribution has a mean ofα/β = bas desired, and a variance ofσ2 + b.
+The cumulative distribution function of the negative binomial distribution can be expressed in terms of the
+regularized incomplete beta function given in equation 28. This yields
+pe (n) =
+∞∑
+j=n
+P( j|b,σ ) = I σ2
+σ2+b
+(
+n, b2
+σ2
+)
+(33)
+pd (n) =
+n∑
+j=0
+P( j|b,σ ) = 1−
+∞∑
+j=n+1
+P( j|b,σ ) = 1− I σ2
+σ2+b
+(
+n + 1, b2
+σ2
+)
+. (34)
+11
+Not reviewed, for internal circulation only
+As mentionned in [4], in practice one considers the sums with a ﬁnite number of terms (1− pe or pd) while
+taking advantage of the recurrence relation of theΓ function:
+P(n|b,σ ) = n− 1 +α
+n(1 + β) P(n− 1|b,σ ) n ⩾ 1 (35)
+P(0|b,σ ) = βα
+(1 + β)α . (36)
+The behaviour of this formula is shown in magenta in Figs. 4 and 5. Note thatpd is identical to that of
+the modiﬁed binomial-Poisson model of the previous section, and hence so is the signiﬁcance result for
+Z < 0.
+From bounds on the median of the negative binomial distribution [3], it can be shown (see appendix B)
+that only for the conditionσ ⩾
+√
+bis the observedn not included in the range ofbsuch that Med(n) = n.
+Therefore for this condition Prescription 2 and Prescription 3 diﬀer.
+1
+2 3 4 5 6 7 8 9 10 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.1
+σEvents Observed n = 4, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+1
+2 3 4 5 6 7 8 9 10 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 4, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+6
+8 10 12 14 16 18 20 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.1
+σEvents Observed n = 12, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+6
+8 10 12 14 16 18 20 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 12, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Figure 4: All the diﬀerent formulae for signiﬁcance covered in this note, as functions of the expected background
+b =⟨n⟩, for diﬀerent choices of observed number of eventsn and background relative uncertaintyσ/b. Where
+necessary, Prescription 3 from section 3 has been used.
+12
+Not reviewed, for internal circulation only
+0
+1 2 3 Observed n
+1
+−0
+1
+2
+3
+4
+5
+6
+7
+Significance (Z)
+/b = 0.5
+σExpected yield b = 0.1, Rel Error 1. Gaussian Approx
+σ
+2. Gaussian and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+0
+1 2 3 4 5 6 7 8 9 10 Observed n
+3
+−2
+−1
+−0
+1
+2
+3
+4
+5
+Significance (Z)
+/b = 0.5
+σExpected yield b = 2.5, Rel Error 1. Gaussian Approx
+σ
+2. Gaussian and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+0
+2 4 6 8 10 12 14 Observed n
+4
+−3
+−2
+−1
+−0
+1
+2
+3
+4
+Significance (Z)
+/b = 0.5
+σExpected yield b = 6.5, Rel Error 1. Gaussian Approx
+σ
+2. Gaussian and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+0
+2 4 6 8 10 12 14 16 18 20 22 24 Observed n
+5
+−4
+−3
+−2
+−1
+−0
+1
+2
+3
+4
+Significance (Z)
+/b = 0.5
+σExpected yield b = 12.5, Rel Error 1. Gaussian Approx
+σ
+2. Gaussian and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Figure 5: All the diﬀerent formulae for signiﬁcance covered in this note, as functions of the observed number of
+events n, for diﬀerent choices of the expected backgroundb =⟨n⟩ and its relative uncertaintyσ/b. Where necessary,
+Prescription 3 from section 3 has been used.
+13
+Not reviewed, for internal circulation only
+5 Comparing the formulae with signiﬁcance from toys
+To test which of the formulae covered in section 4 best estimates the signiﬁcance of an observation
+of n events under a prediction ofb±σ background rate, toy data were generated from a model that
+describes this hypothesis. Two diﬀerent models were studied: a Poisson-Poisson model (see section 4.4)
+and a Poisson-Gaussian model (see section 4.5). For each toy the uncapped proﬁle likelihood ratio test
+statistic is computed. The tail integral of the distribution of this test statistic is used to give a toy-based
+signiﬁcance. All toys are generated with the auxiliary measurements ﬂuctuated about the conditional
+maximum likelihood estimatorˆˆb(the proﬁle construction).
+In the Poisson-Poisson case, the auxiliary measurementm is allowed to take on non-integer values, which
+is consistent with the behaviour of models constructed through theHistFactory model-building tool [6]
+whereaPoissonconstrainttermisusedforanuisanceparameter. Thelikelihoodratioteststatisticisalways
+computed with the corresponding likelihood formula for the model that the toys were generated from.
+The results of the toys are shown by the red (Poisson-Poisson) and green (Poisson-Gaussian) points in
+Fig. 6. The red and green curves correspondingly follow these points better than the other curves. This
+motivatesthechoiceofthePoisson-Poissonformulaasthepreferredexpressionforcalculatingsigniﬁcance,
+and should be adequate for most scenarios. If it is known that the dominant uncertainty on the background
+is mainly Gaussian constrained then the Poisson-Gaussian formula can be used as an alternative, but in all
+but the most extreme cases (see section 6) it will give very similar results to Poisson-Poisson.
+14
+Not reviewed, for internal circulation only
+1
+2 3 4 5 6 7 8 9 10 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.1
+σEvents Observed n = 4, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+1
+2 3 4 5 6 7 8 9 10 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 4, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+6
+8 10 12 14 16 18 20 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.1
+σEvents Observed n = 12, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+6
+8 10 12 14 16 18 20 Background (b)
+2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+2.5
+3
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 12, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+Figure 6: All the diﬀerent formulae for signiﬁcance covered in this note, as functions of the expected background
+b =⟨n⟩, for diﬀerent choices of observed number of eventsn and background relative uncertaintyσ/b. Where
+necessary, Prescription 3 from section 3 has been used. The solid red and green points correspond to signiﬁcances
+calculated from toys generated under the Poisson-Poisson and Poisson-Gaussian models respectively, using the
+uncapped proﬁle likelihood test statistic.
+15
+Not reviewed, for internal circulation only
+6 Studies of low event count limiting case
+In the extreme case of very low event counts (n = 0 and n = 1) it is found that the recommended formulae
+for signiﬁcance no longer match the signiﬁcance obtained from toys. This is not in itself a surprising
+result, given that the recommended formulae are derived under the Wilk’s approximation for the test
+statistic distribution, which is only valid in the large sample limit. As is seen in Fig. 7, the recommended
+formulae can slightly overestimate the magnitude of the signiﬁcance when compared to signiﬁance from
+toys, however none of the other formulae agree well with the result from toys either. It is important to be
+aware of this behaviour of the formulae in these extreme cases but it should not be seen as a deterrent for
+their general usage. Fig. 8 shows∆Z = Zrec− Ztoyswhere Zrec is the recommended signiﬁcance given by
+equation 1 andZtoysis obtained from Poisson-Poisson model toys (see section 5) for two cases ofσ/band
+for the number of observed eventsn equal to 0, 1, 2 and 3.
+It is possible to use numerical methods (summations) to obtain a function for signiﬁcance that agrees with
+thesetoys,howevertheneedforsuchaccuracyisunlikelytoariseintheusecasesenvisionedinsection1.
+16
+Not reviewed, for internal circulation only
+1
+2 3 4 5 6 Background (b)
+3
+−2.5
+−2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+Significance (Z)
+/b = 0.1
+σEvents Observed n = 0, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+1
+2 3 4 5 6 Background (b)
+3
+−2.5
+−2
+−1.5
+−1
+−0.5
+−0
+0.5
+1
+1.5
+2
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 0, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+1
+2 3 4 5 6 7 8 Background (b)
+3
+−2
+−1
+−0
+1
+2
+3
+Significance (Z)
+/b = 0.1
+σEvents Observed n = 1, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+1
+2 3 4 5 6 7 8 Background (b)
+3
+−2
+−1
+−0
+1
+2
+3
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 1, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+1
+2 3 4 5 6 7 8 9 10 Background (b)
+3
+−2
+−1
+−0
+1
+2
+3
+Significance (Z)
+/b = 0.1
+σEvents Observed n = 2, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+1
+2 3 4 5 6 7 8 9 10 Background (b)
+3
+−2
+−1
+−0
+1
+2
+3
+Significance (Z)
+/b = 0.5
+σEvents Observed n = 2, Rel Error 1. Gaussian approx
+σ
+2. Gaussian approx and 3. Poisson
+4. Poisson-Poisson
+5. Poisson-Gaussian
+6. BinomialObsZ
+7. Modified BinomialObsZ
+8. Poisson-Gamma mixture
+Poisson-Poisson Toys
+Poisson-Gaussian Toys
+Figure 7: All the diﬀerent formulae for signiﬁcance covered in this note, as functions of the expected background
+b =⟨n⟩,forthenumberofobservedevents nequalto0(toprow),1(middlerow),and2(bottomrow),andbackground
+relative uncertaintyσ/bequal to 10% (left) and 50% (right). Where necessary, Prescription 3 from section 3 has
+been used. The solid red and green points correspond to signiﬁcances calculated from toys generated under the
+Poisson-Poisson and Poisson-Gaussian models respectively, using the uncapped proﬁle likelihood test statistic. On
+the left ﬁgures, the Poisson-Poisson results are hidden behind the Poisson-Gaussian results.
+17
+Not reviewed, for internal circulation only
+1
+2 3 4 5 6 Background (b)
+0.6
+−0.5
+−0.4
+−0.3
+−0.2
+−0.1
+−0
+0.1
+0.2
+0.3
+0.4
+ Z
+Δ/b = 0.1
+σRel Error n = 0
+n = 1
+n = 2
+n = 3
+1
+2 3 4 5 6 Background (b)
+0.4
+−0.3
+−0.2
+−0.1
+−0
+0.1
+0.2
+0.3
+ Z
+Δ/b = 0.5
+σRel Error n = 0
+n = 1
+n = 2
+n = 3
+Figure 8: Diﬀerence between the recommended signiﬁcance (equation 1) and the signiﬁcance obtained from
+Poisson-Poisson model toys (see section 5) as a function of the expected backgroundb =⟨n⟩for a relative uncertainy
+on bof 10% (top) and 50% (bottom). Results are shown for the number of observed eventsn equal to 0, 1, 2 and 3.
+18
+Not reviewed, for internal circulation only
+7 Conclusion
+Wesurveyedvariousformulaeforestimatingthesigniﬁcanceof neventsforthebackground-onlyhypothesis
+prediction of b =⟨n⟩, itself possibly with an estimated error ofσ. The main goal was to provide a
+practical recommendation to be used, for example, in displaying bin-by-bin signiﬁcances in comparing
+data and prediction, where signiﬁcances can be positive or negative to usually indicate excess or deﬁcit
+respectively. The performances of the signiﬁcance formulae were assessed by comparing their predictions
+with the results of randomly generated toy data. The ﬁnal recommendation, which oﬀered the best
+overall performance, is given in equation 1 and is consistent with a Poisson-counting likelihood where
+the background nuisance parameter is constrained by an auxiliary Poisson measurement. This formula is
+found to slightly overestimate the magnitude of the true signiﬁcance in the extreme case of very low event
+count (n = 0 and n = 1), but we feel this should not be seen as a deterrent for its general usage.
+References
+[1] R. D. Cousins, J. T. Linnemann and J. Tucker,Evaluation of three methods for calculating statistical
+signiﬁcancewhenincorporatingasystematicuncertaintyintoatestofthebackground-onlyhypothesis
+for a Poisson process, Nuclear Instruments and Methods in Physics Research A595 (2008) 480,
+eprint: physics/0702156(cit. on pp. 2, 7–9).
+[2] K. Choi,On the medians of gamma distributions and an equation of Ramanujan, Proc. Amer. Math.
+Soc.121 (1994) 245 (cit. on pp. 3, 7).
+[3] R. van de Ven and N. Weber,Bounds for the Median of the Negative Binomial Distribution, Metrica
+40(1993) 185 (cit. on pp. 3, 12, 23).
+[4] G. Choudalakis and D. Casadei,Plotting the Diﬀerences Between Data and Expectation, Eur. Phys. J.
+Plus 127 (2012) 25, arXiv:1111.2062 [physics.data-an] (cit. on pp. 4, 11, 12).
+[5] N. L. Johnson, A. W. Kemp and S. Kotz,Univariate Discrete Distributions, 3rd edition, John Wiley
+& Sons Inc., 2005 (cit. on p. 7).
+[6] K. Cranmer, G. Lewis, L. Moneta, A. Shibata and W. Verkerke,HistFactory: A tool for creating
+statistical models for use with RooFit and RooStats, tech. rep. CERN-OPEN-2012-016, New York U.,
+2012, url: https://cds.cern.ch/record/1456844(cit. on p. 14).
+19
+Not reviewed, for internal circulation only
+Appendix
+A Examples of signiﬁcance distributions
+Figs.9and10showsigniﬁcancedistributionsforthePoissonmodelwithoutuncertainty(seesection4.3)and
+for the Poisson-Gamma mixture model (see section 4.8) with a 50% relative uncertainy onb, respectively,
+for Prescriptions 1 and 3, and for various values ofb =⟨n⟩. For the largeb = 10000 value the signiﬁcance
+is seen to follow aN (0, 1) distribution for any prescription. For the smallb = 0.15value the signiﬁcance
+distribution departs considerably fromN (0, 1), for any prescription; indeed, forb ⩽ ln 2the Poisson model
+without uncertainty yieldsZ ⩾ 0 for any observedn for any prescription.
+20
+Not reviewed, for internal circulation only
+Entries 
+ 100000 Mean  
+  1.097 Std Dev   
+   0.13 Underflow 
+      0 Overflow  
+      0 Skewness 
+  11.23 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+20
+40
+60
+80
+100
+3
+10×Entries  100000 Mean  
+  1.097 Std Dev   
+   0.13 Underflow 
+      0 Overflow  
+      0 Skewness 
+  11.23 PoissonZ prescription 1 for b = 0.15
+Entries 
+ 100000 Mean  
+ 0.1644 Std Dev   
+ 0.4263 Underflow 
+      0 Overflow  
+      0 Skewness 
+  3.178 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+10000
+20000
+30000
+40000
+50000
+60000
+70000
+80000
+90000
+Entries 
+ 100000 Mean  
+ 0.1644 Std Dev   
+ 0.4263 Underflow 
+      0 Overflow  
+      0 Skewness 
+  3.178 PoissonZ prescription 3 for b = 0.15
+Entries 
+ 100000 Mean  
+ 0.0557 Std Dev   
+ 0.8359 Underflow 
+      0 Overflow  
+      0 Skewness 
+ 0.08868 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+5000
+10000
+15000
+20000
+25000
+30000
+Entries 
+ 100000 Mean  
+ 0.0557 Std Dev   
+ 0.8359 Underflow 
+      0 Overflow  
+      0 Skewness 
+ 0.08868 PoissonZ prescription 1 for b = 5.25
+Entries 
+ 100000 Mean  
+ 0.01873 Std Dev   
+ 0.8344 Underflow 
+      0 Overflow  
+      0 Skewness 
+ 0.1983 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+2000
+4000
+6000
+8000
+10000
+12000
+14000
+16000
+18000
+Entries 
+ 100000 Mean  
+ 0.01873 Std Dev   
+ 0.8344 Underflow 
+      0 Overflow  
+      0 Skewness 
+ 0.1983 PoissonZ prescription 3 for b = 5.25
+Entries 
+ 100000 Mean  
+0.001049 − Std Dev   
+      1 Underflow 
+      0 Overflow  
+      0 Skewness 
+0.01256 − 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+Entries 
+ 100000 Mean  
+0.001049 − Std Dev   
+      1 Underflow 
+      0 Overflow  
+      0 Skewness 
+0.01256 − PoissonZ prescription 1 for b = 10000.00
+Entries 
+ 100000 Mean  
+ 0.001365 Std Dev   
+ 0.9996 Underflow 
+      0 Overflow  
+      0 Skewness 
+0.00814 − 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+Entries 
+ 100000 Mean  
+ 0.001365 Std Dev   
+ 0.9996 Underflow 
+      0 Overflow  
+      0 Skewness 
+0.00814 − PoissonZ prescription 3 for b = 10000.00
+Figure 9: Distributions of signiﬁcance for the Poisson model without uncertainty onb =⟨n⟩, for 100k values ofn
+drawn from a Poisson of meanb for Prescription 1 (left) and Prescription 3 (right), forb = 0.15 (top), b = 5.25
+(middle), andb = 10000(bottom).
+21
+Not reviewed, for internal circulation only
+Entries 
+ 100000 Mean  
+  1.109 Std Dev   
+ 0.1368 Underflow 
+      0 Overflow  
+      0 Skewness 
+  8.151 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+20
+40
+60
+80
+100
+3
+10×Entries  100000 Mean  
+  1.109 Std Dev   
+ 0.1368 Underflow 
+      0 Overflow  
+      0 Skewness 
+  8.151 Poisson-Gamma/b = 0.50
+σZ prescription 1 for b = 0.15 and Entries 
+ 100000 Mean  
+ 0.1642 Std Dev   
+ 0.4321 Underflow 
+      0 Overflow  
+      0 Skewness 
+   2.92 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+10000
+20000
+30000
+40000
+50000
+60000
+70000
+80000
+90000
+Entries 
+ 100000 Mean  
+ 0.1642 Std Dev   
+ 0.4321 Underflow 
+      0 Overflow  
+      0 Skewness 
+   2.92 Poisson-Gamma/b = 0.50
+σZ prescription 3 for b = 0.15 and Entries 
+ 100000 Mean  
+ 0.07347 Std Dev   
+ 0.8521 Underflow 
+      0 Overflow  
+      0 Skewness 
+ 0.1835 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+2000
+4000
+6000
+8000
+10000
+12000
+14000
+16000
+18000
+20000
+22000
+Entries 
+ 100000 Mean  
+ 0.07347 Std Dev   
+ 0.8521 Underflow 
+      0 Overflow  
+      0 Skewness 
+ 0.1835 Poisson-Gamma/b = 0.50
+σZ prescription 1 for b = 5.25 and Entries 
+ 100000 Mean  
+ 0.04639 Std Dev   
+  0.855 Underflow 
+      0 Overflow  
+      0 Skewness 
+ 0.3089 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+5000
+10000
+15000
+20000
+25000
+Entries 
+ 100000 Mean  
+ 0.04639 Std Dev   
+  0.855 Underflow 
+      0 Overflow  
+      0 Skewness 
+ 0.3089 Poisson-Gamma/b = 0.50
+σZ prescription 3 for b = 5.25 and Entries 
+ 100000 Mean  
+ 0.0009386 Std Dev   
+  1.003 Underflow 
+      1 Overflow  
+      0 Skewness 
+0.005186 − 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+Entries 
+ 100000 Mean  
+ 0.0009386 Std Dev   
+  1.003 Underflow 
+      1 Overflow  
+      0 Skewness 
+0.005186 − Poisson-Gamma/b = 0.50
+σZ prescription 1 for b = 10000.00 and Entries 
+ 100000 Mean  
+ 0.001296 Std Dev   
+ 0.9995 Underflow 
+      0 Overflow  
+      0 Skewness 
+0.0006165 − 5
+−4 −3 −2 −1 −0 1 2 3 4 5 Significance (Z)
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+Entries 
+ 100000 Mean  
+ 0.001296 Std Dev   
+ 0.9995 Underflow 
+      0 Overflow  
+      0 Skewness 
+0.0006165 − Poisson-Gamma/b = 0.50
+σZ prescription 3 for b = 10000.00 and 
+Figure10:DistributionsofsigniﬁcanceforthePoisson-Gammamixturemodelwitha50%uncertaintyon b =⟨n⟩,for
+100k values ofn drawn from the corresponding posterior distribution ofn for Prescription 1 (left) and Prescription 3
+(right), forb = 0.15(top), b = 5.25(middle), andb = 10000(bottom).
+22
+Not reviewed, for internal circulation only
+B Bounds for the median of the negative binomial distribution
+Consider the negative binomial distribution
+P(n|b,σ ) =
+∫ ∞
+0
+dx P (n|x)Gamma(x|α, β) =
+∫ ∞
+0
+dx
+(xn
+n! e−x
+) ( βα
+Γ(α) xα−1e−βx
+)
+(37)
+= Γ(n +α)
+Γ(α)n!
+βα
+(1 + β)n+α = Γ(n +α)
+Γ(α)n!
+( α
+α + b
+)α ( b
+α + b
+)n
+, (38)
+where
+α = b2
+σ2 β = b
+σ2 b = α
+β =⟨n⟩ σ2 = α
+β2 α, β,b,σ > 0 (39)
+Bounds for the median ofn, Med(n) are given in [3], with Med(n) deﬁned as the smallest integerm such
+that ∑m
+j=0 P( j|b,σ ) ⩾ 1/2. These bounds can be written as
+⌊
+b− σ2
+b
+⌋
++ 1 ⩽ Med(n) < b ifσ >
+√
+b (40)
+Med(n) =⌈b⌉− 1 ifσ =
+√
+b (41)
+⌈b⌉− 1 ⩽ Med(n) < b− σ2
+b + 1 ifσ <
+√
+b. (42)
+We therefore obtain
+Med(n) = n =⇒
+
+b> n ifσ >
+√
+b
+b∈ (n, n + 1] ifσ =
+√
+b
+n + σ2
+b − 1< b ⩽ n + 1 ifσ <
+√
+b,
+(43)
+from which we conclude that ifσ ⩾
+√
+b the observed n is not included in the range ofb such that
+Med(n) = n. Therefore,Prescription2andPrescription3willdiﬀerwhen σ ⩾
+√
+bforthePoisson-Gamma
+mixture. Note that ifZ is considered as a function ofbfor a ﬁxed value ofr =σ/b, the conditionσ ⩾
+√
+b
+implies b ⩾ r−2.
+When considered as a function of increasingσ, the onset of this condition corresponds to the case
+α = n, β = 1, that is the caseb = n = σ2. To obtain the corresponding value ofpe, we consider the
+Poisson-Gamma relation
+∞∑
+j=n
+P( j|x) =
+∫ x
+0
+dy Gamma(y|n, 1) n ⩾ 1 (44)
+to obtain
+pe (n) =
+∞∑
+j=n
+P( j|b,σ ) =
+∞∑
+j=n
+∫ ∞
+0
+dx P ( j|x)Gamma(x|α, β) (45)
+=
+∫ ∞
+0
+dx
+∫ x
+0
+dy Gamma(y|n, 1)Gamma(x|α, β) n ⩾ 1 (46)
+23
+Not reviewed, for internal circulation only
+For the caseα = n, β = 1 the integrand is symmetric under the interchange ofx and y. Since the integral
+over the wholex− y plane is 1 from the normalization of the Gamma distribution, we obtain
+pe =
+∫ ∞
+0
+dx
+∫ x
+0
+dy Gamma(x|n, 1)Gamma(y|n, 1) = 1
+2 (47)
+Therefore the caseb = n =σ2 corresponds toZe = 0. This result can also be obtained directly from the
+cumulative distribution function, equation 33. For the caseb = n =σ2 we have
+pe = I 1
+2
+(n, n) = Γ(2n)
+Γ2(n)
+∫ 1
+2
+0
+dt t n−1(1− t)n−1 (48)
+= Γ(2n)
+Γ2(n)
+∫ 1
+1
+2
+dt t n−1(1− t)n−1 (49)
+= 1− Γ(2n)
+Γ2(n)
+∫ 1
+2
+0
+dt t n−1(1− t)n−1 (50)
+= 1
+2 (51)
+where the second line is obtained fromt→ 1− t and the third line from the fact thatI1(a, b) = 1.
+C Code Implementation of Formulae
+The formulae studied in this note have been coded in a package available on github:
+https://github.com/will-cern/Signiﬁcance/tree/v0.2
+ThereareinstructionsintheREADMEofhowtocheckoutandusethecodewithaninstallationofROOT.
+24

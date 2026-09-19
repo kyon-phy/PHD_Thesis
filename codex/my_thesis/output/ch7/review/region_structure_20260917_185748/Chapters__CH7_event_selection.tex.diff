@@ -1,0 +1,243 @@
+--- Chapters/CH7_event_selection.tex.before
++++ Chapters/CH7_event_selection.tex
+@@ -107,7 +107,7 @@
+ 
+ Different signal benchmarks are selected for each signal region. The optimisation for $\bTagSR$-$\Res$ uses $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, where on-shell production is dominant.
+ For $\bTagSR$-$\NonRes$, the optmisation uses $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, where t-chnnel exchange process is dominaant.
+-The effect of interference is not considered here since its contribution is expected to be 5~10\% as studied in Appendix~\ref{app:Interference study}. The result cut combination is therefore won't be changed significantly by including such effect.
++Interference is not included in the scan because its contribution is typically below $5$--$10\%$ in the parameter range probed by the $\bTagSR$ regions, as discussed in Appendix~\ref{app:signal_interference_study}. The selected cut combination is therefore not expected to change significantly when interference is included.
+ 
+ The expected sensitivity of each cut combination is evaluated using the significance calculated as follows~\cite{ATL-PHYS-PUB-2020-025}:
+ \begin{equation}
+@@ -123,87 +123,7 @@
+ \end{itemize}
+ The first constrain is used to avoid the zero-background estimation due to the limited MC statistics. It also ensures us to have a proper estimation on the minor backgrounds. As a result, the MC stat unceratinty are limited up to 31\% for resonant SR and 40\% for Non-resonant SR.
+ 
+-\subsection{Interference and signal efficiency}
+-\label{subsec:ch7_efficiency}
+-
+-The interference term in Eq.~\ref{eq:signal_interference} changes the signal contribution remaining after the selection.
+-If $S$ denotes the pure BSM yield and $I$ the interference yield, the excess above the SM prediction is $S+I$ at the nominal signal normalisation.
+-Destructive interference gives $I<0$, so a selection ranked using $S$ alone can overestimate the final sensitivity.
+-Its effect is therefore checked after the optimisation and included in the final statistical model.
+-
+-The requirements on $\pT^\tau$, $\met$ and $\mT$ suppress the low-energy phase space in which interference with SM $W$ production is most important.
+-In particular, the non-resonant requirements $\pT^\tau>200~\GeV$, $\met>400~\GeV$ and $\mT>600~\GeV$ retain the hard tail while reducing the destructive contribution.
+-The residual interference has a negligible effect on the sensitivity of the one-$b$-jet regions in the parameter range probed by the analysis.
+-This conclusion does not apply to the zero-$b$-jet regions, where the interference contribution must be retained, as discussed in Section~\ref{sec:ch7_sr0b}.
+-
+-The signal efficiency is monitored through the cumulative cutflow in Table~\ref{tab:ch7_cutflow}.
+-For $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, the resonant selection retains 4.2 of the 35.2 expected signal events passing the one-$b$-jet baseline, or approximately $12\%$.
+-For the non-resonant optimisation benchmark, it retains 6.6 of 111.0 events, or approximately $6\%$.
+-The background decreases from approximately 4027 baseline events to 2.4 and 2.1 events, respectively.
+-These fractions describe signal retention during the cut optimisation and use the baseline sample as their denominator.
+-The acceptance times selection efficiency, $A\epsilon$, instead uses the total generated signal as its reference and includes the kinematic acceptance and reconstruction and selection losses.
+-The cutflow uses the pure BSM contribution because the signed interference yield is not an event-selection efficiency.
+-The tabulated numbers describe the optimisation study before the background fit, while the final selections are chosen with the statistical uncertainty in the background prediction kept below $30\%$.
+-
+-\begin{table}[htbp]
+-    \centering
+-    \small
+-    \caption{Cumulative signal ($S$) and background ($B$) yields in the one-$b$-jet optimisation. The resonant and non-resonant signal benchmarks are $(\MU~[\TeV],\gU,\beta_L^{23})=(1.5,1.5,0.6)$ and $(2.5,2.5,1.0)$, respectively. These are simulated expectations before the background fit.}
+-    \label{tab:ch7_cutflow}
+-    \begin{tabular}{lrrlrr}
+-        \toprule
+-        \multicolumn{3}{c}{Resonant} & \multicolumn{3}{c}{Non-resonant} \\
+-        Cumulative requirement & $S$ & $B$ & Cumulative requirement & $S$ & $B$ \\
+-        \midrule
+-        Baseline & 35.2 & 4027.3 & Baseline & 111.0 & 4027.3 \\
+-        $\pT^\tau>200~\GeV$ & 19.9 & 193.1 & $\pT^\tau>200~\GeV$ & 70.5 & 193.1 \\
+-        $\met>200~\GeV$ & 19.9 & 193.1 & $\met>400~\GeV$ & 26.4 & 15.1 \\
+-        $\mT>200~\GeV$ & 19.4 & 143.6 & $\mT>600~\GeV$ & 24.0 & 6.4 \\
+-        $m_{b\tau}>800~\GeV$ & 4.9 & 5.2 & $\DphiTauMet>1.2$ & 23.8 & 6.4 \\
+-        $N_j-N_b\leq3$ & 4.7 & 4.3 & $N_j-N_b\leq1$ & 17.2 & 2.8 \\
+-        $\pT^b>250~\GeV$ & 4.2 & 2.4 & $50<\pT^b<250~\GeV$ & 6.6 & 2.1 \\
+-        \bottomrule
+-    \end{tabular}
+-\end{table}
+-
+-\subsection{Selected regions and background composition}
+-
+-The pre-fit signal and background yields in the final selections are summarised in Table~\ref{tab:ch7_prefit_yields}.
+-For the two optimisation benchmarks, $Z=1.95$ and $2.94$ are obtained from Eq.~\ref{eq:ch7_optimisation_significance} with $\sigma_b=0.30b$.
+-The yields agree with the rounded endpoints of the optimisation cutflow to within $2\%$.
+-
+-\begin{table}[htbp]
+-    \centering
+-    \small
+-    \caption{Pre-fit pure BSM signal and background yields for the two optimisation benchmarks in the final $\bTagSR$ selections. The approximate significance is evaluated with $\sigma_b=0.30b$.}
+-    \label{tab:ch7_prefit_yields}
+-    \begin{tabular}{lcrrr}
+-        \toprule
+-        SR & $(\MU~[\TeV],\gU,\beta_L^{23})$ & $S$ & $B$ & $Z$ \\
+-        \midrule
+-        $\bTagSR$-$\Res$ & $(1.5,1.5,0.6)$ & 4.262 & 2.439 & 1.95 \\
+-        $\bTagSR$-$\NonRes$ & $(2.5,2.5,1.0)$ & 6.583 & 2.097 & 2.94 \\
+-        \bottomrule
+-    \end{tabular}
+-\end{table}
+-
+-The selected $\bTagSR$-$\Res$ requirements are $\pT^\tau>200~\GeV$, $\met>200~\GeV$, $\mT>200~\GeV$ and $m_{b\tau}>800~\GeV$, with at most three jets that are not $b$-tagged.
+-No additional $\DphiTauMet$ requirement is retained.
+-The region is treated as a single event-counting bin because the available background simulation does not support a finely binned fit to the broad $m_{b\tau}$ distribution.
+-
+-The selected $\bTagSR$-$\NonRes$ requirements are $\pT^\tau>200~\GeV$, $\met>400~\GeV$, $\mT>600~\GeV$ and $\DphiTauMet>1.2$, with at most one jet that is not $b$-tagged.
+-No $m_{b\tau}$ requirement is imposed because the $b$-jet and $\tau$ do not reconstruct an on-shell leptoquark in the target topology.
+-This region also contributes a single event count to the fit.
+-
+-The loose $N-1$ distributions in Figures~\ref{fig:ch7_sr1b_res_distributions} and~\ref{fig:ch7_sr1b_nonres_distributions} illustrate the variables entering the optimisation.
+-An $N-1$ distribution omits the requirement on the plotted variable while retaining the other requirements.
+-To make the shapes visible with the available simulation, the resonant $\mT$ and $\pT^\tau$ thresholds are lowered by $100~\GeV$.
+-For the non-resonant region, the $\mT$, $\met$ and $\pT^\tau$ thresholds are each lowered by $100~\GeV$ before the plotted requirement is removed.
+-The trigger-plateau requirement $\met>200~\GeV$ is retained.
+-These distributions therefore illustrate a larger phase space than the final SRs.
+-The resonant signal has a broad $m_{b\tau}$ distribution, while the non-resonant signal extends into the high-$\mT$ and high-$\met$ tails.
+-
+-The effect of the $\met$ threshold is checked separately in Figure~\ref{fig:ch7_met_significance_scan}, using $N-1$ samples with the other SR requirements retained at their nominal values.
++The effect of the $\met$ threshold is checked in Figure~\ref{fig:ch7_met_significance_scan}, using $N-1$ distributions in which the $\met$ requirement is omitted while the other SR requirements are retained at their nominal values.
+ For each threshold, the signal and background yields are summed over the bins above it before $Z$ is evaluated.
+ The original $200~\GeV$ binning is retained, and points with $b\leq2$ are excluded from the cut choice.
+ Among the tested thresholds satisfying $b>2$, the largest $Z$ is obtained at $200~\GeV$ for $\bTagSR$-$\Res$ and $400~\GeV$ for $\bTagSR$-$\NonRes$.
+@@ -230,6 +150,49 @@
+     \label{fig:ch7_met_with_significance}
+ \end{figure}
+ 
++\clearpage
++\subsection[SR1b-Res definition]{$\bTagSR$-$\Res$ definition}
++\label{subsec:ch7_sr1b_res}
++
++$\bTagSR$-$\Res$ is defined by requiring $\pT^b>250~\GeV$, $\pT^\tau>200~\GeV$, $\met>200~\GeV$, $\mT>200~\GeV$ and $m_{b\tau}>800~\GeV$, with at most three jets that are not $b$-tagged.
++No additional $\DphiTauMet$ requirement is retained.
++The region is treated as a single event-counting bin because the available background simulation does not support a finely binned fit to the broad $m_{b\tau}$ distribution.
++
++The pre-fit background is dominated by $W$+jets, principally $W\to\tau\nu$, which contributes approximately $64\%$.
++The tagged jet can originate from heavy-flavour production or a misidentified light-flavour jet.
++Approximately $16\%$ is contributed by diboson production, followed by $\ttbar$ ($8\%$) and single-top production ($5\%$), including $Wt$.
++Top-quark events can pass the selection through $\ttbar\to b\tau\nu\,\bar b\tau\nu$ or $Wt\to b\tau\nu\,\tau\nu$ when only one $\tau$ is selected and the remaining decay products satisfy the jet and lepton requirements.
++Smaller contributions are provided by $Z$+jets.
++
++For the optimisation benchmark $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, the expected pre-fit signal and background yields are 4.262 and 2.439 events, respectively, giving $Z=1.95$.
++Approximately $12\%$ of the signal events passing the one-$b$-jet baseline are retained, as shown by the cumulative cutflow in Table~\ref{tab:ch7_cutflow_res}.
++This signal efficiency is evaluated for the pure BSM contribution, with the baseline sample as its denominator.
++The acceptance times selection efficiency, $A\epsilon$, instead uses the total generated signal as its reference and includes the kinematic acceptance and reconstruction and selection losses.
++
++\begin{table}[htbp]
++    \centering
++    \small
++    \caption{Cumulative pure BSM signal ($S$) and background ($B$) yields in the $\bTagSR$-$\Res$ optimisation for $(\MU~[\TeV],\gU,\beta_L^{23})=(1.5,1.5,0.6)$. These are simulated expectations before the background fit.}
++    \label{tab:ch7_cutflow_res}
++    \begin{tabular}{lrr}
++        \toprule
++        Cumulative requirement & $S$ & $B$ \\
++        \midrule
++        Baseline & 35.2 & 4027.3 \\
++        $\pT^\tau>200~\GeV$ & 19.9 & 193.1 \\
++        $\met>200~\GeV$ & 19.9 & 193.1 \\
++        $\mT>200~\GeV$ & 19.4 & 143.6 \\
++        $m_{b\tau}>800~\GeV$ & 4.9 & 5.2 \\
++        $N_j-N_b\leq3$ & 4.7 & 4.3 \\
++        $\pT^b>250~\GeV$ & 4.2 & 2.4 \\
++        \bottomrule
++    \end{tabular}
++\end{table}
++
++The loose $N-1$ distributions in Figure~\ref{fig:ch7_sr1b_res_distributions} illustrate the selected kinematics, including the broad $m_{b\tau}$ distribution.
++To make the shapes visible with the available simulation, the $\mT$ and $\pT^\tau$ thresholds are lowered to $100~\GeV$, while the trigger-plateau requirement $\met>200~\GeV$ is retained.
++These distributions therefore illustrate a larger phase space than the final SR.
++
+ \begin{figure}[p]
+     \centering
+     \begin{subfigure}{0.49\linewidth}
+@@ -260,6 +223,66 @@
+     \label{fig:ch7_sr1b_res_distributions}
+ \end{figure}
+ 
++\clearpage
++\subsection[SR1b-NonRes definition]{$\bTagSR$-$\NonRes$ definition}
++\label{subsec:ch7_sr1b_nonres}
++
++$\bTagSR$-$\NonRes$ is defined by requiring $50<\pT^b<250~\GeV$, $\pT^\tau>200~\GeV$, $\met>400~\GeV$, $\mT>600~\GeV$ and $\DphiTauMet>1.2$, with at most one jet that is not $b$-tagged.
++No $m_{b\tau}$ requirement is applied because the $b$-jet and $\tau$ do not reconstruct an on-shell leptoquark in the target topology.
++This region also contributes a single event count to the fit.
++
++The pre-fit background is dominated by $W$+jets, principally $W\to\tau\nu$, which contributes approximately $69\%$.
++The next-largest contribution is from $\ttbar$ ($16\%$), followed by $Z\to\tau\tau$+jets ($8\%$) and diboson production ($5\%$).
++The $Z\to\tau\tau$ contribution requires only one selected $\tau$, with neutrinos from the decays producing $\met$.
++In both $\bTagSR$ regions, $Z\to\nu\nu$+jets is the main source of events with a jet misidentified as a $\tau$, because the invisible $Z$ decay supplies the missing momentum.
++Multijet production is negligible after the cleaning and full SR requirements.
++
++For the optimisation benchmark $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, the expected pre-fit signal and background yields are 6.583 and 2.097 events, respectively, giving $Z=2.94$.
++Approximately $6\%$ of the pure BSM signal events passing the one-$b$-jet baseline are retained, as shown in Table~\ref{tab:ch7_cutflow_nonres}.
++
++\begin{table}[htbp]
++    \centering
++    \small
++    \caption{Cumulative pure BSM signal ($S$) and background ($B$) yields in the $\bTagSR$-$\NonRes$ optimisation for $(\MU~[\TeV],\gU,\beta_L^{23})=(2.5,2.5,1.0)$. These are simulated expectations before the background fit.}
++    \label{tab:ch7_cutflow_nonres}
++    \begin{tabular}{lrr}
++        \toprule
++        Cumulative requirement & $S$ & $B$ \\
++        \midrule
++        Baseline & 111.0 & 4027.3 \\
++        $\pT^\tau>200~\GeV$ & 70.5 & 193.1 \\
++        $\met>400~\GeV$ & 26.4 & 15.1 \\
++        $\mT>600~\GeV$ & 24.0 & 6.4 \\
++        $\DphiTauMet>1.2$ & 23.8 & 6.4 \\
++        $N_j-N_b\leq1$ & 17.2 & 2.8 \\
++        $50<\pT^b<250~\GeV$ & 6.6 & 2.1 \\
++        \bottomrule
++    \end{tabular}
++\end{table}
++
++The pre-fit yields and significances for both regions are summarised in Table~\ref{tab:ch7_prefit_yields}.
++The yields agree with the rounded endpoints of the optimisation cutflows to within $2\%$.
++The cutflows describe the optimisation study before the background fit, while the final selections are chosen with the statistical uncertainty in the background prediction kept below $30\%$.
++
++\begin{table}[htbp]
++    \centering
++    \small
++    \caption{Pre-fit pure BSM signal and background yields for the two optimisation benchmarks in the final $\bTagSR$ selections. The approximate significance is evaluated with $\sigma_b=0.30b$.}
++    \label{tab:ch7_prefit_yields}
++    \begin{tabular}{lcrrr}
++        \toprule
++        SR & $(\MU~[\TeV],\gU,\beta_L^{23})$ & $S$ & $B$ & $Z$ \\
++        \midrule
++        $\bTagSR$-$\Res$ & $(1.5,1.5,0.6)$ & 4.262 & 2.439 & 1.95 \\
++        $\bTagSR$-$\NonRes$ & $(2.5,2.5,1.0)$ & 6.583 & 2.097 & 2.94 \\
++        \bottomrule
++    \end{tabular}
++\end{table}
++
++The loose $N-1$ distributions in Figure~\ref{fig:ch7_sr1b_nonres_distributions} illustrate the high-$\mT$ and high-$\met$ tails of the non-resonant signal.
++The $\mT$, $\met$ and $\pT^\tau$ thresholds are each lowered by $100~\GeV$ before the plotted requirement is removed.
++The trigger-plateau requirement $\met>200~\GeV$ is retained.
++
+ \begin{figure}[p]
+     \centering
+     \begin{subfigure}{0.49\linewidth}
+@@ -289,16 +312,6 @@
+     \caption[Loose N-1 distributions in SR1b-NonRes]{Distributions of the six scan variables in the loose non-resonant one-$b$-jet region. Before removing the plotted requirement, the thresholds are lowered to $\mT>500~\GeV$, $\met>300~\GeV$ and $\pT^\tau>100~\GeV$. The baseline $\met>200~\GeV$ is retained. The stacked backgrounds are shown before the fit, and the hatched band represents their uncertainty. The dotted signal curve is the pure BSM prediction at $(\MU,\gU,\beta_L^{23})=(3.0~\TeV,2.5,1.0)$.}
+     \label{fig:ch7_sr1b_nonres_distributions}
+ \end{figure}
+-
+-The remaining background in both one-$b$-jet regions is dominated by $W$+jets, principally $W\to\tau\nu$.
+-The tagged jet can originate from heavy-flavour production or a misidentified light-flavour jet.
+-In the final background prediction, after the control-region constraints described in Chapter~\ref{chapter:background_estimation}, $W$+jets contributes approximately $70\%$ in each region.
+-In $\bTagSR$-$\Res$, diboson production contributes about $15\%$, followed by $\ttbar$ and single-top production, including $Wt$.
+-In $\bTagSR$-$\NonRes$, $\ttbar$ contributes about $14\%$, $Z\to\tau\tau$+jets about $9\%$, and diboson production about $5\%$.
+-Top-quark events can pass the selection through $\ttbar\to b\tau\nu\,\bar b\tau\nu$ or $Wt\to b\tau\nu\,\tau\nu$ when only one $\tau$ is selected and the remaining decay products satisfy the jet and lepton requirements.
+-The $Z\to\tau\tau$ contribution similarly requires only one selected $\tau$, with neutrinos from the decays producing $\met$.
+-Among events with a jet misidentified as a $\tau$, $Z\to\nu\nu$+jets is the main source because the invisible $Z$ decay supplies genuine missing momentum.
+-Multijet production is negligible after the cleaning and full SR requirements.
+ 
+ \clearpage
+ \section[b-veto signal region definition (SR0b)]{b-veto signal region definition ($\bVetoSR$)}
+@@ -326,7 +339,7 @@
+ A supplementary study of tighter $\met$ thresholds is presented in Appendix~\ref{app:sr0b_optimisation}.
+ The $\bVetoSR$-$\NonRes$ threshold remains $\met>400~\GeV$, which also maximises the significance in that study.
+ 
+-Signal efficiency in $\bVetoSR$ is evaluated for the pure BSM contribution, with $A\epsilon$ defined as in Section~\ref{subsec:ch7_efficiency}.
++Signal efficiency in $\bVetoSR$ is evaluated for the pure BSM contribution, with $A\epsilon$ defined as in Section~\ref{subsec:ch7_sr1b_res}.
+ For illustration, at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.0,0.2)$ with $\beta_R^{33}=0$, $A\epsilon$ is $0.30\%$ and $0.13\%$ in $\bVetoSR$-$\Res$ and $\bVetoSR$-$\NonRes$, compared with $0.64\%$ and $0.069\%$ in the corresponding $\bTagSR$ regions.
+ These efficiencies depend on the mass and flavour couplings because the relative contributions of the production and decay channels change.
+ The destructive interference in the final zero-$b$-jet selections reduces the nominal pure BSM yield by approximately $20\%$ at $\MU=1.5~\TeV$ and by about $30$--$40\%$ at higher masses.

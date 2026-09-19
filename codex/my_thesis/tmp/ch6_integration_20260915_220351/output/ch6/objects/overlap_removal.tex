@@ -1,0 +1,19 @@
+\section{Overlap removal}
+\label{sec:ch6_overlap}
+
+Different reconstructed objects can share the same detector measurements.
+$\Delta R$ is calculated using rapidity for overlap removal.
+An ordered overlap-removal procedure is therefore applied to resolve these ambiguities before event selection.
+Overlap removal is applied to the baseline objects in the order listed below.
+\begin{enumerate}
+    \item \textbf{Electron--electron}: the lower-$\pT$ electron is removed if two electrons share an ID track, so that a single track is not counted as two electrons.
+    \item \textbf{Tau--electron}: a tau candidate within $\Delta R<0.2$ of an electron is removed, since an electron shower and its track can also be reconstructed as a tau candidate.
+    \item \textbf{Tau--muon}: a tau candidate within $\Delta R<0.2$ of a muon is removed to reject muons misidentified as hadronic tau decays.
+    \item \textbf{Calorimeter-tagged muon--electron}: a calorimeter-tagged muon sharing the electron ID track is removed. The electron interpretation is preferred because the calorimeter tag has no independent MS confirmation.
+    \item \textbf{Electron--muon}: an electron sharing an ID track with a remaining muon is removed.
+    \item \textbf{Jet--electron}: a jet within $\Delta R<0.2$ of an electron is removed because the electron's EM shower can also be reconstructed as a jet.
+    \item \textbf{Electron--jet}: an electron within $\Delta R<0.4$ of a remaining jet is removed to suppress electrons from hadron decays inside jets.
+    \item \textbf{Jet--muon}: a jet with fewer than three tracks is removed if the muon is ghost-associated with it.\footnote{Ghost association means that a copy of the muon's ID track is made, keeping its direction but reducing its momentum to a negligible value. This ``ghost'' is clustered together with the normal jet inputs. If the clustering algorithm places the ghost in a particular jet, the muon is associated with that jet.}
+    \item \textbf{Muon--jet}: a muon within $\Delta R<0.4$ of a remaining jet is removed to suppress muons from hadron decays inside jets.
+    \item \textbf{Jet--tau}: a jet within $\Delta R<0.2$ of a remaining tau candidate is removed, so that the visible tau-decay products are not also counted as a separate jet.
+\end{enumerate}

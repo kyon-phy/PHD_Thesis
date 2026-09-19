@@ -1,0 +1,386 @@
+### PAGE 1
+leptoquark search in LHC-ATLAS motivated by B anomalyD3Jiaqi Zang19/08/2025
+1
+Based on https://arxiv.org/abs/2111.047482025/08/19 Jiaqi ZANGICEPP Analysis meeting
+NOTES: 
+
+### PAGE 2
+Physics motivation – B anomaly•Lepton Flavor Universality (LFU)ØWeakinteractionisuniversalfor3leptonflavorsinStandardModel.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting2
+•SignsofLFUviolationintheBmesondecaysarereported.Ø𝑏→𝑐𝑙𝜈 :𝜏vs.lightleptons(𝜇,𝑒).Ø~3.0𝜎excessoverSM(𝐷and𝐷∗combined).ØLeptoquark(LQ)isapossibleexplanationofsuchviolation.
+SM
+BSM
+3𝜎
+NOTES: 
+
+### PAGE 3
+!"
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting3
+Signal(non-resonance)•Eventtopology•Targetsignal:𝜏𝜈+bjet(hard/soft)
+*high𝑝!"andhigh𝐸!#$%%
+•Final state never explored by ATLAS/CMS.•Lookfortheuniqueparameterspacethatsensitiveto𝑐𝜈coupling
+Softbjet Signal(resonance)
+* Hardbjet(>250GeV)
+Analysisoverview
+•Agreed to use the Run-2 data only.•1stversiondraftofInternalnoteisuploadedtoCDS.•Newsignalsamplesrequestisdone.(JIRA)
+NOTES: 
+
+### PAGE 4
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting4
+Current status•ProcesschainTopCPToolKitàFastFrameàTRexFitterisused.ØTopCPToolKit 2.17.1andTau+XFastFrameimplementation(git)isused.ØDuetothetimelimit,thesampleisproducedwith R21 egamma SFs.oWillcomparethemwiththelatestR22recommandation.ØIncludedallCPuncertainties.•Data/MCcomparisonstudyinCRisdone.•Nominal-onlyfittoCRsandcheckedtheresultsinVRs.•Theoreticalsystematicuncertaintiesestimationisdone.ØSmoothingisappliedtomitigatetheaffectionfromthelowstatsinthetailregion.•S+B Fit with full systematics is performed.ØSystematicsthatbuggedissetto10%•New limit is drawn with full systematics fit result.ØSignificance is calculated for different (𝑚$,𝛽%&',𝑔$)set.ØThelimitwhereZ=1.65isdrawn.
+NOTES: 
+
+### PAGE 5
+Regiondefinition
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting5
+SRandCRdefinition:•SR:1tau+mET+1b•WCR:1e/1mu+mET+bveto•TopCR:1e/1mu+1tau+bjetsValidationregionselection:•1e/1muà1tauextrapolation:validatedinWVR1tau.•bvetoàbtagextrapolation:validatedinVR0tau.
+NOTES: 
+
+### PAGE 6
+Theory uncertainty estimation
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting6
+NOTES: 
+
+### PAGE 7
+Theory uncertainty estimation•TheoryuncertaintiesforW+jetsandtopbackgroundareestimated,byfollowingPMGrecommendations.•Theuncertaintyisestimatedonthe“transferfactor”(errorsarenormalizedintheCR)•Mostofuncertaintiesarecancelledoutandfoundtobeless than5%•CRdefinitionisgood,andwecanusethephasespaceverysimilartoSR/VR.•Smoothing is applied for someuncertaintieswithlargedifference due to their large statistical uncertainties.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting7
+NOTES: 
+
+### PAGE 8
+Theory uncertainty estimation
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting8
+Resonance regoins Non-Resonance regoins
+•Smoothing is applied for those systematics with large deviation.
+NOTES: 
+
+### PAGE 9
+•SmoothisappliedbyROOTfunction(353QH, twice)•W+jetsQCDsacle(RelaxedreosnanceSR,-0.12à-0.10)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting9
+BeforesmoothingAftersmoothing
+Uncertaintyestimation
+SR
+SR
+NOTES: 
+
+### PAGE 10
+•SmoothisappliedbyROOTfunction(353QH, twice)•TopPS(relaxdresonanceSR0.24à0.05)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting10
+BeforesmoothingAftersmoothing
+Uncertaintyestimation
+SR SR
+NOTES: 
+
+### PAGE 11
+•SmoothisappliedbyROOTfunction(353QH, twice)•TopME(relaxednon-resonanceSR,-0.16à-0.19)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting11
+BeforesmoothingAftersmoothing
+Uncertaintyestimation
+CR(w/osmoothing)
+SR SR TopCR
+•Top ME is not canceled even after smoothing.
+NOTES: 
+
+### PAGE 12
+Theoreticaluncertaintyafter smoothing
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting12
+•Most of the uncertainties are mitigated after smoothing.•The uncertainty from Top modeling in SR cannot be fully canceled.  (looser selection is applied in the TopCR.)•Largeuncertainties•Resonanceregions:•W+jetsQCDscale(down)inSRandWVR:-0.12à-0.10,-0.11à-0.09•TopPSinSR:0.24à0.05•TopMEinTopVR:0.21à0.07•TopFSR(down)inTopVR:0.17à0.06•Non-resonanceregions:•W+jetsQCDscale(down)inSRandWVR.-0.28à-0.10,-0.12à-0.09•TopMEinSR:-0.16à-0.19
+NOTES: 
+
+### PAGE 13
+B-onlyfitinCR(nominal-only)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting13
+NOTES: 
+
+### PAGE 14
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting14
+•Summary plots:
+Nominal-only fitinCR
+•GoodagreementbetweendataandMCinmostofVRs.•OnlyinNon-ResonanceVR0tau.~3sigmadiscrepancyobserved.
+NOTES: 
+
+### PAGE 15
+0tau1l1bvalidation regioninvestigation
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting15
+•Cutflow
+•Discrepancy(mainlyfromWmunu)appearedsincemetcut.
+NOTES: 
+
+### PAGE 16
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting16
+0tau1l1bvalidation regioninvestigation•N-1distribution
+MetN-1 metN-1(mT>400GeV)•Discrepancyislocalizedin425<mET<450GeVwithoverall3.1sigma.•IfweloosenthemETcut>300GeV,data/MCagreementisimprovedto1.8sigma.•IfwetightenthemETcut>500GeV,data/MCagreementisalsoimprovedto1.5sigma.•IfweloosenthemTcutto>400GeV,agreementisimprovedtosigma2.1.•Ifweincludethejetsystematicsuncertainties,theagreementisrelaxedtosigma2.9
+NOTES: 
+
+### PAGE 17
+0tau1l1bvalidation regioninvestigation
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting17
+•Cutflow
+MetN-1•425 < mET< 450 GeV && 300 < lep0 pT < 400 GeV is off.•e-channel:5events.•Mu-channel:7events.
+
+NOTES: 
+
+### PAGE 18
+•Acloserlookatjet/leptoneta/phiinthe0tauVRwithcut425 < mET< 450 GeV.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting18
+0tau1l1bvalidation regioninvestigation
+•Nodistinctfeaturefoundinspecificregion/period.Couldduetolackofstats.
+NOTES: 
+
+### PAGE 19
+S+B fit with full systematics
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting19
+NOTES: 
+
+### PAGE 20
+Signal and backgrounds•Varioussetsofparameter(𝑚!,𝛽"#$,𝑔!)forthesignalisperformedS+Bfittogetthefinallimits.(25pointsforeachmasspoint)•Resultofsignal of MU=1.5, g%=1.5,𝛽"#$=0.2isshown.•Muon_reco_SF_effandelectron_iso_SF_effissetto1%.•20%uncertainryfromtheW+jetsHFmodelingisapplied.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting20
+NOTES: 
+
+### PAGE 21
+Summaryplots
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting21
+•ThediscrepancyintheVR0tauisimprovedfrom3.1sigmato2.5sigmaafterintroducingthesystematicuncertainties.
+NOTES: 
+
+### PAGE 22
+SystematicsRanking
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting22
+•Leadingsystematics:1)FT2)MCmodeling.(WjetsHF)3)TauTESsmearing
+corrMatrix
+
+NOTES: 
+
+### PAGE 23
+ExpectedLimits•Thesignificanceiscomputedwithmultipleparametersettingswhilethesignalstrengthisfixedto1.•The95%CLlimitisthendrawnwithintheextrapolatedparameterspace.•TheshadedregionisthebanomalyfavoredregionwhichisscaledbygUandbeta.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting23
+
+NOTES: 
+
+### PAGE 24
+Summary•Thetheoryuncertaintyestimationisperformed.•Bothnominal-onlyfitandfullsystematicsfitisperformed.•Thedata/MCdiscrepancyisobservedintheVR0tau,whichseemstobeastatisticalfluctuation.•it’smitigatedto2.5sigmaafterintroducingthesystematicsuncertainties.•ThelargestuncertaintiesarefromFT,tauTESsmearingandWmodeling.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting24
+Plan•Thereweightingofthesignalsturnsouttobeproblematic.Thecorrectionfunctionsforthenewsignalinternalweightneedtobeimplemented.•UpdatetheinternalnotesandsendtheEBrequestasap.
+NOTES: 
+
+### PAGE 25
+BACKUP
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting25
+NOTES: 
+
+### PAGE 26
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting26
+•Currentlyusingtheprocesschain:TopCPToolKitàFastFrameàTRExFitter•Majorupdateswith the new ntuple production and framework chain:•Derivation:p5855àp6490•b-tagger:GN2v00àGN2v01.•b-tagSFadded•Electronid/isoSFsadded(R21). R22 is under preparation.•Muonisolation:Tight_VarRadàloose_VarRad•GlobalSLTTriggerEffSFand trigger matching added.
+ObjectdefinitionsandSFs
+NOTES: 
+
+### PAGE 27
+ObjectdefinitionsandSFs
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting27
+Electron(signal: TightLH+HighPtCaloOnly)Muon(signal:medium_nonIso)
+Tau(signal:TightRNN)
+NOTES: 
+
+### PAGE 28
+Signalregionandbackgroundcomposition
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting28
+•Bothdominant(𝑊→𝜏𝜈)andsub-dominant(Top)BGsareirreduciblebackground(truetau).•After the hard mET requirement, fake tau background is marginal (<10%).àWewilluseRNNTau.
+ResonanceSR
+•ResonanceSRNumberof!!"#$!=1,e/muvetoNumberofb85=1"%&>250GeVminΔ%&'(,*!"#$$≥0.4	||	*!"#$$/2!%&'"#()*≥6"%'>200GeV
+'%>200GeV(%("))> 200GeV)'*&>800GeVNumberoflightjets≤3
+•Non-ResonanceSRNumberof!!"#$!=1,e/muvetoNumberofb85=150<%%&<250GeVminΔ%&'(,*!"#$$≥0.4	||	*!"#$$/2!%&'"#()*≥6%%'>200GeV
+(%>600GeV*%("))> 400GeVΔ,%%',%%("))>1.2%%'/*%("))<3Numberoflightjets≤1
+Non-ResonanceSR
+NOTES: 
+
+### PAGE 29
+Expectedsensitivityin𝒈𝑼−𝜷𝑳𝟐𝟑plots
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting29
+•30%systematicserrorassumed.
+Uniquesearchspacefor𝜏𝜈+𝑏
+NOTES: 
+
+### PAGE 30
+Backgroundestimationstrategy
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting30
+•Mainbackground:•W+jets(50%)•Top-quarkevents(30%)•ttbar•singleTop•Minorbackground:•𝑍→𝜈𝜈(faketau)•Diboson•𝑍→𝜏𝜏•QCDmulti-jetbackground•àisrejectedbyfakemetselection.
+NOTES: 
+
+### PAGE 31
+WCRdata/MCcheck•ResonanceWCR•19%and3%under-estimationofdatabysimulationsamplesine-andmu-channels,respectively.•Nodistinctslopeisfound.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting31
+•Non-ResonanceWCR•4%under-estimationofdatabysimulationsamplesine-channel.•22%over-estimationofdatainmu-channel.àunderinvestigation•Nodistinctslopeisfound.
+echannelmuchannel
+NOTES: 
+
+### PAGE 32
+TopCRdata/MCcheck•ResonanceTopCR•35%and11%over-estimationofdatabysimulationsamplesine-andmu-channels,respectively.•Slopeondata/MCratiofor𝑝()distribution.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting32
+•Non-ResonanceTopCR•16%and9%over-estimationofdatabysimulationsamplesine-andmu-channel.
+echannelmuchannel
+
+NOTES: 
+
+### PAGE 33
+Investigationfornon-resonanceWCR•Therearetwoissuesremainingforthenon-resonanceWCR.1.Eventyieldsofdata and MCin1mu/1enon-resonanceWCRaredifferent.2.Data/MCinnon-resonanceWCR(1mu)isquitedifferentfromtheothers.(onlyinthisregiondataisover-estimated.)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting33
+
+NOTES: 
+
+### PAGE 34
+Investigationfornon-resonanceWCR–cutflow•Cutflow:
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting34
+•e/mudifferenceofthedatacomesfromLeadingjetpTcut.•Data/MCdifferencealsocomesfromLeadingjetpTcut
+1e data 1e MC 1mu data 1mu MC 1e data/MC 1mu data/MC data 1e/1mu MC 1e/1mu
+SLT trigger 874090 1045719 874090 1045719 0.836 0.836 1.000 1.000
+single lepton 374329 452260 385343 500296 0.828 0.770 0.971 0.904
+tau veto 188424 180491 174467 175451 1.044 0.994 1.080 1.029
+b veto 141311 146748 136152 145354 0.963 0.937 1.038 1.010
+njet (1,2) 61310 65889 57872 64169 0.931 0.902 1.059 1.027
+QCD cut 58292 62486 54449 59968 0.933 0.908 1.071 1.042
+MET>400 2571 2675.4 2300 2323.6 0.961 0.990 1.118 1.151
+lep pT > 200 1828 1977.7 1679 1721.1 0.924 0.976 1.089 1.149
+mT(lep,met) > 600 961 1119 905 1029.1 0.859 0.879 1.062 1.087
+DPhi(lep0,met)>1.2 961 1118.9 905 1028.9 0.859 0.880 1.062 1.087
+jet0 pT (50, 250) 461 454.1 387 492.5 1.015 0.786 1.191 0.922
+NOTES: 
+
+### PAGE 35
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting35
+N-1 distribution of JetptinWCR
+•Data yield comparison in 1e/1mu WCR•Simulation yield comparison in 1e/1mu WCR
+•More likely the statistical flucuation.
+NOTES: 
+
+### PAGE 36
+Event weights in non-resonance WCR
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting36
+1mu non-resonance WCR
+1e non-resonance WCR•Weight_total = weight_mc * weight_pileup * lumi * xSec / SumWeights
+•Difference from MC samples mainly from the specific large weight events (weight~30).•Cut off the large weight events?
+NOTES: 
+
+### PAGE 37
+InvestigationforttbarNNLOreweighting
+•ANNLOreweightingcanbeappliedonttbarsamplestocorrecttopmodelling.(git)
+•Currentlytestedonttbarnonallhadsamples.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting37
+NOTES: 
+
+### PAGE 38
+InvestigationforttbarNNLOreweighting
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting38
+w/oNNLOreweighting
+w/NNLOreweighting
+•5%~10%improvementofMCpredictionisobserved.
+NOTES: 
+
+### PAGE 39
+VRdefinitionandcontaminationstudy
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting39
+•WVR0tau(0𝜏1𝑙1𝑏)•Tochecktheb-vetoWCRtob-taggedSRtransition.•WCRandWVR0taumaybeaSRfor1stand2ndgenerationLQsearches.•SignalcontaminationfromcouplingofLQtothe1stand2ndgenerationleptonsissmall.•Signalcontaminationfromtheleptonicdecayoftauleptonneeds to be evaluated.•WVR1tau(1𝜏0𝑙0𝑏)•Tocheckthe𝑒/𝜇WCRto𝜏SRtransition.•73%and85%W+jetspurityforResonanceandNon-ResonanceVR,respectively.•Contaminationislessthan5%evenathigher𝛽!"#.•TopVR1tau(1𝜏0𝑙2𝑏)•Tocheckthe𝑒/𝜇TopCRto𝜏SRtransition.•85%Top-quarkeventspurity.•Signalcontaminationis7.4%forResonanceVR.•NegligiblecontaminationinNon-ResonanceVR.•UnblindstrategyfortheVRs is in discussion.
+
+NOTES: 
+
+### PAGE 40
+VR0tau contamination check
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting40
+Oldsample(reco)Newsamples(truth)BGResonanceSR3.7±0.043.0±0.12.27±0.39Non-ResonanceSR12.7±2.39.3±1.62.05±0.45ResonanceVR0tau- 1.0±0.134.8±1.9Non-ResonanceVR0tau- 1.3±0.662.0±5.4
+•Yields(BSMonly, Tauideff=70%,btageff=85%appliedfortruthsamples.) 
+•Resultsfromnewsamplesandoldsamplesarerelativelyconsistent.•SignalcontaminationlooksfineinVR0tau.•Ontheotherhand,VR0taucouldbeaSRinW’analysis.Needtogetthecompromisewiththeteamaftertheirfinalselectionisdecided.
+NOTES: 
+
+### PAGE 41
+N-1 distribution of JetptinWCR
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting41
+•Data/MC(Non-resonanceWCR):0tau1e0b:1.017±0.0950tau1mu0b:0.787±0.073
+NOTES: 
+
+### PAGE 42
+•Purpose:validateof𝑍→𝜈𝜈+fake-𝜏intheSR.•Strategy:𝑍→𝑙𝑙+𝜏selectiontohaveZ+fake-𝜏with90%purity•50%differencebetweendata/MCisobserved.àFakerateintheMCismismodeledbyfactor2.
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting42
+𝑍→𝑙𝑙+𝜏VR
+1𝜏*++,-(𝑝(>100GeV)1𝜏*++,-(𝑝(>20GeV)
+ N-1kinematicplotSincetheZ+jetscontributionisminorinSR,weusethesimulationdirectlywithadditional50%uncertainty.
+NOTES: 
+
+### PAGE 43
+SigxSecdifference
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting43
+Oldproduction(pb)Newproduction(pb)5371310.00045790.00044825371320.000080550.000079241537133-0.001695 -0.00177595371370.000053350.0000528995371380.000010162540.000010064537139-0.00060643-0.000651
+NOTES: 
+
+### PAGE 44
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting44
+•MajorupdatesfromtheresultusedforINT.note:•Derivation:p5855àp6490•b-tagger:GN2v00àGN2v01.•b-tagSFadded•Electronid/isoSFsadded(R21).•Muonisolation:Tight_VarRadàloose_VarRad•GlobalSLTTriggerEffSFand trigger matching added.•Thingstoadd•ElectronSfsforFastsimsamples.(solved,newproductionisalreadydone.)•Muonselectionwithmediumid+tightisoWP•Truthe/muinformation.•Currentlyusingtheprocesschain:TopCPToolKitàFastFrameàTRExFitter•OverlapremovalisappliedinFastFramesoitneedsomemoredevonthecodeusedforformerntuples.(whichalreadyappliedOLRinthefirststage.)
+ObjectdefinitionsandSFs
+NOTES: 
+
+### PAGE 45
+ResonanceWCR(1e)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting45
+Datayield:261MCyield:219 Datayield:243MCyield:209
+formerresult newresult
+
+NOTES: 
+
+### PAGE 46
+ResonanceWCR(1mu)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting46
+Datayield:226MCyield:219 Datayield:223MCyield:217
+formerresult newresult
+
+NOTES: 
+
+### PAGE 47
+Non-resonanceWCR(1e)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting47
+Datayield:478MCyield:460 Datayield:461MCyield:453
+formerresult newresult
+
+NOTES: 
+
+### PAGE 48
+Non-resonanceWCR(1mu)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting48
+Datayield:390MCyield:500 Datayield:387MCyield:492
+formerresult newresult
+
+NOTES: 
+
+### PAGE 49
+ResonanceTopCR(1e)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting49
+Datayield:26MCyield:40 Datayield:30MCyield:40
+formerresult newresult
+
+NOTES: 
+
+### PAGE 50
+ResonanceTopCR(1mu)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting50
+Datayield:33MCyield:37 Datayield:34MCyield:39
+formerresult newresult
+
+NOTES: 
+
+### PAGE 51
+Non-resonanceTopCR(1e)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting51
+Datayield:241MCyield:287 Datayield:240MCyield:287
+formerresult newresult
+
+NOTES: 
+
+### PAGE 52
+Non-resonanceTopCR(1mu)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting52
+Datayield:244MCyield:286 Datayield:237MCyield:280
+formerresult newresult
+
+NOTES: 
+
+### PAGE 53
+Investigationfornon-resonanceWCR•Therearetwoissuesremainingforthenon-resonanceWCR.1.Eventyieldsofdatain1mu/1enon-resonanceWCRarealsodifferent.2.Data/MCinnon-resonanceWCR(1mu)isquitedifferentfromtheothers.(onlyinthisregiondataisover-estimated.)
+2025/08/19 Jiaqi ZANGICEPP Analysis meeting53
+
+NOTES: 

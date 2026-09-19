@@ -1,0 +1,322 @@
+https://atlas-project-topreconstruction.web.cern.ch/fastframesdocumentation/latest/documentation/custom_classes/
+Custom Classes - FastFrames
+:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}
+__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}
+Skip to content
+FastFrames
+Custom Classes
+Initializing search
+atlas-amglab/fastframes
+FastFrames
+atlas-amglab/fastframes
+Home
+Tutorial
+Documentation
+Documentation
+Installation
+Metadata Production
+Custom Classes
+Custom Classes
+Table of contents
+Creating a Custom Class
+Defining Variables
+Using a Custom Class
+Accessing Sample Information When Defining Variables
+Creating Small Inputs for Unit Tests
+Histogramming
+Ntupling
+Truth Processing
+Unfolding
+Systematics
+Cutflows
+ONNX Inference
+Distributed Computing
+Helper Functions
+TRExFitter Integration
+Configuration
+Recommendations for running FastFrames
+Code flow
+Event Tutorials
+Event Tutorials
+Top Workshop 2025
+Changelog
+Table of contents
+Creating a Custom Class
+Defining Variables
+Using a Custom Class
+Accessing Sample Information When Defining Variables
+Creating Small Inputs for Unit Tests
+Custom Classes
+For most analyses the default CPAlgs outputs are too simple to be useful.
+FastFrames provides an easy way to define new variables that can then be used
+to fill histograms: custom classes. Essentially this is C++ code that you
+compile which FastFrames then loads and runs!
+Creating a Custom Class
+We provide a template class at
+FastFramesCustomClassTemplate
+that should be used as the base of any custom classes. Choose a name, e.g.
+ExampleFrame
+, then clone the repository into a directory of the same name:
+git
+clone
+\
+ssh://git@gitlab.cern.ch:7999/atlas-amglab/FastFramesCustomClassTemplate.git
+\
+ExampleFrame
+Next, use the
+renameFiles.sh
+script to update the name of your custom class:
+bash
+renameFiles.sh
+ExampleFrame
+Compilation follows the same CMake workflow as FastFrames. Choose build and
+install directories, and then run CMake:
+cmake
+-S
+ExampleFrame
+-B
+ExampleFrame/build
+\
+-DCMAKE_INSTALL_PREFIX
+=
+./ExampleFrame/build
+cmake
+--build
+ExampleFrame/build
+-j
+cmake
+--install
+ExampleFrame/build
+FastFrames Environment Setup
+You should have FastFrames installed and your environment already set up!
+The FastFrames setup script lets your custom class find FastFrames
+automatically. If not, this step will fail as it will not find FastFrames.
+This will create another
+setup.sh
+script in your chosen build directory. Make
+sure to
+source
+setup.sh
+for the custom class before trying to use it, otherwise FastFrames will not be
+able to find it!
+Defining Variables
+The custom class has four main functions within which you can define variables:
+defineVariables()
+: called when processing histograms for the reco tree
+defineVariablesNtuple()
+: called when producing ntuples for the reco tree
+defineVariablesTruth()
+: called when processing histograms for the truth tree
+defineVariablesNtupleTruth()
+: called when producing ntuples for the truth tree
+FastFrames also provides a few helper functions to make life easier. They are
+documented at
+Helper Functions
+.
+Using a Custom Class
+You can specify the name of the custom class to run in the
+general
+block of
+your configuration file:
+general
+:
+custom_frame_name
+:
+ExampleFrame
+FastFrames will automatically find your compiled class, provided you sourced
+your custom class's setup script!
+Accessing Sample Information When Defining Variables
+Sometimes, it is useful to define a variable (or decide whether or not to add
+it) based on the sample that is currently being processed. All of the methods
+listed above are given a pointer to the
+Sample
+object as an argument, so
+one can make some decision based on the sample name or type, e.g.:
+if
+(
+sample
+->
+isData
+())
+{
+node
+=
+MainFrame
+::
+systematicStringDefine
+(
+node
+,
+"someDataVariable"
+,
+"..."
+);
+}
+else
+if
+(
+sample
+->
+name
+()
+==
+"XYZ"
+)
+{
+node
+=
+MainFrame
+::
+systematicStringDefine
+(
+node
+,
+"someXYZVariable"
+,
+"..."
+);
+}
+If you need access to e.g. a DSID or campaign, each function is also given a
+pointer to a
+UniqueSampleID
+object which contains a unique set of DSID,
+campaign, and data type. Note, however, that by default all of the "unique
+samples" for a given sample are processed in one run, so a
+UniqueSampleID
+is
+not well-defined. In this case you will need to use RDataFrame's
+DefinePerSample
+, for example
+auto
+getDSID
+=
+[](
+unsigned
+int
+slot
+,
+const
+RSampleInfo
+&
+id
+)
+{
+return
+id
+.
+GetI
+(
+"unique_sample_id"
+);
+};
+node
+=
+node
+.
+DefinePerSample
+(
+"sample_dsid"
+,
+getDSID
+);
+will define a column
+sample_dsid
+set to the DSID of the unique sample for
+each event. The values available are:
+unique_sample_id
+: DSID (integer, accessed with
+GetI()
+)
+unique_sample_campaign
+: campaign (string, accessed with
+GetS()
+)
+unique_sample_simulation
+: data type (string, accessed with
+GetS()
+)
+In the case that reco/truth matching is performed,
+split_processing_per_unique_samples
+is
+true
+, or when producing ntuples,
+each unique sample will be processed individually. In this case you can
+access the
+UniqueSampleID
+directly:
+if
+(
+id
+.
+dsid
+()
+==
+12345
+)
+{
+...
+}
+If you need to know which type of processing is being run (per-unique-sample or
+or combined), you can retrieve this information with:
+if
+(
+MainFrame
+::
+processingPerUniqueSample
+(
+sample
+))
+{
+// stuff here only runs when processing per-unique-sample
+// and has access to UniqueSampleID
+}
+else
+{
+// stuff here only runs when processing all unique samples together,
+// and the UniqueSampleID passed to the function is not functional
+}
+Creating Small Inputs for Unit Tests
+If you'd like to set up some tests for your custom class, it is likely useful
+to have some small input ROOT files to run the CI tests on.
+FastFrames provides a script that skims an input file:
+python3
+python/development/skim_input_ntuples_for_CI_tests.py
+\
+/path/to/input/file
+\
+/path/to/output/file
+\
+[
+fraction
+of
+events
+to
+keep
+(
+optional,
+default
+0
+.001
+)]
+If you have
+truth
+and
+particleLevel
+trees, the
+truth
+tree will be skimmed
+first, then any matching
+particleLevel
+and
+reco
+events will also be saved
+to allow for reco-to-truth pairing.
+var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))
+Previous
+Metadata Production
+Next
+Histogramming
+Copyright © 2002-2026 CERN for the benefit of the ATLAS Collaboration
+Made with
+Material for MkDocs
+{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.footer", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}

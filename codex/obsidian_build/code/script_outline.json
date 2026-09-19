@@ -1,0 +1,1683 @@
+[
+  {
+    "name": "SF_Comparison_el.py",
+    "lines": 274,
+    "doc": null,
+    "functions": [
+      [
+        "find_root_files",
+        13,
+        null
+      ],
+      [
+        "build_chain",
+        23,
+        null
+      ],
+      [
+        "to_list",
+        31,
+        null
+      ],
+      [
+        "rel_diff",
+        34,
+        null
+      ],
+      [
+        "sanitize_name",
+        37,
+        null
+      ],
+      [
+        "collect_dataset",
+        46,
+        null
+      ],
+      [
+        "compare_and_fill",
+        74,
+        null
+      ],
+      [
+        "main",
+        164,
+        null
+      ]
+    ],
+    "args": [
+      [
+        166,
+        "parser.add_argument(\"--filepath1\", required=True, help=\"Folder for dataset1 (.root files)\")"
+      ],
+      [
+        167,
+        "parser.add_argument(\"--filepath2\", required=True, help=\"Folder for dataset2 (.root files)\")"
+      ],
+      [
+        168,
+        "parser.add_argument(\"--tree\", default=\"reco\", help=\"TTree name (default: reco)\")"
+      ],
+      [
+        169,
+        "parser.add_argument(\"--out\", default=\"sf_ratio.root\", help=\"Output ROOT file\")"
+      ],
+      [
+        170,
+        "parser.add_argument(\"--bins\", type=int, default=100, help=\"Histogram bins\")"
+      ],
+      [
+        171,
+        "parser.add_argument(\"--xmin\", type=float, default=0.5, help=\"Histogram x-min\")"
+      ],
+      [
+        172,
+        "parser.add_argument(\"--xmax\", type=float, default=1.5, help=\"Histogram x-max\")"
+      ],
+      [
+        173,
+        "parser.add_argument(\"--pt_tol\", type=float, default=0.05, help=\"Relative tolerance for el_pt_NOSYS\")"
+      ],
+      [
+        174,
+        "parser.add_argument(\"--etaphisq_tol\", type=float, default=0.05, help=\"Relative tolerance for (eta^2+phi^2)\")"
+      ],
+      [
+        175,
+        "parser.add_argument(\n        \"--sfs\",\n        default=\"el_id_effSF_TightLH_Loose_VarRad_NOSYS,el_reco_effSF_TightLH_Loose_VarRad_NOSYS,el_iso_effSF_TightLH_Loose_VarRad_NOSYS\",\n        help=\"Comma-separated SF branch names to compare (vector<float>)\"\n    )"
+      ],
+      [
+        180,
+        "parser.add_argument(\"--png_dir\", default=\"plots\", help=\"Directory to save per-SF PNGs (empty to skip)\")"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport os\nimport sys\nimport glob\nimport argparse\nimport math\n\nimport ROOT\nROOT.gROOT.SetBatch(True)\n\ndef find_root_files(folder):\n    patterns = [os.path.join(folder, \"**\", \"*.root\"), os.path.join(folder, \"*.root\")]\n    files = set()\n    for p in patterns:\n        files.update(glob.glob(p, recursive=True))\n    files = [f for f in files if os.path.isfile(f)]\n    if not files:\n        print(f\"[WARN] No ROOT files found under: {folder}\")\n    return sorted(files)\n\ndef build_chain(files, treename):\n    chain = ROOT.TChain(treename)\n    for f in files:\n        added = chain.Add(f)\n        if added == 0:\n            print(f\"[WARN] Failed to add {f} to TChain({treename})\")",
+    "tail": "        line.SetLineColor(1)\n        line.Draw()\n        c.Write()\n        if save_png:\n            out_png = os.path.join(args.png_dir, f\"{sanitize_name(png_basename)}.png\")\n            c.SaveAs(out_png)\n            print(f\"[INFO] Saved: {out_png}\")\n\n    # 单独的每个 SF 图\n    for sf, h in hists.items():\n        h.Write()\n        draw_and_save(h, sf, sanitize_name(sf))\n\n    # ALL product 图\n    h_all.Write()\n    draw_and_save(h_all, \"ALL SFs product ratio\", \"ALL_SFs_product\")\n\n    of.Close()\n    print(f\"[INFO] Wrote histograms & canvases to: {args.out}\")\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "SF_Comparison_jet.py",
+    "lines": 299,
+    "doc": null,
+    "functions": [
+      [
+        "find_root_files",
+        13,
+        null
+      ],
+      [
+        "build_chain",
+        23,
+        null
+      ],
+      [
+        "to_list",
+        31,
+        null
+      ],
+      [
+        "charvec_to_int01_list",
+        36,
+        null
+      ],
+      [
+        "rel_diff",
+        49,
+        null
+      ],
+      [
+        "sanitize_name",
+        52,
+        null
+      ],
+      [
+        "collect_dataset",
+        61,
+        null
+      ],
+      [
+        "compare_and_fill",
+        98,
+        null
+      ],
+      [
+        "main",
+        189,
+        null
+      ]
+    ],
+    "args": [
+      [
+        191,
+        "parser.add_argument(\"--filepath1\", required=True, help=\"Folder for dataset1 (.root files)\")"
+      ],
+      [
+        192,
+        "parser.add_argument(\"--filepath2\", required=True, help=\"Folder for dataset2 (.root files)\")"
+      ],
+      [
+        193,
+        "parser.add_argument(\"--tree\", default=\"reco\", help=\"TTree name (default: reco)\")"
+      ],
+      [
+        194,
+        "parser.add_argument(\"--out\", default=\"sf_ratio.root\", help=\"Output ROOT file\")"
+      ],
+      [
+        195,
+        "parser.add_argument(\"--bins\", type=int, default=100, help=\"Histogram bins\")"
+      ],
+      [
+        196,
+        "parser.add_argument(\"--xmin\", type=float, default=0.5, help=\"Histogram x-min\")"
+      ],
+      [
+        197,
+        "parser.add_argument(\"--xmax\", type=float, default=1.5, help=\"Histogram x-max\")"
+      ],
+      [
+        198,
+        "parser.add_argument(\"--pt_tol\", type=float, default=0.05, help=\"Relative tolerance for jet_pt_NOSYS\")"
+      ],
+      [
+        199,
+        "parser.add_argument(\"--etaphisq_tol\", type=float, default=0.05, help=\"Relative tolerance for (eta^2+phi^2)\")"
+      ],
+      [
+        200,
+        "parser.add_argument(\n        \"--sfs\",\n        default=\"weight_ftag_effSF_GN2v01_Continuous_NOSYS\",\n        help=\"Comma-separated SF branch names to compare (vector<float>)\"\n    )"
+      ],
+      [
+        205,
+        "parser.add_argument(\"--png_dir\", default=\"plots\", help=\"Directory to save per-SF PNGs (empty to skip)\")"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport os\nimport sys\nimport glob\nimport argparse\nimport math\n\nimport ROOT\nROOT.gROOT.SetBatch(True)\n\ndef find_root_files(folder):\n    patterns = [os.path.join(folder, \"**\", \"*.root\"), os.path.join(folder, \"*.root\")]\n    files = set()\n    for p in patterns:\n        files.update(glob.glob(p, recursive=True))\n    files = [f for f in files if os.path.isfile(f)]\n    if not files:\n        print(f\"[WARN] No ROOT files found under: {folder}\")\n    return sorted(files)\n\ndef build_chain(files, treename):\n    chain = ROOT.TChain(treename)\n    for f in files:\n        added = chain.Add(f)\n        if added == 0:\n            print(f\"[WARN] Failed to add {f} to TChain({treename})\")",
+    "tail": "        line.SetLineColor(1)\n        line.Draw()\n        c.Write()\n        if save_png:\n            out_png = os.path.join(args.png_dir, f\"{sanitize_name(png_basename)}.png\")\n            c.SaveAs(out_png)\n            print(f\"[INFO] Saved: {out_png}\")\n\n    # 单独的每个 SF 图\n    for sf, h in hists.items():\n        h.Write()\n        draw_and_save(h, sf, sanitize_name(sf))\n\n    # ALL product 图\n    h_all.Write()\n    draw_and_save(h_all, \"ALL SFs product ratio\", \"ALL_SFs_product\")\n\n    of.Close()\n    print(f\"[INFO] Wrote histograms & canvases to: {args.out}\")\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "TF_calculater.py",
+    "lines": 257,
+    "doc": null,
+    "functions": [
+      [
+        "get_sum_and_error",
+        173,
+        null
+      ],
+      [
+        "propagate_ratio_sr",
+        203,
+        null
+      ],
+      [
+        "propagate_ratio_cr",
+        212,
+        null
+      ]
+    ],
+    "args": [],
+    "head": "import ROOT\nfrom array import array\n\n# User-defined input structure: mapping each system to a dict of filename -> TDirectory\nfile_directory = {\n    'NOSYS': {\n        'ttbar_dilep.root':      'NOSYS',\n        # 'ttbar_nonallhad.root':      'NOSYS',\n        'Wlnu.root':       'NOSYS',\n        'SingleTop_sch.root':  'NOSYS',\n        'SingleTop_tch.root':  'NOSYS',\n        'SingleTop_tW.root':  'NOSYS',\n        'Ztautau.root':  'NOSYS',\n        'Zll.root':  'NOSYS',\n        'Zjet_EWK.root':  'NOSYS',\n        'Wtaunu_HF.root':  'NOSYS',\n        'Wtaunu_METTAU.root':  'NOSYS',\n        'ttZ.root':  'NOSYS',\n        'Znunu.root':  'NOSYS',\n        'Diboson.root':  'NOSYS',\n        'Diboson_semiLep.root':  'NOSYS',\n    },\n    'SYS': {\n        # top nominal\n        'ttbar_dilep.root':      'NOSYS',\n        'SingleTop_sch.root':  'NOSYS',\n        'SingleTop_tch.root':  'NOSYS',\n        'SingleTop_tW.root':  'NOSYS',",
+    "tail": "# CR (tch)\ncr_sys, cr_sys_err = results['SYS']['met_topCR_1tau1l_' + channel]\ncr_nom, cr_nom_err = results['NOSYS']['met_topCR_1tau1l_' + channel]\n\n# print(f\"sr_sys: {sr_sys}, sr_sys_err: {sr_sys_err}, sr_nom: {sr_nom}, sr_nom_err: {sr_nom_err}\")\n# print(f\"cr_sys: {cr_sys}, cr_sys_err: {cr_sys_err}, cr_nom: {cr_nom}, cr_nom_err: {cr_nom_err}\")\n\nr_sr, r_sr_err = propagate_ratio_sr(sr_sys, sr_sys_err, sr_nom, sr_nom_err)\n# print(f\"r_sr: {r_sr}, r_sr_err: {r_sr_err}\")\nr_cr, r_cr_err = propagate_ratio_cr(cr_sys, cr_sys_err, cr_nom, cr_nom_err)\n# print(f\"r_cr: {r_cr}, r_cr_err: {r_cr_err}\")\n\ndouble_ratio = {}\ndouble_ratio_err = {}\nfor region in r_sr.keys():\n    double_ratio[region] = r_sr[region] / r_cr - 1\n    double_rel_err = ((r_sr_err[region] / r_sr[region]) ** 2 + (r_cr_err / r_cr) ** 2) ** 0.5\n    # Propagate error for double ratio\n    double_ratio_err[region] = r_sr[region] / r_cr * double_rel_err\n\nfor region in double_ratio.keys():\n    print(f\"Region: {region}, (double_ratio - 1) = {double_ratio[region]:.6f} ± {double_ratio_err[region]:.6f}\")"
+  },
+  {
+    "name": "TF_calculater_v2.py",
+    "lines": 450,
+    "doc": null,
+    "functions": [
+      [
+        "get_sum_and_error",
+        191,
+        null
+      ],
+      [
+        "propagate_ratio_sr",
+        219,
+        null
+      ],
+      [
+        "propagate_ratio_cr",
+        228,
+        null
+      ],
+      [
+        "get_combined_hist",
+        294,
+        "把所有文件的同名 hist 加在一起"
+      ]
+    ],
+    "args": [],
+    "head": "import ROOT\nimport math\nfrom array import array\n\nROOT.gStyle.SetOptStat(0)\n\n# User-defined input structure: mapping each system to a dict of filename -> TDirectory\nfile_directory = {\n    'NOSYS': {\n        'ttbar_dilep.root':      'NOSYS',\n        # 'ttbar_nonallhad.root':      'NOSYS',\n        'Wlnu.root':       'NOSYS',\n        'SingleTop_sch.root':  'NOSYS',\n        'SingleTop_tch.root':  'NOSYS',\n        'SingleTop_tW.root':  'NOSYS',\n        'Ztautau.root':  'NOSYS',\n        'Zll.root':  'NOSYS',\n        'Zjet_EWK.root':  'NOSYS',\n        'Wtaunu_HF.root':  'NOSYS',\n        'Wtaunu_METTAU.root':  'NOSYS',\n        'ttZ.root':  'NOSYS',\n        'Znunu.root':  'NOSYS',\n        'Diboson.root':  'NOSYS',\n        'Diboson_semiLep.root':  'NOSYS',\n    },\n    'SYS': {\n        # top nominal\n        # 'ttbar_dilep.root':      'NOSYS',",
+    "tail": "\n    # latex = ROOT.TLatex()\n    # latex.SetNDC()   # 使用归一化坐标（0~1），和TLegend一致\n    # latex.SetTextFont(72)      # ATLAS风格\n    # latex.SetTextSize(0.04)\n    # latex.DrawLatex(0.18, 0.88, \"ATLAS\")  # ATLAS 左上\n    # latex.SetTextFont(42)\n    # latex.DrawLatex(0.32, 0.88, \"Internal\")  # Internal 紧跟右侧\n    \n\n    # 写入 output ROOT 文件\n    out_file.cd()\n    h_ratio_sr.Write()\n    h_DR.Write()\n    h_sys.Write()\n    h_nom.Write()\n    # h_DR.SaveAs(f\"dr_ratio_{name}.png\")\n    # c1.Write()\n\n# 3) 关闭并保存\nout_file.Close()\nprint(\"Saved all double-ratio histograms into doubleRatio.root\")"
+  },
+  {
+    "name": "TF_calculater_v2_smooth.py",
+    "lines": 663,
+    "doc": null,
+    "functions": [
+      [
+        "get_hist_names",
+        7,
+        null
+      ],
+      [
+        "get_sum_and_error",
+        320,
+        null
+      ],
+      [
+        "propagate_ratio_sr",
+        348,
+        null
+      ],
+      [
+        "propagate_ratio_cr",
+        357,
+        null
+      ],
+      [
+        "get_crop_hist",
+        445,
+        null
+      ],
+      [
+        "get_combined_hist",
+        461,
+        "把所有文件的同名 hist 加在一起"
+      ],
+      [
+        "rescale_sys",
+        493,
+        null
+      ]
+    ],
+    "args": [],
+    "head": "import ROOT\nimport math\nfrom array import array\n\nROOT.gStyle.SetOptStat(0)\n\ndef get_hist_names(file_path, file_directory):\n    # get the root file name and TDirectory name from file_directory\n    root_file_name = list(file_directory.keys())[0]\n    tdirectory_name = file_directory[root_file_name]\n    # open the file\n    f = ROOT.TFile.Open(file_path + '/' + root_file_name)\n    # get the hist names\n    hist_names = [key.GetName() for key in f.Get(tdirectory_name).GetListOfKeys()]\n    # close the file\n    f.Close()\n    return hist_names\n\n# User-defined input structure: mapping each system to a dict of filename -> TDirectory\nfile_directory = {\n    'NOSYS': {\n        # Top nominal\n        # 'ttbar_nonallhad.root':      'NOSYS',\n        # 'ttbar_dilep.root':      'NOSYS',\n        # 'SingleTop_sch.root':  'NOSYS',\n        # 'SingleTop_tch.root':  'NOSYS',\n        # 'SingleTop_tW.root':  'NOSYS',\n",
+    "tail": "    # for i in range(1, h_DR.GetNbinsX()+1):\n    #     if h_DR.GetBinContent(i) != 0:\n    #        h_DR.SetBinContent(i, h_DR.GetBinContent(i) - 1)\n    #     #    if h_DR.GetBinContent(i) == 0:\n    #     #       h_DR.SetBinError(i, 0.1) h_sys\n    # h_DR.SetName(f\"dr_ratio_{name}\")\n    # DR_name = \"double_ratio_\" + name + \";E_{T}^{miss} [GeV];#DeltaTF/TF\"\n    # h_DR.SetTitle(DR_name)\n        \n\n    # 写入 output ROOT 文件\n    out_file.cd()\n    h_ratio_sr.Write()\n    # h_DR.Write()\n    h_sys.Write()\n    h_nom.Write()\n    # h_DR.SaveAs(f\"dr_ratio_{name}.png\")\n    # c1.Write()\n\n# 3) 关闭并保存\nout_file.Close()\nprint(\"Saved all double-ratio histograms into doubleRatio.root\")"
+  },
+  {
+    "name": "check_failed_jobs.py",
+    "lines": 161,
+    "doc": null,
+    "functions": [
+      [
+        "validate_dir",
+        21,
+        null
+      ],
+      [
+        "extract_x_from_subdir_name",
+        30,
+        null
+      ],
+      [
+        "extract_y_from_config_name",
+        35,
+        null
+      ],
+      [
+        "collect_x_set",
+        40,
+        null
+      ],
+      [
+        "collect_y_map",
+        54,
+        "返回:\n  y_to_files: key=y, value=匹配该 y 的 config 文件路径列表（通常 1 个，但也可能多个）\n  bad: 无法解析 y 的文件名列表"
+      ],
+      [
+        "safe_copy",
+        75,
+        null
+      ],
+      [
+        "main",
+        93,
+        null
+      ]
+    ],
+    "args": [
+      [
+        97,
+        "ap.add_argument(\"folderA\", help=\"文件夹A路径（里面全是子文件夹）\")"
+      ],
+      [
+        98,
+        "ap.add_argument(\"folderB\", help=\"文件夹B路径（里面是 .config 配置文件）\")"
+      ],
+      [
+        99,
+        "ap.add_argument(\"-o\", \"--out-dir\", default=\"missing_configs_out\", help=\"输出目录（默认: missing_configs_out）\")"
+      ],
+      [
+        100,
+        "ap.add_argument(\"-t\", \"--out-txt\", default=\"missing_configs.txt\", help=\"输出txt文件名（默认: missing_configs.txt）\")"
+      ],
+      [
+        101,
+        "ap.add_argument(\"--overwrite\", action=\"store_true\", help=\"复制时允许覆盖同名文件（默认不覆盖，会自动改名）\")"
+      ],
+      [
+        102,
+        "ap.add_argument(\"--dry-run\", action=\"store_true\", help=\"只打印结果，不写txt也不复制文件\")"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport argparse\nimport re\nimport shutil\nfrom pathlib import Path\n\n\n# A 子文件夹名中提取 x：SPLUSB_{x}_noWeights...\n# 例如：fit_..._SPLUSB_MU1500_gU1_0_23L0_2_noWeights_unblind_test\nRE_X = re.compile(r\"SPLUSB_(?P<x>.+?)_noWeights\")\n\n# B 配置文件名中提取 y：unblind_noWeights_{y}(可能还有后缀)_?.config\n# 例如：config_..._unblind_noWeights_MU2500_gU1_0_23L0_2_b33Rm1_0.config\n# 或：..._unblind_noWeights_MU2000_gU3_0_23L1_0.config\nRE_Y = re.compile(r\"unblind_noWeights_(?P<y>.+?)\\.config$\")\n# RE_Y = re.compile(r\"unblind_noWeights_comb_(?P<y>.+?)\\.config$\")\n\n\ndef validate_dir(p: str) -> Path:\n    path = Path(p).expanduser().resolve()\n    if not path.exists():\n        raise FileNotFoundError(f\"路径不存在: {path}\")\n    if not path.is_dir():\n        raise NotADirectoryError(f\"不是文件夹: {path}\")\n    return path\n",
+    "tail": "            files = y_to_files.get(y, [])\n            for f in files:\n                print(f\"[DRY] {f.name}\")\n        return\n\n    # 写 txt：每行一个配置文件名（若同一 y 对应多个文件，则都写）\n    out_txt.parent.mkdir(parents=True, exist_ok=True)\n    copied = 0\n    with out_txt.open(\"w\", encoding=\"utf-8\") as w:\n        for y in missing_y:\n            files = sorted(y_to_files.get(y, []), key=lambda p: p.name)\n            for f in files:\n                w.write(f.name + \"\\n\")\n                safe_copy(f, out_dir, overwrite=args.overwrite)\n                copied += 1\n\n    print(f\"[OK] 已写入: {out_txt}\")\n    print(f\"[OK] 已复制 {copied} 个配置文件到: {out_dir}\")\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "check_files.py",
+    "lines": 26,
+    "doc": null,
+    "functions": [],
+    "args": [],
+    "head": "#!/usr/bin/env python3\nimport sys\nimport re\nfrom collections import Counter\n\nEXPECTED = 3\n# 匹配形如：mc20_13TeV.570862.MGPy...\npat = re.compile(r\"\\.(\\d+)\\.\")\n\ncnt = Counter()\n\nfor line in sys.stdin:\n    line = line.strip()\n    if not line:\n        continue\n    m = pat.search(line)\n    if not m:\n        # 像最后一行 \"mc\" 这种不完整的行会被忽略\n        continue\n    sample_id = m.group(1)\n    cnt[sample_id] += 1\n\n# 输出所有“不是3个”的 sample id\nbad = [(sid, n) for sid, n in cnt.items() if n != EXPECTED]\nfor sid, n in sorted(bad, key=lambda x: int(x[0])):\n    print(f\"{sid}\\t{n}\")",
+    "tail": "\nEXPECTED = 3\n# 匹配形如：mc20_13TeV.570862.MGPy...\npat = re.compile(r\"\\.(\\d+)\\.\")\n\ncnt = Counter()\n\nfor line in sys.stdin:\n    line = line.strip()\n    if not line:\n        continue\n    m = pat.search(line)\n    if not m:\n        # 像最后一行 \"mc\" 这种不完整的行会被忽略\n        continue\n    sample_id = m.group(1)\n    cnt[sample_id] += 1\n\n# 输出所有“不是3个”的 sample id\nbad = [(sid, n) for sid, n in cnt.items() if n != EXPECTED]\nfor sid, n in sorted(bad, key=lambda x: int(x[0])):\n    print(f\"{sid}\\t{n}\")"
+  },
+  {
+    "name": "compare_inf_b33R_ntuple_shapes.py",
+    "lines": 242,
+    "doc": "Compare interference shapes: 567627 (b33R=0) vs 567634 (b33R=-1).\n\nFill MET (and related) from reco ntuples with Xsec/sumW normalisation,\nthen unit-normalise to quantify shape differences.",
+    "functions": [
+      [
+        "load_files",
+        45,
+        null
+      ],
+      [
+        "load_sumw",
+        57,
+        "Sum of weights across campaigns. For NOSYS use GEN_MUR10_MUF10_PDF260800."
+      ],
+      [
+        "fill_hist",
+        71,
+        null
+      ],
+      [
+        "metrics",
+        110,
+        null
+      ],
+      [
+        "plot",
+        151,
+        null
+      ],
+      [
+        "main",
+        198,
+        null
+      ]
+    ],
+    "args": [],
+    "head": "#!/usr/bin/env python3\n\"\"\"Compare interference shapes: 567627 (b33R=0) vs 567634 (b33R=-1).\n\nFill MET (and related) from reco ntuples with Xsec/sumW normalisation,\nthen unit-normalise to quantify shape differences.\n\"\"\"\nfrom __future__ import annotations\n\nimport os\nimport re\nfrom collections import defaultdict\n\nimport ROOT\n\nROOT.gROOT.SetBatch(True)\nROOT.TH1.AddDirectory(False)\nROOT.EnableImplicitMT(4)\n\nFILELIST = \"/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/input/filelist_v05.txt\"\nSUMW = \"/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/input/sum_of_weights_v05.txt\"\nPLOTDIR = \"/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/scripts/plots_inf_b33R_shape\"\n\nXSEC = {\n    567627: -0.0019154,  # b33R=0\n    567634: -0.0019185,  # b33R=-1\n}\nLABEL = {567627: \"b33R=0 (567627)\", 567634: \"b33R=-1 (567634)\"}\n",
+    "tail": "    print(\"\\n=== VERDICT (unit-normalised shapes) ===\")\n    for sel in (\"inclusive\", \"pass_all\"):\n        sub = [r for r in results if r[\"sel\"] == sel and r[\"obs\"] == \"MET\"]\n        if not sub:\n            continue\n        mean_tv = sum(r[\"tv\"] for r in sub) / len(sub)\n        mean_yr = sum(r[\"yratio\"] for r in sub) / len(sub)\n        print(f\"MET {sel}: mean TV={mean_tv:.4f}, mean yield ratio={mean_yr:.4f} over {len(sub)} weights\")\n        if mean_tv < 0.02:\n            verdict = \"NEGLIGIBLE\"\n        elif mean_tv < 0.05:\n            verdict = \"SMALL\"\n        elif mean_tv < 0.10:\n            verdict = \"MODERATE\"\n        else:\n            verdict = \"LARGE\"\n        print(f\"  -> shape change: {verdict}\")\n    print(f\"Plots: {PLOTDIR}\")\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "compare_inf_b33R_shapes.py",
+    "lines": 333,
+    "doc": "Compare interference shapes: DSID 567627 (b33R=0) vs 567634 (b33R=-1).\n\nUses existing FastFrames histos (already include xsec/sumW weights).\nReports yield ratio and unit-normalized shape differences.",
+    "functions": [
+      [
+        "list_common",
+        36,
+        null
+      ],
+      [
+        "paths",
+        58,
+        null
+      ],
+      [
+        "get_hist",
+        66,
+        null
+      ],
+      [
+        "shape_metrics",
+        80,
+        "Unit-normalize signed hists; return dict of shape/rate metrics."
+      ],
+      [
+        "make_plot",
+        145,
+        null
+      ],
+      [
+        "main",
+        186,
+        null
+      ]
+    ],
+    "args": [],
+    "head": "#!/usr/bin/env python3\n\"\"\"Compare interference shapes: DSID 567627 (b33R=0) vs 567634 (b33R=-1).\n\nUses existing FastFrames histos (already include xsec/sumW weights).\nReports yield ratio and unit-normalized shape differences.\n\"\"\"\nfrom __future__ import annotations\n\nimport os\nimport re\nimport sys\nfrom collections import defaultdict\n\nimport ROOT\n\nROOT.gROOT.SetBatch(True)\nROOT.TH1.AddDirectory(False)\n\nOUT = \"/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04\"\nPLOTDIR = \"/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/scripts/plots_inf_b33R_shape\"\n# PMG xsec (pb), signed for interference\nXSEC = {\n    \"b33R0\": -0.0019154,   # 567627\n    \"b33Rm1\": -0.0019185,  # 567634\n}\n\nVARS = [\n    \"met_SR_1tau0l1b_sch\",",
+    "tail": "        print(f\"plot: {r['tag']} {r['ch']} TV={r['l1_half']:.4f}\")\n\n    # overall verdict\n    mean_tv = sum(r[\"l1_half\"] for r in sr) / len(sr)\n    mean_yr = sum(r[\"yield_ratio\"] for r in sr) / len(sr)\n    print(\"\\n=== VERDICT ===\")\n    print(f\"Xsec ratio (b33R=-1 / b33R=0) = {XSEC['b33Rm1']/XSEC['b33R0']:.6f} (~identical)\")\n    print(f\"SR yield ratio mean = {mean_yr:.4f}\")\n    print(f\"SR shape TV distance mean = {mean_tv:.4f}\")\n    if mean_tv < 0.02:\n        print(\"Shape change: NEGLIGIBLE (<2% TV)\")\n    elif mean_tv < 0.05:\n        print(\"Shape change: SMALL (<5% TV)\")\n    elif mean_tv < 0.10:\n        print(\"Shape change: MODERATE (5-10% TV)\")\n    else:\n        print(\"Shape change: LARGE (>10% TV)\")\n    print(f\"Plots -> {PLOTDIR}\")\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "compare_sum_of_weights.py",
+    "lines": 106,
+    "doc": "Compare GEN_gU* sum-of-weights between two sum_of_weights files.\n\nFile format per line: DSID campaign simtype variation value\n\nExpectation (same as the ntuple-level check):\n  - 567621-567627: sums should be IDENTICAL (up to float32 precision)\n  - 567628-567634: sums should be DIFFERENT\n\nUsage:\n  python3 compare_sum_of_weights.py       --file-a ../../input/sum_of_weights.txt       --file-b ../../input/sum_of_weights_v04.txt",
+    "functions": [
+      [
+        "parse",
+        25,
+        "Return {(dsid, campaign, variation): value}."
+      ],
+      [
+        "main",
+        42,
+        null
+      ]
+    ],
+    "args": [
+      [
+        44,
+        "ap.add_argument(\"--file-a\", required=True)"
+      ],
+      [
+        45,
+        "ap.add_argument(\"--file-b\", required=True)"
+      ],
+      [
+        46,
+        "ap.add_argument(\"--dsids\", type=int, nargs=\"*\",\n                    default=DSIDS_SAME + DSIDS_DIFF)"
+      ],
+      [
+        48,
+        "ap.add_argument(\"--rtol\", type=float, default=1e-5,\n                    help=\"relative tolerance for 'identical' (default 1e-5; \"\n                         \"float32 rounding gives ~1e-7 level differences)\")"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n\"\"\"Compare GEN_gU* sum-of-weights between two sum_of_weights files.\n\nFile format per line: DSID campaign simtype variation value\n\nExpectation (same as the ntuple-level check):\n  - 567621-567627: sums should be IDENTICAL (up to float32 precision)\n  - 567628-567634: sums should be DIFFERENT\n\nUsage:\n  python3 compare_sum_of_weights.py \\\n      --file-a ../../input/sum_of_weights.txt \\\n      --file-b ../../input/sum_of_weights_v04.txt\n\"\"\"\n\nimport argparse\nimport sys\nfrom collections import defaultdict\n\nVAR_PREFIX = \"GEN_gU\"\nDSIDS_SAME = list(range(567621, 567628))\nDSIDS_DIFF = list(range(567628, 567635))\n\n\ndef parse(path, dsids):\n    \"\"\"Return {(dsid, campaign, variation): value}.\"\"\"\n    out = {}\n    with open(path) as f:",
+    "tail": "        expect_same = dsid in DSIDS_SAME\n        is_same = n_diff == 0\n        if expect_same:\n            ok = is_same\n            status = \"PASS (identical as expected)\" if ok else \\\n                     \"FAIL (expected identical but found differences)\"\n        else:\n            ok = not is_same\n            status = \"PASS (different as expected)\" if ok else \\\n                     \"FAIL (expected different but sums are identical)\"\n        if not ok:\n            n_fail += 1\n        print(f\"  {dsid}: entries={len(rows):>3}  diff={n_diff:>3}  \"\n              f\"diff_variations={len(diff_vars):>2}  \"\n              f\"max_reldiff={max_rel:.3e}  -> {status}\")\n\n    print(f\"\\n{'ALL PASSED' if n_fail == 0 else f'{n_fail} DSID(s) FAILED'}\")\n    sys.exit(0 if n_fail == 0 else 1)\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "config_generator.py",
+    "lines": 103,
+    "doc": "Batch-replace a target string in a config template and produce one new config\nper MU*.root file found in a given folder.\n\nExample:\npython config_generator.py   /path/to/config_taunub_plot_sys_1l.config   /path/to/root_dir   M2500_gU2_5_23L1_0   /path/to/output_dir\n\nArguments:\n1) config      Path to the original config template file\n2) input_dir   Folder containing .root files (we use those starting with \"MU\")\n3) target      The exact substring to be replaced in the template\n4) output_dir  Destination folder for generated config files (auto-created)",
+    "functions": [
+      [
+        "collect_signal_names",
+        27,
+        "Collect all filenames (without extension) that start with 'MU' and end with '.root'.\n\nExample:\n  MU2500_gU0_5_23L1_4_NonRes.root → MU2500_gU0_5_23L1_4"
+      ],
+      [
+        "generate_configs",
+        51,
+        "For each signal name, replace `target` in the template text and write a new config file:\n  <template_stem>_<signal_name><template_suffix>"
+      ],
+      [
+        "main",
+        79,
+        null
+      ]
+    ],
+    "args": [
+      [
+        83,
+        "parser.add_argument(\"--config\", type=Path, help=\"Path to the config template file\")"
+      ],
+      [
+        84,
+        "parser.add_argument(\"--signals_dir\", type=Path, help=\"Folder containing MU*.root files\")"
+      ],
+      [
+        85,
+        "parser.add_argument(\"--placeholder\", type=str, help=\"Substring in the template to replace\")"
+      ],
+      [
+        86,
+        "parser.add_argument(\"--out_dir\", type=Path, help=\"Folder to save generated configs\")"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\n\"\"\"\nBatch-replace a target string in a config template and produce one new config\nper MU*.root file found in a given folder.\n\nExample:\npython config_generator.py \\\n  /path/to/config_taunub_plot_sys_1l.config \\\n  /path/to/root_dir \\\n  M2500_gU2_5_23L1_0 \\\n  /path/to/output_dir\n\nArguments:\n1) config      Path to the original config template file\n2) input_dir   Folder containing .root files (we use those starting with \"MU\")\n3) target      The exact substring to be replaced in the template\n4) output_dir  Destination folder for generated config files (auto-created)\n\"\"\"\n\nimport re\nfrom pathlib import Path\nimport argparse\nfrom typing import List\n\ndef collect_signal_names(root_dir: Path) -> List[str]:\n    \"\"\"",
+    "tail": "    )\n    parser.add_argument(\"--config\", type=Path, help=\"Path to the config template file\")\n    parser.add_argument(\"--signals_dir\", type=Path, help=\"Folder containing MU*.root files\")\n    parser.add_argument(\"--placeholder\", type=str, help=\"Substring in the template to replace\")\n    parser.add_argument(\"--out_dir\", type=Path, help=\"Folder to save generated configs\")\n\n    args = parser.parse_args()\n\n    template_path: Path = args.config\n    root_dir: Path = args.signals_dir\n    output_dir: Path = args.out_dir\n    target: str = args.placeholder\n\n    # 2) Collect MU*.root basenames into the `signal_name` variable (a list of strings)\n    signal_name: List[str] = collect_signal_names(root_dir)\n\n    # 3) & 4) Replace and write out new config files with the signal name suffix\n    generate_configs(template_path, output_dir, target, signal_name)\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "copy_blank_grids.sh",
+    "lines": 29,
+    "head": "#!/bin/bash\n\ntarget_dir=/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_sig\n# cd to the target directory\ncd $target_dir\n\n# sample name to be copied\nsample_M1500=\"fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU1_0_23L0_2_noWeights_unblind_test\"\n\n# target grid names\ntarget_grid_list_M1500=(\n\"fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_5_23L0_2_noWeights_unblind_test\"\n\"fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_5_23L0_4_noWeights_unblind_test\"\n\"fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_5_23L0_8_noWeights_unblind_test\"\n\n\n)\n\n# copy the sample to the target grids\nfor grid in ${target_grid_list[@]}; do\n    cp -r $sample_M1500 $grid\ndone\n\n\n# copy the fit results to the blank grids\n# MLQ = 1.5 TeV\n# cp -r fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU1_0_23L0_2_noWeights_unblind_test fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_5_23L0_2_noWeights_unblind_test\ncp -r fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU1_0_23L0_2_noWeights_unblind_test fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_75_23L0_2_noWeights_unblind_test",
+    "tail": "sample_M1500=\"fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU1_0_23L0_2_noWeights_unblind_test\"\n\n# target grid names\ntarget_grid_list_M1500=(\n\"fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_5_23L0_2_noWeights_unblind_test\"\n\"fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_5_23L0_4_noWeights_unblind_test\"\n\"fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_5_23L0_8_noWeights_unblind_test\"\n\n\n)\n\n# copy the sample to the target grids\nfor grid in ${target_grid_list[@]}; do\n    cp -r $sample_M1500 $grid\ndone\n\n\n# copy the fit results to the blank grids\n# MLQ = 1.5 TeV\n# cp -r fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU1_0_23L0_2_noWeights_unblind_test fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_5_23L0_2_noWeights_unblind_test\ncp -r fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU1_0_23L0_2_noWeights_unblind_test fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU0_75_23L0_2_noWeights_unblind_test\n"
+  },
+  {
+    "name": "copy_figs.py",
+    "lines": 34,
+    "doc": null,
+    "functions": [
+      [
+        "load_map",
+        9,
+        null
+      ],
+      [
+        "main",
+        21,
+        null
+      ]
+    ],
+    "args": [],
+    "head": "import os\nimport shutil\n\nsource_dir = \"/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/fit_taunub_sys_1l_allVR_BONLY_MU3000_gU2_5_23L1_0_noWeights_N_minus_1_fullRegion_v3_modified/Plots_paper_test\"\ndest_base = \"/afs/cern.ch/work/z/zang/LQanalysis/ANA-EXOT-2025-06-PAPER/figures\"\nmap_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), \"paper_figs_map.txt\")\n\n\ndef load_map(path):\n    pairs = []\n    with open(path) as f:\n        for line in f:\n            line = line.strip()\n            if not line or line.startswith(\"#\"):\n                continue\n            src_name, dst_rel = line.split(None, 1)\n            pairs.append((src_name.strip(), dst_rel.strip()))\n    return pairs\n\n\ndef main():\n    for src_name, dst_rel in load_map(map_file):\n        src = os.path.join(source_dir, src_name)\n        dst = os.path.join(dest_base, dst_rel)\n        os.makedirs(os.path.dirname(dst), exist_ok=True)\n        if not os.path.isfile(src):\n            print(f\"[WARN] missing source: {src}\")\n            continue",
+    "tail": "            line = line.strip()\n            if not line or line.startswith(\"#\"):\n                continue\n            src_name, dst_rel = line.split(None, 1)\n            pairs.append((src_name.strip(), dst_rel.strip()))\n    return pairs\n\n\ndef main():\n    for src_name, dst_rel in load_map(map_file):\n        src = os.path.join(source_dir, src_name)\n        dst = os.path.join(dest_base, dst_rel)\n        os.makedirs(os.path.dirname(dst), exist_ok=True)\n        if not os.path.isfile(src):\n            print(f\"[WARN] missing source: {src}\")\n            continue\n        shutil.copy(src, dst)\n        print(f\"[OK] {src_name} -> {dst_rel}\")\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "draw_limits.py",
+    "lines": 539,
+    "doc": null,
+    "functions": [
+      [
+        "parse_params_from_dirname",
+        24,
+        "Extract MU, gU, beta from directory name"
+      ],
+      [
+        "read_significance",
+        35,
+        "Return significance value (float) from parameter.root.\nSupports two cases:\n  B) TTree named 'stats' with a branch 'exp_significance'."
+      ],
+      [
+        "scan_input_dir",
+        68,
+        "Iterate over all subdirectories of input_dir,\nparse MU, gU, beta and extract significance.\nReturns dict: {(MU, gU, beta): Z}"
+      ],
+      [
+        "generate_edges_with_E0",
+        94,
+        null
+      ],
+      [
+        "is_strictly_increasing",
+        107,
+        "判断列表 lst 的值是否严格单调递增"
+      ],
+      [
+        "get_bin_edges",
+        111,
+        "在区间 (2*c0-c1, c0) 内迭代搜索一个合适的 E0，\n使得生成的边界序列严格单调递增。\n\n参数:\n  centers : list\n     按升序排列的 bin 中心值数组\n  n_steps : int\n     网格搜索的步数\n返回:\n  (E0, edges) : 成功找到的 E0 与对应的边界数组"
+      ],
+      [
+        "get_contour_graph",
+        136,
+        null
+      ],
+      [
+        "get_gU_limit_for_b_anomalies",
+        157,
+        null
+      ],
+      [
+        "get_b_anomalies_production_limit",
+        163,
+        null
+      ],
+      [
+        "fill_between_curves",
+        182,
+        "在给定的canvas上填充由两条曲线 x^2*(1+Vcs/Vcb*y)=c 和 x^2*(1+Vcs/Vcb*y)=d 所限定的区域。\n要求 x 在 [x_min, x_max] 内，且 x ≠ 0（因此建议 x_min > 0）。\n\n参数：\n  canvas    : 目标 ROOT.TCanvas\n  c         : 曲线下界对应的常数\n  d         : 曲线上界对应的常数\n  x_min     : x 轴下限（建议大于 0）\n  x_max     : x 轴上限\n  n_points  : 用于生成曲线的采样点数，默认 100\n  fill_color: 填充颜色，默认为 ROOT.kGray+2\n  fill_style: 填充样式，默认为 3004（斜线填充）\n  \n返回：\n  填充区域的 TGraph 对象。"
+      ],
+      [
+        "draw_mu_slice",
+        238,
+        null
+      ],
+      [
+        "draw_beta_slice",
+        295,
+        null
+      ],
+      [
+        "draw_gU_1D",
+        353,
+        null
+      ],
+      [
+        "draw_beta_1D",
+        414,
+        null
+      ],
+      [
+        "draw_b_anomalies_mass_region",
+        476,
+        null
+      ],
+      [
+        "main",
+        512,
+        null
+      ]
+    ],
+    "args": [],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport os\nimport re\nimport sys\nfrom array import array\nimport numpy as np\n\nimport ROOT\n\nROOT.gROOT.SetBatch(True)\nROOT.gStyle.SetOptStat(0)\n\n# ========== 1) Parse sample directory names ==========\n# Expected directory name format example:\n#   fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU1_5_23L0_2_alldecay_corrected\n#   -> MU=1500, gU=1.5, beta=0.2\nRE_NAME = re.compile(\n    r\".*SPLUSB_MU(?P<MU>\\d+).*?gU(?P<gUa>\\d+)_(?P<gUb>\\d+).*?23L(?P<betaA>\\d+)_(?P<betaB>\\d+).*?alldecay_corrected\",\n    re.IGNORECASE,\n)\n\ndef parse_params_from_dirname(dirname):\n    \"\"\"Extract MU, gU, beta from directory name\"\"\"\n    m = RE_NAME.match(dirname)\n    if not m:\n        return None",
+    "tail": "    out_dir = sys.argv[2] if len(sys.argv) > 2 else \"plots\"\n\n    zmap = scan_input_dir(input_dir)\n    if not zmap:\n        print(\"[ERROR] No valid samples found. Check folder names and files.\")\n        sys.exit(2)\n\n    print(f\"[INFO] Collected {len(zmap)} points:\")\n    for k, v in sorted(zmap.items()):\n        print(f\"  MU={k[0]:>4}  gU={k[1]:>4}  beta={k[2]:>4}  --> Z={v:.3f}\")\n\n    # # create output file\n    output_file = ROOT.TFile(\"plots/output_TH2D.root\", \"RECREATE\")\n\n    # draw_mu_slice(zmap, out_dir, output_file)\n    # draw_beta_slice(zmap, out_dir, output_file)\n    draw_gU_1D(zmap, out_dir, output_file)\n    draw_beta_1D(zmap, out_dir, output_file)\n    print(f\"[DONE] Plots saved to: {out_dir}/\")\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "draw_limits_mu.py",
+    "lines": 2928,
+    "doc": null,
+    "functions": [
+      [
+        "parse_params_from_dirname",
+        92,
+        "Extract MU, gU, beta from directory name"
+      ],
+      [
+        "parse_params_from_filename",
+        109,
+        "Extract MU, gU, beta from AcceptanceEff ROOT filename (e.g. MU1500_gU2_0_23L0_2_noWeights_bsm.root)."
+      ],
+      [
+        "parse_params_from_XsecFile",
+        120,
+        null
+      ],
+      [
+        "read_FilterEff",
+        139,
+        null
+      ],
+      [
+        "read_acceptance_sumw",
+        158,
+        "从 root 文件中读取 NOSYS/<hist_name> 的 SumOfWeights。\nhist_name: \"met_SR_1tau0l1b_sch\" (AcceptanceEff_Res_1b) 或 \"met_SR_1tau0l1b_tch\" (AcceptanceEff_NonRes_1b).\n成功返回 float，失败返回 None。"
+      ],
+      [
+        "parse_b33rm1_acceptance_filename",
+        181,
+        "Parse one betaR33=-1 all-decay Acceptance*Efficiency ROOT filename."
+      ],
+      [
+        "read_sumw_corr_ratios",
+        195,
+        "Read sample -> corrected/nominal sumW from column four of the pipe table."
+      ],
+      [
+        "read_filter_eff_by_dsid",
+        226,
+        "Read generator Filter Efficiency (PMG column four), keyed by DSID."
+      ],
+      [
+        "scan_input_dir_acceptance_b33rm1",
+        255,
+        "Return separate BSM/interference maps for betaR33=-1.\n\nFastFrames normalises the corrected event weight with nominal sumW, so the\nrequested inclusive efficiency is\n\n    A*epsilon = histogram_yield / (sum_corrected/sum_nominal) * FilterEff.\n\nThe ratio is already combined with the mc20a/d/e period fractions."
+      ],
+      [
+        "parse_default_weight_acceptance_filename",
+        344,
+        "Parse a default-weight v04 signal ROOT filename."
+      ],
+      [
+        "read_sample_dsids_from_config",
+        360,
+        "Read top-level FastFrames sample names and DSIDs without a YAML dependency."
+      ],
+      [
+        "scan_input_dir_acceptance_default_weight",
+        412,
+        "Read every physical default-weight signal sample in the v04 config.\n\nThese histograms use the nominal/default MC weight, so no corrected/nominal\nsumW ratio is applied:\n\n    signal efficiency = histogram_yield * FilterEff."
+      ],
+      [
+        "get_empty_frame",
+        530,
+        "创建空 frame 用于建立坐标系。\n若提供 x_range/y_range，则创建一个只有 1 bin 的 TH2F，轴范围完全由参数决定，不受原 hist 的 binning 约束。\n否则克隆原 hist 并清空内容。"
+      ],
+      [
+        "read_limits_mu_Asymptotics",
+        560,
+        "从 Limits/Asymptotics/myLimit.root 读取 TTree 'stats' 的期望上限：\n  exp_upperlimit, exp_upperlimit_plus1/plus2, exp_upperlimit_minus1/minus2\n返回 dict: {'exp': float, 'p1': float, 'p2': float, 'm1': float, 'm2': float}"
+      ],
+      [
+        "read_limits_mu_toy",
+        617,
+        "从 Limits/Asymptotics/myLimit.root 读取 TTree 'stats' 的期望上限：\n  exp_upperlimit, exp_upperlimit_plus1/plus2, exp_upperlimit_minus1/minus2\n返回 dict: {'exp': float, 'p1': float, 'p2': float, 'm1': float, 'm2': float}"
+      ],
+      [
+        "scan_input_dir_limits",
+        676,
+        "遍历 input_dir 的子目录，解析 (MU,gU,beta)，\n从 Limits/Asymptotics/myLimit.root 读出期望 μ 及其 ±1σ/±2σ。\n返回 dict: {(MU,gU,beta): {'exp':..., 'p1':..., 'p2':..., 'm1':..., 'm2':...}}\n\n若 sig 为 AcceptanceEff_Res_1b / AcceptanceEff_NonRes_1b：不扫目录名，改为扫 input_dir 下\n匹配 MU*_gU*_23L*_noWeights_bsm.root 的文件名，从 ROOT 的 NOSYS 里读\nmet_SR_1tau0l1b_sch (Res) 或 met_SR_1tau0l1b_tch (NonRes) 的 SumOfWeights。"
+      ],
+      [
+        "get_first_contour_at_level",
+        741,
+        "给定 TH2D h2，提取水平=level 的第一条等值线 TGraph（Clone 返回）。\n注意：如果有多条等值线，这里只取第一条；复杂拓扑时可自行扩展。\n\n参数:\n  extend_x_low : float or None\n    若不为 None，将等值线在 x 负方向按端点斜率外推到该 x 值。\n  extend_x_high : float or None\n    若不为 None，将等值线在 x 正方向按端点斜率外推到该 x 值。"
+      ],
+      [
+        "tgraph_interp_y",
+        835,
+        "对 TGraph g 在 x=x_query 处做线性插值求 y。若 x_query 在 g 的 x 范围外则返回 None。"
+      ],
+      [
+        "get_x_at_y",
+        858,
+        "给定 TGraph g，求曲线与水平线 y=y_target 的所有交点对应的 x 值（线段线性插值）。\n返回 list of float。"
+      ],
+      [
+        "print_x_at_y_values",
+        884,
+        "对 TGraph g 在给定的 y 值处求 x 并打印。label 用于标识（如 MU=1500 或 beta=1.2）。"
+      ],
+      [
+        "_extend_graph_front",
+        894,
+        "在 TGraph g 的最前面插入一个点 (x_new, y_new)。"
+      ],
+      [
+        "fill_between_contours",
+        912,
+        "用两条等值线 g_low / g_high 构造闭合多边形并填充阴影。\n注意：如果等值线有多个不连通片段，这里只处理第一条 g 对象。"
+      ],
+      [
+        "enforce_monotonic_limits",
+        958,
+        "对 mmap 中的每个通道值执行单调性清洗：\n  - 固定 (MU, gU)，beta↑ => d 非增\n  - 固定 (MU, beta)，gU↑ => d 非增\n  - 固定 (gU, beta)，MU↑ => d 非减\n当违反时，把两者中较小的那个点的 d 置为 99. （若两者都为 99. 则不动）\n返回一个新的 dict，不修改原 mmap。"
+      ],
+      [
+        "get_yields",
+        1054,
+        null
+      ],
+      [
+        "draw_hist2d_text",
+        1065,
+        "绘制 TH2 的 TEXT，可选将数值乘以 scale（如 1000 表示 fb）并只保留 decimals 位小数。\n不修改原 hist，用克隆绘制。"
+      ],
+      [
+        "draw_mu_slice_limits",
+        1087,
+        null
+      ],
+      [
+        "draw_beta_slice_limits",
+        1408,
+        null
+      ],
+      [
+        "generate_edges_with_E0",
+        1734,
+        null
+      ],
+      [
+        "is_strictly_increasing",
+        1747,
+        "判断列表 lst 的值是否严格单调递增"
+      ],
+      [
+        "get_bin_edges",
+        1751,
+        "在区间 (2*c0-c1, c0) 内迭代搜索一个合适的 E0，\n使得生成的边界序列严格单调递增。\n\n参数:\n  centers : list\n     按升序排列的 bin 中心值数组\n  n_steps : int\n     网格搜索的步数\n返回:\n  (E0, edges) : 成功找到的 E0 与对应的边界数组"
+      ],
+      [
+        "get_gU_limit_for_b_anomalies",
+        1779,
+        null
+      ],
+      [
+        "get_beta_limit_from_cLL",
+        1797,
+        null
+      ],
+      [
+        "get_gU_limit_from_cLL",
+        1812,
+        null
+      ],
+      [
+        "get_b_anomalies_production_limit",
+        1828,
+        null
+      ],
+      [
+        "fill_between_curves",
+        1853,
+        "在给定的canvas上填充由两条曲线 x^2*(1+Vcs/Vcb*y)=c 和 x^2*(1+Vcs/Vcb*y)=d 所限定的区域。\n要求 x 在 [x_min, x_max] 内，且 x ≠ 0（因此建议 x_min > 0）。\n\n参数：\n  canvas    : 目标 ROOT.TCanvas\n  MU        : 质量 MU\n  c         : 曲线下界对应的常数\n  d         : 曲线上界对应的常数\n  x_min     : x 轴下限（建议大于 0）\n  x_max     : x 轴上限\n  n_points  : 用于生成曲线的采样点数，默认 100\n  fill_color: 填充颜色，默认为 ROOT.kGray+2\n  fill_style: 填充样式，默认为 3004（斜线填充）\n  \n返回：\n  填充区域的 TGraph 对象。"
+      ],
+      [
+        "draw_gU_1D",
+        1917,
+        null
+      ],
+      [
+        "draw_beta_1D",
+        2001,
+        null
+      ],
+      [
+        "draw_b_anomalies_mass_region",
+        2087,
+        null
+      ],
+      [
+        "draw_gU_beta_limit_from_cLL",
+        2123,
+        null
+      ],
+      [
+        "make_edges_from_centers",
+        2159,
+        "Build midpoint bin edges, including a well-defined single-bin case."
+      ],
+      [
+        "format_parameter_token",
+        2174,
+        null
+      ],
+      [
+        "set_axis_parameter_labels",
+        2178,
+        "Label each discrete grid bin with the exact generated parameter value."
+      ],
+      [
+        "write_acceptance_grid_text",
+        2184,
+        "Write one human-readable aligned 2D table in percent."
+      ],
+      [
+        "draw_one_acceptance_grid",
+        2209,
+        "Persist a fraction-valued TH2 and render a percentage text grid."
+      ],
+      [
+        "beta_r_display_value",
+        2296,
+        null
+      ],
+      [
+        "draw_acceptance_text_grids",
+        2303,
+        "Draw exact MC Acceptance*Efficiency grids, with explicit sparse cells."
+      ],
+      [
+        "run_acceptance_b33rm1",
+        2590,
+        "Entry point for the isolated betaR33=-1 Acceptance*Efficiency mode."
+      ],
+      [
+        "write_default_weight_signal_summary",
+        2639,
+        "Write one aligned all-sample table for a default-weight region."
+      ],
+      [
+        "run_acceptance_default_weight",
+        2704,
+        "Entry point for all v04 default-weight signal efficiency samples."
+      ],
+      [
+        "main",
+        2780,
+        null
+      ]
+    ],
+    "args": [
+      [
+        2786,
+        "parser.add_argument(\"--input_dir\", required=True, help=\"Directory with limit results for input signals.\")"
+      ],
+      [
+        2787,
+        "parser.add_argument(\"--out_dir\", default=\"plots\", help=\"Directory for output plots (default: plots)\")"
+      ],
+      [
+        2788,
+        "parser.add_argument(\"--unblind\", default=\"False\", help=\"Whether to unblind results (True/False, default: False)\")"
+      ],
+      [
+        2789,
+        "parser.add_argument(\"--sig\", default=\"alldecay\", help=\"Signal type (default: alldecay)\")"
+      ],
+      [
+        2790,
+        "parser.add_argument(\"--plot_option\", default=\"single\", help=\"Plot option: single or combined (default: single)\")"
+      ],
+      [
+        2791,
+        "parser.add_argument(\"--limit_path\", default=\"plots/TwoSided_HF0_2_HFSeperated_Renamed_unblind_obs/output_mu_contours.root\", help=\"Path to limit ROOT file for combined plotting (used when --plot_option=combined)\")"
+      ],
+      [
+        2792,
+        "parser.add_argument(\"--extra_path_1\", default=None, help=\"Path to extra ROOT file 1 (same format as limit_path)\")"
+      ],
+      [
+        2793,
+        "parser.add_argument(\"--extra_path_2\", default=None, help=\"Path to extra ROOT file 2 (same format as limit_path)\")"
+      ],
+      [
+        2794,
+        "parser.add_argument(\"--xSecFile\", type=str, default=\"/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/PMGxsecDB_mc16.txt\")"
+      ],
+      [
+        2795,
+        "parser.add_argument(\n        \"--sumw_ratio_file\",\n        default=os.path.normpath(\n            os.path.join(\n                os.path.dirname(os.path.abspath(__file__)),\n                \"..\",\n                \"script_codex\",\n                \"sumW_corr\",\n                \"sumW_corr_ratios.txt\",\n            )\n        ),\n        help=(\n            \"Pipe-delimited sumW table; betaR33=-1 AcceptanceEff modes use \"\n            \"column four (corrected/nominal, including period fractions).\"\n        ),\n    )"
+      ],
+      [
+        2811,
+        "parser.add_argument(\n        \"--sample_config\",\n        default=DEFAULT_WEIGHT_SAMPLE_CONFIG,\n        help=(\n            \"FastFrames YAML providing sample -> DSID mapping for the \"\n            \"default-weight AcceptanceEff modes.\"\n        ),\n    )"
+      ],
+      [
+        2819,
+        "parser.add_argument(\n        \"--use_toy\",\n        action=\"store_true\",\n        default=False,\n        help=\"Read toy limits from myLimit.root instead of asymptotic limits\"\n    )"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport os\nimport re\nimport sys\nfrom array import array\nimport numpy as np\n\nimport ROOT\n\nROOT.gROOT.SetBatch(True)\nROOT.gStyle.SetOptStat(0)\n\n# ========== 1) Parse sample directory names ==========\n# Expected directory name format example:\n#   fit_taunub_sys_1l_allVR_SPLUSB_MU1500_gU1_5_23L0_2_alldecay_corrected\n#   -> MU=1500, gU=1.5, beta=0.2\nRE_NAME_noWeights = re.compile(\n    r\".*SPLUSB_MU(?P<MU>\\d+).*?gU(?P<gUa>\\d+)_(?P<gUb>\\d+).*?23L(?P<betaA>\\d+)_(?P<betaB>\\d+)_noWeights\",\n    re.IGNORECASE,\n)\nRE_NAME_alldecay_corrected = re.compile(\n    r\".*SPLUSB_MU(?P<MU>\\d+).*?gU(?P<gUa>\\d+)_(?P<gUb>\\d+).*?23L(?P<betaA>\\d+)_(?P<betaB>\\d+).*?alldecay_corrected\",\n    re.IGNORECASE,\n)\n# AcceptanceEff: 从文件名解析 (MU, gU, beta)，文件名例: MU1500_gU2_0_23L0_2_noWeights_bsm.root\nRE_FILENAME_AcceptanceEff = re.compile(",
+    "tail": "    # 输出 ROOT 文件\n    os.makedirs(out_dir, exist_ok=True)\n    output_file = ROOT.TFile(os.path.join(out_dir, \"output_mu_contours.root\"), \"RECREATE\")\n\n    # Draw 2D limits\n    text_fb_3decimals = sig.startswith(\"AcceptanceEff\")\n    if plot_option == 'single':\n        draw_mu_slice_limits(mmap_adjusted, out_dir, output_file, mu_exp=1, text_fb_3decimals=text_fb_3decimals, sigs=sig, extra_path_1=extra_path_1, extra_path_2=extra_path_2)\n        draw_beta_slice_limits(mmap_adjusted, out_dir, output_file, mu_exp=1, text_fb_3decimals=text_fb_3decimals, sigs=sig, extra_path_1=extra_path_1, extra_path_2=extra_path_2)\n    elif plot_option == 'combined':\n        draw_mu_slice_limits(mmap_adjusted, out_dir, output_file, base_hist=\"limit_read\", limit_path=limit_path, mu_exp=1, text_fb_3decimals=text_fb_3decimals, sigs=sig, extra_path_1=extra_path_1, extra_path_2=extra_path_2)\n        draw_beta_slice_limits(mmap_adjusted, out_dir, output_file, base_hist=\"limit_read\", limit_path=limit_path, mu_exp=1, text_fb_3decimals=text_fb_3decimals, sigs=sig, extra_path_1=extra_path_1, extra_path_2=extra_path_2)\n    \n    # draw 1D gU and beta\n    # draw_gU_1D(mmap, out_dir, output_file)\n    # draw_beta_1D(mmap, out_dir, output_file)\n\n    output_file.Close()\n    print(f\"[DONE] Plots saved to: {out_dir}/\")\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "draw_vis_Xsec.py",
+    "lines": 228,
+    "doc": null,
+    "functions": [],
+    "args": [],
+    "head": "import math\nfrom array import array\nimport ROOT\n\nROOT.gROOT.SetBatch(True)\nROOT.gStyle.SetOptStat(0)\n\n# =========================================================\n# 1. 只需要改这里的数据\n#    输入单位按 pb 写，程序会自动转成 fb 作图\n# =========================================================\nmass_TeV = [1.5, 2.0, 2.5, 4.0]\n\nvis_pb_beta0 = [7.38e-05, 9.71e-05, 1.47e-04, 1.80e-04]      # |beta_R^33| = 0\nvis_pb_beta1 = [9.7541e-05, 1.43031e-04, 1.65001e-04, 1.73340e-04]  # |beta_R^33| = 1\n\nregion_label = \"SR1b-Res + SR1b-NonRes\"\nregion_label2 = \"SR0b-Res + SR0b-NonRes\"\noutput_name = \"visible_xsec_SR1b_SR0b\"\n\n# =========================================================\n# 2. 一些可调的画图参数\n# =========================================================\nXMIN, XMAX = 1.4, 4.1\nYMIN_TOP, YMAX_TOP = 0.03, 0.23   # 上图 y 轴范围（单位 fb）\n\n# 文字位置（NDC）\natlas_x = 0.17",
+    "tail": "# y = 1 参考线\nline = ROOT.TLine(XMIN, 1.0, XMAX, 1.0)\nline.SetLineColor(ROOT.kBlack)\nline.SetLineWidth(1)\nline.Draw()\n\ngr_ratio = ROOT.TGraph(n, xarr, rarr)\ngr_ratio.SetLineColor(ROOT.kBlack)\ngr_ratio.SetMarkerColor(ROOT.kBlack)\ngr_ratio.SetLineWidth(2)\ngr_ratio.SetMarkerStyle(20)\ngr_ratio.SetMarkerSize(1.2)\ngr_ratio.Draw(\"LP SAME\")\n\npad2.RedrawAxis()\n\n# =========================================================\n# 7. 输出\n# =========================================================\nc.SaveAs(output_name + \".pdf\")\n\nprint(\"Saved:\", output_name + \".pdf\")"
+  },
+  {
+    "name": "eps_modifier.py",
+    "lines": 233,
+    "doc": null,
+    "functions": [],
+    "args": [],
+    "head": "from pathlib import Path\nimport sys, subprocess, re\n\np = Path(sys.argv[1])\n\n# # modify general data/bkg. and Events title position\nfor f in ([p] if p.is_file() else p.glob(\"*.eps\")):\n    s = f.read_text()\n    s = s.replace(\"122.502 176.631\", \"92.502 176.631\") # data/bkg. label position\n    s = s.replace(\"128.2 1105.37\", \"92.502 1105.37\") # Events title position\n    s = s.replace(\"56.928 sf 0 0 m (Events / 100 GeV)\",\"62 sf 0 0 m (Events / 100 GeV)\")\n    #Events title size\n    # remove the \"Preliminary\" label (drop the whole line that draws it)\n    s = re.sub(r\"^.*\\(Preliminary\\) show.*\\n?\", \"\", s, flags=re.M)\n    f.write_text(s)\n\n# modify Res signal line width\nfor f in ([p] if p.is_file() else p.glob(\"*_Res_*.eps\")):\n    s = f.read_text()\n    s = s.replace(\"black 0.741176 0.121569 0.00392157 c[  12 12 ] 0 sd 6 lw\", \"black 0.741176 0.121569 0.00392157 c[  12 12 ] 0 sd 10 lw\") # modify signal line width\n    s = s.replace(\"0.741176 0.121569 0.00392157 c[  12 12 ] 0 sd 1342 1464 m 57 X s black\", \"0.741176 0.121569 0.00392157 c[  12 12 ] 0 sd 10 lw 1342 1464 m 57 X s black\") # modify signal legend line width\n    s = s.replace(\"s black[  ] 0 sd\", \"s black[  ] 0 sd 6 lw\") # change back data error bar width\n    f.write_text(s)\n\n# modify NonRes signal line width\nfor f in ([p] if p.is_file() else p.glob(\"*_NonRes_*.eps\")):\n    s = f.read_text()\n    s = s.replace(\"black 0.513726 0.176471 0.713726 c[  12 12 ] 0 sd 6 lw\", \"black 0.513726 0.176471 0.713726 c[  12 12 ] 0 sd 10 lw\") # modify signal line width",
+    "tail": "        f\"{arrow_marker}\\n\"\n        \"1 0 0 c 10 lw [] 0 sd\\n\"\n        f\"newpath {x} {arrow_y_bottom} m {x} {arrow_y_top} l s\\n\"\n        f\"newpath {x - 3} {arrow_y_horizontal} m {x + 120} {arrow_y_horizontal} l s\\n\"\n        f\"newpath {x + 160} {arrow_y_horizontal} m {x + 110} {arrow_y_horizontal + 22} l {x + 110} {arrow_y_horizontal - 22} l cl f\\n\"\n        \"gr\\n\"\n    )\n    s = s.replace(\"gr  gr showpage\", arrow + \"gr  gr showpage\")\n    f.write_text(s)\n\n\n# convert eps to pdf\nfor f in ([p] if p.is_file() else p.glob(\"*.eps\")):\n    pdf = f.with_suffix(\".pdf\")\n    subprocess.run([\"ps2pdf\", \"-dEPSCrop\", str(f), str(pdf)], check=True)\n    print(f\"done: {f} -> {pdf}\")\n    \n# # convert pdf to png\n# for f in ([p] if p.is_file() else p.glob(\"*.pdf\")):\n#     png = f.with_suffix(\".png\")\n#     subprocess.run([\"convert\", \"-density\", \"300\", str(f), str(png)], check=True)\n#     print(f\"done: {f} -> {png}\")"
+  },
+  {
+    "name": "hadd_bsm_inf.py",
+    "lines": 121,
+    "doc": null,
+    "functions": [
+      [
+        "find_tag_position",
+        11,
+        "在文件名（去掉扩展名后按 '_' 分割）中寻找唯一的 'inf' 或 'bsm' token。\n返回 (位置, 标签)；如果没有或不唯一，返回 (None, None)"
+      ],
+      [
+        "group_root_files",
+        22,
+        "把文件按“除了 inf/bsm 外其余部分都相同”的规则分组。\nkey: 把 inf/bsm 替换成特殊占位符后的 token tuple\nvalue: {\"inf\": Path(...), \"bsm\": Path(...)}"
+      ],
+      [
+        "build_output_name",
+        51,
+        "根据 key_tokens 生成输出文件名，把占位符替换成 combined"
+      ],
+      [
+        "run_hadd",
+        60,
+        null
+      ],
+      [
+        "main",
+        79,
+        null
+      ]
+    ],
+    "args": [
+      [
+        83,
+        "parser.add_argument(\"folder\", help=\"Path to the folder containing .root files\")"
+      ],
+      [
+        84,
+        "parser.add_argument(\n        \"--force\",\n        action=\"store_true\",\n        help=\"Overwrite output file if it already exists (passes -f to hadd)\"\n    )"
+      ],
+      [
+        89,
+        "parser.add_argument(\"--key_word\", help=\"Key word to filter files, e.g. MU1500, MU3000, etc.\", default=\"MU1500\")"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport argparse\nimport subprocess\nimport sys\nfrom pathlib import Path\nfrom collections import defaultdict\n\n\ndef find_tag_position(tokens):\n    \"\"\"\n    在文件名（去掉扩展名后按 '_' 分割）中寻找唯一的 'inf' 或 'bsm' token。\n    返回 (位置, 标签)；如果没有或不唯一，返回 (None, None)\n    \"\"\"\n    positions = [(i, t) for i, t in enumerate(tokens) if t in (\"inf\", \"bsm\")]\n    if len(positions) != 1:\n        return None, None\n    return positions[0]\n\n\ndef group_root_files(folder: Path, key_word: str):\n    \"\"\"\n    把文件按“除了 inf/bsm 外其余部分都相同”的规则分组。\n    key: 把 inf/bsm 替换成特殊占位符后的 token tuple\n    value: {\"inf\": Path(...), \"bsm\": Path(...)}\n    \"\"\"\n    groups = defaultdict(dict)",
+    "tail": "\n    found_any_pair = False\n\n    for key, files in groups.items():\n        if \"inf\" in files and \"bsm\" in files:\n            found_any_pair = True\n            output_name = build_output_name(key)\n            output_path = folder / output_name\n\n            if output_path.exists() and not args.force:\n                print(f\"[SKIP] Output already exists: {output_path}\")\n                print(\"       Use --force to overwrite.\")\n                continue\n\n            run_hadd(files[\"inf\"], files[\"bsm\"], output_path, force=args.force)\n\n    if not found_any_pair:\n        print(\"[INFO] No matching inf/bsm pairs found.\")\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "interpolate_function.py",
+    "lines": 632,
+    "doc": null,
+    "functions": [
+      [
+        "_clean_value",
+        8,
+        null
+      ],
+      [
+        "_build_anchor_arrays",
+        24,
+        "把原始输入点中，正好落在目标规则网格上的点提取成 anchor。\n这些点在最终输出中保持不变。"
+      ],
+      [
+        "_check_anchor_consistency",
+        58,
+        "检查单个 field 的 anchor 是否与目标轴单调性冲突。\n\n目标单调性:\n  - MU   增 -> 值增\n  - gU   增 -> 值减\n  - beta 增 -> 值减\n\n即若:\n  i1 <= i2, j1 >= j2, k1 >= k2\n则必须:\n  v1 <= v2"
+      ],
+      [
+        "_build_lower_envelope",
+        120,
+        "构造每个格点允许的最小值 L，使其满足：\n  - 轴单调\n  - anchor 固定"
+      ],
+      [
+        "_build_upper_envelope",
+        155,
+        "构造每个格点允许的最大值 U，使其满足：\n  - 轴单调\n  - anchor 固定"
+      ],
+      [
+        "_project_monotone_keep_anchors",
+        190,
+        "把单个 field 的 3D 数组投影到:\n  1) 满足轴单调\n  2) anchor 保持不变\n的可行集合中。"
+      ],
+      [
+        "_check_band_anchor_consistency",
+        275,
+        "检查 anchor 在同一个格点上是否已违反 band 顺序:\n  m2 <= m1 <= exp <= p1 <= p2\n\n只有当两个字段都被 anchor 固定时，才要求它们必须满足顺序。"
+      ],
+      [
+        "_project_band_point_keep_anchors",
+        330,
+        "对单个格点上的 5 维向量做 band 顺序修正，保持 fixed 项不变。\n顺序要求:\n  m2 <= m1 <= exp <= p1 <= p2"
+      ],
+      [
+        "_project_band_keep_anchors",
+        386,
+        "对整个 3D 网格逐点施加 band 顺序，保持 anchor 不变。"
+      ],
+      [
+        "_assert_final_constraints",
+        427,
+        null
+      ],
+      [
+        "build_full_grid_monotone",
+        464,
+        "在 (mus, gus, betas) 规则网格上做 3D 插值，并对最终结果施加:\n  1) MU   增大 -> 值单调不减\n  2) gU   增大 -> 值单调不增\n  3) beta 增大 -> 值单调不增\n  4) anchor 不变\n  5) band 顺序: m2 <= m1 <= exp <= p1 <= p2\n\n如果 anchor 存在冲突，报错信息里会直接显示冲突对应的\n  mu, gu, beta, field, value"
+      ]
+    ],
+    "args": [],
+    "head": "import numpy as np\nimport math\n\nFIELDS = (\"exp\", \"p1\", \"p2\", \"m1\", \"m2\")\nBAND_ORDER = (\"m2\", \"m1\", \"exp\", \"p1\", \"p2\")\n\n\ndef _clean_value(v, clip_max=99.0):\n    if v is None:\n        v = 0.0\n    else:\n        v = float(v)\n        if math.isnan(v):\n            v = 0.0\n        elif math.isinf(v):\n            v = clip_max if v > 0 else 0.0\n\n    if not np.isfinite(v):\n        v = 0.0\n\n    return max(0.0, min(float(v), clip_max))\n\n\ndef _build_anchor_arrays(mmap, mus, gus, betas, field, clip_max=99.0):\n    \"\"\"\n    把原始输入点中，正好落在目标规则网格上的点提取成 anchor。\n    这些点在最终输出中保持不变。\n    \"\"\"",
+    "tail": "        anchor_vals=anchor_vals,\n        clip_max=clip_max,\n        max_iter=100,\n        tol=1e-10,\n    )\n\n    _assert_final_constraints(field_arrays, anchor_masks, anchor_vals, tol=1e-7)\n\n    out = {}\n    for i, mu in enumerate(mus):\n        for j, gu in enumerate(gus):\n            for k, be in enumerate(betas):\n                key = (mu, gu, be)\n                out[key] = {\n                    \"exp\": float(field_arrays[\"exp\"][i, j, k]),\n                    \"p1\": float(field_arrays[\"p1\"][i, j, k]),\n                    \"p2\": float(field_arrays[\"p2\"][i, j, k]),\n                    \"m1\": float(field_arrays[\"m1\"][i, j, k]),\n                    \"m2\": float(field_arrays[\"m2\"][i, j, k]),\n                }\n\n    return out"
+  },
+  {
+    "name": "interpolate_function_backup.py",
+    "lines": 119,
+    "doc": null,
+    "functions": [
+      [
+        "enforce_monotone_axes",
+        8,
+        "arr shape = (len(mus), len(gus), len(betas))\n要求:\n  - MU   增大 => arr 单调增\n  - gU   增大 => arr 单调减\n  - beta 增大 => arr 单调减"
+      ],
+      [
+        "build_full_grid_monotone",
+        45,
+        null
+      ]
+    ],
+    "args": [],
+    "head": "import numpy as np\nimport math\n\nFIELDS = (\"exp\",\"p1\",\"p2\",\"m1\",\"m2\")\n\nimport numpy as np\n\ndef enforce_monotone_axes(arr, mus, gus, betas):\n    \"\"\"\n    arr shape = (len(mus), len(gus), len(betas))\n    要求:\n      - MU   增大 => arr 单调增\n      - gU   增大 => arr 单调减\n      - beta 增大 => arr 单调减\n    \"\"\"\n\n    mus = np.asarray(mus, dtype=float)\n    gus = np.asarray(gus, dtype=float)\n    betas = np.asarray(betas, dtype=float)\n\n    # 最好保证输入网格本身是升序\n    if not np.all(np.diff(mus) > 0):\n        raise ValueError(\"mus 必须严格升序\")\n    if not np.all(np.diff(gus) > 0):\n        raise ValueError(\"gus 必须严格升序\")\n    if not np.all(np.diff(betas) > 0):\n        raise ValueError(\"betas 必须严格升序\")\n",
+    "tail": "        nn  = griddata(pts, v, grid_pts, method=\"nearest\")\n        vfill = np.where(np.isfinite(lin), lin, nn)  # 线性插值为主，空的用最近邻补\n\n        # 反变换回原值域：expm1，并裁剪到[0,clip_max]\n        raw = np.expm1(vfill)\n        raw = np.where(np.isfinite(raw), raw, 0.0)\n        raw = np.clip(raw, 0.0, clip_max)\n\n        # 写回字典\n        raw = raw.reshape((len(mus), len(gus), len(betas)))\n        \n        # enforce monotonicity\n        raw = enforce_monotone_axes(raw, mus, gus, betas)\n\n        for i, mu in enumerate(mus):\n            for j, gu in enumerate(gus):\n                for k, be in enumerate(betas):\n                    key = (mu, gu, be)\n                    out.setdefault(key, {})\n                    out[key][f] = float(raw[i, j, k])\n\n    return out"
+  },
+  {
+    "name": "pdf_generator.py",
+    "lines": 230,
+    "doc": null,
+    "functions": [
+      [
+        "generate_histogram_pdf",
+        4,
+        "将ROOT文件中所有TDirectoryFile的TH1D整合到一个PDF文件中,并且以TH1D的顺序输出。\n\nArgs:\n    input_root_file (str): 输入的ROOT文件路径。\n    output_pdf_file (str): 输出的PDF文件路径。"
+      ]
+    ],
+    "args": [
+      [
+        226,
+        "parser.add_argument(\"--input\", type=str, help=\"Path to the input ROOT file.\", default=\"output_taunub_sys_mc20e/ttbar.root\")"
+      ],
+      [
+        227,
+        "parser.add_argument(\"--output\", type=str, help=\"Path to the output PDF file.\", default=\"histograms_combined_ttbar_sys_mc20e.pdf\")"
+      ]
+    ],
+    "head": "import ROOT\nimport argparse\n\ndef generate_histogram_pdf(input_root_file, output_pdf_file):\n    \"\"\"\n    将ROOT文件中所有TDirectoryFile的TH1D整合到一个PDF文件中,并且以TH1D的顺序输出。\n\n    Args:\n        input_root_file (str): 输入的ROOT文件路径。\n        output_pdf_file (str): 输出的PDF文件路径。\n    \"\"\"\n    # 打开ROOT文件\n    file = ROOT.TFile.Open(input_root_file)\n\n    # 获取所有TDirectoryFile的名字\n    dir_keys = [key.GetName() for key in file.GetListOfKeys() if key.GetClassName() == \"TDirectoryFile\"]\n    if not dir_keys:\n        print(\"No TDirectoryFile found in the ROOT file.\")\n        return\n\n    # 提取NOSYS目录\n    if \"NOSYS\" not in dir_keys:\n        print(\"NOSYS directory not found in the ROOT file.\")\n        return\n\n    # Get NOSYS TH1D list\n    first_dir = file.Get(\"NOSYS\")\n    hist_keys = [key.GetName() for key in first_dir.GetListOfKeys() if key.GetClassName() == \"TH1D\"]",
+    "tail": "                        \n            # save current canvas while the pad_counter is 4 or the last histogram of the systematic\n            if pad_counter == 4 or (pad_counter == N_hists and sys_name != \"GEN\" and sys_name != \"MET\" and sys_name != \"MUON\"): # add sys name in case it cause the crash\n                c.Print(output_pdf_file)\n                c.Clear()\n                c.Divide(2, 2)\n                pad_counter = 0\n        # break\n    # 结束PDF写入\n    if pad_counter != 0:\n        c.Print(output_pdf_file)\n    c.Print(output_pdf_file + \"]\")\n\n    print(f\"All histograms are saved to {output_pdf_file}.\")\n\nif __name__ == \"__main__\":\n    parser = argparse.ArgumentParser(description=\"Generate histogram PDF from ROOT file.\")\n    parser.add_argument(\"--input\", type=str, help=\"Path to the input ROOT file.\", default=\"output_taunub_sys_mc20e/ttbar.root\")\n    parser.add_argument(\"--output\", type=str, help=\"Path to the output PDF file.\", default=\"histograms_combined_ttbar_sys_mc20e.pdf\")\n    args = parser.parse_args()\n\n    generate_histogram_pdf(args.input, args.output)"
+  },
+  {
+    "name": "pdf_generator_mc20d.py",
+    "lines": 66,
+    "doc": null,
+    "functions": [
+      [
+        "generate_histogram_pdf",
+        3,
+        "将ROOT文件中所有TDirectoryFile的TH1D整合到一个PDF文件中,并且以TH1D的顺序输出。\n\nArgs:\n    input_root_file (str): 输入的ROOT文件路径。\n    output_pdf_file (str): 输出的PDF文件路径。"
+      ]
+    ],
+    "args": [],
+    "head": "import ROOT\n\ndef generate_histogram_pdf(input_root_file, output_pdf_file):\n    \"\"\"\n    将ROOT文件中所有TDirectoryFile的TH1D整合到一个PDF文件中,并且以TH1D的顺序输出。\n\n    Args:\n        input_root_file (str): 输入的ROOT文件路径。\n        output_pdf_file (str): 输出的PDF文件路径。\n    \"\"\"\n    # 打开ROOT文件\n    file = ROOT.TFile.Open(input_root_file)\n\n    # 获取第一个TDirectoryFile的名字\n    dir_keys = [key.GetName() for key in file.GetListOfKeys() if key.GetClassName() == \"TDirectoryFile\"]\n    if not dir_keys:\n        print(\"No TDirectoryFile found in the ROOT file.\")\n        return\n\n    first_dir = file.Get(dir_keys[0])  # 使用第一个TDirectoryFile\n\n    # 获取第一个目录中的TH1D名称\n    hist_keys = [key.GetName() for key in first_dir.GetListOfKeys() if key.GetClassName() == \"TH1D\"]\n\n    # 创建一个PDF输出文件\n    c = ROOT.TCanvas(\"c\", \"\", 800, 600)\n\n    # 开始写入PDF",
+    "tail": "            # hist.SetLineColor(ROOT.kRed)  # 设置线条颜色以区分\n            hist.SetMaximum(1e6)\n            hist.SetMinimum(1e-1)\n            hist.Draw()  # 绘制直方图\n            # draw latex\n            latex.DrawLatexNDC(0.45, 0.75, f\"Systematic: {dir_name}\")\n            latex.DrawLatexNDC(0.45, 0.70, f\"Histogram: {hist_name}\")\n            \n            print(f\"Saving histograms {hist_name} from {dir_name}\")\n            c.Print(output_pdf_file)  # 保存当前画布到PDF\n            count += 1\n            if count > 1:\n                count = 0\n                # break \n        # break\n    # 结束PDF写入\n    c.Print(output_pdf_file + \"]\")\n\n    print(f\"All histograms are saved to {output_pdf_file}.\")\n\n# 示例调用\ngenerate_histogram_pdf(\"output_taunub_sys_mc20d/ttbar.root\", \"histograms_combined_ttbar_sys_mc20d.pdf\")"
+  },
+  {
+    "name": "ratio_calculator.py",
+    "lines": 19,
+    "doc": null,
+    "functions": [
+      [
+        "ratio_with_error",
+        2,
+        "计算 r = b/a 及其误差传递 dr\na, b 为测量值，da, db 为各自标准差"
+      ]
+    ],
+    "args": [],
+    "head": "import numpy as np\ndef ratio_with_error(B, B_err, S, S_err):\n    \"\"\"\n    计算 r = b/a 及其误差传递 dr\n    a, b 为测量值，da, db 为各自标准差\n    \"\"\"\n    r = S / B\n    dr = r * ((S_err / S)**2 + (B_err / B)**2)**0.5\n    return r, dr\n\nMC = 475.12258103\nMC_theory_err = 0.0 * MC\nMC_stat_err = 35.556922\nMC_err = np.sqrt(MC_stat_err**2+MC_theory_err**2)\nData = 474\nData_err = np.sqrt(Data)\n\nr1, dr1 = ratio_with_error(MC, MC_err, Data, Data_err)\nprint(f\"MC/Data = {r1:.6f} ± {dr1:.6f}\")",
+    "tail": "import numpy as np\ndef ratio_with_error(B, B_err, S, S_err):\n    \"\"\"\n    计算 r = b/a 及其误差传递 dr\n    a, b 为测量值，da, db 为各自标准差\n    \"\"\"\n    r = S / B\n    dr = r * ((S_err / S)**2 + (B_err / B)**2)**0.5\n    return r, dr\n\nMC = 475.12258103\nMC_theory_err = 0.0 * MC\nMC_stat_err = 35.556922\nMC_err = np.sqrt(MC_stat_err**2+MC_theory_err**2)\nData = 474\nData_err = np.sqrt(Data)\n\nr1, dr1 = ratio_with_error(MC, MC_err, Data, Data_err)\nprint(f\"MC/Data = {r1:.6f} ± {dr1:.6f}\")"
+  },
+  {
+    "name": "run_SF_Comparison.sh",
+    "lines": 35,
+    "head": "#! /bin/bash\n\n# test\n# dataset1='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_v03_sys/mc20a/BG/user.zang.700338.Sh.DAOD_PHYS.e8351_s3681_r13167_p6490.2025-05-v1.0-taunub-sys-t4_output/test'\n# dataset2='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_offical_v03/user.zang.700338.Sh.DAOD_PHYS.e8351_s3681_r13167_p6697.v3.0-t0_output/test'\n\n# Wenu\n# dataset1='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_v03_sys/mc20a/BG/user.zang.700338.Sh.DAOD_PHYS.e8351_s3681_r13167_p6490.2025-05-v1.0-taunub-sys-t4_output'\n# dataset2='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_offical_v03/user.zang.700338.Sh.DAOD_PHYS.e8351_s3681_r13167_p6697.v3.0-t0_output'\n\n#Wtaunu\n# dataset1='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_v03_sys/mc20a/BG/user.zang.700544.Sh.DAOD_PHYS.e8373_s3681_r13167_p6490.2025-05-v1.0-taunub-sys-t4_output'\n# dataset2='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_offical_v03/user.zang.700544.Sh.DAOD_PHYS.e8373_s3681_r13167_p6697.v3.0-t0_output'\n\n# ttbar dilep\n# dataset1='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_v03_sys/mc20a/BG/user.zang.410472.PhPy8EG.DAOD_PHYS.e6348_s3681_r13167_p6490.2025-05-v1.0-taunub-sys-t3_output'\n# dataset2='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_offical_v03/user.zang.410472.PhPy8EG.DAOD_PHYS.e6348_s3681_r13167_p6697.v3.0-t0_output'\n\n# Wmunu BFilter\ndataset1='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_v03_sys/mc20a/BG/user.zang.700341.Sh.DAOD_PHYS.e8351_s3681_r13167_p6490.2025-05-v1.0-taunub-sys-t3_output'\ndataset2='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_offical_v03/user.zang.700341.Sh.DAOD_PHYS.e8351_s3681_r13167_p6697.v3.0-t0_output'\n\n\n# sysName='el_id_effSF_TightLH_Loose_VarRad_NOSYS,el_reco_effSF_TightLH_Loose_VarRad_NOSYS,el_isol_effSF_TightLH_Loose_VarRad_NOSYS'\nsysName='weight_ftag_effSF_GN2v01_Continuous_NOSYS'\n\n# python3 SF_Comparison_el.py \\\npython3 SF_Comparison_jet.py \\",
+    "tail": "\n# ttbar dilep\n# dataset1='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_v03_sys/mc20a/BG/user.zang.410472.PhPy8EG.DAOD_PHYS.e6348_s3681_r13167_p6490.2025-05-v1.0-taunub-sys-t3_output'\n# dataset2='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_offical_v03/user.zang.410472.PhPy8EG.DAOD_PHYS.e6348_s3681_r13167_p6697.v3.0-t0_output'\n\n# Wmunu BFilter\ndataset1='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_v03_sys/mc20a/BG/user.zang.700341.Sh.DAOD_PHYS.e8351_s3681_r13167_p6490.2025-05-v1.0-taunub-sys-t3_output'\ndataset2='/afs/cern.ch/work/z/zang/LQanalysis/samples/BG/GN1_TopCPToolKit_offical_v03/user.zang.700341.Sh.DAOD_PHYS.e8351_s3681_r13167_p6697.v3.0-t0_output'\n\n\n# sysName='el_id_effSF_TightLH_Loose_VarRad_NOSYS,el_reco_effSF_TightLH_Loose_VarRad_NOSYS,el_isol_effSF_TightLH_Loose_VarRad_NOSYS'\nsysName='weight_ftag_effSF_GN2v01_Continuous_NOSYS'\n\n# python3 SF_Comparison_el.py \\\npython3 SF_Comparison_jet.py \\\n  --filepath1 $dataset1 \\\n  --filepath2 $dataset2 \\\n  --tree reco \\\n  --out sf_ratio.root \\\n  --bins 100 --xmin 0.8 --xmax 1.2 \\\n  --sfs $sysName \\\n  --png_dir \"\""
+  },
+  {
+    "name": "run_script.sh",
+    "lines": 203,
+    "head": "#! /bin/bash\n\n\n# interference fraction plots\n# 1b SR\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 1b --mass_point 1500 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_1bSR_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 1b --mass_point 1800 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_1bSR_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 1b --mass_point 2000 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_1bSR_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 1b --mass_point 2500 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_1bSR_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 1b --mass_point 3000 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_1bSR_exp/output_mu_contours.root &\n# 0b SR\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 0b --mass_point 1500 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 0b --mass_point 1800 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 0b --mass_point 2000 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 0b --mass_point 2500 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04/ --out_dir plots/signal_yield_plotter --SR_type 0b --mass_point 3000 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_exp/output_mu_contours.root &\n# optimized 0b SR\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04_0bSR_Optimized/ --out_dir plots/signal_yield_plotter_optimized --SR_type 0b --mass_point 1500 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_NoSys_Optimized_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04_0bSR_Optimized/ --out_dir plots/signal_yield_plotter_optimized --SR_type 0b --mass_point 1800 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_NoSys_Optimized_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04_0bSR_Optimized/ --out_dir plots/signal_yield_plotter_optimized --SR_type 0b --mass_point 2000 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_NoSys_Optimized_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04_0bSR_Optimized/ --out_dir plots/signal_yield_plotter_optimized --SR_type 0b --mass_point 2500 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_NoSys_Optimized_exp/output_mu_contours.root &\npython signal_yield_plotter.py --input_dir ../output_plots/taunub_sys_1l_allVR_with_beamspot_v04_0bSR_Optimized/ --out_dir plots/signal_yield_plotter_optimized --SR_type 0b --mass_point 3000 --mu_contour_file plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_NoSys_Optimized_exp/output_mu_contours.root &\n\nrm MU1800_gU1_25_23L1_8_noWeights_combined_NonRes.root; hadd MU1800_gU1_25_23L1_8_noWeights_combined_NonRes.root MU1800_gU1_25_23L1_8_noWeights_bsm_NonRes.root MU1800_gU1_25_23L1_8_noWeights_inf_NonRes.root\nrm MU2000_gU2_0_23L1_0_noWeights_combined_NonRes.root; hadd MU2000_gU2_0_23L1_0_noWeights_combined_NonRes.root MU2000_gU2_0_23L1_0_noWeights_bsm_NonRes.root MU2000_gU2_0_23L1_0_noWeights_inf_NonRes.root\nrm MU1800_gU3_0_23L0_6_noWeights_combined_NonRes.root; hadd MU1800_gU3_0_23L0_6_noWeights_combined_NonRes.root MU1800_gU3_0_23L0_6_noWeights_bsm_NonRes.root MU1800_gU3_0_23L0_6_noWeights_inf_NonRes.root\n\n# draw limits by significance",
+    "tail": "  --signal /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_nom_1l_allVR_with_beamspot_v04_N_minus_1_sigs_noWeights/MU3000_gU2_0_23L1_8_noWeights_combined.root \\\npython3 significance_scan.py \\\n  --signal /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_nom_1l_allVR_with_beamspot_v04_N_minus_1_sigs_noWeights/MU1500_gU0_5_23L1_8_noWeights_combined.root \\\n  --background /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_nom_1l_allVR_with_beamspot_v04_N_minus_1_metTrig_Eff/allBG_merged.root \\\n  --sys-error 0.2\\\n  --output significance_scan.pdf\n\n# draw Aysmptotic limits using 1tau0l0b + 1tau0l1b as SR. scaled with btautau contamination (combined, full-sys)\npython draw_limits_mu.py --input_dir ../run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_0b1bSR_btautau --out_dir plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_btautau_exp --unblind False --sig noWeights --plot_option single\npython draw_limits_mu.py --input_dir ../run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_0b1bSR_btautau --out_dir plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_btautau_obs --unblind True --sig noWeights --plot_option single\npython draw_limits_mu.py --input_dir ../run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_0b1bSR_btautau --out_dir plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_btautau_exp_obs --unblind False --sig noWeights --plot_option combined --limit_path plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_btautau_obs/output_mu_contours.root\n\n\n\n# run hadd script for bsm and inf combined samples\npython3 hadd_bsm_inf.py /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_0bSR_Optimized --key_word MU1\n\n# modify eps files\npython3 eps_modifier.py /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/fit_taunub_sys_1l_allVR_BONLY_MU3000_gU2_5_23L1_0_noWeights_N_minus_1_fullRegion_v3_modified/Plots_paper_test; cp /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/fit_taunub_sys_1l_allVR_BONLY_MU3000_gU2_5_23L1_0_noWeights_N_minus_1_fullRegion_v3_modified/Plots_paper/*.eps /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/fit_taunub_sys_1l_allVR_BONLY_MU3000_gU2_5_23L1_0_noWeights_N_minus_1_fullRegion_v3_modified/Plots_paper_test/\n\n# read nutple event numbers\npython3 read_eventNumbers.py"
+  },
+  {
+    "name": "sig_config_maker.py",
+    "lines": 176,
+    "doc": null,
+    "functions": [
+      [
+        "read_available_campaigns",
+        30,
+        "读 filelist：每行形如\n  570604  mc20d  fastsim  /path/to/file.root\n只用前两列 (dsid, campaign)，建立 dsid -> set(campaigns)"
+      ],
+      [
+        "parse_dsname_line",
+        55,
+        null
+      ],
+      [
+        "emit_yaml_entry",
+        92,
+        null
+      ],
+      [
+        "main",
+        104,
+        null
+      ]
+    ],
+    "args": [],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport re\nimport sys\n\nREGIONS = [\n    \"SR_1tau0l1b_sch\",\n    \"WCR_0tau1l0b_sch\",\n    \"topCR_1tau1l_sch\",\n    \"VR_0tau1l1b_sch\",\n    \"WVR_1tau0l0b_sch\",\n    \"topVR_1tau0l2b_sch\",\n]\nSIM_TYPE = \"fastsim\"\n\n# dsname list 解析\nRE_DSID = re.compile(r\"mc20_13TeV\\.(\\d+)\\.\")\nRE_TAG  = re.compile(r\"_(bsm|inf)_\")\nRE_MU   = re.compile(r\"_M(\\d+)\")\nRE_G_L  = re.compile(r\"_g(\\d+_\\d+)_b23L(\\d+_\\d+)\")\nRE_B33  = re.compile(r\"_b33Rm1_0(?:_|\\.|$)\")\n\nDEFAULT_G = \"1_0\"\nDEFAULT_23L = \"0_2\"\n\nCAMPAIGN_ORDER = [\"mc20a\", \"mc20d\", \"mc20e\"]\nVALID_CAMPAIGNS = set(CAMPAIGN_ORDER)",
+    "tail": "\n        # append to incomplete list\n        if len(camps) < 3:\n            incomplete_lines.append(emit_yaml_entry(name, dsid, camps))\n            incomlete_rm_out += f'{name}.root '\n            \n    if yaml_out:\n        print(\"******************   FF samples config ******************\")\n        print(\"\\n\".join(yaml_out))\n        \n        print(\"******************   FF production sample names ******************\")\n        print(fastframe_out)\n    \n    if incomplete_lines:\n        print(\"******************   FF incomplete samples config ******************\")\n        print(\"\\n\".join(incomplete_lines))\n        \n        print(\"******************   FF incomplete samples to remove ******************\")\n        print(incomlete_rm_out)\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "signal_yield_plotter.py",
+    "lines": 352,
+    "doc": null,
+    "functions": [
+      [
+        "parse_params_from_filename",
+        22,
+        "Extract MU, gU, beta from directory name"
+      ],
+      [
+        "get_histname",
+        38,
+        null
+      ],
+      [
+        "read_yields",
+        53,
+        null
+      ],
+      [
+        "scan_input_dir",
+        77,
+        "Iterate over all files of input_dir,\nparse MU, gU, beta and extract significance.\nReturns dict: {(MU, gU, beta): Z}"
+      ],
+      [
+        "generate_edges_with_E0",
+        104,
+        null
+      ],
+      [
+        "is_strictly_increasing",
+        117,
+        "判断列表 lst 的值是否严格单调递增"
+      ],
+      [
+        "get_bin_edges",
+        121,
+        "在区间 (2*c0-c1, c0) 内迭代搜索一个合适的 E0，\n使得生成的边界序列严格单调递增。\n\n参数:\n  centers : list\n     按升序排列的 bin 中心值数组\n  n_steps : int\n     网格搜索的步数\n返回:\n  (E0, edges) : 成功找到的 E0 与对应的边界数组"
+      ],
+      [
+        "load_mu_contour_graph",
+        146,
+        "Load expected mu contour graph for a given mass point from external ROOT file."
+      ],
+      [
+        "draw_inf_fraction",
+        168,
+        null
+      ],
+      [
+        "main",
+        295,
+        null
+      ]
+    ],
+    "args": [
+      [
+        298,
+        "parser.add_argument(\"--include_under_overflow\", action=\"store_true\", default=True)"
+      ],
+      [
+        299,
+        "parser.add_argument(\"--input_dir\", type=str, default=None)"
+      ],
+      [
+        300,
+        "parser.add_argument(\"--out_dir\", type=str, default=\"plots\")"
+      ],
+      [
+        301,
+        "parser.add_argument(\"--SR_type\", type=str, default=\"1b\")"
+      ],
+      [
+        302,
+        "parser.add_argument(\"--mass_point\", type=str, default=\"1500\")"
+      ],
+      [
+        303,
+        "parser.add_argument(\n        \"--mu_contour_file\",\n        type=str,\n        default=\"plots/TwoSided_HF0_3_HFSeperated_Renamed_unblind_noWeights_comb_0b1bSR_NoSys_Optimized_exp/output_mu_contours.root\",\n    )"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport os\nimport argparse\nimport re\nimport sys\nfrom array import array\nimport numpy as np\n\nimport ROOT\n\nROOT.gROOT.SetBatch(True)\nROOT.gStyle.SetOptStat(0)\n\n# ========== 1) Parse sample directory names ==========\n# Expected directory name format example:\n#   *MU1500_gU1_5_23L0_2_alldecay_corrected\n#   -> MU=1500, gU=1.5, beta=0.2\n\n\ndef parse_params_from_filename(filename, mass_point=\"1500\"):\n    \"\"\"Extract MU, gU, beta from directory name\"\"\"\n    RE_NAME = re.compile(\n        # f\".*MU{mass_point}_gU(?P<gUa>\\d+)_(?P<gUb>\\d+).*?23L(?P<betaA>\\d+)_(?P<betaB>\\d+).*?b33Rm1_0_noWeights_(?P<tag>[^.]+)\",\n        f\".*MU{mass_point}_gU(?P<gUa>\\d+)_(?P<gUb>\\d+).*?23L(?P<betaA>\\d+)_(?P<betaB>\\d+).*?_noWeights_(?P<tag>[^.]+)\",\n        re.IGNORECASE,\n    )",
+    "tail": "        zmap,\n        out_dir,\n        output_file,\n        mass_point=mass_point,\n        SR_type=SR_type,\n        num_tag=\"inf_NonRes\",\n        den_tag=\"bsm_NonRes\",\n        contour_root_path=mu_contour_file,\n    )\n    draw_inf_fraction(\n        zmap,\n        out_dir,\n        output_file,\n        mass_point=mass_point,\n        SR_type=SR_type,\n        num_tag=\"inf_Res\",\n        den_tag=\"bsm_Res\",\n        contour_root_path=mu_contour_file,\n    )\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "significance_scan.py",
+    "lines": 277,
+    "doc": "Scan MET cut bin index and compute significance curves from signal/background ROOT files.",
+    "functions": [
+      [
+        "parse_args",
+        34,
+        null
+      ],
+      [
+        "get_hist",
+        65,
+        null
+      ],
+      [
+        "scan_integral_from_bin",
+        78,
+        null
+      ],
+      [
+        "get_significance",
+        89,
+        "Compute significance Z."
+      ],
+      [
+        "build_significance",
+        120,
+        null
+      ],
+      [
+        "make_graph",
+        127,
+        null
+      ],
+      [
+        "main",
+        137,
+        null
+      ]
+    ],
+    "args": [
+      [
+        38,
+        "parser.add_argument(\"--signal\", required=True, help=\"Signal ROOT file path\")"
+      ],
+      [
+        39,
+        "parser.add_argument(\"--background\", required=True, help=\"Background ROOT file path\")"
+      ],
+      [
+        40,
+        "parser.add_argument(\n        \"--sys-error\",\n        type=float,\n        default=0.0,\n        help=\"Relative background systematic uncertainty (e.g. 0.2 for 20%%).\",\n    )"
+      ],
+      [
+        46,
+        "parser.add_argument(\n        \"--output\",\n        default=\"significance_scan.png\",\n        help=\"Output figure path (png/pdf).\",\n    )"
+      ],
+      [
+        51,
+        "parser.add_argument(\n        \"--yield-output\",\n        default=None,\n        help=\"Output path for S/B yield plot. Default: <output> with '_yields' suffix.\",\n    )"
+      ],
+      [
+        56,
+        "parser.add_argument(\n        \"--ymax\",\n        type=float,\n        default=None,\n        help=\"Optional y-axis maximum.\",\n    )"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n\"\"\"\nScan MET cut bin index and compute significance curves from signal/background ROOT files.\n\"\"\"\n\nimport argparse\nimport ctypes\nimport math\nimport os\nimport sys\n\nimport numpy as np\nimport ROOT\n\n# 0b SR (met)\nRES_HIST_PATH = \"met_WVR_1tau0l0b_Res_met_N_minus_1\"\nNONRES_HIST_PATH = \"met_WVR_1tau0l0b_NonRes_met_N_minus_1\"\n\n# 0b SR (mT)\n# RES_HIST_PATH = \"mT_tau_met_WVR_1tau0l0b_Res_mT_N_minus_1\"\n# NONRES_HIST_PATH = \"mT_tau_met_WVR_1tau0l0b_NonRes_mT_N_minus_1\"\n\n# 1b SR (met) note: BG hist and sig hist Nbins are differencent! bin width is also different! need to reproduce the background hist if 1b SR scan is needed!\n# RES_HIST_PATH = \"met_SR_1tau0l1b_Res_met_N_minus_1\"\n# NONRES_HIST_PATH = \"met_SR_1tau0l1b_NonRes_met_N_minus_1;1\"\n\n# 1b SR (mT) note: BG hist and sig hist Nbins are differencent! bin width is also different! need to reproduce the background hist if 1b SR scan is needed!\n# RES_HIST_PATH = \"mT_SR_1tau0l1b_Res_mT_N_minus_1\"",
+    "tail": "    print(f\"Yield plot: {yield_output}\")\n    print(f\"Points scanned: {len(x_vals)}\")\n    best_idx = int(np.argmax(combined_significance))\n    print(\n        \"Best combined significance: \"\n        f\"a={best_idx}, E_{{T}}^{{miss}}={x_vals[best_idx]:.4f} GeV, Z={combined_significance[best_idx]:.4f}, \"\n        f\"ResZ={res_significance[best_idx]:.4f}, \"\n        f\"NonResZ={nonres_significance[best_idx]:.4f}, \"\n        f\"CombinedZ={combined_significance[best_idx]:.4f}, \"\n        f\"S_Res={s_res[best_idx]:.4f}, \"\n        f\"B_Res={b_res[best_idx]:.4f}, \"\n        f\"S_NonRes={s_nonres[best_idx]:.4f}, \"\n        f\"B_NonRes={b_nonres[best_idx]:.4f}, \"\n    )\n\n\nif __name__ == \"__main__\":\n    try:\n        main()\n    except Exception as exc:\n        print(f\"[ERROR] {exc}\", file=sys.stderr)\n        sys.exit(1)"
+  },
+  {
+    "name": "submit_job_lxatut_TREx_betaR33Rm1_0_1bSR.sh",
+    "lines": 10,
+    "head": "#!/bin/sh\n# Submission scripts live on lxatut3:\n#   /data/data3/zp/zang/lxatut_submit/submit_job_lxatut_TREx_betaR33Rm1_0_1bSR.sh\n#\n# Run:\n#   cd /data/data3/zp/zang/lxatut_submit\n#   bash submit_job_lxatut_TREx_betaR33Rm1_0_1bSR.sh\n\necho \"Use /data/data3/zp/zang/lxatut_submit/submit_job_lxatut_TREx_betaR33Rm1_0_1bSR.sh on lxatut3\" >&2\nexit 1",
+    "tail": "#!/bin/sh\n# Submission scripts live on lxatut3:\n#   /data/data3/zp/zang/lxatut_submit/submit_job_lxatut_TREx_betaR33Rm1_0_1bSR.sh\n#\n# Run:\n#   cd /data/data3/zp/zang/lxatut_submit\n#   bash submit_job_lxatut_TREx_betaR33Rm1_0_1bSR.sh\n\necho \"Use /data/data3/zp/zang/lxatut_submit/submit_job_lxatut_TREx_betaR33Rm1_0_1bSR.sh on lxatut3\" >&2\nexit 1"
+  },
+  {
+    "name": "submit_job_lxatut_TREx_betaR33Rm1_0_1bSR_rescan.sh",
+    "lines": 11,
+    "head": "#!/bin/sh\n# Submission scripts live on lxatut3:\n#   /data/data3/zp/zang/lxatut_submit/submit_job_lxatut_TREx_betaR33Rm1_0_1bSR_rescan.sh\n# 11 configs: inf/very-high limits (sqrt_mu Max=20000)\n#\n# Run:\n#   cd /data/data3/zp/zang/lxatut_submit\n#   bash submit_job_lxatut_TREx_betaR33Rm1_0_1bSR_rescan.sh\n\necho \"Use /data/data3/zp/zang/lxatut_submit/submit_job_lxatut_TREx_betaR33Rm1_0_1bSR_rescan.sh on lxatut3\" >&2\nexit 1",
+    "tail": "#!/bin/sh\n# Submission scripts live on lxatut3:\n#   /data/data3/zp/zang/lxatut_submit/submit_job_lxatut_TREx_betaR33Rm1_0_1bSR_rescan.sh\n# 11 configs: inf/very-high limits (sqrt_mu Max=20000)\n#\n# Run:\n#   cd /data/data3/zp/zang/lxatut_submit\n#   bash submit_job_lxatut_TREx_betaR33Rm1_0_1bSR_rescan.sh\n\necho \"Use /data/data3/zp/zang/lxatut_submit/submit_job_lxatut_TREx_betaR33Rm1_0_1bSR_rescan.sh on lxatut3\" >&2\nexit 1"
+  },
+  {
+    "name": "submit_tail_TREx_betaR33Rm1_0_1bSR.sh",
+    "lines": 10,
+    "head": "# run unblinded 1bSR-only betaR33=-1.0 limit (b33Rm1_0 alldecay signals)\n# 252 configs = 6 mass points x 42 coupling points; one condor job per config\nmkdir -p /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0\nrm -rf /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0/*\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU1500*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod2 --job 186\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU2000*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod2 --job 187\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU2500*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod2 --job 188\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU3000*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod3 --job 189\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU4000*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod3 --job 190\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU5000*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod3 --job 191",
+    "tail": "# run unblinded 1bSR-only betaR33=-1.0 limit (b33Rm1_0 alldecay signals)\n# 252 configs = 6 mass points x 42 coupling points; one condor job per config\nmkdir -p /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0\nrm -rf /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0/*\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU1500*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod2 --job 186\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU2000*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod2 --job 187\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU2500*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod2 --job 188\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU3000*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod3 --job 189\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU4000*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod3 --job 190\npython3 Plotter_submit_lxatut_TREx.py --config_file /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0/*MU5000*.config --output /afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0 --queue group_prod3 --job 191"
+  },
+  {
+    "name": "submit_tail_b33R1_0.sh",
+    "lines": 41,
+    "head": "# b33R1_0 alldecay-corrected BSM — M4000 / M5000 (new mass points)\n# One condor job per sample via --samples list (42 jobs per config).\n# request_cpus 1 matches number_of_cpus: 1 in the v05_b33R1_0 configs.\n\nCONFIG_DIR=/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/taunub/config_taunub\n\n# usage: build_samples <mass> <bsm|inf> <Res|NonRes> [gU values...]\nbuild_samples () {\n    local mass=$1 tag=$2 ch=$3\n    shift 3\n    local gus=\"$*\"\n    [ -z \"$gus\" ] && gus=\"0_5 1_0 1_5 2_0 2_5 3_0\"\n    local list=\"\" gu lam\n    for gu in $gus; do\n        for lam in 0_0 0_2 0_6 1_0 1_4 1_8 2_2; do\n            list=\"${list}MU${mass}_gU${gu}_23L${lam}_b33Rm1_0_alldecay_corrected_${tag}_${ch},\"\n        done\n    done\n    echo \"${list%,}\"\n}\n\n# M4000 (DSID 567632) + M5000 (DSID 567633) -> group_prod2\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M4000_Res.yml \\\n  --samples $(build_samples 4000 bsm Res) \\\n  --queue group_prod2 --job 52 --request_cpus 1\n\npython3 Plotter_submit_lxatut_FastFrame.py \\",
+    "tail": "}\n\n# M4000 (DSID 567632) + M5000 (DSID 567633) -> group_prod2\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M4000_Res.yml \\\n  --samples $(build_samples 4000 bsm Res) \\\n  --queue group_prod2 --job 52 --request_cpus 1\n\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M4000_NonRes.yml \\\n  --samples $(build_samples 4000 bsm NonRes) \\\n  --queue group_prod2 --job 53 --request_cpus 1\n\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M5000_Res.yml \\\n  --samples $(build_samples 5000 bsm Res) \\\n  --queue group_prod2 --job 54 --request_cpus 1\n\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M5000_NonRes.yml \\\n  --samples $(build_samples 5000 bsm NonRes) \\\n  --queue group_prod2 --job 55 --request_cpus 1"
+  },
+  {
+    "name": "submit_tail_b33R1_0_M4000_M5000.sh",
+    "lines": 26,
+    "head": "# b33R1_0 alldecay-corrected BSM — M4000 / M5000 resubmit failed samples\n# 7 samples missing ROOT output (kerberos stale file handle -> Setup.sh/FastFrames failed):\n#   531496.12  MU4000_gU1_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res\n#   531496.20  MU4000_gU1_5_23L2_2_b33Rm1_0_alldecay_corrected_bsm_Res\n#   531496.21  MU4000_gU2_0_23L0_0_b33Rm1_0_alldecay_corrected_bsm_Res\n#   531496.26  MU4000_gU2_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res\n#   531497.0   MU4000_gU0_5_23L0_0_b33Rm1_0_alldecay_corrected_bsm_NonRes\n#   531498.26  MU5000_gU2_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res\n#   531498.27  MU5000_gU2_0_23L2_2_b33Rm1_0_alldecay_corrected_bsm_Res\n\nCONFIG_DIR=/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/taunub/config_taunub\n\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M4000_Res.yml \\\n  --samples MU4000_gU1_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res,MU4000_gU1_5_23L2_2_b33Rm1_0_alldecay_corrected_bsm_Res,MU4000_gU2_0_23L0_0_b33Rm1_0_alldecay_corrected_bsm_Res,MU4000_gU2_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res \\\n  --queue group_prod2 --job 56 --request_cpus 1\n\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M4000_NonRes.yml \\\n  --samples MU4000_gU0_5_23L0_0_b33Rm1_0_alldecay_corrected_bsm_NonRes \\\n  --queue group_prod2 --job 57 --request_cpus 1\n\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M5000_Res.yml \\\n  --samples MU5000_gU2_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res,MU5000_gU2_0_23L2_2_b33Rm1_0_alldecay_corrected_bsm_Res \\\n  --queue group_prod2 --job 58 --request_cpus 1",
+    "tail": "#   531496.21  MU4000_gU2_0_23L0_0_b33Rm1_0_alldecay_corrected_bsm_Res\n#   531496.26  MU4000_gU2_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res\n#   531497.0   MU4000_gU0_5_23L0_0_b33Rm1_0_alldecay_corrected_bsm_NonRes\n#   531498.26  MU5000_gU2_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res\n#   531498.27  MU5000_gU2_0_23L2_2_b33Rm1_0_alldecay_corrected_bsm_Res\n\nCONFIG_DIR=/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/taunub/config_taunub\n\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M4000_Res.yml \\\n  --samples MU4000_gU1_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res,MU4000_gU1_5_23L2_2_b33Rm1_0_alldecay_corrected_bsm_Res,MU4000_gU2_0_23L0_0_b33Rm1_0_alldecay_corrected_bsm_Res,MU4000_gU2_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res \\\n  --queue group_prod2 --job 56 --request_cpus 1\n\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M4000_NonRes.yml \\\n  --samples MU4000_gU0_5_23L0_0_b33Rm1_0_alldecay_corrected_bsm_NonRes \\\n  --queue group_prod2 --job 57 --request_cpus 1\n\npython3 Plotter_submit_lxatut_FastFrame.py \\\n  --config_file ${CONFIG_DIR}/config_taunub_plot_sys_1l_sigs_alldecay_v05_b33R1_0_M5000_Res.yml \\\n  --samples MU5000_gU2_0_23L1_8_b33Rm1_0_alldecay_corrected_bsm_Res,MU5000_gU2_0_23L2_2_b33Rm1_0_alldecay_corrected_bsm_Res \\\n  --queue group_prod2 --job 58 --request_cpus 1"
+  },
+  {
+    "name": "toy_config_maker.py",
+    "lines": 386,
+    "doc": null,
+    "functions": [
+      [
+        "is_bad_number",
+        10,
+        null
+      ],
+      [
+        "read_limits_from_root",
+        13,
+        "Return (exp_upperlimit, exp_upperlimit_plus1, exp_upperlimit_minus1, exp_upperlimit_plus2, exp_upperlimit_minus2) from TTree 'stats' branches:\n  - exp_upperlimit\n  - exp_upperlimit_plus1\n  - exp_upperlimit_minus1\n  - exp_upperlimit_plus2\n  - exp_upperlimit_minus2\nPrefer uproot; if unavailable, try PyROOT."
+      ],
+      [
+        "build_new_limit_block",
+        86,
+        "Generate the rewritten Limit block. Keep indentation consistent (4 spaces)."
+      ],
+      [
+        "build_new_NormFactor_mu_block",
+        105,
+        "Generate the rewritten NormFactor \"mu\" block. Keep indentation consistent (4 spaces)."
+      ],
+      [
+        "build_new_NormFactor_sqrt_mu_block",
+        117,
+        "Generate the rewritten NormFactor \"sqrt_mu\" block. Keep indentation consistent (4 spaces)."
+      ],
+      [
+        "build_new_NormFactor_bsm_block",
+        128,
+        "Generate the rewritten NormFactor \"Norm_BSM\" block. Keep indentation consistent (4 spaces)."
+      ],
+      [
+        "replace_limit_block",
+        139,
+        "Replace the block that starts with: Limit: \"limit\"\nand continues until the next top-level block (a line starting at column 0)\nor end-of-file.\n\nThis is robust for typical config formats."
+      ],
+      [
+        "replace_NormFactor_mu_block",
+        162,
+        "Replace the block that starts with: NormFactor: \"mu\"\nand continues until the line that starts with 'Nominal:' (inclusive)."
+      ],
+      [
+        "replace_NormFactor_sqrt_mu_block",
+        183,
+        "Replace the block that starts with: NormFactor: \"sqrt_mu\"\nand continues until the line that starts with 'Nominal:' (inclusive)."
+      ],
+      [
+        "replace_NormFactor_bsm_block",
+        204,
+        "Replace the block that starts with: NormFactor: \"mu_interference\"\nand continues until the *next* NormFactor, a comment, or the end of file.\nThis matches exactly the block starting e.g.:\n  NormFactor: \"mu_interference\"\n      Category: Theory\n      Expression: sqrt(mu): mu[1,scan_min,scan_max]\nand replaces it."
+      ],
+      [
+        "extract_x_from_config_filename",
+        229,
+        "From config filename extract x in: noWeights_comb_{x}\nExample:\n  config_..._noWeights_comb_MU5000_gU1_0_23L0_2.config\n  -> x = MU5000_gU1_0_23L0_2"
+      ],
+      [
+        "extract_y_from_foldername",
+        244,
+        "From fit folder name extract y in: allVR_SPLUSB_{y}_noWeights\nExample:\n  fit_..._allVR_SPLUSB_MU1500_gU1_0_23L0_2_noWeights_unblind_test\n  -> y = MU1500_gU1_0_23L0_2"
+      ],
+      [
+        "main",
+        254,
+        null
+      ]
+    ],
+    "args": [
+      [
+        258,
+        "ap.add_argument(\"config_dir\", help=\"Folder A: configs (*.config)\")"
+      ],
+      [
+        259,
+        "ap.add_argument(\"fit_parent_dir\", help=\"Folder B: contains many fit_* subfolders\")"
+      ],
+      [
+        260,
+        "ap.add_argument(\"out_dir\", help=\"Output folder for rewritten configs\")"
+      ],
+      [
+        261,
+        "ap.add_argument(\"--root-relpath\", default=os.path.join(\"Limits\", \"Asymptotics\", \"myLimit.root\"),\n                    help='Relative path to ROOT file inside each fit folder (default: \"Limits/Asymptotics/myLimit.root\")')"
+      ],
+      [
+        263,
+        "ap.add_argument(\"--dry-run\", action=\"store_true\", help=\"Only print actions, do not write files\")"
+      ],
+      [
+        265,
+        "ap.add_argument(\"--seed\", type=int, default=1234, help=\"Seed for the toy generation\")"
+      ],
+      [
+        266,
+        "ap.add_argument(\"--combined\", action=\"store_true\", help=\"Use BSM and interfence combined fits\")"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\nimport argparse\nimport math\nimport os\nimport re\nimport sys\n\ndef is_bad_number(x: float) -> bool:\n    return x is None or (isinstance(x, float) and (math.isnan(x) or math.isinf(x)))\n\ndef read_limits_from_root(root_path: str):\n    \"\"\"\n    Return (exp_upperlimit, exp_upperlimit_plus1, exp_upperlimit_minus1, exp_upperlimit_plus2, exp_upperlimit_minus2) from TTree 'stats' branches:\n      - exp_upperlimit\n      - exp_upperlimit_plus1\n      - exp_upperlimit_minus1\n      - exp_upperlimit_plus2\n      - exp_upperlimit_minus2\n    Prefer uproot; if unavailable, try PyROOT.\n    \"\"\"\n    if not os.path.isfile(root_path):\n        raise FileNotFoundError(f\"ROOT file not found: {root_path}\")\n\n    # 1) Try uproot (recommended)\n    try:\n        import uproot",
+    "tail": "            print(f\"     fit={os.path.basename(fit_path)}\")\n            print(f\"     root={root_path}\")\n            print(f\"     plus2={plus2} minus2={minus2} => ScanMin={scan_min:g} ScanMax={scan_max:g}\")\n            print(f\"     out={out_path}\")\n\n            if not args.dry_run:\n                with open(out_path, \"w\", encoding=\"utf-8\") as f:\n                    f.write(new_text)\n                n_written += 1\n\n        except Exception as e:\n            print(f\"[ERROR] {fname} (x={x}) failed: {e}\", file=sys.stderr)\n            n_skipped += 1\n\n    print(\"\\n=== Summary ===\")\n    print(f\"Total configs:   {n_total}\")\n    print(f\"Matched:         {n_matched}\")\n    print(f\"Written:         {n_written}\" if not args.dry_run else f\"Written:         0 (dry-run)\")\n    print(f\"Skipped/Failed:  {n_skipped}\")\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "update_betaR33Rm1_0_scan_ranges.py",
+    "lines": 257,
+    "doc": "Update sqrt_mu scan Max and write TREx resubmit script for betaR33Rm1_0 configs.",
+    "functions": [
+      [
+        "parse_val",
+        31,
+        null
+      ],
+      [
+        "usable_positive",
+        40,
+        null
+      ],
+      [
+        "format_max",
+        44,
+        null
+      ],
+      [
+        "parse_logs",
+        52,
+        null
+      ],
+      [
+        "read_current_max",
+        73,
+        null
+      ],
+      [
+        "config_path",
+        80,
+        null
+      ],
+      [
+        "update_config",
+        87,
+        null
+      ],
+      [
+        "fit_output_dir",
+        95,
+        null
+      ],
+      [
+        "choose_updates",
+        99,
+        null
+      ],
+      [
+        "write_submit_script",
+        150,
+        null
+      ],
+      [
+        "main",
+        201,
+        null
+      ]
+    ],
+    "args": [
+      [
+        203,
+        "parser.add_argument(\"--logdir\", type=Path, default=Path(\"/data/data3/zp/zang/condor_log\"))"
+      ],
+      [
+        204,
+        "parser.add_argument(\n        \"--config-dir\",\n        type=Path,\n        default=Path(\n            \"/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/\"\n            \"configs/TwoSided_HF0_3_HFSeperated_Renamed_unblinded_noWeights_comb_1bSR_betaR33Rm1_0\"\n        ),\n    )"
+      ],
+      [
+        212,
+        "parser.add_argument(\n        \"--submit-script\",\n        type=Path,\n        default=Path(\n            \"/data/data3/zp/zang/lxatut_submit/\"\n            \"submit_job_lxatut_TREx_betaR33Rm1_0_1bSR_rescan.sh\"\n        ),\n    )"
+      ],
+      [
+        220,
+        "parser.add_argument(\n        \"--output-dir\",\n        type=Path,\n        default=Path(\n            \"/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/run_signal_scan/\"\n            \"fit_results/TwoSided_HF0_3_HFSeperated_Renamed_unblind_SPLUSB_noWeights_comb_1bSR_betaR33Rm1_0\"\n        ),\n    )"
+      ],
+      [
+        228,
+        "parser.add_argument(\"--job-start\", type=int, default=198)"
+      ],
+      [
+        229,
+        "parser.add_argument(\"--dry-run\", action=\"store_true\")"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n\"\"\"Update sqrt_mu scan Max and write TREx resubmit script for betaR33Rm1_0 configs.\"\"\"\n\nfrom __future__ import annotations\n\nimport argparse\nimport re\nfrom collections import defaultdict\nfrom pathlib import Path\n\nMED_RE = re.compile(r\"Expected limit \\(median\\):\\s*([0-9.eE+\\-infINF]+)\")\nP2_RE = re.compile(r\"Expected limit \\(\\s*2 sig\\):\\s*([0-9.eE+\\-infINF]+)\")\nCFG_RE = re.compile(r\"(MU\\d+_gU[\\d_]+_23L[\\d_]+)\")\nSQRT_MU_BLOCK_RE = re.compile(\n    r'(NormFactor: \"sqrt_mu\"\\n(?:\\t[^\\n]+\\n)*?\\tMax: )([0-9.eE+\\-]+)',\n    re.MULTILINE,\n)\nREAD_MAX_RE = re.compile(\n    r'NormFactor: \"sqrt_mu\"\\n(?:\\t[^\\n]+\\n)*?\\tMax: ([0-9.eE+\\-]+)',\n    re.MULTILINE,\n)\n\nLOG_GLOBS = [\n    \"53273*.out\",\n    \"53274*.out\",\n    \"53319*.out\",\n    \"53320*.out\",\n]",
+    "tail": "\n    for item in updates:\n        print(\n            f\"[{item['reason']}] {item['cfg']}: median={item['median']} \"\n            f\"+2sig={item['p2']} Max {item['old_max']} -> {format_max(item['new_max'])}\"\n        )\n        if not args.dry_run:\n            update_config(config_path(args.config_dir, item[\"cfg\"]), item[\"new_max\"])\n\n    if not args.dry_run:\n        write_submit_script(\n            args.submit_script,\n            args.config_dir,\n            args.output_dir,\n            updates,\n            job_start=args.job_start,\n        )\n        print(f\"wrote submit script: {args.submit_script}\")\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "validate_preselected.py",
+    "lines": 144,
+    "doc": "Validate preselected ntuples against the full (non-preselected) ones.\n\nFor each DSID+campaign, open the 'reco' tree in both directories, match\nentries by eventNumber, and check:\n  1. every preselected event exists in the full sample (subset check)\n  2. all 'weight_mc_corrected_GEN_gU*' values are identical for matched events\n\nExpectation: weights identical for ALL DSIDs; preselected has fewer events.\n\nUsage:\n  python3 validate_preselected.py       --dir-full  .../SIG/alldecay_betaR33_reweighted       --dir-presel .../SIG/alldecay_betaR33_reweighted_preselected",
+    "functions": [
+      [
+        "scan_dir",
+        34,
+        "Return {(dsid, campaign): [root files]} from a sample directory."
+      ],
+      [
+        "main",
+        49,
+        null
+      ]
+    ],
+    "args": [
+      [
+        51,
+        "ap.add_argument(\"--dir-full\", required=True,\n                    help=\"directory with the full (non-preselected) ntuples\")"
+      ],
+      [
+        53,
+        "ap.add_argument(\"--dir-presel\", required=True,\n                    help=\"directory with the preselected ntuples\")"
+      ],
+      [
+        55,
+        "ap.add_argument(\"--dsids\", type=int, nargs=\"*\", default=None,\n                    help=\"restrict to these DSIDs (default: all found)\")"
+      ],
+      [
+        57,
+        "ap.add_argument(\"--rtol\", type=float, default=1e-5)"
+      ],
+      [
+        58,
+        "ap.add_argument(\"--threads\", type=int, default=8)"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n\"\"\"Validate preselected ntuples against the full (non-preselected) ones.\n\nFor each DSID+campaign, open the 'reco' tree in both directories, match\nentries by eventNumber, and check:\n  1. every preselected event exists in the full sample (subset check)\n  2. all 'weight_mc_corrected_GEN_gU*' values are identical for matched events\n\nExpectation: weights identical for ALL DSIDs; preselected has fewer events.\n\nUsage:\n  python3 validate_preselected.py \\\n      --dir-full  .../SIG/alldecay_betaR33_reweighted \\\n      --dir-presel .../SIG/alldecay_betaR33_reweighted_preselected\n\"\"\"\n\nimport argparse\nimport glob\nimport os\nimport re\nimport sys\nfrom collections import defaultdict\n\nimport numpy as np\n\nfrom validate_signal_reweight import (\n    BRANCH_PREFIX, list_gu_branches, load_group, compare_group,\n)",
+    "tail": "        problems = []\n        if s[\"common\"] == 0:\n            problems.append(\"no matched events\")\n        if s[\"diff_entries\"] > 0:\n            problems.append(f\"{s['diff_entries']} differing weight values\")\n        if s[\"orphan\"] > 0:\n            problems.append(f\"{s['orphan']} presel events not in full sample\")\n        ok = not problems\n        if not ok:\n            n_fail += 1\n        frac = s[\"presel\"] / s[\"full\"] if s[\"full\"] else float(\"nan\")\n        status = \"PASS\" if ok else \"FAIL (\" + \"; \".join(problems) + \")\"\n        print(f\"  {dsid}: full={s['full']:>8}  presel={s['presel']:>8} \"\n              f\"({frac:6.2%})  matched={s['common']:>8}  \"\n              f\"max_reldiff={s['max_rel']:.3e}  -> {status}\")\n\n    print(f\"\\n{'ALL PASSED' if n_fail == 0 else f'{n_fail} DSID(s) FAILED'}\")\n    sys.exit(0 if n_fail == 0 else 1)\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "name": "validate_signal_reweight.py",
+    "lines": 202,
+    "doc": "Validate signal reweighting between two filelists.\n\nFor each signal DSID (567621-567634), open the 'reco' tree of the ntuples\nlisted in two filelists, match entries by eventNumber (per DSID+campaign),\nand compare all 'weight_mc_corrected_GEN_gU*' branches.\n\nExpectation:\n  - 567621-567627: values should be IDENTICAL between the two productions\n  - 567628-567634: values should be DIFFERENT\n\nUsage:\n  python3 validate_signal_reweight.py       --filelist-a ../../input/filelist.txt       --filelist-b ../../input/filelist_v04.txt",
+    "functions": [
+      [
+        "parse_filelist",
+        31,
+        "Return {(dsid, campaign): [file paths]} for the requested DSIDs."
+      ],
+      [
+        "list_gu_branches",
+        48,
+        "Return the sorted set of gU-corrected weight branches in one file."
+      ],
+      [
+        "load_group",
+        64,
+        "Read eventNumber + weight branches into numpy arrays via RDataFrame."
+      ],
+      [
+        "compare_group",
+        88,
+        "Match by eventNumber and compare each branch.\n\nReturns (n_common, per-branch dict {branch: (n_diff, max_reldiff)})."
+      ],
+      [
+        "main",
+        110,
+        null
+      ]
+    ],
+    "args": [
+      [
+        112,
+        "ap.add_argument(\"--filelist-a\", required=True,\n                    help=\"first filelist (e.g. filelist.txt, reweighted)\")"
+      ],
+      [
+        114,
+        "ap.add_argument(\"--filelist-b\", required=True,\n                    help=\"second filelist (e.g. filelist_v04.txt, original)\")"
+      ],
+      [
+        116,
+        "ap.add_argument(\"--dsids\", type=int, nargs=\"*\",\n                    default=DSIDS_SAME + DSIDS_DIFF)"
+      ],
+      [
+        118,
+        "ap.add_argument(\"--rtol\", type=float, default=1e-5,\n                    help=\"relative tolerance for 'identical' (default 1e-5)\")"
+      ],
+      [
+        120,
+        "ap.add_argument(\"--threads\", type=int, default=8)"
+      ]
+    ],
+    "head": "#!/usr/bin/env python3\n\"\"\"Validate signal reweighting between two filelists.\n\nFor each signal DSID (567621-567634), open the 'reco' tree of the ntuples\nlisted in two filelists, match entries by eventNumber (per DSID+campaign),\nand compare all 'weight_mc_corrected_GEN_gU*' branches.\n\nExpectation:\n  - 567621-567627: values should be IDENTICAL between the two productions\n  - 567628-567634: values should be DIFFERENT\n\nUsage:\n  python3 validate_signal_reweight.py \\\n      --filelist-a ../../input/filelist.txt \\\n      --filelist-b ../../input/filelist_v04.txt\n\"\"\"\n\nimport argparse\nimport sys\nfrom collections import defaultdict\n\nimport numpy as np\nimport ROOT\n\nTREE_NAME = \"reco\"\nBRANCH_PREFIX = \"weight_mc_corrected_GEN_gU\"\nDSIDS_SAME = list(range(567621, 567628))       # expect identical weights\nDSIDS_DIFF = list(range(567628, 567635))       # expect different weights",
+    "tail": "            status, ok = \"NO MATCHED EVENTS\", False\n        elif expect_same:\n            ok = is_same\n            status = \"PASS (identical as expected)\" if ok else \\\n                     \"FAIL (expected identical but found differences)\"\n        else:\n            ok = not is_same\n            status = \"PASS (different as expected)\" if ok else \\\n                     \"FAIL (expected different but values are identical)\"\n        if not ok:\n            n_fail += 1\n        print(f\"  {dsid}: matched={s['common']:>8}  \"\n              f\"diff_values={s['diff_entries']:>10}  \"\n              f\"diff_branches={len(s['diff_branches']):>2}/{len(branches)}  \"\n              f\"max_reldiff={s['max_rel']:.3e}  -> {status}\")\n\n    print(f\"\\n{'ALL PASSED' if n_fail == 0 else f'{n_fail} DSID(s) FAILED'}\")\n    sys.exit(0 if n_fail == 0 else 1)\n\n\nif __name__ == \"__main__\":\n    main()"
+  }
+]

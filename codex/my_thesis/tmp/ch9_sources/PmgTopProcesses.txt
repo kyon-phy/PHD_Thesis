@@ -1,0 +1,641 @@
+
+=== PDF PAGE 1 ===
+If you are experiencing TWiki instability from outside the CERN network, please connect via the CERN
+internal network - see KB0010688
+  for details
+PmgTopProcesses
+Introduction
+Which sample to use for nominal and systematic?
+Producing a new sample: ATLMCPROD JIRA
+Higher Order Cross sections:
+Systematic uncertainties
+General recipes
+Process-specific recipes
+ttbar, Single Top, ttH
+Comments relating to uncertainties
+ttbar+HF (tt + >=1 b-jet and tt+>=1c) - preliminary
+ttZ, tttt, ttgamma
+ttW
+ttGamma
+Lineshape uncertainty
+Color Reconnection
+Recoil to Top uncertainty
+Reweighting top-pair events to NNLO prediction
+𝑡𝑡 / 𝑡𝑊 / 𝑊𝑊𝑏𝑏  Interference
+Ongoing Qualification Tasks and Open projects
+Open/Ongoing Projects
+Completed Projects
+Known modelling issues
+Practical information
+Rivet Routines for MC Validation
+Public results
+*Conveners:*Peter Berta and Shayma Wahdan 
+  atlas-phys-pmg-top-conveners@cern.ch
+Public mailing list: 
+  atlas-phys-pmg-top@cern.ch
+Regular meetings: Thursday, 15:00 (CERN time) - Shared time slot with Top Reconstruction / Top Plenary:
+https://indico.cern.ch/category/3332/
+Other PMG meetings: https://indico.cern.ch/category/10312/
+Introduction
+The PMG Top Processes subgroup is responsible for physics modelling aspects of the following processes:
+baseline samples for top processes ( 𝑡𝑡 , single-top, t(t)+X)
+systematic uncertainty prescription for this baseline
+support in producing alternative predictions and associated uncertainties
+Tasks included in its mandate are described in PMGSubgroupMandates.
+Old twiki: PmgTopProcessesOutdated(Run2)
+TWiki >  AtlasProtected Web > AtlasPhysics > PhysicsModellingGroup > PmgTopProcesses
+(2026-06-14, AnnikaStein)
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 1/13
+
+=== PDF PAGE 2 ===
+Which sample to use for nominal and systematic?
+All the information about existing samples, DSID and which ones are considered baseline and which one systematic
+are provided in the central page. Matching this with the systematic table listed below should allow you to get the list
+of samples for each process.
+Producing a new sample: ATLMCPROD JIRA
+The conveners will be notified of updates on any ATLMCPROD JIRA ticket which contains the Top component. A
+summary of all issues is available in this dashboard
+ .
+To open a ticket and request a new sample please follow the very detailed instructions given here: MCrequest
+Note on derivation: Requesting the derivations is the requester job, that has also to post a link on the
+ATLMCPROD ticket.
+For more details on how to modify the JOs and run tests locally or on the GRID please look at the ATLAS Top
+Workshop tutorial: MCTutorial
+Higher Order Cross sections:
+When you run on a sample it is necessary to normalise the sample to the right cross-section, if possible this is more
+accurate of the cross section obtained during the MC production (MC cross-section). The correction to the cross
+section is called k-factor, if a new calculation becomes available it is possible to just modify the k-factor without re-
+running the sample. The correct normalisation for each sample (or weight) needs to be evaluated as: MC cross-
+section * filter efficiency * k-factor/(Sum of all the weighted events) Here the weights can be the nominal or the
+alternative weight for systematic uncertainties/variations.
+All the informations on MC cross-section, filter efficiency, k-factor are available through the central page
+The list of higher order cross-sections employed is: tt_NNLO single_top_NNLO ttW
+The higher order cross-sections for t(t)X processes at 13.6 TeV are still being evaluated.
+Systematic uncertainties
+General recipes
+PMG recommendations for the evaluation of systematic uncertainties can be found in
+PmgSystematicUncertaintyRecipes. For uncertainties implemented as on-the-fly weights, PMG provides the
+PMGSystematicsTool for an automatic calculation and combination of the relevant uncertainties with correlations in
+ROOT or Rivet-based analyses: Link Talk
+  Link Git
+Always compare samples using the same type of generation: AF2/3 samples compared among them and Full Sim
+samples compared among them.
+In addition to the uncertainty listed here also normalisation uncertainties need to be considered, based on the xs
+section used to normalise the sample. These can be derived in the Higher Order Cross sections pages.
+Process-specific recipes
+In the sections below you will find direct links and information for modelling uncertainties in top processes. The Top
+Processes group supports these uncertainty prescriptions, but one should be aware that uncertainties for
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 2/13
+
+=== PDF PAGE 3 ===
+measurements may need to be more precise and additional studies may be needed to assess the need to add new
+uncertainties/modify the existing prescriptions.
+We support also the usage of Sherpa as tt nominal for searches working in the high jet multiplicity or high pT
+regions, the samples exist in MC16 and produce them in MC23 is an open task. The systematic uncertainty receipt
+in this case is the same of the ttW/ttZ Sherpa samples.
+ttbar, Single Top, ttH
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 3/13
+
+=== PDF PAGE 4 ===
+Uncertainty Type Description Additional comments Key
+(see
+below)
+Nominal - Powheg + Pythia
+8
+-  
+Matrix
+element
+(NLO
+matching)
+2 point Compare with
+sample
+generated with
+pythia8 pthard =
+1
+This parameter regulates the
+definition of the vetoed region of
+the showering, important to avoid
+hole/overlap in the phase space
+filled by POWHEG and PYTHIA.
+This reccomendation follows the
+description included in
+SciPostPhys.12.1.010
+ 
+Parton
+shower
+2 point Compare with
+Herwig 7
+Samples with 7.1.3 and 7.2.*.
+Analysers should be using the
+newest version where possible in
+their analysis, or request
+additional samples
+ 
+Scale Reweight see the official
+PMG
+recommendation
+  
+ISR alpha_s Reweight A14 Var3c, vary
+ISR alpha_s
+Use weights "Var3cUp" and
+"Var3cDown"
+FSR Reweight/direct
+variations
+Vary FSR scale
+(ie FSR alpha_s)
+Use weight
+"isr:muRfac=1.0_fsr:muRfac=2.0"
+and
+"isr:muRfac=1.0_fsr:muRfac=0.5".
+The variation with reduced scales
+is affected by large statistical
+flactuations due to a large spread
+of weights, use the samples with
+direct variations in case you are
+limited from this effect.
+PDF Reweight NNPDF and
+PDF4LHC
+variations
+possible
+Use event weights -- see this twiki
+for more info
+ 
+hdamp
+variation
+2 point Compare
+nominal with
+hdamp = 3.0
+m_top
+This uncertainty has to be applied
+also to 𝑡𝑊  samples (if generated
+with dynamic scales
+ATLMCPROD-10313
+ ), not to
+other single top production
+channels.
+top pt shape 2 point (Only 𝑡𝑡 )
+Compare
+nominal with the
+nominal
+reweighted to
+NNLO
+ 
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 4/13
+
+=== PDF PAGE 5 ===
+recoil to top 2 point (Only 𝑡𝑡  and t-
+channel)
+Compare
+nominal (recoil
+to color) with the
+alternative
+sample obtained
+with the recoil to
+top sample
+ 
+Interference
+between 𝑡𝑡
+and 𝑡𝑊
+2 point (Only 𝑡𝑊 )
+Compare
+nominal DR with
+the alternative
+DS sample
+ 
+Underlying
+Event
+- (Only 𝑡𝑡 ) Pythia8
+A14 Var1
+Bulk samples available
+b-quark
+fragmentation
+- (Only 𝑡𝑡 ) Pythia8
+A14-rb
+ 
+top line
+shape
+2 point (Only 𝑡𝑡 )
+Compare
+POWHEG vs
+MADSPIN line
+shape
+ 
+  
+Colour
+reconnection
+- Compare with
+CR1 and CR2
+(Only 𝑡𝑡 ) The comparison must be
+done wrt CR0, not with the
+nominal. The reccomendation is
+to take the largest variation.
+ 
+Top mass - (Only 𝑡𝑡 )
+Compare
+nominal with the
+alternative
+samples
+obtained with
+different mass
+points
+This systematic variation will only
+be relevant in specific analysis
+that target top-mass sensitive
+observables
+Comments relating to uncertainties
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 5/13
+
+=== PDF PAGE 6 ===
+Key Information
+See section below relating to this specific uncertainty
+These uncertainties as for precision top measurements, as top mass, or other
+measurements that expect to be sensitive to these effects.
+Careful consideration should be given to whether an analysis should be sensitive to a
+variation on hdamp which will impact the modelling of the first emission. In some analyses
+away from the "bulk" phase-space, this uncertainty should not need to be considered.
+It should be noted that by probing shower scale effects using automated shower weights
+includes an NLO compensation term which would not be present if generating a
+standalone sample with these scales. This will lead to smaller uncertainty than would be
+estimated with the other method. However, it is accepted that scale variations between a
+factor of 2 and sqrt(2) without an NLO compensation term will be similar to a weighted
+variation factor of 2 with an NLO compensation term, so we are not concerned that this
+uncertainty is therefore underestimated using the shower weights included in these
+uncertainties.
+Not all analyses will be affected by this uncertainty, for example analyses measuring the
+ttbar differential xs shouldn't be affected. Other analyses sensitive to the shape of the top
+(or lepton, jet pt) to extract a parameter (e.g. top mass, ttbar xs) could be affected by the
+known mismodelling of this quantity and need to check the effect of including this
+additional uncertaninty. In the past the mismodelling of the top pt was covered (by
+chance) by the difference between aMcAtNlo+Pythia8 and Powheg+Pythia8, but with the
+improvement of the matching uncertainty definition this is not the case anymore.
+Instructions on how to perform the reweighting are given below.
+ttbar+HF (tt + >=1 b-jet and tt+>=1c) - preliminary
+The analyses sensitive to the modelling of tt + Heavy Flavour jets (HF) should use a more robust modelling
+systematic model than the one for inclusive ttbar. The exact recommendation depends on the analysis details and
+must be discussed with PMG conveners at the initial stage of the analysis. In general, the systematic model should
+be similar to the systematic models used in past measurements, e.g. tt+c ( https://cds.cern.ch/record/2789804
+arXiv:2409.11305
+ ) or 4tops 1LOS ( https://cds.cern.ch/record/2722655
+  arXiv:2106.11683
+ ) or ttH(bb) Legacy (
+https://cds.cern.ch/record/2790108
+  arXiv:2407.10904
+ ). The general recommendation is:
+1. Divide the inclusive ttbar physics process into categories based on the number of additional heavy-flavour jets.
+The three main categories are:
+- tt+>=1b - This category should be obtained from the Powheg+Pythia8 simulation of the tt+bb process using 4FS
+(in mc20: 603003,603190,603192; in mc23: 601226-601228).
+- tt+>=1c - This category should be obtained from the Powheg+Pythia8 simulation of the tt process in 5FS (in mc20:
+410470-410472; in mc23: 601229-601230). A particle-level selection should be applied on the number of jets
+containing B-hadrons and D-hadrons (see the above references).
+- tt+light - The same approach as for tt+>=1c category, just using different particle-level criterion.
+Comment 1: Further categorization of tt+>=1b and/or tt+>=1c into subcategories may be necessary, depending on
+the analysis details, see for example the ttH(bb) Legacy measurement.
+Comment 2: For single-lepton selection of events, ~50% of ttbar events will have a c-jet from the W-boson decay.
+This is a potential challenge when categorizing tt+>=1c. In this case, contact the conveners.
+2. For each category, use the systematic uncertainties as described in the section for inclusive ttbar
+recommendations (ptHard1, Herwig7, scale, ISR, FSR variations). Additionally, for tt+>=1b, the 2-point systematic
+dipole vs global recoil is recommended, as it was demonstrated in the ttH(bb) Legacy measurement. For the 2-point
+tt+>=1b systematics, use the alternative tt+bb 4FS samples.
+3. In some cases of past analyses, the so-called "4FS vs 5FS" uncertainty was included. It was obtained as a 2-
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 6/13
+
+=== PDF PAGE 7 ===
+point systematics comparing two samples: tt+bb in 4FS and inclusive ttbar in 5FS (with particle-level selection of
+tt+>=1b-jet). This systematic convolutes several effects (most notably a ME vs PS calculation of the additional b-
+jets) and is not expected to provide a good estimate of the 5FS vs 4FS uncertainty, therefore it is not recommended.
+ttZ, tttt, ttgamma
+These processes are generally not in Powheg+Pythia, where we have the most detailed set of uncertainties. The
+main idea is that we should cover all aspects of the event generation: matching, scale choice, showering algorith,
+shower scales, PDF also for these rare processes.
+For ttZ, tttt, ttgamma:
+Uncertainty Type Description Additional comments
+Nominal - aMcAtNlo + Pythia 8 -
+Matrix element 2 point Sherpa if available Typically difficult to find additional
+generators providing same
+processes
+Parton shower 2 point aMcAtNlo + Herwig 7 May be missing for some ttV
+processes
+Scale Reweight see the official PMG
+recommendation
+ 
+Shower
+variations in
+Showering
+A14
+Var3c
+Dedicated samples with the
+A14 Var3c variations
+Availability of these sample can be
+limited
+PDF Reweight ME PDF variations should
+be available
+Using event weights -- see this
+twiki for more info
+ttW
+If the nominal includes the EW corrections through reweighting, these do not need to be also added in the
+variations. The important aspect is to be consistent, if the EW corrections are off in the variations also turn them off
+in the nominal
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 7/13
+
+=== PDF PAGE 8 ===
+Uncertainty Type Description Additional comments
+Nominal - Sherpa -
+Matrix element 2 point - Discussion ongoing if this
+uncertainty is really needed or can
+be replaced with internal
+variations of some parameter
+Parton shower 2 point Powheg + Herwig 7 vs Powheg + Pythia8
+Scale Reweight see the official PMG
+recommendation
+Using event weights, Sherpa
+allows to do a coherent variations
+of the scales in the matrix element
+and the showering
+Hadronization 2 point Lund vs Cluster (default) Dedicated samples with varied
+hadronization model
+PDF Reweight ME PDF variations should
+be available
+Using event weights -- see this
+twiki for more info
+Matching Scale muQ Dedicated samples with
+varied scales (QSF)
+ 
+Precision recommendations for 𝑡𝑡 + 𝑊
+The ttW process has been studied in the context of ttH(ML) and ttW measurements, where its been found that
+electro-weak corrections are non-negligible. Several theoretical progress have been on the calculation to improve
+the precision of the sample and the agreement with data. A NLO sample up to 2 additional jet emissions, including
+these EW contributions, using the FxFx algorithm has been made in FxFx EWK jets
+ . The most precise theory
+calculation is aNNLO
+ .
+Even with these precise reccomendations it is not trivial to normalise the sample because separate NLO EWK
+components can be added and the normalisation depends on the samples used. We reccomend 2 approaches,
+depending on the analysis.
+ttW is the major background or the signal:
+2 separate samples: ttW (QCD+EWK lead) and ttW (EWK-sub)
+Normalise the first to (QCD+EWK lead) from aNNLO and the second to EWK-sub from FxFx.
+ttW is a small background:
+Just take ttW(QCD) sample and apply (EWK-lead+EWK-sub) normalisation correction
+See also this presentation
+  for the case-by-case normalisation proposed for Run2 analyses.
+Sherpa allows the use of different MC weights to add the EW contributions. This AQP
+  details the usage of these
+weights and maps them to the diagrams that are added by each of them; it also explains in detail the internal
+variations (see table above) available in Sherpa that should be used if ttW is your signal or a major background.
+These EW weights may be added using two different schemes, additive or multiplicative, and their impact has been
+studied here
+  (Appendix L). The difference was found to be small so the additive scheme was used for the paper.
+For Sherpa, the EW-lead contributions can be added via reweighting, using the *ASSEWLO1 MC weight (but
+keeping the sum of weights of the nominal MC weight). Since Run3 is currently lacking a dedicated ttW EWK-sub
+sample, its contribution can be estimated using the Sherpa internal weight *ASSEWLO1LO2LO3 and normalised to
+the aNNLO prediction.
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 8/13
+
+=== PDF PAGE 9 ===
+ttGamma
+These processes need to be evaluated combining an NLO sample where the gamma is produced during production
+and a LO sample where the photon is emitted in the decay. Uncertainties need to be evaluated for each sample.
+Inclusive samples (as NLO 𝑡𝑡 ) also includes the radiation of gluons performed by the showering algorithm, to avoid
+double counting a specific technique needs to be applied. Detailes are explained Section3
+ .
+Lineshape uncertainty
+All our ttbar generators, excluding bb4l and NLO-dec (under development), consider the top-quarks on shell in
+production and then include approximations to recover the shape of the top mass with a proper width and high off-
+shell behaviours. This makes, expecially the highly off-shell region, unreliable. A perfect solution would be to use
+bb4l, where no approximations to the lineshape are employed. The lineshape uncertainty targets this ambiguity of
+our "standard" generators, aiming to compare the 2 existing implementations of the smearing and off-shell
+corrections: Powheg and Madspin.
+Studies show that the agreement between our nominal and bb4l is good in the region around the top-quark mass,
+see bb4l PUB note
+ , so we reccomend this uncertainty only for analayses targeting the tails of the top mass or
+mttbar distribution. The discussion on this uncertainty is still open so the conclusion and application suggestions
+may change.
+Color Reconnection
+Pythia8 provides a number of colour reconnection models
+ . Studies were performed in ATLAS where three new
+models were tested by taking A14, and switching to CR0, CR1 or CR2 and then performing a returning of
+parameters applicable to colour reconnection (see ATL-PHYS-PUB-2017-008
+ ). Analyses which need to estimate
+the impact of changing the colour-reconnection model should take the largest of these variations as uncertainty. If
+the two variations go in opposite direction, the analysis appears to be very senstitive to this variation and taking the
+largest doesn't guarantee the most conservative approach (e.g. fit) analyses should consider both variations.
+A new sample has been generated with an additional variation in the color reconnection scheme (ERD On samples).
+While the default Pythia8 settings do not allow to the decay products to reconnect in these samples the
+reconnection is enabled and the range for reconnection is also enlarged. These samples are more similar to
+Herwig7 setting, compared to the nominal Pythia8. These samples are currently available only for testing purpose,
+they are not included in any reccomendation.
+Recoil to Top uncertainty
+The modelling of the parton shower of the b-quarks in 𝑡  → 𝑊  𝑏  is affected by the gluon recoil scheme. The default
+Run2 samples employs the recoiling against b-quarks (recoilToColor=ON in the pythia8 settings), independently on
+the color connection of the emitted gluon. This setting changes the modelling of second and subsequent gluon
+emission from quarks produced by coloured resonance decays, such as the 𝑏 -quark in a 𝑡  → 𝑊  𝑏  process (but it has
+no impact for example on 𝑍  → 𝑏𝑏 ¯ decays), practically deciding how the momentum is re-arranged between the W
+and the b. Pythia8 developer suggetsed that the recoilToColor scheme cut large-angle radiation off the b-quark and
+a better scheme would be the recoilToTop, where the top-quark itself works as recoiler for the second and
+subsequent emissions. This option give wider-angle gluon radiation, resulting in energy deposits that do not get
+clustered into the 𝑏 -jet, and lower gluon-energy emission, altering the modelling of the 𝑏 -quark fragmentation and
+hardening the 𝑏 -hadron momenta. This text is largely taken by the first ATLAS analysis using this reccomendation:
+SMT_mass_measurement
+ .
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 9/13
+
+=== PDF PAGE 10 ===
+The recoil to top scheme should, currently, be taken as an uncertainty with respect to the nominal recoil scheme.
+This uncertainty is currently enlarged by the lack of a dedicated tuning that takes into account the recoilToTop
+scheme. The recoilToTop option is implemented in a dedicated userhook provided by the Pythia8 authors to ATLAS
+in Pythia versions < 8.309 and available in more recent versions changing the parameter (
+TimeShower:recoilStrategyRF )
+Please note that these variations are only available for the 𝑡𝑡  and t-channel process. The t-channel sample is mainly
+used by the t-channel top-mass analysis. If other top-processes are considered for measuring the top-quark mass
+please get in contact as some additional samples for other processes may be needed.
+Reweighting top-pair events to NNLO prediction
+There are some issues relating to top modelling which are inextricably linked to the precision of our MC calculations
+(eg top pT mismodelling). Higher order corrections improves this mismodelling, but reweight to these predictions is
+complicated and using only one observables (e.g. top pT) will typically result in destroying the precision of other
+differential variables due to cross-correlations. Using a recursive approach to the reweighting, including multiple
+variables, partially solves this issue. Tools for the reweighting have been developed by member of the top group:
+TTBarNNLOReweighter (Original) package - https://gitlab.cern.ch/lserkin/TTbarNNLOReweighter
+TTBarNNLOReweighter (Recursive) package - https://gitlab.cern.ch/pinamont/TTbarNNLOReweighter
+They can also be adapted to take as input a custom higher order calculation obtained with Matrix or HighTEA
+ , this
+is useful for 13.6 energies.
+It is possible to also call this tool inside a rivet routine, more information and instructions on how to do so are shown
+here: J.Jamieson
+Searches may find useful to use the reweighted sample as nominal, in this case all the uncertainties are to be
+evaluated coherently, an example of this kind of approach can be find here: 𝑡𝑡  resonance
+𝑡𝑡 / 𝑡𝑊 / 𝑊𝑊𝑏𝑏  Interference
+𝑡𝑊  diagrams at NLO QCD clearly overlap with LO 𝑡𝑡  diagrams. To account for this overlap, the 𝑡𝑊  process is
+generated removing these diagrams to allow a merging which does not double-count, but it is possible to be in a
+region of phase-space which becomes sensitive to the interference between these processes in the resonant region
+where t+Wb is produced with m(Wb) = m(top). The nominal Powheg+Pythia8 𝑡𝑊  sample uses the diagram removal
+scheme (DR) which removes the overlap at the cross-section level and keeps the interference in the prediction.
+Alternative treatments are possible on the interference, the current reccomendation is the comparison with DS. In
+case an analysis would like to employ DS as nominal please contact us. The usage of dynamic scales in general
+reduces this uncertainty.
+The correct approach to include the interference, that also entirely remove this uncertainty, would be to consider the
+𝑡𝑡  and 𝑡𝑊  as a single process and so having a simulation of WbWb. We have currently a sample produced using
+bb4l that simulate the full WbWb process. The dileptonic sample is currently available and the semileptonic one will
+be ready soon (together with a newer version for the dileptonic). A complete set of uncertainties around this sample
+is being developed in one of the ongoing projects.
+Ongoing Qualification Tasks and Open projects
+Here there is the list of all open and ongoing projects and QT tasks. If the projects are described in a JIRA ticket
+they are directly taken from the list og AGENE tickets with the label "Top".
+To get started to collaborate on a MC project look at recent tutorial MCTutorial
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 10/13
+
+=== PDF PAGE 11 ===
+If you are interested in all PMG related ongoing projects, look at GIT twiki page
+Open/Ongoing Projects
+All the top-processes specific projects can be converted in service tasks for your analyses, please contact the
+TopProcesses conveners and we will open a formal JIRA to monitor the progresses.
+Open/Ongoin Project Google Docs
+Below are included the list of general GIT open projects. This also include projects that are not limited to top but
+could be extremely helpful also for top physics.
+GIT Kanban board
+Completed Projects
+Known modelling issues
+Please feel free to populate this table with any known issues relating to samples in this subgroup as it may help
+others in the future.
+Generator Summary DSIDs Issue Date
+added
+- No tau
+spin
+correlation
+- These Sherpa samples lack spin correlation in
+the decay products of taus. There is difficulty
+propagating spin information from W boson to
+the tau to its final state (see
+https://gitlab.com/sherpa-
+team/sherpa/issues/15
+ ). This affects ttbar
+samples.
+27 Jan
+2020
+12:27
+Pythia8 Bug in
+colour
+flow in top
+decay
+dipoles
+500460,
+500461,
+500462,
+500463,
+500800,
+502957,
+502958,
+504554,
+600027,
+600028,
+600031,
+600639,
+600641
+This bug was reported by P. Skands
+  as
+being introduced in 8.240 and fixed in 8.245. It
+was also introduced to Pythia 8.3 in the early
+days, and was fixed with version 8.303. The
+size of this bug is not known. The list of DSID
+is non-exhaustive at this stage, only showing
+R21 productions.
+04 Mar
+2021
+15:59
+Practical information
+Rivet Routines for MC Validation
+Check the instructions from RivetAtlas
+  the to see how to get started with Rivet.
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 11/13
+
+=== PDF PAGE 12 ===
+ATLAS_2012_I1094568 Measurement of ttbar
+production with a veto on
+additional central jet activity
+7 TeV
+ATLAS_2013_I1243871 Measurement of jet shapes
+in top quark pair events
+7 TeV
+ATLAS_2014_I1304688 Measurement of jet
+multiplicity and transverse
+momentum spectra in top
+events
+7 TeV
+ATLAS_2015_I1345452 Pseudo-top-antitop cross
+sections
+7 TeV
+ATLAS_2015_I1397637 Boosted ttbar differential
+cross-section
+8 TeV
+ATLAS_2015_I1404878 ttbar (to l+jets) differential
+cross sections
+8 TeV
+ATLAS_2015_I1376945 Colour flow in ttbar
+lepton+jet events
+8 TeV
+ATLAS_2015_I1390114 $ 𝑡𝑡 +b(b)$ 8 TeV
+ATLAS_2017_I1626105 𝑡𝑡  differential cross-section
+in dilepton channel
+8 TeV
+ATLAS_2017_I1495243 𝑡𝑡  dilepton gap-fraction 13 TeV
+ATLAS_2018_I1646686 𝑡𝑡  differential cross-section
+in all-hadronic channel
+13 TeV
+ATLAS_2018_I1656578 𝑡𝑡  + jets differential cross-
+section in lepton+jets
+channel
+13 TeV
+ATLAS_2018_I1705857 𝑡𝑡 +bb fiducial and
+differential cross-section
+13 TeV
+ATLAS_2018_I1677498 WWbb differential cross-
+section
+13 TeV
+ATLAS_2019_I1724098 measurement of large-R jet
+shape (light,W,t) in ttbar
+and singletoop (36 ifb)
+13 TeV
+ATLAS_2019_I1759875 lepton kinematic in dilepton
+ttbar (36 ifb)
+13 TeV
+ATLAS_2019_I1750330 𝑡𝑡  differential cross-section
+in lepton+jets (36 ifb)
+13 TeV
+atlasphys-
+top/reco/RivetRoutines
+Additional rivet routines
+from the Top WG (including
+MC/MC and unvalidated
+routines)
+Various
+pmg/rivet-routines
+ On-going rivet routines from
+ATLAS
+Various
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 12/13
+
+=== PDF PAGE 13 ===
+Copyright &© 2008-2026 by the contributing authors. All material on this collaboration
+platform is the property of the contributing authors.
+or Ideas, requests, problems regarding TWiki? use Discourse or Send feedback
+Public results
+Public results from the Top group can be found in this link
+Major updates:
+-- FrankSiegert - 2019-04-05
+Responsible: Marcos Miralles and Peter Berta
+Last reviewed by: Never reviewed
+Topic revision: r153 - 2026-06-14 - AnnikaStein
+07/09/2026, 19:31 PmgTopProcesses < AtlasProtected < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/PmgTopProcesses?extralog=- caching topic 13/13

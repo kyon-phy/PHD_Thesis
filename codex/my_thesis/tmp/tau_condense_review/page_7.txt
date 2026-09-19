@@ -1,0 +1,34 @@
+6.5 Hadronic tau leptons 7
+calorimeter-tagged candidates in |η| < 0.1, where MS coverage is limited [2]. The typical
+prompt-muon efficiencies are about 99% for Loose and 97% for Medium [2].
+6.4.3 Isolation
+Muons from heavy-flavour decays are often accompanied by other particles inside a jet. They
+are suppressed using track and calorimeter isolation, defined by the surrounding activity after
+excluding the muon’s own contribution [2]. Baseline muons are required to pass Loose_VarRad
+isolation, and signal muons must additionally satisfy Tight_VarRad. Both working points use
+a track-cone radius that decreases as the muon pT increases and a fixed calorimeter cone of
+∆R = 0.2. The track and calorimeter isolation sums must be below 15% and 30% of the muon pT
+for Loose_VarRad, respectively. These limits are reduced to 4% and 15% for Tight_VarRad,
+allowing less activity around the muon and rejecting more muons produced inside jets [2].
+The typical prompt-muon isolation efficiencies are about 95% for Loose_VarRad and 86% for
+Tight_VarRad [8].
+6.4.4 Calibration
+The muon momentum scale and resolution are calibrated using resonance decays, e.g., Z →
+µµ and J/ψ → µµ [9]. The reconstructed mass distributions constrain biases in the muon
+momentum measurement. The efficiency scale factors are measured with tag-and-probe samples
+as for electrons and applied to simulated event weights for the selected working points [2].
+6.5 Hadronic tau leptons
+6.5.1 Reconstruction
+Approximately 65% of τ decays are hadronic, with the dominant modes containing one or three
+charged hadrons and possible neutral pions [10]. The visible decay products are collimated by
+the boost, producing a narrow calorimeter shower with few associated tracks. The reconstructed
+object is denoted by τhad-vis, or τhad below, and excludes the decay neutrino, which contributes
+to E
+miss
+T
+.
+Tau candidates are seeded by anti-kt
+jets with R = 0.4, built from calorimeter topological
+clusters calibrated with local hadronic weights [11, 10]. The production vertex is selected using
+tracks within ∆R < 0.2 of the seed axis, choosing the vertex with the largest fraction of their
+pT sum. Associated tracks are classified by a recurrent neural network (RNN) to distinguish

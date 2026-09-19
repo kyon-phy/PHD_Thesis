@@ -1,0 +1,3491 @@
+Search for high-mass leptoquark with
+tau-lepton and missing transverse
+momentum using 140 fb of pp collision
+data at √
+s = 13 TeV in the LHC-ATLAS
+experiment
+(LHC-ATLAS実験における重心系エネル
+ギー13 TeVの140 fbの陽子陽子衝突データを
+用いたタウレプトンおよび消失横運動量を
+使った高質量レプトクォーク探索)
+Jiaqi Zang
+藏 嘉琦
+Department of Physics, Graduate School of Science,
+The University of Tokyo
+This dissertation is submitted for the degree of
+Doctor of Philosophy
+August 2026
+
+
+
+Acknowledgements
+To be filled
+
+
+
+Abstract
+To be filled
+
+
+
+Table of contents
+List of figures xi
+List of tables xiii
+1 Introduction 1
+1.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+2 Theoretical Background 5
+2.1 The Standard Model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+2.1.1 Particle content and gauge group of the SM . . . . . . . . . . . . . 6
+2.1.2 Local gauge invariance . . . . . . . . . . . . . . . . . . . . . . . . 7
+2.1.3 The SU(3)C gauge sector . . . . . . . . . . . . . . . . . . . . . . . 8
+2.1.4 The electroweak gauge sector . . . . . . . . . . . . . . . . . . . . 9
+2.1.5 Covariant derivative and gauge field strengths . . . . . . . . . . . . 11
+2.1.6 The Standard Model Lagrangian . . . . . . . . . . . . . . . . . . . 12
+2.1.7 Electroweak symmetry breaking and the Higgs mechanism . . . . . 14
+2.1.8 Fermion masses and flavour mixing . . . . . . . . . . . . . . . . . 16
+2.2 Beyond the Standard Model . . . . . . . . . . . . . . . . . . . . . . . . . 17
+2.2.1 Gravity and the Planck scale . . . . . . . . . . . . . . . . . . . . . 17
+2.2.2 The hierarchy problem . . . . . . . . . . . . . . . . . . . . . . . . 17
+2.2.3 Neutrino masses . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+2.2.4 Dark matter . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+2.2.5 Matter–antimatter asymmetry . . . . . . . . . . . . . . . . . . . . 19
+2.2.6 The strong CP problem . . . . . . . . . . . . . . . . . . . . . . . . 19
+2.2.7 Flavour anomalies and lepton flavour universality . . . . . . . . . . 20
+2.3 Possible Solutions to the Remaining Problems of the Standard Model . . . 21
+2.3.1 Supersymmetry . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+2.3.2 Axions and the strong CP problem . . . . . . . . . . . . . . . . . . 22
+
+viii Table of contents
+2.3.3 Leptoquarks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+3 Leptoquark Search at the LHC 25
+3.1 Leptoquark Models and Phenomenology . . . . . . . . . . . . . . . . . . . 25
+3.1.1 General properties of leptoquarks . . . . . . . . . . . . . . . . . . 25
+3.1.2 The simplified U1 leptoquark model . . . . . . . . . . . . . . . . . 26
+3.1.3 Low-energy fit and benchmark scenarios . . . . . . . . . . . . . . 29
+3.1.4 Leptoquark searches at the LHC . . . . . . . . . . . . . . . . . . . 32
+3.1.5 Signal model and target signatures . . . . . . . . . . . . . . . . . . 34
+4 LHC-ATLAS Experiment 35
+4.1 Large Hadron Collider . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+4.2 ATLAS experiment . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+4.2.1 Overview . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+4.2.2 Coordinate system . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+4.2.3 Magnet system . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+4.2.4 Inner Detector . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+4.2.5 Calorimeter . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+4.2.6 Muon Spectrometer . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+4.2.7 Data Acquisition and Trigger System . . . . . . . . . . . . . . . . 47
+5 Data and Monte Carlo Simulations 51
+5.1 Dataset selection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+5.2 Signal samples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+5.3 Background samples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+5.4 Triggers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+6 Object Reconstruction and Identification 59
+6.1 Track . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+6.2 Primary vertex . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+6.3 Electron . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+6.4 Muon . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+6.5 Hadronic tau . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+6.6 Jet . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+6.7 Jet flavor tagging . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+6.8 Overlap removal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+6.9 Missing transverse momentum . . . . . . . . . . . . . . . . . . . . . . . . 59
+
+Table of contents ix
+7 Event Selection 61
+7.1 Preselection and variables definition . . . . . . . . . . . . . . . . . . . . . 61
+7.2 One b-jet signal region (SR1b) optimisation and definition . . . . . . . . . 61
+7.3 b-veto signal region definition (SR0b) . . . . . . . . . . . . . . . . . . . . 61
+8 Background Estimation Strategy 63
+8.1 Strategy overview . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+8.2 W+jets estimation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+8.3 tt¯ estimation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+8.4 Fake-τ estimation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+8.5 Multi-jet cleaning . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+8.6 VRs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+9 Systematics Uncertainties 65
+9.1 Experimental uncertainties . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+9.2 Theoretical uncertainties . . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+10 Statistical Analysis and Results 67
+10.1 Statistical analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+10.1.1 Hypothesis test . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+10.1.2 Likelihood function . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+10.2 Results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+10.2.1 Background-only fit . . . . . . . . . . . . . . . . . . . . . . . . . 67
+10.2.2 Unblinded S+B fit in CR+SRs . . . . . . . . . . . . . . . . . . . . 67
+10.2.3 Exclusion limits with toy models . . . . . . . . . . . . . . . . . . . 67
+11 Discussion and Conclusion 69
+References 71
+Appendix A Correction of the signal internal event weights 79
+Appendix B Multijet background study 81
+
+
+
+List of figures
+2.1 Average of R(D
+∗
+) and R(D) . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+3.1 Fit results in (C
+c
+LL,C
+c
+LR) plane using low-energy observables . . . . . . . . . 30
+3.2 Example Feynman diagrams of LQ production and exchange process for
+ττ(+b) searches. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+3.3 ATLAS constraints on the U1 leptoquark . . . . . . . . . . . . . . . . . . . 33
+3.4 Signal topologies in the τν(+b) final state . . . . . . . . . . . . . . . . . . 34
+4.1 Schematic overview of the CERN accelerator complex. . . . . . . . . . . . 36
+4.2 The schematic view of the ATLAS detector and the subdetector systems . . 38
+4.3 The coordinate system used in ATLAS . . . . . . . . . . . . . . . . . . . . 40
+4.4 ATLAS magnet system . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+4.5 ATLAS Inner Detector . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+4.6 ATLAS calorimeter system . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+4.7 Photograph of EM barrel and end-cap LAr modules . . . . . . . . . . . . . 44
+4.8 A cut-away view of an LAr electromagnetic calorimeter module . . . . . . 44
+4.9 ATLAS Muon Spectrometer . . . . . . . . . . . . . . . . . . . . . . . . . 46
+4.10 ATLAS Run-2 trigger and data acquisition system . . . . . . . . . . . . . . 47
+5.1 Run 2 single-lepton trigger efficiencies . . . . . . . . . . . . . . . . . . . . 57
+5.2 Run 2 missing-transverse-momentum trigger efficiencies . . . . . . . . . . 58
+
+
+
+List of tables
+2.1 Standard Model particle content . . . . . . . . . . . . . . . . . . . . . . . 7
+5.1 Integrated luminosity of the Run 2 proton–proton collision data used in this
+analysis. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+5.2 Summary of the principal MC generator configurations used for the signal
+and SM background processes. The quoted perturbative order refers to the
+hard-scattering matrix-element calculation. For the W/Z + jets samples,
+matrix elements with up to two additional partons are calculated at NLO
+and those with up to five additional partons at LO. The symbol ℓ denotes an
+electron or muon. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+5.3 Run 2 single-lepton and missing-transverse-momentum trigger chains . . . 56
+
+
+
+Chapter 1
+Introduction
+1.1 Introduction
+Modern high-energy physics seeks to understand the elementary constituents of matter and
+the fundamental interactions that govern their behaviour. At present, the most successful
+theoretical description of particle physics is the Standard Model (SM), a quantum field theory
+based on the gauge symmetry
+SU(3)C ×SU(2)L ×U(1)Y . (1.1)
+Within this framework, matter is described by three generations of quarks and leptons, while
+the electromagnetic, weak, and strong interactions are mediated by gauge bosons. The
+electroweak symmetry is spontaneously broken through the Higgs mechanism, giving masses
+to the weak gauge bosons and to the fermions through their interactions with the Higgs field.
+The discovery of the Higgs boson by the ATLAS and CMS experiments in 2012 completed
+the particle content predicted by the SM and marked a major milestone in modern particle
+physics.
+The SM has been tested with remarkable precision over a wide range of energy scales
+and has successfully described a vast number of experimental observations. Nevertheless,
+it is widely regarded as an incomplete theory. It does not provide a particle candidate for
+dark matter, does not explain the observed matter–antimatter asymmetry of the universe,
+and does not account for the origin of non-zero neutrino masses. In addition, the pattern of
+fermion masses and flavour mixing remains unexplained, and the large separation between
+the electroweak and Planck scales suggests the possible existence of new physics beyond the
+SM. These open questions motivate direct searches for new particles and interactions at the
+highest experimentally accessible energies.
+
+2 Introduction
+The Large Hadron Collider (LHC) at CERN provides a unique environment for probing
+such new phenomena. By colliding protons at tera-electronvolt centre-of-mass energies,
+the LHC allows the production of particles that may be associated with physics beyond the
+SM. During Run 2 of the LHC from year 2015 to 2018, proton–proton (pp) collisions were
+delivered at a centre-of-mass energy of √
+s = 13 TeV.
+ATLAS is a detector located at one of the interaction points of the LHC. It is designed
+to observe and study a wide range of physics processes, mainly from the pp collisions,
+from precision measurements of SM interactions to searches for new particles. The detector
+consists of several sub-detectors surrounding the collision interaction point, including an
+inner tracking detector, electromagnetic and hadronic calorimeters, and a muon spectrometer.
+Together with a powerful magnet system, these components allow the reconstruction and
+identification of electrons, photons, muons, hadronically decaying τ-leptons, jets, and missing
+transverse momentum, denoted by E
+miss
+T
+.
+Among the many possible extensions of the SM, leptoquarks (LQs) provide a well￾motivated class of new particles connecting the quark and lepton sectors. They are hypotheti￾cal bosons that couple directly to a quark and a lepton, and they appear naturally in theories
+such as grand unified theories and models of quark–lepton unification. Leptoquarks are also
+of particular phenomenological interest because they can modify semileptonic processes and
+may therefore be connected to the observed tensions in flavour observables.
+A search for the leptoquarks is presented in the thesis using 140 fb−1
+of pp collision
+data recorded by the ATLAS detector at a centre-of-mass energy of √
+s = 13 TeV. This
+thesis focuses on the vector singlet leptoquark U1 as the benchmark model. This model can
+contribute to processes involving b quarks, τ leptons, and neutrinos. Therefore, the analysis
+targets events with a hadronically decaying τ-lepton, large missing transverse momentum,
+and jets. The observed data are compared with SM background predictions in signal regions
+designed to enhance sensitivity to possible leptoquark contributions. In the absence of a
+significant excess over the SM expectation, constraints are placed on the allowed parameter
+space of the U1 model, expressed in terms of the leptoquark mass and its couplings.
+This dissertation is organised as follows. Chapter 2 provides an overview of the SM’s
+theoretical framework and the physics beyond it. Chapter 3 describes the leptoquark models
+and the searches performed at LHC. Chapter 4 introduces the LHC and the ATLAS detector.
+Chapter 5 provides the dataset and simulated samples. Chapter 6 details the reconstruction
+and the identification of the physics objects that are used for event selection. Chapter
+7 discusses the optimisation for the event selection used for signal signature extraction.
+Chapter 8 presents the background estimation strategy. Chapter 9 discusses the systematic
+
+1.1 Introduction 3
+uncertainties for the background and signals. Chapter 10 presents the statistical interpretation
+of the results. Chapter 11 summarises this analysis.
+
+
+
+Chapter 2
+Theoretical Background
+This chapter introduces the theoretical background which motivates this search performed
+in the thesis. The discussion begins with the Standard Model (SM), which provides the
+current theoretical framework for describing elementary particles and their interactions. The
+limitations of the SM are then summarised, followed by a discussion of several possible
+extensions beyond the SM. Particular emphasis is placed on leptoquark models, which provide
+a direct connection between the quark and lepton sectors and motivate the experimental
+search presented in this thesis.
+2.1 The Standard Model
+The Standard Model (SM) is a relativistic quantum field theory describing the known ele￾mentary particles and their strong, weak, and electromagnetic interactions. Its structure is
+determined by local gauge invariance under
+SU(3)C ×SU(2)L ×U(1)Y . (2.1)
+The group SU(3)C describes the colour symmetry of the strong interaction, while SU(2)L ×
+U(1)Y describes the electroweak interaction [1–3]. In quantum field theory, particles are
+classified not only by their mass and spin, but also by their transformation properties under
+these gauge symmetries. Particles with half-integer spin are fermions and obey Fermi–Dirac
+statistics, while particles with integer spin are bosons and obey Bose–Einstein statistics [4].
+The matter particles of the SM are spin-1/2 fermions, the interaction carriers are spin-1
+gauge bosons, and the Higgs boson is a spin-0 scalar boson.
+The minimal SM Lagrangian used here is constructed from the SM field content and is
+invariant under the local gauge group. Therefore, instead of introducing the Lagrangian as
+
+6 Theoretical Background
+an isolated expression, this section first summarises the field content and gauge quantum
+numbers of the SM. The principle of local gauge invariance is then introduced, followed
+by the gauge transformations of the strong sector, based on SU(3)C, and of the electroweak
+sector, based on SU(2)L ×U(1)Y . The covariant derivative and field-strength tensors are then
+constructed from these symmetries, leading to the full SM Lagrangian. Finally, electroweak
+symmetry breaking and the generation of fermion masses are discussed.
+2.1.1 Particle content and gauge group of the SM
+The gauge quantum numbers of a field specify how it transforms under the SM gauge group.
+In this thesis, the electric charge is written as
+Q = T
+3 +Y, (2.2)
+where T
+3
+is the third component of weak isospin and Y is the weak hypercharge. This
+convention is used throughout the thesis.
+For each generation, the SM fermions are arranged as
+Q
+i
+L =
+ 
+u
+i
+L
+d
+i
+L
+!
+∼ (3,2,1/6), u
+i
+R ∼ (3,1,2/3), d
+i
+R ∼ (3,1,−1/3), (2.3)
+L
+i
+L =
+ 
+ν
+i
+L
+e
+i
+L
+!
+∼ (1,2,−1/2), e
+i
+R ∼ (1,1,−1), (2.4)
+where i = 1,2,3 is the generation index, and the notation denotes the representation under
+SU(3)C ×SU(2)L ×U(1)Y , which are the QCD representation, the weak isospin representa￾tion and the weak hypercharge, respectively. In the minimal SM, no right-handed neutrino
+field is included. The scalar sector contains one complex Higgs doublet,
+Φ =
+ 
+φ
++
+φ
+0
+!
+∼ (1,2,1/2). (2.5)
+The gauge bosons are associated with the generators of the three gauge groups. The
+eight gluon fields G
+a
+µ
+, with a = 1,...,8, are associated with SU(3)C. The three weak gauge
+fields WI
+µ
+, with I = 1,2,3, are associated with SU(2)L. The hypercharge gauge field Bµ
+is associated with U(1)Y . Before electroweak symmetry breaking, W1
+µ
+, W2
+µ
+, W3
+µ
+, and Bµ
+are gauge eigenstates. After electroweak symmetry breaking, they are reorganised into the
+physical electroweak bosons W±, Z, and γ.
+
+2.1 The Standard Model 7
+The main particle content of the SM is summarised in Table 2.1. For fermions and
+the Higgs boson, the table lists the corresponding electroweak quantum numbers using the
+convention in Eq. (2.2). For gauge bosons, the entries describe their gauge fields and the
+electric charges of the physical states where appropriate.
+Table 2.1 Particle content of the SM and the corresponding spin and electroweak quantum
+numbers. For fermions and the Higgs doublet, T
+3
+and Y denote the third component of weak
+isospin and the weak hypercharge, respectively, with the electric charge defined as Q = T
+3+Y.
+For gauge bosons, only the electric charges of the physical states after electroweak symmetry
+breaking are shown.
+Category Type Generation Spin Quantum numbers
+1st 2nd 3rd T
+3 Y Q
+Fermion
+Left-handed quark uL
+dL
+cL
+sL
+tL
+bL
+1/2
++1/2
+−1/2
+1/6
++2/3
+−1/3
+Right-handed up-type quark uR cR tR 1/2 0 2/3 +2/3
+Right-handed down-type quark dR sR bR 1/2 0 −1/3 −1/3
+Left-handed lepton νeL
+eL
+νµL
+µL
+ντL
+τL
+1/2
++1/2
+−1/2
+−1/2
+0
+−1
+Right-handed charged lepton eR µR τR 1/2 0 −1 −1
+Gauge boson
+Gluon g
+a
+, a = 1,...,8 1 – – 0
+Photon γ 1 – – 0
+Charged weak boson W± 1 – – ±1
+Neutral weak boson Z 1 – – 0
+Scalar field Higgs doublet φ
++
+φ
+0
+0
++1/2
+−1/2
+1/2
++1
+0
+The quantum numbers listed above determine which interactions each field can have.
+They also determine which terms can be written in the SM Lagrangian. For example,
+explicit Dirac mass terms for charged fermions are not gauge invariant before electroweak
+symmetry breaking, because the left- and right-handed fermions transform differently under
+SU(2)L ×U(1)Y . Fermion masses instead arise from gauge-invariant Yukawa interactions
+with the Higgs field.
+2.1.2 Local gauge invariance
+The guiding principle in constructing the SM is local gauge invariance. A global transforma￾tion acts in the same way at every point in spacetime, while a local gauge transformation
+depends on the spacetime coordinate x. For a field ψ(x) transforming under a gauge group
+with generators T
+A
+, a generic local transformation is
+ψ(x) → ψ
+′
+(x) = U(x)ψ(x), U(x) = exph
+iα
+A
+(x)T
+A
+i
+. (2.6)
+
+8 Theoretical Background
+Here α
+A
+(x) are arbitrary real, spacetime-dependent gauge parameters. They specify how the
+field is transformed locally along each generator T
+A of the gauge group, and the repeated
+index A is summed over all generators.
+The ordinary derivative of the transformed field is
+∂µψ
+′
+(x) = U(x)∂µψ(x) +
+∂µU(x)
+
+ψ(x). (2.7)
+The second term in Eq. (2.7) shows that ∂µψ does not transform in the same way as ψ.
+Therefore, the kinetic term constructed using the ordinary derivative is not invariant under a
+local gauge transformation.
+To restore local gauge invariance, the ordinary derivative is promoted to a covariant
+derivative Dµ satisfying
+Dµψ(x) → D
+′
+µψ
+′
+(x) = U(x)Dµψ(x). (2.8)
+This requirement introduces gauge fields. The gauge fields are therefore not added by hand as
+arbitrary new particles; they are required in order to compare fields at neighbouring spacetime
+points in a way that is independent of the local gauge convention. The following subsections
+describe how this principle is realised for the strong and electroweak gauge sectors of the
+SM.
+2.1.3 The SU(3)C gauge sector
+The strong interaction is described by quantum chromodynamics (QCD), a gauge theory
+based on the colour group SU(3)C. Quark fields transform as colour triplets, while leptons
+and the Higgs field are colour singlets. For a colour triplet quark field q(x), the local SU(3)C
+transformation is
+q(x) → q
+′
+(x) = UC(x)q(x), UC(x) = exp
+iα
+a
+C
+(x)
+λ
+a
+2
+
+, (2.9)
+where λ
+a
+are the Gell-Mann matrices and a = 1,...,8. The corresponding gauge fields are
+the eight gluon fields G
+a
+µ
+.
+It is useful to introduce the matrix-valued gluon field
+Gµ(x) = G
+a
+µ
+(x)
+λ
+a
+2
+. (2.10)
+
+2.1 The Standard Model 9
+With the convention
+Dµ = ∂µ −igsG
+a
+µ
+λ
+a
+2
+, (2.11)
+where gs
+is the strong coupling constant, the gluon field transforms as
+Gµ(x) → G
+′
+µ
+(x) = UC(x)Gµ(x)U
+†
+C
+(x)−
+i
+gs
+
+∂µUC(x)
+
+U
+†
+C
+(x). (2.12)
+This transformation law ensures that Dµq transforms in the same way as q under local
+SU(3)C transformations.
+The SU(3)C field-strength tensor is
+G
+a
+µν = ∂µG
+a
+ν −∂νG
+a
+µ +gs
+f
+abcG
+b
+µG
+c
+ν
+, (2.13)
+where f
+abc are the structure constants of SU(3), defined by the commutation relation
+
+λ
+a
+2
+,
+λ
+b
+2
+
+= i f abc λ
+c
+2
+. (2.14)
+The last term in Eq. (2.13) arises from the non-Abelian nature of SU(3)C. It gives rise to
+gluon self-interactions, which are a defining feature of QCD and are essential for asymptotic
+freedom at high energies and confinement at low energies.
+2.1.4 The electroweak gauge sector
+Before electroweak symmetry breaking, the weak and electromagnetic interactions are
+described together by the gauge group SU(2)L ×U(1)Y [1–3]. The SU(2)L factor is the non￾Abelian weak-isospin gauge symmetry, while the U(1)Y factor is the Abelian hypercharge
+gauge symmetry. They are introduced separately below, but the physical photon and Z boson
+arise only after electroweak symmetry breaking, when the neutral fields W3
+µ
+and Bµ mix.
+The SU(2)L gauge transformation
+The SU(2)L gauge symmetry acts on left-handed fermion doublets and on the Higgs doublet:
+Q
+i
+L
+, L
+i
+L
+, Φ. (2.15)
+
+10 Theoretical Background
+For an SU(2)L doublet χ(x), the local transformation is
+χ(x) → χ
+′
+(x) = UL(x)χ(x), UL(x) = exp
+iα
+I
+(x)
+τ
+I
+2
+
+, (2.16)
+where τ
+I
+are the Pauli matrices and I = 1,2,3. The right-handed charged fermions u
+i
+R
+, d
+i
+R
+,
+and e
+i
+R
+are singlets under SU(2)L and therefore have T
+I
+L = 0.
+The three gauge fields associated with SU(2)L are denoted by WI
+µ
+. They can be written
+in matrix form as
+Wµ(x) = WI
+µ
+(x)
+τ
+I
+2
+. (2.17)
+With the convention
+Dµ = ∂µ −igWI
+µ
+τ
+I
+2
+, (2.18)
+where g is the SU(2)L coupling constant, the weak gauge field transforms as
+Wµ(x) → W′
+µ
+(x) = UL(x)Wµ(x)U
+†
+L
+(x)−
+i
+g
+
+∂µUL(x)
+
+U
+†
+L
+(x). (2.19)
+This transformation law is the non-Abelian generalisation of the Abelian gauge-field trans￾formation. The matrix structure reflects the fact that the SU(2)L generators do not commute.
+The SU(2)L field-strength tensor is
+WI
+µν = ∂µWI
+ν −∂νWI
+µ +gε
+IJKWJ
+µWK
+ν
+. (2.20)
+The last term arises from the non-Abelian nature of SU(2)L and leads to self-interactions
+among weak gauge bosons.
+The U(1)Y gauge transformation
+The U(1)Y gauge symmetry is the Abelian part of the electroweak gauge group. Its cor￾responding gauge charge is the weak hypercharge Y, which determines how each field
+transforms under a local U(1)Y phase rotation. For a field ψ(x) with hypercharge Y, the local
+U(1)Y transformation is
+ψ(x) → ψ
+′
+(x) = exp[iYβ(x)]ψ(x), (2.21)
+
+2.1 The Standard Model 11
+where β(x) is a spacetime-dependent transformation parameter. The corresponding gauge
+field is the hypercharge field Bµ. With the convention
+Dµ = ∂µ −ig′Y Bµ, (2.22)
+the gauge field transforms as
+Bµ(x) → B
+′
+µ
+(x) = Bµ(x) + 1
+g
+′
+∂µβ(x). (2.23)
+This transformation ensures that Dµψ transforms in the same way as ψ.
+The hypercharge assignments in Table 2.1 are chosen so that the electric charge is obtained
+from Eq. (2.2). For the left-handed lepton doublet, Y = −1/2. The upper component has
+T
+3 = +1/2 and therefore Q = 0, corresponding to the neutrino. The lower component
+has T
+3 = −1/2 and therefore Q = −1, corresponding to the charged lepton. Similarly, the
+left-handed quark doublet has Y = 1/6, giving charges +2/3 and −1/3 for the up- and
+down-type components.
+Because U(1)Y is Abelian, the corresponding field-strength tensor is
+Bµν = ∂µBν −∂νBµ. (2.24)
+There is no self-interaction term involving two Bµ fields in Bµν . Although U(1)Y is Abelian,
+it should not be identified with the electromagnetic gauge symmetry U(1)em. Before elec￾troweak symmetry breaking, the corresponding gauge field is the hypercharge field Bµ rather
+than the photon field. The electromagnetic gauge symmetry appears only after electroweak
+symmetry breaking, when Bµ mixes with the neutral weak gauge field W3
+µ
+to form the photon
+and the Z boson.
+2.1.5 Covariant derivative and gauge field strengths
+Combining the three gauge symmetries, the covariant derivative acting on a generic SM field
+can be written as
+Dµ = ∂µ −igsG
+a
+µT
+a
+C −igWI
+µT
+I
+L −ig′Y Bµ. (2.25)
+Here gs
+, g, and g
+′
+are the gauge couplings of SU(3)C, SU(2)L, and U(1)Y , respectively. The
+matrices T
+a
+C
+and T
+I
+L
+are the generators acting on the particular field. For a colour triplet,
+T
+a
+C = λ
+a/2, while for a colour singlet T
+a
+C = 0. For an SU(2)L doublet, T
+I
+L = τ
+I/2, while
+
+12 Theoretical Background
+for an SU(2)L singlet T
+I
+L = 0. The value of Y is the hypercharge of the field, as listed in
+Table 2.1.
+The gauge kinetic terms are constructed from the field-strength tensors:
+G
+a
+µν = ∂µG
+a
+ν −∂νG
+a
+µ +gs
+f
+abcG
+b
+µG
+c
+ν
+, (2.26)
+WI
+µν = ∂µWI
+ν −∂νWI
+µ +gε
+IJKWJ
+µWK
+ν
+, (2.27)
+Bµν = ∂µBν −∂νBµ. (2.28)
+The tensors G
+a
+µν and WI
+µν contain non-linear terms because SU(3)C and SU(2)L are non￾Abelian groups. By contrast, Bµν has the Abelian form because U(1)Y has only one generator.
+2.1.6 The Standard Model Lagrangian
+The SM Lagrangian is constructed from the field content described above and is invariant
+under the local gauge transformations of SU(3)C ×SU(2)L ×U(1)Y . Using the covariant
+derivative and field-strength tensors introduced in the previous subsections, the minimal SM
+Lagrangian can be written as the sum of gauge-boson kinetic terms, fermion kinetic terms,
+the Higgs-sector terms, and Yukawa interactions. Ignoring gauge-fixing terms, ghost terms,
+and the QCD θ-term, it is written schematically as
+LSM = Lgauge +Lfermion +LHiggs +LYukawa. (2.29)
+The four terms in Eq. (2.29) are fixed by Lorentz invariance, local gauge invariance, and
+renormalisability, once the SM field content is specified [5, 6].
+The gauge-boson kinetic terms are
+Lgauge = −
+1
+4
+G
+a
+µνG
+aµν −
+1
+4
+WI
+µνWIµν −
+1
+4
+BµνB
+µν
+. (2.30)
+Here G
+a
+µν , WI
+µν , and Bµν are the field-strength tensors of SU(3)C, SU(2)L, and U(1)Y ,
+respectively. The indices a = 1,...,8 and I = 1,2,3 label the generators of SU(3)C and
+SU(2)L, and repeated Lorentz and gauge indices are summed over. The common factor −1/4
+gives the conventional canonical normalisation of the gauge-boson kinetic terms. With this
+normalisation, the quadratic parts of Eq. (2.30) describe the free propagation of the gluon,
+weak, and hypercharge gauge fields, while the non-Abelian parts of G
+a
+µν and WI
+µν generate
+self-interactions among the corresponding gauge bosons.
+
+2.1 The Standard Model 13
+The fermion kinetic terms are
+Lfermion =
+3
+∑
+i=1
+
+Q¯
+i
+L
+iγ
+µDµQ
+i
+L +u¯
+i
+R
+iγ
+µDµu
+i
+R +d¯
+i
+R
+iγ
+µDµd
+i
+R +L¯
+i
+L
+iγ
+µDµL
+i
+L +e¯
+i
+R
+iγ
+µDµe
+i
+R
+
+.
+(2.31)
+The sum runs over the three fermion generations. The fields Q
+i
+L
+and L
+i
+L
+are the left-handed
+quark and lepton doublets, while u
+i
+R
+, d
+i
+R
+, and e
+i
+R
+are right-handed singlets under SU(2)L. The
+Dirac adjoint is defined as ψ¯ = ψ
+†
+γ
+0
+, and γ
+µ
+are the Dirac gamma matrices. The covariant
+derivative Dµ contains the gauge fields and couplings appropriate to the gauge quantum
+numbers of each fermion field. Therefore, Eq. (2.31) describes both the free propagation of
+fermions and their gauge interactions.
+The Higgs-sector terms are
+LHiggs = (DµΦ)
+†
+(D
+µΦ)−V(Φ), V(Φ) = −µ
+2Φ
+†Φ+λ(Φ
+†Φ)
+2
+. (2.32)
+The first term is the kinetic term of the Higgs doublet and also contains the gauge interactions
+of the Higgs field through the covariant derivative. The function V(Φ) is the Higgs potential.
+With the convention used here, µ
+2 > 0 and λ > 0. The condition λ > 0 ensures that the
+potential is bounded from below, while the negative quadratic term causes the minimum
+of the potential to occur at a non-zero value of Φ†Φ. This leads to electroweak symmetry
+breaking through the Brout–Englert–Higgs mechanism [7–9].
+The Yukawa interactions are
+LYukawa = −y
+i j
+d Q¯
+i
+LΦd
+j
+R −y
+i j
+u Q¯
+i
+LΦ˜ u
+j
+R −y
+i j
+e L¯
+i
+LΦe
+j
+R +h.c., (2.33)
+where i, j = 1,2,3 are generation indices, and y
+i j
+u , y
+i j
+d
+, and y
+i j
+e are complex Yukawa coupling
+matrices in flavour space. h.c. denotes the Hermitian conjugate. The conjugate Higgs doublet
+is defined as
+Φ˜ = iτ
+2Φ
+∗
+, (2.34)
+where τ
+2
+is the second Pauli matrix. The field Φ˜ transforms as an SU(2)L doublet with
+hypercharge opposite to that of Φ, allowing a gauge-invariant Yukawa interaction for up-type
+quarks. After electroweak symmetry breaking, the Yukawa interactions generate masses for
+the charged fermions. In the minimal SM, no right-handed neutrino field is included, and
+therefore no renormalisable neutrino Yukawa mass term appears in Eq. (2.33).
+
+14 Theoretical Background
+2.1.7 Electroweak symmetry breaking and the Higgs mechanism
+The Higgs potential in Eq. (2.32) has a minimum at a non-zero value of Φ†Φ. For the
+convention used in Eq. (2.32), the minimum satisfies Φ†Φ = v
+2/2, where v =
+p
+µ
+2/λ is
+the Higgs vacuum expectation value and sets the electroweak scale. A convenient choice of
+vacuum expectation value is
+⟨Φ⟩ =
+1
+√
+2
+ 
+0
+v
+!
+. (2.35)
+The value of v is related to the Fermi constant by v = (√
+2GF)
+−1/2 ≃ 246 GeV [10].
+This vacuum breaks the electroweak symmetry according to
+SU(2)L ×U(1)Y → U(1)em. (2.36)
+The unbroken symmetry is electromagnetism. This mass-generation mechanism for gauge
+bosons is the Brout–Englert–Higgs mechanism [7–9].
+In unitary gauge, the Higgs doublet can be written as
+Φ(x) = 1
+√
+2
+ 
+0
+v+h(x)
+!
+, (2.37)
+where h(x) is the physical Higgs boson field. Expanding the Higgs potential around the
+vacuum gives
+V(Φ) = V(⟨Φ⟩) + 1
+2
+m
+2
+h
+h
+2 +λvh3 +
+λ
+4
+h
+4
+, (2.38)
+where the physical Higgs-boson mass is
+m
+2
+h = 2λv
+2 = 2µ
+2
+. (2.39)
+Unlike the W and Z boson masses, which are fixed at tree level by the electroweak gauge
+couplings and the vacuum expectation value, the Higgs-boson mass depends on the quartic
+coupling λ. Therefore, the SM does not predict the numerical value of mh before λ is fixed
+experimentally. The Higgs boson was observed by the ATLAS and CMS experiments in
+2012 [11, 12]. The observed Higgs-boson mass is approximately 125 GeV, corresponding to
+λ ≃ m
+2
+h
+/(2v
+2
+) ≃ 0.13 [13].
+
+2.1 The Standard Model 15
+The masses of the electroweak gauge bosons arise from the Higgs kinetic term,
+(DµΦ)
+†
+(D
+µΦ), (2.40)
+after substituting the Higgs vacuum expectation value. It is useful to define the charged weak
+fields as
+W±
+µ =
+1
+√
+2
+
+W1
+µ ∓iW2
+µ
+
+. (2.41)
+The terms quadratic in the electroweak gauge fields are then
+(Dµ⟨Φ⟩)
+†
+(D
+µ
+⟨Φ⟩) = g
+2
+v
+2
+4
+W+
+µ W−µ +
+v
+2
+8
+
+gW3
+µ −g
+′Bµ
+2
+. (2.42)
+The first term is the mass term of the charged weak bosons. The second term shows that the
+neutral gauge fields W3
+µ
+and Bµ mix and must be diagonalised.
+The weak mixing angle is defined by
+cosθW =
+g
+p
+g
+2 +g
+′2
+, sinθW =
+g
+′
+p
+g
+2 +g
+′2
+. (2.43)
+The corresponding neutral mass eigenstates are
+Aµ = Bµ cosθW +W3
+µ
+sinθW , (2.44)
+Zµ = −Bµ sinθW +W3
+µ
+cosθW . (2.45)
+The field Aµ is identified with the photon, while Zµ is the neutral weak boson. The photon
+remains massless because it is associated with the unbroken gauge symmetry U(1)em.
+The resulting gauge-boson masses are
+mW =
+1
+2
+gv, mZ =
+1
+2
+p
+g
+2 +g
+′2 v =
+mW
+cosθW
+, mγ = 0. (2.46)
+Thus, the SM predicts the relation mW = mZ cosθW . Inserting v ≃ 246 GeV and the elec￾troweak couplings gives mW ≃ 80 GeV and mZ ≃ 91 GeV. Therefore, the Higgs mechanism
+gives masses to the W and Z bosons while leaving the photon massless.
+After electroweak symmetry breaking, the unbroken gauge symmetry is U(1)em, whose
+gauge field is the photon field Aµ. At energies much below the electroweak scale, the electro￾magnetic interactions of charged fermions are described by quantum electrodynamics (QED).
+
+16 Theoretical Background
+For a charged fermion field ψ with electric charge Q, the QED Lagrangian can be written as
+LQED = −
+1
+4
+FµνF
+µν +ψ¯
+
+iγ
+µDµ −m
+
+ψ, (2.47)
+where
+Dµ = ∂µ −ieQAµ, Fµν = ∂µAν −∂νAµ. (2.48)
+Here e is the electromagnetic coupling constant, Q is the electric charge of the fermion in
+units of e, and Fµν is the electromagnetic field-strength tensor. Thus, QED appears as the
+low-energy gauge theory associated with the unbroken U(1)em symmetry of the SM.
+2.1.8 Fermion masses and flavour mixing
+The Yukawa interactions generate fermion masses after electroweak symmetry breaking.
+When the Higgs field acquires its vacuum expectation value v, the Yukawa coupling matrices
+are converted into fermion mass matrices:
+Mi j
+u =
+v
+√
+2
+y
+i j
+u
+, M
+i j
+d =
+v
+√
+2
+y
+i j
+d
+, Mi j
+e =
+v
+√
+2
+y
+i j
+e
+. (2.49)
+Here Mu, Md, and Me are the mass matrices of the up-type quarks, down-type quarks, and
+charged leptons, respectively. The matrices yu, yd, and ye are the corresponding dimensionless
+Yukawa coupling matrices, and the indices i, j = 1,2,3 label the fermion generations.
+The physical fermion masses are obtained by diagonalising the mass matrices. In the
+quark sector, the up-type and down-type mass matrices are diagonalised by different rotations
+in flavour space. As a result, flavour mixing appears in the charged-current weak interaction.
+This mixing is described by the Cabibbo–Kobayashi–Maskawa (CKM) matrix [14, 15]. In
+the mass eigenstate basis, the charged-current interaction of quarks is
+LCC =
+g
+√
+2
+u¯
+i
+L
+γ
+µV
+CKM
+i j d
+j
+LW+
+µ +h.c. (2.50)
+Here g is the SU(2)L gauge coupling, u
+i
+L
+and d
+j
+L
+are the left-handed up-type and down-type
+quark mass eigenstates, and W+
+µ
+is the charged weak gauge boson. The matrix element
+V
+CKM
+i j describes the strength of the charged-current transition from the down-type quark d
+j
+to the up-type quark u
+i
+. The matrices γ
+µ
+are the Dirac gamma matrices, and the Hermitian￾conjugate term describes the corresponding interaction involving W−
+µ
+. The CKM matrix is
+essential for describing flavour-changing charged-current processes such as b → cτν, which
+
+2.2 Beyond the Standard Model 17
+are relevant for the leptoquark scenarios discussed later. Its complex phase also provides a
+source of CP violation in the quark sector of the SM.
+In the minimal SM, neutrino masses are absent because no right-handed neutrino fields
+are included and no renormalisable neutrino Yukawa interaction can be written with the
+minimal field content. This provides one of the motivations for considering extensions of the
+SM.
+2.2 Beyond the Standard Model
+Although the SM has been tested with high precision and has successfully described a
+wide range of experimental observations, it is not a complete theory of nature. Several
+experimental and theoretical facts point to physics beyond the SM.
+2.2.1 Gravity and the Planck scale
+The SM describes the electromagnetic, weak, and strong interactions as quantum gauge field
+theories, but it does not include gravity. Gravity is instead described at macroscopic scales by
+general relativity. A complete theory of nature is therefore expected to provide a consistent
+quantum description of gravity and to explain its connection to the SM interactions.
+The difficulty of connecting gravity with the SM appears in two related ways. First,
+quantum gravitational effects are expected to become important at the Planck scale, MPl ∼
+1019 GeV. This is much higher than the electroweak scale, v ≃ 246 GeV. This large
+separation of scales is closely related to the hierarchy problem discussed below.
+Second, constructing a quantum theory of gravity is theoretically challenging. If general
+relativity is quantised perturbatively in the same way as ordinary quantum field theories, it
+is not renormalisable as a fundamental theory. This makes it difficult to combine gravity
+with the quantum-field-theoretic framework of the SM in a straightforward way. Several
+possible approaches to quantum gravity have been proposed, including string theory, loop
+quantum gravity, and asymptotic safety, although no complete theory has been experimentally
+confirmed.
+2.2.2 The hierarchy problem
+The electroweak scale is set by the Higgs vacuum expectation value, v ≃ 246 GeV, and is
+closely related to the masses of the weak gauge bosons and the Higgs boson. In the SM, the
+
+18 Theoretical Background
+Higgs-boson mass is determined at tree level by
+m
+2
+h = 2λv
+2
+, (2.51)
+where λ is the Higgs quartic coupling. The observed value mh ≃ 125 GeV therefore corre￾sponds to λ ≃ 0.13.
+The hierarchy problem arises because the Higgs mass parameter is highly sensitive to
+physics at very high energy scales. If the SM is treated as an effective theory valid up to an
+ultraviolet cutoff scale Λ, loop corrections to the Higgs mass can be written schematically as
+m
+2
+h,phys = m
+2
+h,0 +δm
+2
+h
+, (2.52)
+where m
+2
+h,0
+is the bare Higgs mass parameter and δm
+2
+h
+denotes the quantum correction. At
+one-loop order, the correction contains terms quadratically sensitive to the cutoff scale,
+δm
+2
+h ∼
+Λ
+2
+16π
+2
+, (2.53)
+If the cutoff scale is close to the Planck scale, Λ ∼ MPl ∼ 1019 GeV, the magnitude of δm
+2
+h
+is
+many orders of magnitude larger than the observed value m
+2
+h ∼ (125 GeV)
+2
+. Therefore, the
+bare parameter m
+2
+h,0
+and the quantum correction δm
+2
+h must cancel each other with extremely
+high precision in order to leave the observed electroweak-scale Higgs mass. This required
+cancellation is known as fine-tuning.
+The hierarchy problem is the question of why the electroweak scale remains so much
+smaller than a possible ultraviolet scale such as the Planck scale. It motivates many extensions
+of the SM, such as supersymmetry, composite Higgs models, and other scenarios in which
+new physics appears near the TeV scale and stabilises the Higgs mass against large ultraviolet
+corrections. More generally, the hierarchy problem provides one of the motivations for
+experimental searches for new particles at the TeV scale.
+2.2.3 Neutrino masses
+In the minimal SM, neutrinos are massless because no right-handed neutrino fields are
+included and no renormalisable neutrino mass term can be written using only the SM field
+content. However, neutrino oscillation experiments have shown that neutrinos change flavour
+as they propagate, which requires non-zero neutrino mass differences. Evidence for at￾mospheric neutrino oscillations was reported by the Super-Kamiokande experiment [16],
+and solar neutrino flavour transformation was established by the Sudbury Neutrino Obser-
+
+2.2 Beyond the Standard Model 19
+vatory [17]. Therefore, neutrino masses provide direct experimental evidence for physics
+beyond the minimal SM.
+2.2.4 Dark matter
+Astrophysical and cosmological observations indicate the existence of non-luminous matter
+that cannot be explained by the known particles of the SM. Measurements of the cosmic
+microwave background, for example by the Planck satellite, are well described by a cosmo￾logical model containing a significant non-baryonic dark matter component [18]. The SM
+does not contain a suitable cold dark matter candidate. Although neutrinos are electrically
+neutral and weakly interacting, their small masses and relativistic behaviour in the early
+universe do not provide the required cold dark matter component.
+2.2.5 Matter–antimatter asymmetry
+The observable universe contains much more matter than antimatter. Sakharov identified
+three necessary conditions for dynamically generating such a baryon asymmetry: baryon￾number violation, C and CP violation, and departure from thermal equilibrium [19]. The SM
+contains CP violation through the CKM matrix and baryon-plus-lepton number violation
+through non-perturbative electroweak effects. However, the amount of CP violation in the SM
+and the nature of the electroweak phase transition are not sufficient to explain the observed
+baryon asymmetry of the universe [20, 21]. This motivates new sources of CP violation and
+new dynamics in the early universe.
+2.2.6 The strong CP problem
+The most general QCD Lagrangian allows a CP-violating term of the form
+Lθ = θ
+g
+2
+s
+32π
+2
+G
+a
+µνG˜
+aµν
+, G˜
+aµν =
+1
+2
+ε
+µνρσG
+a
+ρσ . (2.54)
+Here gs
+is the strong coupling constant, and G
+a
+µν is the gluon field-strength tensor of the
+SU(3)C gauge group, with the colour index a = 1,...,8 labelling the eight gluon fields.
+The tensor G˜ aµν is the dual field-strength tensor, defined using the totally antisymmetric
+Levi-Civita tensor ε
+µνρσ . The parameter θ is a dimensionless QCD vacuum angle that
+controls the size of this CP-violating interaction. The factor g
+2
+s/(32π
+2
+) is a conventional
+normalisation.
+
+20 Theoretical Background
+The operator G
+a
+µνG˜ aµν is gauge invariant and has mass dimension four, so it is allowed
+by the gauge symmetry and renormalisability of QCD. However, it violates CP symmetry.
+Therefore, a non-zero value of the effective QCD vacuum angle would lead to CP violation
+in the strong interaction.
+This term would contribute to the electric dipole moment of the neutron. Experimental
+limits on the neutron electric dipole moment strongly constrain the effective QCD vacuum
+angle θ¯ [22]. The effective parameter θ¯ includes both the QCD vacuum angle θ and phases
+from the quark mass matrix. The absence of observable strong CP violation, despite the fact
+that such a term is allowed by the SM gauge symmetries, is known as the strong CP problem.
+2.2.7 Flavour anomalies and lepton flavour universality
+The flavour structure of the SM is mainly determined by the Yukawa matrices. After
+electroweak symmetry breaking, these matrices generate the fermion mass matrices; their
+eigenvalues determine the fermion masses, while the mismatch between the diagonalisation
+of the up- and down-type quark mass matrices gives rise to quark flavour mixing through the
+CKM matrix.
+Although the SM accommodates the observed masses and mixing angles, it does not
+explain their hierarchical pattern or their origin. Precision measurements in flavour physics
+therefore provide sensitive probes of possible physics beyond the SM.
+A key property of the SM is lepton flavour universality (LFU), which means that the
+electroweak gauge interactions couple equally to the three charged-lepton generations, apart
+from effects due to their different masses. Semileptonic B-meson decays provide precise tests
+of LFU by comparing decay rates involving different charged leptons. In charged-current
+transitions of the form b → cℓν, the commonly studied ratios are
+R(D
+(∗)
+) = B(B¯ → D
+(∗)
+τν¯τ )
+B(B¯ → D(∗)ℓν¯ℓ)
+, ℓ = e,µ. (2.55)
+These observables compare decays involving a τ lepton with the corresponding decays
+involving light charged leptons.
+Neutral-current transitions of the form b → sℓ
++ℓ
+− can be tested through ratios such as
+R(K
+(∗)
+) = B(B → K
+(∗)µ
++µ
+−)
+B(B → K(∗)e+e−)
+. (2.56)
+These ratios compare final states with muon pairs and electron pairs. Recent measurements
+of R(K) and R(K
+∗
+) are compatible with SM predictions [23, 24]. However, measurements of
+
+2.3 Possible Solutions to the Remaining Problems of the Standard Model 21
+R(D) and R(D
+∗
+) continue to show tensions with SM predictions. The HFLAV CKM 2025
+average gives a combined discrepancy of about 3.8σ with respect to the SM prediction [25]
+as shown in Figure 2.1. These observables remain important motivations for models that
+couple differently to different lepton generations.
+0.2 0.3 0.4 0.5
+R(D)
+0.2
+0.25
+0.3
+0.35
+0.4
+R(D*)
+HFLAV SM Prediction
+L-QCD FLAG24 (Nf=2+1 for R(D*))
+R(D) = 0.296 ± 0.004
+R(D*) = 0.254 ± 0.005
+R(D) = 0.2938 ± 0.0054
+R(D*) = 0.2582 ± 0.0051
+68% CL contours
+total R(D) = 0.358 ± 0.024
+total R(D*) = 0.281 ± 0.011
+ρ = -0.374
+P(χ
+2
+) = 27%
+a LHCb
+b LHCb
+c LHCb
+b Belle
+c Belle
+a Belle BaBar
+a Belle II
+b Belle II
+Average
+HFLAV
+Prelim. CKM2025
+HFLAV
+CKM2025
+Fig. 2.1 Average of R(D
+∗
+) and R(D) [25] measured by the BaBar [26, 27], Belle [28–31],
+Belle-II [32, 33], and LHCb [34–36] experiments.
+2.3 Possible Solutions to the Remaining Problems of the
+Standard Model
+Many extensions of the SM have been proposed to address one or more of the problems
+described above. This section briefly introduces several representative ideas: supersymmetry,
+axions, and leptoquarks. These models are not mutually exclusive, and in many cases they
+address different aspects of the SM’s limitations.
+2.3.1 Supersymmetry
+Supersymmetry (SUSY) is a spacetime symmetry relating bosons and fermions [37, 38]. In
+supersymmetric theories, each SM particle is accompanied by a superpartner whose spin
+differs by one half unit. The fermionic superpartners of bosons are conventionally named
+by adding the suffix ‘-ino’, such as the gluino, wino, bino, and higgsino, while the bosonic
+superpartners of fermions are named by adding the prefix ‘s-’, such as squarks and sleptons.
+
+22 Theoretical Background
+If supersymmetry were exact, particles and their superpartners would have equal masses.
+Since no such superpartners have been observed, SUSY must be broken if it is realised in
+nature.
+One of the main motivations for SUSY is the hierarchy problem. Loop corrections to
+the Higgs mass from SM particles can be cancelled by corresponding contributions from
+their superpartners, reducing the sensitivity of the electroweak scale to very high energy
+scales [39, 38]. In models with conserved R-parity, supersymmetric particles are produced
+in pairs and the lightest supersymmetric particle (LSP) is stable [40, 38]. If the LSP is
+electrically neutral and weakly interacting, such as a neutralino in many SUSY scenarios, it
+can provide a dark matter candidate [41, 42]. SUSY can also improve the unification of gauge
+couplings at high energy, since the additional superpartners modify the renormalisation-group
+evolution of the gauge couplings [43, 44]. However, no direct evidence for supersymmetric
+particles has yet been observed, and the simplest low-scale SUSY scenarios are increasingly
+constrained by collider searches [45].
+2.3.2 Axions and the strong CP problem
+The Peccei–Quinn mechanism provides a dynamical solution to the strong CP problem [46,
+47]. It introduces a new global chiral symmetry, usually denoted as the Peccei–Quinn symme￾try U(1)PQ, which is spontaneously broken. The associated pseudo-Nambu–Goldstone boson
+is the axion [48, 49]. The axion field dynamically relaxes the effective value of θ¯ to zero,
+thereby explaining the absence of observable strong CP violation. In many models, axions or
+axion-like particles can also contribute to the dark matter density of the universe [50].
+2.3.3 Leptoquarks
+Leptoquarks provide another well-motivated class of particles beyond the Standard Model.
+They are hypothetical bosons that couple directly to a quark and a lepton, thereby connecting
+the quark and lepton sectors. Such particles appear naturally in several extensions of the SM,
+including models based on quark–lepton unification, such as the Pati–Salam framework [51].
+Leptoquarks are particularly interesting because they can affect semileptonic processes.
+This makes them relevant to the flavour anomalies observed in several B-meson decay
+measurements, where the experimental results have shown tensions with the SM predictions
+in observables testing lepton-flavour universality.
+Among the possible leptoquark scenarios, the vector singlet leptoquark U1 is especially
+well motivated for charged-current anomalies such as b → cτν. This motivates collider
+
+2.3 Possible Solutions to the Remaining Problems of the Standard Model 23
+searches for final states containing hadronically decaying τ leptons. The following chapter
+introduces the leptoquark models in more detail and the leptoquark searches at the LHC.
+
+
+
+Chapter 3
+Leptoquark Search at the LHC
+3.1 Leptoquark Models and Phenomenology
+3.1.1 General properties of leptoquarks
+Leptoquarks (LQs) are hypothetical colour-charged bosons that couple directly to a quark
+and a lepton and therefore mediate interactions connecting the quark and lepton sectors.
+Depending on their spin, leptoquarks can be classified as scalar leptoquarks with spin zero or
+vector leptoquarks with spin one. They appear in several theoretical frameworks, including
+grand unified theories such as SU(5) and SO(10), quark–lepton unification models such as
+the Pati–Salam model, composite models, and models motivated by flavour anomalies [52,
+51, 53].
+Leptoquarks are particularly interesting in the context of semileptonic flavour physics.
+Their tree-level exchange can generate effective four-fermion interactions involving two
+quark fields and two lepton fields. Such interactions can modify flavour observables in
+processes such as b → cτν and b → sℓ
++ℓ
+−. In addition, the flavour structure of LQ couplings
+is model dependent and can be arranged to favour interactions with third-generation fermions.
+This feature is motivated by the distinctive role of the top quark, bottom quark, and τ-lepton
+in many flavour-motivated scenarios.
+At the LHC, leptoquarks can be searched for directly. Since they carry colour charge,
+they can be pair-produced through QCD interactions. Additional production modes, such as
+single production or non-resonant exchange, are also possible, depending on the LQ coupling
+to SM quarks and leptons. Therefore, the LQ searches in ATLAS provide information
+complementary to low-energy flavour measurements: flavour observables probe virtual
+effects through precision measurements, while the search at pp collider probes direct LQ
+production or high-energy virtual exchange.
+
+26 Leptoquark Search at the LHC
+3.1.2 The simplified U1 leptoquark model
+Several leptoquark representations have been studied in connection with semileptonic B￾meson anomalies, including the scalar singlet S1 and the scalar doublet R2. In this thesis,
+however, the benchmark interpretation is based on the vector singlet leptoquark U1. The U1
+benchmark is well motivated because its left-handed coupling to quark and lepton doublets
+can generate the SM-like vector operator relevant to b → cτν. In addition, flavour structures
+with enhanced couplings to third-generation fermions naturally lead to final states involving
+τ-leptons, neutrinos, and jets.
+The U1 leptoquark transforms as U
+µ
+1 ∼ (3,1,2/3) under the SM gauge group. It is
+therefore a colour-triplet, weak-singlet vector boson with hypercharge Y = 2/3. Since it is
+an SU(2) singlet, its electric charge is Q = T
+3 +Y = 2/3.
+A commonly used simplified-model Lagrangian [54] for U1 is
+LU =−
+1
+2
+U
+†
+1µνU
+µν
+1 +M2
+UU
+†
+1µU
+µ
+1
+−igc(1−κc)U
+†
+1µ
+T
+aU1νG
+aµν −i
+2
+3
+gY (1−κY )U
+†
+1µU1νB
+µν
++
+
+U
+µ
+1
+Jµ +h.c.
+
+. (3.1)
+Here U
+µ
+1
+is the vector leptoquark field and MU is the leptoquark mass. The first term is
+the kinetic term, while the second term is the mass term. The field-strength tensor of U1 is
+defined as
+U1µν = DµU1ν −DνU1µ, (3.2)
+with the covariant derivative
+Dµ = ∂µ −igcG
+a
+µT
+a −i
+2
+3
+gYBµ. (3.3)
+Here gc and gY are the colour and hypercharge gauge couplings. The fields G
+a
+µ
+and Bµ are the
+gluon and hypercharge gauge fields, and G
+aµν and B
+µν are their corresponding field-strength
+tensors. The matrices T
+a
+are the generators of SU(3). For a colour-triplet field, they are
+given by T
+a = λ
+a/2, where λ
+a
+are the Gell-Mann matrices and a = 1,...,8.
+The parameters κc and κY control the interactions of the vector leptoquark with the SM
+gauge fields. κc = κY = 0 corresponds to the Yang–Mills scenario, whereas κc = κY = 1
+corresponds to the minimal-coupling scenario [54, 55]. The Yang–Mills scenario is adopted
+throughout this thesis.
+
+3.1 Leptoquark Models and Phenomenology 27
+The last term in Eq. (3.1) describes the interaction of U1 with SM fermions through the
+current Jµ. It is given by
+Jµ =
+gU
+√
+2
+
+β
+iα
+L
+
+q¯
+i
+L
+γµℓ
+α
+L
+
++β
+iα
+R
+
+d¯
+i
+R
+γµe
+α
+R
+ . (3.4)
+Here i = 1,2,3 labels the quark generation and α = 1,2,3 labels the lepton generation. q
+i
+L
+and ℓ
+α
+L
+are left-handed quark and lepton doublets, while d
+i
+R
+and e
+α
+R
+are right-handed down￾type quark and charged-lepton singlets. The parameter gU denotes the overall strength of
+the U1 coupling to fermions. The matrices β
+iα
+L
+and β
+iα
+R
+are complex 3×3 flavour-coupling
+matrices for the left- and right-handed interactions, respectively. The strength of a given
+flavour coupling is therefore proportional to gU β
+iα
+L,R
+.
+The down-quark and charged-lepton mass eigenstate basis is adopted for the SU(2)
+multiplets [54]:
+q
+i
+L =
+ 
+V
+∗
+jiu
+j
+L
+d
+i
+L
+!
+, ℓα
+L =
+ 
+ν
+α
+L
+e
+α
+L
+!
+, (3.5)
+where V is the CKM matrix.
+Expanding the left-handed current from Eq. 3.4 gives
+q¯
+i
+L
+γµℓ
+α
+L = Vjiu¯
+j
+L
+γµν
+α
+L +d¯
+i
+L
+γµe
+α
+L
+. (3.6)
+This expression shows that a single left-handed flavour coupling β
+iα
+L
+gives two related
+interactions. One involves an up-type quark together with a neutrino, while the other involves
+a down-type quark together with a charged lepton.
+The simplified U1 model allows general flavour couplings to different quark and lepton
+generations [54]. Meanwhile, we focus on the charged-current b → cτν transition and
+the signatures containing a τ-lepton and a neutrino. Therefore, the couplings to second￾generation leptons in our benchmark are set to zero, which is β
+22
+L = β
+32
+L = 0, and only
+the couplings involving third-generation leptons are retained. Finally, the flavour-coupling
+matrices are taken to be
+βL =
+
+
+0 0 β
+13
+L
+0 0 β
+23
+L
+0 0 β
+33
+L
+
+, βR =
+
+
+0 0 0
+0 0 0
+0 0 β
+33
+R
+
+. (3.7)
+The third-generation coupling is normalised to β
+33
+L = 1, while gU remains a free parameter
+controlling the overall fermionic coupling strength.
+
+28 Leptoquark Search at the LHC
+Within this benchmark, β
+23
+L
+controls the sτ and cντ coupling through the CKM factor
+Vcs, while β
+33
+L
+controls the bτ coupling and contributes cντ coupling as Vcbβ
+33
+L
+.
+The heavy U1 field can be integrated out at the matching scale µ ∼ MU . At tree level, its
+exchange generates four-fermion operators involving left- and right-handed quark and lepton
+fields [56]. The corresponding effective Lagrangian can be written as
+L
+U
+eff = −
+2
+v
+2
+
+C
+i jαβ
+LL O
+i jαβ
+LL +C
+i jαβ
+RR O
+i jαβ
+RR +
+
+C
+i jαβ
+LR O
+i jαβ
+LR +h.c.
+
+
+. (3.8)
+The four-fermion operators are defined as
+O
+i jαβ
+LL =
+
+q¯
+i
+L
+γµℓ
+α
+L
+
+
+¯ℓ
+β
+L
+γ
+µ
+q
+j
+L
+
+, (3.9)
+O
+i jαβ
+RR =
+
+d¯
+i
+R
+γµe
+α
+R
+
+
+e¯
+β
+R
+γ
+µ
+d
+j
+R
+
+, (3.10)
+O
+i jαβ
+LR =
+
+q¯
+i
+L
+γµℓ
+α
+L
+
+
+e¯
+β
+R
+γ
+µ
+d
+j
+R
+
+. (3.11)
+The Wilson coefficients are
+C
+i jαβ
+LL = CU β
+iα
+L
+
+β
+jβ
+L
+∗
+, (3.12)
+C
+i jαβ
+RR = CU β
+iα
+R
+
+β
+jβ
+R
+∗
+, (3.13)
+C
+i jαβ
+LR = CU β
+iα
+L
+
+β
+jβ
+R
+∗
+. (3.14)
+The overall coefficient is defined as
+CU =
+g
+2
+U
+v
+2
+4M2
+U
+, (3.15)
+where v ≃ 246 GeV is the Higgs vacuum expectation value. The coefficientCU sets the overall
+strength of the effective interaction and scales as g
+2
+U
+/M2
+U
+, while the flavour dependence is
+encoded in the coupling matrices βL and βR.
+The effective Lagrangian for the b → cτν transition can be written as:
+L
+b→cτν
+eff = −
+4GF
+√
+2
+Vcb
+(1+C
+c
+LL)
+
+c¯LγµbL
+
+(τ¯Lγ
+µ
+ντL)
+−2C
+c
+LR (c¯LbR) (τ¯RντL)
+
+, (3.16)
+
+3.1 Leptoquark Models and Phenomenology 29
+where GF is the Fermi constant. The coefficient C
+c
+LL modifies the SM-like left-handed vector
+interaction, while C
+c
+LR is associated with the scalar operator arising from the combination of
+left- and right-handed fermion couplings of the U1 leptoquark.
+For the flavour structure introduced above, the corresponding coefficients are
+C
+c
+LL = CU
+
+β
+33
+L
+∗
+Vcb
+
+Vcdβ
+13
+L +Vcsβ
+23
+L +Vcbβ
+33
+L
+
+, (3.17)
+C
+c
+LR = CU
+
+β
+33
+R
+∗
+Vcb
+
+Vcdβ
+13
+L +Vcsβ
+23
+L +Vcbβ
+33
+L
+
+, (3.18)
+Using the normalisation β
+33
+L = 1 and neglecting the small first-generation coupling β
+13
+L
+,
+the coefficients reduce to1
+C
+c
+LL ≃ CU
+
+1+
+Vcs
+Vcb
+β
+23
+L
+
+, (3.19)
+C
+c
+LR ≃ CU
+
+β
+33
+R
+∗
+
+1+
+Vcs
+Vcb
+β
+23
+L
+
+. (3.20)
+3.1.3 Low-energy fit and benchmark scenarios
+The Wilson coefficients C
+c
+LL and C
+c
+LR introduced above can be constrained using measure￾ments of semileptonic charged-current B-meson decays. Ref. [56] performed a combined
+fit to low-energy b → cτν observables and determines the preferred region in the (C
+c
+LL,C
+c
+LR)
+plane. The fit result is shown in Fig. 3.1. The Wilson coefficients in this figure are evolved
+to a common reference scale of 1 TeV to facilitate comparison with high-energy observ￾ables. The best-fit point is (C
+c
+LL,C
+c
+LR) = (0.05,−0.02), and the preferred region is compatible
+with both pure-left-handed (β
+33
+R = 0) and sizeable right-handed (β
+33
+R = −1) scenarios [56].
+Although the sign of β
+33
+R
+is relevant to the low-energy relation between C
+c
+LL and C
+c
+LR, the
+collider predictions used in this thesis are identical for β
+33
+R = +1 and −1. The new-physics
+amplitudes with different fermion chiralities do not interfere, and the amplitude proportional
+to a product of left- and right-handed couplings does not interfere with the SM amplitude.
+The collider interpretation therefore depends only on |β
+33
+R
+|.
+Pure-left-handed scenario. For β
+33
+R = 0, Eq. 3.20 gives C
+c
+LR = 0. Therefore, the U1
+leptoquark contribution to b → cτν is described only by the left-handed vector operator,
+as given by Eq. 3.19. This is the primary benchmark scenario considered in this thesis.
+1The small first-generation coupling β
+13
+L = (V
+∗
+td/V
+∗
+ts)β
+23
+L ∼ 0.2β
+23
+L
+.
+
+30 Leptoquark Search at the LHC
+-0.10 -0.05 0.00 0.05 0.10 0.15 0.20 -0.15
+-0.10
+-0.05
+0.00
+0.05
+0.10
+Fig. 3.1 The result in (C
+c
+LL,C
+c
+LR) plane obtained from the fit to low-energy b → cτν observ￾ables. The blue solid ellipses correspond to the 1, 2 and 3σ contours. The blue dotted lines
+are obtained including also the constraint from B(B
+−
+u → τν¯). The black point indicates the
+best-fit point of the fit, (C
+c
+LL,C
+c
+LR) = (0.05,−0.02). The coloured bands show the ∆χ
+2 = 1
+regions preferred by the individual observables. The pure-left-handed scenario (β
+33
+R = 0) and
+the equal magnitude right-handed scenario (β
+33
+R = −1) are given by the black solid lines [56].
+
+3.1 Leptoquark Models and Phenomenology 31
+The corresponding B-anomaly-favoured region can be obtained from the intersection of the
+low-energy fit with the line C
+c
+LR = 0 in Fig. 3.1.
+Right-handed scenario. The second benchmark is obtained by allowing a sizeable right￾handed third-generation coupling. For β
+33
+R = −1, the relation between the Wilson coefficients
+becomes
+C
+c
+LR = −C
+c
+LL. (3.21)
+This benchmark therefore corresponds to the diagonal line in Fig. 3.1, where the right-handed
+third-generation coupling has the same magnitude as the left-handed coupling.
+The two scenarios are described by the parameter space (β
+23
+L
+,MU ,gU ) with different
+fixed values of β
+33
+R
+. Particular emphasis is placed on β
+23
+L
+, since charged-current low-energy
+data alone do not provide a stringent constraint on this coupling. For fixed MU and gU , β
+23
+L
+has a strong impact on C
+c
+LL because its contribution is enhanced by the CKM ratio Vcs/Vcb.
+Indeed, one can constrain the size of β
+23
+L
+by considering possible ultraviolet (UV)
+completions of the simplified U1 model. While the simplified model parametrises the relevant
+interactions directly in terms of the couplings β
+i j
+L
+, the UV completion provides a more
+fundamental description of their origin. One example is the “4321” model, which is based on
+the extended gauge group G4321 = SU(4)×SU(3)
+′×SU(2)L×U(1)
+′
+. In the flavour structure
+considered in this model, the U1 couplings are non-universal, with |β
+23
+L
+| < |β
+33
+L
+| [54].
+Additional constraints can be introduced when considering ∆F = 2 observables. These are
+processes in which a quark-flavour quantum number changes by two units, including neutral￾meson mixing such as Bs–B¯
+s
+, K–K¯, and D–D¯ mixing. In a given UV completion, the flavour￾symmetry breaking that generates non-universal U1 couplings may also be transmitted to the
+neutral-current sector, inducing flavour-changing neutral currents (FCNC) and consequently
+additional contributions to ∆F = 2 processes. The strong experimental constraints on neutral￾meson mixing therefore restrict the allowed flavour-violating structure of the UV model and
+indirectly constrain β
+23
+L
+.
+Combining such considerations of the UV flavour structure with constraints from ∆F = 2
+observables, Ref. [56] identifies
+β
+23
+L ∈ [0.06,0.16] (3.22)
+as a theoretically motivated range for experimental searches. However, this constraint
+should not be interpreted as a model-independent experimental bound on β
+23
+L
+. Ad￾ditional particles, flavour symmetries, or cancellation mechanisms may suppress flavour-
+
+32 Leptoquark Search at the LHC
+changing transitions and thereby allow larger values of β
+23
+L
+. Therefore, large values of β
+23
+L
+remain a possibility within the U1 model, and it is important to test this complementary
+region directly.
+3.1.4 Leptoquark searches at the LHC
+Leptoquarks can be searched for at the LHC through several production modes, including
+pair production, resonant single production, and non-resonant t-channel exchange. Pair
+production is dominated by QCD interactions. For a fixed κ choice, its cross section depends
+strongly on MU but weakly on the couplings gU and β
+iα
+. Pair-production searches therefore
+provide relatively robust constraints on the leptoquark mass.
+ATLAS and CMS have performed searches for pair-produced leptoquarks coupling to
+third-generation fermions in final states containing τ-leptons, b-jets, and, depending on the
+decay mode, missing transverse momentum [57, 58]. For the vector U1, the mass limit
+extends to approximately 1.5–1.8 TeV as shown in Fig. 3.3. The limit also depends on the
+choice of the U1–gluon coupling, such as the Yang–Mills or minimal-coupling scenario, as
+well as on the decay pattern determined by the assumed fermionic couplings.
+For single production, the cross section also depends strongly on the leptoquark–fermion
+couplings. Searches for singly produced leptoquarks decaying into bτ have been performed in
+the bττ final state, where the leptoquark is produced in association with a τ-lepton as shown
+in Fig. 3.2a [57, 59]. In addition, virtual t-channel U1 exchange can contribute to final states
+such as ττ or τν, enhancing the event yields in the high-mass region. ATLAS and CMS have
+therefore searched for non-resonant leptoquark contributions in high-mass ττ production
+[59–61]. These searches can remain sensitive to masses beyond the reach of the direct
+pair-production searches, particularly for large gU , since the sensitivity is approximately
+governed by gU /MU .
+(a) Single production (b) Pair production (c) Non-resonant t-channel
+Fig. 3.2 Example Feynman diagrams of LQ production and exchange process for ττ(+b)
+searches.
+
+3.1 Leptoquark Models and Phenomenology 33
+1000 1500 2000 2500 3000
+)[GeV] YM
+1
+m(U
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+λbτ
+observed
+expected
+ττ
+[arXiv:2503.19836]
+bτbτ/bτtν/tνtν (comb.)
+[PLB 854 (2024) 138736]
+B anomalies preferred (90% CL)
+[EPJC 83 (2023) 153]
+bττ
+[JHEP 10 (2023) 001 ]
+Single+Pair+Non-resonant production, limits at 95% CL March 2025
+ATLAS Preliminary
+-1 s=13 TeV, 139 fb
+Yang-Mills coupling
+Fig. 3.3 Summary of the observed and expected 95% CL constraints on the U1 vector￾leptoquark coupling λbτ as a function of the leptoquark mass in the Yang–Mills coupling
+scenario, with β
+33
+R = 0. Pair-production searches dominate the direct mass constraint at lower
+masses, while single-production and ττ searches provide coupling-dependent sensitivity at
+larger masses. Here λbτ = gU /
+√
+2 for β
+33
+L = 1 [62].
+On the other hand, the existing ττ(+b) searches generally assume β
+23
+L
+to be small
+or neglect its contribution, motivated by the flavour assumptions discussed in Sec. 3.1.3.
+Consequently, scenarios with a sizeable cντ coupling, and in particular the large-β
+23
+L
+region,
+have not been systematically explored at the LHC.
+The τν final state provides a complementary probe of the bτ and cντ coupling. CMS
+has performed an inclusive search for events with a hadronically decaying τ-lepton and
+large missing transverse momentum, including an interpretation in terms of leptoquark
+exchange [63], but without an explicit b-jet requirement. This thesis presents a dedicated
+search in the τν(+b) final state. Prior to the analysis, no dedicated ATLAS or CMS
+leptoquark search had targeted this topology. The τν(+b) search presented here is therefore
+complementary to the existing ττ(+b) searches: it probes both the bτ and cντ couplings and
+extends the collider interpretation to large values of β
+23
+L
+. The corresponding benchmark and
+target signatures are introduced in the following subsection.
+
+34 Leptoquark Search at the LHC
+3.1.5 Signal model and target signatures
+In this thesis, we focus on the simplified U1 model introduced in Sec. 3.1.2 in the Yang–
+Mills scenario, corresponding to κc = κY = 0 in Eq. 3.1. The third-generation coupling is
+normalised to β
+33
+L = 1, while the primary interpretation assumes a pure-left-handed scenario
+(β
+33
+R = 0). An additional interpretation including a right-handed coupling is presented with
+the final results. Therefore, the signal is characterised by (MU ,gU ,β
+23
+L
+).
+Figure 3.4 shows representative U1 signal diagrams targeted by the analysis. Both
+resonant single production and non-resonant t-channel exchange are considered, and each
+is divided according to the presence or absence of a b-tagged jet. This results in four
+target signatures: resonant τν +b, non-resonant τν +b, resonant τν +0b, and non-resonant
+τν +0b.
+g
+c¯
+τ
+ν¯τ
+¯b/s¯
+LQ
+g
+c¯ ν¯τ
+¯b/s¯
+τ
+LQ
+Fig. 3.4 Signal diagrams targeted in this analysis: non-resonant t-channel exchange (left) and
+resonant single production (right). The final-state jet can originate from a b- or s-quark.
+The b-jet requirement provides strong discrimination against the dominant SM τν +jets
+background, since genuine SM production of a τν system in association with a b-quark
+is CKM suppressed [64]. The τν +b categories are therefore particularly sensitive to the
+combination of the bτ and cντ interactions relevant to b → cτν.
+The zero-b categories extend the sensitivity to the large β
+23
+L
+region explored in this thesis.
+As β
+23
+L
+increases, the sτ interaction also becomes sizeable, producing signal events without a
+final-state b-quark. This contribution is particularly relevant for resonant production, where
+an on-shell U1 can decay into sτ. The four categories therefore provide complementary
+sensitivity to the different flavour and production configurations of the U1 signal.
+
+Chapter 4
+LHC-ATLAS Experiment
+4.1 Large Hadron Collider
+The European Organisation for Nuclear Research (CERN) is an international particle-physics
+laboratory located near Geneva on the border between France and Switzerland. Since its foun￾dation in 1954, CERN has developed and operated a chain of accelerators and experimental
+facilities to study the fundamental constituents of matter and their interactions [65]. The
+Large Hadron Collider (LHC) is the largest and highest-energy particle collider in the CERN
+accelerator complex. It is installed in the former Large Electron–Positron Collider (LEP)
+tunnel, which has a circumference of about 27 km and lies between approximately 45 m and
+170 m below the surface [66, 67]. A schematic overview of the LHC ring and its interaction
+points is shown in Fig. 4.1.
+The LHC was proposed as the next major collider after LEP. The first circulating beams
+were achieved in 2008, and the first physics run began in 2010. The discovery of a new boson
+compatible with the Standard Model (SM) Higgs boson by the ATLAS and CMS experiments
+in 2012 marked one of the central achievements of the LHC physics programme [11, 12].
+Beyond Higgs-boson measurements and precision studies of SM processes, a major purpose
+of the LHC is to search for new particles and interactions beyond the SM.
+The LHC collides protons at high centre-of-mass energies in order to extend the kinematic
+reach for the production of heavy particles. For two proton beams with equal beam energy
+Ebeam, the proton–proton centre-of-mass energy is approximately √
+s = 2Ebeam. However,
+the hard-scattering process in a proton–proton (pp) collision occurs between partons, namely
+quarks and gluons, which carry only fractions of the proton momenta. The partonic centre￾of-mass energy therefore varies from event to event and is generally lower than the nominal
+pp collision energy. Increasing √
+s consequently extends the accessible mass range for new
+heavy particles.
+
+36 LHC-ATLAS Experiment
+Fig. 4.1 Schematic layout of the CERN accelerator complex, including the LHC ring and its
+main interaction regions [68].
+Another key machine parameter is the luminosity, which quantifies the collision rate per
+unit cross section. For a process with cross section σ, the production rate is
+R = Lσ, (4.1)
+where L is the instantaneous luminosity. For two Gaussian bunches colliding with frequency
+fcoll, the luminosity can be expressed as [69]
+L = fcoll
+n1n2
+4πσ∗
+x σ∗
+y
+F, (4.2)
+where n1 and n2 are the numbers of particles in the two colliding bunches, σ
+∗
+x
+and σ
+∗
+y
+are the
+RMS transverse beam sizes in the horizontal and vertical directions at the interaction point,
+and F is a geometrical reduction factor accounting for effects such as the crossing angle.
+The integrated luminosity,
+Lint =
+Z
+Ldt, (4.3)
+
+4.1 Large Hadron Collider 37
+determines the total expected number of produced events by N = σLint. High instantaneous
+luminosity increases the event rate, while high integrated luminosity improves the sensitivity
+to rare processes with small production cross sections.
+Four major experiments are installed around the LHC ring. ATLAS, located at Point 1,
+and CMS, located at Point 5, are general-purpose detectors designed for a broad physics
+programme including Higgs-boson measurements, precision SM studies, and searches for
+new particles. ALICE, located at Point 2, is optimised for heavy-ion physics and the study of
+strongly interacting matter at high energy density. LHCb, located at Point 8, is designed for
+precision studies of heavy-flavour hadrons and flavour-changing processes [66]. The analysis
+presented in this thesis uses data recorded by the ATLAS detector.
+The LHC physics programme is organised into run periods. Run 1 took place from 2010
+to 2012, with pp collision data recorded at √
+s = 7 TeV and √
+s = 8 TeV. Run 2 took place
+from 2015 to 2018 at √
+s = 13 TeV. After standard data-quality selections, the full ATLAS
+Run 2 pp dataset corresponds to an integrated luminosity of 140.1±1.2 fb−1
+, with a relative
+uncertainty of 0.83% [70]. Run 3 began in 2022 after the second long shutdown and operated
+at the higher centre-of-mass energy of √
+s = 13.6 TeV [71]. The Run 2 dataset is used for
+the leptoquark search presented in this thesis.
+An important consequence of high-luminosity operation at the LHC is pile-up. The
+proton beams are divided into bunches, and a bunch crossing occurs when bunches from the
+two beams pass through the interaction point. Several pp interactions can occur in a single
+bunch crossing. The interaction corresponding to the hard-scattering process of interest is
+referred to as the hard-scatter interaction, while additional inelastic pp interactions in the
+same bunch crossing constitute in-time pile-up. Detector signals may also originate from
+interactions in neighbouring bunch crossings, depending on the detector response time. This
+contribution is referred to as out-of-time pile-up.
+The mean number of inelastic pp collisions per bunch crossing is commonly denoted
+by µ. During Run 2, the nominal bunch spacing was 25 ns, corresponding to a maximum
+bunch-crossing frequency of 40 MHz. The luminosity-weighted mean value over the full
+Run 2 dataset was ⟨µ⟩ = 33.7, corresponding to approximately 34 interactions per bunch
+crossing [72].
+Pile-up has an important impact on event reconstruction. It produces extra charged￾particle tracks, calorimeter energy deposits, and reconstructed jets. These contributions
+can affect the reconstruction of the primary vertex, jet energies, hadronically decaying
+τ-leptons, flavour-tagged jets, and missing transverse momentum. Pile-up effects must
+therefore be modelled in simulated samples and mitigated through dedicated reconstruction
+and calibration procedures.
+
+38 LHC-ATLAS Experiment
+4.2 ATLAS experiment
+4.2.1 Overview
+ATLAS, which stands for A Toroidal LHC ApparatuS, is a detector located at Point 1 of
+the Large Hadron Collider. It was designed to exploit the full physics potential of the LHC,
+including precision measurements of SM processes, studies of the Higgs boson, and searches
+for new physics beyond the SM. The detector surrounds the nominal interaction point and
+provides nearly full solid-angle coverage, allowing the reconstruction of a wide range of
+final-state particles produced in proton–proton collisions.
+The ATLAS detector is approximately 44 m long, 25 m in diameter, and has a total
+weight of about 7000 tonnes [73]. It has a cylindrical, forward–backward symmetric layout
+centred on the interaction point. A schematic view of the detector is shown in Figure 4.2.
+Fig. 4.2 Schematic view of the ATLAS detector and its subdetector systems [73].
+Starting from the beam line and moving outwards, the main detector systems are the
+Inner Detector (ID), the calorimeters, and the Muon Spectrometer (MS) [73]:
+• Inner Detector (ID) is immersed in a 2 T axial magnetic field provided by a thin
+superconducting solenoid and is used to reconstruct charged-particle trajectories close
+to the interaction point.
+• Calorimeters surround the ID and measure the energies of electrons, photons, hadrons,
+hadronically decaying τ-leptons, and jets.
+
+4.2 ATLAS experiment 39
+• Muon Spectrometer (MS) forms the outermost major detector system and measures
+muons in the magnetic field generated by large superconducting toroids.
+The magnetic fields provided by the solenoid and toroids allow the momentum and charge
+of charged particles to be determined from the curvature of their trajectories. The trigger
+and data acquisition system selects potentially interesting events from the high LHC bunch￾crossing rate for permanent storage and offline reconstruction.
+The detector configuration described in this chapter corresponds primarily to Run 2.
+Several detector and trigger upgrades were installed for Run 3 to cope with higher luminosity
+conditions, but these upgrades are not used in the analysis presented in this thesis [74].
+4.2.2 Coordinate system
+ATLAS uses a right-handed coordinate system centred at the nominal interaction point. The
+z-axis is defined along the beam direction, the x-axis points from the interaction point towards
+the centre of the LHC ring, and the y-axis points upwards [73]. Cylindrical coordinates (r,φ)
+are used in the plane transverse to the beam, where r is the distance from the beam axis and
+φ is the azimuthal angle around the z-axis.
+The polar angle θ is measured with respect to the positive z-axis. The pseudorapidity η
+is defined as
+η = −lntan
+θ
+2
+
+. (4.4)
+The transverse momentum is defined as pT = psinθ, and the transverse energy is defined
+similarly. The angular separation between two reconstructed objects is commonly expressed
+as
+∆R =
+q
+(∆η)
+2 + (∆φ)
+2
+. (4.5)
+These quantities are used throughout this thesis to describe object kinematics, angular
+separations, overlap removal, and event selections. Figure 4.3 illustrates the coordinate
+system used in ATLAS.
+4.2.3 Magnet system
+The ATLAS magnet system consists of four large superconducting magnets: a central
+solenoid, one barrel toroid, and two end-cap toroids, as shown in Figure 4.4. The central
+solenoid surrounds the Inner Detector with a length of approximately 5.3 m and provides an
+
+40 LHC-ATLAS Experiment
+Fig. 4.3 The coordinate system used in ATLAS [75].
+axial magnetic field of 2 T for charged-particle momentum measurements in the tracking
+system. The solenoid is designed to minimise the amount of inactive material in front of the
+electromagnetic calorimeter.
+The toroid system provides magnetic fields of approximately 0.5 T and 1 T in the barrel
+and end-cap regions of the Muon Spectrometer, respectively. The barrel toroid surrounds the
+calorimeter system in the central region, while the two end-cap toroids provide bending power
+in the forward regions. The toroidal field bends muon trajectories, allowing their momenta to
+be measured using the precision tracking chambers of the MS. The air-core design of the
+toroids reduces multiple scattering and helps preserve the momentum resolution for high-pT
+muons [73]. The combination of the solenoid and toroid systems allows charged-particle
+momenta to be measured independently in the ID and, for muons, in the MS.
+4.2.4 Inner Detector
+The Inner Detector (ID) is the innermost tracking system of ATLAS. It is immersed in
+the 2 T magnetic field of the central solenoid and provides tracking for charged particles
+within |η| < 2.5 [73]. During Run 2, it consisted of the pixel detector, the Semiconductor
+Tracker (SCT), and the Transition Radiation Tracker (TRT). The Insertable B-Layer (IBL) is
+installed before Run 2 as the innermost pixel layer [76]. Figure 4.5 shows a transverse view
+of the Inner Detector.
+• Insertable B-Layer (IBL) and Pixel detector
+The pixel detector provides high-granularity measurements close to the beam line. Its
+precise spatial resolution is essential for reconstructing tracks near the interaction point
+and for identifying displaced vertices from the decays of long-lived particles such
+
+4.2 ATLAS experiment 41
+Fig. 4.4 Layout of the ATLAS superconducting magnet system, including the central solenoid,
+barrel toroid, and end-cap toroids [73].
+as b- and c-hadrons. The IBL further improves the impact-parameter resolution and
+enhances the robustness of tracking and flavour tagging under high pile-up conditions.
+• Semiconductor Tracker (SCT)
+The SCT surrounds the pixel detector and forms the intermediate precision-tracking
+system of the ID. It is a silicon microstrip detector covering |η| < 2.5, consisting of four
+cylindrical barrel layers and two end-caps with nine disks on each side. Each module
+contains silicon strip sensors arranged back-to-back with a small stereo angle, allowing
+two-dimensional position information to be reconstructed. The SCT typically provides
+four space-point measurements per track, improving pattern recognition, momentum
+reconstruction, and vertex reconstruction when combined with the high-granularity
+pixel measurements.
+• Transition Radiation Tracker (TRT)
+The TRT is the outermost tracking subsystem of the ID and provides tracking in￾formation at larger radii, covering approximately |η| < 2.0 [73]. It is based on thin
+straw-tube drift chambers, which provide a large number of measurements along the
+trajectory of each charged particle. Although the spatial precision of each TRT hit is
+lower than that of the silicon detectors, the large number of straw hits and the longer
+lever arm improve the momentum measurement and help stabilise track reconstruction.
+Together, these subsystems provide the tracking information needed in ATLAS.
+
+42 LHC-ATLAS Experiment
+Fig. 4.5 Transverse view of the ATLAS Inner Detector, showing the IBL, pixel detector, SCT,
+and TRT subsystems [76].
+4.2.5 Calorimeter
+The ATLAS calorimeter system surrounds the Inner Detector and measures the energies and
+directions of particles. It consists of electromagnetic (EM) and hadronic calorimeters, as
+shown in Figure 4.6. Specifically, it provides measurements of charged particles, photons
+and jets, and covers the region up to |η| < 4.9. It also provides the shower information to the
+Level-1 trigger system.
+• Electromagnetic (EM) calorimeter
+The EM calorimeter uses liquid argon (LAr) as the active medium and lead absorbers
+arranged in an accordion geometry, as shown in Figure 4.7. The accordion geometry
+provides continuous azimuthal coverage and fine segmentation of electromagnetic
+showers [73]. The EM calorimeter is divided into a barrel section covering |η| < 1.475
+and two end-cap sections covering 1.375 < |η| < 3.2. It is used to reconstruct and
+identify electrons and photons and also contributes to the reconstruction of hadronically
+decaying τ-leptons, particularly through the measurement of electromagnetic energy
+deposits from neutral-pion decays, which don’t leave the charged-particle tracks in the
+ID.
+The EM calorimeter consists of a presampler followed by three longitudinal sampling
+layers, each segmented into readout cells, as illustrated in Figure 4.8. The presampler
+
+4.2 ATLAS experiment 43
+Fig. 4.6 Schematic view of the ATLAS calorimeter system [73].
+is installed for |η| < 1.8 and is used to correct for energy lost in material upstream of
+the calorimeter. The first sampling layer has fine segmentation in η, which is useful
+for resolving the transverse shape of electromagnetic showers, while the middle layer
+collects the largest fraction of the shower energy. The back layer provides an additional
+measurement of the longitudinal shower development.
+The energy resolution of the electromagnetic calorimeter can be parameterised as
+σE
+E
+=
+a
+√
+E
+⊕b⊕
+c
+E
+, (4.6)
+where a is the intrinsic sampling term, b is the constant term, and c represents the
+contribution from electronic and pile-up noise [77].
+• Hadronic calorimeter
+The hadronic calorimeter uses different structure for different η regions. In the region
+of |η| < 1.7, the Tile Calorimeter uses steel absorbers and scintillating tiles as the
+active medium. It measures the energies of hadrons and jets. In the end-cap and
+forward regions, liquid-argon calorimeters are used. The hadronic end-cap calorimeter
+consists of two wheels per end-cap, covers the range 1.5 < |η| < 3.2, and uses copper
+absorbers. The forward calorimeter extends the coverage to 3.1 < |η| < 4.9 and uses
+
+44 LHC-ATLAS Experiment
+Fig. 4.7 Photograph of the EM barrel (left) and end-cap (right) LAr modules. The accordion
+absorber structure is visible [73].
+∆ϕ = 0.0245
+37.5mm/8 = 4.69 mm ∆η = 0.025
+∆η = 0.0031
+∆ϕ=0.0245x4
+36.8mm
+=147.3mmx4
+Trigger Tower
+Trigger Tower ∆ϕ = 0.0982
+∆η = 0.1
+16X0
+4.3X0
+2X0
+1500 mm
+470 mm
+η
+ϕ
+η = 0
+Strip cells in Layer 1
+Square cells in 
+Layer 2
+1.7X0
+Cells in Layer 3
+∆ϕ×∆η = 0.0245×0.05
+Fig. 4.8 Cut-away view of an ATLAS LAr electromagnetic calorimeter module, showing the
+longitudinal sampling layers and the segmentation of the readout cells [73].
+
+4.2 ATLAS experiment 45
+dense absorber materials suitable for the high-radiation environment close to the beam
+line [73].
+4.2.6 Muon Spectrometer
+The Muon Spectrometer (MS) forms the outermost major detector system of ATLAS. It is
+embedded in the magnetic field produced by the barrel and end-cap air-core toroid magnets.
+The bending of muon trajectories in this field is measured by precision chambers, and the
+track sagitta is used to determine the muon momentum. The MS provides precision muon
+measurements in the range |η| < 2.7, while the dedicated muon trigger chambers cover the
+region up to approximately |η| < 2.4 [73].
+During Run 2, the MS consisted of Monitored Drift Tubes (MDTs), Cathode Strip
+Chambers (CSCs), Resistive Plate Chambers (RPCs) and Thin Gap Chambers (TGCs) [73].
+A view of these chambers is shown in Figure 4.9.
+• Monitored Drift Tubes (MDTs)
+The MDT chambers provide precision tracking over most of the MS acceptance. They
+consist of aluminium drift tubes with a diameter of about 30 mm, each containing a
+central sense wire. A muon crossing a tube ionises the gas, and the drift time of the
+electrons to the wire is measured to determine the track position. Several tube layers
+are grouped into chamber stations, providing precise measurements in the bending
+plane of the toroidal magnetic field. MDT chambers are used over most of the region
+|η| < 2.7, except for the innermost forward stations at 2.0 < |η| < 2.7, where CSCs
+are used.
+• Cathode Strip Chambers (CSCs)
+The CSCs are multi-wire proportional chambers used in the innermost forward muon
+stations, where the particle rates are highest. They cover approximately 2.0 < |η| < 2.7
+and provide precision measurements in the forward region [73]. Their small drift
+distance and segmented cathode-strip readout allow them to operate efficiently in the
+high-rate environment close to the beam line.
+• Resistive Plate Chambers (RPCs)
+The RPCs provide fast muon trigger information in the barrel region, covering ap￾proximately |η| < 1.05 [73]. They are gaseous parallel-plate detectors operated in
+avalanche mode. Their fast time response allows the bunch crossing associated with a
+muon candidate to be identified and provides the Level-1 muon trigger in the barrel.
+
+46 LHC-ATLAS Experiment
+The RPCs also provide coordinate measurements complementary to the precision MDT
+chambers.
+• Thin Gap Chambers (TGCs)
+The TGCs are multi-wire proportional chambers designed to provide fast signals for the
+Level-1 trigger. They extend to approximately |η| < 2.7 and provide trigger coverage
+in the end-cap region up to |η| < 2.4 [73]. The TGC system identifies high-pT muon
+candidates and assigns them to the correct bunch crossing. It also provides a second
+coordinate measurement, complementing the precision tracking information from
+MDTs and CSCs.
+Fig. 4.9 Cross-section of the ATLAS Muon Spectrometer, showing the barrel and end-cap
+muon chambers. The green and cyan chambers represent the MDT system, while the dashed
+lines indicate infinite-momentum muon trajectories [73].
+During the second long shutdown, the innermost end-cap muon stations were replaced
+by the New Small Wheels (NSWs) for Run 3 operation. This upgrade was introduced to
+maintain good muon trigger and reconstruction performance under higher luminosity and
+pile-up conditions. The NSW detectors are therefore not relevant to the Run 2 dataset
+analysed in this thesis.
+
+4.2 ATLAS experiment 47
+4.2.7 Data Acquisition and Trigger System
+At the LHC, proton bunches can cross at a rate of up to 40 MHz for a bunch spacing of
+25 ns. This rate is far above the available detector readout and permanent-storage bandwidth.
+The ATLAS trigger and data acquisition (TDAQ) system is therefore designed to select
+potentially interesting events online and reduce the event rate to a manageable level. ATLAS
+uses a two-level trigger system consisting of a hardware-based Level-1 (L1) trigger and a
+software-based High-Level Trigger (HLT) [78].
+Level-1 (L1) trigger
+The L1 trigger is the first stage of the ATLAS online event selection. It is implemented in
+custom hardware and uses reduced-granularity detector information to make a fast decision
+with a latency of approximately 2.5 µs. It reduces the input rate from up to 40 MHz to
+at most 100 kHz [78]. The L1 trigger was based on information from the calorimeter and
+muon trigger systems, together with topological selections applied to L1 trigger objects. A
+schematic overview of the Run 2 TDAQ system is shown in Figure 4.10.
+Level-1
+L
+e
+v
+el-1
+A
+c
+c
+e
+pt
+Level-1 Muon
+Endcap
+sector logic
+Barrel
+sector logic
+Level-1 Calo
+CP (e,γ,τ) JEP (jet, E)
+Central Trigger
+Muon CTP 
+Interface
+(MUCTPI)
+L1Topo
+Central 
+Trigger 
+Processor 
+(CTP)
+Preprocessor
+Detector
+Read-Out
+ROD
+FE
+ROD
+FE ...
+DataFlow
+Read-Out System (ROS)
+Data Collection Network
+Data Storage
+Muon detectors
+Calorimeter detectors
+High Level Trigger
+(HLT)
+Processors
+RoI
+Event
+Data
+Fast TracKer
+(FTK)
+TileCal
+Accept
+Pix
+el/S
+C
+T
+Tier-0
+ROD ROD
+FE
+Fig. 4.10 Schematic overview of the ATLAS Run-2 trigger and data acquisition system [78].
+
+48 LHC-ATLAS Experiment
+• L1 calorimeter trigger (L1Calo)
+L1Calo uses reduced-granularity information from the electromagnetic and hadronic
+calorimeters to reconstruct energy deposits within the Level-1 latency. Signals from
+neighbouring calorimeter cells are combined into trigger towers in the (η,φ) plane,
+and dedicated hardware algorithms search for local maxima in the transverse-energy
+distribution by comparing the energies of neighbouring towers. The same calorimeter
+information is also summed over larger regions to reconstruct jet-like energy deposits
+and global quantities such as the total and missing transverse energy.
+• L1 muon trigger (L1Muon)
+L1Muon identifies muon candidates using fast signals from the RPCs and the TGCs.
+Hits in different trigger-chamber layers are required to form spatial coincidence patterns
+consistent with a muon trajectory, while their timing information is used to associate the
+candidate with the correct bunch crossing. The amount of bending in the magnetic field
+is used to determine whether the candidate satisfies predefined transverse-momentum
+thresholds.
+• L1 topological trigger (L1Topo)
+L1Topo receives compact trigger-object information reconstructed by L1Calo and
+L1Muon, including their transverse momentum or energy and (η,φ) positions. Dedi￾cated FPGA hardware combines these objects and calculates event-level topological
+quantities. And these quantities are compared with predefined selection requirements.
+The trigger decisions from L1Calo, L1Muon, and L1Topo are then sent to the Central
+Trigger Processor (CTP), which combines them according to the predefined L1 trigger menu.
+If at least one enabled trigger item is satisfied, the CTP issues a Level-1 Accept (L1A)
+signal for the corresponding bunch crossing. The L1A signal is distributed to the detector
+front-end electronics and initiates the transfer of the detector data associated with that bunch
+crossing from the front-end buffers to the readout system.
+For accepted events, the L1 trigger also provides Regions of Interest (RoIs), which
+identify detector regions associated with the trigger objects responsible for the L1 decision.
+These RoIs provide seed information for the HLT and allow detailed reconstruction to be
+performed initially in limited detector regions, reducing the required processing time.
+High-Level Trigger
+The HLT is the second stage of the ATLAS trigger system. It is implemented in a large
+computing farm and runs software algorithms using detector information with substantially
+
+4.2 ATLAS experiment 49
+finer granularity than is available at L1. The HLT reconstruction is guided by RoIs identified
+by the L1 trigger, while full-event reconstruction can also be used for signatures such
+as jets and missing transverse momentum. The HLT algorithms are designed to provide
+reconstruction performance close to that of the offline algorithms while remaining sufficiently
+fast for online operation. As a reuslt, the HLT reduced the L1 output rate to an average
+recording rate of approximately 1 kHz for permanent storage [78].
+The trigger menu comprises the active L1 and HLT selections used during data taking with
+prescale factors, which are applied to selected trigger items to control their rates according to
+the instantaneous luminosity and available bandwidth.
+
+
+
+Chapter 5
+Data and Monte Carlo Simulations
+Monte Carlo (MC) simulation is used to model the signal and Standard Model background
+processes and to predict their event yields and kinematic distributions in this search. Event
+generation begins by sampling the incoming partons and their momentum fractions from
+proton PDFs and evaluating the matrix element for the hard-scattering process. The outgoing
+partons are then evolved through the parton shower and hadronisation, followed by the
+decays of unstable particles. Finally, pile-up interactions and the ATLAS detector response
+are simulated, after which the events are reconstructed with the same algorithms used for
+collision data.
+This chapter describes the collision data and simulated event samples used in the search.
+The Run 2 dataset is presented first, followed by the simulated signal and Standard Model
+background samples. The trigger selections are summarised at the end of the chapter.
+5.1 Dataset selection
+The search uses the full LHC Run 2 proton–proton collision dataset recorded by the ATLAS
+detector between 2015 and 2018 at a centre-of-mass energy of √
+s = 13 TeV. Only data
+recorded during stable-beam periods and passing the relevant data-quality requirements are
+retained [72]. These periods are defined by the ATLAS good-runs lists (GRLs).
+The selected dataset corresponds to an integrated luminosity of 140.1±1.2 fb−1
+, with
+a relative uncertainty of 0.83% [70]. The integrated luminosity recorded in each year is
+summarised in Table 5.1.
+The mean pile-up during Run 2 was ⟨µ⟩ ≃ 34, as described in Section 4.1.
+
+52 Data and Monte Carlo Simulations
+Table 5.1 Integrated luminosity of the Run 2 proton–proton collision data used in this analysis.
+Year Integrated luminosity [fb−1
+]
+2015 3.24±0.04
+2016 33.40±0.30
+2017 44.63±0.50
+2018 58.79±0.64
+Total 140.07±1.17
+5.2 Signal samples
+The signal samples implement the U1 vector-leptoquark benchmark defined in Section 3.1.5.
+The Yang–Mills scenario with κc = κY = 0 and β
+33
+L = 1 is used. The simulated signal
+covers both the pure-left-handed scenario with β
+33
+R = 0 and the right-handed scenario with
+|β
+33
+R
+| = 1. Apart from their coupling parameters, the same event-generation, parton-shower
+and detector-simulation settings are used for both scenarios.
+Signal events are generated at leading order (LO) in QCD using MADGRAPH5_
+AMC@NLO 3.3.1 [79], interfaced to PYTHIA 8.308 [80]. The hard-scattering process
+produces a τ-lepton, a ντ and up to two additional partons, which can be gluons or u-, d-, s-,
+c- or b-quarks. The NNPDF3.0nlo PDF set [81] is used for the hard-scattering calculation.
+The generation is performed in the five-flavour scheme, in which the b-quark is treated as
+an active parton in the proton. The proton PDFs therefore allow processes with an initial￾state b-quark. All allowed U1 diagrams contributing to this final state are retained in the
+matrix-element calculation. The resonant single-production and non-resonant t-channel
+processes shown in Figure 3.4 are therefore included coherently and cannot be separated
+at the generation stage. Other allowed contributions, including leptoquark pair production
+where kinematically accessible, are also retained.
+PYTHIA subsequently simulates the parton shower and hadronisation. It also models
+the underlying event using the A14 tune [82] and the NNPDF2.3lo PDF set [83]. The
+CKKW–L merging procedure [84] prevents the same radiation from being included in both
+the matrix-element and parton-shower calculations. The Durham k⊥ merging scale is set to
+15 GeV and the D parameter to 0.4. Together, they determine whether an emission is treated
+as an additional matrix-element parton or as part of the shower.
+
+5.2 Signal samples 53
+For the pure-left-handed interpretation, dedicated signal samples are generated for 152
+combinations of (MU ,gU ,β
+23
+L
+) satisfying
+1.5 TeV ≤ MU ≤ 3.0 TeV, (5.1)
+0.5 ≤ gU ≤ 3.0, (5.2)
+0 ≤ β
+23
+L ≤ 2.2, (5.3)
+with β
+33
+L = 1 and β
+33
+R = 0. The lower boundary of the mass scan covers the region around
+the exclusion limits obtained from previous leptoquark pair-production searches [57, 58].
+For MU > 3 TeV, the selected signal is dominated by non-resonant exchange, where the
+sensitivity is governed mainly by the ratio gU /MU . The primary mass scan is therefore
+restricted to MU ≤ 3 TeV.
+For the right-handed interpretation with |β
+33
+R
+| = 1, one baseline sample is generated at
+each of the six mass points MU ∈ {1.5,2.0,2.5,3.0,4.0,5.0} TeV with gU = 1 and β
+23
+L = 0.2.
+Predictions at other values of gU and β
+23
+L
+are obtained from these baseline samples using
+corrected MADGRAPH5_AMC@NLO internal event weights, rather than from separately
+generated samples at every parameter point. The correction includes an adjustment of the
+normalisation and a two-dimensional truth-level shape correction based on the leading-jet pT
+and mbτ
+. Details of the correction and its validation are given in Appendix A. This strategy
+avoids repeating event generation and detector simulation for every coupling configuration,
+thereby reducing the required computing resources.
+The U1 amplitude can interfere with the SM amplitude for production of the same
+τντ +jets final state. The total matrix element can be expressed as
+|MSM +MU1
+|
+2 = |MSM|
+2 +|MU1
+|
+2 +2ReMSMM∗
+U1
+
+. (5.4)
+The first term represents the SM contribution, the second represents the pure U1 contribution,
+corresponding to the BSM-only component, and the third represents their interference. Unlike
+the BSM-only component, the interference term can be negative and can reduce the predicted
+yield relative to the SM-only expectation in some regions of phase space.
+To separate the BSM-only and interference terms in Eq. (5.4), the two contributions are
+generated independently with MADGRAPH5_AMC@NLO using the configuration described
+above. The BSM-only component is selected by requiring exactly two new-physics couplings
+at the amplitude level, denoted by NP==2, whereas the interference component is isolated at
+the squared-matrix-element level by requiring NP2 = 2. The interference sample therefore
+contains only the third term in Eq. (5.4). It does not include the pure-SM term, which is
+already represented by the nominal SM background samples.
+
+54 Data and Monte Carlo Simulations
+All τ-lepton decay modes are retained in the signal simulation. Although the signal
+regions target hadronically decaying τ-leptons, leptonic decays can contribute to regions
+containing electrons or muons. The inclusive decay configuration allows this signal contami￾nation to be evaluated.
+The decays of bottom- and charm-hadrons are modelled with EVTGEN [85]. All sig￾nal samples used in this thesis are processed with the ATLAS fast detector simulation
+ATLFAST3 [86], which provides a computationally efficient simulation of the calorimeter
+response.
+5.3 Background samples
+The simulated SM backgrounds considered in this analysis are W +jets, Z +jets, tt¯, single￾top and diboson production. The dominant contribution is W → τν +jets production. The
+QCD multijet background is negligible after event cleaning and is therefore neglected, as
+discussed in Appendix B.
+The W/Z + jets samples are generated with SHERPA 2.2.11 [87], except for Z → ττ,
+which uses version 2.2.14. Matrix elements include up to two additional partons at next-to￾leading order (NLO) in QCD and up to five at LO. They are merged with the SHERPA parton
+shower [88] using the MEPS@NLO prescription [89–92].
+Only a small fraction of inclusive W → τν events passes the high-E
+miss
+T
+requirement,
+leaving limited MC statistics. Two dedicated filtered samples are therefore used to reduce the
+MC statistical uncertainty in the high-E
+miss
+T
+tail. Their respective generator-level requirements
+are
+70 GeV < E
+miss
+T < 150 GeV and p
+τ
+T < 150 GeV,
+E
+miss
+T > 150 GeV or p
+τ
+T > 150 GeV. (5.5)
+Top-quark pair and single-top production are generated at NLO accuracy in QCD using
+POWHEG BOX v2 [93–96], interfaced to PYTHIA 8.230 [97] for parton showering and
+hadronisation. The single-top samples include s-channel, t-channel and associated Wt
+production. The predicted tt¯ yield is normalised to the inclusive production cross-section
+calculated at next-to-next-to-leading order (NNLO) in QCD with next-to-next-to-leading￾logarithmic (NNLL) soft-gluon resummation [98]. A dilepton filter is applied to the tt¯sample,
+requiring both W bosons to decay leptonically.
+Diboson production is also modelled with SHERPA.
+
+5.4 Triggers 55
+The hard-scattering calculations use the NNPDF3.0nnlo PDF set for W/Z + jets and
+NNPDF3.0nlo for tt¯ and single-top production [81]. The underlying event is modelled using
+the A14 tune for PYTHIA and the default tune for SHERPA. For samples not generated with
+SHERPA, the decays of bottom- and charm-hadrons are modelled with EVTGEN [85]. The
+full ATLAS detector simulation based on GEANT4 [99, 100] is used for all background
+samples.
+The principal MC generator configurations are summarised in Table 5.2.
+Table 5.2 Summary of the principal MC generator configurations used for the signal and SM
+background processes. The quoted perturbative order refers to the hard-scattering matrix￾element calculation. For the W/Z +jets samples, matrix elements with up to two additional
+partons are calculated at NLO and those with up to five additional partons at LO. The symbol
+ℓ denotes an electron or muon.
+Process Generator ME order Parton shower ME PDF set Tune
+U1 signal MADGRAPH5_AMC@NLO 3.3.1 LO PYTHIA 8 NNPDF3.0nlo A14
+W → ℓν +jets SHERPA 2.2.11 NLO SHERPA NNPDF3.0nnlo SHERPA default
+W → τν +jets SHERPA 2.2.11 NLO SHERPA NNPDF3.0nnlo SHERPA default
+Z → ee/µµ/νν +jets SHERPA 2.2.11 NLO SHERPA NNPDF3.0nnlo SHERPA default
+Z → ττ +jets SHERPA 2.2.14 NLO SHERPA NNPDF3.0nnlo SHERPA default
+tt¯ POWHEG BOX v2 NLO PYTHIA 8 NNPDF3.0nlo A14
+Single-t POWHEG BOX v2 NLO PYTHIA 8 NNPDF3.0nlo A14
+Diboson SHERPA NLO SHERPA NNPDF3 SHERPA default
+5.4 Triggers
+The ATLAS Run 2 trigger architecture was described in Chapter 4. This analysis uses only
+single-electron, single-muon and E
+miss
+T
+triggers.
+The signal-region event selection uses the lowest-threshold unprescaled E
+miss
+T
+trigger,
+which is fully efficient for at least offline E
+miss
+T > 200 GeV applied in signal regions and the
+corresponding validation regions.
+Single-electron and single-muon triggers are used in regions containing an electron or
+muon. The lowest online thresholds range from 20 to 26 GeV [101, 102].
+Table 5.3 lists the single-electron, single-muon and E
+miss
+T
+trigger chains used in this
+analysis.
+In an HLT chain name, e, mu and xe represent an electron, a muon and E
+miss
+T
+, respectively.
+The following number gives the online threshold in GeV. An explicit L1 suffix identifies the
+first-level trigger that seeds the chain. The electron labels lhloose, lhmedium and lhtight
+specify likelihood-based identification requirements, while nod0 indicates that transverse￾impact-parameter information is omitted. The labels iloose, ivarloose and ivarmedium
+
+56 Data and Monte Carlo Simulations
+specify isolation requirements. For E
+miss
+T
+, mht denotes a calculation based on the negative
+vector sum of jet transverse momenta, whereas pufit denotes a calorimeter-based calculation
+with a fit-based pile-up correction [101–103].
+Figures 5.1 and 5.2 show representative Run 2 trigger-efficiency measurements. Dif￾ferences in trigger efficiency between collision data and simulation are corrected using
+data-to-simulation efficiency scale factors.
+Table 5.3 Single-electron, single-muon and E
+miss
+T
+trigger chains used in the Run 2 analysis.
+Single-lepton chains listed for the same flavour and year are combined with a logical OR,
+while the E
+miss
+T
+chain is selected according to the data-taking period. The extra xe70 or xe65
+in the 2018 names denotes an additional calorimeter-cell E
+miss
+T
+requirement of 70 or 65 GeV.
+Trigger Year HLT chain
+Single-electron 2015 HLT_e24_lhmedium_L1EM20VH
+HLT_e60_lhmedium
+HLT_e120_lhloose
+2016–2018 HLT_e26_lhtight_nod0_ivarloose
+HLT_e60_lhmedium_nod0
+HLT_e140_lhloose_nod0
+Single-muon 2015 HLT_mu20_iloose_L1MU15
+HLT_mu40
+2016–2018 HLT_mu26_ivarmedium
+HLT_mu50
+E
+miss
+T
+2015 HLT_xe70_mht
+2016 HLT_xe90_mht_L1XE50
+HLT_xe100_mht_L1XE50
+HLT_xe110_mht_L1XE50
+2017 HLT_xe110_pufit_L1XE55
+HLT_xe110_pufit_L1XE50
+2018 HLT_xe110_pufit_xe70_L1XE50
+HLT_xe110_pufit_xe65_L1XE50
+
+5.4 Triggers 57
+20 40 60 80 100 120 140
+ [GeV] ET
+0.7
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+Trigger Efficiency
+ATLAS
+pp data 2015-2018, s = 13 TeV
+Single electron trigger combination
+Offline tight, isolation FCTight
+2015
+2016
+2017
+2018
+20 40 60 80 100 120 140
+ [GeV] ET
+0.8
+0.9
+1
+Data/MC
+(a) Single-electron trigger combination.
+20 40 60 80 100 120
+ [GeV] T Muon p
+0.7
+0.8
+0.9
+1
+Data/MC
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z → µµ, |η| < 1.05
+(b) Single-muon triggers, barrel. 20 40 60 80 100 120
+ [GeV] T Muon p
+0.8
+0.9
+1
+1.1
+Data/MC
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+1.2
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z → µµ, 1.05 < |η| < 2.5
+(c) Single-muon triggers, end-cap.
+Fig. 5.1 Single-lepton trigger efficiencies measured in Run 2 Z → ℓℓ events. (a) Electron
+efficiency versus offline ET for electrons with Tight identification and FCTight isolation [101].
+(b,c) Muon efficiency versus offline pT in the barrel and end-cap, respectively [102]. Lower
+panels give data-to-simulation efficiency ratios. Electron uncertainties include statistical and
+systematic contributions, while muon uncertainties are statistical only.
+
+58 Data and Monte Carlo Simulations
+0 50 100 150 200 250 300
+(µµ) [GeV] T
+p
+0
+0.2
+0.4
+0.6
+0.8
+1
+Efficiency
+ATLAS
+Data 2015-2018, s=13 TeV
+Z→µµ events
+2015
+2016
+2017
+2018 Fig. 5.2 Combined L1 and HLT E
+miss
+T
+trigger efficiencies in Z → µµ events for each year
+of Run 2 [103]. Since muons are treated as invisible by these calorimeter-based triggers,
+the dimuon transverse momentum pT(µµ) provides a reference for the missing transverse
+momentum measured by the trigger. The curves use the lowest unprescaled trigger as it
+changes within each year. Error bars show statistical uncertainties.
+
+Chapter 6
+Object Reconstruction and Identification
+6.1 Track
+6.2 Primary vertex
+6.3 Electron
+6.4 Muon
+6.5 Hadronic tau
+6.6 Jet
+6.7 Jet flavor tagging
+6.8 Overlap removal
+6.9 Missing transverse momentum
+
+
+
+Chapter 7
+Event Selection
+7.1 Preselection and variables definition
+7.2 One b-jet signal region (SR1b) optimisation and defini￾tion
+7.3 b-veto signal region definition (SR0b)
+
+
+
+Chapter 8
+Background Estimation Strategy
+8.1 Strategy overview
+8.2 W+jets estimation
+8.3 tt¯ estimation
+8.4 Fake-τ estimation
+8.5 Multi-jet cleaning
+8.6 VRs
+
+
+
+Chapter 9
+Systematics Uncertainties
+9.1 Experimental uncertainties
+9.2 Theoretical uncertainties
+
+
+
+Chapter 10
+Statistical Analysis and Results
+10.1 Statistical analysis
+10.1.1 Hypothesis test
+10.1.2 Likelihood function
+10.2 Results
+10.2.1 Background-only fit
+10.2.2 Unblinded S+B fit in CR+SRs
+10.2.3 Exclusion limits with toy models
+
+
+
+Chapter 11
+Discussion and Conclusion
+
+
+
+References
+[1] Sheldon L. Glashow. Partial-symmetries of weak interactions. Nucl. Phys., 22:
+579–588, 1961. doi: 10.1016/0029-5582(61)90469-2.
+[2] Steven Weinberg. A model of leptons. Phys. Rev. Lett., 19:1264–1266, 1967. doi:
+10.1103/PhysRevLett.19.1264.
+[3] Abdus Salam. Weak and electromagnetic interactions. In N. Svartholm, editor,
+Elementary Particle Theory: Relativistic Groups and Analyticity, pages 367–377,
+Stockholm, 1968. Almqvist and Wiksell.
+[4] Wolfgang Pauli. The connection between spin and statistics. Phys. Rev., 58:716–722,
+1940. doi: 10.1103/PhysRev.58.716.
+[5] Gerard ’t Hooft. Renormalization of massless yang–mills fields. Nucl. Phys. B, 33:
+173–199, 1971. doi: 10.1016/0550-3213(71)90395-6.
+[6] Gerard ’t Hooft and Martinus J. G. Veltman. Regularization and renormalization of
+gauge fields. Nucl. Phys. B, 44:189–213, 1972. doi: 10.1016/0550-3213(72)90279-9.
+[7] F. Englert and R. Brout. Broken symmetry and the mass of gauge vector mesons.
+Phys. Rev. Lett., 13:321–323, 1964. doi: 10.1103/PhysRevLett.13.321.
+[8] Peter W. Higgs. Broken symmetries and the masses of gauge bosons. Phys. Rev. Lett.,
+13:508–509, 1964. doi: 10.1103/PhysRevLett.13.508.
+[9] G. S. Guralnik, C. R. Hagen, and T. W. B. Kibble. Global conservation laws and
+massless particles. Phys. Rev. Lett., 13:585–587, 1964. doi: 10.1103/PhysRevLett.13.
+585.
+[10] Particle Data Group. Review of particle physics. Prog. Theor. Exp. Phys., 2025.
+[11] ATLAS Collaboration. Observation of a new particle in the search for the standard
+model higgs boson with the atlas detector at the lhc. Phys. Lett. B, 716:1–29, 2012.
+doi: 10.1016/j.physletb.2012.08.020.
+[12] CMS Collaboration. Observation of a new boson at a mass of 125 gev with the cms
+experiment at the lhc. Phys. Lett. B, 716:30–61, 2012. doi: 10.1016/j.physletb.2012.
+08.021.
+[13] ATLAS and CMS Collaborations. Combined measurement of the higgs boson mass in
+pp collisions at √
+s = 7 and 8 tev with the atlas and cms experiments. Phys. Rev. Lett.,
+114:191803, 2015. doi: 10.1103/PhysRevLett.114.191803.
+
+72 References
+[14] Nicola Cabibbo. Unitary symmetry and leptonic decays. Phys. Rev. Lett., 10:531–533,
+1963. doi: 10.1103/PhysRevLett.10.531.
+[15] Makoto Kobayashi and Toshihide Maskawa. Cp-violation in the renormalizable theory
+of weak interaction. Prog. Theor. Phys., 49:652–657, 1973. doi: 10.1143/PTP.49.652.
+[16] Super-Kamiokande Collaboration. Evidence for oscillation of atmospheric neutrinos.
+Phys. Rev. Lett., 81:1562–1567, 1998. doi: 10.1103/PhysRevLett.81.1562.
+[17] SNO Collaboration. Direct evidence for neutrino flavor transformation from neutral￾current interactions in the sudbury neutrino observatory. Phys. Rev. Lett., 89:011301,
+2002. doi: 10.1103/PhysRevLett.89.011301.
+[18] Planck Collaboration. Planck 2018 results. vi. cosmological parameters. Astron.
+Astrophys., 641:A6, 2020. doi: 10.1051/0004-6361/201833910.
+[19] A. D. Sakharov. Violation of cp invariance, c asymmetry, and baryon asymmetry of
+the universe. Pisma Zh. Eksp. Teor. Fiz., 5:32–35, 1967.
+[20] M. B. Gavela, P. Hernandez, J. Orloff, and O. Pene. Standard model cp-violation
+and baryon asymmetry. Mod. Phys. Lett. A, 9:795–810, 1994. doi: 10.1142/
+S0217732394000629.
+[21] Andrew G. Cohen, D. B. Kaplan, and A. E. Nelson. Progress in electroweak baryoge￾nesis. Ann. Rev. Nucl. Part. Sci., 43:27–70, 1993. doi: 10.1146/annurev.ns.43.120193.
+000331.
+[22] C. A. Baker et al. An improved experimental limit on the electric dipole moment of
+the neutron. Phys. Rev. Lett., 97:131801, 2006. doi: 10.1103/PhysRevLett.97.131801.
+[23] LHCb Collaboration. Test of lepton universality in b → sℓ
++ℓ
+− decays. Phys. Rev.
+Lett., 131:051803, 2023. doi: 10.1103/PhysRevLett.131.051803.
+[24] LHCb Collaboration. Measurement of lepton universality parameters in b
++ → k
++ℓ
++ℓ
+−
+and b
+0 → k
+∗0
+ℓ
++ℓ
+− decays. Phys. Rev. D, 108:032002, 2023. doi: 10.1103/PhysRevD.
+108.032002.
+[25] Heavy Flavor Averaging Group (HFLAV). Average of R(D) and R(D
+∗
+) for CKM
+2025. https://hflav-eos.web.cern.ch/hflav-eos/semi/ckm25/html/RDsDsstar/RDRDs.
+html, 2025. Last update: 28 September 2025.
+[26] BaBar Collaboration. Evidence for an excess of B¯ → D
+(∗)
+τ
+−ν¯τ decays. Phys. Rev.
+Lett., 109:101802, 2012. doi: 10.1103/PhysRevLett.109.101802.
+[27] BaBar Collaboration. Measurement of an Excess of B¯ → D
+(∗)
+τ
+−ν¯τ Decays and
+Implications for Charged Higgs Bosons. Phys. Rev. D, 88(7):072012, 2013. doi:
+10.1103/PhysRevD.88.072012.
+[28] Belle Collaboration. Measurement of the branching ratio of B¯ → D
+(∗)
+τ
+−ν¯τ relative
+to B¯ → D
+(∗)
+ℓ
+−ν¯ℓ decays with hadronic tagging at Belle. Phys. Rev. D, 92(7):072014,
+2015. doi: 10.1103/PhysRevD.92.072014.
+
+References 73
+[29] Belle Collaboration. Measurement of the τ lepton polarization and R(D
+∗
+) in the decay
+B¯ → D
+∗
+τ
+−ν¯τ . Phys. Rev. Lett., 118(21):211801, 2017. doi: 10.1103/PhysRevLett.118.
+211801.
+[30] Belle Collaboration. Measurement of the τ lepton polarization and R(D
+∗
+) in the decay
+B¯ → D
+∗
+τ
+−ν¯τ with one-prong hadronic τ decays at Belle. Phys. Rev. D, 97(1):012004,
+2018. doi: 10.1103/PhysRevD.97.012004.
+[31] Belle Collaboration. Measurement of R(D) and R(D
+∗
+) with a semileptonic tagging
+method. Phys. Rev. Lett., 124(16):161803, 2020. doi: 10.1103/PhysRevLett.124.
+161803.
+[32] Belle-II Collaboration. Test of lepton flavor universality with a measurement of R(D*)
+using hadronic B tagging at the Belle II experiment. Phys. Rev. D, 110(7):072020,
+2024. doi: 10.1103/PhysRevD.110.072020.
+[33] Belle-II Collaboration. Test of lepton flavor universality with measurements of R(D
++)
+and R(D
+∗+) using semileptonic B tagging at the Belle II experiment. Phys. Rev. D,
+112(3):032010, 2025. doi: 10.1103/fmn3-h8fy.
+[34] LHCb Collaboration. Measurement of the ratios of branching fractions R(D
+∗
+) and
+R(D
+0
+). Phys. Rev. Lett., 131:111802, 2023. doi: 10.1103/PhysRevLett.131.111802.
+[35] LHCb Collaboration. Test of lepton flavor universality using B0→D*-τ+ντ decays
+with hadronic τ channels. Phys. Rev. D, 108(1):012018, 2023. doi: 10.1103/PhysRevD.
+108.012018. [Erratum: Phys.Rev.D 109, 119902 (2024)].
+[36] LHCb Collaboration. Measurement of the Branching Fraction Ratios R(D+) and
+R(D*+) Using Muonic τ Decays. Phys. Rev. Lett., 134(6):061801, 2025. doi: 10.
+1103/PhysRevLett.134.061801.
+[37] J. Wess and B. Zumino. Supergauge transformations in four dimensions. Nucl. Phys.
+B, 70:39–50, 1974. doi: 10.1016/0550-3213(74)90355-1.
+[38] Stephen P. Martin. A supersymmetry primer. 1997.
+[39] Savas Dimopoulos and Howard Georgi. Softly broken supersymmetry and su(5). Nucl.
+Phys. B, 193:150–162, 1981. doi: 10.1016/0550-3213(81)90522-8.
+[40] Glennys R. Farrar and Pierre Fayet. Phenomenology of the production, decay, and
+detection of new hadronic states associated with supersymmetry. Phys. Lett. B, 76:
+575–579, 1978. doi: 10.1016/0370-2693(78)90858-4.
+[41] H. Goldberg. Constraint on the photino mass from cosmology. Phys. Rev. Lett., 50:
+1419–1422, 1983. doi: 10.1103/PhysRevLett.50.1419.
+[42] John R. Ellis, J. S. Hagelin, D. V. Nanopoulos, Keith A. Olive, and M. Srednicki.
+Supersymmetric relics from the big bang. Nucl. Phys. B, 238:453–476, 1984. doi:
+10.1016/0550-3213(84)90461-9.
+[43] Savas Dimopoulos, Stuart Raby, and Frank Wilczek. Supersymmetry and the scale of
+unification. Phys. Rev. D, 24:1681–1683, 1981. doi: 10.1103/PhysRevD.24.1681.
+
+74 References
+[44] Ugo Amaldi, Wim de Boer, and Hermann Fürstenau. Comparison of grand unified
+theories with electroweak and strong coupling constants measured at lep. Phys. Lett.
+B, 260:447–455, 1991. doi: 10.1016/0370-2693(91)91641-8.
+[45] ATLAS Collaboration. The quest to discover supersymmetry at the atlas experiment.
+Phys. Rep., 1116:1–76, 2025. doi: 10.1016/j.physrep.2025.01.004.
+[46] R. D. Peccei and Helen R. Quinn. Cp conservation in the presence of pseudoparticles.
+Phys. Rev. Lett., 38:1440–1443, 1977. doi: 10.1103/PhysRevLett.38.1440.
+[47] R. D. Peccei and Helen R. Quinn. Constraints imposed by cp conservation in the
+presence of pseudoparticles. Phys. Rev. D, 16:1791–1797, 1977. doi: 10.1103/
+PhysRevD.16.1791.
+[48] Steven Weinberg. A new light boson? Phys. Rev. Lett., 40:223–226, 1978. doi:
+10.1103/PhysRevLett.40.223.
+[49] Frank Wilczek. Problem of strong p and t invariance in the presence of instantons.
+Phys. Rev. Lett., 40:279–282, 1978. doi: 10.1103/PhysRevLett.40.279.
+[50] Jihn E. Kim and Gianpaolo Carosi. Axions and the strong cp problem. Rev. Mod.
+Phys., 82:557–601, 2010. doi: 10.1103/RevModPhys.82.557.
+[51] Jogesh C. Pati and Abdus Salam. Lepton number as the fourth color. Phys. Rev. D, 10:
+275–289, 1974. doi: 10.1103/PhysRevD.10.275.
+[52] Howard Georgi and Sheldon L. Glashow. Unity of all elementary-particle forces. Phys.
+Rev. Lett., 32:438–441, 1974. doi: 10.1103/PhysRevLett.32.438.
+[53] I. Dorsner, S. Fajfer, A. Greljo, J. F. Kamenik, and N. Kosnik. Physics of leptoquarks
+in precision experiments and at particle colliders. Phys. Rept., 641:1–68, 2016. doi:
+10.1016/j.physrep.2016.06.001.
+[54] Claudia Cornella, Javier Fuentes-Martin, and Gino Isidori. Revisiting the vector
+leptoquark explanation of the b-physics anomalies. JHEP, 07:168, 2019. doi: 10.
+1007/JHEP07(2019)168.
+[55] Michael J. Baker, Javier Fuentes-Martin, Gino Isidori, and Matthias König. High￾pt signatures in vector-leptoquark models. Eur. Phys. J. C, 79:334, 2019. doi:
+10.1140/epjc/s10052-019-6853-x.
+[56] Jason Aebischer, Gino Isidori, Marko Pesut, Ben A. Stefanek, and Felix Wilsch.
+Confronting the vector leptoquark hypothesis with new low- and high-energy data.
+Eur. Phys. J. C, 83:153, 2023. doi: 10.1140/epjc/s10052-023-11304-5.
+[57] ATLAS Collaboration. Search for leptoquarks decaying into the bτ final state in
+pp collisions at √
+s = 13 tev with the atlas detector. JHEP, 10:001, 2023. doi:
+10.1007/JHEP10(2023)001.
+[58] CMS Collaboration. Search for singly and pair-produced leptoquarks coupling to
+third-generation fermions in proton-proton collisions at √
+s = 13 tev. Phys. Lett. B,
+819:136446, 2021. doi: 10.1016/j.physletb.2021.136446.
+
+References 75
+[59] CMS Collaboration. Search for a third-generation leptoquark coupled to a τ lepton and
+a b quark through single, pair, and nonresonant production in proton-proton collisions
+at √
+s = 13 tev. JHEP, 05:311, 2024. doi: 10.1007/JHEP05(2024)311.
+[60] ATLAS Collaboration. A measurement of the high-mass ττ¯ production cross-section
+at √
+s = 13 tev with the atlas detector and constraints on new particles and couplings.
+JHEP, 10:054, 2025. doi: 10.1007/JHEP10(2025)054.
+[61] CMS Collaboration. Searches for additional higgs bosons and for vector leptoquarks
+in ττ final states in proton-proton collisions at √
+s = 13 tev. JHEP, 07:073, 2023. doi:
+10.1007/JHEP07(2023)073.
+[62] ATLAS Collaboration. Leptoquark summary plots for scalar or vector models. Tech￾nical Report ATL-PHYS-PUB-2025-013, CERN, 2025.
+[63] CMS Collaboration. Search for new physics in the τ lepton plus missing transverse
+momentum final state in proton-proton collisions at √
+s = 13 tev. JHEP, 09:051, 2023.
+doi: 10.1007/JHEP09(2023)051.
+[64] Motoi Endo, Syuhei Iguro, Teppei Kitahara, Michihisa Takeuchi, and Ryoutaro Watan￾abe. Non-resonant new physics search at the lhc for the b → cτν anomalies. JHEP,
+02:106, 2022. doi: 10.1007/JHEP02(2022)106.
+[65] CERN. About CERN. https://home.cern/about/, . Accessed: 2026-06-11.
+[66] Lyndon Evans and Philip Bryant. LHC Machine. JINST, 3:S08001, 2008. doi:
+10.1088/1748-0221/3/08/S08001.
+[67] CERN. The Large Hadron Collider. https://home.cern/science/accelerators/
+large-hadron-collider, . Accessed: 2026-06-11.
+[68] Esma Mobs. The CERN accelerator complex - August 2018. Complexe des ac￾célérateurs du CERN - Août 2018. CERN Document Server, 2018. URL https:
+//cds.cern.ch/record/2636343. General Photo, CERN-GRAPHICS-2018-005.
+[69] Werner Herr and B. Muratori. Concept of luminosity. 2006. doi: 10.5170/
+CERN-2006-002.361. URL https://cds.cern.ch/record/941318.
+[70] ATLAS Collaboration. Luminosity determination in pp collisions at √
+s = 13 tev
+using the atlas detector at the lhc. Eur. Phys. J. C, 83:982, 2023. doi: 10.1140/epjc/
+s10052-023-11747-w.
+[71] ATLAS Collaboration. LHC Run 3: physics at record energy starts tomorrow. 2022.
+URL https://atlas.cern/Updates/Press-Statement/LHC-Run3-Starts. Accessed: 2026-
+06-11.
+[72] ATLAS Collaboration. ATLAS data quality operations and performance for 2015–
+2018 data-taking. JINST, 15:P04003, 2020. doi: 10.1088/1748-0221/15/04/P04003.
+[73] ATLAS Collaboration. The atlas experiment at the cern large hadron collider. JINST,
+3:S08003, 2008. doi: 10.1088/1748-0221/3/08/S08003.
+
+76 References
+[74] ATLAS Collaboration. The atlas experiment at the cern large hadron collider: A
+description of the detector configuration for run 3. JINST, 19:P05063, 2024. doi:
+10.1088/1748-0221/19/05/P05063.
+[75] Fabian Kuger. Signal formation processes in micromegas detectors and quality control
+for large size detector construction for the atlas new small wheel, 2017.
+[76] B. Abbott et al. Production and integration of the atlas insertable b-layer. JINST, 13:
+T05008, 2018. doi: 10.1088/1748-0221/13/05/T05008.
+[77] ATLAS Collaboration. The Phase-I Trigger Readout Electronics Upgrade of the
+ATLAS Liquid Argon Calorimeters. JINST, 17(05):P05024, 2022. doi: 10.1088/
+1748-0221/17/05/P05024.
+[78] ATLAS Collaboration. Operation of the atlas trigger system in run 2. JINST, 15:
+P10004, 2020. doi: 10.1088/1748-0221/15/10/P10004.
+[79] Johan Alwall et al. The automated computation of tree-level and next-to-leading order
+differential cross sections, and their matching to parton shower simulations. JHEP,
+07:079, 2014. doi: 10.1007/JHEP07(2014)079.
+[80] Christian Bierlich et al. A comprehensive guide to the physics and usage of PYTHIA
+8.3. SciPost Phys. Codebases, page 8, 2022. doi: 10.21468/SciPostPhysCodeb.8.
+[81] Richard D. Ball et al. Parton distributions for the LHC run II. JHEP, 04:040, 2015.
+doi: 10.1007/JHEP04(2015)040.
+[82] ATLAS Collaboration. ATLAS Pythia 8 tunes to 7 tev data. Technical Report ATL￾PHYS-PUB-2014-021, CERN, 2014. URL https://cds.cern.ch/record/1966419.
+[83] Richard D. Ball et al. Parton distributions with LHC data. Nucl. Phys. B, 867:244–289,
+2013. doi: 10.1016/j.nuclphysb.2012.10.003.
+[84] Leif Lönnblad and Stefan Prestel. Matching tree-level matrix elements with interleaved
+showers. JHEP, 03:019, 2012. doi: 10.1007/JHEP03(2012)019.
+[85] David J. Lange. The EvtGen particle decay simulation package. Nucl. Instrum. Meth.
+A, 462:152–155, 2001. doi: 10.1016/S0168-9002(01)00089-4.
+[86] ATLAS Collaboration. AtlFast3: The next generation of fast simulation in ATLAS.
+Comput. Softw. Big Sci., 6:7, 2022. doi: 10.1007/s41781-021-00079-7.
+[87] Enrico Bothmann et al. Event generation with Sherpa 2.2. SciPost Phys., 7:034, 2019.
+doi: 10.21468/SciPostPhys.7.3.034.
+[88] Steffen Schumann and Frank Krauss. A parton shower algorithm based on Catani–
+Seymour dipole factorisation. JHEP, 03:038, 2008. doi: 10.1088/1126-6708/2008/03/
+038.
+[89] Stefan Höche, Frank Krauss, Marek Schönherr, and Frank Siegert. A critical appraisal
+of NLO+PS matching methods. JHEP, 09:049, 2012. doi: 10.1007/JHEP09(2012)049.
+
+References 77
+[90] Stefan Höche, Frank Krauss, Marek Schönherr, and Frank Siegert. QCD matrix
+elements + parton showers. the NLO case. JHEP, 04:027, 2013. doi: 10.1007/
+JHEP04(2013)027.
+[91] Stefano Catani, Frank Krauss, Bryan R. Webber, and Ralf Kuhn. QCD matrix elements
++ parton showers. JHEP, 11:063, 2001. doi: 10.1088/1126-6708/2001/11/063.
+[92] Stefan Höche, Frank Krauss, Steffen Schumann, and Frank Siegert. QCD matrix
+elements and truncated showers. JHEP, 05:053, 2009. doi: 10.1088/1126-6708/2009/
+05/053.
+[93] Stefano Frixione, Paolo Nason, and Giovanni Ridolfi. A positive-weight next-to￾leading-order monte carlo for heavy flavour hadroproduction. JHEP, 09:126, 2007.
+doi: 10.1088/1126-6708/2007/09/126.
+[94] Paolo Nason. A new method for combining NLO QCD with shower monte carlo
+algorithms. JHEP, 11:040, 2004. doi: 10.1088/1126-6708/2004/11/040.
+[95] Stefano Frixione, Paolo Nason, and Carlo Oleari. Matching NLO QCD computations
+with parton shower simulations: the POWHEG method. JHEP, 11:070, 2007. doi:
+10.1088/1126-6708/2007/11/070.
+[96] Simone Alioli, Paolo Nason, Carlo Oleari, and Emanuele Re. A general framework
+for implementing NLO calculations in shower monte carlo programs: the POWHEG
+BOX. JHEP, 06:043, 2010. doi: 10.1007/JHEP06(2010)043.
+[97] Torbjörn Sjöstrand et al. An introduction to PYTHIA 8.2. Comput. Phys. Commun.,
+191:159–177, 2015. doi: 10.1016/j.cpc.2015.01.024.
+[98] Michał Czakon and Alexander Mitov. Top++: A program for the calculation of the
+top-pair cross-section at hadron colliders. Comput. Phys. Commun., 185:2930–2938,
+2014. doi: 10.1016/j.cpc.2014.06.021.
+[99] ATLAS Collaboration. The ATLAS simulation infrastructure. Eur. Phys. J. C, 70:
+823–874, 2010. doi: 10.1140/epjc/s10052-010-1429-9.
+[100] S. Agostinelli et al. Geant4—a simulation toolkit. Nucl. Instrum. Meth. A, 506:
+250–303, 2003. doi: 10.1016/S0168-9002(03)01368-8.
+[101] ATLAS Collaboration. Performance of electron and photon triggers in ATLAS during
+LHC run 2. Eur. Phys. J. C, 80:47, 2020. doi: 10.1140/epjc/s10052-019-7500-2.
+[102] ATLAS Collaboration. Performance of the ATLAS muon triggers in run 2. JINST, 15:
+P09015, 2020. doi: 10.1088/1748-0221/15/09/P09015.
+[103] ATLAS Collaboration. Performance of the missing transverse momentum triggers for
+the ATLAS detector during run-2 data taking. JHEP, 08:080, 2020. doi: 10.1007/
+JHEP08(2020)080.
+
+
+
+Appendix A
+Correction of the signal internal event
+weights
+For the right-handed interpretation, the dependence of the signal prediction on gU and
+β
+23
+L
+is obtained by reweighting the baseline sample generated at each MU value. The
+MADGRAPH5_AMC@NLO internal event weights encode the change in the matrix element
+when these coupling parameters are varied. Their performance is evaluated by comparing the
+reweighted predictions with samples generated independently at selected parameter points.
+The internal event weights alone do not fully reproduce the reference predictions in
+regions where the relative contributions of resonant and non-resonant production change. The
+overall normalisation is therefore adjusted to that of the corresponding reference prediction.
+A bin-by-bin two-dimensional correction in the leading-jet pT and mbτ
+is then applied to
+account for the remaining shape differences. These observables provide sensitivity to the
+resonant and non-resonant components and allow both contributions to be corrected within
+the same sample.
+The corrected predictions are validated using truth-level selections that reproduce the main
+signal-region requirements. At each stage of the selection, the corrected and independently
+generated event yields agree within 10% for both the resonant and non-resonant signal
+regions. This difference is smaller than the theoretical uncertainties assigned to the signal
+prediction.
+
+
+
+Appendix B
+Multijet background study
+

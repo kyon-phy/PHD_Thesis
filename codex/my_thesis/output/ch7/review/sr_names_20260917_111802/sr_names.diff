@@ -1,0 +1,71 @@
+--- CH7_event_selection.tex (before)
++++ Chapters/CH7_event_selection.tex
+@@ -65,14 +65,14 @@
+ Events must pass the lowest-threshold unprescaled $\met$ trigger, requiring $\met>200~\GeV$ for full efficiency.
+ Exactly one signal $\tau$ and electron/muon-veto is also required, along with multijet suppression requirement in Eq.~\ref{eq:ch7_qcd_cut}.
+ For 1-$b$-jet regi
+-The zero-$b$-jet category replaces the tagged jet with at least one untagged jet, as described in Section~\ref{sec:ch7_sr0b}.
++In $\bVetoSR$, the tagged jet is replaced by at least one untagged jet, as described in Section~\ref{sec:ch7_sr0b}.
+ 
+ \section[One b-jet signal region (SR1b) optimisation and definition]{One b-jet signal region ($\SR$) optimisation and definition}
+ \label{sec:ch7_sr1b}
+ 
+ The $\SR$ regions are defined by requiring exactly one $b$-tagged jet to target the $b\tau$ interaction in the $U_1$ model and suppress inclusive $W$+jets production.
+ The SM subprocesses $gu\to b\tau\nu$ and $gc\to b\tau\nu$ are suppressed by the small CKM elements $V_{ub}$ and $V_{cb}$, respectively~\cite{Endo2022NonResonant}.
+-Competing SM $\tau\nu+\mathrm{jets}$ events without a genuine $b$-jet enter this category through mistagging.
++Competing SM $\tau\nu+\mathrm{jets}$ events without a $b$-jet are selected in $\SR$ through mistagging.
+ 
+ The $b$-jet $\pT$ is used to distinguish resonant $U_1\to b\tau$ decays, which produce an energetic decay jet, from non-resonant production, where the radiated jet is typically softer.
+ The sample is divided at $\pT^b=250~\GeV$, with $\pT^b>250~\GeV$ defining $\SR$-$\Res$ and $50<\pT^b<250~\GeV$ defining $\SR$-$\NonRes$.
+@@ -84,7 +84,7 @@
+ A lower threshold on $\pT^\tau$ is imposed to select energetic $\tau$ leptons and improve the signal-to-background ratio.
+ 
+ A high $\met$ threshold is imposed to suppress the large contribution from resonant SM $W$ production.
+-The leptoquark signal extends to larger $\met$, motivating a lower threshold in both categories.
++The leptoquark signal extends to larger $\met$, motivating a lower threshold in both $\SR$ regions.
+ 
+ High values of $\mT$ are selected to distinguish non-resonant leptoquark exchange from the falling SM background.
+ A tighter $\mT$ threshold is therefore imposed in $\SR$-$\NonRes$ than in $\SR$-$\Res$, where the $b\tau$ mass is also used.
+@@ -102,7 +102,7 @@
+ The kinematic thresholds are scanned together because the discriminating variables are correlated.
+ For example, increasing $\met$ also raises $\mT$ at fixed $\pT^\tau$ and $\DphiTauMet$, so the effect of an additional $\mT$ requirement depends on the other cuts.
+ 
+-Lower thresholds on $\pT^\tau$, $\met$ and $\mT$ are scanned in both categories, together with an upper limit on $N_j-N_b$.
++Lower thresholds on $\pT^\tau$, $\met$ and $\mT$ are scanned in both $\SR$ regions, together with an upper limit on $N_j-N_b$.
+ A lower threshold on $\DphiTauMet$ is tested for the non-resonant topology.
+ For the resonant topology, upper thresholds on this angle and a lower threshold on $m_{b\tau}$ are tested, as summarised in Table~\ref{tab:ch7_scan_variables}.
+ 
+@@ -286,7 +286,7 @@
+ As shown by the flavour current and coupling texture in Eqs.~\ref{eq:u1_current_expanded} and~\ref{eq:u1_beta_texture}, $\beta_L^{23}$ controls the $s\tau$ interaction and contributes $V_{cs}\beta_L^{23}$ to the $c\nu_\tau$ interaction.
+ The resulting zero-$b$-jet topologies were introduced in Section~\ref{subsec:lq_collider_benchmark}.
+ In particular, $U_1\to s\tau$ produces a resonant signal with a genuine non-$b$ jet, so $\bVetoSR$ retains a physically distinct signal contribution in addition to events in which a $b$-jet is not tagged or reconstructed.
+-A leading jet in this category is not explicitly identified as a strange-quark jet.
++The leading jet in $\bVetoSR$ is not explicitly identified as a strange-quark jet.
+ The truth-level study also identifies a substantial contribution with a leading $c$ jet.
+ At $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, approximately $30\%$ and $60\%$ of the selected truth-level resonant-category events have a leading $s$ or $c$ jet, respectively.
+ The $s$-jet contribution contains the $s\tau$ resonance, whereas the $c$-jet contribution can contain an on-shell $U_1\to c\nu_\tau$ decay.
+--- Appendix3.tex (before)
++++ Chapters/Appendix/Appendix3.tex
+@@ -7,7 +7,7 @@
+ 
+ The threshold is scanned from 200 to $1500~\GeV$ in $100~\GeV$ steps.
+ The signal parameter points are $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,0.5,1.8)$ for $\bVetoSR$-$\Res$ and $(3.0~\TeV,2.0,1.8)$ for $\bVetoSR$-$\NonRes$.
+-The large value of $\beta_L^{23}$ makes these benchmarks relevant to the zero-$b$-jet categories discussed in Section~\ref{sec:ch7_sr0b}.
++The large value of $\beta_L^{23}$ makes these benchmarks relevant to the $\bVetoSR$ regions discussed in Section~\ref{sec:ch7_sr0b}.
+ The scan outcomes and adopted thresholds are summarised in Table~\ref{tab:app_sr0b_scan}.
+ 
+ \begin{table}[htbp]
+--- SKILL.md (before)
++++ .agents/skills/atlas-u1-thesis-writing/SKILL.md
+@@ -45,6 +45,11 @@
+ - Do not repeat nearby conditions, benchmark assumptions, definitions, or
+   mechanisms. Use a concise cross-reference when needed; repeat only if omission
+   would create ambiguity or change the scientific scope.
++- Once signal regions (SRs) have been introduced, use SR or the established
++  one-b/zero-b SR names instead of category/categories when referring to them.
++  Preserve the existing SR1b/SR0b notation and macros, `\SR` and `\bVetoSR`.
++  Do not rename object-reconstruction types, truth-level selections, CRs or VRs
++  as SRs; retain the actual meaning of each selection or classification.
+ - Stop an overview at its complete physical or methodological endpoint. Do not
+   add a detail that is too specific for that level yet abstract because its
+   quantities or operations are undefined. In the MC overview, reaching comparison

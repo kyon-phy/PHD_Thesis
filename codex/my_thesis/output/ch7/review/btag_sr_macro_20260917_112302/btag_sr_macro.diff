@@ -1,0 +1,169 @@
+--- Chapters/CH7_event_selection.tex (before)
++++ Chapters/CH7_event_selection.tex
+@@ -67,15 +67,15 @@
+ For 1-$b$-jet regi
+ In $\bVetoSR$, the tagged jet is replaced by at least one untagged jet, as described in Section~\ref{sec:ch7_sr0b}.
+ 
+-\section[One b-jet signal region (SR1b) optimisation and definition]{One b-jet signal region ($\SR$) optimisation and definition}
++\section[One b-jet signal region (SR1b) optimisation and definition]{One b-jet signal region ($\bTagSR$) optimisation and definition}
+ \label{sec:ch7_sr1b}
+ 
+-The $\SR$ regions are defined by requiring exactly one $b$-tagged jet to target the $b\tau$ interaction in the $U_1$ model and suppress inclusive $W$+jets production.
++The $\bTagSR$ regions are defined by requiring exactly one $b$-tagged jet to target the $b\tau$ interaction in the $U_1$ model and suppress inclusive $W$+jets production.
+ The SM subprocesses $gu\to b\tau\nu$ and $gc\to b\tau\nu$ are suppressed by the small CKM elements $V_{ub}$ and $V_{cb}$, respectively~\cite{Endo2022NonResonant}.
+-Competing SM $\tau\nu+\mathrm{jets}$ events without a $b$-jet are selected in $\SR$ through mistagging.
++Competing SM $\tau\nu+\mathrm{jets}$ events without a $b$-jet are selected in $\bTagSR$ through mistagging.
+ 
+ The $b$-jet $\pT$ is used to distinguish resonant $U_1\to b\tau$ decays, which produce an energetic decay jet, from non-resonant production, where the radiated jet is typically softer.
+-The sample is divided at $\pT^b=250~\GeV$, with $\pT^b>250~\GeV$ defining $\SR$-$\Res$ and $50<\pT^b<250~\GeV$ defining $\SR$-$\NonRes$.
++The sample is divided at $\pT^b=250~\GeV$, with $\pT^b>250~\GeV$ defining $\bTagSR$-$\Res$ and $50<\pT^b<250~\GeV$ defining $\bTagSR$-$\NonRes$.
+ 
+ \subsection{Scan variables and optimisation criterion}
+ \label{subsec:ch7_scan}
+@@ -84,10 +84,10 @@
+ A lower threshold on $\pT^\tau$ is imposed to select energetic $\tau$ leptons and improve the signal-to-background ratio.
+ 
+ A high $\met$ threshold is imposed to suppress the large contribution from resonant SM $W$ production.
+-The leptoquark signal extends to larger $\met$, motivating a lower threshold in both $\SR$ regions.
++The leptoquark signal extends to larger $\met$, motivating a lower threshold in both $\bTagSR$ regions.
+ 
+ High values of $\mT$ are selected to distinguish non-resonant leptoquark exchange from the falling SM background.
+-A tighter $\mT$ threshold is therefore imposed in $\SR$-$\NonRes$ than in $\SR$-$\Res$, where the $b\tau$ mass is also used.
++A tighter $\mT$ threshold is therefore imposed in $\bTagSR$-$\NonRes$ than in $\bTagSR$-$\Res$, where the $b\tau$ mass is also used.
+ 
+ The invariant mass $m_{b\tau}$ is used to probe resonant $U_1\to b\tau$ decays, while the SM backgrounds have no corresponding heavy resonance.
+ The signal distribution is shifted below $\MU$ and broadened by the $\tau$-decay neutrino, with additional smearing from the jet and $\tau$ energy resolutions.
+@@ -102,18 +102,18 @@
+ The kinematic thresholds are scanned together because the discriminating variables are correlated.
+ For example, increasing $\met$ also raises $\mT$ at fixed $\pT^\tau$ and $\DphiTauMet$, so the effect of an additional $\mT$ requirement depends on the other cuts.
+ 
+-Lower thresholds on $\pT^\tau$, $\met$ and $\mT$ are scanned in both $\SR$ regions, together with an upper limit on $N_j-N_b$.
++Lower thresholds on $\pT^\tau$, $\met$ and $\mT$ are scanned in both $\bTagSR$ regions, together with an upper limit on $N_j-N_b$.
+ A lower threshold on $\DphiTauMet$ is tested for the non-resonant topology.
+ For the resonant topology, upper thresholds on this angle and a lower threshold on $m_{b\tau}$ are tested, as summarised in Table~\ref{tab:ch7_scan_variables}.
+ 
+ \begin{table}[htbp]
+     \centering
+     \small
+-    \caption{Thresholds tested in the $\SR$ optimisation. Each set lists the trial values for the indicated inequality. A zero mass threshold or an angular upper threshold of $\pi$ represents no effective requirement on that variable.}
++    \caption{Thresholds tested in the $\bTagSR$ optimisation. Each set lists the trial values for the indicated inequality. A zero mass threshold or an angular upper threshold of $\pi$ represents no effective requirement on that variable.}
+     \label{tab:ch7_scan_variables}
+     \begin{tabular}{lcc}
+         \toprule
+-        Variable & $\SR$-$\Res$ & $\SR$-$\NonRes$ \\
++        Variable & $\bTagSR$-$\Res$ & $\bTagSR$-$\NonRes$ \\
+         \midrule
+         $\DphiTauMet$ & $<\{0.3,1.2,2.4,2.6,\pi\}$ & $>\{0.3,1.2,2.4,2.6\}$ \\
+         $m_{b\tau}$ [$\GeV$] & $>\{0,800\}$ & Not scanned \\
+@@ -192,11 +192,11 @@
+ 
+ \subsection{Selected regions and background composition}
+ 
+-The selected $\SR$-$\Res$ requirements are $\pT^\tau>200~\GeV$, $\met>200~\GeV$, $\mT>200~\GeV$ and $m_{b\tau}>800~\GeV$, with at most three jets that are not $b$-tagged.
++The selected $\bTagSR$-$\Res$ requirements are $\pT^\tau>200~\GeV$, $\met>200~\GeV$, $\mT>200~\GeV$ and $m_{b\tau}>800~\GeV$, with at most three jets that are not $b$-tagged.
+ No additional $\DphiTauMet$ requirement is retained.
+ The region is treated as a single event-counting bin because the available background simulation does not support a finely binned fit to the broad $m_{b\tau}$ distribution.
+ 
+-The selected $\SR$-$\NonRes$ requirements are $\pT^\tau>200~\GeV$, $\met>400~\GeV$, $\mT>600~\GeV$ and $\DphiTauMet>1.2$, with at most one jet that is not $b$-tagged.
++The selected $\bTagSR$-$\NonRes$ requirements are $\pT^\tau>200~\GeV$, $\met>400~\GeV$, $\mT>600~\GeV$ and $\DphiTauMet>1.2$, with at most one jet that is not $b$-tagged.
+ No $m_{b\tau}$ requirement is imposed because the $b$-jet and $\tau$ do not reconstruct an on-shell leptoquark in the target topology.
+ This region also contributes a single event count to the fit.
+ 
+@@ -271,8 +271,8 @@
+ The remaining background in both one-$b$-jet regions is dominated by $W$+jets, principally $W\to\tau\nu$.
+ The tagged jet can originate from heavy-flavour production or a misidentified light-flavour jet.
+ In the final background prediction, after the control-region constraints described in Chapter~\ref{chapter:background_estimation}, $W$+jets contributes approximately $70\%$ in each region.
+-In $\SR$-$\Res$, diboson production contributes about $15\%$, followed by $\ttbar$ and single-top production, including $Wt$.
+-In $\SR$-$\NonRes$, $\ttbar$ contributes about $14\%$, $Z\to\tau\tau$+jets about $9\%$, and diboson production about $5\%$.
++In $\bTagSR$-$\Res$, diboson production contributes about $15\%$, followed by $\ttbar$ and single-top production, including $Wt$.
++In $\bTagSR$-$\NonRes$, $\ttbar$ contributes about $14\%$, $Z\to\tau\tau$+jets about $9\%$, and diboson production about $5\%$.
+ Top-quark events can pass the selection through $\ttbar\to b\tau\nu\,\bar b\tau\nu$ or $Wt\to b\tau\nu\,\tau\nu$ when only one $\tau$ is selected and the remaining decay products satisfy the jet and lepton requirements.
+ The $Z\to\tau\tau$ contribution similarly requires only one selected $\tau$, with neutrinos from the decays producing $\met$.
+ Among events with a jet misidentified as a $\tau$, $Z\to\nu\nu$+jets is the main source because the invisible $Z$ decay supplies genuine missing momentum.
+@@ -298,14 +298,14 @@
+ The resonant region requires $\pT^{j_1}>250~\GeV$ and $m_{j\tau}>800~\GeV$, while the non-resonant region requires $50<\pT^{j_1}<250~\GeV$.
+ The $\pT^\tau$, $\met$, $\mT$ and $\DphiTauMet$ thresholds follow the corresponding one-$b$-jet regions.
+ The upper limits are imposed on the total jet multiplicity: $N_j\leq4$ for $\bVetoSR$-$\Res$ and $N_j\leq2$ for $\bVetoSR$-$\NonRes$.
+-These preserve the total jet limits used in $\SR$ after replacing the tagged jet with an untagged leading jet.
+-
+-The $\met>200~\GeV$ requirement in $\bVetoSR$-$\Res$ is retained to keep its kinematic selection aligned with $\SR$-$\Res$.
++These preserve the total jet limits used in $\bTagSR$ after replacing the tagged jet with an untagged leading jet.
++
++The $\met>200~\GeV$ requirement in $\bVetoSR$-$\Res$ is retained to keep its kinematic selection aligned with $\bTagSR$-$\Res$.
+ A supplementary study of tighter $\met$ thresholds is presented in Appendix~\ref{app:sr0b_optimisation}.
+ The $\bVetoSR$-$\NonRes$ threshold remains $\met>400~\GeV$, which also maximises the significance in that study.
+ 
+ Signal efficiency in $\bVetoSR$ is evaluated for the pure BSM contribution, with $A\epsilon$ defined as in Section~\ref{subsec:ch7_efficiency}.
+-For illustration, at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.0,0.2)$ with $\beta_R^{33}=0$, $A\epsilon$ is $0.30\%$ and $0.13\%$ in $\bVetoSR$-$\Res$ and $\bVetoSR$-$\NonRes$, compared with $0.64\%$ and $0.069\%$ in the corresponding $\SR$ regions.
++For illustration, at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.0,0.2)$ with $\beta_R^{33}=0$, $A\epsilon$ is $0.30\%$ and $0.13\%$ in $\bVetoSR$-$\Res$ and $\bVetoSR$-$\NonRes$, compared with $0.64\%$ and $0.069\%$ in the corresponding $\bTagSR$ regions.
+ These efficiencies depend on the mass and flavour couplings because the relative contributions of the production and decay channels change.
+ The destructive interference in the final zero-$b$-jet selections reduces the nominal pure BSM yield by approximately $20\%$ at $\MU=1.5~\TeV$ and by about $30$--$40\%$ at higher masses.
+ This reduction is appreciable even after the high-$\mT$ and $\met$ requirements, so the final prediction includes the signed interference contribution explicitly.
+@@ -355,7 +355,7 @@
+         Multijet suppression & \multicolumn{4}{c}{$\min\Delta\phi(j,\met)>0.4$ or $\met/\minDphiJetPt>6$} \\
+         \midrule
+         & \multicolumn{2}{c}{Resonant} & \multicolumn{2}{c}{Non-resonant} \\
+-        Requirement & $\SR$-$\Res$ & $\bVetoSR$-$\Res$ & $\SR$-$\NonRes$ & $\bVetoSR$-$\NonRes$ \\
++        Requirement & $\bTagSR$-$\Res$ & $\bVetoSR$-$\Res$ & $\bTagSR$-$\NonRes$ & $\bVetoSR$-$\NonRes$ \\
+         \midrule
+         $N_b$ & 1 & 0 & 1 & 0 \\
+         $\pT^b$ [$\GeV$] & $>250$ & -- & $50<\pT^b<250$ & -- \\
+@@ -398,8 +398,8 @@
+         \toprule
+         Region & Additional contribution & Applied factor \\
+         \midrule
+-        $\SR$-$\Res$ & $37\%$ & 1.37 \\
+-        $\SR$-$\NonRes$ & $33\%$ & 1.33 \\
++        $\bTagSR$-$\Res$ & $37\%$ & 1.37 \\
++        $\bTagSR$-$\NonRes$ & $33\%$ & 1.33 \\
+         $\bVetoSR$-$\Res$ & $5\%$ & 1.05 \\
+         $\bVetoSR$-$\NonRes$ & $7\%$ & 1.07 \\
+         \bottomrule
+--- Chapters/CH8_Background_estimation.tex (before)
++++ Chapters/CH8_Background_estimation.tex
+@@ -315,17 +315,17 @@
+ \subsection[Additional 1tau0l1b validation]{Additional $1\tau0\ell1b$ validation}
+ \label{subsec:ch8_tau1b_vr}
+ 
+-The additional $1\tau0\ell1b$ regions test the background with the same object multiplicities as $\SR$ in adjacent mass intervals.
++The additional $1\tau0\ell1b$ regions test the background with the same object multiplicities as $\bTagSR$ in adjacent mass intervals.
+ They provide a direct check of the one-$b$-jet, hadronic-$\tau$ prediction following the excess in the light-lepton validation sample.
+ The resonant region requires $400<m_{b\tau}<800~\GeV$, and the non-resonant region requires $500<\mT<600~\GeV$.
+ These upper bounds keep the regions separate from the corresponding SRs.
+ Further reductions in $\pT^\tau$, $\met$ and $\mT$ increase the event yields, as summarised in Table~\ref{tab:ch8_tau1b_vr}.
+-All other requirements follow the corresponding $\SR$ selections.
+-
+-\begin{table}[htbp]
+-    \centering
+-    \small
+-    \caption{Selections and yields in the supplementary $1\tau0\ell1b$ validation regions. Both use $\met$ triggers and the remaining $\SR$ requirements. The background-only fit to the CRs is extrapolated to these regions. The quoted prediction uncertainties are those of this validation study, without an additional uncertainty for the changed mass intervals.}
++All other requirements follow the corresponding $\bTagSR$ selections.
++
++\begin{table}[htbp]
++    \centering
++    \small
++    \caption{Selections and yields in the supplementary $1\tau0\ell1b$ validation regions. Both use $\met$ triggers and the remaining $\bTagSR$ requirements. The background-only fit to the CRs is extrapolated to these regions. The quoted prediction uncertainties are those of this validation study, without an additional uncertainty for the changed mass intervals.}
+     \label{tab:ch8_tau1b_vr}
+     \begin{tabular}{lcc}
+         \toprule
+--- Chapters/Appendix/Appendix3.tex (before)
++++ Chapters/Appendix/Appendix3.tex
+@@ -28,6 +28,6 @@
+ For $\bVetoSR$-$\NonRes$, the significance is maximised at $\met>400~\GeV$.
+ The scan therefore supports retaining the threshold used in the final region definition.
+ For $\bVetoSR$-$\Res$, the maximum occurs at $\met>600~\GeV$, giving an improvement of approximately $20\%$ in the significance at the chosen benchmark.
+-The final resonant selection nevertheless retains $\met>200~\GeV$ to keep its kinematic requirements aligned with $\SR$-$\Res$.
++The final resonant selection nevertheless retains $\met>200~\GeV$ to keep its kinematic requirements aligned with $\bTagSR$-$\Res$.
+ The higher threshold also reduces the magnitude of the destructive interference in $\bVetoSR$-$\Res$.
+ This demonstrates the role of $\met$ in suppressing both the SM background and the interference contribution, although the gain must be balanced against the loss of signal events.
+--- .agents/skills/atlas-u1-thesis-writing/SKILL.md (before)
++++ .agents/skills/atlas-u1-thesis-writing/SKILL.md
+@@ -47,7 +47,7 @@
+   would create ambiguity or change the scientific scope.
+ - Once signal regions (SRs) have been introduced, use SR or the established
+   one-b/zero-b SR names instead of category/categories when referring to them.
+-  Preserve the existing SR1b/SR0b notation and macros, `\SR` and `\bVetoSR`.
++  Preserve the existing SR1b/SR0b notation and macros, `\bTagSR` and `\bVetoSR`.
+   Do not rename object-reconstruction types, truth-level selections, CRs or VRs
+   as SRs; retain the actual meaning of each selection or classification.
+ - Stop an overview at its complete physical or methodological endpoint. Do not

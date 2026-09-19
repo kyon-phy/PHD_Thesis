@@ -1,0 +1,35 @@
+\section{Overlap removal}
+\label{sec:ch6_overlap}
+
+\subsection{Shared signals and matching}
+
+The same detector activity can be reconstructed as more than one object.
+For example, an electron shower can also form a jet, while a hadronic tau candidate is seeded by a calorimeter jet.
+An ordered overlap-removal procedure is applied to the baseline candidates to resolve these ambiguities before event selection.
+Only objects surviving an earlier step are considered in subsequent steps.
+
+Geometrical overlaps are evaluated with the rapidity distance $\Delta R_y$ defined in Eq.~\eqref{eq:ch6_rapidity}.
+Shared ID tracks are also used to identify duplicate electron and muon interpretations.
+For muon--jet matching, \emph{ghost association} is used: an object with negligible momentum is placed along the muon direction during jet clustering, and the jet containing it is identified.
+The association is therefore determined by the clustering without changing the jet momentum.
+
+\subsection{Removal sequence}
+
+The following steps are applied in order:
+\begin{enumerate}
+    \item \textbf{Electron--electron}: when two electrons share an ID track, the electron with lower $\pT$ is removed.
+    \item \textbf{Tau--electron}: a tau candidate within $\Delta R_y<0.2$ of an electron is removed.
+    \item \textbf{Tau--muon}: a tau candidate within $\Delta R_y<0.2$ of a muon is removed.
+    \item \textbf{Calorimeter-tagged muon--electron}: a calorimeter-tagged muon sharing the electron ID track is removed.
+    \item \textbf{Electron--muon}: an electron sharing an ID track with a remaining muon is removed.
+    \item \textbf{Jet--electron}: a jet within $\Delta R_y<0.2$ of an electron is removed.
+    \item \textbf{Electron--jet}: an electron within $\Delta R_y<0.4$ of a remaining jet is removed.
+    \item \textbf{Jet--muon}: a jet with fewer than three associated tracks is removed if the muon is ghost-associated with it.
+    \item \textbf{Muon--jet}: a muon within $\Delta R_y<0.4$ of a remaining jet is removed.
+    \item \textbf{Jet--tau}: a jet within $\Delta R_y<0.2$ of a remaining tau candidate is removed.
+\end{enumerate}
+
+The inner electron--jet step retains the electron interpretation of an electromagnetic shower, whereas the outer step rejects electrons embedded in surviving hadronic jets.
+For muon--jet overlaps, the small track multiplicity is used to recognise a jet candidate dominated by activity associated with the muon.
+The last step retains the tau interpretation of an overlapping jet.
+The separate low-$\pT$ muon rejection in tau identification, described in Section~\ref{sec:ch6_tau}, is applied in addition to this baseline-object sequence.

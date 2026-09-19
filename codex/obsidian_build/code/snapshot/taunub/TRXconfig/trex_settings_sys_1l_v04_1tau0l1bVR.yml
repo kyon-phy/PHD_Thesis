@@ -1,0 +1,582 @@
+# --------------- %
+# ---  JOB    --- %
+# --------------- %
+
+Job:
+  # Name: "fit_taunub_nom_1l_allVR_BONLY_MU1500_gU1_5_23L0_2_HadtauFixed"
+  Name: "fit_taunub_sys_1l_allVR_BONLY_MU1500_gU1_5_23L0_2_alldecay_corrected_Mass_mT_VR"
+  # Name: "fit_taunub"
+  # # CmeLabel: "13 TeV"
+  # POI: "gU_square"
+  POI: "mu"
+  Label: "Run-2"
+  LumiLabel: "140 fb^{-1}"
+  # Lumi: XXX_LUMI
+  PlotOptions: "NOSIG,YIELDS,OVERSIG" #,"CHI2","NOXERR","PREFITONPOSTFIT" #"NORMSIG","NOSIG"
+  PlotLabel: "Internal"
+  MCstatThreshold: 0.01
+  # #UseGammasForCorr: TRUE
+  # #GuessMCStatEmptyBins: FALSE
+  # SystErrorBars: TRUE
+  SystControlPlots: False # set to false to disable the systematics/ folder to suppress the output file size
+  SystPruningShape: 0.01
+  SystPruningNorm: 0.01
+  # #SystLarge: 0.90
+  SystCategoryTables: TRUE 
+  CorrelationThreshold: 0.2 # set to 0.1 to reduce the size of correlation matrix
+  # HistoChecks: NOCRASH
+  PrePostFitCanvasSize: 800,600
+  LegendX1: 0.46
+  # #SplitHistoFiles: TRUE   # set this in order to have separated .root files in Histograms/ for different regions
+  ImageFormat: "pdf" #,"eps","pdf"
+  DoSummaryPlot: TRUE
+  DoTables: TRUE
+  # DoSignalRegionsPlot: TRUE
+  DoPieChartPlot: TRUE
+  # SummaryPlotYmin: 1
+  SummaryPlotYmax: 1e5 #CRs
+  LegendX1Summary: 0.35
+  LegendX2Summary: 0.9
+  RatioType: "DATAOVERBKG"
+  RatioYmin: 0 #0.5
+  RatioYmax: 2 #1.5
+  # # RatioYtitle: "S/(S+B)"
+  BlindingThreshold: 0.05
+  BlindingType: SOVERB
+  # ReplacementFile: /afs/cern.ch/work/z/zang/LQanalysis/TRExFitter_xTAU/TRExFitter/config/replacement_TauX_jiaqi.txt
+  RankingMaxNP: 20
+  # RankingPlot: Merge
+  RankingPlot: All
+  # DebugLevel: 2
+  # #RemoveSystOnEmptySample: TRUE
+  # #RemoveLargeSyst: TRUE
+  # BlindingThreshold: 0.05
+  # GetChi2: STAT
+  RatioYminPostFit: 0 #0.5
+  RatioYmaxPostFit: 2 #1.5
+  StatOnly: True
+  # # test options
+  # #HideNP: SigXsecOverSM
+  RecreateBinningFiles: True
+  SmoothingOption: "MAXVARIATION"
+  MergeUnderOverFlow: True
+  UseGammaPulls: True
+  SystCategoryTables: True
+  CleanTables: TRUE
+  # BlindSRs: FALSE
+  BlindSRs: TRUE
+  # NPRankingCanvasSize: 1100,1000
+  # SuppressNegativeBinWarnings: True
+
+# --------------- %
+# ---  FIT    --- %
+# --------------- %
+
+Fit:
+  #  FitType: SPLUSB
+  #  FitRegion: CRSR
+   POIAsimov: 1
+   FitType: BONLY
+   FitRegion: CRONLY
+  #  POIAsimov: 0
+   FitBlind: False
+  #  UseMinos: "gU_square"
+   UseMinos: "mu"
+   #UseMinos: "gU_quad"
+  #  UseMinos: all
+   NumCPU: 8
+  #  doLHscan: "gU_square"
+   doLHscan: "mu"
+  #  ToleranceScale: 0.01
+   #DoNonProfileFit: True
+   LHscanSteps: 20
+  #  FitStrategy: 3
+
+
+# --------------- %
+# ---  LIMIT and Significance --- %
+# --------------- %
+
+BlocksToCopy:
+  Limit:
+    - name: "limit"
+      POI: "mu"
+      LimitType: ASYMPTOTIC
+      LimitBlind: FALSE
+      SignalInjection: TRUE
+      SignalInjectionValue: 1
+
+  Significance:
+    - name: "sig"
+      SignificanceBlind: TRUE
+      POI: "mu"
+      POIAsimov: 1
+
+
+# --------------- %
+# --- REGIONS --- %
+# --------------- %
+
+Regions:
+  - name: "SR_*"
+    Type: SIGNAL
+    Ymax: 1e2
+    Ymin: 1e-1
+    LogScale: TRUE
+    Rebinning: 0,5000
+    DataType: ASIMOV
+    SkipSmoothing: TRUE
+    
+  
+  - name: "WCR_0tau1l0b_sch*"
+    Type: CONTROL
+    Label: "0#tau1l0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    # Rebinning: 200,1200
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "WCR_0tau1l0b_tch*"
+    Type: CONTROL
+    # Rebinning: 200,1200
+    Label: "0#tau1l0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "topCR_1tau1l_sch*"
+    Type: CONTROL
+    Label: "1#tau1l1b, Resonance topCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    # Rebinning: 0,700
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "topCR_1tau1l_tch*"
+    Type: CONTROL
+    # Rebinning: 0,700
+    Label: "1#tau1l1b, Non-Resonance topCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "VR_0tau1l1b_sch*"
+    Type: VALIDATION
+    Label: "0#tau1l1b, Resonance 0tauVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  # - name: "VR_0tau1l1b_tch_N_minus_1"
+  #   Type: VALIDATION
+  #   Label: "0#tau1l1b, Non-Resonance 0tauVR"
+  #   Ymax: 1e5
+  #   Ymin: 1e-1
+  #   LogScale: TRUE
+  #   DataType: DATA
+  #   # Rebinning: 0,5000
+
+  - name: "VR_0tau1l1b_tch*"
+    Type: VALIDATION
+    Label: "0#tau1l1b, Non-Resonance 0tauVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "WVR_1tau0l0b_sch*"
+    Type: VALIDATION
+    Label: "1#tau0l0b, Resonance WVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "WVR_1tau0l0b_tch*"
+    Type: VALIDATION
+    Label: "1#tau0l0b, Non-Resonance WVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "topVR_1tau0l2b_sch*"
+    Type: VALIDATION
+    Label: "1#tau0l2b, Resonance topVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "topVR_1tau0l2b_tch*"
+    Type: VALIDATION
+    Label: "1#tau0l2b, Non-Resonance topVR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "InvMRevVR_1tau0l1b_sch*"
+    Type: VALIDATION
+    Label: "1#tau0l1b, Resonance VR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+  - name: "mTRevVR_1tau0l1b_tch*"
+    Type: VALIDATION
+    Label: "1#tau0l1b, Non-Resonance VR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: TRUE
+    DataType: DATA
+    Rebinning: 0,5000
+    SkipSmoothing: TRUE
+
+
+
+# --------------- %
+# --- SAMPLES --- %
+# --------------- %
+
+## Signal samples ##
+
+## Background samples ##
+
+samples:
+  # - name: "LQ_taunub_M1500"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2"
+  #   # TexTitle: $LQ$ (U1, 1.5 TeV), BF
+  #   # Group: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2, BSM+Inf"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*sch*"
+  
+  # - name: "LQ_taunub_M2500"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1"
+  #   # TexTitle: $LQ$ (U1, 2.5 TeV), NET150
+  #   # Group: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, BSM+Inf"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*tch*"
+
+
+  # - name: "BSM_M1500_gU1_0_23L0_2"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.0, #beta_{23}=0.2, BSM"
+  #   Group: "M1500"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*"
+  #   # Regions: "SR_*sch*"
+  
+  # - name: "INF_M1500_gU1_0_23L0_2"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.0, #beta_{23}=0.2, Inf"
+  #   Group: "M1500"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*sch*"
+
+  # - name: "M1500_gU1_0_23L0_2"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.0, #beta_{23}=0.2, BSM+Inf"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*"
+
+  # - name: "BSM_M2500_gU2_5_23L1_0"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, BSM"
+  #   Group: "M2500"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*"
+    # Regions: "SR_*tch*"
+  
+  # - name: "INF_M2500_gU2_5_23L1_0"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, Inf"
+  #   Group: "M2500"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*tch*"
+
+  # - name: "MU1500_gU1_5_23L0_2_sch"
+  #   Type: SIGNAL
+  #   Title: "MU1500_gU1_5_23L0_2, BSM+Inf, resonance"
+  #   Group: "MU1500_gU1_5_23L0_2"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*sch*"
+
+  # - name: "MU1500_gU1_5_23L0_2_tch"
+  #   Type: SIGNAL
+  #   Title: "MU1500_gU1_5_23L0_2, BSM+Inf, non-resonance"
+  #   Group: "MU1500_gU1_5_23L0_2"
+  #   FillColor: 2
+  #   LineColor: 2
+  #   Regions: "SR_*tch*"
+
+# alldecay signals
+  - name: "MU1500_gU1_5_23L0_2_alldecay_corrected_sch"
+    Type: SIGNAL
+    Title: "MU1500_gU1_5_23L0_2, BSM, resonance"
+    Group: "MU1500_gU1_5_23L0_2"
+    FillColor: 2
+    LineColor: 2
+    Regions: "SR_*sch*"
+
+  - name: "MU1500_gU1_5_23L0_2_alldecay_corrected_tch"
+    Type: SIGNAL
+    Title: "MU1500_gU1_5_23L0_2, BSM, non-resonance"
+    Group: "MU1500_gU1_5_23L0_2"
+    FillColor: 2
+    LineColor: 2
+    Regions: "SR_*tch*"
+
+  - name: "Data"
+    Type: DATA
+    Title: "Data"
+    TexTitle: Data
+    FillColor: 1
+    LineColor: 1
+
+  # - name: "ttbar_dilep"
+  #   Type: BACKGROUND
+  #   Title: "t#bar{t}_dilep"
+  #   FillColor: 117 #"kP10Blue"
+  #   LineColor: 117 #"kP10Blue"
+  #   Group: "ttbar"
+
+  # - name: "ttbar_nonallhad"
+  #   Type: BACKGROUND
+  #   Title: "t#bar{t}_nonallhad"
+  #   FillColor: 117 #"kP10Blue"
+  #   LineColor: 117 #"kP10Blue"
+  #   Group: "ttbar"
+  
+  - name: "ttbar"
+    Type: BACKGROUND
+    Title: "t#bar{t}"
+    FillColor: 117 #"kP10Blue"
+    LineColor: 117 #"kP10Blue"
+    Group: "ttbar"
+
+  # - name: "SingleTop_tch"
+  #   Type: BACKGROUND
+  #   Title: "Single Top"
+  #   FillColor: 119 #"kP10Red"
+  #   LineColor: 119 #"kP10Red"
+  #   Group: "SingleTop"
+
+  # - name: "SingleTop_sch"
+  #   Type: BACKGROUND
+  #   Title: "Single Top"
+  #   FillColor: 119 #"kP10Red"
+  #   LineColor: 119 #"kP10Red"
+  #   Group: "SingleTop"
+
+
+  # - name: "SingleTop_tW"
+  #   Type: BACKGROUND
+  #   Title: "Single Top"
+  #   FillColor: 119 #"kP10Red"
+  #   LineColor: 119 #"kP10Red"
+  #   Group: "SingleTop"
+
+  - name: "SingleTop"
+    Type: BACKGROUND
+    Title: "Single Top"
+    FillColor: 119 #"kP10Red"
+    LineColor: 119 #"kP10Red"
+    Group: "SingleTop"
+
+  
+  # - name: "ttZ"
+  #   Type: BACKGROUND
+  #   Title: "ttZ"
+  #   FillColor: 120 #"kP10Gray"
+  #   LineColor: 120 #"kP10Gray"
+  #   Group: "ttbar"
+  
+  - name: "Zll"
+    Type: BACKGROUND
+    Title: "Zll+j"
+    FillColor: 121 #"kP10Violet"
+    LineColor: 121 #"kP10Violet"
+    Group: "Z+jets"
+  
+  - name: "Znunu"
+    Type: BACKGROUND
+    Title: "Z#nu#nu+j"
+    FillColor: 122 #"kP10Brown"
+    LineColor: 122 #"kP10Brown"
+    Group: "Z+jets"
+  
+  - name: "Ztautau"
+    Type: BACKGROUND
+    Title: "Z#tau#tau+j"
+    FillColor: 123 #"kP10Orange"
+    LineColor: 123 #"kP10Orange"
+    Group: "Z+jets"
+  
+  # - name: "Zjets"
+  #   Type: BACKGROUND
+  #   Title: "Zjets"
+  #   Group: "Z+jets"
+  #   FillColor: 106 #"kP8 Grape"
+  #   LineColor: 106 #"kP8 Grape"
+  
+  # - name: "Wtaunu_METTAU"
+  #   Type: BACKGROUND
+  #   Title: "W#tau#nu+j"
+  #   Group: "W+jets"
+  #   FillColor: 126 #"kP10Cyan"
+  #   LineColor: 126 #"kP10Cyan"
+
+  # - name: "Wtaunu_HF"
+  #   Type: BACKGROUND
+  #   Title: "W#tau#nu+j"
+  #   Group: "W+jets"
+  #   FillColor: 126 #"kP10Cyan"
+  #   LineColor: 126 #"kP10Cyan"
+
+  # - name: "Wlnu"
+  #   Type: BACKGROUND
+  #   Title: "Wl#nu+j"
+  #   Group: "W+jets"
+  #   # Smooth: TRUE
+  #   FillColor: 125 #"kP10Azure"
+  #   LineColor: 125 #"kP10Azure"
+
+  - name: "Wjets"
+    Type: BACKGROUND
+    Title: "W+jets"
+    Group: "W+jets"
+    # Smooth: TRUE
+    FillColor: 125 #"kP10Azure"
+    LineColor: 125 #"kP10Azure"
+
+
+  - name: "Diboson"
+    Type: BACKGROUND
+    Title: "Diboson"
+    Group: "Diboson"
+    # Smooth: TRUE
+    FillColor: 118 #"kP10Yellow"
+    LineColor: 118 #"kP10Yellow"
+
+  
+  # - name: "Dijet"
+  #   Type: BACKGROUND
+  #   Title: "Dijet"
+  #   FillColor: 124 #"kP10Green"
+  #   LineColor: 124 #"kP10Green"
+
+
+# --------------- %
+# - NORMFACTORS - %
+# --------------- %
+
+NormFactors:
+  - name: "mu"
+    Title: "#mu(signal)"
+    Nominal: 1
+    Min: 0
+    Max: 50
+    Samples: "MU1500_gU1_5_23L0_2*"
+    # Samples: "M1500_gU1_0_23L0_2"
+    Category: "Theory"
+
+  # - name: "gU_square"
+  #   Title: "#gu^2(signal)"
+  #   Nominal: 1
+  #   Min: -0.5
+  #   Max: 10
+  #   Samples: "INF_M1500_gU1_0_23L0_2"
+  #   Category: "Theory"
+
+  # - name: "gU_quad"
+  #   Title: "#gu^4(signal)"
+  #   Expression: "gU_square*gU_square: gU_square[1,0,10]"
+  #   Nominal: 1
+  #   Min: -0.5
+  #   Max: 10
+  #   Samples: "BSM_M1500_gU1_0_23L0_2"
+  #   Category: "Theory"
+
+
+  - name: "top_Norm_tch"
+    Title: "#lambda_{t}^{Non-Res}"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Samples: ["tt*","SingleTop*"]
+    Constant: False
+    Category: "top"
+    Regions: "*tch*"
+
+  - name: "Wjets_Norm_tch"
+    Title: "#lambda_{W}^{Non-Res}"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Constant: False
+    Samples: "W*"
+    Category: "W+jets"
+    Regions: "*tch*"
+
+  - name: "top_Norm_sch"
+    Title: "#lambda_{t}^{Res}"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Samples: ["tt*","SingleTop*"]
+    Constant: False
+    Category: "top"
+    Regions: "*sch*"
+
+  - name: "Wjets_Norm_sch"
+    Title: "#lambda_{W}^{Res}"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Constant: False
+    Samples: "W*"
+    Category: "W+jets"
+    Regions: "*sch*"
+
+# --------------- #
+# - SYSTEMATICS - #
+# --------------- #

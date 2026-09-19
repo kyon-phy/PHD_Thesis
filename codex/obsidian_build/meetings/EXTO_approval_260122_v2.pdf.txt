@@ -1,0 +1,821 @@
+### PAGE 1
+𝜏𝜈+b LQ search in LHC-ATLAS motivated by B 
+anomaly:
+Exotics Approval Meeting
+Jiaqi Zang 1, Takuya Nobe, Stergios Kazakos, Tomoya Iizawa, Junichi Tanaka
+1The University of Tokyo
+Glance, Support Note, Paper Draft
+22/01/2026
+1
+Based on https://arxiv.org/abs/2111.04748
+22/01/2026 Jiaqi ZANGExotics Approval Meeting
+NOTES: 
+
+### PAGE 2
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 2
+General info
+tau nu plus b  LQ search glance Tau+X glance
+indico
+indico
+indico
+• We are under tau+X umbrella at Lepton+X subgroup utilizing the common framework
+developed by the group. (𝜏𝜈 + 𝑏 LQ search glance, Tau+X glance)
+• CP kick-off task: We strongly contributed to the Run-3 ATLAS operation (~300 OTP/year)
+and PC agreed that it can be considered as the meeting of CP task requirement.
+• Targeting an analysis with only Run-2 data and the quick publication in early 2026.
+• 1st EB meeting on Nov. 3rd 2025. (indico)
+• 2nd EB meeting on Jan. 9th 2026. (indico)
+• Unblind request on Dec. 5th 2025. (indico)
+• The unblinding approval was signed off on Jan. 12th.
+NOTES: 
+
+### PAGE 3
+Physics motivation – B anomaly
+• Lepton Flavor Universality (LFU)
+➢Weak interaction is universal for 3 lepton flavors in Standard Model.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 3
+• Signs of LFU violation in the B meson decays are reported.
+➢ 𝑏 → 𝑐𝑙𝜈 : 𝜏 vs. light leptons (𝜇, 𝑒).
+➢ ~ 3.8𝜎 excess over SM (𝐷 and 𝐷∗ combined).
+➢ Leptoquark (LQ) is a possible explanation of such violation.
+SM
+BSM
+
+NOTES: 
+
+### PAGE 4
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 4
+Theoretical motivation
+• We focus on the vector LQ (U1 scenario) :
+• Regardingthe previous LQ searches in CMS and ATLAS:
+➢ Pair production: Not depend on the LQ coupling. 𝑚𝐿𝑄 < 1.5 TeV are excluded.
+➢ Non-resonant production:
+▪ Strongly depends on the LQ coupling, gives a chance to reach unexplored
+high-mass region.
+▪ CMS and ATLAS has performed the search with 𝜏𝜏 final states, but it’s
+sensitive to 𝛽𝐿
+33 only.
+ Limit of ATLAS LQ searches
+(CMS is similar to ATLAS)
+➢ 𝑔𝑈: global coupling constant to normalize 𝛽𝐿
+33 = 1.0 (b-tau coupling).
+➢ 𝛽𝐿
+23 (s-tau coupling): coupling that decide the signal strength together with 𝑔𝑈.
+➢ Strength of R(D) anomaly is parameterizedby 𝑔𝑈
+2 (1 +
+𝑉𝑐𝑠
+𝑉𝑐𝑏
+∗ 𝛽𝐿
+23). Both 𝑔𝑈 and 𝛽𝐿
+23 are important!
+NOTES: 
+
+### PAGE 5
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 5
+Targetsignals
+• We propose a UV-model-independent search with 𝜏𝜈 + 𝑏 final state.
+➢ The same diagram as R(D(*)) anomaly.
+➢ Also sensitive to the 𝑐𝜈 coupling, which means the signal strength is dominated by not only 𝑔𝑈, but also coupling
+𝛽𝐿
+23. → To test the large 𝜷𝑳
+𝟐𝟑 scenario. (𝛽𝐿
+33 = 1.0)
+➢ Can cover all possible scenarios to explain R(D*) by a combination with 𝜏𝜏 search.
+➢ Not explored by ATLAS/CMS yet. Reinterpretation of 𝑊′ → 𝜏𝜈 is not so sensitive to LQ signals since they don’t
+require b-jet.
+Complementarity 2D search
+plane of 𝜏𝜈 and 𝜏𝜏 analysis
+• To explain the R(D(*)) anomaly,a sizable 𝑔𝑈
+2 (1 +
+𝑉𝑐𝑠
+𝑉𝑐𝑏
+∗ 𝛽𝐿
+23) is required.
+➢ Small 𝛽𝐿
+23 is preferred for the general UV completion for Δ𝐹 = 2 processes. tested by 𝜏𝜏 analysis
+➢ Large 𝛽𝐿
+23 with small 𝑔𝑈 is remained to test.
+➢ Both 𝑔𝑈 and 𝛽𝐿
+23 are important to explore the R(D*) anomaly!
+Signal diagrams
+
+NOTES: 
+
+### PAGE 6
+Frameworksand MC samples
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 6
+• Process chain TopCPToolKit→FastFrame→TRexFitteris used.
+▪ Commonly developed in Tau+Xgroup.
+▪ TopCPToolKit 2.17.1 and Tau+XTopCPToolkit/FastFrameimplementationare used.
+▪ Included all CP recommeded uncertaintiesto ntuples.
+▪ Special ntuple production with customizedskimming for the analysis is generated.(TopCPKitfor
+submission and FastFramefor taunub search)
+• Samples are skimmed with events that satisfies either of:
+➢ 1𝜏0𝑙: 𝑝𝑇
+𝜏 > 50 GeV ,𝐸𝑇
+𝑚𝑖𝑠𝑠 > 150 GeV .
+➢ 1𝜏1𝑙: 𝑝𝑇
+𝜏 > 50 GeV ,𝑝𝑇
+𝑒/𝜇 > 20 GeV ,𝐸𝑇
+𝑚𝑖𝑠𝑠 > 50 GeV .
+➢ 0𝜏1𝑙: 𝑝𝑇
+𝑒/𝜇 > 20 GeV ,𝐸𝑇
+𝑚𝑖𝑠𝑠 > 150 GeV .
+NOTES: 
+
+### PAGE 7
+MC samples
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 7
+Backgrounds (p6697)
+Special mET-filtered sample
+• Signals applied with additional reweighting is used for the current results.
+• Background process
+➢ W+jets
+➢ Z+jets
+➢ Diboson
+➢ Top
+• The special mET-filtered W→taunu samples is used.
+NOTES: 
+
+### PAGE 8
+Object definitions
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 8
+• RNN tau is used in our analysis by the following reason:
+➢ We use the Run-2 data only.
+➢ After high-mET and high-pT requirements, fake tau contribution is negligibly small.
+➢ GNTau recommendation is a bit behind our publish schedule.
+➢ With the agreement with Tau CP ,loose eVeto SF for medium tau ID is used, on top of tight tau ID.
+Tau (signal: TightRNN + loose eVeto)
+jets
+Muon
+(signal: medium + Tight_VarHad)
+Electron(signal: TightLH +
+HighPtCaloOnly)
+NOTES: 
+
+### PAGE 9
+Signal region optimization
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 9
+• Event topology: exact 1 hadronic tau + exact 1 b-jet (hard/soft pT) + large mET.
+• Signal region optimization
+➢ A scan with various variable sets is performed.
+➢ The variable set which give the largest significance is chosen.
+➢ Scan with condition 𝐵𝑘𝑔𝑡𝑜𝑡𝑎𝑙 > 2 (140 fb-1)
+➢ Applied on top of the baseline selection.
+➢ Fine tuning on 𝑚𝑏𝜏 would not have too much improvementdue to the poor mass resolution.
+
+NOTES: 
+
+### PAGE 10
+Signal region and backgroundcomposition
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 10
+• Both dominant (𝑊 → 𝜏𝜈) and sub-dominant (Top)
+BGs are irreducible background (true tau).
+• After the hard mET requirement, fake tau 
+background is marginal (<10%).
+• Fake tau estimation:
+➢ Mainly from the minor background 𝑍 → 𝜈𝜈 +
+𝜏(fake), the conservative50% uncertainty is set
+for the fake estimation after investigatingin ZllVR
+with MC samples.
+𝑾 → 𝝉𝝂 SingleTop 𝒕 ҧ𝒕 Diboson 𝒁 → 𝝉𝝉 𝒁 → 𝝂𝝂 All BGs
+Res SR 1.5 ± 0.2 0.1 ± 0.1 0.2 ± 0.1 0.4 ± 0.1 0.2 ± 0.1 0.04 ± 0.01 2.4 ± 0.3
+Non-Res SR 1.6 ± 0.5 0 ± 0.1 0.3 ± 0.1 0.1 ± 0.1 0.2 ± 0.1 0.05 ± 0.01 2.1 ± 0.5
+• Event yields
+NOTES: 
+
+### PAGE 11
+Backgroundestimationstrategy
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 11
+• SR and CR definition:
+➢ SR: 1tau + mET + 1b
+➢ WCR: 1e/1mu + mET + bveto
+➢ TopCR:1e/1mu + 1tau + bjets
+• Validationregion selection:
+➢ 1e/1mu → 1tau extrapolation:validated
+in WVR1tau and TopVR1tau.
+➢ bveto → btag extrapolation:validated in
+VR0tau.
+
+NOTES: 
+
+### PAGE 12
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 12
+N-1 distribution in TopCRs
+Resonance
+Non-Resonance
+TopCR (1e) TopCR (1mu)
+
+NOTES: 
+
+### PAGE 13
+N-1 distribution in WCRs
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 13
+Resonance
+Non-Resonance
+No distinct issue is found in CRs
+WCR (1e) WCR (1mu)
+
+NOTES: 
+
+### PAGE 14
+Theory uncertainty estimation
+• Theory uncertaintiesfor W+jets and top background are estimated, by following PMG
+recommendations.
+• Exception: the fraction of b/c jets in W+jets affects our analysis, that is, the fraction of b/c jets could be
+the source of the W+jets modeling uncertainties when extrapolating the fit results from b-veto CR to
+the b-tag SR/VRs.
+• We tested with 10%, 20% and 30% uncertainty on W+jets. The sensitivity is not changed so much for
+using 20% or 30% (given it is dominated by data stat uncertainty) and 20% is applied in the end.
+• The uncertainty of “transferfactor (CR→SR)” is estimated.
+• Most of uncertaintiesare cancelled out between SR/VR and CRand found to be less than 20%.
+• CR definition is good, and we can use the phase space very similar to SR/VR.
+• Uncertaintiesaffected by poor MC statistics are evaluatedwith looser selection cuts and /or
+smoothing of distribution.
+• 𝑍 → 𝜈𝜈 + 𝜏(fake) is a minor source of background. The MC modeling for fake tau is not perfect, so
+we assigned 50% uncertainty on that since we observed disagreement~ 50% between data and
+MC in 𝑍 → 𝑙𝑙 + 𝜏(fake) VR.
+• Diboson and Z+jets are assigned with 30% mis-modeling uncertainty.(The impact on the value is 
+very limited, 30% → 50% corresponds to the sensitivity loss less than 1%)
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 14
+NOTES: 
+
+### PAGE 15
+Fit strategy
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 15
+• The fit is performed with 1 bin for each region and SR is blinded.
+• Both data and MC are used depending on regions: SRs (Asimov) and CRs (data).
+➢ The Asimov data is constructedusing S+B model.
+➢ Background pseudo-data constructionin SRs is based on the NP values obtain from B-only fit.
+➢ Signal strength is fixed at 0 for the B-only fit and pre-fit value is set to 1 for the S+B fit.
+• TRExFitter config:
+• BlindSRs: True
+• FitBlind: False
+• CorrelationThreshold: 0.2
+• SystPruningNorm: 0.01 (~0.1% sensitivity loss when include all Sys)
+• SystPruningShape: 0.01
+• Referencesignal used for S+B fit:
+➢ 𝑚𝑈 = 1.5 TeV,𝑔𝑈 = 1.5, 𝛽𝐿
+23 = 0.6
+➢ 𝑚𝑈 = 2.5 TeV,𝑔𝑈 = 2.5, 𝛽𝐿
+23 = 1.0
+• Normalizationfactors:
+• 𝜆𝑡
+𝑅𝑒𝑠, 𝜆𝑡
+𝑁𝑜𝑛−𝑅𝑒𝑠 for TopCR, 𝜆𝑊
+𝑅𝑒𝑠, 𝜆𝑊
+𝑁𝑜𝑛−𝑅𝑒𝑠 for WCR
+NOTES: 
+
+### PAGE 16
+• Fit region: CRs
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 16
+B-only fit results (CR only fit)
+• No significant constain is observed.
+NOTES: 
+
+### PAGE 17
+B-only fit results (CR only fit)
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 17
+• NP Correlations
+• CorrelationThreshold: 0.2
+
+NOTES: 
+
+### PAGE 18
+• Fit region: CRs
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 18
+B-only fit results (CR only fit)
+• The discrepancy between data/MC in non-resonance VR0tau is 2.3 sigma.
+• We checked VR0tau carefully, and confirmed it is coming from the statistical fluctuation.
+NOTES: 
+
+### PAGE 19
+0tau1l1bvalidation regioninvestigation(NoSys)
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 19
+• Check on the N-1 plots
+• ~2.8 sigma discrepancy observed in VR0tau (stat-only).
+• Specifically, 425 < mET< 450 GeV && 300 < lep0 pT < 400 GeV is off.
+• Electron and muon channel share the similar yields.
+e-channel: 5 events.
+Mu-channel: 7 events.
+VR
+NOTES: 
+
+### PAGE 20
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 20
+0tau1l1bvalidation regioninvestigation(NoSys)
+• Test with looser or tighter cuts
+Met N-1 met N-1 (mT > 400 GeV)
+• Discrepancy is localized in 425 < mET < 450 GeV with overall 3.1 sigma (stat-only).
+• If we loosen the mET cut > 300 GeV ,data/MC agreement is improved to 1.8 sigma (stat-only).
+• If we tighten the mET cut > 500 GeV ,data/MC agreement is also improved to 1.5 sigma (stat-only).
+• If we include all the systematicsuncertainties,the agreement is relaxed to sigma 2.3 sigma.
+VR
+ VR
+The discrepancy is localized within a narrow mET range!
+NOTES: 
+
+### PAGE 21
+• A closer look at jet/ lepton eta/phi in the 0tauVR with cut 425 < mET< 450 GeV.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 21
+0tau1l1bvalidation regioninvestigation(NoSys)
+
+NOTES: 
+
+### PAGE 22
+1tau0l1bVR
+• Defined a new VR in the 1tau0l1b region by reverting
+the m(tau,b) and mT cut for resonance and non-
+resonance regions, respectively.
+• mET and tau pT are also relaxed to gain more
+statistics.
+• B-only fit with 0tau1l0b CR is performed without
+systematics included.
+• Observed good agreement in the post-fit data/MC
+comparison.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 22
+Res:
+NonRes:
+1tau0l1b Res
+1tau0l1b Non-Res
+Conclusion:
+• Overall mET distribution agree very well with the prediction (except 1 bin).
+• We think the discrepancy is coming from the statistical fluctuation, and 0b→1b extrapolation
+is not very worrisome.
+NOTES: 
+
+### PAGE 23
+UnblindedB-only fit in CR
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 23
+• Fit results and Summary plots
+Resonance SR: 3 events
+Non-resonance SR: 2 event
+• Blinded expected Resonance SR: 2.69 ± 0.71
+• Blinded expected Non-resonance SR: 1.88 ± 0.65
+Unblind
+• The fit results is the same as Asimov-fit
+NOTES: 
+
+### PAGE 24
+Unblinded S+B fit
+• 𝑀𝐿𝑄 = 1.5 TeV,𝑔𝑈 = 1.5, 𝛽𝐿
+23 = 0.6
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 24
+• Best-fit 𝜇:
+NOTES: 
+
+### PAGE 25
+Unblinded S+B fit
+• 𝑀𝐿𝑄 = 2.5 TeV,𝑔𝑈 = 2.5, 𝛽𝐿
+23 = 1
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 25
+• Best-fit 𝜇:
+
+NOTES: 
+
+### PAGE 26
+Limits
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 26
+• Expected and observed 95% CL exclusion limits in different parameter spaces.
+tautau search
+• tautau search overlaid the result at 𝛽𝐿
+23 = 0.0 to the R(D)-favored region assuming 𝛽𝐿
+23 =
+[0.06, 0.16]
+• Our analysis probe the unique region at higher 𝛽𝐿
+23 region, consistent with R(D*).
+tautau limit tautau limit
+NOTES: 
+
+### PAGE 27
+Limits
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 27
+• Expected and observed 95% CL exclusion limits in different parameter spaces.
+𝛽𝐿
+23 = 0.2 𝛽𝐿
+23 = 1.4 𝛽𝐿
+23 = 2.2
+• This is a new SR phase space, not explored by ATLAS yet.
+• The sensitivity for 𝛽𝑅
+33 = 1 is expected to be better since we will have ~1.5 times and ~3
+times larger signal yields in Resonance SR and Non-Resonance SR, respectively.
+tautau limit
+NOTES: 
+
+### PAGE 28
+Summary and plans
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 28
+• The first search at ATLAS/CMS for Leptoquark with the final state of taunu+b is performed.
+➢ No significant excess is found. The SM prediction has a good agreement with data.
+• The expected and observed limits are drawn with additional reweighting.
+• The signal samples generation for the final interpretation is almost done. The current results
+made with samples applying additional internal weights is proved to be consist with the final
+samples.
+• Interference contribution is very limited.
+• All EB members’ comments are addressed and no significant issue is remained.
+• Paper draft (CDS) is shared with EB members. We already got a comment from the chair.
+Remaining tasks
+• Update the results with new signals. (the update can be done in one week as long as the signal
+production are finished.)
+• Apply the fit with toy models. (The framework is ready, expect ~2 weeks processing)
+• Targeting the Moriond EW 2026.
+NOTES: 
+
+### PAGE 29
+29
+Backup
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting
+NOTES: 
+
+### PAGE 30
+Signal region N-1 distribution
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 30
+• Due to the low stats, the
+cut in SR is relaxed for
+kinematics plots.
+• BG and signal kinematics in 
+loose Resonance SR.
+➢ 𝑚𝑇 and 𝑝𝑇
+𝜏 are
+loosened by 100 GeV .
+
+NOTES: 
+
+### PAGE 31
+Signal region N-1 distribution
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 31
+• Due to the low stats, the cut
+in SR is relaxed for
+kinematics plots.
+• BG and signal kinematics in 
+loose Non-Resonance SR.
+➢ 𝐸𝑇
+𝑚𝑖𝑠𝑠 and 𝑚𝑇 and 𝑝𝑇
+𝜏
+are loosened by 100 GeV .
+
+NOTES: 
+
+### PAGE 32
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 32
+• Truth distribution refer to talk from Junichi. MU=1.5 TeV.
+➢ Ref: truth distribution w/o reweighting. Weighted: reweighting w/o correction.
+𝛽𝐿
+23, 𝑔𝑈 = (0.2,0.5) 𝛽𝐿
+23, 𝑔𝑈 = (0.2,3.0)
+Signal reweightingstudy
+• Originally we planned to use the MadGraph internal weights to vary 𝑔𝑈 and 𝛽𝐿
+23 coupling.
+• Found the internal weights of our MC samples do not consider the width variation depending on 𝑔𝑈.
+• We estimated the additional correction factor as a function of M(𝑏, 𝑡𝑎𝑢) and 𝑝𝑇
+𝑗𝑒𝑡, and reproduced the
+distributions generated by the MadGraph directly without the internal weights.
+• Contribution of interference between
+BSM and SM is marginal (<5%) after
+the high mT cut. The BSM only signals
+with additional weights are used in the
+following study.
+Example of BSM and SM diagram for
+the interference
+
+NOTES: 
+
+### PAGE 33
+• However, after the discussion with PMG experts, this approach is not favored by them, so
+we are generating signals at all parameter points. (JIRA)
+• The request was approved with high priority.
+• Evgen for mc20a/d done; Sim/Reco ongoing.
+• The validation of the reweighting method is performed using the available new signals.
+• The interference also does not have significant affect to the final limit.
+• In conclusion, we are still waiting for the final version of the signals, but the result for fit
+and limit computation must be consistent.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 33
+Signal reweightingstudy
+NOTES: 
+
+### PAGE 34
+• Affections on the signal acceptance.
+• Blue: Reweightedevents w/o correction. Red: Reweightedevents with correction
+• Parameters:𝑀𝑈 = 1.5 TeV, 𝑔𝑈 = 1.0, 𝛽𝐿
+23 = 0.2.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 34
+Selection: mET > 200 GeV
+The over-estimation only
+affect the resonance signals
+Signal reweightingstudy
+NOTES: 
+
+### PAGE 35
+New signals validation
+• New signals with default mc weight (Red) is compared with old samples with
+additional weights (Blue).
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 35
+𝑀𝐿𝑄, 𝛽𝐿
+23, 𝑔𝑈 = (1.5𝑇𝑒𝑉, 0.6,1.5)
+𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 1.00 𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.99
+NOTES: 
+
+### PAGE 36
+New signals validation
+• New signals with default mc weight (Red) is compared with old samples with
+additional weights (Blue).
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 36
+𝑀𝐿𝑄, 𝛽𝐿
+23, 𝑔𝑈 = (2.0𝑇𝑒𝑉, 1.0,2.5)
+𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.87 𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.97
+
+NOTES: 
+
+### PAGE 37
+New signals validation
+• New signals with default mc weight (Red) is compared with old samples with
+additional weights (Blue).
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 37
+𝑀𝐿𝑄, 𝛽𝐿
+23, 𝑔𝑈 = (2.5𝑇𝑒𝑉, 1.0,2.5)
+𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.97 𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.91
+
+NOTES: 
+
+### PAGE 38
+New signals validation
+• New signals with default mc weight (Red) is compared with old samples with
+additional weights (Blue).
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 38
+𝑀𝐿𝑄, 𝛽𝐿
+23, 𝑔𝑈 = (3.0𝑇𝑒𝑉, 1.0,2.5)
+𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 0.95 𝑁𝑜𝑙𝑑/𝑁𝑛𝑒𝑤= 1.09
+
+NOTES: 
+
+### PAGE 39
+• ~2 sigma discrepancy observed in VR0tau (0tau1b).
+➢ Concern about 0b→1b extrapolation.
+• LPX coveners suggested to use VR0tau as WCR.
+➢No need to assign the ad-hoc uncertainty on W+HF/LF ratio, but poor statistics
+• We tested to use both regions in the fit.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 39
+Test of differentCR strategies
+NOTES: 
+
+### PAGE 40
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 40
+Test on 0tau1bCR/0tau1b+0tau0bCR
+0tau0b WCR (former) 0tau1b+0tau0b WCR (new)
+• Post-fit summary
+• S+B fit. 𝑚𝑈, 𝛽𝐿
+23, 𝑔𝑈 = (2.5 𝑇𝑒𝑉, 2.5, 1.0)
+NOTES: 
+
+### PAGE 41
+Test on 0tau1bCR/0tau1b+0tau0bCR
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 41
+• S+B fit. 𝑚𝑈, 𝛽𝐿
+23, 𝑔𝑈 = (2.5 𝑇𝑒𝑉, 2.5, 1.0)
+0tau0b WCR (former)
+ 0tau1b+0tau0b WCR (new)
+
+NOTES: 
+
+### PAGE 42
+Event yields
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 42
+0tau0b WCR (former, post-fit)
+0tau1b+0tau0b WCR (new, post-fit)
+
+NOTES: 
+
+### PAGE 43
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 43
+• S+B fit. 𝑚𝑈, 𝛽𝐿
+23, 𝑔𝑈 = (2.5 𝑇𝑒𝑉, 2.5, 1.0)
+0tau0b WCR (former)
+ 0tau1b+0tau0b CR (new)
+Test on 0tau1bCR/0tau1b+0tau0bCR
+NOTES: 
+
+### PAGE 44
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 44
+• S+B fit. 𝑚𝑈, 𝛽𝐿
+23, 𝑔𝑈 = (1.5 𝑇𝑒𝑉, 1.5, 0.6)
+0tau0b WCR (former)
+Test on 0tau1bCR/0tau1b+0tau0bCR
+0tau1b+0tau0b CR (new)
+
+NOTES: 
+
+### PAGE 45
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 45
+Test on 0tau1bCR/0tau1b+0tau0bCR
+• Limits at 1.5 TeV
+0tau0b WCR (former) 0tau1b+0tau0b WCR (new)
+
+NOTES: 
+
+### PAGE 46
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 46
+Test on 0tau1bCR/0tau1b+0tau0bCR
+• Limits at 3 TeV
+0tau0b WCR (former) 0tau1b+0tau0b WCR (new)
+
+NOTES: 
+
+### PAGE 47
+Conclusion
+• Option 1: 0tau0b (favoured)
+• Considered as background-only fit.
+• ~2sigma excess in VR, but seems like statistical fluctuation (we made a careful study)
+• ad-hoc 20% uncertainty on W+HF/LF ratio
+• post fit W+jets normalization factor 0.89+/-0.08OBs
+• Observed good agreement on post-fit data/ MC in 1tau0l1b VR.
+• Option 2: S+B fit using 0tau1b VR as a proxy of SR.
+• It shows the uncertainties currently we considered describe data well, even if the ~2 sigma
+discrepancy by the background-only fit with Option 1.
+• Option 2 (simultaneous fit to SR+CR+VR) is a little bit less flexible than Option1
+• Stats in VR is higher than SR, so HF/LF ratio is mainly determined by the VR.
+• With Option 1 (fit to SR+CR), it is determined by SR directly.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 47
+NOTES: 
+
+### PAGE 48
+Theory uncertaintyestimation
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 48
+• Resonance regions
+
+NOTES: 
+
+### PAGE 49
+Theory uncertaintyestimation
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 49
+• Non-Resonance regions
+
+NOTES: 
+
+### PAGE 50
+Norm factor correlationissue.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 50
+w/ HADTAU SME TES DETECTOR w/o HADTAU SME TES DETECTOR
+• The resonance/non-resonance Top normfactors are correlated due to the NPs that take
+effect to both resonance/non-resonance TopCR
+NOTES: 
+
+### PAGE 51
+Run-3/HL-LHC projection
+• Performed with Asimov data.
+• Luminosity is scaled to 450 fb-1 and 3000 fb-1 for Run2+Run3 and HL-LHC.
+• Due to the limited parameter points, the interpolation of the limit is a bit off
+ → Expecting less difference between the limits. Will improved by the final signal 
+samples.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 51
+
+NOTES: 
+
+### PAGE 52
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 52
+e/mu inconsistencyin WCR
+• Data yield comparison in 1e/1mu WCR • Simulation yield comparison in 1e/1mu WCR
+• Data/MC (Non-resonance WCR):
+0tau1e0b: 1.017 ± 0.095
+0tau1mu0b: 0.79 ± 0.07
+• 2.6 sigma discrepency for data and 0.7 sigma for MC are observed.
+1.9 sigma NF inconsistency between e/mu channel
+NOTES: 
+
+### PAGE 53
+Event weights in non-resonance WCR
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 53
+1mu non-resonance WCR 1e non-resonance WCR
+• Weight_total = weight_mc * weight_pileup * lumi * xSec / SumWeights
+• Difference from MC samples mainly from the specific large weight events (weight~30).
+• With looser cuts, agreement improved. → will check the sensitivity with loose CR later.(better statistical
+uncertainty v.s. systematics increased by different phase space btw SR/CR.)
+• The difference is coming from statistical fluctuation
+• e- and mu- channels are combined for stat.
+• Try to perform the fit to CRs and apply the results to 1tau VRs to check the validities.
+
+NOTES: 
+
+### PAGE 54
+Multi-jet cleaning– Purpose and strategy
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 54
+• Purpose: Clean up the multi-jet background in the signal region.
+• Strategy: Utilize feature of remained multi-jet process in SR.
+→ Those events are full of fake 𝐸𝑇
+𝑚𝑖𝑠𝑠 due to jet resolution effects and large cross section.
+→ Fake 𝐸𝑇
+𝑚𝑖𝑠𝑠 tends to the direction of hard jet and have lower or higher energy.
+True and fake 𝐸𝑇
+𝑚𝑖𝑠𝑠 topology
+• Angular distribution of multi-jet after pre-selection.
+Multi-jets enriched in the shaded region
+Signal (w/ 𝜈)
+ Multi-jet (w/o 𝜈)
+
+NOTES: 
+
+### PAGE 55
+Multi-jet cleaning– Rejectionratio
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 55
+• A cut of 𝑚𝑖𝑛ΔΦ(𝑝𝑇
+𝑚𝑖𝑠𝑠, 𝑝𝑇
+𝑗 ) > 0.4 || 𝐸𝑇
+𝑚𝑖𝑠𝑠/𝑝𝑇
+𝑗> 6 is selected.
+➢ 86% multi-jet background rejection.
+➢ 3.6% signal loss → acceptable.
+• Cuts on 𝑚𝑖𝑛ΔΦ(𝑝𝑇
+𝑚𝑖𝑠𝑠, 𝑝𝑇
+𝑗) and 𝐸𝑇
+𝑚𝑖𝑠𝑠/𝑝𝑇
+𝑗 is found to be useful to suppress multi-jet background.
+• Rejection ratio scan for 𝑚𝑖𝑛ΔΦ(𝑝𝑇
+𝑚𝑖𝑠𝑠, 𝑝𝑇
+𝑗 ) when 𝐸𝑇
+𝑚𝑖𝑠𝑠/𝑝𝑇
+𝑗> 6 is performed to find a proper cut.
+Rejection ratio= Number of events (rejected)
+Number of total events
+Multi-jet
+enriched region SR
+Signals distribution is quite different than Multi-jets
+SR
+ATLAS simulation work in progress
+𝑠 = 13 TeV, 140 fb−1
+LQ 𝜏𝜏 t-channel
+NOTES: 
+
+### PAGE 56
+• Purpose: Estimate the mis-modeling of 𝑍 → 𝜈𝜈 in SR due to fake 𝜏 background.
+• Strategy:
+➢Semi-data-driven normalizationfactor (NF) correction method.
+• 𝑁𝐹 =
+𝑁𝑍+𝑗𝑒𝑡𝑠
+𝐶𝑅,𝑑𝑎𝑡𝑎
+𝑁𝑍+𝑗𝑒𝑡𝑠
+𝐶𝑅,𝑀𝐶
+• 𝑁𝑍+𝑗𝑒𝑡𝑠
+𝑆𝑅 = 𝑁𝑍+𝑗𝑒𝑡𝑠
+𝑆𝑅,𝑀𝐶 × 𝑁𝐹
+➢MC samples have more statistics than data.
+➢𝑍 → 𝑙𝑙 + 𝜏 region was selected the CR due to having the same diagram as 𝑍 → 𝜈𝜈 + 𝜏 and high
+purity.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 56
+𝑍 → 𝑙𝑙 + 𝜏 VR – Purpose and strategy
+𝑁𝑍+𝑗𝑒𝑡𝑠
+𝐶𝑅,𝑚𝑐 − number of events from the Z+ jets in MC samples
+Diagrams of 𝑍 → 𝑙𝑙/𝜈𝜈
+NOTES: 
+
+### PAGE 57
+𝒁 → 𝒍𝒍 + 𝝉 CR
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 57
+• Comparison w/wo tau selection
+0 𝜏 & no 𝑚𝑇 cut 1 𝜏 (𝑝𝑇 > 100 GeV) & no 𝑚𝑇 cut
+Data and simulation has large deviation while selecting fake 𝜏 events.
+NOTES: 
+
+### PAGE 58
+𝒁 → 𝒍𝒍 + 𝝉 CR
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 58
+• N-1 Kinematics plots (tight 𝜏 WP)
+CR
+CR
+CR
+𝒑𝑻
+𝝉 range (GeV) NF
+𝒑𝑻
+𝝉 > 100 0.44 ± 0.06
+NOTES: 
+
+### PAGE 59
+W+jets HF modeling uncertaintystudy
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 59
+10% 20% 30%
+• 10%/20%/30% of HF modeling uncertainty are tested with 𝑀𝐿𝑄 = 1.5 TeV.
+• The significance are 2.156/2.105/2.034. → ~5% improvement from 30% to 10%
+• Expected limit for different uncertainties.
+NOTES: 
+
+### PAGE 60
+Expectedlimits with interference
+• The interference contribution is studied.
+➢Interference in resonance SR is found to be less than 5%
+➢Interference in non-resonance SR is found to be up to 40%. But the interference is
+generally lower than 5% in the parameter regions whose signal yield is sizable.
+• As a result, the interference contribution is small enough to be ignored during the fit and limit
+computation.
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 60
+• The limit computation and fit is performed by
+➢ Norm factor 𝜇 for interference.
+➢ Norm factor 𝜇2 for BSM.
+NOTES: 
+
+### PAGE 61
+Decorrelation of Wjets HF modeling uncertainty
+• Tested decorrelating the Wjets HF modeling uncertainty for 2 SRs, as it may depend on 𝑝𝑇.
+• Sensitivity is not changed.
+• Ranking for 𝑀𝐿𝑄 = 1.5 / 2.5 / 3 TeV:
+22/01/2026 Jiaqi ZANG Exotics Approval Meeting 61
+
+NOTES: 

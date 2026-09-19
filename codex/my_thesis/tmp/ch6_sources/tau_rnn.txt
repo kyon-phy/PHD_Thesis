@@ -1,0 +1,924 @@
+
+=== PDF PAGE 1 ===
+ATL-PHYS-PUB-2019-033
+30 August 2019
+ATLAS PUB Note
+ATL-PHYS-PUB-2019-033
+30th August 2019
+Identification of hadronic tau lepton decays using
+neural networks in the ATLAS experiment
+The ATLAS Collaboration
+This note describes a novel algorithm to identify the visible decay products of hadronic
+tau decays (τhad-vis) used by the ATLAS experiment for Run 2 of the LHC. The algorithm
+is based on recurrent neural networks (RNN) employing information from reconstructed
+charged-particle tracks and clusters of energy in the calorimeter associated to τhad-vis candidates
+as well as high-level discriminating variables. The expected performance of this algorithm is
+evaluated in simulated proton–proton collisions at √
+s = 13 TeV and compared to a BDT-based
+approach.
+© 2019 CERN for the benefit of the ATLAS Collaboration.
+Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+
+=== PDF PAGE 2 ===
+1 Introduction
+The tau lepton has a mass of 1.777 GeV and decays either leptonically (τ → ντ ν` `, ` = e, µ) or hadronically
+(τ → ντ hadrons) after a proper decay length of 87 µm [1]. Due to its short decay length, tau leptons
+produced in proton–proton (pp) collisions within the ATLAS experiment [2] at the LHC typically decay
+before they reach the innermost layer of the pixel detector and thus only the decay products of the tau
+leptons can be observed. This note only considers the hadronic tau lepton decays which correspond to a
+total branching fraction of approximately 65%. Almost all hadronic tau lepton decays include one (72%)
+or three (22%) charged pions and the majority (68%) include one or more neutral pions. Therefore, their
+signature corresponds to that of a narrow jet with one or three tracks in the detector. The neutrino from the
+hadronic tau lepton decay can not be reconstructed and the combination of all visible decay products is
+referred to as τhad-vis.
+This note describes a novel identification algorithm that uses track and calorimeter information in a
+recurrent neural network (RNN) to separate true τhad-vis and misidentified τhad-vis originating from quark￾and gluon-initiated jets. It is now used as the default tau identification algorithm for the data recorded by
+the ATLAS experiment from 2015 to 2018, also referred to as LHC Run 2, and has been used in tau lepton
+triggers in 2018.
+The note is structured as follows. Section 2 introduces the ATLAS experiment at CERN, Section 3
+describes the simulation samples used to train the tau identification algorithm and to assess its performance
+and Section 4 describes the reconstruction of τhad-vis candidates. The neural-network-based identification
+algorithm and its training is described in Section 5, its performance is discussed in Section 6 and Section 7
+concludes.
+2 The ATLAS detector
+The ATLAS experiment at the LHC is a multi-purpose particle detector with a forward-backward symmetric
+cylindrical geometry and a near 4π coverage in solid angle.1
+It consists of an inner tracking detector
+surrounded by a thin superconducting solenoid providing a 2 T axial magnetic field, electromagnetic and
+hadron calorimeters, and a muon spectrometer. The inner tracking detector covers the pseudorapidity
+range |η| < 2.5. It consists of silicon pixel, silicon microstrip, and transition radiation tracking detectors.
+The innermost layer of the pixel detector, the insertable B-layer (IBL), was installed between Run 1
+and Run 2 of the LHC. Lead/liquid-argon (LAr) sampling calorimeters provide electromagnetic (EM)
+energy measurements with high granularity. A hadron (steel/scintillator-tile) calorimeter covers the central
+pseudorapidity range (|η| < 1.7). The end-cap and forward regions are instrumented with LAr calorimeters
+for both EM and hadronic energy measurements up to |η| = 4.9. The muon spectrometer surrounds
+the calorimeters and is based on three large air-core toroidal superconducting magnets with eight coils
+each. The field integral of the toroids ranges between 2.0 and 6.0 T m across most of the detector. The
+muon spectrometer includes a system of precision tracking chambers and fast detectors for triggering. A
+two-level trigger system is used to select events. The first-level trigger is implemented in hardware and
+uses a subset of the detector information to reduce the accepted rate to at most nearly 100 kHz. This is
+1 ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) in the centre of the detector
+and the z-axis along the beam pipe. The x-axis points from the IP to the centre of the LHC ring, and the y-axis points upwards.
+Cylindrical coordinates (r, φ) are used in the transverse plane, φ being the azimuthal angle around the z-axis. The pseudorapidity
+is defined in terms of the polar angle θ as η = − ln tan(θ/2). Angular distance is measured in units of ∆R ≡
+p
+(∆η)
+2 + (∆φ)
+2.
+2
+
+=== PDF PAGE 3 ===
+followed by a software-based trigger that reduces the accepted event rate to 1 kHz on average depending on
+the data-taking conditions.
+3 Monte Carlo samples
+Monte Carlo (MC) simulations are used to train the RNN and evaluate its performance. The signal sample
+consists of γ
+∗ → ττ events generated with Pythia8.212 [3], while background samples consist of dijet
+events produced with Pythia8.186. The Pythia8 generator was used for the matrix-element calculation,
+as well as the simulation of parton shower, hadronisation, underlying event, and τ-lepton decay. The
+A14 [4] set of tuned parameters and the NNPDF2.3LO [5] set of parton distribution functions (PDFs) with
+αS = 0.13 were used. The decays of bottom and charm hadrons were simulated with the EvtGen v1.2.0
+program [6].
+All tau leptons in the γ
+∗ → ττ events were forced to decay hadronically to maximise the available training
+sample. In addition, the γ
+∗ → ττ events use a biased phase space sampling to populate the generated
+spectrum towards high invariant masses (mγ
+∗ ) to provide a sufficient number of τhad-vis with high pT.
+Similarly, the jet pT spectrum of the di-jet sample uses a biased phase space sampling which is compensated
+by a continuously decreasing weight for the event.
+The pp collisions were simulated at a centre-of-mass energy of √
+s = 13 TeV, with a 25 ns bunch spacing.
+The effect of multiple pp interactions in the same and neighbouring bunch crossings (pile-up) was modelled
+by overlaying simulated minimum-bias events generated with Pythia8.186 using the NNPDF2.3LO PDF set
+and the A3 tune [7] over the hard-scattering event. The average number of pile-up interactions per bunch
+crossing (µ) in the simulation can reach up to ' 70, and is representative of LHC Run-2 pile-up conditions.
+Generated events were processed through the ATLAS detector simulation [8] based on Geant4 [9].
+4 Tau reconstruction
+The reconstruction of τhad-vis candidates is described in detail in Ref. [10]. The τhad-vis candidates are
+seeded by jets formed using the anti-kt algorithm [11], with a distance parameter of 0.4. Three-dimensional
+clusters of calorimeter cells called TopoClusters [12], calibrated using a local hadronic calibration (LC) [13],
+serve as inputs to the jet algorithm. Jets seeding τhad-vis candidates are additionally required to have
+pT > 10 GeV and |η| < 2.5.
+The seed jet axis is defined as the energy-weighted barycentre of all associated TopoClusters. The τhad-vis
+candidate vertex is defined as the vertex candidate with the highest pT-weighted fraction of all tracks with
+pT > 0.5 GeV within an angular distance of R = 0.2 around the seed jet axis. A set of boosted decision trees
+(BDTs) is used to classify all tracks within R = 0.4 of the tau axis into core and isolation tracks, depending
+on their pT, the number of hits in the tracking detectors as well as their transverse and longitudinal impact
+parameters with respect to the tau vertex. The number of core tracks defines the number of prongs. For
+τhad-vis candidates with more than one core track, a secondary vertex is reconstructed from all core tracks.
+The energy calibration of τhad-vis candidates is described in Ref. [14]. First, a pile-up subtraction and a
+response correction are applied to the sum of the energy of the LC TopoClusters within R = 0.2 of the tau
+candidate axis. This corrected energy is used together with information from tau particle flow described in
+Ref. [15] in a boosted regression tree to calculate the final energy of the τhad-vis candidate. In this note, only
+3
+
+=== PDF PAGE 4 ===
+τhad-vis candidates with pT > 20 GeV are used, while candidates in the transition region between the barrel
+and forward calorimeters, 1.37 < |η| < 1.52, are excluded due to poor instrumentation in this region.
+5 RNN tau identification
+The tau reconstruction algorithm described above provides no discrimination against other particles that
+result in jet-like signatures in the detector. Therefore, dedicated algorithms are used to identify hardonic
+tau lepton decays. A set of BDTs was previously used in ATLAS to discriminate jets from τhad-vis, and is
+now superseded by a RNN classifier that provides largely improved jet rejection. The input variables used
+in the RNN are defined in Section 5.1, followed by the description of the RNN architecture in Section 5.2
+and the training procedure in Section 5.3. The RNN performance is evaluated in Section 6.
+5.1 Input variables
+The RNN uses a combination of low-level input variables for individual tracks and clusters that are
+associated to the τhad-vis candidate as well as several high-level observables calculated from track and
+calorimeter quantities, similar to those used in the BDT-based tau identification algorithm described
+in Ref. [16]. The information used from each associated track are the transverse momentum (p
+track
+T
+),
+transverse (d
+track
+0
+) and longitudinal (z
+track
+0
+sin θ) impact parameters, angular distance to the τhad-vis axis
+(∆η
+track
+, ∆φ
+track), and the number of hits on the track in the different Si detector layers: innermost pixel
+detector layer (NIBL hits), other pixel detector layers (NPixel hits), and microstrip detector layers (NSCT hits).
+From each TopoCluster, the transverse energy (E
+cluster
+T
+), the angular distance to the τhad-vis axis (∆η
+cluster
+,
+∆φ
+cluster) and the cluster moments [17] are used:
+Cluster depth (λcluster): The distance of the cluster barycentre from the calorimeter front face, determined
+along the cluster axis.
+Longitudinal cluster extension (hλ
+2
+clusteri): Second moment of the longitudinal distance of cluster cells
+from the cluster barycentre, along the cluster axis.
+Radial cluster extension (hr
+2
+clusteri): Second moment of the radial distance of cluster cells from the
+cluster axis.
+Two exemplary distributions of input variables for the leading three tracks and clusters are shown in
+Figure 1.
+Furthermore, the following high-level observables are used:
+Transverse momentum of the seed jet (p
+seed jet
+T
+): Transverse momentum of the original seed jet.
+Transverse momentum at the LC scale (p
+uncalib
+T
+): pT of the τhad-vis candidate at the LC scale prior to
+tau energy scale calibration, calculated from the sum of cluster 4-momenta within ∆R < 0.2 of
+the τhad-vis candidate axis, where the cluster origin is set to the tau production vertex, and cluster
+energies are calibrated at the LC scale.
+4
+
+=== PDF PAGE 5 ===
+0 5 10 15 20 25 30 35 40 45 50
+ [GeV] ET Leading cluster 
+0
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07
+0.08
+ candidates / GeV had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+had-vis 1-prong τ
+had-vis True τ
+had-vis Fake τ
+0 5 10 15 20 25 30 35 40 45 50
+ [GeV] Subleading cluster ET
+0
+0.02
+0.04
+0.06
+0.08
+0.1
+0.12
+0.14
+ candidates / GeV had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+had-vis 1-prong τ
+had-vis True τ
+had-vis Fake τ
+0 5 10 15 20 25 30 35 40 45 50
+ [GeV] Subsubleading cluster ET
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+ candidates / GeV had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+had-vis 1-prong τ
+had-vis True τ
+had-vis Fake τ
+0 0.04 0.08 0.12 0.16 0.2
+Leading track |∆η|
+0
+0.02
+0.04
+0.06
+0.08
+0.1
+0.12
+0.14
+ candidates / 0.004 had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+had-vis 3-prong τ
+had-vis True τ
+had-vis Fake τ
+0 0.04 0.08 0.12 0.16 0.2
+Subleading track |∆η|
+0
+0.02
+0.04
+0.06
+0.08
+0.1
+0.12
+ candidates / 0.004 had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+had-vis 3-prong τ
+had-vis True τ
+had-vis Fake τ
+0 0.04 0.08 0.12 0.16 0.2
+Subsubleading track |∆η|
+0
+0.02
+0.04
+0.06
+0.08
+0.1
+ candidates / 0.004 had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+had-vis 3-prong τ
+had-vis True τ
+had-vis Fake τ
+Figure 1: Distribution of the TopoCluster ET (top) and track |∆η| (bottom) for true (red) and misidentified (blue)
+τhad-vis candidates for the leading three clusters and tracks. Samples of true and misidentified τhad-vis candidates with
+matching pT distributions are used.
+Central energy fraction (fcent): Fraction of transverse energy at EM scale deposited in the region
+∆R < 0.1 with respect to all energy deposited in ∆R < 0.2 around the τhad-vis candidate axis
+calculated by summing the energy deposited in all cells with a barycentre in these regions. The
+calorimeter cells are required to be part of a TopoCluster belonging to the τhad-vis candidate.
+Inverse momentum fraction of the leading track (f
+−1
+leadtrack): The transverse energy sum, calibrated at
+the EM energy scale, deposited in all cells belonging to TopoClusters in the core region, divided by
+the transverse momentum of the highest-pT core track of the τhad-vis candidate.
+Maximum track ∆R (∆Rmax): The maximum ∆R between a core track associated with the τhad-vis
+candidate and the τhad-vis direction.
+Transverse impact parameter significance of the leading track (|Sleadtrack|): Transverse impact para￾meter of the highest-pT core track of the τhad-vis candidate, calculated with respect to the tau vertex,
+divided by its estimated uncertainty.
+Transverse flight path significance (S
+flight
+T
+): The decay length of the secondary vertex in the transverse
+plane, calculated with respect to the tau vertex, divided by its estimated uncertainty.
+Momentum fraction of isolation tracks (f
+track
+iso ): Scalar sum of the pT of isolation tracks associated with
+the τhad-vis candidate divided by the sum of the pT of all the associated core and isolation tracks.
+5
+
+=== PDF PAGE 6 ===
+Ratio of EM energy and track momentum (f
+EM
+track): Ratio of the sum of cluster energy deposited in the
+electromagnetic part of the TopoClusters (pre-sampler, first and second layers of the LAr calorimeter)
+to the sum of the momentum of core tracks. Clusters are calibrated at the LC energy scale.
+Fraction of track-plus-EM-system pT (p
+EM+track
+T
+/pT): Ratio of the τhad-vis pT, estimated using the
+vector sum of core track momenta and up to two most energetic EM clusters in the core region to the
+calorimeter-only measurement of τhad-vis pT.
+Mass of the track-plus-EM-system (mEM+track): Invariant mass of the system composed of the core
+tracks and up to two most energetic EM clusters in the core region, where EM cluster energy is the
+part of TopoCluster energy deposited in the presampler and first two layers of the LAr calorimeter,
+and the four-momentum of an EM cluster is calculated assuming zero mass and using TopoCluster
+seed direction.
+Mass of the track system (mtrack): Invariant mass calculated from the sum of the four-momenta of all
+core and isolation tracks, assuming a pion mass for each track.
+5.2 Network architecture
+The tau identification algorithm described in this note employs a recurrent neural network architecture. The
+internal state of recurrent layers allows processing of sequences of a priori unknown length. Reconstructed
+objects in the ATLAS detector can be viewed as an ordered sequence after imposing a physically-motivated
+ordering (e.g. ordering by object pT) and are thus suited for the use in recurrent neural networks. A
+similar approach for flavour-tagging using charged particle tracks is already employed by the ATLAS
+experiment [18].
+The network architecture of the RNN-based tau identification is depicted in Figure 2. To facilitate the use
+of associated charged particle tracks, clusters in the calorimeter and high-level variables, the network is
+split into three dedicated branches for each type of input. The high-level observables associated to each
+τhad-vis candidate are processed through a sequence of three fully connected layers with 128, 128 and 16
+units.
+Tracks LSTM LSTM Clusters LSTM LSTM Dense Dense Dense Dense Dense Dense
+High-level
+variables ⊕
+Shared
+dense
+Shared
+dense
+Shared
+dense
+Shared
+dense Merge
+Figure 2: Schematic view of the network architecture used for tau identification. Layers marked as dense are fully
+connected to adjacent layers.
+Sequences of charged particle tracks (clusters in the calorimeter) ordered by decreasing pT (ET) are passed
+into the network and are transformed by two fully connected layers with shared weights. These shared
+dense layers consist of a fully connected layer with 32 units for each track or cluster in the input sequence.
+Within each shared dense layer, the same set of weights is used to process input tracks or clusters. As a
+result, shared dense layers create intermediate representations of each track or cluster in the input sequence.
+The sequences of track and cluster representations are then passed into recurrent layers employing the
+6
+
+=== PDF PAGE 7 ===
+long short-term memory (LSTM) architecture [19]. The first LSTM layer of the identification algorithm
+performs a mapping of the input track and cluster sequence to a sequence of the same length. Due to the
+internal state of the LSTM layer, information on early objects in the sequence can be propagated to later
+outputs. The second LSTM repeats this process but only the final element of the output sequence is used
+for further computations thereby summarising the input sequence in a single vector of activations. The
+internal state of the the LSTM layers consist of 32 units (24 units) for the branch operating on charged
+particle tracks (calorimeter clusters).
+The input track and cluster sequences are truncated after ten leading tracks in pT and after six leading clusters
+in ET to reduce the time needed to train and evaluate the network. The inclusion of more reconstructed
+objects was not found to improve the discriminative power of the algorithm.
+The results of the computation in the three branches are combined by concatenating their output vectors in
+a Merge layer. Further computation on the resulting vector is performed by three fully connected layers
+with 64, 32 and 1 unit(s). After applying a sigmoid activation function, the final unit corresponds to the tau
+identification score.
+All fully connected layers, except the output layer, use the ReLU activation function. The LSTM layers
+use sigmoid activation functions for the gates of the internal state and the hyperbolic tangent otherwise.
+Furthermore, all components employ bias-vectors to apply a trainable offset to the inputs of each layer. The
+final model consists of approximately 56 000 free parameters that need to be determined via optimisation.
+5.3 Training and evaluation
+The RNN-based tau identification algorithm is trained using simulated samples of τhad-vis candidates
+previously introduced in Section 3. True τhad-vis candidates from γ
+∗ → ττ are required to be geometrically
+matched to τhad-vis at generator level and correctly reconstructed as 1- or 3-prong decays. Reconstructed
+τhad-vis candidates not originating from τhad decays are taken from simulated dijet samples and are required
+to be reconstructed as 1- or 3-prong τhad-vis candidates.
+Due to the distinct signatures of 1- and 3-prong τhad decays, the tau identification is split into dedicated
+algorithms for 1- and 3-track τhad-vis. The input variables used for the respective 1- and 3-prong RNNs are
+listed in Table 1. The reconstructed pT of τhad-vis candidates used as input to the identification algorithm
+is shown in Figure 3. The sample of background τhad-vis candidates is reweighted, separately for 1- and
+3-track candidates, in bins of τhad-vis pT to match the pT distributions of true τhad-vis in γ
+∗ → ττ events.
+This procedure ensures that no pT-dependent bias is introduced in the trained classifier as the dijet τhad-vis
+candidate pT distribution is softer when compared to the signal τhad-vis sample.
+The available sample of τhad-vis candidates consists of approximately 20 million signal candidates and 46
+million background candidates after selection. The sample is split into dedicated samples for training of
+the network (40%), monitoring of training progress (10%) and performance evaluation (50%).
+The network described in Section 5.2 is constructed and trained using Keras [20] and TensorFlow [21].
+The training is performed by minimising the binary cross-entropy loss function, measuring the classification
+performance, with respect to the randomly initialised weights of the network. For the minimisation
+stochastic gradient descent (SGD) is used. The convergence of the optimisation is improved by the use
+of momentum and a stepwise reduction of the optimiser’s learning rate when the loss on the monitoring
+sample stopped decreasing. The input variables described in Section 5.1 are transformed, e.g. by applying
+the logarithm to observables spanning multiple orders of magnitude, and normalised to make them suitable
+7
+
+=== PDF PAGE 8 ===
+Table 1: List of observables used as inputs in the different parts of the RNN. The markers indicate which observables
+are used to identify 1-prong and 3-prong τhad-vis. See Section 5.1 for the definitions of the observables.
+Observable 1-prong 3-prong
+Track inputs
+p
+seed jet
+T
+• •
+p
+track
+T
+• •
+∆η
+track • •
+∆φ
+track • •
+|d
+track
+0
+| • •
+|z
+track
+0
+sin θ| • •
+NIBL hits • •
+NPixel hits • •
+NSCT hits • •
+Cluster inputs
+p
+jet seed
+T
+• •
+E
+cluster
+T
+• •
+∆η
+cluster • •
+∆φ
+cluster • •
+λcluster • •
+hλ
+2
+clusteri • •
+hr
+2
+clusteri • •
+High-level inputs
+p
+uncalibrated
+T
+• •
+fcent • •
+f
+−1
+leadtrack • •
+∆Rmax • •
+|Sleadtrack| •
+S
+flight
+T
+•
+f
+track
+iso • •
+f
+EM
+track • •
+p
+EM+track
+T
+/pT • •
+m
+EM+track • •
+m
+track •
+8
+
+=== PDF PAGE 9 ===
+0 200 400 600 800 1000
+ [GeV] T p had-vis Reconstructed τ
+−3 10
+−2 10
+−1 10
+ candidates / 10 GeV had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+ > 20 GeV
+T p
+had-vis 1-prong τ
+had-vis 3-prong τ
+(a)
+0 200 400 600 800 1000
+ [GeV] T p had-vis Reconstructed τ
+−9 10
+−8 10
+−7 10
+−6 10
+−5 10
+−4 10
+−3 10
+−2 10
+−1 10
+1
+ candidates / 10 GeV had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+ > 20 GeV
+T p
+had-vis 1-prong τ
+had-vis 3-prong τ
+(b)
+Figure 3: Distribution of the reconstructed transverse momentum pT in simulated γ
+∗ → ττ (a) and dijet (b) events for
+reconstructed 1-prong (red) and 3-prong (blue) τhad-vis candidates. The reconstruction efficiency for true 3-prong
+τhad-vis decreases with increasing τhad-vis pT and changes the fractional composition of 1- and 3-prong τhad-vis (a). In
+contrast, the charged track multiplicity in jets increases with jet pT making 3-prong τhad-vis more abundant at high
+τhad-vis pT (b).
+for minimisation with SGD. The training process is stopped once the loss did not improve for ten successive
+epochs. The binary representation of the trained networks is converted and evaluated in the ATLAS
+reconstruction software using lwtnn [22].
+The output score of the RNN-based tau identification for true τhad-vis in γ
+∗ → ττ is transformed to be
+uniform in [0, 1] in bins of reconstructed τhad-vis pT and average number of interactions per bunch-crossing µ.
+The working points of the tau identification are then defined by a requirement on the transformed score.
+This flattening procedure reduces the dependency of the true τhad-vis efficiency on the reconstructed τhad-vis
+pT and pile-up.
+6 Tau identification performance
+The performance of the RNN tau identification algorithm is evaluated on statistically independent test
+samples of γ
+∗ → ττ (signal) and dijet (background) events as discussed in Section 5.3. The RNN
+performance is compared to that of the BDT-based tau identification algorithm previously used by the
+ATLAS experiment [10]. Figure 4 shows the rejection power, defined as the reciprocal value of the
+background selection efficiency, for misidentified τhad-vis depending on the true τhad-vis selection efficiency
+for both classifiers, independently for 1-prong and 3-prong τhad-vis candidates. The rejection power of the
+RNN-based classifier is about two times better than the BDT-based classifier in both cases for any given
+signal selection efficiency.
+After the transformation described in Section 5.3 the RNN score corresponds to the fraction of rejected true
+τhad-vis, essentially independent of pT and µ. The distribution of RNN scores for signal and background are
+shown in Figure 5. Four working points with increasing background rejection (Very loose, Loose, Medium
+and Tight) are defined to be used by physics analyses. The corresponding signal selection efficiencies and
+rejection powers are given in Table 2. In Figure 5b, the 3 prong background sample statistics is insufficient
+9
+
+=== PDF PAGE 10 ===
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+ efficiency had-vis True τ
+1
+10
+2 10
+3 10
+4 10
+ rejection had-vis
+τ Fake 
+ATLAS Simulation Preliminary
+RNN (1-prong)
+BDT (1-prong)
+Working points (1-prong)
+RNN (3-prong)
+BDT (3-prong)
+Working points (3-prong)
+Figure 4: Rejection power for quark and gluon jets misidentified as τhad-vis (fake τhad-vis) depending on the true τhad-vis
+efficiency. Shown are the curves for 1-prong (red) and 3-prong (blue) τhad-vis candidates using the RNN-based (full
+line) and the BDT-based (dashed line) identification algorithms. The markers indicate the four defined working
+points Tight, Medium, Loose and Very loose with increasing signal selection efficiencies.
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+RNN score
+−5 10
+−4 10
+−3 10
+−2 10
+−1 10
+1
+ candidates / 0.02 had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+had-vis 1-prong τ
+had-vis True τ
+had-vis Fake τ
+(a)
+0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1
+RNN score
+−5 10
+−4 10
+−3 10
+−2 10
+−1 10
+1
+ candidates / 0.02 had-vis
+τ Fraction of 
+ATLAS Simulation Preliminary
+had-vis 3-prong τ
+had-vis True τ
+had-vis Fake τ
+(b)
+Figure 5: Distribution of the RNN score for true (red) and misidentified (blue) τhad-vis candidates for 1-prong (a) and
+3-prong (b) cases. The RNN score has been flattened such that it corresponds to the fraction of rejected true τhad-vis.
+10
+
+=== PDF PAGE 11 ===
+Table 2: List of defined working points with fixed true τhad-vis selection efficiencies and the corresponding background
+rejection factors for misidentified τhad-vis in dijet events for the BDT and RNN classifiers.
+Signal efficiency Background rejection BDT Background rejection RNN
+Working point 1-prong 3-prong 1-prong 3-prong 1-prong 3-prong
+Tight 60% 45% 40 400 70 700
+Medium 75% 60% 20 150 35 240
+Loose 85% 75% 12 61 21 90
+Very loose 95% 95% 5.3 11.2 9.9 16
+to populate the bins at high RNN scores. This has a negligible impact on the estimate for the background
+efficiency even for the Tight working point which is defined as RNN score > 0.55.
+The dependence of the true τhad-vis selection efficiency on the transverse momentum, the pseudorapidity and
+the number of pile-up interactions per bunch crossing is shown in Figure 6. The signal selection efficiency
+is independent of pT, except for a turn on effect for pT < 50 GeV. The reduction of the signal efficiency
+by 5–10% is a result of the flattening of the signal efficiency being performed using only calorimeter
+based information for the tau energy and not the full particle flow information as described in Section 4.
+A decrease of up to 10% in signal selection efficiencies for the Tight working point can be observed
+towards high numbers of pile-up interactions per bunch crossing and around the transition region between
+calorimeter barrel and endcap sections. The dependence on pT, η and µ is significantly reduced for looser
+working points.
+It is important to point out that the actual rejection power depends strongly on pT, η and µ distributions, as
+well as the quark-gluon composition of the background sample as quark-initiated jets tend to be narrower
+and have lower track multiplicities than gluon jets and are thus more difficult to differentiate from true
+τhad-vis. Therefore, the numbers given in this note are only an indication of the expected performance. The
+background rejection in dijet events for the Medium working point, depending on pT, η and µ is shown in
+Figure 7. The rejection power increases towards high pT and decreases toward high numbers of pile-up
+interactions, especially for 3-prong τhad-vis candidates.
+11
+
+=== PDF PAGE 12 ===
+0 50 100 150 200 250 300 350 400
+ [GeV] T p had-vis Reconstructed τ
+0
+0.2
+0.4
+0.6
+0.8
+1
+ efficiency had-vis
+τ True 
+ > 20 GeV, 1-prong
+T p
+ATLAS Simulation Preliminary
+Very Loose
+Loose
+Medium
+Tight
+(a)
+0 50 100 150 200 250 300 350 400
+ [GeV] T p had-vis Reconstructed τ
+0
+0.2
+0.4
+0.6
+0.8
+1
+ efficiency had-vis
+τ True 
+ > 20 GeV, 3-prong
+T p
+ATLAS Simulation Preliminary
+Very Loose
+Loose
+Medium
+Tight
+(b)
+0 0.5 1 1.5 2 2.5
+ |η| had-vis Reconstructed τ
+0
+0.2
+0.4
+0.6
+0.8
+1
+ efficiency had-vis
+τ True 
+ > 20 GeV, 1-prong
+T p
+ATLAS Simulation Preliminary
+Very Loose
+Loose
+Medium
+Tight
+(c)
+0 0.5 1 1.5 2 2.5
+ |η| had-vis Reconstructed τ
+0
+0.2
+0.4
+0.6
+0.8
+1
+ efficiency had-vis
+τ True 
+ > 20 GeV, 3-prong
+T p
+ATLAS Simulation Preliminary
+Very Loose
+Loose
+Medium
+Tight
+(d)
+0 10 20 30 40 50 60 70
+Average interactions per bunch crossing µ
+0
+0.2
+0.4
+0.6
+0.8
+1
+ efficiency had-vis
+τ True 
+ > 20 GeV, 1-prong
+T p
+ATLAS Simulation Preliminary
+Very Loose
+Loose
+Medium
+Tight
+(e)
+0 10 20 30 40 50 60 70
+Average interactions per bunch crossing µ
+0
+0.2
+0.4
+0.6
+0.8
+1
+ efficiency had-vis
+τ True 
+ > 20 GeV, 3-prong
+T p
+ATLAS Simulation Preliminary
+Very Loose
+Loose
+Medium
+Tight
+(f)
+Figure 6: Selection efficiency for true 1-prong (left) and 3-prong (right) τhad-vis candidates depending on the transverse
+momentum pT (top), the absolute pseudorapidity |η| (middle) and the average number of interactions per bunch
+crossing µ (bottom). The efficiencies are shown for the four defined working points of the RNN.
+12
+
+=== PDF PAGE 13 ===
+0 50 100 150 200 250
+ [GeV] T p had-vis Reconstructed τ
+0
+20
+40
+60
+80
+100
+120
+140
+160
+180
+ rejection had-vis
+τ Fake 
+RNN
+BDT
+ATLAS Simulation Preliminary
+1-prong medium working point
+ > 20 GeV
+T p
+0 50 100 150 200 250
+ [GeV] T p had-vis Reconstructed τ
+0
+500
+1000
+1500
+2000
+2500
+3000
+3500
+4000
+ rejection had-vis
+τ Fake 
+RNN
+BDT
+ATLAS Simulation Preliminary
+3-prong medium working point
+ > 20 GeV
+T p
+0 0.5 1 1.5 2 2.5
+ |η| had-vis Reconstructed τ
+0
+10
+20
+30
+40
+50
+60
+70
+80
+ rejection had-vis
+τ Fake 
+RNN
+BDT
+ATLAS Simulation Preliminary
+1-prong medium working point
+ > 20 GeV
+T p
+0 0.5 1 1.5 2 2.5
+ |η| had-vis Reconstructed τ
+0
+100
+200
+300
+400
+500
+600
+ rejection had-vis
+τ Fake 
+RNN
+BDT
+ATLAS Simulation Preliminary
+3-prong medium working point
+ > 20 GeV
+T p
+10 20 30 40 50 60 70
+Average interactions per bunch crossing µ
+0
+10
+20
+30
+40
+50
+60
+70
+ rejection had-vis
+τ Fake 
+RNN
+BDT
+ATLAS Simulation Preliminary
+1-prong medium working point
+ > 20 GeV
+T p
+10 20 30 40 50 60 70
+Average interactions per bunch crossing µ
+0
+100
+200
+300
+400
+500
+600
+ rejection had-vis
+τ Fake 
+RNN
+BDT
+ATLAS Simulation Preliminary
+3-prong medium working point
+ > 20 GeV
+T p
+Figure 7: Rejection power for quark and gluon jets misidentified as τhad-vis for 1-prong (left) and 3-prong (right)
+τhad-vis candidates using the Medium working point depending on the transverse momentum pT (top), the absolute
+pseudorapidity |η| (middle) and the average number of interactions per bunch crossing µ (bottom). The rejection
+power is shown for the RNN-based (red) and BDT-based (blue) classifiers.
+13
+
+=== PDF PAGE 14 ===
+7 Conclusion
+The architecture, training and performance of a neural-network-based tau identification algorithm has been
+presented. Low-level information from reconstructed tracks and calorimeter clusters is used in conjunction
+with high-level observables to significantly improve the separation power with respect to the previous
+BDT-based approach. Four working points with constant true τhad-vis selection efficiencies as a function of
+τhad-vis pT and µ are defined for the use by ATLAS physics analyses. The background rejection for quark
+and gluon jets misidentified as τhad-vis is improved by approximately 75% in a pT-range of 30–50 GeV.
+At higher τhad-vis pT, the improvement in rejection of the RNN-based identification over the BDT-based
+method exceeds 100%.
+References
+[1] M. Tanabashi et al., Review of Particle Physics, Phys. Rev. D98 (2018) 030001 (cit. on p. 2).
+[2] ATLAS Collaboration, The ATLAS Experiment at the CERN Large Hadron Collider, JINST 3 (2008)
+S08003 (cit. on p. 2).
+[3] T. Sjostrand, S. Mrenna and P. Skands, A brief introduction to PYTHIA 8.1, Comput. Phys. Commun.
+178 (2008) 852, arXiv: 0710.3820 [hep-ph] (cit. on p. 3).
+[4] ATLAS Collaboration, ATLAS Pythia 8 tunes to 7 TeV data, ATL-PHYS-PUB-2014-021, 2014, url:
+https://cds.cern.ch/record/1966419 (cit. on p. 3).
+[5] R. D. Ball et al., Parton distributions with LHC data, Nucl. Phys. B 867 (2013) 244, arXiv:
+1207.1303 [hep-ph] (cit. on p. 3).
+[6] D. J. Lange, The EvtGen particle decay simulation package, Nucl. Instrum. Meth. A 462 (2001) 152
+(cit. on p. 3).
+[7] ATLAS Collaboration, The Pythia 8 A3 tune description of ATLAS minimum bias and inelastic
+measurements incorporating the Donnachie–Landshoff diffractive model, ATL-PHYS-PUB-2016-
+017, 2016, url: https://cds.cern.ch/record/2206965 (cit. on p. 3).
+[8] ATLAS Collaboration, The ATLAS Simulation Infrastructure, Eur. Phys. J. C 70 (2010) 823, arXiv:
+1005.4568 [physics.ins-det] (cit. on p. 3).
+[9] S. Agostinelli et al., GEANT4: A Simulation toolkit, Nucl. Instrum. Meth. A 506 (2003) 250 (cit. on
+p. 3).
+[10] ATLAS Collaboration, Identification and energy calibration of hadronically decaying tau leptons
+with the ATLAS experiment in pp collisions at √
+s = 8 TeV, Eur. Phys. J. C 75 (2015) 303, arXiv:
+1412.7086 [hep-ex] (cit. on pp. 3, 9).
+[11] M. Cacciari, G. P. Salam and G. Soyez, The anti-kt
+jet clustering algorithm, JHEP 04 (2008) 063,
+arXiv: 0802.1189 [hep-ph] (cit. on p. 3).
+[12] ATLAS Collaboration, Topological cell clustering in the ATLAS calorimeters and its performance
+in LHC Run 1, Eur. Phys. J. C 77 (2017) 490, arXiv: 1603.02934 [hep-ex] (cit. on p. 3).
+[13] T. Barillari et al., Local hadronic calibration, ATL-LARG-PUB-2009-001-2, 2009, url: https:
+//cds.cern.ch/record/1112035 (cit. on p. 3).
+14
+
+=== PDF PAGE 15 ===
+[14] ATLAS Collaboration, Measurement of the tau lepton reconstruction and identification performance
+in the ATLAS experiment using pp collisions at √
+s = 13 TeV, ATLAS-CONF-2017-029, 2017, url:
+https://cds.cern.ch/record/2261772 (cit. on p. 3).
+[15] ATLAS Collaboration, Reconstruction of hadronic decay products of tau leptons with the ATLAS
+experiment, Eur. Phys. J. C 76 (2016) 295, arXiv: 1512.05955 [hep-ex] (cit. on p. 3).
+[16] ATLAS Collaboration, Reconstruction, Energy Calibration, and Identification of Hadronically
+Decaying Tau Leptons in the ATLAS Experiment for Run-2 of the LHC, ATL-PHYS-PUB-2015-045,
+2015, url: https://cds.cern.ch/record/2064383 (cit. on p. 4).
+[17] ATLAS Collaboration, Topological cell clustering in the ATLAS calorimeters and its performance
+in LHC Run 1, Eur. Phys. J. C77 (2017) 490, arXiv: 1603.02934 [hep-ex] (cit. on p. 4).
+[18] ATLAS Collaboration, Identification of Jets Containing b-Hadrons with Recurrent Neural Networks
+at the ATLAS Experiment, ATL-PHYS-PUB-2017-003, 2017, url: https://cds.cern.ch/
+record/2255226 (cit. on p. 6).
+[19] S. Hochreiter and J. Schmidhuber, Long Short-Term Memory, Neural Computation 9 (1997) 1735,
+eprint: https://doi.org/10.1162/neco.1997.9.8.1735, url: https://doi.org/10.
+1162/neco.1997.9.8.1735 (cit. on p. 7).
+[20] F. Chollet et al., Keras, https://keras.io, 2015 (cit. on p. 7).
+[21] M. Abadi et al., TensorFlow: Large-Scale Machine Learning on Heterogeneous Systems, https:
+//www.tensorflow.org, Software available from tensorflow.org, 2015 (cit. on p. 7).
+[22] D. H. Guest et al., lwtnn/lwtnn: Version 2.8.1, 2019, url: https://doi.org/10.5281/zenodo.
+2583131 (cit. on p. 9).
+15

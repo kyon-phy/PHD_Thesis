@@ -1,0 +1,701 @@
+{
+  "request": "Revise Chapter 7, all displayed analysis figures, supporting appendices; archive B-anomaly calculation in Obsidian and remember user preferences.",
+  "authorised_files": [
+    "Chapters/CH7_event_selection.tex",
+    "Chapters/Appendix/Appendix2.tex",
+    "Chapters/Appendix/Appendix3.tex"
+  ],
+  "reviewed_coverage": [
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 1,
+      "end_line": 2,
+      "text_sha256": "4d44dd5824c6a1be048dd0b6b33925ffcaaed8300f1268935dd68064f3f51add",
+      "opening": "\\chapter{Event Selection}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 4,
+      "end_line": 5,
+      "text_sha256": "2475476a60efc12bdffa060d63c0b6304880c5c18d70151307e1c267d39498ee",
+      "opening": "The event selection separates the four signal topologies introduced in Section~\\ref{subsec:lq_collider_benchmark} according to the presence of a $b$-tagged jet and the kinematics o",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 7,
+      "end_line": 8,
+      "text_sha256": "e287d04927435f92c6ce0cd3848ed4fa8547039e1061f97fa132ff4698391aea",
+      "opening": "\\section{Preselection and variables definition}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 10,
+      "end_line": 12,
+      "text_sha256": "3fa0167f104209e2fb1d341a8590e671d8e507196cb7172fe65aee0e95997fe4",
+      "opening": "The analysis variables are constructed from the calibrated objects defined in Chapter~\\ref{chapter:object_reconstruction}, after overlap removal.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 14,
+      "end_line": 15,
+      "text_sha256": "5ef5998ead5b546fd2f2fcd4a9a1f1bd45078cca89805fec5ccc6bb2f4c932f4",
+      "opening": "\\subsection{Analysis variables}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 17,
+      "end_line": 18,
+      "text_sha256": "8d69728ed310e79e399fe162e1ce2b27a6fea460fc3b2e361b6918813fc2de4e",
+      "opening": "The transverse momenta, angular separations and reconstructed masses characterise the energy scale and geometry of the $\\tau\\nu+\\mathrm{jets}$ final state.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 20,
+      "end_line": 23,
+      "text_sha256": "ee10f3446b9b82a1c78ccefec662f139b6a64c2349e33196745f3707cab5507c",
+      "opening": "The $\\tau$ transverse momentum and $\\met$ measure the visible and invisible transverse activity in the event.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 25,
+      "end_line": 28,
+      "text_sha256": "77403e9d05cf0c65a3f25d1ce29a640106e892c3a85357f1ce23b1ad0ae978b0",
+      "opening": "The azimuthal separation $\\DphiTauMet$ is the angle between the visible $\\tau$ momentum and $\\mpt$ in the transverse plane, with values between zero and $\\pi$.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 30,
+      "end_line": 40,
+      "text_sha256": "1ef3272ec6585d544dc3edc2407dae5562005ccf3c7d580884b36ffb5b5cf769",
+      "opening": "The transverse mass $\\mT$ combines the two transverse momentum scales with their angular separation:",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 42,
+      "end_line": 51,
+      "text_sha256": "7c3b1df5ae22cd16bbef4ca005230cd1c2f8f2f1315efc8899ded3579f666cd9",
+      "opening": "The visible invariant masses $m_{b\\tau}$ and $m_{j\\tau}$ are reconstructed from the selected $b$-jet or leading jet and the visible $\\tau$:",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 53,
+      "end_line": 57,
+      "text_sha256": "82776e1c3cc973b90a0a07e10811f3bceea553ef19ddb76aa289139142056ba7",
+      "opening": "The selected-jet transverse momentum distinguishes the two production topologies.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 59,
+      "end_line": 62,
+      "text_sha256": "13954ad3ef860cf970c4bd92aa05eb032ff1807957952b25e4f895722cd0968b",
+      "opening": "The object multiplicities specify the reconstructed final state.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 64,
+      "end_line": 65,
+      "text_sha256": "398c1703acc2974cf8f076971f00b0d659934febda897a0ff7236653f26cce82",
+      "opening": "\\subsection{Multijet suppression}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 67,
+      "end_line": 78,
+      "text_sha256": "ea920af34d01126ec26148a6771c5e8cf05e7c062fe38120d6c1b34fb0a5c85c",
+      "opening": "Multijet events can enter the selected sample when a jet is misidentified as a hadronic $\\tau$ and a mismeasured jet produces large $\\met$.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 80,
+      "end_line": 89,
+      "text_sha256": "6122344bbed9184337e34554beff98c4d2da933852b9bd432c70e51217dcf52a",
+      "opening": "Events are retained if",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 91,
+      "end_line": 92,
+      "text_sha256": "b83567c64e8712f7d2e6b26736e1c444d7e14d0fd35a00c5c2bc1ddbc356f478",
+      "opening": "\\subsection{Common preselection}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 94,
+      "end_line": 101,
+      "text_sha256": "cd168dd4a909f9bdbe1887d83c4f3e2ecc9165ac91afa4e6df54d53cb42a022b",
+      "opening": "The preselection establishes the $\\tau\\nu+\\mathrm{jets}$ final state before the kinematic optimisation.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 103,
+      "end_line": 104,
+      "text_sha256": "660b247d3046ae29def78436240bc365fd2162b9c68b03378e36718c7f226e37",
+      "opening": "\\section[One b-jet signal region (SR1b) optimisation and definition]{One b-jet signal region ($\\SR$) optimisation and definition}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 106,
+      "end_line": 109,
+      "text_sha256": "828f518037837a098b040ded656ee4e6399303acb43728326cd17904df1b286e",
+      "opening": "The $\\SR$ regions select exactly one $b$-tagged jet to target the $b\\tau$ interaction in the $U_1$ model.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 111,
+      "end_line": 112,
+      "text_sha256": "4eb8abb4d412e4a60246f771c956d271c36c894bbdb0305b193c978412f3b60f",
+      "opening": "\\subsection{Scan variables and optimisation criterion}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 114,
+      "end_line": 119,
+      "text_sha256": "0812f0cfc6094d0d03f7724444f7ddf3319b7475b65e8e6c69ce36ee050b70c2",
+      "opening": "The kinematic thresholds are scanned together because the discriminating variables are correlated.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 121,
+      "end_line": 138,
+      "text_sha256": "c2fe4b7b62df0151deebcc6af7b32adb770843babc784c0de5abcdc560a73ecb",
+      "opening": "\\begin{table}[htbp]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 140,
+      "end_line": 144,
+      "text_sha256": "4f2802701968584205aab8740dad3d0db5dc5ccf4f0cb3d41774d237a5b80205",
+      "opening": "The mass scan uses only $m_{b\\tau}>0$ and $800~\\GeV$.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 146,
+      "end_line": 155,
+      "text_sha256": "b481dbec0c9cdb9cf17dc92af031b2297fd21cef3ce703579e40ab1713d3979a",
+      "opening": "The expected sensitivity of each cut combination is ranked using an approximate counting-experiment significance~\\cite{ATL-PHYS-PUB-2020-025}:",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 157,
+      "end_line": 160,
+      "text_sha256": "5f081f247fcfcd006ce71666ff7b7bd1d79954ba5959e86dbeedaf41c7248976",
+      "opening": "Cut combinations with $b\\leq2$ are discarded to avoid selecting apparently background-free regions caused by limited MC statistics.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 162,
+      "end_line": 163,
+      "text_sha256": "0255ae5f45c866390345047a88a93ac424b9908b6ed4a0e23d47ad9a0ca235db",
+      "opening": "\\subsection{Interference and signal efficiency}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 165,
+      "end_line": 168,
+      "text_sha256": "4bf528796af512056b1c29ba9615f95392d32e52379a85086e2b073865df0bc1",
+      "opening": "The interference term in Eq.~\\ref{eq:signal_interference} changes the signal contribution remaining after the selection.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 170,
+      "end_line": 174,
+      "text_sha256": "2247fd57fff57cc49e2b635ee1e7e3f291725f81b6063f72809721a22acd6db1",
+      "opening": "The requirements on $\\pT^\\tau$, $\\met$ and $\\mT$ suppress the low-energy phase space in which interference with SM $W$ production is most important.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 176,
+      "end_line": 183,
+      "text_sha256": "b36b34e876c92077f72e916bdf027789fafd305481af2e5e4a8cc8a6baaad908",
+      "opening": "The signal efficiency is monitored through the cumulative cutflow in Table~\\ref{tab:ch7_cutflow}.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 185,
+      "end_line": 204,
+      "text_sha256": "89d0766f01a7916ff1519d8d508e97fdd741b4b42bb79b5d93b0963a52220722",
+      "opening": "\\begin{table}[htbp]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 206,
+      "end_line": 206,
+      "text_sha256": "177c1b7bbd811853cf404c6efc94c59f6785fdb1e8b8f8b10868fa8cee706c3a",
+      "opening": "\\subsection{Selected regions and background composition}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 208,
+      "end_line": 211,
+      "text_sha256": "90673fff873c3b0d4e4de18dd0846218f036a6e89c89a9dcdb23a141167c75f3",
+      "opening": "The selected $\\SR$-$\\Res$ requirements are $\\pT^\\tau>200~\\GeV$, $\\met>200~\\GeV$, $\\mT>200~\\GeV$ and $m_{b\\tau}>800~\\GeV$, with at most three jets that are not $b$-tagged.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 213,
+      "end_line": 216,
+      "text_sha256": "69505cab35f5963864fb32438787b53abc1e8521e34ba517f0817716f7a7f5f5",
+      "opening": "The selected $\\SR$-$\\NonRes$ requirements are $\\pT^\\tau>200~\\GeV$, $\\met>400~\\GeV$, $\\mT>600~\\GeV$ and $\\DphiTauMet>1.2$, with at most one jet that is not $b$-tagged.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 218,
+      "end_line": 224,
+      "text_sha256": "3ddf42a3b47605f5e8a681b136aac0500d8d96b34c4030ba2c68d439ae0f0639",
+      "opening": "The loose $N-1$ distributions in Figures~\\ref{fig:ch7_sr1b_res_distributions} and~\\ref{fig:ch7_sr1b_nonres_distributions} illustrate the variables entering the optimisation.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 226,
+      "end_line": 254,
+      "text_sha256": "0d86ef8dc28d6b74a2ed2b2f885f2dfdea2084280ae0c6b0edd800603ff34eb8",
+      "opening": "\\begin{figure}[p]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 256,
+      "end_line": 284,
+      "text_sha256": "638bf165238f7fd3ae86ee52ac6f13c345c019e81118ddd41495676b28d7e146",
+      "opening": "\\begin{figure}[p]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 286,
+      "end_line": 294,
+      "text_sha256": "bfa4213e911cf89fa7d01848d02a942adaee8131fb7c7585ff8faed99288101e",
+      "opening": "The remaining background in both one-$b$-jet regions is dominated by $W$+jets, principally $W\\to\\tau\\nu$ with a hadronic $\\tau$ decay.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 296,
+      "end_line": 298,
+      "text_sha256": "eda5ad2e058096c54be642c3557d5d68c2e6d1fd11ad5896d466f888b6dd277c",
+      "opening": "\\clearpage",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 300,
+      "end_line": 310,
+      "text_sha256": "9d351f887db10742c752da6cf8355c5380c439a8444d4506fd861414ea03c10c",
+      "opening": "The $\\bVetoSR$ regions select signal events with no reconstructed $b$-tagged jet and extend the sensitivity to large $\\beta_L^{23}$.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 312,
+      "end_line": 316,
+      "text_sha256": "67371659ec1e93f4dab8483621eaa690b625a15c4b393494b8518705f832263c",
+      "opening": "The two $\\bVetoSR$ regions are defined by replacing the one-$b$-jet requirement with $N_b=0$ and using the leading jet in the topology-dependent selections.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 318,
+      "end_line": 320,
+      "text_sha256": "b2d428e2f5eaaa226ede988fc1b364bd5dd2b48b2aec433ef054171432535fa8",
+      "opening": "The $\\met>200~\\GeV$ requirement in $\\bVetoSR$-$\\Res$ is retained to keep its kinematic selection aligned with $\\SR$-$\\Res$.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 322,
+      "end_line": 327,
+      "text_sha256": "3c58f4f7b7be0c276153d21313894b24d98cf0a47b865063e34f811259711bfd",
+      "opening": "Signal efficiency in $\\bVetoSR$ is evaluated for the pure BSM contribution, with $A\\epsilon$ defined as in Section~\\ref{subsec:ch7_efficiency}.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 329,
+      "end_line": 332,
+      "text_sha256": "00977ac6210d9135907433997ccd712cdd64cd0e46d90554b4f3f5a1b3be1ead",
+      "opening": "Figure~\\ref{fig:ch7_sr0b_distributions} shows the visible-mass distribution before the mass requirement in $\\bVetoSR$-$\\Res$.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 334,
+      "end_line": 346,
+      "text_sha256": "5b2e95424ddca84e3e9682b2f67d46bcc5ae5379050eaa5ca4fa23a25278ffb0",
+      "opening": "\\begin{figure}[htbp]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 348,
+      "end_line": 353,
+      "text_sha256": "696cd9f8def58293bde214ea5134a9757df29cb4b3c5a9291192431ab76c7a9c",
+      "opening": "The zero-$b$-jet background is dominated by $W\\to\\tau\\nu$+jets, since vetoing tagged $b$ jets removes much of the top-quark background while retaining $W$ production with light-fla",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 355,
+      "end_line": 356,
+      "text_sha256": "2437effac81641aff9f3de463bfd2d7e1825348df39e58b1c6030a7663e16023",
+      "opening": "The final requirements for all four mutually exclusive SRs are summarised in Table~\\ref{tab:ch7_signal_regions}.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 358,
+      "end_line": 387,
+      "text_sha256": "25d0638fc6d5edd829e54278d37ab85c1bbd8b554f7ccabed7797a95f96aee2b",
+      "opening": "\\begin{table}[htbp]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 389,
+      "end_line": 391,
+      "text_sha256": "52d9ab3798d994851dc24ec7d3f1f7837ef9e4a509e3e2e396a2a663f62e5c2d",
+      "opening": "\\clearpage",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 393,
+      "end_line": 396,
+      "text_sha256": "dfa46012e503aacaac6f13de4cea311755c51446343acc1dbc650f6aa997b306",
+      "opening": "Leptoquark production with a $\\tau\\tau$ final state can also populate the $\\tau\\nu+\\mathrm{jets}$ signal regions.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 398,
+      "end_line": 403,
+      "text_sha256": "e48c9af125fa0671b90ba803a0645e4f62809f5beea67a0c80afc5a873d7f68d",
+      "opening": "The study uses simulated $\\tau\\tau$ samples generated with $\\beta_L^{33}=1$, $\\beta_R^{33}=0$ and $\\beta_L^{23}=0$.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 405,
+      "end_line": 406,
+      "text_sha256": "458bdec82d8613b0a8b160c5b97863f9a92af65a7e442f54cb8bf110b8a3c3e1",
+      "opening": "The estimated additional yield is of order $35\\%$ of the nominal $\\tau\\nu$ yield in the one-$b$-jet regions and several percent in the zero-$b$-jet regions.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 408,
+      "end_line": 422,
+      "text_sha256": "021574a050cde147e86e0f319937006c580819407baa763b07e4d51ae0588a2d",
+      "opening": "\\begin{table}[htbp]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/CH7_event_selection.tex",
+      "start_line": 424,
+      "end_line": 430,
+      "text_sha256": "50a66cc32ef33543e6b116e9eaf967476d82113dd7dbbca274fd90a87d42c7d4",
+      "opening": "The expected upper limit on the signal strength improves by approximately $8$--$14\\%$ in this test.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 1,
+      "end_line": 2,
+      "text_sha256": "c0a158ade8df8cef4193bbbe1431ffd26e317a2907b1cab19eaecfbd76f98d9b",
+      "opening": "\\chapter{Multijet background study}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 4,
+      "end_line": 6,
+      "text_sha256": "b44428cf3fcea2b990e56785d5c90907f9da17cc73a87a52d6bd48ad401e8ee3",
+      "opening": "The multijet suppression used in Section~\\ref{subsec:ch7_multijet} is studied with simulated dijet and leptoquark events.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 8,
+      "end_line": 9,
+      "text_sha256": "06c71d3c59cf23d9af4f4e2a0a204c654da8101630e80f4bd1f6cbbfb21f5d62",
+      "opening": "\\section{Origin of the discriminating variables}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 11,
+      "end_line": 14,
+      "text_sha256": "76f2b1868ea7696f2374d94ef8fb79095b74b091d966e8f00924b4a655ed89aa",
+      "opening": "Jet-momentum mismeasurement produces a characteristic direction for the apparent missing momentum.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 16,
+      "end_line": 19,
+      "text_sha256": "32761d159529e488d8d46c172d3d3b2a1582294e81b028b1b44ca34f8cba966e",
+      "opening": "The variables $\\Delta\\phi_{\\min}$ and $R_{\\mathrm{miss}/j}$ defined in Eq.~\\ref{eq:ch7_qcd_variables} test these two features.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 21,
+      "end_line": 22,
+      "text_sha256": "c957507178988e6d9ce89900b5a6827d4ff1025ca752c7c04cf5cb69dbbcbe74",
+      "opening": "\\section{Study selection and distributions}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 24,
+      "end_line": 27,
+      "text_sha256": "3ebc20b2652b043c1fe220420633cefae2e02fef72354a811b97036365d74903",
+      "opening": "The study selection is kept loose to retain enough simulated multijet events to examine the relevant distributions.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 29,
+      "end_line": 43,
+      "text_sha256": "7c498b702c8f200f2277ece31cbea641c60284b21d0c1ec293809661649062c6",
+      "opening": "\\begin{table}[htbp]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 45,
+      "end_line": 50,
+      "text_sha256": "0ceac85663bcf14629e2f20d2d06cfb6c1882e997ebe0ce3ada6c2f9c3bf8e45",
+      "opening": "Figure~\\ref{fig:app_qcd_correlations} shows the two-dimensional distributions after this selection.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 52,
+      "end_line": 64,
+      "text_sha256": "aa644fc7a0d9ace22b96a61ae3f2c755c8cb4ef153fd1c3f041d3f1b05bdcc60",
+      "opening": "\\begin{figure}[htbp]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 66,
+      "end_line": 67,
+      "text_sha256": "8c36e8779213e3b4851a6f629a1bab29e87a3180754f74d6f75e65dc3b9099d3",
+      "opening": "\\section{Threshold scan and signal retention}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 69,
+      "end_line": 77,
+      "text_sha256": "c66f79bcd1465543b9b1b7c89e4f5854c7be9659390b6e90b9d4b525718943c0",
+      "opening": "The angular threshold is scanned while the momentum-ratio threshold is fixed at six.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 79,
+      "end_line": 83,
+      "text_sha256": "4145eb55778f3258b119518660ab74b9fe8df0b788baf77f05376d386bb60190",
+      "opening": "Figure~\\ref{fig:app_qcd_rejection_scan} shows the resulting rejection fractions.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 85,
+      "end_line": 90,
+      "text_sha256": "dcc9e8e2587de751bee9658bc5fcf6fc32f3649edf412fc01d2de09f64958989",
+      "opening": "\\begin{figure}[htbp]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 92,
+      "end_line": 93,
+      "text_sha256": "3ae1287a275fa4e5655a493719742f8f66b307ac7142bd57c98dd91b1327aa24",
+      "opening": "\\section{Residual multijet contribution}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 95,
+      "end_line": 97,
+      "text_sha256": "efcba092fc51a26f6f5bf17363b22a4ebf2951d4d2af5627dd48d6af3cd0b95d",
+      "opening": "The residual multijet contribution is examined after applying the cleaning cut and the full SR requirements.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix2.tex",
+      "start_line": 99,
+      "end_line": 103,
+      "text_sha256": "ae07cfd0fee5a06ed2cfb999dbdc1f54ac35728b038fe5a4af5ebec61fba6cd1",
+      "opening": "Jets misidentified as $\\tau$ candidates can still occur in other background processes.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix3.tex",
+      "start_line": 1,
+      "end_line": 2,
+      "text_sha256": "b74f695eda1b9a2db001f9d912cc3b8be1e766e5d465cda0df18d0fc22013a0c",
+      "opening": "\\chapter{Zero-b-jet signal-region optimisation}",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix3.tex",
+      "start_line": 4,
+      "end_line": 6,
+      "text_sha256": "04c24c93e27cd2c16a58cbe15c07efe0de934363fabcacec509965dd1679595d",
+      "opening": "The $\\met$ threshold in $\\bVetoSR$ is studied to assess whether tighter selections can improve the sensitivity at large $\\beta_L^{23}$.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix3.tex",
+      "start_line": 8,
+      "end_line": 11,
+      "text_sha256": "7f7ab4e332be31c28b362414371f3b526c097eb1896a38cbe2eb20a76b7eefe8",
+      "opening": "The threshold is scanned from 200 to $1500~\\GeV$ in $100~\\GeV$ steps.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix3.tex",
+      "start_line": 13,
+      "end_line": 26,
+      "text_sha256": "3217e2dc3a3150b7f4917b6107dab4d87c012a023b61410f43e4f49c4771fc50",
+      "opening": "\\begin{table}[htbp]",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    },
+    {
+      "file": "Chapters/Appendix/Appendix3.tex",
+      "start_line": 28,
+      "end_line": 34,
+      "text_sha256": "93ba22baaddab5f5e220194957c2a98450dfeff0bf3b60e1d4a40608734d9c17",
+      "opening": "For $\\bVetoSR$-$\\NonRes$, the significance is maximised at $\\met>400~\\GeV$.",
+      "review": "Checked against source roles and conditions recorded in CH7_source_notes.md; figure-only blocks checked against asset manifest."
+    }
+  ],
+  "source_checks": [
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/references/ANA_EXOT_2025_06_INT1.pdf",
+      "sha256": "0efdb46cdc365996c18a7694afea917f8619eab3e77da692a840b2d110c7a640"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/internal_notes/ANA_EXOT_2025_06_INT1/sections/SR_Optimization.tex",
+      "sha256": "1de47ebfed7a96168f1790d70f266227ec360c425e242c7ef2e1e3d8199d0baa"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/internal_notes/ANA_EXOT_2025_06_INT1/sections/Appendices/QCDCleaningCut.tex",
+      "sha256": "a619431fa5ada28ba4df9a1db48afcbf72e6653e6788d4daa935abc1bf2df12b"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/internal_notes/ANA_EXOT_2025_06_INT1/sections/Appendices/SignalValidation.tex",
+      "sha256": "fb162cc85a7e343ac2a6734cb4e56a138b38a7e30b1789eabaf6b9897a1cbb96"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/paper_draft/ANA-EXOT-2025-06-PAPER/sections/selections.tex",
+      "sha256": "d736332993401bb12a45a81129d3b188a59b0a38c8ad171a0652a0b5529acf17"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/paper_draft/ANA-EXOT-2025-06-PAPER/sections/results.tex",
+      "sha256": "356d5adf900168a3726e951dfd4cf4485afa062500f629c4398e3ebf24d2d074"
+    },
+    {
+      "path": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/paper_draft/ANA-EXOT-2025-06-PAPER/ANA-EXOT-2025-06-PAPER-auxmat.tex",
+      "sha256": "894bcea9297309627b6efd990ef3933623f97a7db2baaa8ba0302de4b41ce89d"
+    }
+  ],
+  "manuscript_hashes": {
+    "Chapters/CH7_event_selection.tex": "24791d6a0198595d60e7c3ad2b901f8bbcd61b9d686bee5423f6a58282c13dd4",
+    "Chapters/Appendix/Appendix2.tex": "60ee03fec455d6722baf476e5cffd37e42ef3c777a587c1daaa935bef056a6ef",
+    "Chapters/Appendix/Appendix3.tex": "f9a551d08ea4f7cab7c7073734866136a8dca5a91a268a3a202d622c28cbbfbf"
+  },
+  "reader_activation": "Not requested; no reader agents run.",
+  "findings": [
+    {
+      "issue": "Working TeX omits completed Chapter 12 study",
+      "resolution": "Read April 20 reference PDF Chapter 12."
+    },
+    {
+      "issue": "Tau-pair beta23 ratio annotation 1.0 vs comparison column 1.4",
+      "resolution": "Documented in author notes; omit ambiguous raw-yield table and use directly stated supplementary factors."
+    },
+    {
+      "issue": "Old INT 31/40 percent MC-stat bounds versus final paper below 30 percent",
+      "resolution": "Paper controls final statement; optimisation cutflows identified separately."
+    },
+    {
+      "issue": "Prefit EPS carries stale Background-only fit label",
+      "resolution": "Use companion prefit YAML, remove stale annotation, label figures pre-fit."
+    },
+    {
+      "issue": "SR0b NonRes mT filename says N-minus-1 but display starts at 600 GeV",
+      "resolution": "Caption describes displayed high-mT range."
+    }
+  ],
+  "build": {
+    "command": "latexmk -norc -pdf -cd- -interaction=nonstopmode -halt-on-error -synctex=1 -outdir=output/ch7/build output/ch7/CH7_preview.tex",
+    "undefined_refs": 0,
+    "overfull_underfull_boxes": 0,
+    "remaining_warnings": "Shared template class/bibliography/fancyhdr/hyperref/tikz-feynman warnings remain.",
+    "scope": "Current chapter preview only; no claim of a new full-thesis build."
+  },
+  "graphics": {
+    "sr_plots": 14,
+    "protected_geometry_hashes_match": true,
+    "no_data_or_ATLAS_in_SR_PDF_text": true,
+    "qcd_plots": 3,
+    "qcd_pixels_changed_outside_label_areas": 0,
+    "evidence": [
+      "figure_manifest.json",
+      "qcd_figure_manifest.json"
+    ]
+  },
+  "layout": {
+    "pages": 19,
+    "significance_equation": "7.5, Z=sqrt(...), one line",
+    "combined_selection_table": "7.3",
+    "new_section": "7.4 Tau-pair signal contamination",
+    "review_images": "review/revision_pages/final-01.png through final-19.png",
+    "visual_review": "All page content inspected; final changed figure pages, section boundaries, summary table, tau-pair section and Appendix C checked at full-page resolution."
+  },
+  "obsidian": {
+    "path": "9_Scripts/B-anomaly favoured region计算与绘图.md",
+    "section": "INT Chapter 6 的计算逻辑与 Results 写作入口（2026-09-15 核对）",
+    "method": "MCP version-conditional patch and read-back"
+  },
+  "final_pdf": "/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/output/pdf/CH7_draft.pdf",
+  "final_pdf_sha256": "c3c5148de99dd6811a10e2b150e38f78538fa56e99d9c9c9d281779d1666e8e5"
+}

@@ -1,0 +1,44 @@
+\section{Missing transverse momentum}
+\label{sec:ch6_met}
+
+\subsection{Reconstruction}
+
+The incoming partons carry little transverse momentum compared with the hard-scattering scale, so an imbalance in the measured transverse momentum can indicate undetected particles.
+Both the neutrino from the hard process and the tau-decay neutrino contribute to the signal imbalance.
+The reconstructed vector is obtained from the negative sum of calibrated visible contributions~\cite{ATLAS2025METPerformance}:
+\begin{align}
+    \vec p_{\mathrm{T}}^{\,\mathrm{miss}}
+    &=-\left(
+    \sum_e\vec p_{\mathrm{T}}^{\,e}
+    +\sum_\mu\vec p_{\mathrm{T}}^{\,\mu}
+    +\sum_{\tau_{\mathrm{had}}}\vec p_{\mathrm{T}}^{\,\tau}
+    +\sum_j\vec p_{\mathrm{T}}^{\,j}
+    +\vec p_{\mathrm{T}}^{\,\mathrm{soft}}
+    \right),
+    \label{eq:ch6_met_vector}\\
+    \met&=\left|\vec p_{\mathrm{T}}^{\,\mathrm{miss}}\right|.
+    \label{eq:ch6_met_magnitude}
+\end{align}
+Two types of contribution are included:
+\begin{itemize}
+    \item \textbf{Hard term}: the electron, muon, hadronic-tau and jet contributions accepted by the reconstruction. No separate photon collection is supplied in this analysis.
+    \item \textbf{Track soft term}: the vector sum of selected tracks associated with the primary vertex and not assigned to retained hard-object contributions.
+\end{itemize}
+The primary-vertex requirement suppresses charged-particle contributions from pile-up.
+Neutral particles outside the hard term are not measured by the track soft term.
+
+The baseline electron, muon and tau identification and isolation working points are used to select the corresponding inputs.
+Jets are selected separately by the $\met$ reconstruction with the \texttt{Tight} operating point.
+Their acceptance is distinct from that of the central jets counted in the analysis regions.
+An association map is used to record shared detector signals and resolve double counting when the object contributions are combined~\cite{ATLAS2025METPerformance}.
+Consequently, $\met$ is not recomputed as a simple sum of the objects passing the final region selections or the geometrical overlap-removal procedure.
+
+\subsection{Calibration and uncertainties}
+
+The energy and momentum calibrations of the hard objects are propagated to the reconstructed vector.
+The response and resolution uncertainties of the track soft term are evaluated separately using events in which little genuine $\met$ is expected~\cite{ATLAS2025METPerformance}.
+The corresponding variations are propagated together with the hard-object uncertainties to retain their correlations with the visible kinematics.
+
+Apparent $\met$ can also be produced by mismeasured visible momentum, calorimeter noise or energy lost in uninstrumented regions.
+For example, an underestimated jet momentum can produce an imbalance along the jet direction.
+Jet cleaning and event-level angular selections are therefore used to suppress these contributions, as described in Chapter~\ref{chapter:event_selection}.

@@ -1,0 +1,2001 @@
+                                                  EUROPEAN ORGANISATION FOR NUCLEAR RESEARCH (CERN)
+
+
+
+
+                                         Eur. Phys. J. C 82 (2022) 95                                                                    CERN-EP-2021-166
+                                         DOI: DOI:10.1140/epjc/s10052-021-09843-w                                                         9th February 2022
+
+
+
+
+arXiv:2109.10627v2 [hep-ex] 8 Feb 2022
+                                            Measurement of the 𝒄-jet mistagging√efficiency in
+                                            𝒕 𝒕¯ events using 𝒑 𝒑 collision data at 𝒔 = 13 TeV
+                                                     collected with the ATLAS detector
+
+                                                                                The ATLAS Collaboration
+
+
+                                                A technique is presented to measure the efficiency with which 𝑐-jets are mistagged as 𝑏-jets
+                                                (mistagging efficiency) using 𝑡 𝑡¯ events, where one of the 𝑊 bosons decays into an electron
+                                                or muon and a neutrino and the other decays into a quark-antiquark pair. The measurement
+                                                utilises the relatively large and known 𝑊 → 𝑐𝑠 branching ratio, which allows a measurement
+                                                to be made in an inclusive 𝑐-jet sample. The data sample used was collected by the ATLAS
+                                                              √
+                                                detector at 𝑠 = 13 TeV and corresponds to an integrated luminosity of 139 fb−1 . Events
+                                                are reconstructed using a kinematic likelihood technique which selects the mapping between
+                                                jets and 𝑡 𝑡¯ decay products that yields the highest likelihood value. The distribution of the
+                                                𝑏-tagging discriminant for jets from the hadronic 𝑊 decays in data is compared with that in
+                                                simulation to extract the mistagging efficiency as a function of jet transverse momentum. The
+                                                total uncertainties are in the range 3%–17%. The measurements generally agree with those in
+                                                simulation but there are some differences in the region corresponding to the most stringent
+                                                𝑏-jet tagging requirement.
+
+
+
+
+                                         © 2022 CERN for the benefit of the ATLAS Collaboration.
+                                         Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+1 Introduction
+
+The algorithms for the identification of jets containing 𝑏-hadrons, also known as 𝑏-tagging algorithms,
+constitute an important tool for the analysis of the data collected by the ATLAS experiment [1] at the Large
+Hadron Collider (LHC) [2]. Such algorithms play a crucial role in a large number of Standard Model (SM)
+precision measurements (e.g. Refs. [3, 4]), Higgs boson measurements (e.g. Refs. [5, 6]), and searches for
+supersymmetry and other exotic phenomena (e.g. Refs. [7, 8]).
+The performance of the 𝑏-tagging algorithms depends crucially on whether the jets that are identified
+contain 𝑏-hadrons (𝑏-jets), 𝑐-hadrons (𝑐-jets), or neither of them (light-flavour jets). The Monte Carlo
+(MC) simulation provides an estimate of the probabity that a jet fulfils the requirements of the 𝑏-tagging
+algorithm i.e. the tagging efficiency for 𝑏-jets and the mistagging efficiency for 𝑐-jets and light-flavour
+jets. However, since the simulation is not perfect, the (mis)tagging efficiency must be measured in data.
+Simulation to data scale factors (SFs), which are defined as the ratio of the efficiency measured in data to
+that in simulation, are used as a correction to the simulation, assuming that the SFs are independent of
+the physics process. Analyses that use 𝑏-tagging apply a weight to each simulated event, derived as the
+product of the SFs for all jets for which a tagging requirement is made.
+Measurements of the SFs have been made using 𝑡 𝑡¯ events for 𝑏-jets [9, 10] and inclusive jet events
+for light-flavour jets [11]. Measurements of SFs for 𝑐-jets using proton–proton (𝑝 𝑝) collision data at
+√
+  𝑠 = 7 TeV, described in Ref. [12], use two methods to measure the mistagging efficiency of 𝑐-jets.
+One technique uses the production of a 𝑊 boson in association with a 𝑐-jet that decays semi-muonically
+and the other identifies a 𝐷 ∗ meson within 𝑐-jets by explicitly reconstructing the meson decay chain
+𝐷 ∗+ → 𝐷 0 𝜋 + → 𝐾 − 𝜋 + 𝜋 + .
+This paper discusses a complementary technique to measure the inclusive 𝑐-jet mistagging efficiency by
+means of a 𝑐-jet sample that is derived from 𝑡 𝑡¯ events. The measurement uses a 𝑝 𝑝 collision dataset which
+was collected with the ATLAS detector during 2015–2018 and corresponds to an integrated luminosity
+of 139 fb−1 . A likelihood-based method is used to select a high-purity 𝑡 𝑡¯ sample in which one of the 𝑊
+bosons originating from the top-quark decay 𝑡 → 𝑊 𝑏 decays leptonically into an electron or a muon plus
+the corresponding neutrino and the other decays hadronically. The branching ratio of a 𝑊 boson to final
+states containing a charm-quark, which is approximately 33% [13], allows the 𝑐-jet mistagging efficiency
+of the data to be determined as a function of jet transverse momentum by fitting simulated event samples to
+the data sample. The technique has the advantage that it does not depend on a specific hadron decay chain
+topology.
+The measurement of the 𝑐-jet mistagging efficiency presented in this paper uses particle-flow (PFlow) jets,
+which are made by combining calorimeter energy deposits with inner-detector tracks [14], but the same
+technique is also used to make measurements for jets made only from calorimeter energy deposits [15] and
+jets that only use tracks (track-jets) [16].
+This paper is structured as follows. Section 2 describes the ATLAS detector. Data and simulated samples
+are discussed in Section 3. The reconstruction of electrons, muons, jets and missing transverse momentum
+is described in Section 4, and the 𝑏-tagging algorithms are discussed in Section 5. The selection of the
+𝑡 𝑡¯ sample is described in Section 6. The measurement of the 𝑐-jet mistagging efficiency is described in
+Section 7, and Section 8 gives the conclusions.
+
+
+
+
+                                                     2
+2 ATLAS detector
+
+The ATLAS detector [1] is a multipurpose particle physics detector with a forward–backward symmetric
+cylindrical geometry and nearly 4𝜋 coverage in solid angle.1 The inner tracking detector consists of silicon
+pixel and microstrip detectors covering the pseudorapidity region |𝜂| < 2.5, surrounded by a transition
+radiation tracker which enhances electron identification in the region |𝜂| < 2.0. Between Run 1 and Run 2,
+a new inner pixel layer, the insertable B-layer [17, 18], was added at a mean sensor radius of 3.3 cm.
+The inner detector is surrounded by a thin superconducting solenoid providing an axial 2 T magnetic
+field, and by a fine-granularity lead/liquid-argon (LAr) electromagnetic calorimeter covering |𝜂| < 3.2. A
+steel/scintillator-tile calorimeter provides hadronic coverage in the central pseudorapidity range (|𝜂| < 1.7).
+The endcap and forward regions (1.5 < |𝜂| < 4.9) of the hadronic calorimeter are made of LAr active
+layers with either copper or tungsten as the absorber material. An extensive muon spectrometer (MS) with
+an air-core toroidal magnet system surrounds the calorimeters. Three layers of high-precision tracking
+chambers provide coverage in the range |𝜂| < 2.7, while dedicated fast chambers allow triggering in the
+region |𝜂| < 2.4. The ATLAS trigger system consists of a hardware-based level-1 trigger followed by a
+software-based high-level trigger [19]. An extensive software suite [20] is used in the reconstruction and
+analysis of real and simulated data, in detector operations, and in the trigger and data acquisition systems
+of the experiment.
+
+
+3 Data and simulated event samples
+
+The data analysed in this paper correspond to 139 fb−1 [21, 22] of 𝑝 𝑝 collision data collected by the
+ATLAS detector between 2015 and 2018 with a centre-of-mass energy of 13 TeV and a 25 ns proton bunch
+crossing interval. The data sample was collected using a set of single-electron [23] and single-muon [24]
+triggers with 𝑝 T thresholds in the range of 20–26 GeV depending on the lepton flavour and data-taking
+period. All detector subsystems were required to be operational during data taking and to fulfil data quality
+requirements. Events with noise bursts or coherent noise in the calorimeters are removed. The presence of
+additional interactions in the same bunch crossing, referred to as pile-up, is characterised by the average
+number of such interactions, h𝜇i, which was 34 for the whole dataset.
+Simulated event samples are used to model SM processes and to estimate the expected signal yields. All
+samples were produced using the ATLAS simulation infrastructure [25] and Geant44 [26]. A subset of
+samples used a faster simulation based on a parameterisation for the calorimeter response and Geant44 for
+the other detector systems [25]. The simulated events are reconstructed with the same algorithms as used
+for data, and contain a realistic modelling of pile-up interactions. The pile-up profiles in the simulation
+match those of each dataset between 2015 and 2018, and were obtained by overlaying the hard-scatter
+events with minimum-bias events simulated using the soft QCD processes of Pythia 8 [27] with the
+NNPDF3.0lo set [28] of parton distribution functions (PDFs) [29] and a set of tuned parameters called the
+
+
+1 ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point in the centre of the detector.
+  The positive 𝑥-axis is defined by the direction from the interaction point to the centre of the LHC ring, with the positive
+  𝑦-axis pointing upwards, while the beam direction defines the 𝑧-axis. Cylindrical coordinates (𝑟, 𝜙) are used in the transverse
+  plane, 𝜙 being the azimuthal angle around the 𝑧-axis. The component of momentum in the transverse plane is denoted
+  by 𝑝 T . The pseudorapidity 𝜂 is defined in terms of the polar angle 𝜃 by 𝜂 = − ln tan(𝜃/2). Rapidity is defined as 𝑦 =
+  0.5 ln[(𝐸 + 𝑝 𝑧 )/(𝐸 − 𝑝 𝑧 )] where 𝐸 denotes the energy, and 𝑝√︁𝑧 is the component of the momentum along the beam direction.
+  The separation of two objects in 𝜂–𝜙 space is given by Δ𝑅 = (Δ𝜂) 2 + (Δ𝜙) 2 .
+
+
+
+
+                                                               3
+A3 tune [30]. For all samples, with the exception of those generated using Sherpa [31], the decays of
+bottom and charm hadrons were performed by EvtGen [32].
+The events used in this study originate mostly from 𝑡 𝑡¯ production. This process was modelled using the
+Powheg Box v2 [33–36] generator at next-to-leading order (NLO) with the NNPDF3.0nlo PDF set [28]
+and the ℎdamp parameter2 set to 1.5 × 𝑚 top [37], where 𝑚 top denotes the mass of the top quark. The events
+were interfaced to Pythia 8.230 to model the parton shower, hadronisation, and underlying event, with
+parameters set according to the A14 tune [38] and using the NNPDF2.3lo set of PDFs [28]. The uncertainty
+due to initial-state radiation (ISR) is estimated by simultaneous variations of the ℎdamp parameter and
+the renormalisation and factorisation scales, and choosing the Var3c up/down variants of the A14 tune.
+The impact of final-state radiation (FSR) is evaluated by varying the renormalisation scale for emissions
+from the parton shower by a factor two up or down. The impact of using a different parton shower and
+hadronisation model is evaluated by comparing the nominal 𝑡 𝑡¯ sample with another 𝑡 𝑡¯ sample generated
+by Powheg Box v2 using exactly the same parameters but interfaced to Herwig 7.04 [39, 40], using the
+H7UE tune [40] and the MMHT2014lo PDF set [41].
+In addition to 𝑡 𝑡¯ production, some minor backgrounds contribute to the final event sample used for the
+calibration. These backgrounds consist mostly of single-top and diboson production, the production of 𝑡 𝑡¯
+in association with a vector boson and the production of a vector boson in association with jets. Details of
+the modelling of these samples are given in the following.
+Single-top 𝑠-channel production was modelled using the Powheg Box v2 generator at NLO in QCD in
+the five-flavour scheme with the NNPDF3.0nlo PDF set. Single-top 𝑡-channel production was modelled
+using the Powheg Box v2 generator at NLO in QCD, using the four-flavour scheme and the corresponding
+NNPDF3.0nlo set of PDFs. The associated production of a single top quark and a 𝑊 boson (𝑡𝑊) was
+modelled using the Powheg Box v2 generator at NLO in QCD, using the five-flavour scheme and the
+NNPDF3.0nlo set of PDFs. The diagram removal scheme [42] was used to remove interference and overlap
+with 𝑡 𝑡¯ production. The events for all single-top production channels were interfaced to Pythia 8.230 using
+the A14 tune and the NNPDF2.3lo set of PDFs.
+The production of 𝑍+jets and 𝑊+jets events was simulated with the Sherpa 2.2.1 generator using NLO
+matrix elements for up to two partons, and leading-order (LO) matrix elements for up to four partons
+calculated with the Comix [43] and OpenLoops [44–46] libraries. They were matched with the Sherpa
+parton shower [47] using the MEPS@NLO prescription [48–51] and the set of tuned parameters developed
+by the Sherpa authors. The NNPDF3.0nnlo set of PDFs [28] was used and the samples were normalised
+to a next-to-next-to-leading-order (NNLO) prediction [52].
+Samples of events with diboson final states (𝑉𝑉) were simulated with the Sherpa 2.2.1 or 2.2.2 generator
+depending on the process, including off-shell effects and Higgs boson contributions where appropriate.
+Fully leptonic final states and semileptonic final states, where one boson decays leptonically and the other
+hadronically, were generated using matrix elements at NLO accuracy in QCD for up to one additional
+parton and at LO accuracy for up to three additional parton emissions. Event samples for the loop-induced
+processes 𝑔𝑔 → 𝑉𝑉 were generated using LO-accurate matrix elements for up to one additional parton
+emission for both the fully leptonic and semileptonic final states. The matrix element calculations were
+matched and merged with the Sherpa parton shower based on Catani–Seymour dipole factorisation [43,
+47] using the MEPS@NLO prescription. The virtual QCD corrections were provided by the OpenLoops
+
+
+2 The ℎ
+       damp parameter is a resummation damping factor and one of the parameters that controls the matching of Powheg matrix
+  elements to the parton shower and thus effectively regulates the high-𝑝 T radiation against which the 𝑡 𝑡¯ system recoils.
+
+
+
+
+                                                             4
+library. The NNPDF3.0nnlo set of PDFs was used, along with the dedicated set of tuned parton-shower
+parameters developed by the Sherpa authors.
+Production of 𝑡 𝑡¯ in association with a vector boson was modelled using the MadGraph5_aMC@NLO 2.3.3
+[53] generator at NLO with the NNPDF3.0nlo PDF set. The events were interfaced to Pythia 8.210 [27]
+using the A14 tune and the NNPDF2.3lo PDF set.
+
+
+4 Object reconstruction
+
+Selected events are required to contain at least one vertex having at least two associated tracks with
+𝑝 T > 500 MeV, and the primary vertex is chosen to be the vertex reconstructed with the largest Σ𝑝 2T of its
+associated tracks.
+Electron candidates are reconstructed by matching inner-detector tracks to clusters of energy deposited in
+the EM calorimeter. Electrons must have 𝑝 T > 27 GeV and |𝜂| < 2.47. The associated track must have
+|𝑑0 |/𝜎𝑑0 < 5 and |𝑧 0 | sin 𝜃 < 0.5 mm, where 𝑑0 (𝑧 0 ) is the transverse (longitudinal) impact parameter
+relative to the primary vertex and 𝜎𝑑0 is the uncertainty in 𝑑0 . Candidates are identified with a likelihood
+method and must satisfy the ‘medium’ identification criteria described in Ref. [54]. The likelihood relies
+on the shape of the EM shower measured in the calorimeter, the quality of the track reconstruction, and
+the quality of the match between the track and the cluster. To suppress candidates originating from
+photon conversions, hadron decays, or jets misidentified as electrons, candidates are required to satisfy the
+gradient isolation criteria based on tracking and calorimeter measurements [54]. The electron energy and
+reconstruction efficiency are calibrated using 𝑍 → 𝑒 + 𝑒 − decays [54].
+Muon candidates are reconstructed in the range |𝜂| < 2.5 by combining tracks in the inner detector with
+tracks in the MS. All muon candidates must have 𝑝 T > 27 GeV, |𝑑0 |/𝜎𝑑0 < 3, and |𝑧 0 | sin 𝜃 < 0.5 mm.
+The ‘medium’ quality requirements described in Ref. [55] are used and muons from hadron decays are
+suppressed by imposing a track-based isolation requirement. The muon reconstruction efficiency in the
+simulation is corrected using comparisons with data [56].
+Jets are formed using objects from a particle-flow algorithm, which combines energy deposits in the
+calorimeter with inner detector tracks [14]. The PFlow objects are combined into jets in the range |𝜂| < 2.5
+and 𝑝 T > 20 GeV using the anti-𝑘 𝑡 algorithm [57, 58] with a radius parameter 𝑅 of 0.4. A jet-vertex-tagging
+technique using a multivariate likelihood [59] is applied to jets with |𝜂| < 2.4 and 𝑝 T < 60 GeV to suppress
+jets that are not associated with the event’s primary vertex. Jets are further calibrated according to in situ
+measurements of the jet energy scale [15].
+The labelling scheme used to define the flavour of a jet in a simulated event is applied by matching
+reconstructed jets to generator-level 𝑏- or 𝑐-hadrons with 𝑝 T > 5 GeV within a cone of size Δ𝑅 = 0.3
+around the jet axis. Jets that contain a 𝑏-hadron are called 𝑏-jets. Remaining jets containing a 𝑐-hadron are
+called 𝑐-jets. Jets with a hadronically decaying 𝜏-lepton are called 𝜏-jets, and all remaining jets are called
+light-flavour jets.
+Overlaps between reconstructed objects are removed using a procedure based on the angular separation
+between different final-state objects. The procedure is similar to the one described in Ref. [60].
+The event’s missing transverse momentum, whose magnitude is denoted by 𝐸 Tmiss , is computed as the
+negative vectorial sum of the transverse momenta of leptons, jets and a track-based soft term [61] accounting
+for the contribution from particles from the primary vertex that are not already included. The jets employed
+
+
+
+                                                      5
+in the 𝐸 Tmiss calculation include PFlow jets and, in addition, anti-𝑘 𝑡 𝑅 = 0.4 jets with 𝑝 T > 30 GeV and
+2.5 < |𝜂| < 4.5.
+
+
+5 Description of 𝒃-tagging algorithms
+
+Jets that contain a 𝑏-hadron are distinguished from other jets that contain a 𝑐-hadron or only light-flavour
+hadrons mainly by the larger mass and longer lifetime of the 𝑏-hadron. The 𝑏-tagging algorithm studied in
+this paper is called DL1r, and is an updated version of the DL1 tagger described in Ref. [62]. Information
+from the tracks in the jet, such as their transverse impact parameter and the reconstructed secondary and
+tertiary vertices, are combined into a set of low-level taggers. The DL1 algorithm combines the output of
+the low-level taggers into a single discriminant by using a deep neural network. DL1r adds the result of the
+RNNIP algorithm, which is based on a recurrent neural network exploiting the correlation between the
+tracks’ impact parameters. Current analyses in ATLAS use the DL1r discriminant in intervals defined by
+the efficiency to tag 𝑏-jets in simulated 𝑡 𝑡¯ events [10]. The 𝑏-tagging interval boundaries are 0%, 60%,
+70%, 77%, 85% and 100%.
+Measurements of the tagging efficiency SFs for 𝑏-jets are made as a function of jet 𝑝 T for |𝜂| < 2.5, using
+𝑡 𝑡¯ events where both top quarks decay leptonically and a method similar to that described in Ref. [10]. The
+SFs for the mistagging efficiency for light-flavour jets are obtained by defining a ‘flipped tagger’ in which
+the sign of the track impact parameters that are used in the low-level taggers is inverted [11]. This results
+in similar efficiencies for light- and heavy-flavour jets, allowing the light-flavour SFs to be determined.
+Both the 𝑏- and light-flavour jet SFs have been determined using the full Run 2 dataset. It should be
+noted that both sets of SFs require a determination of the 𝑐-jet SFs, which were taken from a preliminary
+version of the method described in this paper. Since the contamination from 𝑐-jets is relatively small in
+these measurements and because the previous SFs were similar to those in the present measurement, any
+differences only have a small impact.
+Analyses that use 𝑏-tagging in ATLAS apply a weight to each simulated event, derived as the product of
+the SFs for all jets for which a tagging requirement is made. It is found that there are significant differences
+between the simulated (mis)tagging efficiency for different fragmentation models [10]. To account for these
+differences, simulation-to-simulation SFs are applied to those simulated samples that have a fragmentation
+model and decay different from the one used to derive the SFs. In the present paper the 𝑡 𝑡¯ simulation
+(see Section 3) uses Pythia 8 and EvtGen, which is the reference MC fragmentation program for all the
+measured SFs.
+
+
+6 Event selection and reconstruction
+
+The analysis aims to obtain a pure sample of semileptonic 𝑡 𝑡¯ events. Exactly one electron or one muon,
+denoted by ℓ, is required. The events are also required to have 𝐸 Tmiss > 20 GeV, and the transverse mass
+𝑚 T of the 𝐸 Tmiss and the lepton must satisfy
+                                        √︃
+                                 𝑚T =     2𝑝 ℓT 𝐸 Tmiss (1 − cos Δ𝜙) > 40 GeV,
+
+where Δ𝜙 = 𝜙(𝐸 Tmiss ) − 𝜙(ℓ) is the azimuthal angle between the lepton and 𝐸 Tmiss . Subsequently, a
+requirement on the number of PFlow jets is applied such that one of the following selections is true:
+
+
+
+                                                       6
+    • the event contains exactly four jets with 𝑝 T > 25 GeV
+    • the event contains at least three jets with 𝑝 T > 25 GeV and exactly one jet with 20 < 𝑝 T < 25 GeV
+    • the event contains at least five jets with 𝑝 T > 25 GeV and at least one of these jets has 𝑝 T > 70 GeV.
+These selections are designed to keep a high number of jets covering a large range in 𝑝 T , while reducing
+the non-𝑡 𝑡¯ background and the number of jets arising from final state QCD radiation (FSR). The first
+requirement is the ‘baseline’ selection, which has a relatively low rate of FSR jets, due to requiring exactly
+four jets. The second requirement allows measurements to be made for jets bewteen 20 < 𝑝 T < 25 GeV,
+while minimising the non-𝑡 𝑡¯ background which is more likely to have multiple low 𝑝 T jets. The third
+requirement improves the statistics of high 𝑝 T jets where the rate of FSR is greater. Although allowing five
+jets increases the fraction FSR jets being included in the selection, the rate of such jets is reasonable for jet
+𝑝 T > 70 GeV, since the likelihood, described below, is better able to identify the top decay products at
+higher 𝑝 T .
+The four-vectors of the four highest-𝑝 T jets, the lepton and the event 𝐸 Tmiss are used as inputs to a
+likelihood-based 𝑡 𝑡¯ event reconstruction algorithm, which minimises deviations in the invariant masses
+of the top quarks and 𝑊 bosons from their true values and is described in more detail in Ref. [63]. This
+algorithm uses a likelihood function to assign the four jets to the 𝑡 𝑡¯ decay topology. In particular, the
+algorithm assigns one jet to the 𝑏-jet from the leptonically decaying top quark (𝑡 → 𝑊 𝑏 → ℓ𝜈𝑏), another
+jet to the 𝑏-jet from the hadronically decaying top quark (𝑡 → 𝑊 𝑏 → 𝑞𝑞 0 𝑏, where 𝑞𝑞 0 are the quarks into
+which the 𝑊 boson decays) and the remaining two jets to the jets that come from the hadronic 𝑊 boson
+decay. The jet assignment does not use any 𝑏-tagging information. The following notation is used: the jets
+that are assigned as the decay products of the 𝑊 boson are referred to as 𝑊-jets and the remaining two jets
+are referred to as top-jets.
+The four-jet combination that has the highest likelihood is selected for the 𝑡 𝑡¯ reconstruction only if the
+negative logarithm of the likelihood value is greater than −48. This requirement increases the fraction of
+events where the top-quark decay products are correctly assigned. Subsequently, the top-jets are required
+to lie in the tightest (0–60%) DL1r 𝑏-tagging interval, whereas no 𝑏-tagging requirement is imposed on the
+𝑊-jets, so as to leave them unbiased. After these requirements it is found that 98.8% of events in the 𝑡 𝑡¯
+simulation have two top-jets that are 𝑏-jets.
+The distribution of the value of the negative logarithm of the likelihood for the selected events is shown in
+ Figure 1. The majority of the events come from 𝑡 𝑡¯ production with 3% of the events, referred to as ‘non 𝑡 𝑡¯’,
+ coming from other processes such as 𝑊+jets or 𝑍+jets production or single-top production. The simulated
+𝑡 𝑡¯ events are categorised according to the flavour of the 𝑊-jets. The notation ‘𝑙𝑙’ indicates that both 𝑊-jets
+ are light-flavour jets. Similarly, ‘𝑐𝑙’ (‘𝑏𝑙’) indicates that one of the 𝑊-jets is a 𝑐-jet (𝑏-jet) and the other is
+ a light-flavour jet. The 𝑊-jet pairs with flavours other than those discussed above fall into a category called
+‘other’, which also includes events in which at least one of the 𝑊-jets comes from a hadronically decaying
+ 𝜏-lepton. The 𝑙𝑙 category accounts for 55% of events, the 𝑐𝑙 category for 41%, the 𝑏𝑙 category for 1.8%
+ and the ‘other’ category for 2.5%.
+The simulated 𝑡 𝑡¯ yield shown in Figure 1, as well as in all subsequent figures and results in this paper,
+is corrected for compatibility with ATLAS 𝑡 𝑡¯ measurements [64], which indicate that the simulation
+underestimates the number of events containing more than two 𝑏-jets. For this reason, simulated events
+in which both the top-jets and at least one of the 𝑊-jets are 𝑏-jets are scaled by 1.25 ± 0.25, where
+the full difference between data and the prediction from simulation is taken as a systematic uncertainty.
+The remaining events are normalised using the prediction from simulation. Finally, Figure 1 includes
+
+
+
+                                                         7
+                                  Events / 0.1
+                                                 18000     ATLAS s=13 TeV, 139 fb-1                 Data
+                                                           PFlow Jets                           W-jets:
+                                                 16000                                              t t , ll
+                                                 14000                                              t t , cl
+                                                                                                    t t , bl
+                                                 12000                                              t t , other
+                                                 10000                                              Non tt
+                                                                                                    Uncertainty
+                                                 8000
+                                                 6000
+                                                 4000
+                                                 2000
+                                                     0
+
+
+
+                                  Data/Pred.
+                                                   1.5
+                                                      1
+                                                   0.5
+                                                     −48       −47      −46   −45     −44    −43      −42         −41
+                                                                              -ln(tt Reconstruction Likelihood)
+
+
+Figure 1: Distribution of the negative logarithm of the likelihood that is used to reconstruct the 𝑡 𝑡¯ decay. Only events
+with values of this quantity exceeding -48 are shown, which corresponds to the selection used in the measurement.
+The 𝑡 𝑡¯ simulation is split according to the flavours of the 𝑊-jets (𝑙𝑙, 𝑐𝑙, 𝑏𝑙 and other). The (mis)tagging efficiency
+scale factors have not been applied to the simulation. The hashed area shows the total uncertainty, excluding the
+uncertainties from the (mis)tagging efficiency scale factors and the uncertainty on the jet 𝑝 T distribution, which is
+derived from the difference between data and simulation.
+
+
+an uncertainty in the simulation estimate (see Section 7.2), derived as the combination of the detector
+systematic uncertainties, the 𝑡 𝑡¯ modelling uncertainties and the uncertainty due to the limited number of
+simulated events.
+The 𝜂 and 𝑝 T distributions of the 𝑊-jets that are selected with the procedure described above are shown in
+Figure 2. Although the simulation generally describes the data well, it can be seen that it has a slightly harder
+𝑝 T spectrum than the data. This difference is included as a systematic error as described in Section 7.2.
+Figure 2 also shows the DL1r discriminant, where it can be seen that the simulation describes the data
+reasonably well, but there are some differences, particularly at high and low DL1r discriminant values.
+
+
+7 Measurement of the charm mistagging efficiency
+
+7.1 Method
+
+The 𝑐-jet mistagging efficiency is determined by comparing the fraction of events where either of the
+𝑊-jets are tagged in data with the fraction tagged in simulation. The efficiency is evaluated in four jet-𝑝 T
+intervals, with boundaries at 20, 40, 65, 140 and 250 GeV, and for the tagging intervals as described in
+Section 5. Jets are said to be tagged (untagged) if they have DL1r discriminant values greater (less) than the
+value at the 85% boundary. The method described below is for the ‘pseudo-continuous’ calibration where
+the efficiency is defined as the fraction of 𝑐-jets that have a DL1r discriminant value that lies between the
+boundaries, i.e. a value greater than the 60% boundary, a value between the 70% and 60% boundaries,
+etc.
+The light-flavour jet and 𝑏-jet SFs are taken from other measurements as described in Section 5 and the
+corresponding SFs are applied to the two 𝑊-jets and the two top-jets if they are light-flavour jets or 𝑏-jets.
+The remaining difference between the numbers of tagged 𝑊-jets events in data and simulation is used to
+determine the ratio of the 𝑐-jet mistagging efficiencies in data and simulation.
+
+
+
+
+                                                                              8
+      Entries / 0.1
+                      35000
+
+
+
+
+                                                                                                             Entries / 5 GeV
+                              ATLAS s=13 TeV, 139 fb-1                              Data                                       90000     ATLAS s=13 TeV, 139 fb-1               Data
+                              PFlow Jets                                        W-jets:                                                  PFlow Jets                         W-jets:
+                      30000                                                                                                    80000
+                                                                                    t t , ll                                                                                    t t , ll
+                                                                                    t t , cl                                                                                    t t , cl
+                      25000                                                                                                    70000
+                                                                                    t t , bl                                                                                    t t , bl
+                                                                                    t t , other                                60000                                            t t , other
+                      20000                                                         Non tt                                                                                      Non tt
+                                                                                                                               50000
+                                                                                    Uncertainty                                                                                 Uncertainty
+                      15000                                                                                                    40000
+
+                      10000                                                                                                    30000
+                                                                                                                               20000
+                      5000
+                                                                                                                               10000
+                         0                                                                                                           0
+
+
+
+      Data/Pred.                                                                                             Data/Pred.
+                        1.1                                                                                                      1.2
+                          1                                                                                                        1
+                        0.9                                                                                                      0.8
+                                −2         −1               0               1             2                                         0              50           100   150     200             250
+                                                                                         W-jet η                                                                            W-jet p [GeV]
+                                                                                                                                                                                    T
+
+
+                                                (a)                                                                                                             (b)
+
+
+
+                                                      Entries
+                                                                   107      ATLAS s=13 TeV, 139 fb-1                                             Data
+                                                                            PFlow Jets                                                       W-jets:
+                                                                     6                                                                           t t , ll
+                                                                   10                             85% 77% 70% 60%
+                                                                                                                                                 t t , cl
+                                                                   105                                                                           t t , bl
+                                                                                                                                                 t t , other
+                                                                   104                                                                           Non tt
+                                                                                                                                                 Uncertainty
+                                                                   103
+
+                                                                   102
+
+                                                                   10
+
+                                                                     1
+
+
+
+
+                                                      Data/Pred.
+                                                                   1.5
+                                                                     1
+                                                                   0.5
+                                                                       −6       −4   −2       0      2             4             6       8    10      12   14
+                                                                                                                               W-jet DL1r Discriminant
+
+                                                                                                     (c)
+
+Figure 2: Distributions of (a) 𝜂, (b) 𝑝 T and (c) the DL1r discriminant for the particle-flow jets that are associated
+with the 𝑊 boson decay by the likelihood-based 𝑡 𝑡¯ event reconstruction algorithm (𝑊-jets). The 𝑡 𝑡¯ simulation is
+split according to the flavours of the 𝑊-jets (𝑙𝑙, 𝑐𝑙, 𝑏𝑙 and other). The (mis)tagging efficiency scale factors have
+not been applied to the simulation. The hashed area shows the total uncertainty, excluding the uncertainties from
+the (mis)tagging efficiency scale factors and the uncertainty on the jet 𝑝 T distribution, which is derived from the
+difference between data and simulation. The vertical dashed lines in (c) indicate the DL1r discriminant tagging
+intervals.
+
+
+
+
+                                                                                                         9
+To simplify the fit, events where both 𝑊-jets are tagged, making up 0.7% of the total number of events, are
+rejected. Events where both 𝑊-jets are untagged are retained to provide a normalisation of the simulation
+as described below. The data are divided into bins according to the tagging interval (labelled 𝑡, running
+from 1 to 4) and the 𝑝 T bin of the tagged 𝑊-jet (labelled 𝑖), and the 𝑝 T bin of the untagged 𝑊-jet (labelled
+𝑗). The number of events in each bin is denoted by 𝑁data 𝑡 (𝑖, 𝑗). In addition, the number of untagged data
+                                                            untag
+events is recorded in each 𝑊-jet 𝑝 T bin combination: 𝑁data (𝑖, 𝑗) where in this case the higher-𝑝 T jet is
+denoted by 𝑗, so 𝑗 ≥ 𝑖.
+The fit is performed by comparing data with the total expectation, which is dominated by 𝑡 𝑡¯ events. The
+number of simulated ‘signal’ events in each bin, 𝑁𝐶𝑡 (𝑖, 𝑗), is made up of those events where the tagged
+𝑊-jet is a 𝑐-jet; the other jets in the event may be of any flavour. There are two sources of ‘background’
+events, defined as events where the tagged 𝑊-jet is not a 𝑐-jet. The first is the number of events where
+neither of the top-jets is a 𝑐-jet, 𝑁 𝐽𝑡 (𝑖, 𝑗). The second arises from events where a 𝑐-jet is misclassified as
+one of the top-jets. This background requires a specific treatment since the 𝑐-jet is in a 𝑝 T bin, labelled 𝑘,
+different from those of the 𝑊-jets and so must be binned in this variable in addition to 𝑖 and 𝑗. The number
+of events from this background is denoted by 𝑁 𝑋𝑡 (𝑖, 𝑗, 𝑘). The number of untagged simulated events is
+                                                 untag
+recorded in a similar way to the data as 𝑁MC (𝑖, 𝑗).
+The free parameters in the fit are the 𝑐-jet mistagging SF in each 𝑝 T bin and tagging interval, 𝑐 𝑡 (𝑖), and the
+overall MC normalisation in each 𝑊-jet 𝑝 T combination, 𝑝(𝑖, 𝑗).
+A fit is performed by minimising the 𝜒2 defined as:
+
+
+        4  4 ∑︁
+              4
+                     "                                                                4
+                                                                                                                         !#2
+       ∑︁ ∑︁                                                                         ∑︁
+𝜒2 =                      𝑡
+                         𝑁data (𝑖, 𝑗) − 𝑝(𝑖, 𝑗) 𝑐 𝑡 (𝑖)𝑁𝐶𝑡 (𝑖, 𝑗) + 𝑁 𝐽𝑡 (𝑖, 𝑗) +              𝑐 𝑡=4 (𝑘)𝑁 𝑋𝑡 (𝑖, 𝑗, 𝑘)           𝑡
+                                                                                                                               /𝑁data (𝑖, 𝑗)
+       𝑡=1 𝑖=1 𝑗=1                                                                    𝑘=1
+
+
+
+                                 4 ∑︁
+                                ∑︁  4                                             2
+                                            untag                         untag                untag
+                            +             𝑁data (𝑖, 𝑗) − 𝑝(𝑖, 𝑗)𝑁MC (𝑖, 𝑗)              /𝑁data (𝑖, 𝑗).                                     (1)
+                                𝑖=1 𝑗=𝑖
+
+
+The background where one of the top-jets is a 𝑐-jet depends only on 𝑐 𝑡=4 (𝑘) since the top-jets are tagged at
+the 60% operating point. The SFs for 𝑐-jets that are untagged in each jet 𝑝 T bin, 𝑐untag (𝑖), are evaluated
+by constraining the sum of the measured efficiencies of all tagged bins and the untagged bin to be 1.
+Technically, this is evaluated by adding additional terms to the 𝜒2 and treating the SFs 𝑐untag (𝑖) as additional
+free parameters with an arbitrary tolerance of 1%:
+
+
+                                 4                                   4
+                                                                                          !2
+                                ∑︁                                  ∑︁
+                                            untag        untag
+                                      1−𝑐           (𝑖)𝜖 MC (𝑖) −           𝑡    𝑡
+                                                                          𝑐 (𝑖)𝜖 MC (𝑖)        /(1%) 2 ,                                   (2)
+                                𝑖=1                                 𝑡=1
+
+
+        untag
+where 𝜖 MC (𝑖) and 𝜖 MC
+                     𝑡 (𝑖) are the MC untagged and tagged efficiencies, respectively. As part of validating
+
+the method it was checked that scale factors of unity are obtained when performing a fit with data replaced
+by the MC simulation.
+
+
+
+
+                                                                    10
+7.2 Systematic uncertainties
+
+Several sources of experimental and MC modelling systematic uncertainties affecting the 𝑐-jet efficiency
+SFs are considered. The uncertainty from each source is evaluated by making the corresponding change
+to the MC model and rederiving the SFs for each tagging interval and jet 𝑝 T bin. The total systematic
+uncertainty for each bin is evaluated by adding the individual contributions in quadrature.
+The uncertainties in the jet energy scale and resolution are based on their measurements in data [15] and
+result in shifts of up to 5% in the measured SFs due to a single component. Uncertainties in the track-based
+soft term of the 𝐸 Tmiss [65] result in shifts of up to 3%. The uncertainty due to the pile-up modelling [66]
+leads to shifts of up to 0.7%. Uncertainties originating from the electron [54] and muon [56] reconstruction
+lead to shifts up to 0.5%. An additional uncertainty is applied to cover the 𝑊-jet 𝑝 T spectrum differences
+between data and simulation, giving a maximum uncertainty in the measured SFs of 0.2%.
+The uncertainties in the light-flavour mistagging and 𝑏-jet tagging SFs are accounted for by shifting the
+SFs by each component of the total uncertainty, and where appropriate correlating this with the uncertainty
+used in the charm SF determination. The most important non-correlated uncertainties all come from
+the light-flavour SF. They originate from using the flipped tagger rather than standard tagger, giving
+uncertainties of up to 7%, and from varying the charm SFs in the light-flavour SF determination, giving
+uncertainties of up to 4% [11].
+Uncertainties in the modelling of the 𝑡 𝑡¯ background are estimated by replacing the nominal MC sample by
+alternative MC samples. The uncertainty due to the choice of parton shower and hadronisation model is
+estimated by replacing the standard Pythia 8 model with Herwig. This is the largest source of uncertainty
+in the analysis and leads to shifts of up to 13% in the SF. The uncertainty in the modelling of initial-
+and final-state radiation is assessed by increasing the radiation by doubling the ℎdamp parameter [37] and
+halving the renormalisation and factorisation scales and decreasing the radiation by increasing the scales
+by a factor of two. The resulting uncertainty is at most 1%. As already mentioned, the uncertainty in the
+normalisation of the 𝑡 𝑡¯ + 𝑏 𝑏¯ process [64] is estimated by scaling the events where both the top-jets and at
+least one of the 𝑊-jets are 𝑏-jets by ±25%, giving an uncertainty of up to 9% on the SF. The uncertainty in
+non-𝑡 𝑡¯ processes is evaluated by scaling these contributions by ±25%, leading to a maximum uncertainty
+of 1% on the SF.
+
+
+7.3 Results
+
+The measured 𝑐-jet pseudo-continuous mistagging efficiency SFs together with the total, statistical and
+systematic uncertainties are listed in Table 1 and shown in Figure 3 for four tagging intervals. The fitted
+normalisation factors 𝑝(𝑖, 𝑗) lie in the range 0.83 to 1.05. The contributions to the systematic uncertainty
+are listed in Table 2. The corresponding measured data mistagging efficiencies, shown in Figure 4, are
+obtained by multiplying the mistagging efficiencies from simulation by the SFs. The SFs do not have a
+strong jet-𝑝 T dependence and are consistent with unity for all but the tightest tagging interval, where the
+efficiency is higher in data than in MC simulation. The total uncertainty varies from 3% to 17% and is
+dominated by the systematic uncertainty except in the highest 𝑝 T bin.
+Figure 5 shows the DL1r discriminant distributions for tagged 𝑊-jets, after applying to simulation the
+light-flavour mistagging and 𝑏-tagging efficiency SFs, taken from other measurements as described in
+Section 5, and the 𝑐-jet SFs obtained from this analysis. It can be seen that the simulation agrees with the
+data within uncertainties over the entire distribution.
+
+
+
+                                                     11
+Table 1: The measured 𝑐-jet pseudo-continuous mistagging efficiency scale factors listed with the total, statistical
+and systematic uncertainties for particle-flow jets shown for each tagging and jet-𝑝 T interval. The scale factors are
+listed for the Pythia 8+EvtGen fragmentation model.
+
+                Tagging interval     Jet 𝑝 T range [GeV]       SF        Tot.      Stat.     Sys.
+                  85%–100%                  20–40             1.014     6.0%       1.6%      5.8%
+                  85%–100%                  40–65             1.013     2.9%       1.6%      2.4%
+                  85%–100%                  65–140            0.999     2.6%       1.6%      2.1%
+                  85%–100%                 140–250            1.014     3.0%       2.1%      2.2%
+                  77%–85%                   20–40             0.963    12%         1.7%     12%
+                  77%–85%                   40–65             0.960     4.8%       1.1%      4.7%
+                  77%–85%                   65–140            0.967     4.1%       1.1%      4.0%
+                  77%–85%                  140–250            0.968     5.4%       2.9%      4.6%
+                  70%–77%                   20–40             0.907    10%         1.6%     10%
+                  70%–77%                   40–65             0.965     5.1%       1.4%      4.9%
+                  70%–77%                   65–140            0.996     4.0%       1.4%      3.8%
+                  70%–77%                  140–250            0.964     5.0%       3.7%      3.4%
+                  60%–70%                   20–40             1.028    11%         2.0%     11%
+                  60%–70%                    40-65            0.972     5.1%       1.8%      4.8%
+                  60%–70%                   65–140            1.038     4.9%       2.0%      4.5%
+                  60%–70%                  140–250            1.040     6.0%       5.1%      3.1%
+                   0%–60%                   20–40             1.173    17%         3.9%     17%
+                   0%–60%                   40–65             1.180    13%         3.5%     12%
+                   0%–60%                   65–140            1.214    10%         3.8%      9.2%
+                   0%–60%                  140–250            0.934    15%         9.0%     12%
+
+
+Many ATLAS analyses also use the SFs in a simplified form called ‘single cut’, where events are classified
+as tagged (untagged) if the DL1r discriminant lies above (below) one of the operating point boundaries. The
+corresponding SFs are determined in a similar way to the 𝑐-jet pseudo-continuous mistagging efficiency
+SFs by using Eq. (1), but replacing 𝑁data𝑡 , 𝑁 𝑡 , 𝑁 𝑡 and 𝑁 𝑡 with the corresponding numbers of events
+                                               𝐶     𝐽       𝑋
+in which the tagged jet has a DL1r discriminant value above the operating point. The extra terms in
+Eq. (2) are not used in these fits. Instead the untagged SFs are evaluated using the results of the fit as
+(1 − 𝑐 𝑡 (𝑖)𝜖 MC
+              𝑡 (𝑖))/(1 − 𝜖 𝑡 (𝑖)). The resulting single-cut 𝑐-jet mistagging efficiency SFs are shown in
+                           MC
+Figure 6.
+
+
+
+
+                                                         12
+Table 2: The contributions to the 𝑐-jet pseudo-continuous mistagging efficiency scale factor systematic uncertainties
+for particle-flow jets. Listed are the uncertainties related to the 𝑡 𝑡¯ modelling, the jets and 𝐸 Tmiss , the light-flavour jet
+scale factor, the 𝑏-jet scale factor, and all other sources.
+
+                                                                     Systematic uncertainty in SF
+         Tagging interval       Jet 𝑝 T range [GeV]        𝑡 𝑡¯ mod. Jet/𝐸 Tmiss Light tag 𝑏-tag              Other
+           85%–100%                    20–40                  5.3%     0.8%        2.3%        –              0.1%
+           85%–100%                    40–65                  2.1%     0.3%        1.2%        –                –
+           85%–100%                    65–140                 1.9%     0.2%        0.9%        –              0.1%
+           85%–100%                   140–250                 2.0%     0.4%        0.9%        –              0.1%
+           77%–85%                     20–40                  8.3%     3.1%        8.2%        –              0.3%
+           77%–85%                     40–65                  3.0%     1.0%        3.5%        –              0.1%
+           77%–85%                     65–140                 3.2%     0.5%        2.4%        –              0.2%
+           77%–85%                    140–250                 3.9%     0.9%        2.3%        –              0.3%
+           70%–77%                     20–40                  9.7%     1.2%        2.5%        –              0.4%
+           70%–77%                     40–65                  4.7%     0.8%        1.1%        –              0.1%
+           70%–77%                     65–140                 3.7%     0.4%        0.8%        –              0.2%
+           70%–77%                    140–250                 3.1%     1.0%        0.9%        –              0.1%
+           60%–70%                     20–40               11%         0.8%        1.6%        –              0.4%
+           60%–70%                     40–65                  4.7%     0.6%        0.9%        –              0.1%
+           60%–70%                     65–140                 4.4%     0.4%        0.6%        –              0.2%
+           60%–70%                    140–250                 2.6%     1.4%        0.8%      0.2%             0.2%
+            0%–60%                     20–40               17%         3.1%        0.8%      0.2%             1.5%
+            0%–60%                     40–65               11%         3.7%        0.4%      0.1%             0.9%
+            0%–60%                     65–140                 8.7%     3.0%        0.2%        –              0.7%
+            0%–60%                    140–250                 9.7%     7.1%        0.7%        –              1.7%
+
+
+
+
+                                                              13
+                                   1.8                                                                                                 1.8
+
+
+
+
+ c -jet Mistagging Efficiency SF                                                                     c -jet Mistagging Efficiency SF
+                                         ATLAS    s=13 TeV 139 fb-1                                                                          ATLAS    s=13 TeV 139 fb-1
+                                   1.6                                                                                                 1.6
+                                         PFlow Jets DL1r 77-85% Tagging Interval                                                             PFlow Jets DL1r 70-77% Tagging Interval
+                                   1.4                                                                                                 1.4
+
+                                   1.2                                                                                                 1.2
+
+                                     1                                                                                                   1
+
+                                   0.8                                                                                                 0.8
+                                                              Scale Factor (stat. unc.)                                                                           Scale Factor (stat. unc.)
+                                   0.6                        Scale Factor (tot. unc.)                                                 0.6                        Scale Factor (tot. unc.)
+                                           50        100        150          200          250                                                  50        100        150          200          250
+                                                                              Jet p [GeV]                                                                                         Jet p [GeV]
+                                                                                    T                                                                                                   T
+
+                                   1.8                                                                                                 1.8
+
+
+
+
+ c -jet Mistagging Efficiency SF                                                                     c -jet Mistagging Efficiency SF
+                                         ATLAS    s=13 TeV 139 fb-1                                                                          ATLAS    s=13 TeV 139 fb-1
+                                   1.6                                                                                                 1.6
+                                         PFlow Jets DL1r 60-70% Tagging Interval                                                             PFlow Jets DL1r 0-60% Tagging Interval
+                                   1.4                                                                                                 1.4
+
+                                   1.2                                                                                                 1.2
+
+                                     1                                                                                                   1
+
+                                   0.8                                                                                                 0.8
+                                                              Scale Factor (stat. unc.)                                                                           Scale Factor (stat. unc.)
+                                   0.6                        Scale Factor (tot. unc.)                                                 0.6                        Scale Factor (tot. unc.)
+                                           50        100        150          200          250                                                  50        100        150          200          250
+                                                                              Jet p [GeV]                                                                                         Jet p [GeV]
+                                                                                    T                                                                                                   T
+
+
+
+Figure 3: The 𝑐-jet pseudo-continuous mistagging efficiency scale factors for particle-flow jets shown as a function
+of jet 𝑝 T for four tagging intervals. The scale factors are shown for the Pythia 8+EvtGen fragmentation model.
+
+
+
+
+                                                                                                14
+                                  1                                                                                                                    1
+
+
+
+
+ c -jet Mistagging Efficiency                                                                                     c -jet Mistagging Efficiency
+                                0.9    ATLAS    s=13 TeV 139 fb-1                                                                                    0.9    ATLAS         s=13 TeV 139 fb-1
+                                0.8    PFlow Jets 20<p <40 GeV                                                                                       0.8    PFlow Jets 40<p <65 GeV
+                                                     T                                                                                                                            T
+                                0.7                                                                                                                  0.7
+                                0.6                                                                                                                  0.6
+                                                                 Data (stat. unc.)                                                                                                          Data (stat. unc.)
+                                0.5                                                                                                                  0.5
+                                                                 Data (tot. unc.)                                                                                                           Data (tot. unc.)
+                                0.4                                                                                                                  0.4
+                                0.3                              t t MC                                                                              0.3                                    t t MC
+
+                                0.2                                                                                                                  0.2
+                                0.1                                                                                                                  0.1
+                                 0                                                                                                                    0
+                                      85-100%   77-85%   70-77%               60-70%          0-60%                                                        85-100%       77-85%           70-77%     60-70%     0-60%
+                                                                       DL1r Tagging Interval                                                                                                       DL1r Tagging Interval
+
+                                  1                                                                                                                    1
+
+
+
+
+ c -jet Mistagging Efficiency                                                                                     c -jet Mistagging Efficiency
+                                0.9    ATLAS    s=13 TeV 139 fb-1                                                                                    0.9    ATLAS         s=13 TeV 139 fb-1
+                                0.8    PFlow Jets 65<p <140 GeV                                                                                      0.8    PFlow Jets 140<p <250 GeV
+                                                     T                                                                                                                                T
+                                0.7                                                                                                                  0.7
+                                0.6                                                                                                                  0.6
+                                                                 Data (stat. unc.)                                                                                                          Data (stat. unc.)
+                                0.5                                                                                                                  0.5
+                                                                 Data (tot. unc.)                                                                                                           Data (tot. unc.)
+                                0.4                                                                                                                  0.4
+                                0.3                              t t MC                                                                              0.3                                    t t MC
+
+                                0.2                                                                                                                  0.2
+                                0.1                                                                                                                  0.1
+                                 0                                                                                                                    0
+                                      85-100%   77-85%   70-77%               60-70%          0-60%                                                        85-100%       77-85%           70-77%     60-70%     0-60%
+                                                                       DL1r Tagging Interval                                                                                                       DL1r Tagging Interval
+
+
+Figure 4: The 𝑐-jet pseudo-continuous mistagging efficiencies for particle-flow jets shown as red points as a function
+of tagging interval for the four jet-𝑝 T ranges. Included in the plots are the corresponding MC efficiencies using the
+Pythia 8+EvtGen fragmentation model.
+
+
+
+                                                          Entries
+                                                                                  ATLAS s=13 TeV, 139 fb-1                                                          Data
+                                                                       106        PFlow Jets, DL1r 0-85%                                                        W-jets:
+                                                                                                                                                                    t t , ll
+                                                                       105         85%       77% 70%   60%
+                                                                                                                                                                    t t , cl
+                                                                                                                                                                    t t , bl
+                                                                          4
+                                                                                                                                                                    t t , other
+                                                                       10                                                                                           Non tt
+                                                                                                                                                                    SF unc.
+                                                                       103                                                                                          Uncertainty
+
+
+                                                                       102
+
+                                                                       10
+
+                                                                          1
+
+
+
+
+                                                          Data/Pred.
+                                                                       1.5
+                                                                         1
+                                                                       0.5
+                                                                              0          2        4          6                                   8         10       12       14
+                                                                                                                                                 W-jet DL1r Discriminant
+
+Figure 5: The DL1r discriminant distribution for tagged particle-flow jets associated with the 𝑊 boson decay (𝑊-jets)
+after applying the 𝑏-, 𝑐- and light-flavour jet tagging scale factors to the simulation. The red dashed lines (bottom)
+show the uncertainty from the jet tagging scale factors, while the hashed area shows all other uncertainties excluding
+the uncertainty on the jet 𝑝 T distribution, which is derived from the difference between data and simulation. The
+vertical dashed lines indicate the DL1r discriminant tagging intervals.
+
+
+
+
+                                                                                                             15
+                                    1.8                                                                                                 1.8
+
+
+
+
+  c -jet Mistagging Efficiency SF                                                                     c -jet Mistagging Efficiency SF
+                                          ATLAS    s=13 TeV 139 fb-1                                                                          ATLAS    s=13 TeV 139 fb-1
+                                    1.6                                                                                                 1.6
+                                          PFlow Jets DL1r 85% Single Cut Operating Point                                                      PFlow Jets DL1r 77% Single Cut Operating Point
+                                    1.4                                                                                                 1.4
+
+                                    1.2                                                                                                 1.2
+
+                                      1                                                                                                   1
+
+                                    0.8                                                                                                 0.8
+                                                               Scale Factor (stat. unc.)                                                                           Scale Factor (stat. unc.)
+                                    0.6                        Scale Factor (tot. unc.)                                                 0.6                        Scale Factor (tot. unc.)
+                                            50        100        150          200          250                                                  50        100        150          200          250
+                                                                               Jet p [GeV]                                                                                         Jet p [GeV]
+                                                                                     T                                                                                                   T
+
+                                    1.8                                                                                                 1.8
+
+
+
+
+  c -jet Mistagging Efficiency SF                                                                     c -jet Mistagging Efficiency SF
+                                          ATLAS    s=13 TeV 139 fb-1                                                                          ATLAS    s=13 TeV 139 fb-1
+                                    1.6                                                                                                 1.6
+                                          PFlow Jets DL1r 70% Single Cut Operating Point                                                      PFlow Jets DL1r 60% Single Cut Operating Point
+                                    1.4                                                                                                 1.4
+
+                                    1.2                                                                                                 1.2
+
+                                      1                                                                                                   1
+
+                                    0.8                                                                                                 0.8
+                                                               Scale Factor (stat. unc.)                                                                           Scale Factor (stat. unc.)
+                                    0.6                        Scale Factor (tot. unc.)                                                 0.6                        Scale Factor (tot. unc.)
+                                            50        100        150          200          250                                                  50        100        150          200          250
+                                                                               Jet p [GeV]                                                                                         Jet p [GeV]
+                                                                                     T                                                                                                   T
+
+
+
+Figure 6: The 𝑐-jet single-cut mistagging efficiency scale factors for particle-flow jets shown as a function of jet 𝑝 T
+for the four tagging operating points. The scale factors are shown for the Pythia 8+EvtGen fragmentation model.
+
+
+
+
+                                                                                                 16
+8 Conclusion
+
+A new technique has been used to measure the inclusive 𝑐-jet mistagging efficiency, using semileptonic
+                                  √
+𝑡 𝑡¯ events from 𝑝 𝑝 collisions at 𝑠 = 13 TeV at the LHC. The measurement is based on an integrated
+luminosity of 139 fb−1 , corresponding to the full Run 2 dataset, collected with the ATLAS detector. The
+efficiencies were measured as a function of jet 𝑝 T in the range 20-250 GeV, with boundaries corresponding
+to 60%, 70%, 77% and 85% efficiency to tag 𝑏-jets in simulated 𝑡 𝑡¯ events. The total uncertainties are in the
+range 3%–17%. The measured efficiencies generally agree with those in simulation but are higher for the
+tightest (0–60%) tagging interval.
+
+
+Acknowledgements
+
+We thank CERN for the very successful operation of the LHC, as well as the support staff from our
+institutions without whom ATLAS could not be operated efficiently.
+We acknowledge the support of ANPCyT, Argentina; YerPhI, Armenia; ARC, Australia; BMWFW and
+FWF, Austria; ANAS, Azerbaĳan; SSTC, Belarus; CNPq and FAPESP, Brazil; NSERC, NRC and CFI,
+Canada; CERN; ANID, Chile; CAS, MOST and NSFC, China; Minciencias, Colombia; MSMT CR, MPO
+CR and VSC CR, Czech Republic; DNRF and DNSRC, Denmark; IN2P3-CNRS and CEA-DRF/IRFU,
+France; SRNSFG, Georgia; BMBF, HGF and MPG, Germany; GSRI, Greece; RGC and Hong Kong
+SAR, China; ISF and Benoziyo Center, Israel; INFN, Italy; MEXT and JSPS, Japan; CNRST, Morocco;
+NWO, Netherlands; RCN, Norway; MNiSW and NCN, Poland; FCT, Portugal; MNE/IFA, Romania; JINR;
+MES of Russia and NRC KI, Russian Federation; MESTD, Serbia; MSSR, Slovakia; ARRS and MIZŠ,
+Slovenia; DSI/NRF, South Africa; MICINN, Spain; SRC and Wallenberg Foundation, Sweden; SERI,
+SNSF and Cantons of Bern and Geneva, Switzerland; MOST, Taiwan; TAEK, Turkey; STFC, United
+Kingdom; DOE and NSF, United States of America. In addition, individual groups and members have
+received support from BCKDF, CANARIE, Compute Canada and CRC, Canada; COST, ERC, ERDF,
+Horizon 2020 and Marie Skłodowska-Curie Actions, European Union; Investissements d’Avenir Labex,
+Investissements d’Avenir Idex and ANR, France; DFG and AvH Foundation, Germany; Herakleitos, Thales
+and Aristeia programmes co-financed by EU-ESF and the Greek NSRF, Greece; BSF-NSF and GIF, Israel;
+Norwegian Financial Mechanism 2014-2021, Norway; La Caixa Banking Foundation, CERCA Programme
+Generalitat de Catalunya and PROMETEO and GenT Programmes Generalitat Valenciana, Spain; Göran
+Gustafssons Stiftelse, Sweden; The Royal Society and Leverhulme Trust, United Kingdom.
+The crucial computing support from all WLCG partners is acknowledged gratefully, in particular from
+CERN, the ATLAS Tier-1 facilities at TRIUMF (Canada), NDGF (Denmark, Norway, Sweden), CC-IN2P3
+(France), KIT/GridKA (Germany), INFN-CNAF (Italy), NL-T1 (Netherlands), PIC (Spain), ASGC
+(Taiwan), RAL (UK) and BNL (USA), the Tier-2 facilities worldwide and large non-WLCG resource
+providers. Major contributors of computing resources are listed in Ref. [67].
+
+
+
+
+                                                     17
+References
+ [1]   ATLAS Collaboration, The ATLAS Experiment at the CERN Large Hadron Collider,
+       JINST 3 (2008) S08003.
+ [2]   L. Evans and P. Bryant, LHC Machine, JINST 3 (2008) S08001.
+ [3]   ATLAS Collaboration, Observation of the associated production of a top quark and a 𝑍 boson in
+                        √
+       𝑝 𝑝 collisions at 𝑠 = 13 TeV with the ATLAS detector, JHEP 07 (2020) 124,
+       arXiv: 2002.07546 [hep-ex].
+ [4] ATLAS Collaboration, Measurements of the production cross-section for a 𝑍 boson in association
+                                               √
+     with 𝑏-jets in proton–proton collisions at 𝑠 = 13 TeV with the ATLAS detector,
+     JHEP 07 (2020) 044, arXiv: 2003.11960 [hep-ex].
+ [5]   ATLAS Collaboration,
+       Observation of 𝐻 → 𝑏 𝑏¯ decays and 𝑉 𝐻 production with the ATLAS detector,
+       Phys. Lett. B 786 (2018) 59, arXiv: 1808.08238 [hep-ex].
+ [6] ATLAS Collaboration, Observation of Higgs boson production in association with a top quark pair
+     at the LHC with the ATLAS detector, Phys. Lett. B 784 (2018) 173, arXiv: 1806.00425 [hep-ex].
+ [7] ATLAS Collaboration, Search for pairs of scalar leptoquarks decaying into quarks and electrons or
+              √
+     muons in 𝑠 = 13 TeV 𝑝 𝑝 collisions with the ATLAS detector, JHEP 10 (2020) 112,
+     arXiv: 2006.05872 [hep-ex].
+ [8] ATLAS Collaboration, Search for phenomena beyond the Standard Model in events with large 𝑏-jet
+     multiplicity using the ATLAS detector at the LHC, Eur. Phys. J. C 81 (2021) 11,
+     arXiv: 2010.01015 [hep-ex].
+ [9]   ATLAS Collaboration,
+                                                                                            √
+       Measurements of 𝑏-jet tagging efficiency with the ATLAS detector using 𝑡 𝑡¯ events at 𝑠 = 13 TeV,
+       JHEP 08 (2018) 089, arXiv: 1805.01845 [hep-ex].
+[10]   ATLAS Collaboration, ATLAS 𝑏-jet identification performance and efficiency measurement with 𝑡 𝑡¯
+                                  √
+       events in 𝑝 𝑝 collisions at 𝑠 = 13 TeV, Eur. Phys. J. C 79 (2019) 970,
+       arXiv: 1907.05120 [hep-ex].
+[11]   ATLAS Collaboration, Calibration of light-flavour 𝑏-jet mistagging rates using ATLAS
+                                      √
+       proton–proton collision data at 𝑠 = 13 TeV, ATLAS-CONF-2018-006, 2018,
+       url: https://cds.cern.ch/record/2314418.
+[12]   ATLAS Collaboration, Performance of 𝑏-jet identification in the ATLAS experiment,
+       JINST 11 (2016) P04008, arXiv: 1512.01094 [hep-ex].
+[13]   P. A. Zyla et al., Review of Particle Physics, Prog. Theor. Exp. Phys. 2020 (2020) 083C01.
+[14]   ATLAS Collaboration,
+       Jet reconstruction and performance using particle flow with the ATLAS Detector,
+       Eur. Phys. J. C 77 (2017) 466, arXiv: 1703.10485 [hep-ex].
+[15]   ATLAS Collaboration, Jet energy scale and resolution measured in proton–proton collisions at
+       √
+         𝑠 = 13 TeV with the ATLAS detector, (2020), arXiv: 2007.02645 [hep-ex].
+[16]   ATLAS Collaboration, Variable Radius, Exclusive-𝑘 𝑇 , and Center-of-Mass Subjet Reconstruction
+       for Higgs(→ 𝑏 ¯𝑏) Tagging in ATLAS, ATL-PHYS-PUB-2017-010, 2017,
+       url: https://cds.cern.ch/record/2268678.
+
+
+
+                                                   18
+[17]   ATLAS Collaboration, ATLAS Insertable B-Layer Technical Design Report,
+       ATLAS-TDR-19; CERN-LHCC-2010-013, 2010,
+       url: https://cds.cern.ch/record/1291633, Addendum: ATLAS-TDR-19-ADD-1;
+       CERN-LHCC-2012-009, 2012, url: https://cds.cern.ch/record/1451888.
+[18]   B. Abbott et al., Production and integration of the ATLAS Insertable B-Layer,
+       JINST 13 (2018) T05008, arXiv: 1803.00844 [physics.ins-det].
+[19]   ATLAS Collaboration, Performance of the ATLAS trigger system in 2015,
+       Eur. Phys. J. C 77 (2017) 317, arXiv: 1611.09661 [hep-ex].
+[20]   ATLAS Collaboration, The ATLAS Collaboration Software and Firmware,
+       ATL-SOFT-PUB-2021-001, 2021, url: https://cds.cern.ch/record/2767187.
+[21]   ATLAS Collaboration,
+                                                    √
+       Luminosity determination in 𝑝 𝑝 collisions at 𝑠 = 13 TeV using the ATLAS detector at the LHC,
+       ATLAS-CONF-2019-021, 2019, url: https://cds.cern.ch/record/2677054.
+[22]   G. Avoni et al., The new LUCID-2 detector for luminosity measurement and monitoring in ATLAS,
+       JINST 13 (2018) P07017.
+[23]   ATLAS Collaboration, Performance of electron and photon triggers in ATLAS during LHC Run 2,
+       Eur. Phys. J. C 80 (2020) 47, arXiv: 1909.00761 [hep-ex].
+[24]   ATLAS Collaboration, Performance of the ATLAS muon triggers in Run 2,
+       JINST 15 (2020) P09015, arXiv: 2004.13447 [hep-ex].
+[25]   ATLAS Collaboration, The ATLAS Simulation Infrastructure, Eur. Phys. J. C 70 (2010) 823,
+       arXiv: 1005.4568 [physics.ins-det].
+[26]   GEANT4 Collaboration, S. Agostinelli et al., Geant4 – a simulation toolkit,
+       Nucl. Instrum. Meth. A 506 (2003) 250.
+[27]   T. Sjöstrand et al., An introduction to PYTHIA 8.2, Comput. Phys. Commun. 191 (2015) 159,
+       arXiv: 1410.3012 [hep-ph].
+[28]   R. D. Ball et al., Parton distributions for the LHC run II, JHEP 04 (2015) 040,
+       arXiv: 1410.8849 [hep-ph].
+[29]   R. D. Ball et al., Parton distributions with LHC data, Nucl. Phys. B 867 (2013) 244,
+       arXiv: 1207.1303 [hep-ph].
+[30]   ATLAS Collaboration, The Pythia 8 A3 tune description of ATLAS minimum bias and inelastic
+       measurements incorporating the Donnachie–Landshoff diffractive model,
+       ATL-PHYS-PUB-2016-017, 2016, url: https://cds.cern.ch/record/2206965.
+[31]   E. Bothmann et al., Event generation with Sherpa 2.2, SciPost Phys. 7 (2019) 034,
+       arXiv: 1905.09127 [hep-ph].
+[32]   D. J. Lange, The EvtGen particle decay simulation package,
+       Nucl. Instrum. Meth. A 462 (2001) 152.
+[33]   S. Frixione, P. Nason and G. Ridolfi,
+       A positive-weight next-to-leading-order Monte Carlo for heavy flavour hadroproduction,
+       JHEP 09 (2007) 126, arXiv: 0707.3088 [hep-ph].
+[34]   P. Nason, A New method for combining NLO QCD with shower Monte Carlo algorithms,
+       JHEP 11 (2004) 040, arXiv: hep-ph/0409146.
+
+
+
+                                                   19
+[35]   S. Frixione, P. Nason and C. Oleari,
+       Matching NLO QCD computations with Parton Shower simulations: the POWHEG method,
+       JHEP 11 (2007) 070, arXiv: 0709.2092 [hep-ph].
+[36]   S. Alioli, P. Nason, C. Oleari and E. Re, A general framework for implementing NLO calculations in
+       shower Monte Carlo programs: the POWHEG BOX, JHEP 06 (2010) 043,
+       arXiv: 1002.2581 [hep-ph].
+[37]   ATLAS Collaboration, Studies on top-quark Monte Carlo modelling for Top2016,
+       ATL-PHYS-PUB-2016-020, 2016, url: https://cds.cern.ch/record/2216168.
+[38]   ATLAS Collaboration,
+       Studies on top-quark Monte Carlo modelling with Sherpa and MG5_aMC@NLO,
+       ATL-PHYS-PUB-2017-007, 2017, url: https://cds.cern.ch/record/2261938.
+[39]   M. Bähr et al., Herwig++ physics and manual, Eur. Phys. J. C 58 (2008) 639,
+       arXiv: 0803.0883 [hep-ph].
+[40]   J. Bellm et al., Herwig 7.0/Herwig++ 3.0 release note, Eur. Phys. J. C 76 (2016) 196,
+       arXiv: 1512.01178 [hep-ph].
+[41]   L. A. Harland-Lang, A. D. Martin, P. Motylinski and R. S. Thorne,
+       Parton distributions in the LHC era: MMHT 2014 PDFs, Eur. Phys. J. C 75 (2015) 204,
+       arXiv: 1412.3989 [hep-ph].
+[42]   S. Frixione, E. Laenen, P. Motylinski, C. White and B. R. Webber,
+       Single-top hadroproduction in association with a 𝑊 boson, JHEP 07 (2008) 029,
+       arXiv: 0805.3067 [hep-ph].
+[43]   T. Gleisberg and S. Höche, Comix, a new matrix element generator, JHEP 12 (2008) 039,
+       arXiv: 0808.3674 [hep-ph].
+[44]   F. Buccioni et al., OpenLoops 2, Eur. Phys. J. C 79 (2019) 866, arXiv: 1907.13071 [hep-ph].
+[45]   F. Cascioli, P. Maierhöfer and S. Pozzorini, Scattering Amplitudes with Open Loops,
+       Phys. Rev. Lett. 108 (2012) 111601, arXiv: 1111.5206 [hep-ph].
+[46]   A. Denner, S. Dittmaier and L. Hofer,
+       Collier: A fortran-based complex one-loop library in extended regularizations,
+       Comput. Phys. Commun. 212 (2017) 220, arXiv: 1604.06792 [hep-ph].
+[47]   S. Schumann and F. Krauss,
+       A parton shower algorithm based on Catani–Seymour dipole factorisation, JHEP 03 (2008) 038,
+       arXiv: 0709.1027 [hep-ph].
+[48]   S. Höche, F. Krauss, M. Schönherr and F. Siegert,
+       A critical appraisal of NLO+PS matching methods, JHEP 09 (2012) 049,
+       arXiv: 1111.1220 [hep-ph].
+[49]   S. Höche, F. Krauss, M. Schönherr and F. Siegert,
+       QCD matrix elements + parton showers. The NLO case, JHEP 04 (2013) 027,
+       arXiv: 1207.5030 [hep-ph].
+[50]   S. Catani, F. Krauss, B. R. Webber and R. Kuhn, QCD Matrix Elements + Parton Showers,
+       JHEP 11 (2001) 063, arXiv: hep-ph/0109231.
+[51]   S. Höche, F. Krauss, S. Schumann and F. Siegert, QCD matrix elements and truncated showers,
+       JHEP 05 (2009) 053, arXiv: 0903.1219 [hep-ph].
+
+
+
+                                                   20
+[52]   C. Anastasiou, L. J. Dixon, K. Melnikov and F. Petriello, High-precision QCD at hadron colliders:
+       Electroweak gauge boson rapidity distributions at next-to-next-to leading order,
+       Phys. Rev. D 69 (2004) 094008, arXiv: hep-ph/0312266.
+[53]   J. Alwall et al., The automated computation of tree-level and next-to-leading order differential cross
+       sections, and their matching to parton shower simulations, JHEP 07 (2014) 079,
+       arXiv: 1405.0301 [hep-ph].
+[54]   ATLAS Collaboration, Electron and photon performance measurements with the ATLAS detector
+       using the 2015–2017 LHC proton–proton collision data, JINST 14 (2019) P12006,
+       arXiv: 1908.00005 [hep-ex].
+[55]   ATLAS Collaboration, Muon reconstruction and identification efficiency in ATLAS using the full
+                                      √
+       Run 2 𝑝 𝑝 collision data set at 𝑠 = 13 TeV, Eur. Phys. J. C 81 (2021) 578,
+       arXiv: 2012.00578 [hep-ex].
+[56]   ATLAS Collaboration, Muon reconstruction and identification efficiency in ATLAS using the full
+                                      √
+       Run 2 𝑝 𝑝 collision data set at 𝑠 = 13 TeV, (2020), arXiv: 2012.00578 [hep-ex].
+[57]   M. Cacciari, G. P. Salam and G. Soyez, The anti-𝑘 𝑡 jet clustering algorithm, JHEP 04 (2008) 063,
+       arXiv: 0802.1189 [hep-ph].
+[58]   M. Cacciari, G. P. Salam and G. Soyez, FastJet user manual, Eur. Phys. J. C 72 (2012) 1896,
+       arXiv: 1111.6097 [hep-ph].
+[59]   ATLAS Collaboration, Performance of pile-up mitigation techniques for jets in 𝑝 𝑝 collisions at
+       √
+         𝑠 = 8 TeV using the ATLAS detector, Eur. Phys. J. C 76 (2016) 581,
+       arXiv: 1510.03823 [hep-ex].
+[60]   ATLAS Collaboration, Measurements of top-quark pair differential and double-differential
+                                                                  √
+       cross-sections in the ℓ+jets channel with 𝑝 𝑝 collisions at 𝑠 = 13 TeV using the ATLAS detector,
+       Eur. Phys. J. C 79 (2019) 1028, arXiv: 1908.07305 [hep-ex],
+       Erratum: Eur. Phys. J. C 80 (2020) 1092.
+[61]   ATLAS Collaboration, Performance of missing transverse momentum reconstruction with the
+                                                       √
+       ATLAS detector using proton–proton collisions at 𝑠 = 13 TeV, Eur. Phys. J. C 78 (2018) 903,
+       arXiv: 1802.08168 [hep-ex].
+[62]   ATLAS Collaboration,
+       Optimisation and performance studies of the ATLAS 𝑏-tagging algorithms for the 2017-18 LHC run,
+       ATL-PHYS-PUB-2017-013, 2017, url: https://cds.cern.ch/record/2273281.
+[63]   J. Erdmann et al.,
+       A likelihood-based reconstruction algorithm for top-quark pairs and the KLFitter framework,
+       Nucl. Instrum. Meth. A 748 (2014) 18, issn: 0168-9002.
+[64]   ATLAS Collaboration,
+       Measurements of inclusive and differential fiducial cross-sections of 𝑡 𝑡¯ production with additional
+                                                        √
+       heavy-flavour jets in proton–proton collisions at 𝑠 = 13 TeV with the ATLAS detector,
+       JHEP 04 (2019) 046, arXiv: 1811.12113 [hep-ex].
+[65]   ATLAS Collaboration,
+       𝐸 Tmiss performance in the ATLAS detector using 2015–2016 LHC 𝑝 𝑝 collisions,
+       ATLAS-CONF-2018-023, 2018, url: https://cds.cern.ch/record/2625233.
+[66]   ATLAS Collaboration, Forward jet vertex tagging using the particle flow algorithm,
+       ATL-PHYS-PUB-2019-026, 2019, url: https://cds.cern.ch/record/2683100.
+
+
+
+                                                     21
+[67]   ATLAS Collaboration, ATLAS Computing Acknowledgements, ATL-SOFT-PUB-2021-003,
+       url: https://cds.cern.ch/record/2776662.
+
+
+
+
+                                            22
+The ATLAS Collaboration
+
+G. Aad98 , B. Abbott124 , D.C. Abbott99 , A. Abed Abud34 , K. Abeling51 , D.K. Abhayasinghe91 ,
+S.H. Abidi27 , A. Aboulhorma33e , H. Abramowicz157 , H. Abreu156 , Y. Abulaiti5 ,
+A.C. Abusleme Hoffman142a , B.S. Acharya64a,64b,o , B. Achkar51 , L. Adam96 , C. Adam Bourdarios4 ,
+L. Adamczyk81a , L. Adamek162 , S.V. Addepalli24 , J. Adelman116 , A. Adiguzel11c,ac , S. Adorni52 ,
+T. Adye139 , A.A. Affolder141 , Y. Afik34 , C. Agapopoulou62 , M.N. Agaras12 , J. Agarwala68a,68b ,
+A. Aggarwal114 , C. Agheorghiesei25c , J.A. Aguilar-Saavedra135f,135a,ab , A. Ahmad34 , F. Ahmadov77 ,
+W.S. Ahmed100 , X. Ai44 , G. Aielli71a,71b , I. Aizenberg175 , S. Akatsuka83 , M. Akbiyik96 , T.P.A. Åkesson94 ,
+A.V. Akimov107 , K. Al Khoury37 , G.L. Alberghi21b , J. Albert171 , P. Albicocco49 , M.J. Alconada Verzini86 ,
+S. Alderweireldt48 , M. Aleksa34 , I.N. Aleksandrov77 , C. Alexa25b , T. Alexopoulos9 , A. Alfonsi115 ,
+F. Alfonsi21b , M. Alhroob124 , B. Ali137 , S. Ali154 , M. Aliev161 , G. Alimonti66a , C. Allaire34 ,
+B.M.M. Allbrooke152 , P.P. Allport19 , A. Aloisio67a,67b , F. Alonso86 , C. Alpigiani144 ,
+E. Alunno Camelia71a,71b , M. Alvarez Estevez95 , M.G. Alviggi67a,67b , Y. Amaral Coutinho78b ,
+A. Ambler100 , L. Ambroz130 , C. Amelung34 , D. Amidei102 , S.P. Amor Dos Santos135a , S. Amoroso44 ,
+K.R. Amos169 , C.S. Amrouche52 , V. Ananiev129 , C. Anastopoulos145 , N. Andari140 , T. Andeen10 ,
+J.K. Anders18 , S.Y. Andrean43a,43b , A. Andreazza66a,66b , S. Angelidakis8 , A. Angerami37 ,
+A.V. Anisenkov117b,117a , A. Annovi69a , C. Antel52 , M.T. Anthony145 , E. Antipov125 , M. Antonelli49 ,
+D.J.A. Antrim16 , F. Anulli70a , M. Aoki79 , J.A. Aparisi Pozo169 , M.A. Aparo152 , L. Aperio Bella44 ,
+N. Aranzabal34 , V. Araujo Ferraz78a , C. Arcangeletti49 , A.T.H. Arce47 , E. Arena88 , J-F. Arguin106 ,
+S. Argyropoulos50 , J.-H. Arling44 , A.J. Armbruster34 , A. Armstrong166 , O. Arnaez162 , H. Arnold34 ,
+Z.P. Arrubarrena Tame110 , G. Artoni130 , H. Asada112 , K. Asai122 , S. Asai159 , N.A. Asbah57 ,
+E.M. Asimakopoulou167 , L. Asquith152 , J. Assahsah33d , K. Assamagan27 , R. Astalos26a , R.J. Atkin31a ,
+M. Atkinson168 , N.B. Atlay17 , H. Atmani58b , P.A. Atmasiddha102 , K. Augsten137 , S. Auricchio67a,67b ,
+V.A. Austrup177 , G. Avner156 , G. Avolio34 , M.K. Ayoub13c , G. Azuelos106,aj , D. Babal26a , H. Bachacou140 ,
+K. Bachas158 , A. Bachiu32 , F. Backman43a,43b , A. Badea57 , P. Bagnaia70a,70b , H. Bahrasemani148 ,
+A.J. Bailey169 , V.R. Bailey168 , J.T. Baines139 , C. Bakalis9 , O.K. Baker178 , P.J. Bakker115 , E. Bakos14 ,
+D. Bakshi Gupta7 , S. Balaji153 , R. Balasubramanian115 , E.M. Baldin117b,117a , P. Balek138 ,
+E. Ballabene66a,66b , F. Balli140 , L.M. Baltes59a , W.K. Balunas130 , J. Balz96 , E. Banas82 ,
+M. Bandieramonte134 , A. Bandyopadhyay22 , S. Bansal22 , L. Barak157 , E.L. Barberio101 , D. Barberis53b,53a ,
+M. Barbero98 , G. Barbour92 , K.N. Barends31a , T. Barillari111 , M-S. Barisits34 , J. Barkeloo127 ,
+T. Barklow149 , B.M. Barnett139 , R.M. Barnett16 , A. Baroncelli58a , G. Barone27 , A.J. Barr130 ,
+L. Barranco Navarro43a,43b , F. Barreiro95 , J. Barreiro Guimarães da Costa13a , U. Barron157 , S. Barsov133 ,
+F. Bartels59a , R. Bartoldus149 , G. Bartolini98 , A.E. Barton87 , P. Bartos26a , A. Basalaev44 , A. Basan96 ,
+M. Baselga44 , I. Bashta72a,72b , A. Bassalat62,ag , M.J. Basso162 , C.R. Basson97 , R.L. Bates55 ,
+S. Batlamous33e , J.R. Batley30 , B. Batool147 , M. Battaglia141 , M. Bauce70a,70b , F. Bauer140,* , P. Bauer22 ,
+H.S. Bawa29 , A. Bayirli11c , J.B. Beacham47 , T. Beau131 , P.H. Beauchemin165 , F. Becherer50 , P. Bechtle22 ,
+H.P. Beck18,q , K. Becker173 , C. Becot44 , A.J. Beddall11a , V.A. Bednyakov77 , C.P. Bee151 , T.A. Beermann34 ,
+M. Begalli78b , M. Begel27 , A. Behera151 , J.K. Behr44 , C. Beirao Da Cruz E Silva34 , J.F. Beirer51,34 ,
+F. Beisiegel22 , M. Belfkir4 , G. Bella157 , L. Bellagamba21b , A. Bellerive32 , P. Bellos19 ,
+K. Beloborodov117b,117a , K. Belotskiy108 , N.L. Belyaev108 , D. Benchekroun33a , Y. Benhammou157 ,
+D.P. Benjamin27 , M. Benoit27 , J.R. Bensinger24 , S. Bentvelsen115 , L. Beresford34 , M. Beretta49 ,
+D. Berge17 , E. Bergeaas Kuutmann167 , N. Berger4 , B. Bergmann137 , L.J. Bergsten24 , J. Beringer16 ,
+S. Berlendis6 , G. Bernardi131 , C. Bernius149 , F.U. Bernlochner22 , T. Berry91 , P. Berta138 , A. Berthold46 ,
+I.A. Bertram87 , O. Bessidskaia Bylund177 , S. Bethke111 , A. Betti40 , A.J. Bevan90 , S. Bhatta151 ,
+D.S. Bhattacharya172 , P. Bhattarai24 , V.S. Bhopatkar5 , R. Bi134 , R. Bi27 , R.M. Bianchi134 , O. Biebel110 ,
+
+
+
+
+                                                       23
+R. Bielski127 , N.V. Biesuz69a,69b , M. Biglietti72a , T.R.V. Billoud137 , M. Bindi51 , A. Bingul11d ,
+C. Bini70a,70b , S. Biondi21b,21a , A. Biondini88 , C.J. Birch-sykes97 , G.A. Bird19,139 , M. Birman175 ,
+T. Bisanz34 , J.P. Biswal2 , D. Biswas176,j , A. Bitadze97 , C. Bittrich46 , K. Bjørke129 , I. Bloch44 , C. Blocker24 ,
+A. Blue55 , U. Blumenschein90 , J. Blumenthal96 , G.J. Bobbink115 , V.S. Bobrovnikov117b,117a , M. Boehler50 ,
+D. Bogavac12 , A.G. Bogdanchikov117b,117a , C. Bohm43a , V. Boisvert91 , P. Bokan44 , T. Bold81a ,
+M. Bomben131 , M. Bona90 , M. Boonekamp140 , C.D. Booth91 , A.G. Borbély55 , H.M. Borecka-Bielska106 ,
+L.S. Borgna92 , G. Borissov87 , D. Bortoletto130 , D. Boscherini21b , M. Bosman12 , J.D. Bossio Sola34 ,
+K. Bouaouda33a , J. Boudreau134 , E.V. Bouhova-Thacker87 , D. Boumediene36 , R. Bouquet131 , A. Boveia123 ,
+J. Boyd34 , D. Boye27 , I.R. Boyko77 , A.J. Bozson91 , J. Bracinik19 , N. Brahimi58d,58c , G. Brandt177 ,
+O. Brandt30 , F. Braren44 , B. Brau99 , J.E. Brau127 , W.D. Breaden Madden55 , K. Brendlinger44 , R. Brener175 ,
+L. Brenner34 , R. Brenner167 , S. Bressler175 , B. Brickwedde96 , D.L. Briglin19 , D. Britton55 , D. Britzger111 ,
+I. Brock22 , R. Brock103 , G. Brooĳmans37 , W.K. Brooks142e , E. Brost27 , P.A. Bruckman de Renstrom82 ,
+B. Brüers44 , D. Bruncko26b , A. Bruni21b , G. Bruni21b , M. Bruschi21b , N. Bruscino70a,70b ,
+L. Bryngemark149 , T. Buanes15 , Q. Buat151 , P. Buchholz147 , A.G. Buckley55 , I.A. Budagov77 ,
+M.K. Bugge129 , O. Bulekov108 , B.A. Bullard57 , S. Burdin88 , C.D. Burgard44 , A.M. Burger125 ,
+B. Burghgrave7 , J.T.P. Burr30 , C.D. Burton10 , J.C. Burzynski148 , E.L. Busch37 , V. Büscher96 ,
+P.J. Bussey55 , J.M. Butler23 , C.M. Buttar55 , J.M. Butterworth92 , W. Buttinger139 , C.J. Buxo Vazquez103 ,
+A.R. Buzykaev117b,117a , G. Cabras21b , S. Cabrera Urbán169 , D. Caforio54 , H. Cai134 , V.M.M. Cairo149 ,
+O. Cakir3a , N. Calace34 , P. Calafiura16 , G. Calderini131 , P. Calfayan63 , G. Callea55 , L.P. Caloba78b ,
+D. Calvet36 , S. Calvet36 , T.P. Calvet98 , M. Calvetti69a,69b , R. Camacho Toro131 , S. Camarda34 ,
+D. Camarero Munoz95 , P. Camarri71a,71b , M.T. Camerlingo72a,72b , D. Cameron129 , C. Camincher171 ,
+M. Campanelli92 , A. Camplani38 , V. Canale67a,67b , A. Canesse100 , M. Cano Bret75 , J. Cantero125 ,
+Y. Cao168 , F. Capocasa24 , M. Capua39b,39a , A. Carbone66a,66b , R. Cardarelli71a , J.C.J. Cardenas7 ,
+F. Cardillo169 , G. Carducci39b,39a , T. Carli34 , G. Carlino67a , B.T. Carlson134 , E.M. Carlson171,163a ,
+L. Carminati66a,66b , M. Carnesale70a,70b , R.M.D. Carney149 , S. Caron114 , E. Carquin142e , S. Carrá44 ,
+G. Carratta21b,21a , J.W.S. Carter162 , T.M. Carter48 , D. Casadei31c , M.P. Casado12,g , A.F. Casha162 ,
+E.G. Castiglia178 , F.L. Castillo59a , L. Castillo Garcia12 , V. Castillo Gimenez169 , N.F. Castro135a,135e ,
+A. Catinaccio34 , J.R. Catmore129 , A. Cattai34 , V. Cavaliere27 , N. Cavalli21b,21a , V. Cavasinni69a,69b ,
+E. Celebi11b , F. Celli130 , M.S. Centonze65a,65b , K. Cerny126 , A.S. Cerqueira78a , A. Cerri152 ,
+L. Cerrito71a,71b , F. Cerutti16 , A. Cervelli21b , S.A. Cetin11b , Z. Chadi33a , D. Chakraborty116 , M. Chala135f ,
+J. Chan176 , W.S. Chan115 , W.Y. Chan88 , J.D. Chapman30 , B. Chargeishvili155b , D.G. Charlton19 ,
+T.P. Charman90 , M. Chatterjee18 , S. Chekanov5 , S.V. Chekulaev163a , G.A. Chelkov77,ae , A. Chen102 ,
+B. Chen157 , B. Chen171 , C. Chen58a , C.H. Chen76 , H. Chen13c , H. Chen27 , J. Chen58c , J. Chen24 ,
+S. Chen132 , S.J. Chen13c , X. Chen58c , X. Chen13b , Y. Chen58a , Y-H. Chen44 , C.L. Cheng176 ,
+H.C. Cheng60a , A. Cheplakov77 , E. Cheremushkina44 , E. Cherepanova77 , R. Cherkaoui El Moursli33e ,
+E. Cheu6 , K. Cheung61 , L. Chevalier140 , V. Chiarella49 , G. Chiarelli69a , G. Chiodini65a , A.S. Chisholm19 ,
+A. Chitan25b , Y.H. Chiu171 , M.V. Chizhov77,s , K. Choi10 , A.R. Chomont70a,70b , Y. Chou99 , Y.S. Chow115 ,
+T. Chowdhury31f , L.D. Christopher31f , M.C. Chu60a , X. Chu13a,13d , J. Chudoba136 , J.J. Chwastowski82 ,
+D. Cieri111 , K.M. Ciesla82 , V. Cindro89 , I.A. Cioară25b , A. Ciocio16 , F. Cirotto67a,67b , Z.H. Citron175,k ,
+M. Citterio66a , D.A. Ciubotaru25b , B.M. Ciungu162 , A. Clark52 , P.J. Clark48 , J.M. Clavĳo Columbie44 ,
+S.E. Clawson97 , C. Clement43a,43b , L. Clissa21b,21a , Y. Coadou98 , M. Cobal64a,64c , A. Coccaro53b ,
+J. Cochran76 , R.F. Coelho Barrue135a , R. Coelho Lopes De Sa99 , S. Coelli66a , H. Cohen157 ,
+A.E.C. Coimbra34 , B. Cole37 , J. Collot56 , P. Conde Muiño135a,135g , S.H. Connell31c , I.A. Connelly55 ,
+E.I. Conroy130 , F. Conventi67a,ak , H.G. Cooke19 , A.M. Cooper-Sarkar130 , F. Cormier170 , L.D. Corpe34 ,
+M. Corradi70a,70b , E.E. Corrigan94 , F. Corriveau100,y , M.J. Costa169 , F. Costanza4 , D. Costanzo145 ,
+B.M. Cote123 , G. Cowan91 , J.W. Cowley30 , K. Cranmer121 , S. Crépé-Renaudin56 , F. Crescioli131 ,
+M. Cristinziani147 , M. Cristoforetti73a,73b,b , V. Croft165 , G. Crosetti39b,39a , A. Cueto34 ,
+
+
+
+                                                         24
+T. Cuhadar Donszelmann166 , H. Cui13a,13d , A.R. Cukierman149 , W.R. Cunningham55 , F. Curcio39b,39a ,
+P. Czodrowski34 , M.M. Czurylo59b , M.J. Da Cunha Sargedas De Sousa58a , J.V. Da Fonseca Pinto78b ,
+C. Da Via97 , W. Dabrowski81a , T. Dado45 , S. Dahbi31f , T. Dai102 , C. Dallapiccola99 , M. Dam38 ,
+G. D’amen27 , V. D’Amico72a,72b , J. Damp96 , J.R. Dandoy132 , M.F. Daneri28 , M. Danninger148 , V. Dao34 ,
+G. Darbo53b , S. Darmora5 , A. Dattagupta127 , S. D’Auria66a,66b , C. David163b , T. Davidek138 , D.R. Davis47 ,
+B. Davis-Purcell32 , I. Dawson90 , K. De7 , R. De Asmundis67a , M. De Beurs115 , S. De Castro21b,21a ,
+N. De Groot114 , P. de Jong115 , H. De la Torre103 , A. De Maria13c , D. De Pedis70a , A. De Salvo70a ,
+U. De Sanctis71a,71b , M. De Santis71a,71b , A. De Santo152 , J.B. De Vivie De Regie56 , D.V. Dedovich77 ,
+J. Degens115 , A.M. Deiana40 , J. Del Peso95 , Y. Delabat Diaz44 , F. Deliot140 , C.M. Delitzsch6 ,
+M. Della Pietra67a,67b , D. Della Volpe52 , A. Dell’Acqua34 , L. Dell’Asta66a,66b , M. Delmastro4 ,
+P.A. Delsart56 , S. Demers178 , M. Demichev77 , S.P. Denisov118 , L. D’Eramo116 , D. Derendarz82 ,
+J.E. Derkaoui33d , F. Derue131 , P. Dervan88 , K. Desch22 , K. Dette162 , C. Deutsch22 , P.O. Deviveiros34 ,
+F.A. Di Bello70a,70b , A. Di Ciaccio71a,71b , L. Di Ciaccio4 , A. Di Domenico70a,70b , C. Di Donato67a,67b ,
+A. Di Girolamo34 , G. Di Gregorio69a,69b , A. Di Luca73a,73b,b , B. Di Micco72a,72b , R. Di Nardo72a,72b ,
+C. Diaconu98 , F.A. Dias115 , T. Dias Do Vale135a , M.A. Diaz142a , F.G. Diaz Capriles22 , J. Dickinson16 ,
+M. Didenko169 , E.B. Diehl102 , J. Dietrich17 , S. Díez Cornell44 , C. Diez Pardos147 , A. Dimitrievska16 ,
+W. Ding13b , J. Dingfelder22 , I-M. Dinu25b , S.J. Dittmeier59b , F. Dittus34 , F. Djama98 , T. Djobava155b ,
+J.I. Djuvsland15 , M.A.B. Do Vale143 , D. Dodsworth24 , C. Doglioni94 , J. Dolejsi138 , Z. Dolezal138 ,
+M. Donadelli78c , B. Dong58c , J. Donini36 , A. D’onofrio13c , M. D’Onofrio88 , J. Dopke139 , A. Doria67a ,
+M.T. Dova86 , A.T. Doyle55 , E. Drechsler148 , E. Dreyer148 , T. Dreyer51 , A.S. Drobac165 , D. Du58a ,
+T.A. du Pree115 , F. Dubinin107 , M. Dubovsky26a , A. Dubreuil52 , E. Duchovni175 , G. Duckeck110 ,
+O.A. Ducu34,25b , D. Duda111 , A. Dudarev34 , M. D’uffizi97 , L. Duflot62 , M. Dührssen34 , C. Dülsen177 ,
+A.E. Dumitriu25b , M. Dunford59a , S. Dungs45 , K. Dunne43a,43b , A. Duperrin98 , H. Duran Yildiz3a ,
+M. Düren54 , A. Durglishvili155b , B. Dutta44 , B.L. Dwyer116 , G.I. Dyckes16 , M. Dyndal81a , S. Dysch97 ,
+B.S. Dziedzic82 , B. Eckerova26a , M.G. Eggleston47 , E. Egidio Purcino De Souza78b , L.F. Ehrke52 ,
+T. Eifert7 , G. Eigen15 , K. Einsweiler16 , T. Ekelof167 , Y. El Ghazali33b , H. El Jarrari33e ,
+A. El Moussaouy33a , V. Ellajosyula167 , M. Ellert167 , F. Ellinghaus177 , A.A. Elliot90 , N. Ellis34 ,
+J. Elmsheuser27 , M. Elsing34 , D. Emeliyanov139 , A. Emerman37 , Y. Enari159 , J. Erdmann45 , A. Ereditato18 ,
+P.A. Erland82 , M. Errenst177 , M. Escalier62 , C. Escobar169 , O. Estrada Pastor169 , E. Etzion157 ,
+G. Evans135a , H. Evans63 , M.O. Evans152 , A. Ezhilov133 , F. Fabbri55 , L. Fabbri21b,21a , G. Facini173 ,
+V. Fadeyev141 , R.M. Fakhrutdinov118 , S. Falciano70a , P.J. Falke22 , S. Falke34 , J. Faltova138 , Y. Fan13a ,
+Y. Fang13a , G. Fanourakis42 , M. Fanti66a,66b , M. Faraj58c , A. Farbin7 , A. Farilla72a , E.M. Farina68a,68b ,
+T. Farooque103 , S.M. Farrington48 , P. Farthouat34 , F. Fassi33e , D. Fassouliotis8 , M. Faucci Giannelli71a,71b ,
+W.J. Fawcett30 , L. Fayard62 , O.L. Fedin133,p , G. Fedotov133 , M. Feickert168 , L. Feligioni98 , A. Fell145 ,
+C. Feng58b , M. Feng13b , M.J. Fenton166 , A.B. Fenyuk118 , S.W. Ferguson41 , J. Ferrando44 , A. Ferrari167 ,
+P. Ferrari115 , R. Ferrari68a , D. Ferrere52 , C. Ferretti102 , F. Fiedler96 , A. Filipčič89 , F. Filthaut114 ,
+M.C.N. Fiolhais135a,135c,a , L. Fiorini169 , F. Fischer147 , W.C. Fisher103 , T. Fitschen19 , I. Fleck147 ,
+P. Fleischmann102 , T. Flick177 , B.M. Flierl110 , L. Flores132 , M. Flores31d , L.R. Flores Castillo60a ,
+F.M. Follega73a,73b , N. Fomin15 , J.H. Foo162 , B.C. Forland63 , A. Formica140 , F.A. Förster12 , A.C. Forti97 ,
+E. Fortin98 , M.G. Foti130 , L. Fountas8 , D. Fournier62 , H. Fox87 , P. Francavilla69a,69b , S. Francescato57 ,
+M. Franchini21b,21a , S. Franchino59a , D. Francis34 , L. Franco4 , L. Franconi18 , M. Franklin57 ,
+G. Frattari70a,70b , A.C. Freegard90 , P.M. Freeman19 , W.S. Freund78b , E.M. Freundlich45 , D. Froidevaux34 ,
+J.A. Frost130 , Y. Fu58a , M. Fujimoto122 , E. Fullana Torregrosa169 , J. Fuster169 , A. Gabrielli21b,21a ,
+A. Gabrielli34 , P. Gadow44 , G. Gagliardi53b,53a , L.G. Gagnon16 , G.E. Gallardo130 , E.J. Gallas130 ,
+B.J. Gallop139 , R. Gamboa Goni90 , K.K. Gan123 , S. Ganguly159 , J. Gao58a , Y. Gao48 , Y.S. Gao29,m ,
+F.M. Garay Walls142a , C. García169 , J.E. García Navarro169 , J.A. García Pascual13a , M. Garcia-Sciveres16 ,
+R.W. Gardner35 , D. Garg75 , R.B. Garg149 , S. Gargiulo50 , C.A. Garner162 , V. Garonne129 ,
+
+
+
+                                                        25
+S.J. Gasiorowski144 , P. Gaspar78b , G. Gaudio68a , P. Gauzzi70a,70b , I.L. Gavrilenko107 , A. Gavrilyuk119 ,
+C. Gay170 , G. Gaycken44 , E.N. Gazis9 , A.A. Geanta25b , C.M. Gee141 , C.N.P. Gee139 , J. Geisen94 ,
+M. Geisen96 , C. Gemme53b , M.H. Genest56 , S. Gentile70a,70b , S. George91 , W.F. George19 , T. Geralis42 ,
+L.O. Gerlach51 , P. Gessinger-Befurt34 , M. Ghasemi Bostanabad171 , A. Ghosh166 , A. Ghosh75 ,
+B. Giacobbe21b , S. Giagu70a,70b , N. Giangiacomi162 , P. Giannetti69a , A. Giannini67a,67b , S.M. Gibson91 ,
+M. Gignac141 , D.T. Gil81b , B.J. Gilbert37 , D. Gillberg32 , G. Gilles115 , N.E.K. Gillwald44 ,
+D.M. Gingrich2,aj , M.P. Giordani64a,64c , P.F. Giraud140 , G. Giugliarelli64a,64c , D. Giugni66a , F. Giuli71a,71b ,
+I. Gkialas8,h , P. Gkountoumis9 , L.K. Gladilin109 , C. Glasman95 , G.R. Gledhill127 , M. Glisic127 ,
+I. Gnesi39b,d , M. Goblirsch-Kolb24 , D. Godin106 , S. Goldfarb101 , T. Golling52 , D. Golubkov118 ,
+J.P. Gombas103 , A. Gomes135a,135b , R. Goncalves Gama51 , R. Gonçalo135a,135c , G. Gonella127 ,
+L. Gonella19 , A. Gongadze77 , F. Gonnella19 , J.L. Gonski37 , S. González de la Hoz169 ,
+S. Gonzalez Fernandez12 , R. Gonzalez Lopez88 , C. Gonzalez Renteria16 , R. Gonzalez Suarez167 ,
+S. Gonzalez-Sevilla52 , G.R. Gonzalvo Rodriguez169 , R.Y. González Andana142a , L. Goossens34 ,
+N.A. Gorasia19 , P.A. Gorbounov119 , H.A. Gordon27 , B. Gorini34 , E. Gorini65a,65b , A. Gorišek89 ,
+A.T. Goshaw47 , M.I. Gostkin77 , C.A. Gottardo114 , M. Gouighri33b , V. Goumarre44 , A.G. Goussiou144 ,
+N. Govender31c , C. Goy4 , I. Grabowska-Bold81a , K. Graham32 , E. Gramstad129 , S. Grancagnolo17 ,
+M. Grandi152 , V. Gratchev133 , P.M. Gravila25f , F.G. Gravili65a,65b , H.M. Gray16 , C. Grefe22 , I.M. Gregor44 ,
+P. Grenier149 , K. Grevtsov44 , C. Grieco12 , N.A. Grieser124 , A.A. Grillo141 , K. Grimm29,l , S. Grinstein12,v ,
+J.-F. Grivaz62 , S. Groh96 , E. Gross175 , J. Grosse-Knetter51 , C. Grud102 , A. Grummer113 , J.C. Grundy130 ,
+L. Guan102 , W. Guan176 , C. Gubbels170 , J. Guenther34 , J.G.R. Guerrero Rojas169 , F. Guescini111 ,
+D. Guest17 , R. Gugel96 , A. Guida44 , T. Guillemin4 , S. Guindon34 , J. Guo58c , L. Guo62 , Y. Guo102 ,
+R. Gupta44 , S. Gurbuz22 , G. Gustavino124 , M. Guth52 , P. Gutierrez124 , L.F. Gutierrez Zagazeta132 ,
+C. Gutschow92 , C. Guyot140 , C. Gwenlan130 , C.B. Gwilliam88 , E.S. Haaland129 , A. Haas121 ,
+M. Habedank44 , C. Haber16 , H.K. Hadavand7 , A. Hadef96 , S. Hadzic111 , M. Haleem172 , J. Haley125 ,
+J.J. Hall145 , G. Halladjian103 , G.D. Hallewell98 , L. Halser18 , K. Hamano171 , H. Hamdaoui33e , M. Hamer22 ,
+G.N. Hamity48 , K. Han58a , L. Han13c , L. Han58a , S. Han16 , Y.F. Han162 , K. Hanagaki79,t , M. Hance141 ,
+M.D. Hank35 , R. Hankache97 , E. Hansen94 , J.B. Hansen38 , J.D. Hansen38 , M.C. Hansen22 , P.H. Hansen38 ,
+K. Hara164 , T. Harenberg177 , S. Harkusha104 , Y.T. Harris130 , P.F. Harrison173 , N.M. Hartman149 ,
+N.M. Hartmann110 , Y. Hasegawa146 , A. Hasib48 , S. Hassani140 , S. Haug18 , R. Hauser103 , M. Havranek137 ,
+C.M. Hawkes19 , R.J. Hawkings34 , S. Hayashida112 , D. Hayden103 , C. Hayes102 , R.L. Hayes170 ,
+C.P. Hays130 , J.M. Hays90 , H.S. Hayward88 , S.J. Haywood139 , F. He58a , Y. He160 , Y. He131 , M.P. Heath48 ,
+V. Hedberg94 , A.L. Heggelund129 , N.D. Hehir90 , C. Heidegger50 , K.K. Heidegger50 , W.D. Heidorn76 ,
+J. Heilman32 , S. Heim44 , T. Heim16 , B. Heinemann44,ah , J.G. Heinlein132 , J.J. Heinrich127 , L. Heinrich34 ,
+J. Hejbal136 , L. Helary44 , A. Held121 , C.M. Helling141 , S. Hellman43a,43b , C. Helsens34 ,
+R.C.W. Henderson87 , L. Henkelmann30 , A.M. Henriques Correia34 , H. Herde149 ,
+Y. Hernández Jiménez151 , H. Herr96 , M.G. Herrmann110 , T. Herrmann46 , G. Herten50 , R. Hertenberger110 ,
+L. Hervas34 , N.P. Hessey163a , H. Hibi80 , S. Higashino79 , E. Higón-Rodriguez169 , K.H. Hiller44 ,
+S.J. Hillier19 , M. Hils46 , I. Hinchliffe16 , F. Hinterkeuser22 , M. Hirose128 , S. Hirose164 , D. Hirschbuehl177 ,
+B. Hiti89 , O. Hladik136 , J. Hobbs151 , R. Hobincu25e , N. Hod175 , M.C. Hodgkinson145 , B.H. Hodkinson30 ,
+A. Hoecker34 , J. Hofer44 , D. Hohn50 , T. Holm22 , T.R. Holmes35 , M. Holzbock111 , L.B.A.H. Hommels30 ,
+B.P. Honan97 , J. Hong58c , T.M. Hong134 , Y. Hong51 , J.C. Honig50 , A. Hönle111 , B.H. Hooberman168 ,
+W.H. Hopkins5 , Y. Horii112 , L.A. Horyn35 , S. Hou154 , J. Howarth55 , J. Hoya86 , M. Hrabovsky126 ,
+A. Hrynevich105 , T. Hryn’ova4 , P.J. Hsu61 , S.-C. Hsu144 , Q. Hu37 , S. Hu58c , Y.F. Hu13a,13d,al , D.P. Huang92 ,
+X. Huang13c , Y. Huang58a , Y. Huang13a , Z. Hubacek137 , F. Hubaut98 , M. Huebner22 , F. Huegging22 ,
+T.B. Huffman130 , M. Huhtinen34 , S.K. Huiberts15 , R. Hulsken56 , N. Huseynov77,z , J. Huston103 , J. Huth57 ,
+R. Hyneman149 , S. Hyrych26a , G. Iacobucci52 , G. Iakovidis27 , I. Ibragimov147 , L. Iconomidou-Fayard62 ,
+P. Iengo34 , R. Iguchi159 , T. Iizawa52 , Y. Ikegami79 , A. Ilg18 , N. Ilic162 , H. Imam33a ,
+
+
+
+                                                         26
+T. Ingebretsen Carlson43a,43b , G. Introzzi68a,68b , M. Iodice72a , V. Ippolito70a,70b , M. Ishino159 , W. Islam176 ,
+C. Issever17,44 , S. Istin11c,am , J.M. Iturbe Ponce60a , R. Iuppa73a,73b , A. Ivina175 , J.M. Izen41 , V. Izzo67a ,
+P. Jacka136 , P. Jackson1 , R.M. Jacobs44 , B.P. Jaeger148 , C.S. Jagfeld110 , G. Jäkel177 , K. Jakobs50 ,
+T. Jakoubek175 , J. Jamieson55 , K.W. Janas81a , G. Jarlskog94 , A.E. Jaspan88 , T. Javůrek34 , M. Javurkova99 ,
+F. Jeanneau140 , L. Jeanty127 , J. Jejelava155a,aa , P. Jenni50,e , S. Jézéquel4 , J. Jia151 , Z. Jia13c , Y. Jiang58a ,
+S. Jiggins48 , J. Jimenez Pena111 , S. Jin13c , A. Jinaru25b , O. Jinnouchi160 , H. Jivan31f , P. Johansson145 ,
+K.A. Johns6 , C.A. Johnson63 , D.M. Jones30 , E. Jones173 , R.W.L. Jones87 , T.J. Jones88 , J. Jovicevic14 ,
+X. Ju16 , J.J. Junggeburth34 , A. Juste Rozas12,v , S. Kabana142d , A. Kaczmarska82 , M. Kado70a,70b ,
+H. Kagan123 , M. Kagan149 , A. Kahn37 , A. Kahn132 , C. Kahra96 , T. Kaji174 , E. Kajomovitz156 ,
+C.W. Kalderon27 , A. Kamenshchikov118 , M. Kaneda159 , N.J. Kang141 , S. Kang76 , Y. Kano112 , D. Kar31f ,
+K. Karava130 , M.J. Kareem163b , I. Karkanias158 , S.N. Karpov77 , Z.M. Karpova77 , V. Kartvelishvili87 ,
+A.N. Karyukhin118 , E. Kasimi158 , C. Kato58d , J. Katzy44 , K. Kawade146 , K. Kawagoe85 , T. Kawaguchi112 ,
+T. Kawamoto140 , G. Kawamura51 , E.F. Kay171 , F.I. Kaya165 , S. Kazakos12 , V.F. Kazanin117b,117a , Y. Ke151 ,
+J.M. Keaveney31a , R. Keeler171 , J.S. Keller32 , A.S. Kelly92 , D. Kelsey152 , J.J. Kempster19 , J. Kendrick19 ,
+K.E. Kennedy37 , O. Kepka136 , S. Kersten177 , B.P. Kerševan89 , S. Ketabchi Haghighat162 , M. Khandoga131 ,
+A. Khanov125 , A.G. Kharlamov117b,117a , T. Kharlamova117b,117a , E.E. Khoda144 , T.J. Khoo17 ,
+G. Khoriauli172 , E. Khramov77 , J. Khubua155b , S. Kido80 , M. Kiehn34 , A. Kilgallon127 , E. Kim160 ,
+Y.K. Kim35 , N. Kimura92 , A. Kirchhoff51 , D. Kirchmeier46 , C. Kirfel22 , J. Kirk139 , A.E. Kiryunin111 ,
+T. Kishimoto159 , D.P. Kisliuk162 , C. Kitsaki9 , O. Kivernyk22 , T. Klapdor-Kleingrothaus50 , M. Klassen59a ,
+C. Klein32 , L. Klein172 , M.H. Klein102 , M. Klein88 , U. Klein88 , P. Klimek34 , A. Klimentov27 ,
+F. Klimpel111 , T. Klingl22 , T. Klioutchnikova34 , F.F. Klitzner110 , P. Kluit115 , S. Kluth111 , E. Kneringer74 ,
+T.M. Knight162 , A. Knue50 , D. Kobayashi85 , R. Kobayashi83 , M. Kobel46 , M. Kocian149 , T. Kodama159 ,
+P. Kodys138 , D.M. Koeck152 , P.T. Koenig22 , T. Koffas32 , N.M. Köhler34 , M. Kolb140 , I. Koletsou4 ,
+T. Komarek126 , K. Köneke50 , A.X.Y. Kong1 , T. Kono122 , V. Konstantinides92 , N. Konstantinidis92 ,
+B. Konya94 , R. Kopeliansky63 , S. Koperny81a , K. Korcyl82 , K. Kordas158 , G. Koren157 , A. Korn92 ,
+S. Korn51 , I. Korolkov12 , E.V. Korolkova145 , N. Korotkova109 , B. Kortman115 , O. Kortner111 ,
+S. Kortner111 , W.H. Kostecka116 , V.V. Kostyukhin147,161 , A. Kotsokechagia62 , A. Kotwal47 ,
+A. Koulouris34 , A. Kourkoumeli-Charalampidi68a,68b , C. Kourkoumelis8 , E. Kourlitis5 , O. Kovanda152 ,
+R. Kowalewski171 , W. Kozanecki140 , A.S. Kozhin118 , V.A. Kramarenko109 , G. Kramberger89 , P. Kramer96 ,
+D. Krasnopevtsev58a , M.W. Krasny131 , A. Krasznahorkay34 , J.A. Kremer96 , J. Kretzschmar88 , K. Kreul17 ,
+P. Krieger162 , F. Krieter110 , S. Krishnamurthy99 , A. Krishnan59b , M. Krivos138 , K. Krizka16 ,
+K. Kroeninger45 , H. Kroha111 , J. Kroll136 , J. Kroll132 , K.S. Krowpman103 , U. Kruchonak77 , H. Krüger22 ,
+N. Krumnack76 , M.C. Kruse47 , J.A. Krzysiak82 , A. Kubota160 , O. Kuchinskaia161 , S. Kuday3a ,
+D. Kuechler44 , J.T. Kuechler44 , S. Kuehn34 , T. Kuhl44 , V. Kukhtin77 , Y. Kulchitsky104,ad , S. Kuleshov142c ,
+M. Kumar31f , N. Kumari98 , M. Kuna56 , A. Kupco136 , T. Kupfer45 , O. Kuprash50 , H. Kurashige80 ,
+L.L. Kurchaninov163a , Y.A. Kurochkin104 , A. Kurova108 , M.G. Kurth13a,13d , E.S. Kuwertz34 , M. Kuze160 ,
+A.K. Kvam144 , J. Kvita126 , T. Kwan100 , K.W. Kwok60a , C. Lacasta169 , F. Lacava70a,70b , H. Lacker17 ,
+D. Lacour131 , N.N. Lad92 , E. Ladygin77 , R. Lafaye4 , B. Laforge131 , T. Lagouri142d , S. Lai51 ,
+I.K. Lakomiec81a , N. Lalloue56 , J.E. Lambert124 , S. Lammers63 , W. Lampl6 , C. Lampoudis158 ,
+E. Lançon27 , U. Landgraf50 , M.P.J. Landon90 , V.S. Lang50 , J.C. Lange51 , R.J. Langenberg99 ,
+A.J. Lankford166 , F. Lanni27 , K. Lantzsch22 , A. Lanza68a , A. Lapertosa53b,53a , J.F. Laporte140 , T. Lari66a ,
+F. Lasagni Manghi21b , M. Lassnig34 , V. Latonova136 , T.S. Lau60a , A. Laudrain96 , A. Laurier32 ,
+M. Lavorgna67a,67b , S.D. Lawlor91 , Z. Lawrence97 , M. Lazzaroni66a,66b , B. Le97 , B. Leban89 ,
+A. Lebedev76 , M. LeBlanc34 , T. LeCompte5 , F. Ledroit-Guillon56 , A.C.A. Lee92 , G.R. Lee15 , L. Lee57 ,
+S.C. Lee154 , S. Lee76 , L.L. Leeuw31c , B. Lefebvre163a , H.P. Lefebvre91 , M. Lefebvre171 , C. Leggett16 ,
+K. Lehmann148 , N. Lehmann18 , G. Lehmann Miotto34 , W.A. Leight44 , A. Leisos158,u , M.A.L. Leite78c ,
+C.E. Leitgeb44 , R. Leitner138 , K.J.C. Leney40 , T. Lenz22 , S. Leone69a , C. Leonidopoulos48 , A. Leopold150 ,
+
+
+
+                                                          27
+C. Leroy106 , R. Les103 , C.G. Lester30 , M. Levchenko133 , J. Levêque4 , D. Levin102 , L.J. Levinson175 ,
+D.J. Lewis19 , B. Li13b , B. Li58b , C. Li58a , C-Q. Li58c,58d , H. Li58a , H. Li58b , H. Li58b , J. Li58c , K. Li144 ,
+L. Li58c , M. Li13a,13d , Q.Y. Li58a , S. Li58d,58c,c , T. Li58b , X. Li44 , Y. Li44 , Z. Li58b , Z. Li130 , Z. Li100 ,
+Z. Li88 , Z. Liang13a , M. Liberatore44 , B. Liberti71a , K. Lie60c , J. Lieber Marin78b , K. Lin103 , R.A. Linck63 ,
+R.E. Lindley6 , J.H. Lindon2 , A. Linss44 , E. Lipeles132 , A. Lipniacka15 , T.M. Liss168,ai , A. Lister170 ,
+J.D. Little7 , B. Liu13a , B.X. Liu148 , J.B. Liu58a , J.K.K. Liu35 , K. Liu58d,58c , M. Liu58a , M.Y. Liu58a ,
+P. Liu13a , Q. Liu58d,144,58c , X. Liu58a , Y. Liu44 , Y. Liu13c,13d , Y.L. Liu102 , Y.W. Liu58a , M. Livan68a,68b ,
+J. Llorente Merino148 , S.L. Lloyd90 , E.M. Lobodzinska44 , P. Loch6 , S. Loffredo71a,71b , T. Lohse17 ,
+K. Lohwasser145 , M. Lokajicek136 , J.D. Long168 , I. Longarini70a,70b , L. Longo34 , R. Longo168 ,
+I. Lopez Paz12 , A. Lopez Solis44 , J. Lorenz110 , N. Lorenzo Martinez4 , A.M. Lory110 , A. Lösle50 ,
+X. Lou43a,43b , X. Lou13a , A. Lounis62 , J. Love5 , P.A. Love87 , J.J. Lozano Bahilo169 , G. Lu13a , M. Lu58a ,
+S. Lu132 , Y.J. Lu61 , H.J. Lubatti144 , C. Luci70a,70b , F.L. Lucio Alves13c , A. Lucotte56 , F. Luehring63 ,
+I. Luise151 , L. Luminari70a , O. Lundberg150 , B. Lund-Jensen150 , N.A. Luongo127 , M.S. Lutz157 , D. Lynn27 ,
+H. Lyons88 , R. Lysak136 , E. Lytken94 , F. Lyu13a , V. Lyubushkin77 , T. Lyubushkina77 , H. Ma27 , L.L. Ma58b ,
+Y. Ma92 , D.M. Mac Donell171 , G. Maccarrone49 , C.M. Macdonald145 , J.C. MacDonald145 , R. Madar36 ,
+W.F. Mader46 , M. Madugoda Ralalage Don125 , N. Madysa46 , J. Maeda80 , T. Maeno27 , M. Maerker46 ,
+V. Magerl50 , J. Magro64a,64c , D.J. Mahon37 , C. Maidantchik78b , A. Maio135a,135b,135d , K. Maj81a ,
+O. Majersky26a , S. Majewski127 , N. Makovec62 , V. Maksimovic14 , B. Malaescu131 , Pa. Malecki82 ,
+V.P. Maleev133 , F. Malek56 , D. Malito39b,39a , U. Mallik75 , C. Malone30 , S. Maltezos9 , S. Malyukov77 ,
+J. Mamuzic169 , G. Mancini49 , J.P. Mandalia90 , I. Mandić89 , L. Manhaes de Andrade Filho78a ,
+I.M. Maniatis158 , M. Manisha140 , J. Manjarres Ramos46 , K.H. Mankinen94 , A. Mann110 , A. Manousos74 ,
+B. Mansoulie140 , I. Manthos158 , S. Manzoni115 , A. Marantis158,u , G. Marchiori131 , M. Marcisovsky136 ,
+L. Marcoccia71a,71b , C. Marcon94 , M. Marjanovic124 , Z. Marshall16 , S. Marti-Garcia169 , T.A. Martin173 ,
+V.J. Martin48 , B. Martin dit Latour15 , L. Martinelli70a,70b , M. Martinez12,v , P. Martinez Agullo169 ,
+V.I. Martinez Outschoorn99 , S. Martin-Haugh139 , V.S. Martoiu25b , A.C. Martyniuk92 , A. Marzin34 ,
+S.R. Maschek111 , L. Masetti96 , T. Mashimo159 , J. Masik97 , A.L. Maslennikov117b,117a , L. Massa21b ,
+P. Massarotti67a,67b , P. Mastrandrea69a,69b , A. Mastroberardino39b,39a , T. Masubuchi159 , D. Matakias27 ,
+T. Mathisen167 , A. Matic110 , N. Matsuzawa159 , J. Maurer25b , B. Maček89 , D.A. Maximov117b,117a ,
+R. Mazini154 , I. Maznas158 , S.M. Mazza141 , C. Mc Ginn27 , J.P. Mc Gowan100 , S.P. Mc Kee102 ,
+T.G. McCarthy111 , W.P. McCormack16 , E.F. McDonald101 , A.E. McDougall115 , J.A. Mcfayden152 ,
+G. Mchedlidze155b , M.A. McKay40 , K.D. McLean171 , S.J. McMahon139 , P.C. McNamara101 ,
+R.A. McPherson171,y , J.E. Mdhluli31f , Z.A. Meadows99 , S. Meehan34 , T. Megy36 , S. Mehlhase110 ,
+A. Mehta88 , B. Meirose41 , D. Melini156 , B.R. Mellado Garcia31f , A.H. Melo51 , F. Meloni44 , A. Melzer22 ,
+E.D. Mendes Gouveia135a , A.M. Mendes Jacques Da Costa19 , H.Y. Meng162 , L. Meng34 , S. Menke111 ,
+M. Mentink34 , E. Meoni39b,39a , C. Merlassino130 , P. Mermod52,* , L. Merola67a,67b , C. Meroni66a ,
+G. Merz102 , O. Meshkov107,109 , J.K.R. Meshreki147 , J. Metcalfe5 , A.S. Mete5 , C. Meyer63 , J-P. Meyer140 ,
+M. Michetti17 , R.P. Middleton139 , L. Mĳović48 , G. Mikenberg175 , M. Mikestikova136 , M. Mikuž89 ,
+H. Mildner145 , A. Milic162 , C.D. Milke40 , D.W. Miller35 , L.S. Miller32 , A. Milov175 , D.A. Milstead43a,43b ,
+T. Min13c , A.A. Minaenko118 , I.A. Minashvili155b , L. Mince55 , A.I. Mincer121 , B. Mindur81a , M. Mineev77 ,
+Y. Minegishi159 , Y. Mino83 , L.M. Mir12 , M. Miralles Lopez169 , M. Mironova130 , T. Mitani174 ,
+V.A. Mitsou169 , M. Mittal58c , O. Miu162 , P.S. Miyagawa90 , Y. Miyazaki85 , A. Mizukami79 ,
+J.U. Mjörnmark94 , T. Mkrtchyan59a , M. Mlynarikova116 , T. Moa43a,43b , S. Mobius51 , K. Mochizuki106 ,
+P. Moder44 , P. Mogg110 , A.F. Mohammed13a , S. Mohapatra37 , G. Mokgatitswane31f , B. Mondal147 ,
+S. Mondal137 , K. Mönig44 , E. Monnier98 , L. Monsonis Romero169 , A. Montalbano148 ,
+J. Montejo Berlingen34 , M. Montella123 , F. Monticelli86 , N. Morange62 , A.L. Moreira De Carvalho135a ,
+M. Moreno Llácer169 , C. Moreno Martinez12 , P. Morettini53b , S. Morgenstern173 , D. Mori148 , M. Morii57 ,
+M. Morinaga159 , V. Morisbak129 , A.K. Morley34 , A.P. Morris92 , L. Morvaj34 , P. Moschovakos34 ,
+
+
+
+                                                         28
+B. Moser115 , M. Mosidze155b , T. Moskalets50 , P. Moskvitina114 , J. Moss29,n , E.J.W. Moyse99 , S. Muanza98 ,
+J. Mueller134 , R. Mueller18 , D. Muenstermann87 , G.A. Mullier94 , J.J. Mullin132 , D.P. Mungo66a,66b ,
+J.L. Munoz Martinez12 , F.J. Munoz Sanchez97 , M. Murin97 , P. Murin26b , W.J. Murray173,139 ,
+A. Murrone66a,66b , J.M. Muse124 , M. Muškinja16 , C. Mwewa27 , A.G. Myagkov118,ae , A.J. Myers7 ,
+A.A. Myers134 , G. Myers63 , M. Myska137 , B.P. Nachman16 , O. Nackenhorst45 , A.Nag Nag46 , K. Nagai130 ,
+K. Nagano79 , J.L. Nagle27 , E. Nagy98 , A.M. Nairz34 , Y. Nakahama112 , K. Nakamura79 , H. Nanjo128 ,
+F. Napolitano59a , R. Narayan40 , E.A. Narayanan113 , I. Naryshkin133 , M. Naseri32 , C. Nass22 , T. Naumann44 ,
+G. Navarro20a , J. Navarro-Gonzalez169 , R. Nayak157 , P.Y. Nechaeva107 , F. Nechansky44 , T.J. Neep19 ,
+A. Negri68a,68b , M. Negrini21b , C. Nellist114 , C. Nelson100 , K. Nelson102 , S. Nemecek136 , M. Nessi34,f ,
+M.S. Neubauer168 , F. Neuhaus96 , J. Neundorf44 , R. Newhouse170 , P.R. Newman19 , C.W. Ng134 , Y.S. Ng17 ,
+Y.W.Y. Ng166 , B. Ngair33e , H.D.N. Nguyen106 , R.B. Nickerson130 , R. Nicolaidou140 , D.S. Nielsen38 ,
+J. Nielsen141 , M. Niemeyer51 , N. Nikiforou10 , V. Nikolaenko118,ae , I. Nikolic-Audit131 , K. Nikolopoulos19 ,
+P. Nilsson27 , H.R. Nindhito52 , A. Nisati70a , N. Nishu2 , R. Nisius111 , T. Nitta174 , T. Nobe159 , D.L. Noel30 ,
+Y. Noguchi83 , I. Nomidis131 , M.A. Nomura27 , M.B. Norfolk145 , R.R.B. Norisam92 , J. Novak89 , T. Novak44 ,
+O. Novgorodova46 , L. Novotny137 , R. Novotny113 , L. Nozka126 , K. Ntekas166 , E. Nurse92 ,
+F.G. Oakham32,aj , J. Ocariz131 , A. Ochi80 , I. Ochoa135a , J.P. Ochoa-Ricoux142a , S. Oda85 , S. Odaka79 ,
+S. Oerdek167 , A. Ogrodnik81a , A. Oh97 , C.C. Ohm150 , H. Oide160 , R. Oishi159 , M.L. Ojeda44 ,
+Y. Okazaki83 , M.W. O’Keefe88 , Y. Okumura159 , A. Olariu25b , L.F. Oleiro Seabra135a ,
+S.A. Olivares Pino142d , D. Oliveira Damazio27 , D. Oliveira Goncalves78a , J.L. Oliver166 , M.J.R. Olsson166 ,
+A. Olszewski82 , J. Olszowska82 , Ö.O. Öncel22 , D.C. O’Neil148 , A.P. O’neill130 , A. Onofre135a,135e ,
+P.U.E. Onyisi10 , R.G. Oreamuno Madriz116 , M.J. Oreglia35 , G.E. Orellana86 , D. Orestano72a,72b ,
+N. Orlando12 , R.S. Orr162 , V. O’Shea55 , R. Ospanov58a , G. Otero y Garzon28 , H. Otono85 , P.S. Ott59a ,
+G.J. Ottino16 , M. Ouchrif33d , J. Ouellette27 , F. Ould-Saada129 , A. Ouraou140,* , Q. Ouyang13a , M. Owen55 ,
+R.E. Owen139 , K.Y. Oyulmaz11c , V.E. Ozcan11c , N. Ozturk7 , S. Ozturk11c , J. Pacalt126 , H.A. Pacey30 ,
+K. Pachal47 , A. Pacheco Pages12 , C. Padilla Aranda12 , S. Pagan Griso16 , G. Palacino63 , S. Palazzo48 ,
+S. Palestini34 , M. Palka81b , P. Palni81a , D.K. Panchal10 , C.E. Pandini52 , J.G. Panduro Vazquez91 , P. Pani44 ,
+G. Panizzo64a,64c , L. Paolozzi52 , C. Papadatos106 , S. Parajuli40 , A. Paramonov5 , C. Paraskevopoulos9 ,
+D. Paredes Hernandez60b , S.R. Paredes Saenz130 , B. Parida175 , T.H. Park162 , A.J. Parker29 , M.A. Parker30 ,
+F. Parodi53b,53a , E.W. Parrish116 , J.A. Parsons37 , U. Parzefall50 , L. Pascual Dominguez157 , V.R. Pascuzzi16 ,
+F. Pasquali115 , E. Pasqualucci70a , S. Passaggio53b , F. Pastore91 , P. Pasuwan43a,43b , J.R. Pater97 ,
+A. Pathak176 , J. Patton88 , T. Pauly34 , J. Pearkes149 , M. Pedersen129 , L. Pedraza Diaz114 , R. Pedro135a ,
+T. Peiffer51 , S.V. Peleganchuk117b,117a , O. Penc136 , C. Peng60b , H. Peng58a , M. Penzin161 , B.S. Peralva78a ,
+A.P. Pereira Peixoto135a , L. Pereira Sanchez43a,43b , D.V. Perepelitsa27 , E. Perez Codina163a , M. Perganti9 ,
+L. Perini66a,66b , H. Pernegger34 , S. Perrella34 , A. Perrevoort115 , K. Peters44 , R.F.Y. Peters97 ,
+B.A. Petersen34 , T.C. Petersen38 , E. Petit98 , V. Petousis137 , C. Petridou158 , P. Petroff62 , F. Petrucci72a,72b ,
+A. Petrukhin147 , M. Pettee178 , N.E. Pettersson34 , K. Petukhova138 , A. Peyaud140 , R. Pezoa142e ,
+L. Pezzotti34 , G. Pezzullo178 , T. Pham101 , P.W. Phillips139 , M.W. Phipps168 , G. Piacquadio151 , E. Pianori16 ,
+F. Piazza66a,66b , A. Picazio99 , R. Piegaia28 , D. Pietreanu25b , J.E. Pilcher35 , A.D. Pilkington97 ,
+M. Pinamonti64a,64c , J.L. Pinfold2 , C. Pitman Donaldson92 , D.A. Pizzi32 , L. Pizzimento71a,71b ,
+A. Pizzini115 , M.-A. Pleier27 , V. Plesanovs50 , V. Pleskot138 , E. Plotnikova77 , P. Podberezko117b,117a ,
+R. Poettgen94 , R. Poggi52 , L. Poggioli131 , I. Pogrebnyak103 , D. Pohl22 , I. Pokharel51 , G. Polesello68a ,
+A. Poley148,163a , A. Policicchio70a,70b , R. Polifka138 , A. Polini21b , C.S. Pollard130 , Z.B. Pollock123 ,
+V. Polychronakos27 , D. Ponomarenko108 , L. Pontecorvo34 , S. Popa25a , G.A. Popeneciu25d , L. Portales4 ,
+D.M. Portillo Quintero163a , S. Pospisil137 , P. Postolache25c , K. Potamianos130 , I.N. Potrap77 , C.J. Potter30 ,
+H. Potti1 , T. Poulsen44 , J. Poveda169 , T.D. Powell145 , G. Pownall44 , M.E. Pozo Astigarraga34 ,
+A. Prades Ibanez169 , P. Pralavorio98 , M.M. Prapa42 , S. Prell76 , D. Price97 , M. Primavera65a ,
+M.A. Principe Martin95 , M.L. Proffitt144 , N. Proklova108 , K. Prokofiev60c , F. Prokoshin77 ,
+
+
+
+                                                         29
+S. Protopopescu27 , J. Proudfoot5 , M. Przybycien81a , D. Pudzha133 , P. Puzo62 , D. Pyatiizbyantseva108 ,
+J. Qian102 , Y. Qin97 , T. Qiu90 , A. Quadt51 , M. Queitsch-Maitland34 , G. Rabanal Bolanos57 ,
+F. Ragusa66a,66b , J.A. Raine52 , S. Rajagopalan27 , K. Ran13a,13d , D.F. Rassloff59a , D.M. Rauch44 , S. Rave96 ,
+B. Ravina55 , I. Ravinovich175 , M. Raymond34 , A.L. Read129 , N.P. Readioff145 , D.M. Rebuzzi68a,68b ,
+G. Redlinger27 , K. Reeves41 , D. Reikher157 , A. Reiss96 , A. Rej147 , C. Rembser34 , A. Renardi44 ,
+M. Renda25b , M.B. Rendel111 , A.G. Rennie55 , S. Resconi66a , M. Ressegotti53b,53a , E.D. Resseguie16 ,
+S. Rettie92 , B. Reynolds123 , E. Reynolds19 , M. Rezaei Estabragh177 , O.L. Rezanova117b,117a ,
+P. Reznicek138 , E. Ricci73a,73b , R. Richter111 , S. Richter44 , E. Richter-Was81b , M. Ridel131 , P. Rieck111 ,
+P. Riedler34 , O. Rifki44 , M. Rĳssenbeek151 , A. Rimoldi68a,68b , M. Rimoldi44 , L. Rinaldi21b,21a ,
+T.T. Rinn168 , M.P. Rinnagel110 , G. Ripellino150 , I. Riu12 , P. Rivadeneira44 , J.C. Rivera Vergara171 ,
+F. Rizatdinova125 , E. Rizvi90 , C. Rizzi52 , B.A. Roberts173 , B.R. Roberts16 , S.H. Robertson100,y ,
+M. Robin44 , D. Robinson30 , C.M. Robles Gajardo142e , M. Robles Manzano96 , A. Robson55 ,
+A. Rocchi71a,71b , C. Roda69a,69b , S. Rodriguez Bosca59a , A. Rodriguez Rodriguez50 ,
+A.M. Rodríguez Vera163b , S. Roe34 , A.R. Roepe124 , J. Roggel177 , O. Røhne129 , R.A. Rojas171 , B. Roland50 ,
+C.P.A. Roland63 , J. Roloff27 , A. Romaniouk108 , M. Romano21b , A.C. Romero Hernandez168 ,
+N. Rompotis88 , M. Ronzani121 , L. Roos131 , S. Rosati70a , B.J. Rosser132 , E. Rossi162 , E. Rossi4 ,
+E. Rossi67a,67b , L.P. Rossi53b , L. Rossini44 , R. Rosten123 , M. Rotaru25b , B. Rottler50 , D. Rousseau62 ,
+D. Rousso30 , G. Rovelli68a,68b , A. Roy10 , A. Rozanov98 , Y. Rozen156 , X. Ruan31f , A.J. Ruby88 ,
+T.A. Ruggeri1 , F. Rühr50 , A. Ruiz-Martinez169 , A. Rummler34 , Z. Rurikova50 , N.A. Rusakovich77 ,
+H.L. Russell34 , L. Rustige36 , J.P. Rutherfoord6 , E.M. Rüttinger145 , M. Rybar138 , E.B. Rye129 ,
+A. Ryzhov118 , J.A. Sabater Iglesias44 , P. Sabatini169 , L. Sabetta70a,70b , H.F-W. Sadrozinski141 ,
+R. Sadykov77 , F. Safai Tehrani70a , B. Safarzadeh Samani152 , M. Safdari149 , S. Saha100 , M. Sahinsoy111 ,
+A. Sahu177 , M. Saimpert140 , M. Saito159 , T. Saito159 , D. Salamani34 , G. Salamanna72a,72b , A. Salnikov149 ,
+J. Salt169 , A. Salvador Salas12 , D. Salvatore39b,39a , F. Salvatore152 , A. Salzburger34 , D. Sammel50 ,
+D. Sampsonidis158 , D. Sampsonidou58d,58c , J. Sánchez169 , A. Sanchez Pineda4 , V. Sanchez Sebastian169 ,
+H. Sandaker129 , C.O. Sander44 , I.G. Sanderswood87 , J.A. Sandesara99 , M. Sandhoff177 , C. Sandoval20b ,
+D.P.C. Sankey139 , M. Sannino53b,53a , A. Sansoni49 , C. Santoni36 , H. Santos135a,135b , S.N. Santpur16 ,
+A. Santra175 , K.A. Saoucha145 , A. Sapronov77 , J.G. Saraiva135a,135d , J. Sardain98 , O. Sasaki79 , K. Sato164 ,
+C. Sauer59b , F. Sauerburger50 , E. Sauvan4 , P. Savard162,aj , R. Sawada159 , C. Sawyer139 , L. Sawyer93 ,
+I. Sayago Galvan169 , C. Sbarra21b , A. Sbrizzi21b,21a , T. Scanlon92 , J. Schaarschmidt144 , P. Schacht111 ,
+D. Schaefer35 , U. Schäfer96 , A.C. Schaffer62 , D. Schaile110 , R.D. Schamberger151 , E. Schanet110 ,
+C. Scharf17 , N. Scharmberg97 , V.A. Schegelsky133 , D. Scheirich138 , F. Schenck17 , M. Schernau166 ,
+C. Schiavi53b,53a , L.K. Schildgen22 , Z.M. Schillaci24 , E.J. Schioppa65a,65b , M. Schioppa39b,39a , B. Schlag96 ,
+K.E. Schleicher50 , S. Schlenker34 , K. Schmieden96 , C. Schmitt96 , S. Schmitt44 , L. Schoeffel140 ,
+A. Schoening59b , P.G. Scholer50 , E. Schopf130 , M. Schott96 , J. Schovancova34 , S. Schramm52 ,
+F. Schroeder177 , H-C. Schultz-Coulon59a , M. Schumacher50 , B.A. Schumm141 , Ph. Schune140 ,
+A. Schwartzman149 , T.A. Schwarz102 , Ph. Schwemling140 , R. Schwienhorst103 , A. Sciandra141 ,
+G. Sciolla24 , F. Scuri69a , F. Scutti101 , C.D. Sebastiani88 , K. Sedlaczek45 , P. Seema17 , S.C. Seidel113 ,
+A. Seiden141 , B.D. Seidlitz27 , T. Seiss35 , C. Seitz44 , J.M. Seixas78b , G. Sekhniaidze67a , S.J. Sekula40 ,
+L. Selem4 , N. Semprini-Cesari21b,21a , S. Sen47 , C. Serfon27 , L. Serin62 , L. Serkin64a,64b , M. Sessa72a,72b ,
+H. Severini124 , S. Sevova149 , F. Sforza53b,53a , A. Sfyrla52 , E. Shabalina51 , R. Shaheen150 ,
+J.D. Shahinian132 , N.W. Shaikh43a,43b , D. Shaked Renous175 , L.Y. Shan13a , M. Shapiro16 , A. Sharma34 ,
+A.S. Sharma1 , S. Sharma44 , P.B. Shatalov119 , K. Shaw152 , S.M. Shaw97 , P. Sherwood92 , L. Shi92 ,
+C.O. Shimmin178 , Y. Shimogama174 , J.D. Shinner91 , I.P.J. Shipsey130 , S. Shirabe52 , M. Shiyakova77 ,
+J. Shlomi175 , M.J. Shochet35 , J. Shojaii101 , D.R. Shope150 , S. Shrestha123 , E.M. Shrif31f , M.J. Shroff171 ,
+E. Shulga175 , P. Sicho136 , A.M. Sickles168 , E. Sideras Haddad31f , O. Sidiropoulou34 , A. Sidoti21b ,
+F. Siegert46 , Dj. Sĳacki14 , J.M. Silva19 , M.V. Silva Oliveira34 , S.B. Silverstein43a , S. Simion62 ,
+
+
+
+                                                        30
+R. Simoniello34 , N.D. Simpson94 , S. Simsek11b , P. Sinervo162 , V. Sinetckii109 , S. Singh148 , S. Singh162 ,
+S. Sinha44 , S. Sinha31f , M. Sioli21b,21a , I. Siral127 , S.Yu. Sivoklokov109 , J. Sjölin43a,43b , A. Skaf51 ,
+E. Skorda94 , P. Skubic124 , M. Slawinska82 , K. Sliwa165 , V. Smakhtin175 , B.H. Smart139 , J. Smiesko138 ,
+S.Yu. Smirnov108 , Y. Smirnov108 , L.N. Smirnova109,r , O. Smirnova94 , E.A. Smith35 , H.A. Smith130 ,
+M. Smizanska87 , K. Smolek137 , A. Smykiewicz82 , A.A. Snesarev107 , H.L. Snoek115 , S. Snyder27 ,
+R. Sobie171,y , A. Soffer157 , F. Sohns51 , C.A. Solans Sanchez34 , E.Yu. Soldatov108 , U. Soldevila169 ,
+A.A. Solodkov118 , S. Solomon50 , A. Soloshenko77 , O.V. Solovyanov118 , V. Solovyev133 , P. Sommer145 ,
+H. Son165 , A. Sonay12 , W.Y. Song163b , A. Sopczak137 , A.L. Sopio92 , F. Sopkova26b , S. Sottocornola68a,68b ,
+R. Soualah64a,64c , A.M. Soukharev117b,117a , Z. Soumaimi33e , D. South44 , S. Spagnolo65a,65b , M. Spalla111 ,
+M. Spangenberg173 , F. Spanò91 , D. Sperlich50 , T.M. Spieker59a , G. Spigo34 , M. Spina152 , D.P. Spiteri55 ,
+M. Spousta138 , A. Stabile66a,66b , R. Stamen59a , M. Stamenkovic115 , A. Stampekis19 , M. Standke22 ,
+E. Stanecka82 , B. Stanislaus34 , M.M. Stanitzki44 , M. Stankaityte130 , B. Stapf44 , E.A. Starchenko118 ,
+G.H. Stark141 , J. Stark98 , D.M. Starko163b , P. Staroba136 , P. Starovoitov59a , S. Stärz100 , R. Staszewski82 ,
+G. Stavropoulos42 , P. Steinberg27 , A.L. Steinhebel127 , B. Stelzer148,163a , H.J. Stelzer134 ,
+O. Stelzer-Chilton163a , H. Stenzel54 , T.J. Stevenson152 , G.A. Stewart34 , M.C. Stockton34 , G. Stoicea25b ,
+M. Stolarski135a , S. Stonjek111 , A. Straessner46 , J. Strandberg150 , S. Strandberg43a,43b , M. Strauss124 ,
+T. Strebler98 , P. Strizenec26b , R. Ströhmer172 , D.M. Strom127 , L.R. Strom44 , R. Stroynowski40 ,
+A. Strubig43a,43b , S.A. Stucci27 , B. Stugu15 , J. Stupak124 , N.A. Styles44 , D. Su149 , S. Su58a , W. Su58d,144,58c ,
+X. Su58a , K. Sugizaki159 , V.V. Sulin107 , M.J. Sullivan88 , D.M.S. Sultan52 , L. Sultanaliyeva107 ,
+S. Sultansoy3c , T. Sumida83 , S. Sun102 , S. Sun176 , X. Sun97 , O. Sunneborn Gudnadottir167 ,
+C.J.E. Suster153 , M.R. Sutton152 , M. Svatos136 , M. Swiatlowski163a , T. Swirski172 , I. Sykora26a ,
+M. Sykora138 , T. Sykora138 , D. Ta96 , K. Tackmann44,w , A. Taffard166 , R. Tafirout163a , R.H.M. Taibah131 ,
+R. Takashima84 , K. Takeda80 , T. Takeshita146 , E.P. Takeva48 , Y. Takubo79 , M. Talby98 ,
+A.A. Talyshev117b,117a , K.C. Tam60b , N.M. Tamir157 , A. Tanaka159 , J. Tanaka159 , R. Tanaka62 , J. Tang58c ,
+Z. Tao170 , S. Tapia Araya76 , S. Tapprogge96 , A. Tarek Abouelfadl Mohamed103 , S. Tarem156 , K. Tariq58b ,
+G. Tarna25b , G.F. Tartarelli66a , P. Tas138 , M. Tasevsky136 , E. Tassi39b,39a , G. Tateno159 , Y. Tayalati33e ,
+G.N. Taylor101 , W. Taylor163b , H. Teagle88 , A.S. Tee176 , R. Teixeira De Lima149 , P. Teixeira-Dias91 ,
+H. Ten Kate34 , J.J. Teoh115 , K. Terashi159 , J. Terron95 , S. Terzo12 , M. Testa49 , R.J. Teuscher162,y ,
+N. Themistokleous48 , T. Theveneaux-Pelzer17 , O. Thielmann177 , D.W. Thomas91 , J.P. Thomas19 ,
+E.A. Thompson44 , P.D. Thompson19 , E. Thomson132 , E.J. Thorpe90 , Y. Tian51 , V.O. Tikhomirov107,af ,
+Yu.A. Tikhonov117b,117a , S. Timoshenko108 , P. Tipton178 , S. Tisserant98 , S.H. Tlou31f , A. Tnourji36 ,
+K. Todome21b,21a , S. Todorova-Nova138 , S. Todt46 , M. Togawa79 , J. Tojo85 , S. Tokár26a , K. Tokushuku79 ,
+E. Tolley123 , R. Tombs30 , M. Tomoto79,112 , L. Tompkins149 , P. Tornambe99 , E. Torrence127 , H. Torres46 ,
+E. Torró Pastor169 , M. Toscani28 , C. Tosciri35 , J. Toth98,x , D.R. Tovey145 , A. Traeet15 , C.J. Treado121 ,
+T. Trefzger172 , A. Tricoli27 , I.M. Trigger163a , S. Trincaz-Duvoid131 , D.A. Trischuk170 , W. Trischuk162 ,
+B. Trocmé56 , A. Trofymov62 , C. Troncon66a , F. Trovato152 , L. Truong31c , M. Trzebinski82 , A. Trzupek82 ,
+F. Tsai151 , M. Tsai102 , A. Tsiamis158 , P.V. Tsiareshka104 , A. Tsirigotis158,u , V. Tsiskaridze151 ,
+E.G. Tskhadadze155a , M. Tsopoulou158 , Y. Tsujikawa83 , I.I. Tsukerman119 , V. Tsulaia16 , S. Tsuno79 ,
+O. Tsur156 , D. Tsybychev151 , Y. Tu60b , A. Tudorache25b , V. Tudorache25b , A.N. Tuna34 , S. Turchikhin77 ,
+I. Turk Cakir3a , R.J. Turner19 , R. Turra66a , P.M. Tuts37 , S. Tzamarias158 , P. Tzanis9 , E. Tzovara96 ,
+K. Uchida159 , F. Ukegawa164 , P.A. Ulloa Poblete142b , G. Unal34 , M. Unal10 , A. Undrus27 , G. Unel166 ,
+F.C. Ungaro101 , K. Uno159 , J. Urban26b , P. Urquĳo101 , G. Usai7 , R. Ushioda160 , M. Usman106 , Z. Uysal11d ,
+V. Vacek137 , B. Vachon100 , K.O.H. Vadla129 , T. Vafeiadis34 , C. Valderanis110 , E. Valdes Santurio43a,43b ,
+M. Valente163a , S. Valentinetti21b,21a , A. Valero169 , R.A. Vallance19 , A. Vallier98 , J.A. Valls Ferrer169 ,
+T.R. Van Daalen144 , P. Van Gemmeren5 , S. Van Stroud92 , I. Van Vulpen115 , M. Vanadia71a,71b ,
+W. Vandelli34 , M. Vandenbroucke140 , E.R. Vandewall125 , D. Vannicola157 , L. Vannoli53b,53a , R. Vari70a ,
+E.W. Varnes6 , C. Varni16 , T. Varol154 , D. Varouchas62 , K.E. Varvell153 , M.E. Vasile25b , L. Vaslin36 ,
+
+
+
+                                                          31
+G.A. Vasquez171 , F. Vazeille36 , D. Vazquez Furelos12 , T. Vazquez Schroeder34 , J. Veatch51 , V. Vecchio97 ,
+M.J. Veen115 , I. Veliscek130 , L.M. Veloce162 , F. Veloso135a,135c , S. Veneziano70a , A. Ventura65a,65b ,
+A. Verbytskyi111 , M. Verducci69a,69b , C. Vergis22 , M. Verissimo De Araujo78b , W. Verkerke115 ,
+A.T. Vermeulen115 , J.C. Vermeulen115 , C. Vernieri149 , P.J. Verschuuren91 , M. Vessella99 ,
+M.L. Vesterbacka121 , M.C. Vetterli148,aj , A. Vgenopoulos158 , N. Viaux Maira142e , T. Vickey145 ,
+O.E. Vickey Boeriu145 , G.H.A. Viehhauser130 , L. Vigani59b , M. Villa21b,21a , M. Villaplana Perez169 ,
+E.M. Villhauer48 , E. Vilucchi49 , M.G. Vincter32 , G.S. Virdee19 , A. Vishwakarma48 , C. Vittori21b,21a ,
+I. Vivarelli152 , V. Vladimirov173 , E. Voevodina111 , M. Vogel177 , P. Vokac137 , J. Von Ahnen44 ,
+E. Von Toerne22 , V. Vorobel138 , K. Vorobev108 , M. Vos169 , J.H. Vossebeld88 , M. Vozak97 , L. Vozdecky90 ,
+N. Vranjes14 , M. Vranjes Milosavljevic14 , V. Vrba137,* , M. Vreeswĳk115 , N.K. Vu98 , R. Vuillermet34 ,
+O.V. Vujinovic96 , I. Vukotic35 , S. Wada164 , C. Wagner99 , W. Wagner177 , S. Wahdan177 , H. Wahlberg86 ,
+R. Wakasa164 , M. Wakida112 , V.M. Walbrecht111 , J. Walder139 , R. Walker110 , S.D. Walker91 ,
+W. Walkowiak147 , A.M. Wang57 , A.Z. Wang176 , C. Wang58a , C. Wang58c , H. Wang16 , J. Wang60a ,
+P. Wang40 , R.-J. Wang96 , R. Wang57 , R. Wang116 , S.M. Wang154 , S. Wang58b , T. Wang58a , W.T. Wang75 ,
+W.X. Wang58a , X. Wang13c , X. Wang168 , X. Wang58c , Y. Wang58a , Z. Wang102 , Z. Wang102 ,
+C. Wanotayaroj34 , A. Warburton100 , C.P. Ward30 , R.J. Ward19 , N. Warrack55 , A.T. Watson19 ,
+M.F. Watson19 , G. Watts144 , B.M. Waugh92 , A.F. Webb10 , C. Weber27 , M.S. Weber18 , S.A. Weber32 ,
+S.M. Weber59a , C. Wei58a , Y. Wei130 , A.R. Weidberg130 , J. Weingarten45 , M. Weirich96 , C. Weiser50 ,
+T. Wenaus27 , B. Wendland45 , T. Wengler34 , S. Wenig34 , N. Wermes22 , M. Wessels59a , K. Whalen127 ,
+A.M. Wharton87 , A.S. White57 , A. White7 , M.J. White1 , D. Whiteson166 , L. Wickremasinghe128 ,
+W. Wiedenmann176 , C. Wiel46 , M. Wielers139 , N. Wieseotte96 , C. Wiglesworth38 , L.A.M. Wiik-Fuchs50 ,
+D.J. Wilbern124 , H.G. Wilkens34 , L.J. Wilkins91 , D.M. Williams37 , H.H. Williams132 , S. Williams30 ,
+S. Willocq99 , P.J. Windischhofer130 , I. Wingerter-Seez4 , F. Winklmeier127 , B.T. Winter50 , M. Wittgen149 ,
+M. Wobisch93 , A. Wolf96 , R. Wölker130 , J. Wollrath166 , M.W. Wolter82 , H. Wolters135a,135c ,
+V.W.S. Wong170 , A.F. Wongel44 , S.D. Worm44 , B.K. Wosiek82 , K.W. Woźniak82 , K. Wraight55 ,
+J. Wu13a,13d , S.L. Wu176 , X. Wu52 , Y. Wu58a , Z. Wu140,58a , J. Wuerzinger130 , T.R. Wyatt97 , B.M. Wynne48 ,
+S. Xella38 , L. Xia13c , M. Xia13b , J. Xiang60c , X. Xiao102 , M. Xie58a , X. Xie58a , I. Xiotidis152 , D. Xu13a ,
+H. Xu58a , H. Xu58a , L. Xu58a , R. Xu132 , T. Xu58a , W. Xu102 , Y. Xu13b , Z. Xu58b , Z. Xu149 , B. Yabsley153 ,
+S. Yacoob31a , N. Yamaguchi85 , Y. Yamaguchi160 , M. Yamatani159 , H. Yamauchi164 , T. Yamazaki16 ,
+Y. Yamazaki80 , J. Yan58c , S. Yan130 , Z. Yan23 , H.J. Yang58c,58d , H.T. Yang16 , S. Yang58a , T. Yang60c ,
+X. Yang58a , X. Yang13a , Y. Yang159 , Z. Yang102,58a , W-M. Yao16 , Y.C. Yap44 , H. Ye13c , J. Ye40 , S. Ye27 ,
+I. Yeletskikh77 , M.R. Yexley87 , P. Yin37 , K. Yorita174 , K. Yoshihara76 , C.J.S. Young50 , C. Young149 ,
+M. Yuan102 , R. Yuan58b,i , X. Yue59a , M. Zaazoua33e , B. Zabinski82 , G. Zacharis9 , E. Zaid48 ,
+A.M. Zaitsev118,ae , T. Zakareishvili155b , N. Zakharchuk32 , S. Zambito34 , D. Zanzi50 , S.V. Zeißner45 ,
+C. Zeitnitz177 , J.C. Zeng168 , D.T. Zenger Jr24 , O. Zenin118 , T. Ženiš26a , S. Zenz90 , S. Zerradi33a ,
+D. Zerwas62 , B. Zhang13c , D.F. Zhang145 , G. Zhang13b , J. Zhang5 , K. Zhang13a , L. Zhang13c , M. Zhang168 ,
+R. Zhang176 , S. Zhang102 , X. Zhang58c , X. Zhang58b , Z. Zhang62 , P. Zhao47 , T. Zhao58b , Y. Zhao141 ,
+Z. Zhao58a , A. Zhemchugov77 , Z. Zheng149 , D. Zhong168 , B. Zhou102 , C. Zhou176 , H. Zhou6 , N. Zhou58c ,
+Y. Zhou6 , C.G. Zhu58b , C. Zhu13a,13d , H.L. Zhu58a , H. Zhu13a , J. Zhu102 , Y. Zhu58a , X. Zhuang13a ,
+K. Zhukov107 , V. Zhulanov117b,117a , D. Zieminska63 , N.I. Zimine77 , S. Zimmermann50,* , J. Zinsser59b ,
+M. Ziolkowski147 , L. Živković14 , A. Zoccoli21b,21a , K. Zoch52 , T.G. Zorbas145 , O. Zormpa42 , W. Zou37 ,
+L. Zwalinski34 .
+1 Department of Physics, University of Adelaide, Adelaide; Australia.
+2 Department of Physics, University of Alberta, Edmonton AB; Canada.
+3 (𝑎) Department of Physics, Ankara University, Ankara; (𝑏) Istanbul Aydin University, Application and
+
+Research Center for Advanced Studies, Istanbul; (𝑐) Division of Physics, TOBB University of Economics
+
+
+
+                                                        32
+and Technology, Ankara; Turkey.
+4 LAPP, Univ. Savoie Mont Blanc, CNRS/IN2P3, Annecy ; France.
+5 High Energy Physics Division, Argonne National Laboratory, Argonne IL; United States of America.
+6 Department of Physics, University of Arizona, Tucson AZ; United States of America.
+7 Department of Physics, University of Texas at Arlington, Arlington TX; United States of America.
+8 Physics Department, National and Kapodistrian University of Athens, Athens; Greece.
+9 Physics Department, National Technical University of Athens, Zografou; Greece.
+10 Department of Physics, University of Texas at Austin, Austin TX; United States of America.
+11 (𝑎) Bahcesehir University, Faculty of Engineering and Natural Sciences, Istanbul; (𝑏) Istanbul Bilgi
+
+University, Faculty of Engineering and Natural Sciences, Istanbul; (𝑐) Department of Physics, Bogazici
+University, Istanbul; (𝑑) Department of Physics Engineering, Gaziantep University, Gaziantep; Turkey.
+12 Institut de Física d’Altes Energies (IFAE), Barcelona Institute of Science and Technology, Barcelona;
+
+Spain.
+13 (𝑎) Institute of High Energy Physics, Chinese Academy of Sciences, Beĳing; (𝑏) Physics Department,
+
+Tsinghua University, Beĳing; (𝑐) Department of Physics, Nanjing University, Nanjing; (𝑑) University of
+Chinese Academy of Science (UCAS), Beĳing; China.
+14 Institute of Physics, University of Belgrade, Belgrade; Serbia.
+15 Department for Physics and Technology, University of Bergen, Bergen; Norway.
+16 Physics Division, Lawrence Berkeley National Laboratory and University of California, Berkeley CA;
+
+United States of America.
+17 Institut für Physik, Humboldt Universität zu Berlin, Berlin; Germany.
+18 Albert Einstein Center for Fundamental Physics and Laboratory for High Energy Physics, University of
+
+Bern, Bern; Switzerland.
+19 School of Physics and Astronomy, University of Birmingham, Birmingham; United Kingdom.
+20 (𝑎) Facultad de Ciencias y Centro de Investigaciónes, Universidad Antonio Nariño,
+
+Bogotá; (𝑏) Departamento de Física, Universidad Nacional de Colombia, Bogotá; Colombia.
+21 (𝑎) Dipartimento di Fisica e Astronomia A. Righi, Università di Bologna, Bologna; (𝑏) INFN Sezione di
+
+Bologna; Italy.
+22 Physikalisches Institut, Universität Bonn, Bonn; Germany.
+23 Department of Physics, Boston University, Boston MA; United States of America.
+24 Department of Physics, Brandeis University, Waltham MA; United States of America.
+25 (𝑎) Transilvania University of Brasov, Brasov; (𝑏) Horia Hulubei National Institute of Physics and Nuclear
+
+Engineering, Bucharest; (𝑐) Department of Physics, Alexandru Ioan Cuza University of Iasi,
+Iasi; (𝑑) National Institute for Research and Development of Isotopic and Molecular Technologies, Physics
+Department, Cluj-Napoca; (𝑒) University Politehnica Bucharest, Bucharest; ( 𝑓 ) West University in Timisoara,
+Timisoara; Romania.
+26 (𝑎) Faculty of Mathematics, Physics and Informatics, Comenius University, Bratislava; (𝑏) Department of
+
+Subnuclear Physics, Institute of Experimental Physics of the Slovak Academy of Sciences, Kosice; Slovak
+Republic.
+27 Physics Department, Brookhaven National Laboratory, Upton NY; United States of America.
+28 Departamento de Física (FCEN) and IFIBA, Universidad de Buenos Aires and CONICET, Buenos Aires;
+
+Argentina.
+29 California State University, CA; United States of America.
+30 Cavendish Laboratory, University of Cambridge, Cambridge; United Kingdom.
+31 (𝑎) Department of Physics, University of Cape Town, Cape Town; (𝑏) iThemba Labs, Western
+
+Cape; (𝑐) Department of Mechanical Engineering Science, University of Johannesburg,
+Johannesburg; (𝑑) National Institute of Physics, University of the Philippines Diliman
+
+
+
+                                                     33
+(Philippines); (𝑒) University of South Africa, Department of Physics, Pretoria; ( 𝑓 ) School of Physics,
+University of the Witwatersrand, Johannesburg; South Africa.
+32 Department of Physics, Carleton University, Ottawa ON; Canada.
+33 (𝑎) Faculté des Sciences Ain Chock, Réseau Universitaire de Physique des Hautes Energies - Université
+
+Hassan II, Casablanca; (𝑏) Faculté des Sciences, Université Ibn-Tofail, Kénitra; (𝑐) Faculté des Sciences
+Semlalia, Université Cadi Ayyad, LPHEA-Marrakech; (𝑑) LPMR, Faculté des Sciences, Université
+Mohamed Premier, Oujda; (𝑒) Faculté des sciences, Université Mohammed V, Rabat; ( 𝑓 ) Mohammed VI
+Polytechnic University, Ben Guerir; Morocco.
+34 CERN, Geneva; Switzerland.
+35 Enrico Fermi Institute, University of Chicago, Chicago IL; United States of America.
+36 LPC, Université Clermont Auvergne, CNRS/IN2P3, Clermont-Ferrand; France.
+37 Nevis Laboratory, Columbia University, Irvington NY; United States of America.
+38 Niels Bohr Institute, University of Copenhagen, Copenhagen; Denmark.
+39 (𝑎) Dipartimento di Fisica, Università della Calabria, Rende; (𝑏) INFN Gruppo Collegato di Cosenza,
+
+Laboratori Nazionali di Frascati; Italy.
+40 Physics Department, Southern Methodist University, Dallas TX; United States of America.
+41 Physics Department, University of Texas at Dallas, Richardson TX; United States of America.
+42 National Centre for Scientific Research "Demokritos", Agia Paraskevi; Greece.
+43 (𝑎) Department of Physics, Stockholm University; (𝑏) Oskar Klein Centre, Stockholm; Sweden.
+44 Deutsches Elektronen-Synchrotron DESY, Hamburg and Zeuthen; Germany.
+45 Fakultät Physik , Technische Universität Dortmund, Dortmund; Germany.
+46 Institut für Kern- und Teilchenphysik, Technische Universität Dresden, Dresden; Germany.
+47 Department of Physics, Duke University, Durham NC; United States of America.
+48 SUPA - School of Physics and Astronomy, University of Edinburgh, Edinburgh; United Kingdom.
+49 INFN e Laboratori Nazionali di Frascati, Frascati; Italy.
+50 Physikalisches Institut, Albert-Ludwigs-Universität Freiburg, Freiburg; Germany.
+51 II. Physikalisches Institut, Georg-August-Universität Göttingen, Göttingen; Germany.
+52 Département de Physique Nucléaire et Corpusculaire, Université de Genève, Genève; Switzerland.
+53 (𝑎) Dipartimento di Fisica, Università di Genova, Genova; (𝑏) INFN Sezione di Genova; Italy.
+54 II. Physikalisches Institut, Justus-Liebig-Universität Giessen, Giessen; Germany.
+55 SUPA - School of Physics and Astronomy, University of Glasgow, Glasgow; United Kingdom.
+56 LPSC, Université Grenoble Alpes, CNRS/IN2P3, Grenoble INP, Grenoble; France.
+57 Laboratory for Particle Physics and Cosmology, Harvard University, Cambridge MA; United States of
+
+America.
+58 (𝑎) Department of Modern Physics and State Key Laboratory of Particle Detection and Electronics,
+
+University of Science and Technology of China, Hefei; (𝑏) Institute of Frontier and Interdisciplinary Science
+and Key Laboratory of Particle Physics and Particle Irradiation (MOE), Shandong University,
+Qingdao; (𝑐) School of Physics and Astronomy, Shanghai Jiao Tong University, Key Laboratory for Particle
+Astrophysics and Cosmology (MOE), SKLPPC, Shanghai; (𝑑) Tsung-Dao Lee Institute, Shanghai; China.
+59 (𝑎) Kirchhoff-Institut für Physik, Ruprecht-Karls-Universität Heidelberg, Heidelberg; (𝑏) Physikalisches
+
+Institut, Ruprecht-Karls-Universität Heidelberg, Heidelberg; Germany.
+60 (𝑎) Department of Physics, Chinese University of Hong Kong, Shatin, N.T., Hong Kong; (𝑏) Department
+
+of Physics, University of Hong Kong, Hong Kong; (𝑐) Department of Physics and Institute for Advanced
+Study, Hong Kong University of Science and Technology, Clear Water Bay, Kowloon, Hong Kong; China.
+61 Department of Physics, National Tsing Hua University, Hsinchu; Taiwan.
+62 ĲCLab, Université Paris-Saclay, CNRS/IN2P3, 91405, Orsay; France.
+63 Department of Physics, Indiana University, Bloomington IN; United States of America.
+
+
+
+
+                                                     34
+64 (𝑎) INFN Gruppo Collegato di Udine, Sezione di Trieste, Udine; (𝑏) ICTP, Trieste; (𝑐) Dipartimento
+
+Politecnico di Ingegneria e Architettura, Università di Udine, Udine; Italy.
+65 (𝑎) INFN Sezione di Lecce; (𝑏) Dipartimento di Matematica e Fisica, Università del Salento, Lecce; Italy.
+66 (𝑎) INFN Sezione di Milano; (𝑏) Dipartimento di Fisica, Università di Milano, Milano; Italy.
+67 (𝑎) INFN Sezione di Napoli; (𝑏) Dipartimento di Fisica, Università di Napoli, Napoli; Italy.
+68 (𝑎) INFN Sezione di Pavia; (𝑏) Dipartimento di Fisica, Università di Pavia, Pavia; Italy.
+69 (𝑎) INFN Sezione di Pisa; (𝑏) Dipartimento di Fisica E. Fermi, Università di Pisa, Pisa; Italy.
+70 (𝑎) INFN Sezione di Roma; (𝑏) Dipartimento di Fisica, Sapienza Università di Roma, Roma; Italy.
+71 (𝑎) INFN Sezione di Roma Tor Vergata; (𝑏) Dipartimento di Fisica, Università di Roma Tor Vergata,
+
+Roma; Italy.
+72 (𝑎) INFN Sezione di Roma Tre; (𝑏) Dipartimento di Matematica e Fisica, Università Roma Tre, Roma;
+
+Italy.
+73 (𝑎) INFN-TIFPA; (𝑏) Università degli Studi di Trento, Trento; Italy.
+74 Institut für Astro- und Teilchenphysik, Leopold-Franzens-Universität, Innsbruck; Austria.
+75 University of Iowa, Iowa City IA; United States of America.
+76 Department of Physics and Astronomy, Iowa State University, Ames IA; United States of America.
+77 Joint Institute for Nuclear Research, Dubna; Russia.
+78 (𝑎) Departamento de Engenharia Elétrica, Universidade Federal de Juiz de Fora (UFJF), Juiz de
+
+Fora; (𝑏) Universidade Federal do Rio De Janeiro COPPE/EE/IF, Rio de Janeiro; (𝑐) Instituto de Física,
+Universidade de São Paulo, São Paulo; Brazil.
+79 KEK, High Energy Accelerator Research Organization, Tsukuba; Japan.
+80 Graduate School of Science, Kobe University, Kobe; Japan.
+81 (𝑎) AGH University of Science and Technology, Faculty of Physics and Applied Computer Science,
+
+Krakow; (𝑏) Marian Smoluchowski Institute of Physics, Jagiellonian University, Krakow; Poland.
+82 Institute of Nuclear Physics Polish Academy of Sciences, Krakow; Poland.
+83 Faculty of Science, Kyoto University, Kyoto; Japan.
+84 Kyoto University of Education, Kyoto; Japan.
+85 Research Center for Advanced Particle Physics and Department of Physics, Kyushu University, Fukuoka ;
+
+Japan.
+86 Instituto de Física La Plata, Universidad Nacional de La Plata and CONICET, La Plata; Argentina.
+87 Physics Department, Lancaster University, Lancaster; United Kingdom.
+88 Oliver Lodge Laboratory, University of Liverpool, Liverpool; United Kingdom.
+89 Department of Experimental Particle Physics, Jožef Stefan Institute and Department of Physics,
+
+University of Ljubljana, Ljubljana; Slovenia.
+90 School of Physics and Astronomy, Queen Mary University of London, London; United Kingdom.
+91 Department of Physics, Royal Holloway University of London, Egham; United Kingdom.
+92 Department of Physics and Astronomy, University College London, London; United Kingdom.
+93 Louisiana Tech University, Ruston LA; United States of America.
+94 Fysiska institutionen, Lunds universitet, Lund; Sweden.
+95 Departamento de Física Teorica C-15 and CIAFF, Universidad Autónoma de Madrid, Madrid; Spain.
+96 Institut für Physik, Universität Mainz, Mainz; Germany.
+97 School of Physics and Astronomy, University of Manchester, Manchester; United Kingdom.
+98 CPPM, Aix-Marseille Université, CNRS/IN2P3, Marseille; France.
+99 Department of Physics, University of Massachusetts, Amherst MA; United States of America.
+100 Department of Physics, McGill University, Montreal QC; Canada.
+101 School of Physics, University of Melbourne, Victoria; Australia.
+102 Department of Physics, University of Michigan, Ann Arbor MI; United States of America.
+
+
+
+
+                                                    35
+103 Department of Physics and Astronomy, Michigan State University, East Lansing MI; United States of
+
+America.
+104 B.I. Stepanov Institute of Physics, National Academy of Sciences of Belarus, Minsk; Belarus.
+105 Research Institute for Nuclear Problems of Byelorussian State University, Minsk; Belarus.
+106 Group of Particle Physics, University of Montreal, Montreal QC; Canada.
+107 P.N. Lebedev Physical Institute of the Russian Academy of Sciences, Moscow; Russia.
+108 National Research Nuclear University MEPhI, Moscow; Russia.
+109 D.V. Skobeltsyn Institute of Nuclear Physics, M.V. Lomonosov Moscow State University, Moscow;
+
+Russia.
+110 Fakultät für Physik, Ludwig-Maximilians-Universität München, München; Germany.
+111 Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München; Germany.
+112 Graduate School of Science and Kobayashi-Maskawa Institute, Nagoya University, Nagoya; Japan.
+113 Department of Physics and Astronomy, University of New Mexico, Albuquerque NM; United States of
+
+America.
+114 Institute for Mathematics, Astrophysics and Particle Physics, Radboud University/Nikhef, Nĳmegen;
+
+Netherlands.
+115 Nikhef National Institute for Subatomic Physics and University of Amsterdam, Amsterdam;
+
+Netherlands.
+116 Department of Physics, Northern Illinois University, DeKalb IL; United States of America.
+117 (𝑎) Budker Institute of Nuclear Physics and NSU, SB RAS, Novosibirsk; (𝑏) Novosibirsk State University
+
+Novosibirsk; Russia.
+118 Institute for High Energy Physics of the National Research Centre Kurchatov Institute, Protvino; Russia.
+119 Institute for Theoretical and Experimental Physics named by A.I. Alikhanov of National Research
+
+Centre "Kurchatov Institute", Moscow; Russia.
+120 (𝑎) New York University Abu Dhabi, Abu Dhabi; (𝑏) United Arab Emirates University, Al
+
+Ain; (𝑐) University of Sharjah, Sharjah; United Arab Emirates.
+121 Department of Physics, New York University, New York NY; United States of America.
+122 Ochanomizu University, Otsuka, Bunkyo-ku, Tokyo; Japan.
+123 Ohio State University, Columbus OH; United States of America.
+124 Homer L. Dodge Department of Physics and Astronomy, University of Oklahoma, Norman OK; United
+
+States of America.
+125 Department of Physics, Oklahoma State University, Stillwater OK; United States of America.
+126 Palacký University, Joint Laboratory of Optics, Olomouc; Czech Republic.
+127 Institute for Fundamental Science, University of Oregon, Eugene, OR; United States of America.
+128 Graduate School of Science, Osaka University, Osaka; Japan.
+129 Department of Physics, University of Oslo, Oslo; Norway.
+130 Department of Physics, Oxford University, Oxford; United Kingdom.
+131 LPNHE, Sorbonne Université, Université de Paris, CNRS/IN2P3, Paris; France.
+132 Department of Physics, University of Pennsylvania, Philadelphia PA; United States of America.
+133 Konstantinov Nuclear Physics Institute of National Research Centre "Kurchatov Institute", PNPI, St.
+
+Petersburg; Russia.
+134 Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh PA; United States of
+
+America.
+135 (𝑎) Laboratório de Instrumentação e Física Experimental de Partículas - LIP, Lisboa; (𝑏) Departamento de
+
+Física, Faculdade de Ciências, Universidade de Lisboa, Lisboa; (𝑐) Departamento de Física, Universidade
+de Coimbra, Coimbra; (𝑑) Centro de Física Nuclear da Universidade de Lisboa, Lisboa; (𝑒) Departamento de
+Física, Universidade do Minho, Braga; ( 𝑓 ) Departamento de Física Teórica y del Cosmos, Universidad de
+
+
+
+                                                    36
+Granada, Granada (Spain); (𝑔) Instituto Superior Técnico, Universidade de Lisboa, Lisboa; Portugal.
+136 Institute of Physics of the Czech Academy of Sciences, Prague; Czech Republic.
+137 Czech Technical University in Prague, Prague; Czech Republic.
+138 Charles University, Faculty of Mathematics and Physics, Prague; Czech Republic.
+139 Particle Physics Department, Rutherford Appleton Laboratory, Didcot; United Kingdom.
+140 IRFU, CEA, Université Paris-Saclay, Gif-sur-Yvette; France.
+141 Santa Cruz Institute for Particle Physics, University of California Santa Cruz, Santa Cruz CA; United
+
+States of America.
+142 (𝑎) Departamento de Física, Pontificia Universidad Católica de Chile, Santiago; (𝑏) Instituto de
+
+Investigación Multidisciplinario en Ciencia y Tecnología, y Departamento de Física, Universidad de La
+Serena; (𝑐) Universidad Andres Bello, Department of Physics, Santiago; (𝑑) Instituto de Alta Investigación,
+Universidad de Tarapacá, Arica; (𝑒) Departamento de Física, Universidad Técnica Federico Santa María,
+Valparaíso; Chile.
+143 Universidade Federal de São João del Rei (UFSJ), São João del Rei; Brazil.
+144 Department of Physics, University of Washington, Seattle WA; United States of America.
+145 Department of Physics and Astronomy, University of Sheffield, Sheffield; United Kingdom.
+146 Department of Physics, Shinshu University, Nagano; Japan.
+147 Department Physik, Universität Siegen, Siegen; Germany.
+148 Department of Physics, Simon Fraser University, Burnaby BC; Canada.
+149 SLAC National Accelerator Laboratory, Stanford CA; United States of America.
+150 Department of Physics, Royal Institute of Technology, Stockholm; Sweden.
+151 Departments of Physics and Astronomy, Stony Brook University, Stony Brook NY; United States of
+
+America.
+152 Department of Physics and Astronomy, University of Sussex, Brighton; United Kingdom.
+153 School of Physics, University of Sydney, Sydney; Australia.
+154 Institute of Physics, Academia Sinica, Taipei; Taiwan.
+155 (𝑎) E. Andronikashvili Institute of Physics, Iv. Javakhishvili Tbilisi State University, Tbilisi; (𝑏) High
+
+Energy Physics Institute, Tbilisi State University, Tbilisi; Georgia.
+156 Department of Physics, Technion, Israel Institute of Technology, Haifa; Israel.
+157 Raymond and Beverly Sackler School of Physics and Astronomy, Tel Aviv University, Tel Aviv; Israel.
+158 Department of Physics, Aristotle University of Thessaloniki, Thessaloniki; Greece.
+159 International Center for Elementary Particle Physics and Department of Physics, University of Tokyo,
+
+Tokyo; Japan.
+160 Department of Physics, Tokyo Institute of Technology, Tokyo; Japan.
+161 Tomsk State University, Tomsk; Russia.
+162 Department of Physics, University of Toronto, Toronto ON; Canada.
+163 (𝑎) TRIUMF, Vancouver BC; (𝑏) Department of Physics and Astronomy, York University, Toronto ON;
+
+Canada.
+164 Division of Physics and Tomonaga Center for the History of the Universe, Faculty of Pure and Applied
+
+Sciences, University of Tsukuba, Tsukuba; Japan.
+165 Department of Physics and Astronomy, Tufts University, Medford MA; United States of America.
+166 Department of Physics and Astronomy, University of California Irvine, Irvine CA; United States of
+
+America.
+167 Department of Physics and Astronomy, University of Uppsala, Uppsala; Sweden.
+168 Department of Physics, University of Illinois, Urbana IL; United States of America.
+169 Instituto de Física Corpuscular (IFIC), Centro Mixto Universidad de Valencia - CSIC, Valencia; Spain.
+170 Department of Physics, University of British Columbia, Vancouver BC; Canada.
+
+
+
+
+                                                     37
+171 Department of Physics and Astronomy, University of Victoria, Victoria BC; Canada.
+172 Fakultät für Physik und Astronomie, Julius-Maximilians-Universität Würzburg, Würzburg; Germany.
+173 Department of Physics, University of Warwick, Coventry; United Kingdom.
+174 Waseda University, Tokyo; Japan.
+175 Department of Particle Physics and Astrophysics, Weizmann Institute of Science, Rehovot; Israel.
+176 Department of Physics, University of Wisconsin, Madison WI; United States of America.
+177 Fakultät für Mathematik und Naturwissenschaften, Fachgruppe Physik, Bergische Universität
+
+Wuppertal, Wuppertal; Germany.
+178 Department of Physics, Yale University, New Haven CT; United States of America.
+𝑎 Also at Borough of Manhattan Community College, City University of New York, New York NY; United
+
+States of America.
+𝑏 Also at Bruno Kessler Foundation, Trento; Italy.
+𝑐 Also at Center for High Energy Physics, Peking University; China.
+𝑑 Also at Centro Studi e Ricerche Enrico Fermi; Italy.
+𝑒 Also at CERN, Geneva; Switzerland.
+ 𝑓 Also at Département de Physique Nucléaire et Corpusculaire, Université de Genève, Genève;
+
+Switzerland.
+𝑔 Also at Departament de Fisica de la Universitat Autonoma de Barcelona, Barcelona; Spain.
+ℎ Also at Department of Financial and Management Engineering, University of the Aegean, Chios; Greece.
+𝑖 Also at Department of Physics and Astronomy, Michigan State University, East Lansing MI; United
+
+States of America.
+𝑗 Also at Department of Physics and Astronomy, University of Louisville, Louisville, KY; United States of
+
+America.
+𝑘 Also at Department of Physics, Ben Gurion University of the Negev, Beer Sheva; Israel.
+𝑙 Also at Department of Physics, California State University, East Bay; United States of America.
+𝑚 Also at Department of Physics, California State University, Fresno; United States of America.
+𝑛 Also at Department of Physics, California State University, Sacramento; United States of America.
+𝑜 Also at Department of Physics, King’s College London, London; United Kingdom.
+𝑝 Also at Department of Physics, St. Petersburg State Polytechnical University, St. Petersburg; Russia.
+𝑞 Also at Department of Physics, University of Fribourg, Fribourg; Switzerland.
+𝑟 Also at Faculty of Physics, M.V. Lomonosov Moscow State University, Moscow; Russia.
+𝑠 Also at Faculty of Physics, Sofia University, ’St. Kliment Ohridski’, Sofia; Bulgaria.
+𝑡 Also at Graduate School of Science, Osaka University, Osaka; Japan.
+𝑢 Also at Hellenic Open University, Patras; Greece.
+𝑣 Also at Institucio Catalana de Recerca i Estudis Avancats, ICREA, Barcelona; Spain.
+𝑤 Also at Institut für Experimentalphysik, Universität Hamburg, Hamburg; Germany.
+𝑥 Also at Institute for Particle and Nuclear Physics, Wigner Research Centre for Physics, Budapest;
+
+Hungary.
+𝑦 Also at Institute of Particle Physics (IPP); Canada.
+𝑧 Also at Institute of Physics, Azerbaĳan Academy of Sciences, Baku; Azerbaĳan.
+𝑎𝑎 Also at Institute of Theoretical Physics, Ilia State University, Tbilisi; Georgia.
+𝑎𝑏 Also at Instituto de Fisica Teorica, IFT-UAM/CSIC, Madrid; Spain.
+𝑎𝑐 Also at Istanbul University, Dept. of Physics, Istanbul; Turkey.
+𝑎𝑑 Also at Joint Institute for Nuclear Research, Dubna; Russia.
+𝑎𝑒 Also at Moscow Institute of Physics and Technology State University, Dolgoprudny; Russia.
+𝑎 𝑓 Also at National Research Nuclear University MEPhI, Moscow; Russia.
+𝑎𝑔 Also at Physics Department, An-Najah National University, Nablus; Palestine.
+
+
+
+
+                                                   38
+𝑎ℎ Also at Physikalisches Institut, Albert-Ludwigs-Universität Freiburg, Freiburg; Germany.
+𝑎𝑖 Also at The City College of New York, New York NY; United States of America.
+𝑎 𝑗 Also at TRIUMF, Vancouver BC; Canada.
+𝑎𝑘 Also at Universita di Napoli Parthenope, Napoli; Italy.
+𝑎𝑙 Also at University of Chinese Academy of Sciences (UCAS), Beĳing; China.
+𝑎𝑚 Also at Yeditepe University, Physics Department, Istanbul; Turkey.
+∗ Deceased
+
+
+
+
+                                                   39
+

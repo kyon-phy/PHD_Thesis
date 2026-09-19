@@ -1,0 +1,2214 @@
+
+=== PDF PAGE 1 ===
+ATL-PHYS-PUB-2022-044
+ATLAS PUB Note
+15th September 2022
+Reconstruction, Identification, and Calibration of
+hadronically decaying tau leptons with the ATLAS
+detector for the LHC Run 3 and reprocessed Run 2
+data
+The ATLAS Collaboration
+This document describes the reconstruction algorithms employed by the ATLAS experiment
+for Run 3 of the LHC to reconstruct, identify, and calibrate hadronically decaying  leptons.
+The same algorithms are also used for the reprocessed data from Run 2 of the LHC. All
+algorithms have been improved and optimised with respect to the ones employed during Run 2
+data-taking. The energy calibration relies on Monte Carlo simulation samples with hadronic
+tau lepton decays, and applies a Boosted Regression Tree based on calorimetric energy and
+tracking momentum measurements. The tau reconstruction and identification algorithms, as
+well as the electron rejection algorithm, employ Recurrent Neural Networks. The decay mode
+classification algorithm, based on DeepSet Neural Networks, is used to discriminate among
+the five main decay topologies. The performance of the deployed algorithms is assessed using
+Monte Carlo simulations.
+© 2022 CERN for the benefit of the ATLAS Collaboration.
+Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+
+=== PDF PAGE 2 ===
+1 Introduction
+The  lepton is the heaviest known lepton and decays with a lifetime of about 2.9 · 10−13 s [1] and charge
+equal to −1 . The branching ratio of  leptons in final states with hadrons is approximately 65% of
+the total and these decays display characteristic displacement, multiplicity and kinematic properties.
+The identification and reconstruction of the hadronically decaying  leptons is important to many LHC
+measurements [2–4] and searches [5–8].
+This note describes the updates in the reconstruction, identification and energy calibration of hadronically
+decaying  leptons in the ATLAS detector [9], introduced for the beginning of the Large Hadron Collider
+(LHC) Run 3 data-taking. Additionally, the data recorded during the LHC Run 2 has been reprocessed
+using the same improved algorithms such that future results using data from both data-taking periods will
+benefit from these improvements. The changes with respect to the methods designed at the beginning
+of Run 2 [10] are described and the expected performance based on Monte Carlo (MC) simulation are
+presented. The performance of the  lepton algorithms is evaluated with simulation using Run 2 conditions.
+Performance improvements regard mainly novel algorithms used for the track classification,  identification,
+discrimination against electrons and decay mode classification.
+After a description of the ATLAS detector in section 2, the simulated samples used for the optimization
+and determination of performance are summarised in section 3. Reconstruction of the visible component
+of hadronic  decays (in the following indicated as had-vis) is outlined in section 4. The discrimination
+of had decays from the main backgrounds, hadronic jets and electrons are discussed in sections 5 and 6,
+respectively. Section 7 outlines the classification of the different had decay modes, while section 8 presents
+the had energy calibration and resolution.
+2 ATLAS detector
+The ATLAS detector [9] at the LHC covers nearly the entire solid angle around the collision point.1
+It
+consists of an inner tracking detector surrounded by a thin superconducting solenoid, electromagnetic and
+hadron calorimeters, and a muon spectrometer incorporating three large superconducting air-core toroidal
+magnets.
+The inner-detector system (ID) is immersed in a 2 T axial magnetic field and provides charged-particle
+tracking in the range || < 2.5. The high-granularity silicon pixel detector covers the vertex region and
+typically provides four measurements per track, the first hit normally being in the insertable B-layer (IBL)
+installed before Run 2 [11, 12]. It is followed by the silicon microstrip tracker (SCT), which usually provides
+eight measurements per track. These silicon detectors are complemented by the transition radiation tracker
+(TRT), which enables radially extended track reconstruction up to || = 2.0. The TRT also provides
+electron identification information based on the fraction of hits (typically 30 in total) above a higher
+energy-deposit threshold corresponding to transition radiation.
+1 ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) in the centre of the detector
+and the -axis along the beam pipe. The -axis points from the IP to the centre of the LHC ring, and the -axis points
+upwards. Cylindrical coordinates (, ) are used in the transverse plane,  being the azimuthal angle around the -axis.
+The pseudorapidity is defined in terms of the polar angle  as  = − ln tan(/2). Angular distance is measured in units of
+Δ ≡
+p
+(Δ)
+2 + (Δ)
+2.
+2
+
+=== PDF PAGE 3 ===
+The calorimeter system covers the pseudorapidity range || < 4.9. Within the region || < 3.2,
+electromagnetic calorimetry is provided by barrel and endcap high-granularity lead/liquid-argon (LAr)
+calorimeters, with an additional thin LAr presampler covering || < 1.8 to correct for energy loss in
+material upstream of the calorimeters. The electromagnetic (EM) calorimeter is segmented in three
+longitudinal layers, preceded by a preshower layer. The first layer is finely segmented in the  direction to
+provide  − 
+0
+separation, and is about 4–5 radiation lengths tick. The middle layer collects most of the
+electromagnetic shower energy. The last layer is used to correct for leakage behind the electromagnetic
+calorimeter. Hadron (HAD) calorimetry is provided by the steel/scintillator-tile calorimeter, segmented
+into three barrel structures within || < 1.7, and two copper/LAr hadron endcap calorimeters in the region
+|| < 3.2. The solid angle coverage is completed with forward copper/LAr and tungsten/LAr calorimeter
+modules optimised for electromagnetic and hadronic energy measurements, respectively.
+The muon spectrometer (MS) comprises separate trigger and high-precision tracking chambers measuring
+the deflection of muons in a magnetic field generated by the superconducting air-core toroidal magnets.
+The field integral of the toroids ranges between 2.0 and 6.0 T m across most of the detector. Three layers
+of precision chambers, each consisting of layers of monitored drift tubes, covers the region || < 2.7,
+complemented by cathode-strip chambers in the forward region, where the background is highest. The
+muon trigger system covers the range || < 2.4 with resistive-plate chambers in the barrel, and thin-gap
+chambers in the endcap regions. Before the start of Run 3 of the LHC, two New Small Wheels [13] replaced
+the innermost stations of the endcap muon spectrometer, in the range 1.3 < || < 2.7. While the basic
+geometry is the same for the two detectors (consisting of 16 pie-shaped sectors), the detector technology
+has been substantially upgraded. Monitored drift tube, cathode strip and thin gap chambers have been
+replaced by the novel micromegas (Micro-mesh gaseous structures) detector technology, in combination
+with small strip thin gap chambers. Moreover, the number of detection planes increased from 4 (in the
+present cathode strip region) or 8 (in the monitored drift tube region) to 16.
+An extensive software suite [14] is used in the reconstruction and analysis of real and simulated data, in
+detector operations, and in the trigger and data acquisition systems of the experiment.
+3 Monte Carlo simulation samples
+MC simulations are used to develop the  lepton reconstruction methods, to train Multivariated Analysis
+(MVA) algorithms, and evaluate their performance.
+The signal sample consists of 
+∗ →  events generated with Pythia 8.212 [15]. The Pythia 8.212
+generator is used for the matrix-element calculation, as well as the simulation of parton shower, hadronisation,
+underlying event, and  lepton decay. The A14 [16] set of parameters tunes and NNPDF2.3lo [17] as the
+PDF. The decays of bottom and charm hadrons are performed by EvtGen 1.2.0 [18]. The 
+∗ →  events
+use a biased phase space sampling to populate the generated spectrum towards high invariant masses (
+∗ )
+to provide a sufficient statistics of high-T had-vis up to 1 TeV. In addition, the absence of amplitudes
+mediated by a  boson provides a more uniform sample of  leptons in terms of helicity as a function of
+had T. All  leptons in the simulated 
+∗ →  events are forced to decay hadronically.
+The algorithms are optimised using background samples of dijet events, simulated using Pythia 8.230 [15]
+with leading-order matrix elements for dijet production which are matched to the parton shower. The
+renormalisation and factorisation scales were set to the geometric mean of the squared transverse masses of
+the two outgoing particles in the matrix element, ˆT =
+q
+(
+2
+T,1
++ 2
+1
+) (
+2
+T,2
++ 2
+2
+). The NNPDF2.3lo PDF
+3
+
+=== PDF PAGE 4 ===
+set is used in the ME generation, the parton shower, and the simulation of the multi-parton interactions.
+The A14 set of tuned parameters is used. To populate the inclusive jet T spectrum efficiently, the sample
+used a biased phase-space sampling which was compensated for by a continuously decreasing weight for
+the event. Specifically, events at a scale ˆT scale were oversampled by a factor of (ˆT/10 GeV)
+4
+.
+Furthermore, the  →  and Drell-Yan 
++
+
+−
+samples were generated with Pythia 8.212. The latter
+samples cover the high-T part of the spectrum.
+For all the simulated samples, the effects of simultaneous proton–proton collisions in the same and nearby
+bunch-crossings to the collision of interest are included. The beam spot weights [19] are considered to
+account for the difference of the beam spot width in data and simulated samples. A full simulation of the
+ATLAS detector [20] based on Geant4 [21] was used to reproduce the detector response. The detector
+simulation traces the energy loss of particles with a signficant life time, such as  leptons, originating from
+the interaction point when crossing the detector. This effect is particularly important for high-T  leptons
+that can leave energy signatures in the detector before decaying.
+4 Reconstruction
+The had-vis candidates are seeded by jets formed using the anti- algorithm [22], with a distance parameter
+of 0.4. Three-dimensional clusters of calorimeter cells called TopoClusters [23], calibrated using a local
+hadronic calibration (LC), serve as inputs to the jet algorithm. Jets seeding had-vis candidates are required
+to have a transverse momentum T > 5 GeV and || < 2.5. The transverse momentum requirement is
+applied on LC energy of the jet, before any jet energy scale corrections.
+The performance of the efficiencies and calibration in this note are evaluated for had-vis candidates with
+|| < 2.5, outside the transition region 1.37 < || < 1.52 between the barrel and forward calorimeters, and
+with a reconstructed T > 20 GeV, after the calibration described in Section 8.
+4.1 Vertex association
+During the   collisions, multiple simultaneous interactions occur and several interaction vertices are recon￾structed. Most particles are assumed to originate at the primary vertex, defined as the vertex with the highest
+sum of the squared transverse momenta of the associated tracks, Σ
+2
+T
+(tracks associated with the vertex).
+As  leptons travel away from the primary vertex before decaying, a dedicated  vertex association algorithm
+(TJVA) [24] is implemented to identify the correct production vertex for each had-vis candidate. The 
+production vertex is used in the had-vis reconstruction instead of the primary vertex. It is important to
+choose the correct vertex since quantities such as the impact parameter are calculated relative to the chosen
+vertex and it can affect which tracks are associated with the had-vis candidate. The parameters of the tracks
+associated to the had-vis candidates are recalculated relative to the  production vertex.
+In preparation for Run 3, the vertexing algorithm [25] used in ATLAS has been updated to deal with the
+high pile-up environment, therefore, the TJVA was retuned. The overall method is based on the T fraction
+of a given vertex T
+:
+T =
+ΣT(tracks associated with the vertex)
+ΣT(all tracks)
+, (1)
+4
+
+=== PDF PAGE 5 ===
+where all tracks within Δ < 0.2 of the seed jet are considered. For Run 3, the tracks associated with the
+vertex are determined by a different method based on the output of the Adaptive Multi-Vertex Reconstruction
+(AMVF) algorithm [26]. The vertex with the highest T
+fraction is chosen as the  production vertex and
+is used in the following to determine the had-vis direction, to associate tracks and to build the coordinate
+system in which identification variables are calculated. The efficiency for choosing the correct  production
+vertex compared to the primary vertex is shown in Fig. 1 as a function of had-vis T and the average
+number of simultaneous  -collisions for the 1-prong and 3-prong had-vis candidates. The  production
+vertex performance is compared to the primary vertex and is found to give a better efficiency throughout,
+particularly at low T.
+<µ>
+15 20 25 30 35 40 45 50 55 60
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Primary vertex
+Tau vertex
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Truth 1-prong, γ *→ττ
+Vertex association
+<µ>
+15 20 25 30 35 40 45 50 55 60
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Primary vertex
+Tau vertex
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Truth 3-prong, γ *→ττ
+Vertex association
+) [GeV] had-vis (τ
+T p
+50 100 150 200 250 300
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Primary vertex
+Tau vertex
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Truth 1-prong, γ *→ττ
+Vertex association
+) [GeV] had-vis (τ
+T p
+50 100 150 200 250 300
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Primary vertex
+Tau vertex
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Truth 3-prong, γ *→ττ
+Vertex association
+Figure 1: The efficiency to select the correct  production vertex using TJVA or the default primary vertex with
+Σ
+2
+T,tracks in 
+∗ →  events. The efficiency is shown as a function of the average number of simultaneous
+ -collisions hi (top) and T(had-vis) (bottom), for truth 1-prong had decays (left) and truth 3-prong had decays
+(right).
+The had-vis four-momentum is calculated by first computing  and  of the barycentre of the TopoClusters
+of the seed jet, calibrated at the LC scale, assuming a mass of zero for each constituent. The four-momenta
+5
+
+=== PDF PAGE 6 ===
+of all clusters in the region Δ < 0.2 around the barycentre are recalculated using the  production vertex
+coordinate system and summed, providing the momentum magnitude and direction of the had-vis.
+4.2 Track to  lepton association and track classification
+Tracks are associated with the had-vis if they are in the core region Δ < 0.25 around the had-vis direction
+and satisfy the following criteria: T > 1 GeV, at least two associated hits in the pixel layers of the
+inner detector, and at least seven hits in total in the pixel and the SCT layers. Furthermore, association
+requirements are imposed on the distance of closest approach of the track to the  production vertex (vertex
+chosen by TJVA) in the transverse plane, |
+TJVA
+0
+| < 1.0 mm, and longitudinally, |
+TJVA
+0
+sin | < 1.5 mm.
+Tracks in the region 0.25 < Δ < 0.4 are associated as well to the had-vis if either they are matched to the
+seeding jet by a ghost-particle association technique [27–29] or if the closest jet to the track in terms of Δ
+distance is the had-vis seeding jet.
+To correctly establish the charge and the number of charged decay products of a  lepton, the tracks that are
+associated with the  decay need to be correctly distinguished from the rest. Using a track classifier, tracks
+that have passed the  jet association requirements are classified into four categories:
+• Tau Tracks (TT): Tracks originating from charged  lepton decay products, i.e. 
+±
+. These are used
+to determine the charge and the number of charged decay products of the  lepton.
+• Conversion Tracks (CT): Tracks from electrons and positrons that are created from photon
+conversion in the detector. These are used in the reconstruction and identification of 
+0 mesons and
+in the rejection of truth electrons that are reconstructed as had candidates.
+• Isolation Tracks (IT): Tracks which are likely originating from quark or gluon jets arising from the
+remnants of the hard scattering interactions. These tend to have higher track multiplicities, a wider
+opening angle and a softer T spectrum than tracks from had decays.
+• Fake Tracks (FT): Tracks that don’t belong to the previous categories, mainly misreconstructed
+tracks and pile-up tracks.
+Table 1: Architecture of the track classification RNN.
+Layer Number of nodes Activation
+Dense Layer 1 [70, 80, 90] ReLU [30]
+BLSTM Layer 1 [20, 30, 40] ReLU
+BLSTM Layer 2 [20, 30, 40] ReLU
+BLSTM Layer 3 [20, 30, 40] ReLU
+Dense Layer 2 [35, 45, 55] ReLU
+Dense Layer 3 4 Softmax [31]
+A novel approach for the  lepton track classification using a recurrent neural network (RNN) has evolved
+from a BDT-based method that was used during Run 2. RNNs are specifically chosen amongst other
+types of neural networks because, using Bi-directional Long Short Term Memory (BLSTM) cells, they
+allow information to be backpropagated through time resulting in the forward and backward correlation
+in a sequence of tracks belonging to the  lepton decay to be exploited. Additionally, RNNs have a
+6
+
+=== PDF PAGE 7 ===
+flexible architecture which allows for tracks to be treated dynamically as an input of variable length per 
+candidate.
+The RNN network architecture is given in Table 1 and uses three connected dense layers. The first dense
+layer is connected to the variable input i.e. the tracks of the had-vis candidate. The three BLSTM layers are
+configured between the first two dense layers. The size and number of nodes of the dense and BLSTM
+layers are optimised to provide the best performance in terms of loss and accuracy of the model. The
+output layer comprises four nodes each associated with a track classifier category. All the layers except the
+final dense layer are connected with Rectified Linear Units (ReLU) [30]. A schematic of the full RNN
+architecture can be seen in Fig. 2.
+Figure 2: Schematic of the track classification RNN architecture, the configurations of the first dense layer, BLSTM
+layer and second layer are chosen using a hyperparameter scan. The last dense layer configuration is fixed and results
+in 4 output probabilities for each input track. The classification category with the highest probability is then assigned
+to the track.
+The RNN is trained using Keras [32] and TensorFlow [33], and is applied to the sequence of T-ordered
+tracks associated with each had-vis candidate. The maximum number of tracks per had-vis candidate is set
+to 30, this number is sufficient to include the majority of tracks that are of interest. The output of the
+RNN is a class probability assigned to each track. The signal and background training data sets used
+are 
+∗ →  and dijet, respectively, and only had-vis candidates with T > 5.5 GeV are considered. The
+dijet sample is divided into 8 regions of T and additionally divided into hard scatter jets and pile-up jets.
+This differentiation allowed for better discriminating power between the four categories by restricting the
+number of pile-up jets that the RNN was exposed to. The training data set size corresponds to 1 million
+signal candidates and 200,000 background per T region. Both samples are split into three sets: input for
+the training, validation throughout the training and performance evaluation.
+The RNN utilises several input variables which describe the kinematic, geometric and detector hit
+distribution of the tracks. These variables have been chosen to either provide separation power between the
+four resulting classes (e.g. 
+track) or to parameterise the network (e.g. 
+seed-jet
+T
+). The variables and their
+definitions are listed in Table 2.
+7
+
+=== PDF PAGE 8 ===
+Table 2: Input variables to the RNN Track Classifier.
+Variable Description
+ln (
+track
+T
+) Logarithm of the transverse momentum of the track
+ln (
+seed-jet
+T
+) Logarithm of the transverse momentum of the seed jet
+
+track
+T
+
+seed-jet
+T
+Ratio between the transverse momentum of the track and seed jet
+
+track Pseudo-rapidity of the track
+
+TJVA
+0
+sin  Tau vertex longitudinal impact parameter
+ln(
+Conv) Logarithm of the radius of track conversion
+tanh (
+
+ConvII
+500 ) Hyperbolic tangent of the radius of track conversion
+Δ(track,seed-jet) Radial distance of the track and seed jet axis
+tanh (
+
+TJVA
+0
+10 ) Hyperbolic tangent of the transverse impact parameter
+
+track
+
+track
+T
+Ratio of the transverse momentum and the charge of the track
+Detector hit variable Definition
+IBL Number of hits in the innermost layer of the pixel detector
+shared Pixel Number of hits in the pixel detector shared by multiple tracks
+shared SCT Number of hits in the SCT shared by multiple tracks
+Pixel Number of hits in the pixel detector
+TRT Number of hits in the TRT
+SCT Number of hits in the SCT
+
+track Charge of the track
+
+HT
+ Electron probability determined from high-threshold (HT) hits in the TRT,
+that originate from transition radiation caused by highly relativistic particles
+traversing the radiator material around each straw
+The two primary measures to evaluate the performance of the track classifier are the had-vis reconstruction
+efficiency and confusion matrix of the classification categories. The confusion matrices are 2-dimensional
+matrices that compare the classification of a track by the RNN and its truth classification are shown in Fig. 3.
+These are normalised to the truth track type and give the probability that a track belonging to a given truth
+type gets classified in a particular category.
+Figure 4 shows the number of reconstructed tracks for truth  leptons decaying into one and three charged
+particles. The efficiencies of correctly classifying 1- or 3-tracks originating from truth 1-prong and 3-prong
+ leptons, respectively, is shown in Fig. 5 as a function of the T(had-vis) and the average number of
+simultaneous  -collisions hi. The reduction of efficiency for truth 3-prong  leptons of high-T is
+related to the smaller curvature and angular separation of the  lepton decay products. Compared to the
+algorithm deployed at the beginning of Run 2 [10], the average track association efficiency for 1-prong 
+leptons improved from about 70% to more than 90%, and for 3-prong  leptons from 65% to about 75%.
+8
+
+=== PDF PAGE 9 ===
+Truth track type
+TT CT IT FT
+RNN track type
+TT
+CT
+IT
+FT
+95.2 2.2 4.2 0.7
+1.7 94.0 2.6 5.1
+1.6 0.6 89.2 3.8
+1.5 3.2 4.0 90.4
+ATLAS Simulation
+Preliminary
+√
+s = 13 TeV
+Diagonal efficiency: 91.0%
+Truth 1-prong
+Truth track type
+TT CT IT FT
+RNN track type
+TT
+CT
+IT
+FT
+93.1 3.2 7.0 0.8
+2.6 91.1 1.7 2.8
+3.5 1.2 89.3 2.7
+0.8 4.6 2.1 93.7
+ATLAS Simulation
+Preliminary
+√
+s = 13 TeV
+Diagonal efficiency: 93.3%
+Truth 3-prong
+Figure 3: Probabilities to reconstruct a given truth track type as a certain track type, for truth 1-prong had decays
+(left) and truth 3-prong had decays (right) with the RNN track classifier in the 
+∗ →  events.  lepton tracks,
+conversion tracks, isolation tracks and fake tracks, are denoted as TT, CT, IT and FT, respectively. The values along
+each column sum 100%, such that the RNN track classification efficiencies are given for each individual truth track
+type. The diagonal efficiency is defined as the weighted average of the correctly identified truth track types.
+Reconstructed number of tau tracks
+−0.5 0 0.5 1 1.5 2 2.5 3 3.5 4 4.5
+Normalized
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Truth 1-prong
+Truth 3-prong
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Tracks association
+Figure 4: Number of reconstructed tracks for had-vis candidates from truth 1-prong and 3-prong had decays using the
+
+∗ →  events.
+5 Identification
+During Run 2, a novel had identification algorithm [34] was introduced to separate truth had-vis and
+misidentified had-vis originating from quark- and gluon-initiated jets. This algorithm is based on a
+RNN and employs information from reconstructed charged-particle tracks and clusters of energy in the
+calorimeter associated to had-vis candidates as well as high-level discriminating variables. Compared to
+the BDT identification algorithm deployed at the beginning of Run 2 [10], the improvement in rejection of
+9
+
+=== PDF PAGE 10 ===
+) [GeV] had-vis (τ
+T Truth p
+100 200 300 400 500 600 700 800 900 1000
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Truth 1-prong
+Truth 3-prong
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Tracks association
+<µ>
+15 20 25 30 35 40 45 50 55 60
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Truth 1-prong
+Truth 3-prong
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Tracks association
+Figure 5: Efficiency to reconstruct and identify the correct number of  lepton tracks for truth had decays in 
+∗ → 
+events as a function of T(had-vis) (left) and the average number of simultaneous  -collisions hi (right).
+misidentified had candidates for the same identification efficiency is in the range 75–100%, depending
+on the had-vis T and the number of tracks. The RNN algorithm has not been changed for the Run 2 data
+reprocessing, except that it has been retrained with the had-vis candidates described in Section 4. The
+training procedure as well as the had identification performance are discussed below.
+The RNN architecture is the same as in Ref. [34], and it has three input branches, one for track variables,
+one for cluster variables and one for high level jet variables.
+The RNN-based  identification algorithm is trained using simulated samples of had-vis candidates
+introduced in Section 3. Reconstructed had-vis candidates from 
+∗ →  are required to be geometrically
+matched to had-vis at the truth level and correctly reconstructed as 1-prong or 3-prong decays. Reconstructed
+had-vis candidates not originating from had decays are taken from simulated di-jet samples and are required
+to be reconstructed as 1-prong or 3-prong had-vis candidates. Due to the distinct signatures of 1-prong and
+3-prong had decays, the training is performed separately for 1-prong and 3-prong had-vis candidates. The
+input variables used for the respective 1-prong and 3-prong RNNs are listed in Table 3. The sample of
+background had-vis candidates is reweighted, separately for 1-prong and 3-prong candidates, in bins of
+had-vis T to match the T distributions of truth had-vis in 
+∗ →  events. This procedure ensures that no
+T-dependent bias is introduced in the trained classifier as the dijet had-vis candidate T distribution is
+softer when compared to the signal had-vis sample.
+The available sample of had-vis candidates consists of approximately 14 million signal candidates and 83
+million background candidates after selection. The sample is split into dedicated samples for training of
+the network (50%), monitoring of training progress (10%) and performance evaluation (40%).
+The RNN training is performed in the same way as in Ref. [34], using Keras and TensorFlow. The output
+score of the RNN-based  identification for truth had-vis in 
+∗ →  samples is transformed to be uniform
+in [0, 1] in bins of reconstructed had-vis T and average number of interactions per bunch-crossing hi.
+The working points of the  identification are then defined by a requirement on the transformed (flattened)
+score. This procedure removes the dependency of the truth had-vis efficiency on the reconstructed had-vis
+T and hi.
+10
+
+=== PDF PAGE 11 ===
+The RNN uses a combination of low-level input variables for individual tracks and clusters that are
+associated to the had-vis candidate as well as several high-level observables calculated from track and
+calorimeter quantities. All the input variables introduced in Ref. [34] were used in the training, except of
+the seed-jet, 
+seed-jet
+T
+, the transverse and longitudinal impact parameters, 
+track
+0
+and 
+track
+0
+sin , respectively.
+Instead, the following variables were used: transverse momentum of the had-vis candidate, 
+had-vis
+T
+, the
+transverse and longitudinal impact parameters, 
+TJVA
+0
+and 
+TJVA
+0
+sin , together with their significances
+(
+TJVA
+0
+) and (
+TJVA
+0
+sin ), where TJVA is introduced in Section 4.1.
+11
+
+=== PDF PAGE 12 ===
+Table 3: Variables used as input in the had identification RNN . The last two columns indicate if a given variable was
+used in the 1-prong and/or 3-prong case.
+Variable Description 1-prong 3-prong
+Track inputs
+
+had-vis
+T
+Transverse momentum of the had-vis candidate X X
+
+track
+T
+Transverse momentum of each associated track X X
+Δ
+track Angular distance between the track and had-vis axis X X
+Δ
+track Angular distance between the track and had-vis axis X X
+IBL Number of hits in the innermost layer of the pixel detector X X
+pixel Number of hits in the pixel detector X X
+SCT Number of hits in the SCT X X
+
+TJVA
+0
+sin  Tau vertex longitudinal impact parameter X X
+
+TJVA
+0
+Tau vertex transverse impact parameter X X
+(
+TJVA
+0
+sin ) Tau vertex longitudinal impact parameter divided by its uncertainty X X
+(
+TJVA
+0
+) Tau vertex transverse impact parameter divided by its uncertainty X X
+Cluster inputs
+
+had-vis
+T
+Transverse momentum of the had-vis candidate X X
+
+cluster
+T
+TopoCluster transverse energy X X
+Δ
+cluster The angular distance between the TopoCluster and the had-vis axis X X
+Δ
+cluster The angular distance between the TopoCluster and the had-vis axis X X
+hcentrei Mean distance of the cluster shower centre from the calorimeter X X
+front face measured along the shower axis.
+h
+2
+i Mean distance of a cell from the shower centre along the shower axis X X
+
+
+
+2
+
+Second moment in the radial distance of cluster cells from the cluster axis. X X
+High-level inputs
+
+had-vis
+T
+Transverse momentum of the had-vis candidate X X
+
+Δ<0.1
+cent Fraction of transverse energy at EM scale deposited in the region X X
+Δ < 0.1 with respect to all energy deposited in Δ < 0.2
+around the had-vis candidate axis
+
+−1
+lead-track The transverse energy sum, calibrated at the EM energy scale, deposited in all X X
+cells belonging to TopoClusters in the core region, divided by the
+transverse momentum of the highest-T core track of the had-vis candidate.
+Δmax (track, had) The maximum Δ between a core track associated with X X
+the had-vis candidate and the had-vis direction.
+
+flight
+T
+The decay length of the secondary vertex in the transverse plane, calculated X
+with respect to the  vertex, divided by its estimated uncertainty
+
+iso
+track Scalar sum of the T of isolation tracks associated with the had-vis candidate X X
+divided by the sum of the pT of all the associated core and isolation tracks.
+
+EM
+track Ratio of the sum of cluster energy deposited in the electromagnetic part of X X
+the TopoClusters (pre-sampler, first and second layers of the LAr calorimeter)
+to the sum of the momentum of core tracks.
+
+EM+track
+T
+/T Ratio of the had-vis T, estimated using the vector sum of core track X X
+momenta and up to two most energetic EM clusters in the core region to
+the calorimeter-only measurement of had-vis T.
+
+EM+track Invariant mass of the system composed of the core tracks and up to two most X X
+energetic EM clusters in the core region and the four-momentum of an EM
+cluster is calculated assuming zero mass and using TopoCluster seed direction.
+
+track Invariant mass calculated from the sum of the four-momenta of all core X
+and isolation tracks, assuming a pion mass for each track
+The performance of the RNN had identification algorithm is evaluated on statistically independent test
+samples of 
+∗ →  (signal) and dijet (background) events as discussed in Section 3. Figure 6 shows the
+rejection of misidentified  candidates, defined as the inverse of the background selection efficiency, for
+misidentified had-vis depending on the truth had-vis selection efficiency, independently for 1-prong and
+3-prong had-vis candidates.
+12
+
+=== PDF PAGE 13 ===
+Figure 6: Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong had candidates from dijet
+background events as a function of the efficiency for truth had originating from 
+∗ →  events. The two lines refer
+to 1-prong and 3-prong had candidates and markers demonstrate individual working points (Very Loose, Loose,
+Medium, Tight).
+The residual dependencies of the reconstruction and identification efficiencies as a function of T and hi
+after applying the score flattening procedure are shown in Fig. 7 for 1-prong and 3-prong had-vis. Also
+displayed is the combined reconstruction and identification efficiency of the  lepton candidates. Signal
+efficiencies are summarised in Table 4 for each working point. Tighter working points are chosen for
+3-prong had-vis to reduce the rate of misidentified had candidates from dijet events.
+Table 4: List of defined working points with fixed truth had-vis selection efficiencies for the RNN classifier.
+Truth had efficiency
+Working point 1-prong 3-prong
+Tight 60% 45%
+Medium 75% 60%
+Loose 85% 75%
+Very Loose 95% 95%
+Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong had candidates from dijet events
+are shown in Fig. 8 as a function of T and hi. The rejection of misidentified had candidates increases
+towards high T and decreases toward high numbers of pile-up interactions, especially for the Tight
+working point.
+13
+
+=== PDF PAGE 14 ===
+) [GeV] had-vis (τ
+T Truth p
+100 200 300 400 500 600 700 800 900 1000
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Reco+Loose Loose
+Reco+Medium Medium
+Reco+Tight Tight
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Truth 1-prong
+Identification
+<µ>
+15 20 25 30 35 40 45 50 55 60
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Reco+Loose Loose
+Reco+Medium Medium
+Reco+Tight Tight
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Truth 1-prong
+Identification
+) [GeV] had-vis (τ
+T Truth p
+100 200 300 400 500 600 700 800 900 1000
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Reco+Loose Loose
+Reco+Medium Medium
+Reco+Tight Tight
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Truth 3-prong
+Identification
+<µ>
+15 20 25 30 35 40 45 50 55 60
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Reco+Loose Loose
+Reco+Medium Medium
+Reco+Tight Tight
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Truth 3-prong
+Identification
+Figure 7: Efficiency for had-vis identification (full symbols) and combined reconstruction and identification efficiency
+(open symbols) as a function of the had-vis T (left) and of the average number of interaction per bunch-crossing,
+hi, (right) for 1-prong (top) and 3-prong (bottom) had-vis candidates using the 
+∗ →  events. Values for Loose,
+Medium and Tight working points are shown.
+14
+
+=== PDF PAGE 15 ===
+) [GeV] had-vis (τ
+T p
+2 10 3 10
+ rejection had
+τ Misidentified 
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900 Loose
+Medium
+Tight
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+1-prong
+Identification
+<µ>
+15 20 25 30 35 40 45 50 55 60
+ rejection had
+τ Misidentified 
+0
+50
+100
+150
+200
+250
+300 Loose
+Medium
+Tight
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+1-prong
+Identification
+) [GeV] had-vis (τ
+T p
+2 10 3 10
+ rejection had
+τ Misidentified 
+0
+1000
+2000
+3000
+4000
+5000
+6000
+7000
+8000
+9000 Loose
+Medium
+Tight
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+3-prong
+Identification
+<µ>
+15 20 25 30 35 40 45 50 55 60
+ rejection had
+τ Misidentified 
+0
+500
+1000
+1500
+2000
+2500
+Loose
+Medium
+Tight
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+3-prong
+Identification
+Figure 8: Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong had candidates from dijet events
+as a function of had-vis T (left) and of the average number of interaction per bunch-crossing, hi, (right) for 1-prong
+(top) and 3-prong (bottom) had-vis candidates using dijet events. Values for Loose, Medium and Tight working
+points are shown.
+15
+
+=== PDF PAGE 16 ===
+6 Electron discrimination
+Electrons can be misidentifed as had-vis objects. In some analyses, electrons can be a significant background
+contribution after all the jet-related backgrounds are suppressed via kinematic, topological and had-vis
+identification criteria. Despite the similarities of the electron signature, especially with 1 prong had-vis,
+there are several properties that can be used to discriminate them, like the transition radiation that is
+emitted by highly relativistic particles -in particular electrons- when traversing the radiator material that
+surrounds the straws of the TRT detector, or the shape of the calorimetric energy deposits in combination
+with the track information. These properties have been used to define a new electron veto algorithm (eVeto)
+specialised in the rejection of electrons misidentified as had-vis.
+The BDT-based eVeto used during Run 2 [10] has been replaced by a novel approach based on RNN. A
+specific training for 3-prong  leptons has been added and the number of working points has increased from
+one to three. The RNN algorithm uses track and calorimeter information in a recurrent neural network
+to separate electrons from had-vis. The internal state of recurrent layers allows processing of sequences
+of a-priori unknown length. Reconstructed tracks and clusters of the had-vis object are processed as a
+T-ordered sequence.The eVeto algorithm is trained using simulated samples of had-vis candidates. Truth
+had-vis candidates from 
+∗ →  are required to be geometrically matched t had-vis at generator level and
+correctly reconstructed as one or three prong decays. For the background sample, reconstructed had-vis
+candidates from  →  processes described in Section 3 are used. In both cases, the had-vis are required
+to pass the Medium had identification working point. Dedicated neural networks are trained for the 1-prong
+and 3-prong cases, respectively. The reconstructed T of the had-vis is used to reweight separately the two
+cases. This procedure ensures that no T-dependent bias is introduced in the trained classifier. The RNN is
+trained using Keras and TensorFlow. The training is performed by minimising the binary cross-entropy
+loss function, measuring the classification performance, with respect to the randomly initialised weights of
+the network. For the minimization stochastic gradient descent (SGD) is used. The convergence of the
+optimisation is improved by the use of momentum [35] and a stepwise reduction of the optimiser’s learning
+rate when the loss on the monitoring sample stopped decreasing. The RNN employs both the features
+of the had-vis object, as well as the properties of the tracks and clusters associated to it. Figure 5 and 6
+show respectively the list of the RNN variables of the had-vis and of the tracks and clusters associated to
+it. Figure 9 shows the distribution of selected variables of the had-vis candidates for 
+∗ →  signal and
+ →  background, used in the RNN training.
+The input variables described in Table 5 and 6 are transformed by using the logarithm function to observables
+spanning multiple orders of magnitude, and are normalised to values between 0 and 1. This procedure
+makes them more suitable for the SGD minimization process. The output score of the algorithms is
+transformed in order to provide a uniform efficiency w.r.t T and  of the truth had-vis. Figure 10 shows
+the  lepton efficiency and electron rejection factor as a function of the average number of simultaneous
+ -collisions hi and of the T of 1-prong had-vis for the provided working points. For 3-prong had-vis,
+the  lepton efficiency and electron rejection factor as a function of hi and of T are shown in Fig. 11.
+Figure 12 shows the rejection of misidentified had-vis candidates, defined as the inverse of the background
+selection efficiency, as a function of the truth had-vis selection efficiency for 1-prong and 3-prong had-vis
+candidates. Three independent working points are defined for for 1-prong and 3-prong had-vis candidates.
+A rejection factor of about 300 (200) for electrons background is achieved while retaining a signal efficiency
+of 95% for 1-prong (3-prong) had-vis. The algorithm provides about a factor three better rejection for the
+same had-vis efficiency with the respect to the previous BDT-based eVeto [10].
+16
+
+=== PDF PAGE 17 ===
+Table 5: Variables of the had-vis used as input in the eVeto RNN and related to the -jet. The last two columns
+indicate if a given variable is used in the 1 prong and/or 3 prongs case.
+Variable Description 1 prong 3 prong
+
+seed-jet
+T
+Transverse momentum of the seed jet X X
+|
+lead-track| Pseudo-rapidity of the highest T track associated to the had-vis X X
+|Δ
+lead-track| Angular distance between the highest T track and had-vis axis X
+|Δ
+lead-track| Angular distance between the highest T track and had-vis axis X
+EM/EM+HAD Fraction of energy deposited in the EM calorimeter divided X
+the total energy deposited in the EM and HAD calorimeters
+
+HotShotWin
+T
+/
+lead-track
+T
+The maximum T deposit in a 0.012 × 0.1 window around X X
+the extrapolated track position divided
+by the T of the highest T track
+
+Δ<0.2
+cent Fraction of transverse energy deposited inside X
+a Δ < 0.2 cone around the had-vis axis
+with respect to all energy
+T/
+lead-track
+T
+Transverse energy T of the had-vis candidate divided by X X
+the transverse momentum of the track with highest T, 
+lead-track
+T
+HAD/
+lead-track
+T
+Energy deposited in the hadronic calorimeter divided by X
+the transverse momentum of the highest-T track
+(presampler + strip)/EM Energy deposited in the EM presampler and strip layers X X
+divided by the total energy deposited in the EM calorimeters
+
+
+
+2
+
+Second moment in the radial distance of X
+cluster cells from the shower axis
+hcentrei Mean distance of the cluster shower centre X
+from the calorimeter front face measured along the shower axis
+log(hi) Logarithm of the mean of the clusters energy density X
+presampler/EM+HAD Mean of clusters energy deposited in X X
+the EM presamplers divided by the energy
+deposited in the EM and HAD calorimeters
+EM-cluster/
+core-tracks
+T
+Ratio of the sum of cluster energy deposited X X
+in the track electromagnetic part of the TopoClusters
+(presampler, first and second layers of the EM calorimeter) to
+the sum of the momentum of the core tracks
+Δmax (track, had) The maximum Δ between a core track associated with X
+the had-vis candidate and the had-vis direction.
+Δavg (track, had) The average Δ between a core track associated with X
+the had-vis candidate and the had-vis direction.
+
+HT
+ Electron probability determined from high-threshold (HT) hits in the TRT X X
+17
+
+=== PDF PAGE 18 ===
+Table 6: Variables of the had-vis used as input in the eVeto RNN and related to the tracks and cluster variables. The
+last two columns indicate if a given variable was used in the 1-prong and/or 3-prong case.
+Variable Description 1-prong 3-prong
+
+track
+T
+Transverse momentum of the track X X
+|Δ(cluster, track)|  distance of the track and the nearest calorimeter cluster X X
+|Δ(cluster, track)|  distance of the track and with the nearest calorimeter cluster X X
+IBL Number of hits in the innermost layer of the pixel detector X X
+pixel Number of hits in the pixel detector X X
+SCT Number of hits in the SCT detector X X
+
+cluster
+T
+Cluster transverse energy X X
+
+cluster
+T
+Cluster transverse momentum X X
+|Δ
+cluster| The angular distance between the cluster and the had-vis axis X X
+|Δ
+cluster| The angular distance between the cluster and the had-vis axis X X
+
+2
+/
+
+
+
+2
+
+Distance of a cell from the shower centre X X
+along the shower axis divided by the corresponding mean
+centre/hcentrei Distance of the cluster shower centre from X X
+the calorimeter front face, measured along
+the shower axis divided by the corresponding mean
+
+1
+/
+
+
+
+1
+
+The first moment in the cluster energy density,  = 
+cluster/
+cluster
+, X X
+divided by the corresponding mean
+18
+
+=== PDF PAGE 19 ===
+(a) (b)
+(c) (d)
+Figure 9: Distribution of input variables of had-vis objects for 
+∗ →  signal and  →  background, used in the
+RNN training. For 1-prong had-vis objects, transverse energy of the had-vis divided by the transverse momentum of
+the highest-T track is shown in (a), and the energy deposited in the EM presampler and strip layers divided by the
+total energy deposited in the EM calorimeters (b). For 3-prong had-vis objects, the energy deposited in the hadronic
+calorimeter divided by the transverse momentum of the highest-T track is shown in (c), and the fraction of energy
+deposited in the EM calorimeter divided by the total energy deposited in the EM and hadronic calorimeters of the
+had-vis candidates is shown in (d).
+19
+
+=== PDF PAGE 20 ===
+(a) (b)
+(c) (d)
+Figure 10: Efficiency of the electron veto algorithm for 1-prong  lepton as a function of (a) the average number of
+simultaneous  -collisions hi and (b) T of 1-prong had-vis candidates. Electron rejection factors of the electron
+veto algorithm are shown as a function of (c) hi and (d) T of 1-prong had-vis candidates. Values for Loose, Medium
+and Tight working points are shown.
+20
+
+=== PDF PAGE 21 ===
+(a) (b)
+(c) (d)
+Figure 11: Efficiency of the electron veto algorithm for 3-prong  lepton as a function of (a) the average number of
+simultaneous  -collisions hi and (b) T of 3-prong had-vis candidates. Electron rejection factors of the electron
+veto algorithm are shown as a function of (c) hi and (d) T of 3-prong had-vis candidates. Values for Loose, Medium
+and Tight working points are shown.
+21
+
+=== PDF PAGE 22 ===
+0.8 0.85 0.9 0.95 1
+ efficiency had Truth τ
+1
+10
+2 10
+3 10
+4 10
+5 10
+Electron rejection
+ATLAS Simulation Preliminary
+s = 13 TeV
+Electron veto
+1-prong
+3-prong
+Figure 12: Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong had-vis candidates from  → 
+background events as a function of the efficiency for truth had-vis originating from 
+∗ →  events. The two lines
+refer to 1-prong and 3-prong had candidates and the markers correspond to individual working points (Loose,
+Medium, Tight).
+22
+
+=== PDF PAGE 23 ===
+7 Decay mode classification
+This section describes a DeepSet neural network (DeepSet NN) [36] algorithm used to classify the decay
+mode of the  lepton and to calculate the visible four-momentum of the reconstructed  lepton candidates,
+significantly improving the energy calibration of the reconstructed had candidates. The algorithm exploits
+the reconstruction of individual charged and neutral hadrons of the  lepton decays. The performance of
+the decay mode algorithm is optimised and evaluated using simulated 
+∗ →  events.
+The standard had reconstruction only reconstructs the number of charged hadrons in the had decay.
+However, various physics analyses [37, 38] rely on the identification of the had decay mode, as well as the
+energy and direction of possible 
+0 mesons in the decay. The had decay modes are listed in Table 7.
+The had Particle Flow (TPF) reconstruction [39] method was developed during Run 1 to reconstruct
+individual charged hadrons, 
+± or 
+±
+labelled as ℎ
+±
+, and neutral hadrons, 
+0
+, identified from the presence
+of photon clusters in the had decay. This method, later referred to as counting-based, is based on counting
+of ℎ
+±
+and photon clusters from 
+0 decays and reconstructs the momentum of had using these reconstructed
+hadrons. It significantly improves the energy resolution of had with T lower than 100 GeV with respect to
+the previously used particle flow method [40].
+Table 7: Five major decay modes of had and the corresponding branching ratio (B) with respect to total  lepton
+decays [41]. ℎ
+±
+stands for 
+± or 
+±
+(the latter contributes about 3%). Neutrinos are omitted. Decays with neutral
+kaons are neglected as they correspond to a branching ratio of < 1%. The labels are in a form of ‘ApBn’, where
+‘A’,‘B’ are the number of prongs (the ‘p’) and neutral pions (the ‘n’) and ‘X’ stands for more than one or more than
+zero accordingly.
+Decay mode Label B (w.r.t total  lepton decays)
+ℎ
+± 1p0n 11.5%
+ℎ
+±
+0 1p1n 25.9%
+ℎ
+± ≥ 2
+0 1pXn 10.6%
+3ℎ
+± 3p0n 9.46%
+3ℎ
+± ≥ 1
+0 3pXn 5.09%
+However, approximately 50% of had in ℎ
+± ≥ 2
+0 mode are misidentified as ℎ
+±
+0
+, when the photons from
+a 
+0 decay can not be resolved, and they are identified as a single photon. The previously used BDT-based
+decay mode classification algorithm [39] combines the kinematic and 
+0
+identification information from
+the selected ℎ
+±
+tracks, 
+0
+candidates and local maxima in EM1 layer of EM calorimeter. It utilises three
+BDTs to discriminate ℎ
+±
+against ℎ
+±
+0
+, ℎ
+±
+0
+against ℎ
+± ≥ 2
+0
+and 3ℎ
+±
+against 3ℎ
+± ≥ 1
+0
+.
+The BDT-based decay mode classification outperforms the counting-based approach by about 3.8% in
+terms of diagonal efficiency2
+, however, it does not exploit the information from all the relevant objects
+that are associated with the had. To further improve this, a DeepSet NN has been developed for Run 3
+data-taking and reprocessed Run 2 data. The DeepSet NN is able to consider all the objects associated
+with the had and process their information in a permutation invariant manner.
+According to the TPF reconstruction, four sets of objects that are associated with had are important in the
+decay mode classification:
+2 The diagonal efficiency is defined as the weighted average efficiency of the diagonal terms of the matrix.
+23
+
+=== PDF PAGE 24 ===
+• The ℎ
+±
+in had decay, obtained from the had-vis tracks (reconstructed had tracks);
+• The selected 
+0
+candidates that can come from the had decay or ℎ
+±
+remnants, pile-up, etc (referred
+to as 
+0
+candidates or Neutral PFOs);
+• The local energy maxima in the EM1 layer of EM calorimeter associated with a photon from the 
+0
+candidate decay (referred to as photon shots or shot PFOs);
+• The reconstructed conversion tracks produced by  → 
++
+
+−
+.
+Hereafter, an ‘object’ refers to a had track, 
+0
+candidates, photon shots or conversion track. For all
+four categories of objects, the kinematic variables are considered as input features and are summarised
+in Table 8.
+Table 8: Name and description of the kinematic variables and angular distances used as input features to the DeepSet
+NN decay mode classification. ‘Object’ refers to a had track, 
+0
+candidate, photon shot or conversion track. The had
+is the one that the objects are associated to by the TPF reconstruction. ‘TrackECal’ refers to the extrapolation of
+highest-T had track to EM calorimeter.
+Variable Description
+T(had) T of the had (using calorimeter based had-vis energy scale)
+T(object) T of the object
+Δ(object, had) Distance between the object and had in 
+Δ(object, had) Distance between the object and had in 
+Δ(object, trackECal) Distance between the object and the extrapolation of highest-T had track
+to EM calorimeter in 
+Δ(object, trackECal) Distance between the object and the extrapolation of highest-T had track
+to EM calorimeter in 
+The variables can be visualised by a had decay display as shown in Fig. 13 for Δ(object, had) and
+Δ(object, had)
+3
+. The objects represents the relative position of the object in the Δ
+0–Δ
+0 plane, with
+radius proportional to q
+T (object)
+T (had)
+, and different colours correspond to different types of objects. As a
+reference, the grey rings demonstrate the original Δ =
+p
+Δ
+2 + Δ
+2 at several values. The DeepSet NN
+is able to learn the structure of the objects as displayed and it is found that the preliminary DeepSet NN
+which only takes into account the kinematic variables already outperforms the BDT model by about 3% in
+terms of diagonal efficiency.
+For the had and conversion tracks, the impact parameters |
+TJVA
+0
+|, closest distance of the track to the had
+vertex in the transverse plane, and |
+TJVA
+0
+sin | the  position of the point of closest distance in – plane,
+are utilised. The corresponding impact parameter significance Sig(0) and the longitudinal closest distance
+significance Sig(0 sin()) are also exploited, which correspond to the ratios of the impact parameters and
+their resolutions. Including aforementioned variables results in about 2% improvements in the diagonal
+efficiency.
+For the 
+0
+candidates, the variables which distinguish clusters dominated by electromagnetic and hadronic
+interactions [42] are exploited. In particular, the energy density and shower shape of the topo-cluster
+of the 
+0
+candidates are added to distinguish the 
+0 originating from the had decay and from the other
+3 The prime in Δ
+0
+and Δ
+0
+indicates that the variables are transformed from the original Δ and Δ for better visualisation,
+where Δ
+0 =
+p
+0.4
+2 − (0.4
+2 − 
+2),( = , ).
+24
+
+=== PDF PAGE 25 ===
+0.4 0.2 0.0 0.2 0.4
+0(object, had)
+0.4
+0.2
+0.0
+0.2
+0.4
+0(o
+bj
+e
+c
+t, h
+a
+d)
+Generated h
+±
+R = 0.10
+R = 0.20
+R = 0.40
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+0.4 0.2 0.0 0.2 0.4
+0(object, had)
+0.4
+0.2
+0.0
+0.2
+0.4
+0(o
+bj
+e
+c
+t, h
+a
+d)
+Generated 3h
+±
+R = 0.10
+R = 0.20
+R = 0.40
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+0.4 0.2 0.0 0.2 0.4
+0(object, had)
+0.4
+0.2
+0.0
+0.2
+0.4
+0(o
+bj
+e
+c
+t, h
+a
+d)
+Generated h
+± 0
+R = 0.10
+R = 0.20
+R = 0.40
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+0.4 0.2 0.0 0.2 0.4
+0(object, had)
+0.4
+0.2
+0.0
+0.2
+0.4
+0(o
+bj
+e
+c
+t, h
+a
+d)
+Generated 3h
+± 1
+0
+R = 0.10
+R = 0.20
+R = 0.40
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+0.4 0.2 0.0 0.2 0.4
+0(object, had)
+0.4
+0.2
+0.0
+0.2
+0.4
+0(o
+bj
+e
+c
+t, h
+a
+d)
+Generated h
+± 2
+0
+R = 0.10
+R = 0.20
+R = 0.40
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+0.4 0.2 0.0 0.2 0.4
+0(object, had)
+0.4
+0.2
+0.0
+0.2
+0.4
+0(o
+bj
+e
+c
+t, h
+a
+d)
+Generated h
+±
+R = 0.10
+R = 0.20
+R = 0.40
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+0.4 0.2 0.0 0.2 0.4
+0(object, had)
+0.4
+0.2
+0.0
+0.2
+0.4
+0(o
+bj
+e
+c
+t, h
+a
+d)
+Generated h
+±
+R = 0.10
+R = 0.20
+R = 0.40
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs
+had Tracks
+Conversion Tracks
+Neutral PFOs
+Shot PFOs Figure 13: Visualisation of the angular distances in displays of various truth had decay modes with the simulated
+
+∗ →  sample. The area of the circles is proportional to the momentum (energy) of the tracks (calorimetric
+objects). Detailed explanation of the figure can be found in the text.
+sources. Definition of these variables are outlined in Table 9, where the cluster moment of a degree  for
+an observable  is defined as
+h
+
+i =
+1
+norm
+Õ
+{|>0}
+
+
+, norm =
+Õ
+{|>0}
+
+, (2)
+in which  represents the sum over the EM calorimeter cells with positive energy.
+In summary, DeepSets NN input features consist of kinematics, track impact parameters and cluster
+properties for had tracks (10 variables), conversion tracks (10 variables), 
+0
+candidates (22 variables) and
+photon shots (6 variables). For each type of objects, only the leading  objects are considered, ordered in
+T. The maximum number of objects is three, four, eight and six for had tracks, conversion tracks, 
+0
+candidates and photon shots, respectively.
+The implementation and training of the DeepSet is powered by deep learning library Keras with
+TensorFlow as backend. The architecture and training parameters are summarised in Fig. 14, where the
+number of nodes and training parameters are optimised. Only the had with truth and reconstructed T
+greater than 15 GeV, and geometrically matched to the truth-level visible decay products of  leptons are
+25
+
+=== PDF PAGE 26 ===
+Table 9: Name and description of the cluster classification variables for 
+0
+canddiates as input features to the DeepSet
+NN decay mode classification. The ones with log are transformed to the logarithm values (log10) in training and
+evaluation. More details are described in Ref. [42].
+Variable Description
+
+
+
+1
+
+First moment in  in cluster shower axis
+log(
+
+
+
+2
+
+) Second moment in the radial distance of cluster cells from the shower axis
+Δ Distance in  between the EM shower axis and the vector pointing
+from the primary vertex to the centre of the shower
+log(centre) Distance of the cluster shower centre from the calorimeter front face
+measured along the shower axis
+
+
+
+2
+
+Mean distance of a cell from the shower centre along the shower axis
+log(
+
+
+
+2
+
+) Second moment in the cluster energy density, where  = 
+cluster/
+cluster
+core Sum of energy fractions in the most energetic cells per sampling
+
+EM1
+core Same as core but only consider EM1
+pos,EM1 Number of cells with positive energy in EM1
+pos,EM2 Number of cells with positive energy in EM2
+EM1 Energy in the EM1 layer
+EM2 Energy in the EM2 layer
+
+
+
+1
+EM1
+
+w.r.t. cluster First moment in  in EM1 with respect to the cluster
+
+
+
+1
+EM2
+
+w.r.t. cluster First moment in  in EM2 with respect to the cluster
+log(
+
+
+
+2
+EM1
+
+) w.r.t. cluster Second moment in  in EM1 with respect to the cluster
+log(
+
+
+
+2
+EM2
+
+) w.r.t. cluster Second moment in  in EM2 with respect to the cluster
+used in for the training. The output NN score is a vector of five probabilities corresponding to each decay
+mode.
+The decay mode with largest probability in the DeepSet output and has a reconstructed number of prong
+consistent with that based on the had track classification 4
+is assigned as the reconstructed decay mode.
+The performance of decay mode classification is evaluated with independent simulated 
+∗ →  samples
+against the samples for training. The had for evaluation need to pass the T,  and number of prong
+(for both truth-level and reconstruction-level variables) requirements and the Medium had identification
+working point. The performance of BDT decay mode classifier is evaluated with the same samples and
+selections. The efficiency matrices are shown in Fig. 15 comparing the performance of BDT and DeepSet
+NN. The DeepSet NN outperforms the BDT by 9% on the diagonal efficiency, showing a significant
+improvement in all decay modes.
+Figure 16 summarises the efficiency of identifying the correct decay modes as functions of the T(had-vis)
+and the average number of simultaneous  -collisions hi. They correspond to the diagonal and elements
+in the efficiency matrix for the reconstructed DeepSet NN decay mode (right plot in Fig. 15).
+4 The fraction of had-vis for which the result is different is around 1%.
+26
+
+=== PDF PAGE 27 ===
+𝜌𝜌[∑ 𝜙𝜙(𝜏𝜏had tracks)]
+𝜙𝜙:10, 20, 20, 20; 𝜌𝜌: 20, 20, 20
+𝜌𝜌[∑ 𝜙𝜙( neutral PFOs)]
+𝜙𝜙:22, 80, 80, 60; 𝜌𝜌: 60, 60, 40
+𝜌𝜌[∑ 𝜙𝜙( conversion tracks)]
+𝜙𝜙:10, 20, 20, 20; 𝜌𝜌: 20, 20, 20
+𝜌𝜌[∑ 𝜙𝜙( shot PFOs)]
+𝜙𝜙:6, 20, 20, 20; 𝜌𝜌: 20, 20, 20
+Batch Normalisation
+softmax
+DeepSets Merge Output
+ℎ
+±
+ℎ
+±
+𝜋𝜋
+0
+ℎ
+±
+≥
+2
+𝜋𝜋
+0
+3
+ℎ
+± 3ℎ
+±
+≥
+1
+𝜋𝜋
+0
+Final extraction: 100, 100, 40
+Parameter Value
+Epochs 100*
+Batch size 1000
+Optimizer Adam
+Learning rate 0.01*
+β1, β2 0.9, 0.999
+Activation function ReLU
+Training Parameters
+Figure 14: Architecture and training parameters of the DeepSet NN decay mode classifier. ,  and the layers after
+merging are feed forward NNs. The numbers indicate the number of nodes in each layers. The epoch and learning
+rate represent the maximum values, more details are provided in text. Adam is a stochastic gradient descent (SGD)
+optimisation algorithm, which is self adaptive in terms of estimating first and second order moments. 1 and 2 are
+the decay rates for first and second order moment estimates. More information about the parameters can be found in
+Keras documentation [32].
+Truth tau decay mode
+1p0n 1p1n 1pXn 3p0n 3pXn
+BDT tau decay mode
+1p0n
+1p1n
+1pXn
+3p0n
+3pXn
+81.6 9.4 2.4 1.7 1.0
+16.3 78.7 56.1 1.7 6.5
+1.9 11.4 41.1 0.6 3.2
+0.1 0.1 0.0 90.8 33.9
+0.0 0.3 0.3 5.1 55.4
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Diagonal efficiency: 72.9%
+ identification had Medium τ
+Truth tau decay mode
+1p0n 1p1n 1pXn 3p0n 3pXn
+DeepSet NN tau decay mode
+1p0n
+1p1n
+1pXn
+3p0n
+3pXn
+89.6 6.6 1.1 2.0 0.6
+9.4 86.3 38.8 1.4 6.5
+0.5 6.3 59.3 0.1 2.2
+0.4 0.2 0.1 92.2 25.6
+0.0 0.6 0.7 4.2 65.1
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+Diagonal efficiency: 81.7%
+ identification had Medium τ
+Figure 15: Efficiency matrix for reconstructing the same  lepton decay mode as the truth decay mode with BDT-based
+(left) and DeepSet NN (right) classifier in 
+∗ →  events. Only had-vis candidates with T > 20 GeV and which
+pass Medium had identification working point are considered. The values along each column sum 100%, such that
+reconstruction efficiencies are given for each individual truth tau decay mode. The diagonal efficiency is defined as
+the weighted average of the correctly identified truth decay modes.
+27
+
+=== PDF PAGE 28 ===
+) [GeV] had-vis (τ
+T p
+50 100 150 200 250 300
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4 ± h
+0 π
+± h
+0 ≥2π
+± h
+± 3h
+0 ≥1π
+± 3h
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+ identification had Medium τ
+Decay mode
+<µ>
+15 20 25 30 35 40 45 50 55 60
+Efficiency
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4 ± h
+0 π
+± h
+0 ≥2π
+± h
+± 3h
+0 ≥1π
+± 3h
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+ identification had Medium τ
+Decay mode
+Figure 16: Efficiency of identifying the correct decay modes with the DeepSet NN classifier as functions of the
+T(had-vis) and the average number of simultaneous  -collisions hi (right) in 
+∗ →  events. Only had-vis
+candidates with T > 20 GeV and which pass Medium had identification working point are considered.
+28
+
+=== PDF PAGE 29 ===
+8 Energy calibration
+At the seeding step, the energy of the had-vis candidates is calibrated using the local cell signal weighting
+(LC) method [23, 43], designed to give the correct energy scale for charged pions produced in the interaction
+point. The LC caibration reduces the fluctuations for the calorimeter non-compensation and for the energy
+deposited in the dead material or outside TopoClusters. Further corrections are derived using simulations
+to improve the response and the energy resolution.
+The strategy for the baseline had-vis energy scale (TES) calibration is described in [10]. For the baseline
+TES estimate, 
+LC
+T
+, LC-calibrated sum of energy of all TopoClusters within Δ < 0.2 of the had-vis
+candidate, subtract the energy contribution originating from pileup interactions (linearly versus the number
+of primary vertices) and afterwards apply the detector response correction.
+Another estimate of the TES relies on the TPF objects. Reconstructed tracks are used to identify charged
+pions and subtract their deposit in the calorimeters. This leads to a momentum measurement of the charged
+component of the had-vis from the tracking system that is combined to a calorimetric measurement of the
+neutral component. The two estimates of the TES are then combined using a weighted average of the
+baseline T, 
+LC
+T
+, and substructure (TPF), 
+TPF
+T
+. As the resolution of 
+TPF
+T
+is better than 
+LC
+T
+at low T, and
+vice-versa at higher T, the weights used to parametrised the combined transverse momentum, 
+Comb
+T
+, as a
+function of the resolution of the respective TES calibrations. The weight gives priority to the calibration
+with best expected energy resolution. The combined TES is parametrised versus T, five bins in , and the
+five had decay modes. When no parametrisation is available (e.g. 2-prong had-vis candidates), 
+Comb
+T
+is set
+to be equal to the 
+LC
+T
+.
+The final TES calibration employs a Boosted Regression Tree (BRT) whose target is truth 
+vis
+T
+/
+Comb
+T
+,
+where truth 
+vis
+T
+is the T(had-vis), which includes possible initial state radiation and final state radiation
+photons in the cone. The BRT algorithm was first developed at the beginning of Run 2 of the LHC [44],
+and further improved before the beginning of Run 3. It exploits, among its inputs, the aformentioned TES
+caibration output to further refine the energy calibration accuracy. The input variables used in the BRT are
+listed and described in Table 10.
+Figure 17 shows the had-vis energy resolution of the calorimeter, substructure, combined and the final
+(BRT-based) had-vis energy calibration for 1-prong (left) and 3-prong (right) had-vis candidates which pass
+Medium had identification working point. The BRT-based  energy calibration provides the best resolution
+over the full T range.
+29
+
+=== PDF PAGE 30 ===
+Table 10: List of input variables used in the boosted regression tree for had-vis energy calibration. The cluster
+variables are the energy weighted averages over the jet seed constituents within the  lepton cone, as described in
+detail in Ref. [45].
+Variable Description
+PV Number of primary vertices in the event.
+ Average number of interactions per bunch crossing.
+hcentrei Mean distance of the cluster shower centre from the calorimeter
+front face measured along the shower axis
+
+
+
+2
+
+Mean distance of a cell
+from the shower centre along the shower axis
+
+
+
+1
+
+Mean of the first moment in the cluster energy density,
+ = 
+cluster/
+cluster, where 
+cluster and 
+cluster represent
+the energy and volume of the cluster, respectively
+presampler Mean fraction of cluster energy deposited in
+the barrel and endcap presamplers
+EM Classification probability of the cluster to be EM-like,
+as described in Ref. [45]
+track Number of tracks associated with the had-vis
+
+0 Number of reconstructed neutral pions associated with the had-vis
+ Relative difference of the total charged pion energy,
+charged, and the total neutral pion energy, neutral:
+ = (charged − neutral)/(charged + neutral)
+calo Calorimeter-based (baseline) pseudorapidity
+
+Comb
+T
+Transverse momentum interpolated from calorimetric
+corrections to energy measurement and TPF reconstruction
+
+EM
+T
+/
+LC
+T
+Ratio of the calorimetric energy at the EM scale
+to the local hadron calibration transverse momentum 
+LC
+T
+
+LC
+T
+/
+Comb
+T
+Ratio of the local hadron calibration transverse
+momentum to 
+Comb
+T
+
+TPF
+T
+/
+Comb
+T
+Ratio of the TPF reconstruction transverse momentum,
+
+TPF
+T
+, to 
+Comb
+T
+TPF BDT Values BDT values of the TPF algorithm for 1p0n vs 1p1n, 1p1n vs 1pXn,
+and 3p0n vs 3pXn discrimination
+30
+
+=== PDF PAGE 31 ===
+) [GeV] had-vis (τ
+T Truth p
+100 200 300 400 500 600 700 800 900 1000
+ [%] truth
+T / p reco
+T Resolution: 68% width of p
+0
+5
+10
+15
+20
+25 Calorimeter Combined
+Substructure Final
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+ identification had Truth 1-prong, medium τ
+Energy calibration
+) [GeV] had-vis (τ
+T Truth p
+100 200 300 400 500 600 700 800 900 1000
+ [%] truth
+T / p reco
+T Resolution: 68% width of p
+0
+10
+20
+30
+40
+50
+60 Calorimeter Combined
+Substructure Final
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+ identification had Truth 3-prong, medium τ
+Energy calibration
+<µ>
+15 20 25 30 35 40 45 50 55 60
+ [%] truth
+T / p reco
+T Resolution: 68% width of p
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20 Calorimeter Combined
+Substructure Final
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+ identification had Truth 1-prong, medium τ
+Energy calibration
+<µ>
+15 20 25 30 35 40 45 50 55 60
+ [%] truth
+T / p reco
+T Resolution: 68% width of p
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+Calorimeter Combined
+Substructure Final
+ATLAS Simulation
+Preliminary
+s = 13 TeV
+ identification had Truth 3-prong, medium τ
+Energy calibration
+Figure 17: The resolution of the calorimeter, substructure, combined and final (BRT-based) had-vis energy calibration
+shown for 1-prong (left) and 3-prong (right) had-vis candidates which pass Medium had identification working point
+using the 
+∗ →  events. The resolution, shown as a function of the truth T(had-vis) (top) and hi, is defined
+as half of the 68% central intervals of the ratio of the calibrated T to the truth visible T. Only the statistical
+uncertaintes are shown.
+31
+
+=== PDF PAGE 32 ===
+9 Conclusions
+The reconstruction, identification and energy calibration of hadronically decaying  leptons has been
+updated for the beginning of Run 3 data-taking and for Run 2 reprocessed data of the Large Hadron
+Collider. The algorithms have been tuned on simulated samples using Run 2 conditions and provide
+nominal identification operation points with increasing background rejection. Significant improvements
+over the previously employed methods are achieved in the reconstruction, identification and reconstruction
+of hadronically decaying  leptons. The track classifier efficiency for  lepton tracks is expected to be
+95% (93%) for 1-prong (3-prong) had-vis. The average track association efficiency for 1-prong (3-prong)
+ leptons improved from about 70% to more than 90% (from 65% to about 75%) for 1-prong (3-prong)
+ leptons compared to the algorithm deployed at the beginning of Run 2. The identification efficiencies
+for the chosen operating points are 95% (95%), 85% (85%), 75% (60%), and 60% (45%) for 1-prong
+(3-prong) had-vis. The improvement in rejecting misidentified had candidates is in the range 50–100% with
+respect of the RNN identification algorithm deployed by the end of Run 2. Rejection against electrons is
+achieved using three working points providing efficiency in the range of 85%–95% (90%–98%) for 1-prong
+(3-prong) had-vis and the inverse background efficiency is expected to be between 2000–300 (200–90),
+representing a factor three improvement with the respect to the previous BDT-based algorithm. The decay
+mode classification, based on a Neural Network algorithm, achieves a diagonal efficiency of about 82%,
+about 9% higher than BDT algorithm used during Run 2. Finally, the had-vis energy scale calibration,
+based on a Boosted Regression Tree algorithm, has been retuned, and the had-vis energy resolution ranges
+between 4.5%–6% (4%–5%) for 1-prong (3-prong) had-vis for an average number of interactions per bunch
+crossing in the range 1–70.
+References
+[1] Belle Collaboration, Measurement of the -lepton Lifetime at Belle,
+Phys. Rev. Lett. 112 (2014) 031801, arXiv: 1310.8503 [hep-ex] (cit. on p. 2).
+[2] ATLAS Collaboration, Measurement of  polarisation in /
+∗ →  decays in proton–proton
+collisions at √
+ = 8 TeV with the ATLAS detector, Eur. Phys. J. C 78 (2018) 163,
+arXiv: 1709.03490 [hep-ex] (cit. on p. 2).
+[3] ATLAS Collaboration, Measurements of Higgs boson production cross-sections in the  → 
++
+
+−
+decay channel in   collisions at √
+ = 13 TeV with the ATLAS detector, (2022),
+arXiv: 2201.08269 [hep-ex] (cit. on p. 2).
+[4] ATLAS Collaboration, Observation of the  →  process in Pb+Pb collisions and constraints
+on the -lepton anomalous magnetic moment with the ATLAS detector, (2022),
+arXiv: 2204.13478 [hep-ex] (cit. on p. 2).
+[5] ATLAS Collaboration, Search for Heavy Higgs Bosons Decaying into Two Tau Leptons with the
+ATLAS Detector Using   Collisions at √
+ = 13 TeV, Phys. Rev. Lett. 125 (2020) 051801,
+arXiv: 2002.12223 [hep-ex] (cit. on p. 2).
+[6] ATLAS Collaboration, Search for resonant and non-resonant Higgs boson pair production in the
+¯ +
+
+− decay channel using 13 TeV   collision data from the ATLAS detector,
+ATLAS-CONF-2021-030, 2021, url: https://cds.cern.ch/record/2777236 (cit. on p. 2).
+32
+
+=== PDF PAGE 33 ===
+[7] ATLAS Collaboration,
+Search for charged-lepton-flavour violation in -boson decays with the ATLAS detector,
+Nature Phys. 17 (2021) 819, arXiv: 2010.02566 [hep-ex] (cit. on p. 2).
+[8] ATLAS Collaboration, Search for new phenomena in   collisions in final states with tau leptons,
+-jets, and missing transverse momentum with the ATLAS detector,
+Phys. Rev. D 104 (2021) 112005, arXiv: 2108.07665 [hep-ex] (cit. on p. 2).
+[9] ATLAS Collaboration, The ATLAS Experiment at the CERN Large Hadron Collider,
+JINST 3 (2008) S08003 (cit. on p. 2).
+[10] ATLAS Collaboration, Reconstruction, Energy Calibration, and Identification of Hadronically
+Decaying Tau Leptons in the ATLAS Experiment for Run-2 of the LHC, ATL-PHYS-PUB-2015-045,
+2015, url: https://cds.cern.ch/record/2064383 (cit. on pp. 2, 8, 9, 16, 29).
+[11] ATLAS Collaboration, ATLAS Insertable B-Layer: Technical Design Report,
+ATLAS-TDR-19; CERN-LHCC-2010-013, 2010,
+url: https://cds.cern.ch/record/1291633 (cit. on p. 2),
+Addendum: ATLAS-TDR-19-ADD-1; CERN-LHCC-2012-009, 2012, url:
+https://cds.cern.ch/record/1451888.
+[12] B. Abbott et al., Production and integration of the ATLAS Insertable B-Layer,
+JINST 13 (2018) T05008, arXiv: 1803.00844 [physics.ins-det] (cit. on p. 2).
+[13] New Small Wheel Technical Design Report, tech. rep.,
+All figures including auxiliary figures are available at
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/UPGRADE/CERN-LHCC-2013-006/:
+CERN, 2013, url: http://cds.cern.ch/record/1552862 (cit. on p. 3).
+[14] ATLAS Collaboration, The ATLAS Collaboration Software and Firmware,
+ATL-SOFT-PUB-2021-001, 2021, url: https://cds.cern.ch/record/2767187 (cit. on p. 3).
+[15] T. Sjöstrand et al., An introduction to PYTHIA 8.2, Comput. Phys. Commun. 191 (2015) 159,
+arXiv: 1410.3012 [hep-ph] (cit. on p. 3).
+[16] ATLAS Collaboration, ATLAS Pythia 8 tunes to 7 TeV data, ATL-PHYS-PUB-2014-021, 2014,
+url: https://cds.cern.ch/record/1966419 (cit. on p. 3).
+[17] R. D. Ball et al., Parton distributions with LHC data, Nucl. Phys. B 867 (2013) 244,
+arXiv: 1207.1303 [hep-ph] (cit. on p. 3).
+[18] D. J. Lange, The EvtGen particle decay simulation package, Nucl. Instrum. Meth. A 462 (2001) 152
+(cit. on p. 3).
+[19] ATLAS Collaboration, Characterization of Interaction-Point Beam Parameters Using the  
+Event-Vertex Distribution Reconstructed in the ATLAS Detector at the LHC,
+ATLAS-CONF-2010-027, 2010, url: https://cds.cern.ch/record/1277659 (cit. on p. 4).
+[20] ATLAS Collaboration, The ATLAS Simulation Infrastructure, Eur. Phys. J. C 70 (2010) 823,
+arXiv: 1005.4568 [physics.ins-det] (cit. on p. 4).
+[21] GEANT4 Collaboration, S. Agostinelli et al., Geant4 – a simulation toolkit,
+Nucl. Instrum. Meth. A 506 (2003) 250 (cit. on p. 4).
+[22] M. Cacciari, G. P. Salam and G. Soyez, The anti-
+jet clustering algorithm, JHEP 04 (2008) 063,
+arXiv: 0802.1189 [hep-ph] (cit. on p. 4).
+33
+
+=== PDF PAGE 34 ===
+[23] ATLAS Collaboration,
+Topological cell clustering in the ATLAS calorimeters and its performance in LHC Run 1,
+Eur. Phys. J. C 77 (2017) 490, arXiv: 1603.02934 [hep-ex] (cit. on pp. 4, 29).
+[24] ATLAS Collaboration, Identification and energy calibration of hadronically decaying tau leptons
+with the ATLAS experiment in   collisions at √
+ = 8 TeV, Eur. Phys. J. C 75 (2015) 303,
+arXiv: 1412.7086 [hep-ex] (cit. on p. 4).
+[25] Software Performance of the ATLAS Track Reconstruction for LHC Run 3, tech. rep.,
+All figures including auxiliary figures are available at
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2021-012:
+CERN, 2021, url: https://cds.cern.ch/record/2766886 (cit. on p. 4).
+[26] ATLAS Collaboration, Development of ATLAS Primary Vertex Reconstruction for LHC Run 3,
+ATL-PHYS-PUB-2019-015, 2019, url: https://cds.cern.ch/record/2670380 (cit. on p. 5).
+[27] ATLAS Collaboration, Performance of jet substructure techniques for large- jets in proton–proton
+collisions at √
+ = 7 TeV using the ATLAS detector, JHEP 09 (2013) 076,
+arXiv: 1306.4945 [hep-ex] (cit. on p. 6).
+[28] M. Cacciari, G. P. Salam and G. Soyez, The Catchment Area of Jets, JHEP 04 (2008) 005,
+arXiv: 0802.1188 [hep-ph] (cit. on p. 6).
+[29] M. Cacciari and G. P. Salam, Pileup subtraction using jet areas, Phys. Lett. B 659 (2008) 119,
+arXiv: 0707.1378 [hep-ph] (cit. on p. 6).
+[30] Prajit Ramachandran and Barret Zoph and Quoc V. Le, Searching for Activation Functions, 2017,
+arXiv: 2110.04836 [hep-ex] (cit. on pp. 6, 7).
+[31] I. Goodfellow, Y. Bengio and A. Courville,
+‘6.2.2.3 Softmax Units for Multinoulli Output Distributions’, Deep Learning 180 (cit. on p. 6).
+[32] F. Chollet et al., Keras, 2015, url: https://keras.io (cit. on pp. 7, 27).
+[33] M. Abadi et al., TensorFlow: Large-Scale Machine Learning on Heterogeneous Systems,
+ttps://www.tensorflow.org, 2015 (cit. on p. 7).
+[34] ATLAS Collaboration,
+Identification of hadronic tau lepton decays using neural networks in the ATLAS experiment,
+ATL-PHYS-PUB-2019-033, 2019, url: https://cds.cern.ch/record/2688062
+(cit. on pp. 9–11).
+[35] N. Qian, On the momentum term in gradient descent learning algorithms. Neural networks,
+International Neural Network Society 12(1) (1999) 145 (cit. on p. 16).
+[36] M. Zaheer et al., Deep Sets,
+Advances in Neural Information Processing Systems (NIPS 2017) 30 (2017), arXiv: 1703.06114
+(cit. on p. 23).
+[37] ATLAS Collaboration,
+Probing the CP nature of the Higgs boson coupling to  leptons at HL-LHC,
+ATL-PHYS-PUB-2019-008, 2019, url: https://cds.cern.ch/record/2665667
+(cit. on p. 23).
+[38] CMS Collaboration, Analysis of the CP structure of the Yukawa coupling between the Higgs boson
+and  leptons in proton–proton collisions at √
+ = 13 TeV, (2021), arXiv: 2110.04836 [hep-ex]
+(cit. on p. 23).
+34
+
+=== PDF PAGE 35 ===
+[39] ATLAS Collaboration,
+Reconstruction of hadronic decay products of tau leptons with the ATLAS experiment,
+Eur. Phys. J. C 76 (2016) 295, arXiv: 1512.05955 [hep-ex] (cit. on p. 23).
+[40] S. Fleischmann, Tau lepton reconstruction with energy flow and the search for R-parity violating
+supersymmetry at the ATLAS experiment, PhD thesis: Bonn U., 2011,
+url: https://cds.cern.ch/record/1504815 (cit. on p. 23).
+[41] Particle Data Group, Review of Particle Physics,
+Progress of Theoretical and Experimental Physics 2020 (2020), 083C01, issn: 2050-3911
+(cit. on p. 23).
+[42] T. Barillari et al., Local Hadronic Calibration, tech. rep., CERN, 2008,
+url: https://cds.cern.ch/record/1112035 (cit. on pp. 24, 26).
+[43] ATLAS Collaboration, Determination of jet calibration and energy resolution in proton–proton
+collisions at √
+ = 8 TeV using the ATLAS detector, Eur. Phys. J. C 80 (2020) 1104,
+arXiv: 1910.04482 [hep-ex] (cit. on p. 29).
+[44] ATLAS Collaboration, Measurement of the tau lepton reconstruction and identification
+performance in the ATLAS experiment using   collisions at √
+ = 13 TeV,
+ATLAS-CONF-2017-029, 2017, url: https://cds.cern.ch/record/2261772 (cit. on p. 29).
+[45] T. Barillari et al., Local Hadronic Calibration, ATL-LARG-PUB-2009-001-2, 2008,
+url: https://cds.cern.ch/record/1112035 (cit. on p. 30).
+35

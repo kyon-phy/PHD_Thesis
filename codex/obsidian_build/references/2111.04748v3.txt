@@ -1,0 +1,2049 @@
+=== PDF PAGE 1 ===
+IPMU21–0074, KEK–TH–2366, OU–HET–1115, P3H–21–090, TTP21–046
+Non-resonant new physics search at the LHC for the
+b →cτν anomalies
+Motoi Endo, a,b,c Syuhei Iguro, c,d,e, f Teppei Kitahara, g,h Michihisa Takeuchi,h,i and
+Ryoutaro Watanabe j
+aKEK Theory Center , IPNS, KEK, Tsukuba 305–0801, Japan
+bThe Graduate University of Advanced Studies (Sokendai), Tsukuba 305–0801, Japan
+cKavli Institute for the Physics and Mathematics of the Universe (WPI), The University of Tokyo Institutes
+for Advanced Study, The University of Tokyo, Kashiwa 277–8583, Japan
+dDepartment of Physics, Nagoya University, Nagoya 464–8602, Japan
+eInstitute for Theoretical Particle Physics (TTP), Karlsruhe Institute of Technology (KIT), Engesserstraße
+7, 76131 Karlsruhe, Germany
+f Institute for Astroparticle Physics (IAP), Karlsruhe Institute of Technology (KIT), Hermann-von-
+Helmholtz-Platz 1, 76344 Eggenstein-Leopoldshafen, Germany
+gInstitute for Advanced Research, Nagoya University, Nagoya 464–8601, Japan
+hKobayashi-Maskawa Institute for the Origin of Particles and the Universe, Nagoya University, Nagoya
+464–8602, Japan
+iDepartment of Physics, Osaka University, Toyonaka 560–0043, Japan
+jINFN, Sezione di Pisa, Largo Bruno Pontecorvo 3, I-56127 Pisa, Italy
+E-mail: motoi.endo@kek.jp, igurosyuhei@gmail.com,
+teppeik@kmi.nagoya-u.ac.jp, m.takeuchi@het.phys.sci.osaka-u.ac.jp,
+wryou1985@gmail.com
+ABSTRACT : Motivated by theb→ cτν anomalies, we study non-resonant searches for new physics
+at the large hadron collider (LHC) by considering ﬁnal states with an energetic and hadronically
+decaying τ lepton, a b-jet and large missing transverse momentum ( pp→ τhb + Emiss
+T ). Such
+searches can be useful to probe new physics contributions to b→ cτν. They are analyzed not only
+within the dimension-six effective ﬁeld theory (EFT) but also in explicit leptoquark (LQ) models
+with the LQ non-decoupled. The former is realized by taking a limit of large LQ mass in the
+latter. It is clariﬁed that the LHC sensitivity is sensitive to the LQ mass for O(1) TeV even in
+the search of pp→ τhb + Emiss
+T . Although the LQ models provide a weaker sensitivity than the
+EFT limit, it is found that the non-resonant search of pp→ τhb + Emiss
+T can improve the sensitivity
+by≈ 40% versus a conventional mono-τ search ( pp→ τh + Emiss
+T ) in the whole LQ mass region.
+Consequently, it is expected that most of the parameter regions suggested by theb→ cτν anomalies
+can be probed at the HL-LHC. Also, it is shown that R 2 LQ scenario is accessible entirely once
+the LHC Run 2 data are analyzed. In addition, we discuss a charge selection of τh to further
+suppress the standard-model background, and investigate the angular correlations among b, τ and
+the missing transverse momentum to discriminate the LQ scenarios.
+KEYWORDS : Flavor physics, LHC, Beyond Standard Model, Effective Field Theories, Leptoquark
+arXiv:2111.04748v3  [hep-ph]  16 Feb 2022
+
+=== PDF PAGE 2 ===
+Contents
+1 Introduction 1
+2 New physics scenarios 4
+2.1 U 1 LQ 4
+2.2 R 2 LQ 5
+2.3 S 1 LQ 5
+3 Event generation 6
+3.1 Background simulation 7
+3.2 Signal simulation 9
+4 Numerical results 11
+4.1 Event numbers after selection cuts 11
+4.2 Test of background-only hypothesis 13
+4.3 Single operator scenarios 14
+4.4 Single LQ scenarios 17
+4.4.1 R 2 LQ scenarios 18
+4.4.2 S 1 LQ scenario 18
+4.4.3 U 1 LQ scenarios 21
+4.5 Angular correlations 25
+5 Conclusions and discussion 26
+A Simulation details 29
+B Flavor observables 30
+1 Introduction
+Semi-leptonic B-meson decay processes have been investigated to test the Standard Model (SM)
+and to search for a hint for New Physics (NP). In the last decade, the BaBar [1, 2], Belle [3–7] and
+LHCb collaborations [8–10] have reported exiting anomalies in semi-leptonic decays ofB mesons,
+such as RD(∗) = BR(B→ D(∗)τν)/BR(B→ D(∗)ℓν), with ℓ = µ for LHCb and an average ofe and µ
+for BaBar and Belle. Here, a ratio of the branching ratios is taken to reduce both experimental and
+theoretical (i.e., parametric and QCD) uncertainties signiﬁcantly, so thatRD(∗) is sensitive to NP that
+couples to quarks and leptons. Although the latest result released by Belle becomes closer to the
+SM values [6, 7], the world average of RD(∗) measurements still deviates from the SM predictions
+at the 3–4σ conﬁdence level (CL) (see Ref. [11] for a recent summary of the SM predictions).
+– 1 –
+
+=== PDF PAGE 3 ===
+The RD(∗) discrepancy suggests violation of the lepton ﬂavor universality (LFU) between τ
+and light leptons, and has prompted many attempts of the NP introducing new scalar and vector
+mediators (see, e.g., Ref. [12] for the very recent review). In terms of the low-energy effective
+Hamiltonian, their contributions are encoded as
+Heff = 2
+√
+2GFVcb
+[
+(1 +CV1)(cγ µ PLb)(τγ µ PLντ ) +CV2(cγ µ PRb)(τγ µ PLντ )
++CS1(cPRb)(τPLντ ) +CS2(cPLb)(τPLντ )
++CT (cσ µν PLb)(τσ µν PLντ )
+]
++h.c. , (1)
+with PL/R = (1∓ γ5)/2.#1#2 Here, the Wilson coefﬁcients (WCs), CX, are normalized by the SM
+contribution,Heff = 2
+√
+2GFVcb(cγ µ PLb)(τγ µ PLντ ), corresponding to CX = 0 for X = V1,2, S1,2, T .
+Note that the SM contribution is suppressed by the Cabibbo-Kobayashi-Maskawa (CKM) matrix
+element Vcb [19, 20], where Vcb = 0.041 [21] is set throughout this paper. One can see that a scale
+of NP implied by the RD(∗) anomaly is restricted as ≲O(10) TeV by the perturbative unitarity limit
+on NP interactions [22].
+The large hadron collider (LHC) experiment has a great potential to test such NP contribu-
+tions. They can be probed, e.g., by resonant searches for new particles such as charged Higgs, W′
+(and related Z′), and leptoquark (LQ), and by non-resonant searches for the contact interactions of
+Eq. (1). In addition to various ﬂavor measurements, e.g., Bc→ τν, Λb→ Λcτν, and polarization
+observables in B→ D(∗)τν in the near future, which have been studied to check those contributions,
+the collider searches provide independent information. Moreover, they are free from uncertainties
+of the ﬂavor observables especially inherent in B→ D(∗) hadronic form factors.
+In this paper, we examine non-resonant searches in light of the RD(∗) anomaly. Even if new
+particles are heavier than the LHC beam collision energy, their contributions could be detected
+indirectly by exchanging these particles in t-channel propagators. The ATLAS and CMS collabo-
+rations have performed non-resonant searches especially to probeW′ boson (with assuming a decay
+W′→ τν ) in the sequential standard model. They have done aτν search, i.e., analyzed events with
+a hadronic τ jet and a large missing transverse momentum by using the Run 1 and 2 data [23–26].
+The results are consistent with the SM background (BG) expectations, and one can use them to
+set upper bounds on the NP interactions relevant to the RD(∗) anomaly, or the operators in Eq. (1).
+References [27–30] have studied such an interplay,i.e., the relation between the high-pT tail of the
+τν events at the LHC and the RD(∗) anomaly in new physics models.
+Recently, it has been pointed out that sensitivities to the NP may be improved versus the
+above non-resonant τν search by requiring an additional b-jet in the ﬁnal state [31–33]. This can
+be understood from the fact that the genuine τν + b ﬁnal state is achieved by gq→ bτν (q =
+u, c) within the SM. Since this contribution is suppressed by |Vub (cb)|2∼O (10−5 (−3)), the main
+SM background comes from τν + j events with mis-identifying a light-ﬂavored jet as b jet. This
+is in contrast to the τν search, whose SM contributions, e.g., ud→ τν, are not suppressed by
+the CKM factors or mis-identiﬁcations. In addition, the additional b quark allows us to study
+#1The Wilson coefﬁcients are also shown asCV1 = CL
+V , CV2 = CR
+V , CS1 = CR
+S , and CS2 = CL
+S [13].
+#2In this paper, right-handed neutrinos are not considered (or equivalently assumed to be heavier than the B meson).
+See Refs. [14–18] for models with light right-handed neutrinos in the context of the RD(∗) anomaly.
+– 2 –
+
+=== PDF PAGE 4 ===
+angular correlations among the ﬁnal state particles, which are potentially useful to distinguish the
+NP interactions. Such a channel has been studied in Ref. [34] for general NP contact interactions,
+including those relevant to the RD(∗) anomaly. They have argued that sensitivities to each WC
+searches can be improved by ∼ 30% versus the τν search. Moreover, it was argued that angular
+correlations between b and τ or ν would be useful to distinguish possible NP scenarios working in
+the center of mass frame.
+After the above analyses, there are signiﬁcant developments within the context of the τν
+search. In the previous studies, the effective ﬁeld theory (EFT) approach ( i.e., the contact-
+interaction approximation) had been taken to describe the NP contributions. However, as pointed
+out in Ref. [35], this prescription is not always appropriate to represent actual NP contributions
+when the LHC non-resonant search is studied. In fact, a transverse mass deﬁned as
+mT =
+√
+2pτ
+TEmiss
+T
+[
+1− cos ∆φ (⃗pτ
+T,⃗pmiss
+T )
+]
+, (2)
+is often introduced to analyze high- pT events, where ∆φ is a relative angle (0≤ ∆φ≤ π) and the
+missing transverse momentum is expressed by ⃗pmiss
+T with magnitude Emiss
+T . Since a new particle
+appearing in the t-channel propagator is likely to carry a large momentum transfer to produce a
+high-pT τ lepton and it produces an effective new particle mass (since t < 0),
+MLQ≈
+g2
+LQ⏐⏐⏐t− M2
+LQ
+⏐⏐⏐
+<
+g2
+LQ
+M2
+LQ
+≈M EFT , (3)
+the EFT description is no longer appropriate. We can see that sensitivities to the NP tend to become
+weaker than those in the EFT description, which is valid only for MLQ≫ mT. Although the study
+in Ref. [35] has been done for the non-resonant τν search, a similar conclusion can hold for the
+τν + b case. In this paper, it will be shown that the sensitivity to the WCs can be weakened by up
+to 50% even for τν + b.
+Moreover, it is pointed out that the NP sensitivity can be improved by choosing negative-
+charge mono-τ events [35]. This follows from the fact that the dominant SM background comes
+from pp→ W±(∗)→ τ±ν, and then the imbalance of N(W +)/N(W−) > 2 is observed due to
+reﬂecting the proton charge [36, 37]. This is in contrast to the NP case: the interaction in Eq. (1)
+predicts N(τ +)/N(τ−) = 1 because the contribution is not generated from valence quarks. In fact,
+in order to distinguish the charge of the τ jet, one has to observe a sagitta of the charged pion from
+the τ decay. In the high- pT region such as pπ±
+T = 1 TeV, the sagitta in the CMS inner detector
+becomesO(100) µm. Since this is larger than the detector resolution, the charge of τ jet with
+pτ
+T =O(1) TeV could be distinguished with good accuracy. Therefore, it is important to study
+impacts of the charge selection.
+In this paper, we perform a comprehensive analysis of the non-resonant τν + b search as
+well as the τν one with adopting the above developments. We also discuss directions of further
+improvements of the NP sensitivity especially to distinguish the NP interaction operators, e.g., by
+utilizing the charge asymmetry of τ± and the angular correlations among the ﬁnal states.
+This paper is organized as follows. A model setup is explained in Sec. 2. A strategy to generate
+the background and signal events is explained in Sec. 3. Numerical results and future prospects are
+explored in Sec. 4. Impacts of their sensitivities on the NP interpretation for the notorious RD(∗)
+anomaly are also given in this section. Section 5 is devoted to conclusions and discussion.
+– 3 –
+
+=== PDF PAGE 5 ===
+2 New physics scenarios
+In this paper, leptoquark (LQ) models are employed as an illustrative realization of the WCs of the
+effective Hamiltonian in Eq. (1). They form the WCs at the NP scale Λ∼ MLQ as
+2
+√
+2GFVcbCX (Λ) = NX
+h1h2
+M2
+LQ
+, (4)
+with LQ mass MLQ and LQ couplings to the SM fermions h1,2. The numerical factor NX depends
+on the Lorenz structure of the EFT operator (X = V1,2, S1,2, T ).
+We are interested in NP scenarios that can explain theRD(∗) anomaly. Solutions to the anomaly
+are given in terms of CX in the literature, e.g., see Refs. [35, 38, 39]. A general consensus is, for
+instance, that scenarios with a single NP operator X = V1,2 work well, which can be realized in
+particular LQ models. Also, there are LQ models which contribute to multiple WCs.
+Given the LQ mass MLQ, the high- pT search puts an upper bound on the LQ couplings and
+the WCs in Eq. (1) at the ΛLHC scale, which is encoded as CX (ΛLHC) in this paper. The LHC scale
+reﬂects the high- pT region sensitive to the NP signal. Hence, in the following analysis, we take a
+typical size as ΛLHC = 1 TeV, which is the same as Ref. [34]. In the ﬂavor physics, the EFT limit
+q2≪ Λ2 is a good approximation forΛ ≳O(100) GeV. However, as mentioned in the introduction,
+this is not the case for the high-pT searches at the LHC, where pT can beO(1) TeV. Thus, we will
+investigate explicit MLQ dependences of the sensitivities of CX (ΛLHC).
+In the following subsections, we show explicit LQ models to setup the NP scenarios of our
+interest and also give a brief explanation for collider signatures.
+2.1 U 1 LQ
+The SU(2)L singlet vector LQ (U1) is one of the well-known candidates to explain severalB anoma-
+lies [40–42]. Its interaction is written as
+LU1LQ = hi j
+L
+(
+uiγµ PLν j + diγµ PLℓ j
+)
+Uµ
+1 + hi j
+R
+(
+diγµ PRℓ j
+)
+Uµ
+1 + h.c. . (5)
+By integrating out the LQ, one can obtain two WCs as
+2
+√
+2GFVcbCV1 = + (VCKMhL)23 h∗33
+L
+M2
+LQ
+, 2
+√
+2GFVcbCS1 =−2 (VCKMhL)23 h∗33
+R
+M2
+LQ
+. (6)
+It is noticed that these WCs depend on different couplings, i.e., are independent with each other.
+The couplings irrelevant to b→ cτν are assumed to be zero.
+The scenario with CV1̸= 0 and CS1 = 0, so-called the single CV1 scenario, is realized by taking
+h∗33
+R = 0, which will be investigated later. Note that CV1̸= 0 can also be obtained by other LQ
+models such as the SU(2)L triplet vector (U 3), singlet scalar (S 1), and triplet scalar (S 3) LQs.
+However, these models confront a stringent constraint from b→ sνν unavoidably in single LQ
+scenarios at the tree level, see Appendix B. For instance, |CV1| ≲ 0.03 is obtained for the S 1 LQ
+scenario, which is not consistent with the RD(∗) solution, CV1 = 0.09± 0.02. Hence, the U 1 LQ
+is the only possibility to realize this scenario (see Ref. [43] for alternative possibility by use of
+multiple LQs). Note that the constraints from ∆Ms and ∆Ms/∆Md are UV-model dependent. For
+– 4 –
+
+=== PDF PAGE 6 ===
+U1 LQ models, additional vector-like leptons are often incorporated in the UV models. These
+constraints are weakened by incorporating light vector-like leptons contributions via a GIM-like
+mechanism [44, 45].
+Another scenario has been discussed in the context of aU(2) ﬂavor symmetry [46–53]. In this
+scenario, hL and hR are aligned, and the two WCs are related as
+CS1 =−2βRCV1 , (7)
+where βR = eiφR denotes a relative phase [53]. Assuming CV1 to be real, the result to explain the
+RD(∗) anomaly is given as φR∼ 0.4π and CV1∼ 0.09. This scenario will also be investigated in this
+paper. Note that the LHC study is less sensitive to the phase.
+2.2 R 2 LQ
+The SU(2)L doublet scalar LQ (R 2) also provides distinctive solutions to the RD(∗) anomaly [54].
+A practical R2 LQ model introduces two distinct LQ doublets, R2,1 = (R5/3
+2,1 , R2/3
+2,1 ) and R2,2 =
+(R2/3
+2,2 , R−1/3
+2,2 ), in the SM gauge invariant form, for which a large mixing between R2/3
+2,1 and R2/3
+2,2 is
+induced via an electroweak symmetry breaking term; R 2/3
+2,1 R−2/3
+2,2 (H0∗)2. Then, the interaction of
+the mass eigenstate R2/3
+2 is picked out as
+LR2LQ =
+(
+hi j
+L uiPLν j + hi j
+R diPRℓ j + ˜hi j
+L diPLℓ j
+)
+R2/3
+2 + h.c. . (8)
+Then three WCs are generated, two of which are related, as
+2
+√
+2GFVcbCV2 = + h23
+L ˜h∗33
+L
+2M2
+LQ
+, 2
+√
+2GFVcbCS2 = + h23
+L h∗33
+R
+2M2
+LQ
+, CS2 = +4CT . (9)
+Both two scenarios, namely the one with the single CV2 and another for the speciﬁc combination
+CS2 = +4CT , can solve the RD(∗) anomaly. Hence, collider studies will be performed for them in
+this paper.
+Here, the coupling ˜hL is generated from the mixing above the electroweak symmetry breaking
+scale. This implies that CV2 should have an additional suppression factor. See Ref. [55] for a UV
+completion of the CV2 scenario and its phenomenological bounds. It will be shown that there are
+still viable parameter regions. Nevertheless, our collider study provides a useful probe for the CV2
+constraint as we will see in Sec. 4.3.
+2.3 S 1 LQ
+The SU(2)L singlet scalar LQ (S1) gives another solution to theRD(∗) anomaly. The relevant Yukawa
+interactions with the SM fermions are described by
+LS1LQ = hi j
+L QCiτ2L j S1 + hi j
+R uC
+i PRe j S1 + h.c.
+=
+[(
+V∗
+CKMhL
+)i j uC
+L iℓL j− hi j
+L dC
+L iνL j + hi j
+R uC
+R iℓR j
+]
+S1 + h.c. . (10)
+The contribution to the relevant WCs are given by
+2
+√
+2GFVcbCV1 = h33
+L
+(
+VCKMh∗
+L
+)23
+2M2
+LQ
+, 2
+√
+2GFVcbCS2 =− h33
+L h∗23
+R
+2M2
+LQ
+, CS2 =−4CT . (11)
+– 5 –
+
+=== PDF PAGE 7 ===
+There are two sets of the WCs which are controlled by the different Yukawa couplings. Although
+the single CV1 scenario looks promising, a stringent constraint from b→ sνν is unavoidable at the
+tree level. We will discuss the relevant constraints in Sec. 4 and Appendix B.
+3 Event generation
+Monte Carlo (MC) event generators are used to simulate both NP signal and SM background
+processes with a hard τ lepton and a large missing transverse momentum with/without an ad-
+ditional b-jet in the ﬁnal states at √s = 13 TeV. The NP models are implemented via FEYN -
+RULES v2.3.34 [56]. The model ﬁles are available in the arXiv web page. Event samples are
+generated by using MADGRAPH 5_aMC@NLO v2.8.3.2 [57] interfaced with PYTHIA v8.303 [58]
+for hadronizations and decays of the partons. The MLM merging is adopted in the ﬁve-ﬂavor
+scheme [59]. NNPDF 2.3 in LHAPDF v6.3.0 [60] is used. Detector effects are simulated by using
+DELPHES v3.4.2 [61]. Here, we modiﬁed a prescription of the identiﬁcation of the hadronic τ jet,
+as will be described below. The jets are reconstructed by using anti-kT algorithm [62] with a radius
+parameter set to be R = 0.5. See Appendix A for some details.
+To investigate the non-resonant τν and τν + b searches, and especially to evaluate an impact
+of the latter, the following two sets of kinematic cuts are compared:
+cut a: Kinematic cuts to select the τν events by following Ref. [34], originated from the CMS
+analysis [25]:
+– 1. require exactly one τ-tagged jet, satisfying the transverse momentum of τ, pτ
+T≥
+200 GeV, and the pseudo-rapidity of τ,|ητ|≤ 2.1,
+– 2. veto the event if it includes any isolated electron or muon with pe,µ
+T ≥ 20 GeV
+within|ηe|≤ 2.5 or|ηµ|≤ 2.4, where the lepton isolation criteria are the same as
+Ref. [34],
+– 3. require large missing transverse momentum, Emiss
+T ≥ 200 GeV, to suppress the
+W± resonant contribution,
+– 4. require that the missing momentum is balanced with the τ-tagged jet with the
+back-to-back conﬁguration as ∆φ (⃗pτ
+T,⃗pmiss
+T )≥ 2.4 and 0 .7≤ pτ
+T/Emiss
+T ≤ 1.3 to
+further suppress the SM backgrounds.
+cut b: Additional kinematic cuts to “ cut a” for selecting the τν + b events:
+– 1. require exactly one b-tagged jet with pb
+T≥ 20 GeV and|η b| < 2.5.
+– 2. restrict the number of light-ﬂavored jets, N j≤ 2, to suppress the top-decay related
+backgrounds, where the jets satisfy p j
+T≥ 20 GeV and|η j|≤ 2.5.
+Energetic τ leptons can be emitted not only from the hard processes, but also from decays of
+energetic mesons, e.g., B→ τX (at a branching ratio∼ 3%) and Ds→ τX (∼ 5%). Quantitatively,
+these secondary τ gives mild contributions to cut a and cut b. In reality, it is likely to be accom-
+panied by nearby jets and vetoed by τ isolation conditions adopted in the ATLAS/CMS analyses.
+– 6 –
+
+=== PDF PAGE 8 ===
+Since they do not use cut-based analyses, an implementation of their isolation procedure is com-
+plicated and beyond the scope of this paper. In our analysis, events with τ whose parent particle
+is mesons or baryons are vetoed, for simplicity. Also, for a τ-tagging efﬁciency, the “VLoose”
+working point is adopted for the hadronic decays; ετ→τ = 0.7 [63]. As the mis-tagging efﬁcien-
+cies, we apply p j
+T-dependent efﬁciency based on Ref. [63]. For instance, ε j→τ = 3.7× 10−3 for
+p j
+T = 100 GeV and 7.2×10−4 for p j
+T = 300 GeV or larger. The mis-tagging rare εc,b→τ is assumed
+to be 7.2×10−4 as a reference. When one imposes the condition requiring an additional b-jet in the
+ﬁnal state, of crucial importance is which working point is chosen for the b-tagging efﬁciencies.
+For instance lower mis-tagging efﬁciencies can suppress backgrounds coming from fakeb-jets. We
+adopt the following working point based on Table 4 of Ref. [64],
+ε j→b = 1/1300 , εc→b = 1/27 , εb→b = 0.6 . (12)
+Compared to the working point in Ref. [34], #3 the mis-tagging rates, ε j→b and εc→b, are better
+by factors of 20 and 8, respectively, while the b-tagging rate εb→b is slightly worse. Therefore,
+it is expected that the number of background events originated from fake b-jets is reduced in our
+analysis for the cut b category.
+Note that the charge of the ﬁnal-stateτ lepton is not distinguished in cut a or cut b, though it
+may be possible at the LHC as mentioned in Sec. 1 and will be discussed later. In order to stress
+this point, the searches are described with a script± as “the τ±ν (τ±ν + b) search” hereafter.
+3.1 Background simulation
+As for the SM background events generation, we basically trace the method explored in Ref. [34].
+Nonetheless, since this is crucial to derive NP sensitivities, we dare to present all the essential
+steps in some details, though most of them may be familiar to experts. The six categories of the
+background processes are considered:
+Wjj
+The event simulations in MADGRAPH 5_aMC@NLO are performed up to QED=4, which includes
+contributions from vector boson fusions. The W boson is assumed to decay as W→ τν, and the
+events are matched allowing up to two jets. The W j j contribution dominates the SM background
+in the cut a category, and also one of the main sources of the backgrounds for cut b because
+light-ﬂavored jets are mis-tagged as b jets. The working point of b-tagging efﬁciencies is given in
+Eq. (12). It is checked that the number of events ofW plus genuine b-jet is less than that ofW j j by
+more than three orders of magnitude for cut b. Therefore, improving the discrimination efﬁciency
+of the light-ﬂavored jets from the genuine b jets can result in suppressing the SM background
+effectively.
+Zjj
+The Z boson is assumed to decay as Z→ νν, contributing to missing transverse momentum. The
+events are matched allowing up to two jets. At least one fake τ-jet is necessary to pass cut a .
+Namely, the ﬁnal state should include associated QCD jets. This channel gives the subdominant
+#3 The reference [34] adopted a different working point: ε j→b = 0.015, εc→b = 0.3, and εb→b = 0.7.
+– 7 –
+
+=== PDF PAGE 9 ===
+contribution both for cut a and cut b . Note that the ATLAS and CMS analyses categorize Z j j
+into “QCD jet,” and estimate them with a data-driven technique, e.g., extrapolating from Z j j with
+Z→ µ +µ− events and requiring pτ
+T/Emiss
+T ≤ 0.7.
+t¯t
+The top quarks are assumed to decay as tt→ bW+bW− with both W bosons decaying to τ or one
+of them decaying to τ. The former contribution is larger by a factor of four than the latter after cut
+a, while both are of similar size after cut b.
+Singlet
+The single top productions are divided by the following ﬁve sub-categories, t + j, tW (1), tW (2),
+tZ (1), and tZ (2). The top quark decays into bW, and the number in the parentheses expresses
+how many gauge bosons decay leptonically, i.e., W→ τν or Z→ νν. More explicitly t + j→
+bτν j is categorized as t + j. tW→ bτν j j and tW→ bττνν are classiﬁed into tW (1) and tW (2)
+respectively. tZ j→ bτν j j j, tZ j→ bττ j j j and tZ j→ bνν j j j are denoted as tZ (1), and tZ j→
+bτνττ j and tZ j→ bτννν j are classiﬁed intotZ (2).
+Z,γ Drell-Yan
+A pair of τ leptons are produced via Drell-Yan processes mediated by Z or γ in accompany with
+up to two jets. Since the number of τ jets is required to be exactly one in cut a, another τ lepton
+needs to be missed in the detectors. Although the efﬁciency of τ mis-tagged as other particles is
+not so small, it is unlikely to achieve a large missing momentum because jets are rarely overlooked
+or their momenta are hardly mis-reconstructed so largely in the detectors. Thus, the contribution
+will be found to be negligibly small.
+VV
+Pair-productions of vector bosons are classiﬁed by the species as WW , ZZ (γ), and W Z(γ). The
+events for WW are simulated with both W’s decaying to τ and allowing up to two additional jets or
+one of W’s decaying into τ and allowing up to one additional jet. The ZZ(γ) events involve those
+with one of Z’s decaying as Z→ νν or into τ +τ−. As for W Z(γ), the events are generated from
+a tauonic W decay along with γ→ τ +τ− or Z→ τ +τ−, νν. It will be shown that the resultant
+contribution is subdominant in cut a and ofO(1)% in cut b.
+It is noted that pure QCD multi-jet backgrounds are not simulated in this paper. In order to
+pass cut a/b , one of energetic jets has to be mis-tagged as τ. Moreover, although another jet is
+required to be overlooked to pass the condition of large missing momentum, this rarely happens in
+the calorimeters. Here we assume that the contributions are negligible, for simplicity, though one
+needs full detector simulations for further studies. In fact, the CMS collaboration has checked that
+the QCD multi-jet background is smaller than that fromZ j j in their simulation, and shown that the
+simulated result agrees with the data in a control region [25].
+– 8 –
+
+=== PDF PAGE 10 ===
+3.2 Signal simulation
+Here, we show our setup with respect to the NP scenarios of interest for investigating the LHC
+sensitivities in the τ±ν(+b) search. Events of the NP signals are generated for each NP scenario by
+ﬁxing the relevant LQ couplings and mass, and then matched by allowing up to two (ﬁve-ﬂavored)
+jets. In turn, the couplings are encoded as in Eq. (4) to present our output. As the high- pT tail is
+concerned, NP–SM interferences are tiny enough, e.g., see Ref. [34] showing that the interference
+effect is a few percent level.#4 Note that a possible s-channel production is also suppressed by the
+requirement of the back-to-back condition between τ and ν, see Appendix A. A set of process
+cards for the MADGRAPH event generation are available in the arXiv web page.
+As already mentioned, we proceed with the LQ models that generate the effective four-fermion
+interactions at the EFT limit. Our approach has a beneﬁt to clarify difference between EFT and a
+practical model of interest, especially for the case of the CV1 type interaction as explained below.
+Motivated by the RD(∗) anomaly, NP contributions to b ¯c→ τ ¯ν have been studied in the EFT
+limit. However, one notices that there exist additional processes to be considered in realistic model
+setups. In fact, the V1 operator is constructed from the U 1 LQ model, and CV1 depends on the LQ
+couplings h23
+L and h33
+L , as seen in Eq. (6). Under theSU(2)L gauge invariance, the term, ¯QLγµ LL Uµ
+1 ,
+generates an interaction of s–τ–U1 as well as that of c–ντ–U1 in presence of h23
+L . Therefore,
+additional production processes such as sc→ τ ¯ν should be taken into account even in the EFT
+limit. In this paper, this new process is considered via the following effective Lagrangian,
+Leff⊃− 2
+√
+2GFVcb
+[
+(1 +CV1)(cγ µ PLb)(τγ µ PLντ ) +Rs/bCV1(cγ µ PLs)(τγ µ PLντ )
+]
++h.c. . (13)
+The second term in the bracket corresponds to the new contribution, andRs/b is deﬁned from Eq. (5)
+as
+Rs/b≡|coupling constant of s–τ–U1|
+|coupling constant of b–τ–U1| =
+⏐⏐⏐⏐
+h23
+L
+h33
+L
+⏐⏐⏐⏐ . (14)
+Hence, the U 1 LQ model possesses two parameters, (CV1, Rs/b), in the collider analysis, and the
+conventional EFT setup of V1 is realized by taking Rs/b→ 0. Note that such an issue is not the
+case for the other operator scenarios. On the other hand, although the τ±ν + b search seems to
+be insensitive to it since the b quark is required in the ﬁnal state, it will be shown that the s–τ–U1
+interaction can affect the result through gs→ cτν with the ﬁnal stateb-jet mis-tagged from c-jet.
+Single operator scenarios
+Here, we list NP scenarios which can be responsible for the RD(∗) anomaly and whose collider
+signals will be investigated in this paper. First, from the view point of the EFT limit in Eq. (1), we
+consider LQ setups such that one of the WCs of CV1, CV2, CS1, CS2, and CT is non-vanishing. Let
+us call this setup as “the single CX scenario.” Note that Rs/b = 0 is taken in the CV1 scenario. The
+signal events are generated for the following LQ masses,
+MLQ ={1.5 , 2.5 , 4.0 , 6.5 , 10 , 15 , 20} TeV. (15)
+#4When one considers dimension-eight effective interactions, it is found that its NP–SM interference contribution is
+further smaller than the dimension-six NP–SM interference [65].
+– 9 –
+
+=== PDF PAGE 11 ===
+According to Ref. [35] the EFT approximation becomes valid forMLQ ≳ 10 TeV in theτ±ν search.
+In this paper, MLQ is taken up to 20 TeV to check the decoupling behavior in the τ±ν + b search.
+Then, we refer to the case of MLQ = 20 TeV as the EFT limit. It should be mentioned again that
+the LQ model which explains the RD(∗) anomaly is restricted as MLQ <O(10) TeV due to the
+perturbative unitarity bound [22].
+The above LQ masses satisfy the constraints from the LQ direct searches. The searches have
+been performed by studying LQ pair-production channels at the ATLAS [66] (CMS [67])
+∫
+L dt =
+139 fb−1 and provided limits on the LQ mass as MLQ≥ 1.2 (1.0) TeV for a scalar LQ, and MLQ≥
+1.5 (1.3) TeV for a gauged-vector LQ at the 95% CL. #5 On the other hand, single-production
+channels can provide alternative bounds. However, since they depend on LQ couplings irrelevant
+to the RD(∗) anomaly, we do not take them into account.
+As we focus on the NP interactions responsible for the RD(∗) anomaly, the other LQ couplings,
+which are irrelevant for b→ cτν τ, are set to be zero, and thus, the LQ production process comes
+only from the initial partons of cb, gc, gb, gg.
+Single LQ scenarios
+We also perform the analysis which is based on the LQ model rather than the EFT operator. In
+particular, multiple WCs can become non-vanishing simultaneously, orRs/b is not always zero. As
+aforementioned in Sec. 2, the following ﬁve scenarios can solve the RD(∗) anomaly by introducing
+a single LQ boson.
+• The R 2 scalar LQ model induces the two independent WCs, CV2(MLQ) and CS2(MLQ) =
++4CT (MLQ), as given in Eq. (9). Thus, we study these two scenarios, called as single-
+R2(CV2) and single-R2(CS2) scenarios, respectively. Note that the former is identical to the
+CV2 scenario (unlike CV1 in the U1 LQ scenario).
+• The S 1 scalar LQ model induces the two independent WCs, CV1(MLQ) and CS2(MLQ) =
+−4CT (MLQ), as seen in Eq. (11). In contrast to the R 2 LQ case, however, the single CS2 =
+−4CT case cannot address the RD(∗) anomaly within 1 σ, though the tension can be relaxed.
+Thus, we investigate the scenario in a two-dimensional parameter space, (CV1,CS2), with
+assuming real WCs, simply called as S1 LQ scenario.
+• The U 1 vector LQ model possesses the two independent WCs, CV1(MLQ) and CS1(MLQ).
+In this paper, we investigate two scenarios in terms of the WCs of Eq. (6); the single CV1
+scenario assuming CS1 = 0, and the scenario satisfyingCS1 =−2eiφRCV1 under the U(2) ﬂavor
+symmetry, as introduced in Sec. 2.1. Hereafter, they are referred as single-U 1 and U(2)-U1
+scenarios, respectively. One can easily ﬁnd that the relative phaseφR is almost irrelevant for
+the following collider analysis and taken to be zero. On the other hand, both two scenarios
+involve the aforementioned Rs/b. In our analysis, the region of 1/16≤ Rs/b≤ 16 is searched
+to see its effect in detail, in addition to the case of Rs/b = 0 that corresponds to the CV1
+scenario.
+#5The lower bound for a strongly-coupled sector originated vector LQ is given as MLQ≥ 1.7 (1.6) TeV.
+– 10 –
+
+=== PDF PAGE 12 ===
+BG (cut a) W j j Z j j (Z→ νν) tt Z,γ DY VV singlet total
+0.7 < mT < 1 TeV 70.5 20.1 0.34 3.03 1.30 0.02 95.3
+1 TeV< mT 16.9 5.1 0.06 0.56 0.32 0.02 23.0
+1 TeV< mT [25] 22±6.2 0 .9±0.5 < 0.1 < 0.1 0 .7±0.1 < 0.1 23.4±7.2
+1 TeV< mT [34] 18 5 .2 0 .44 0 .0025 1 .7 0 .1 25.4
+Table 1. Expected number of SM background events after cut a (the τ±ν search) for
+∫
+L dt = 35.9 fb−1
+and√s = 13 TeV in each background category. The last two rows show the results obtained by Refs. [25]
+and [34]. Also shown are the total systematic uncertainties for the former. Detailed cut ﬂows are shown in
+Table 9.
+BG (cut b) W j j Z j j(Z→νν) tt Z,γ DY VV singlet total
+0.7 < mT <1 TeV 0.58 0.37 0.056 0.28 0.018 0.029 1.33
+1 TeV< mT 0.16 0.06 0.01 0.007 0.005 0.005 0.25
+1 TeV< mT [34] 0.18(5) 0.21(12) 0.29(3) 4 .2(4)×10−5 0.35(5) 0.067(7) 1.10(14)
+Table 2. Expected number of SM background events after cut b (the τ±ν + b search) for
+∫
+L dt = 35.9 fb−1
+and√s = 13 TeV in each background category. The last row shows the result by Ref. [34], where a number
+in the parenthesis represents uncertainties. Note that their b-tagging efﬁciencies are different from ours (see
+the footnote #3). Detailed cut ﬂows are shown in Table 10.
+In the analysis, the LQ mass region in Eq. (15) is studied. Besides, since we are interested only in
+the LQ couplings relevant to the RD(∗) anomaly, the LQ production processes come from the initial
+partons of cb, gc, gb, gg for R2 and S1 LQs, while the additional production from cs is taken into
+account for U1 LQ.
+4 Numerical results
+In this section, we present numerical results of the LHC simulations for the τν (+b) processes.
+Also, it is argued how the requirement of an additionalb-jet improves NP sensitivities and gives an
+impact on the NP solutions to the RD(∗) anomaly.
+4.1 Event numbers after selection cuts
+The expected numbers of SM background events after the cuts, cut a and cut b , are shown in
+Tables 1 and 2, respectively. They correspond to the result at the integrated luminosity of 35.9 fb−1
+and√s = 13 TeV, which is equivalent to the CMS result [25]. Note that we imposed a pre-cut
+given in Eq. (21) of Appendix A at the generator level in the analysis to reduce the simulation
+cost. The cut can affect the event distributions for mT ≲ 500 GeV, while the result is insensitive to
+it for mT > 700 GeV. Detailed cut ﬂows of the SM background are shown in Tables 9 and 10 in
+Appendix A.
+From Table 1, it is found that the main background ofcut a (speciﬁed for theτ±ν search, i.e.,
+without requiring b-jets in the ﬁnal state) comes from the W j j channel. Our result is consistent
+– 11 –
+
+=== PDF PAGE 13 ===
+signal (cut a) CV1,1.5 TeV CV1,EFT CRs/b=1
+V1,1.5 TeV CRs/b=1
+V1,EFT URs/b=0
+1,1.5 TeV URs/b=0
+1,EFT URs/b=1
+1,1.5 TeV URs/b=1
+1,EFT BG
+0.7 <mT <1 TeV 90.0 139.4 225.9 351.4 361 582 502 809 95.3
+1 TeV<mT 54.4 123.6 146.9 345.8 204 571 279 799 23.0
+Table 3. Expected numbers of signal events after cut a (the τ±ν search) for
+∫
+L dt = 35.9 fb−1 and√s =
+13 TeV in the singleCV1 scenario (from second to ﬁfth columns) and theU(2)-U1 scenario (CS1 =−2βR CV1)
+(from sixth to ninth columns). In all cases, CV1 = 1 is ﬁxed, while the LQ mass isMLQ = 1.5 TeV or 20 TeV
+(the EFT limit). The s-quark contribution, parameterized by Rs/b, is also studied. The last column is the
+expected number of SM background (see Table 1). Detailed cut ﬂows are shown in Tables 11 and 12.
+signal (cut b) CV1,1.5 TeV CV1,EFT CRs/b=1
+V1,1.5 TeV CRs/b=1
+V1,EFT URs/b=0
+1,1.5 TeV URs/b=0
+1,EFT URs/b=1
+1,1.5 TeV URs/b=1
+1,EFT BG
+0.7 <mT <1 TeV 11.6 16.6 13.9 21.7 53.9 86.4 55.8 92.0 1.33
+1 TeV<mT 6.51 14.6 9.39 21.6 26.0 71.6 30.7 101 0.25
+Table 4. Expected numbers of signal events after cut b (the τ±ν + b search) for
+∫
+L dt = 35.9 fb−1 and√s = 13 TeV. See the caption of Table 3 for further information. The last column is the expected number of
+SM background (see Table 2). Detailed cut ﬂows are shown in Tables 13 and 14.
+with those obtained by Refs. [25] and [34]. The next-to-leading contribution is provided by theZ j j
+channel and consistent with Ref. [34], while it is larger by a factor of 5 than the CMS result. Note
+that the CMS Z j j result is based on a data driven analysis. It should be mentioned that, although
+the background events are categorized by the channels, their criteria are not unique and not shown
+explicitly in the literature. Nevertheless, the total number of the SM background is consistent with
+those in Refs. [25] and [34] for mT > 1 TeV, which may validate our analysis.
+Let us comment on a preliminary result of the τ±ν search by the ATLAS collaboration with∫
+L dt = 139 fb−1 [26]. It has not observed any signiﬁcant excess, and hence, constrained the
+W′ mass as ≳ 5 TeV. To be precise, the observed event number is smaller than the expected SM
+background, and thus, one can infer (much) stronger upper bounds on the EFT operators in Eq. (9)
+than the results based on the CMS analysis. Nevertheless, our result cannot be compared with it
+straightforwardly because the ATLAS has not provided enough information for this purpose and
+the tagging efﬁciency of hadronicτ is different from ours.
+In Table 2, an additional b-jet is required, corresponding to cut b (speciﬁed for the τ±ν + b
+search). It is shown that the total number of the background is suppressed by about two orders of
+magnitude versus the result for cut a. In detail, the event number after the cut decreases in every
+channel, particularly in W j j and Z j j. Here, the range of reduction depends on whether the event
+involves genuine b-jets or not. Also, it is noticed from Table 10 that the condition on the number
+of b-jets is effective to suppress the background when it does not come from the top quarks, while
+the back-to-back condition reduces those via the top quarks. Our result is also compared with that
+given by Ref. [34], where the b-tagging efﬁciencies, especially those for fake b-jets, are different
+from ours (see the footnote #3). The total number of the background becomes smaller by ∼ 40%
+than their result. The difference is prominent in Z j j, t¯t and VV , because a large number of events
+include fake b-jets.
+The expected numbers of signal events after the selections, cut a and cut b , are shown in
+– 12 –
+
+=== PDF PAGE 14 ===
+Tables 3 and 4, respectively. As a reference, the single CV1 scenario and the U(2)-U1 scenario
+(CS1 =−2βR CV1) are evaluated at
+∫
+L dt = 35.9 fb−1 and√s = 13 TeV. Here, CV1 = 1 is ﬁxed,
+while the LQ mass is set to beMLQ = 1.5 TeV and 20 TeV, where the latter corresponds to the EFT
+limit. By varying Rs/b, effects of the s-quark contribution are also studied. Detailed cut ﬂows for
+those scenarios are given in Tables 11, 12, 13, and 14 of Appendix A.
+From the tables, it is conﬁrmed that the event number after the cut depends on the LQ mass
+for MLQ =O(1) TeV. For instance, according to the results for mT > 1 TeV the event number with
+CV1,1.5 TeV = 1 is less than a half of that in the EFT limit, CV1,EFT = 1. Such a feature is valid for
+both cut a and cut b.
+Let us comment that the signal event numbers in our results are smaller than those in Ref. [34],
+e.g., 25.6 events are expected for CV1,EFT (mT > 1 TeV) in their analysis. This is mainly because
+the b mis-tagging rate is different; εc→b = 0.3 in Ref. [34], while it is 1 /27≃ 0.04 in our case.
+With their set up, we checked that almost a half of the signal events come from this fake b-jet in
+the simulation.
+Further systematic uncertainties can stem from a charm-quark PDF. We have checked that the
+PDF uncertainty including the scale variations and estimated by comparing different PDF sets is
+of order 20% in the number of signal events. This corresponds to∼ 10% uncertainty for the sensi-
+tivities to the NP model in terms of the WCs. Moreover, although the total number of background
+events in our analysis is consistent with the experimental result [25], the number of events in each
+category does not match perfectly (see Table 1). This might be due to a lack of sufﬁcient informa-
+tion on the criteria of the categories. Nonetheless, if one adopted, for instance, the result of theZ j j
+background in Ref. [25], which is based on the data-driven estimation, the total number of back-
+ground events would be reduced by 20%. This would amplify the signal sensitivity. Besides, an
+uncertainty in the hadronic τ-tagging efﬁciency could affect our results quantitatively. Therefore,
+dedicated studies especially with experimental information are required to improve the analysis.
+4.2 Test of background-only hypothesis
+In order to study sensitivities to the NP contributions, the background-only hypothesis is tested; un-
+der the hypothesis, the result is identiﬁed to be consistent with the SM if the total number of events,
+i.e., the sum of the signal and background event numbers (denoted as NSig and NBG, respectively),
+is smaller than an upper bound (Utot). In this paper, the bound is determined as follows. Let us
+ﬁrst turn off the systematic uncertainty to focus on the statistical one. Under the background-only
+hypothesis, Utot satisﬁes the relation,
+NBG
+∑
+n=0
+P(n;U stat
+tot ) = p , (16)
+where P(n; µ) is the probability function of the Poisson distribution for observing n events with
+the mean value µ, and p = 0.05 is taken, corresponding to 95% conﬁdence level (CL). Here,
+Utot is denoted with the superscript “stat,” since the systematic uncertainty is ignored. Then, the
+systematic uncertainty is taken into account. Although it is unknown, we assign 60% relative to the
+mean value at 95% CL for
+∫
+L dt = 35.9 fb−1 as inferred from the CMS result [25].#6 Furthermore,
+#6As shown in Table 1, the SM background is dominated by W j j. The CMS analysis obtains the total systematic
+uncertainty of 28% on this channel at 68% CL [25].
+– 13 –
+
+=== PDF PAGE 15 ===
+it is supposed to be scaled with 1 /
+√
+L for the integrated luminosity L. Hence, the systematic
+uncertainty is assigned as σ 95%
+syst = NBG× 60%×
+√
+35.9 [fb]/L [fb]. In this paper, we combine the
+systematic uncertainty with the statistical one linearly, and then, Utot is obtained as Utot = U stat
+tot +
+σ 95%
+syst . Finally, the upper bound on the NP signal event numberNSig is derived as S95% = Utot− NBG;
+the result is regarded as the SM consistent if NSig < S95% is satisﬁed.
+In the analysis, the expected number of events is not always integers, as shown in the tables
+of the previous subsection. Then, NBG in Eq. (16) is replaced with ⌊NBG⌋ corresponding to the
+mode for the Poisson distribution. Here,⌊x⌋ is the ﬂoor function, i.e., returns the maximum integer
+not exceeding x. The background event number for
+∫
+L dt = 35.9 fb−1 is given in Tables 1 and
+2. For higher luminosity, the event numbers are obtained by scaling the results in the tables with
+corresponding to the integrated luminosity. Note that, although the HL-LHC (LHC Run 4 and 5)
+will be operated at√s = 14 TeV, we ignore differences between the results at√s = 13 and 14 TeV,
+for simplicity.
+Before proceeding to the results, let us mention about the mT dependence of the NP sensitivi-
+ties. From the tables it can be found that the category of mT > 1 TeV provides higher sensitivities
+to the NP contributions than the category of 0.7 < mT < 1 TeV. Similarly, among the three differ-
+ent mT bins in the CMS analysis, mT < 500 GeV, 500 GeV < mT < 1 TeV and mT > 1 TeV, the
+last one provides the most stringent constraints. Hence, we will present the results obtained from
+mT > 1 TeV in the following.
+4.3 Single operator scenarios
+In Tables 5 and 6, the expected sensitivities to |CX (ΛLHC)| are shown for each single operator
+scenario in the τ±ν and τ±ν + b searches, respectively. They are determined from S95% deﬁned in
+the previous subsection. The number without (inside) the parenthesis is obtained in the EFT limit
+(at MLQ = 1.5 TeV). The integrated luminosities are
+∫
+L dt = 139 fb−1 (for the current sensitivity)
+and 1000/3000 fb−1 (for future). The results are provided at two scales; one is a scale of ﬂavor
+experiments, mb = 4.2 GeV, and another is that of the collider search, ΛLHC, which is ﬁxed to be
+1 TeV in this paper. The WCs at the scale of mb = 4.2 GeV are derived by taking RG running
+corrections into account. For the τ±ν search, the current upper bounds on|CX (mb)| are also listed
+in Table 5. They are obtained in Ref. [35] based on the CMS result with
+∫
+L dt = 35.9 fb−1 [25].
+Similar limits are provided in Refs. [30, 34]. It is noted that there are no experimental studies in
+the τ±ν + b search.
+The LQ mass dependence of the sensitivities are shown in Fig. 1 for the integrated luminosities
+of
+∫
+L dt = 139 (solid line) and 3000 fb−1 (dashed). The scale is set to be ΛLHC. The blue (red)
+lines correspond to the τ±ν (τ±ν + b) search. In the ﬁgure, the upper plot for each scenario shows
+a sensitivity to the WC based on cut a or cut b.
+As mentioned above, the charge of the ﬁnal-state τ lepton is not identiﬁed in cut a or cut b.
+If the event selections are performed with distinguishing the τ-lepton charge, the sensitivities may
+be affected. The lower plot in each scenario displays δC95%
+X /C95%
+X |τ± for
+∫
+L dt = 3000 fb−1 with
+δC95%
+X = C95%
+X |τ±−C95%
+X |τ−, where C95%
+X |τ−(±) is the sensitivity to the WC with (without) selecting
+negative charged τ leptons, τ−. A positive value means that the sensitivities are improved by
+selecting τ− versus the result collecting both τ + and τ−.
+Let us summarize our observations from the ﬁgure and tables:
+– 14 –
+
+=== PDF PAGE 16 ===
+τ± ν search CV1 CV2 CS1 CS2 CT
+current upper bound on EFT [35]: LHC 36 fb −1
+µ = mb 0.32 0.33 0.55 0.55 0.17
+sensitivity: LHC 139 fb −1
+µ = ΛLHC 0.30 (0.46) 0.32 (0.68) 0.32 (0.54) 0.32 (0.59) 0.18 (0.46)
+µ = mb 0.30 (0.46) 0.32 (0.68) 0.55 (0.93) 0.55 (1.02) 0.15 (0.39)
+sensitivity: HL-LHC 1000 fb −1
+µ = ΛLHC 0.18 (0.28) 0.20 (0.41) 0.19 (0.33) 0.19 (0.35) 0.11 (0.28)
+µ = mb 0.18 (0.28) 0.20 (0.41) 0.33 (0.56) 0.33 (0.61) 0.09 (0.24)
+sensitivity: HL-LHC 3000 fb −1
+µ = ΛLHC 0.14 (0.21) 0.15 (0.31) 0.15 (0.25) 0.15 (0.27) 0.08 (0.21)
+µ = mb 0.14 (0.21) 0.15 (0.31) 0.25 (0.43) 0.25 (0.47) 0.07 (0.18)
+Table 5. Expected sensitivities to the absolute value of the WCs in the single-operator scenarios. They are
+evaluated at the scale of µ = ΛLHC and mb based on cut a (the τ±ν search). The number without (inside)
+the parenthesis correspond to the EFT limit (MLQ = 1.5 TeV). Also shown are the current upper bounds [35]
+based on the dataset of CMS 35.9 fb−1 [25].
+τ± ν + b search CV1 CV2 CS1 CS2 CT
+sensitivity: LHC 139 fb −1
+µ = ΛLHC 0.20 (0.31) 0.20 (0.41) 0.20 (0.33) 0.18(0.32) 0.11 (0.22)
+µ = mb 0.20 (0.31) 0.20 (0.41) 0.33 (0.57) 0.31 (0.56) 0.09 (0.19)
+sensitivity: HL-LHC 1000 fb −1
+µ = ΛLHC 0.12 (0.18) 0.12 (0.24) 0.11 (0.20) 0.11 (0.19) 0.06 (0.13)
+µ = mb 0.12 (0.18) 0.12 (0.24) 0.20 (0.34) 0.18 (0.33) 0.05 (0.11)
+sensitivity: HL-LHC 3000 fb −1
+µ = ΛLHC 0.09 (0.14) 0.09 (0.18) 0.09 (0.15) 0.08 (0.14) 0.05 (0.10)
+µ = mb 0.09 (0.14) 0.09 (0.18) 0.15 (0.26) 0.14 (0.25) 0.04 (0.08)
+Table 6. Same as Table 5 but for cut b (the τ±ν + b search).
+– 15 –
+
+=== PDF PAGE 17 ===
+0.
+0.1
+0.2
+0.3
+0.4|CV1(ΛLHC)|
+V1single
+5 10-30
+-20
+-10
+0
+10
+MNP[TeV]
+[%]
+0.
+0.1
+0.2
+0.3
+0.4|CV2(ΛLHC)|
+V2single
+5 10-30
+-20
+-10
+0
+10
+MNP[TeV]
+[%]
+0.
+0.1
+0.2
+0.3
+0.4|CS1(ΛLHC)|
+S1single
+5 10-30
+-20
+-10
+0
+10
+MNP[TeV]
+[%]
+0.
+0.1
+0.2
+0.3
+0.4|CS2(ΛLHC)|
+S2single
+0.
+0.1
+0.2
+0.3
+0.4|CT(ΛLHC)|
+T single
+0.
+0.1
+0.2
+0.3
+0.4|CV1(ΛLHC)|
+CS1=-2CV1
+5 10-30
+-20
+-10
+0
+10
+MNP[TeV]
+[%]
+5 10-30
+-20
+-10
+0
+10
+MNP[TeV]
+[%]
+5 10-30
+-20
+-10
+0
+10
+MNP[TeV]
+[%]
+0.
+0.1
+0.2
+0.3
+0.4|CS2(ΛLHC)|
+CS2=+4CT
+5 10-30
+-20
+-10
+0
+10
+MNP[TeV]
+[%]
+5 10
+-30
+-20
+-10
+0
+10
+MNP[TeV]
+[%] 3000 fb -1:τ-ν
+3000 fb -1:τ-ν+b
+0.
+0.1
+0.2
+0.3
+0.4
+|CS2(ΛLHC)|
+CS2=-4CT
+139 fb-1:τ±ν
+139 fb-1:τ±ν+b
+3000 fb -1:τ±ν
+3000 fb -1:τ±ν+b
+Figure 1. Expected sensitivities to the absolute value of CX (ΛLHC) (upper in each scenario) with
+∫
+L dt =
+139 fb−1 (solid) and 3000 fb−1 (dashed) in the τ±ν (blue) and τ±ν + b (red) searches. In the lower plot of
+each scenario, δC95%
+X /C95%
+X |τ± is displayed for
+∫
+L dt = 3000 fb−1 with δC95%
+X = C95%
+X |τ±−C95%
+X |τ−, where
+C95%
+X |τ−(±) is the sensitivity to the WC with (without) selecting τ−.
+– 16 –
+
+=== PDF PAGE 18 ===
+• In the τ±ν search, compared with the current bounds, some of the sensitivities are not im-
+proved even with the larger dataset of
+∫
+L dt = 139 fb−1. This is mainly because the observed
+data at CMS in Ref. [25] are smaller than the expected SM background, probably due to un-
+expected (statistical) ﬂuctuations.
+• In the τ±ν search, the sensitivities to the WCs can be improved by a factor of two at
+∫
+L dt =
+3000 fb−1 compared with the current bounds (36 fb−1) or sensitivities (139 fb−1).
+• By requiring an additional b-jet in the ﬁnal states, the NP sensitivities can be improved by
+≈ 40% versus those in the τ±ν search. Note that this is beyond the statistical uncertainty
+of our MC; in the analysis, we generate 100K events for each NP model point, and the
+number of signal events after the cut could become ≲ 100 for τ−ν + b, leading toO(10)%
+MC-uncertainty at most.
+• The sensitivities depend on the LQ mass obviously; they become better as the mass increases.
+The dependence for τ±ν + b is similar to that for τ±ν. It is found that the sensitivity from
+the τ±ν + b search is better than that from τ±ν in the whole mass region. (Note that the
+conclusion is valid for Rs/b ≲ 1. See Fig. 5.)
+• In the case of the τ−ν search, by selecting the negative-charged τ leptons, the sensitivities
+can be improved by≈ 10% compared with the result obtained without selecting τ−. How-
+ever, the selection is not effective to improve the sensitivity for τ−ν + b, especially because
+the number of events after the cut is not large enough even at
+∫
+L dt = 3000 fb−1; the number
+of signal events is halved by the charge selection. Then, with the number of background
+events NBG =O(10), the reduction of NBG due to the charge selection is not sufﬁcient for
+improving Utot. In other words, we found that larger NBG or better reduction is necessary to
+improve the sensitivity.
+• In small LQ mass regions, the sensitivity for CV1 is better than that for CV2 at
+∫
+L dt =
+3000 fb−1, because of differences of τ angular distributions; the signal acceptance for the
+former is better than that for the latter (see Ref. [35]).
+4.4 Single LQ scenarios
+We discuss an impact of the LHC searches on the single LQ scenarios that can solve the RD(∗)
+anomaly. There are three single LQ ﬁelds, U 1, R2, and S 1, introduced in Secs. 2.1, 2.2, and 2.3,
+respectively. For calculating the ﬂavor observables such asRD(∗), we used the formulae of Ref. [39]
+with updating the form factors [11].
+Let us ﬁrst summarize the expected sensitivities based on the τ±ν and τ±ν + b searches in
+Tables 7 and 8, respectively. Here, the sensitivity toCS2 is shown for R2 and S1, while that to CS1 is
+given for the scenario of U1 LQ with U(2) ﬂavor symmetry. The interplay with the RD(∗) anomaly
+is discussed in the following subsections.
+In discussing the LHC search for the NP contributions and its interplay with the ﬂavor ob-
+servables, there are three renormalization scales; µ = mb, ΛLHC, and MLQ. The WCs in different
+energy scales should be evaluated by taking the RG corrections into account [13, 68, 69]. Although
+– 17 –
+
+=== PDF PAGE 19 ===
+all WCs are to be input at µ = MLQ, we show the results with discarding the RG corrections be-
+tween ΛLHC = 1 TeV and MLQ =O(1) TeV, because they are found to be negligible (a few percent
+level for WCs). Nonetheless, the corrections are taken into account for µ = mb.
+4.4.1 R 2 LQ scenarios
+In the R 2 LQ model, two sets of WCs, CV2(MLQ) and CS2(MLQ) = + 4CT (MLQ), are induced in-
+dependently, as explained in Eq. (9). Thus, we study the following two scenarios; single-R 2(CV2)
+and single-R2(CS2) scenarios separately. For each scenario, in order to solve the RD(∗) anomaly, we
+obtain that the WCs are favored to be
+single-R2(CV2) : CV2(ΛLHC)≈± i0.42 , single-R2(CS2) : CS2(ΛLHC)≈− 0.07± i0.35 , (17)
+where the measured values of RD and RD∗ are ﬁtted. Note that± does not mean an uncertainty but
+represents two solutions. Since the LHC study is almost insensitive to the phase of WCs, it is set
+to be zero in the collider analysis.
+Such large WCs are expected to be probed at the LHC. #7 In the single-R 2(CV2) scenario, by
+comparing Tables 7 and 8 with the background results in Fig. 1, it is found that the LHC sensitivity
+of the τ±ν search is marginal at
+∫
+L dt = 139 fb−1 to test the RD(∗) explanation depending on the
+LQ mass, whereas that of the τ±ν + b search is enough to probe the parameter region in all ranges
+of the LQ mass. We would like to stress that the scenario can be probed with use of the current data
+samples at the LHC (139 fb−1) for τ±ν + b. On the other hand, in the single-R2(CS2) scenario, it is
+also shown that the RD(∗)-favored value of|CS2(ΛLHC)|≈ 0.36 can be fully probed by the τ±ν + b
+search at 139 fb−1, but not by τ±ν. Therefore, it is concluded that requiring an additional b-jet is
+signiﬁcant to test the LQ scenarios in light of theRD(∗) anomaly.
+The combined summary plot for the LHC sensitivity and the allowed region from the ﬂavor
+observables is shown in Fig. 2 for the case of the single-R2(CS2) scenario with MLQ = 1.5 TeV and
+2.5 TeV. The sensitivity at
+∫
+L dt = 139 fb−1 from the τ±ν and τ±ν + b channels are denoted by
+solid blue and red lines, respectively. Their HL-LHC prospects at
+∫
+L dt = 3000 fb−1 are shown
+in dashed lines with the same color. The magenta lines are the current constraint from the CMS
+36 fb−1 data, taken from Ref. [35] assuming MLQ = 2 TeV. The blue and green bands show the
+region favored by the measured RD and RD∗, respectively. Then, the combined 1 σ (2 σ) regions
+are shown in red (yellow). We also put the Bc constraint as BR (Bc→ τν ) < 60% (30%) shown
+in (light) gray as references. Here, an updated study for the Bc→ τν constraint is available in
+Refs. [70, 71]. We can clearly check from this ﬁgure that the τ±ν + b search fully (partially)
+covers the single-R2(CS2) scenario with MLQ > 2.5 TeV (1.5 TeV < MLQ < 2.5 TeV) responsible
+for the RD(∗) anomaly.
+4.4.2 S 1 LQ scenario
+In the S1 LQ model, two sets of WCs, CV1(MLQ) and CS2(MLQ) =−4CT (MLQ), are induced inde-
+pendently as given in Eq. (11). In the latter case, although the RD(∗) discrepancy can be reduced,
+#7Interference with the SM part is preferred to be small by a ﬁt for theRD(∗) anomaly in the R2 LQ model. Therefore,
+resultant WCs have large imaginary components, and their absolute values tend to be large enough to be able to probed
+at the LHC.
+– 18 –
+
+=== PDF PAGE 20 ===
+τ± ν search R2(CS2 ) S1(CS2 ) U
+Rs/b =0
+1 (CS1 ) U
+Rs/b =1
+1 (CS1 ) C
+Rs/b =1
+V1
+sensitivity: LHC 139 fb −1
+µ = ΛLHC 0.30 (0.58) 0.29 (0.58) 0.28 (0.47) 0.24 (0.40) 0.18 (0.28)
+µ = mb 0.51 (0.96) 0.52 (1.04) 0.48 (0.81) 0.41 (0.69) 0.18 (0.28)
+sensitivity: HL-LHC 1000 fb −1
+µ = ΛLHC 0.18 (0.35) 0.18 (0.35) 0.17 (0.28) 0.14 (0.24) 0.11 (0.17)
+µ = mb 0.31 (0.58) 0.32 (0.63) 0.29 (0.49) 0.25 (0.42) 0.11 (0.17)
+sensitivity: HL-LHC 3000 fb −1
+µ = ΛLHC 0.14 (0.26) 0.13 (0.27) 0.13 (0.22) 0.11 (0.19) 0.08 (0.13)
+µ = mb 0.23 (0.44) 0.24 (0.48) 0.22 (0.37) 0.19 (0.32) 0.08 (0.13)
+Table 7. Expected sensitivities of the absolute value of the WCs for cut a in the single LQ scenarios. The
+sensitivity to CS2 is shown for R 2 and S1, while that to CS1 is given for the scenario of U 1 LQ with U(2)
+ﬂavor symmetry. See Table 5 for details of the descriptions.
+τ± ν + b search R2(CS2 ) S1(CS2 ) U
+Rs/b =0
+1 (CS1 ) U
+Rs/b =1
+1 (CS1 ) C
+Rs/b =1
+V1
+sensitivity: LHC 139 fb −1
+µ = ΛLHC 0.18 (0.35) 0.16 (0.31) 0.18 (0.30) 0.16 (0.28) 0.17 (0.25)
+µ = mb 0.30 (0.58) 0.29 (0.56) 0.32 (0.52) 0.27 (0.48) 0.17 (0.25)
+sensitivity: HL-LHC 1000 fb −1
+µ = ΛLHC 0.11 (0.20) 0.10 (0.18) 0.11 (0.18) 0.09 (0.17) 0.10 (0.15)
+µ = mb 0.18 (0.34) 0.17 (0.33) 0.19 (0.31) 0.16 (0.28) 0.10 (0.15)
+sensitivity: HL-LHC 3000 fb −1
+µ = ΛLHC 0.08 (0.15) 0.07 (0.14) 0.08 (0.14) 0.07 (0.13) 0.07 (0.11)
+µ = mb 0.13 (0.26) 0.13 (0.25) 0.14 (0.23) 0.12 (0.21) 0.07 (0.11)
+Table 8. Same as Table 7 but for cut b (the τ±ν + b search).
+– 19 –
+
+=== PDF PAGE 21 ===
+-0.6 -0.4 -0.2 0.0 0.2 0.4 0.6
+-0.6
+-0.4
+-0.2
+0.0
+0.2
+0.4
+0.6
+(a) MR2 LQ = 1.5 TeV
+-0.6 -0.4 -0.2 0.0 0.2 0.4 0.6
+-0.6
+-0.4
+-0.2
+0.0
+0.2
+0.4
+0.6 (b) MR2 LQ = 2.5 TeV
+Figure 2. The R 2 LQ scenario with MLQ = 1.5 and 2 .5 TeV. The regions outside the blue and red lines
+are probed by the τ±ν and τ±ν + b searches, respectively, where the solid (dashed) lines correspond to∫
+L dt = 139 fb−1 (3000 fb−1). The magenta line shows the current bound from the experimental data with∫
+L dt = 36 fb−1 [35]. The (lighter) gray shaded regions are constrained by BR (Bc→ τν ) > 0.6 (> 0.3).
+The RD and RD∗ anomalies are explained at 1σ in the blue and green shaded regions, respectively, while the
+combined ﬁt at 1/2 σ is shown in orange/yellow.
+the experimental result cannot be addressed within 1 σ. Thus, the study is performed in the two-
+dimensional parameter space, (CV1,CS2).
+In Fig. 3, the LHC sensitivity and the region favored by the RD(∗) anomaly are shown for
+the S 1 LQ scenario on the plane of (CV1,CS2). Here, the imaginary components are ﬁxed to be
+zero. See Fig. 2 for the color convention. As brieﬂy mentioned in Sec. 2.3, unlike the cases
+for R2 and U1 LQs, the S 1 LQ scenario inevitably produces a tree-level contribution to b→ sνν
+in addressing RD(∗). Thus, the parameter space is constrained from precision measurements of
+B→ K(∗)νν, which is shown in the ﬁgure with the cyan-shaded region. Its evaluation formula
+is given in Appendix B. In addition, a more robust ﬂavor bound comes from the Bs–Bs mixing
+(∆Ms). Based on the studies of Refs. [72, 73], the ∆Ms constraint is provided in the ﬁgure with the
+red-shaded region. This bound is comparable to or severer than B→ K(∗)νν depending on the LQ
+mass. See again Appendix B for its detail. Although ∆Md/∆Ms can give more stringent bound in
+general since QCD uncertainties are partially canceled, this constraint is avoidable if additional LQ
+contributions to ∆Md are introduced properly.
+From the ﬁgure, we see that the S 1 LQ mass larger than 4 TeV is disfavored by the ∆Ms and
+B→ K(∗)νν constraints. Since this implies that the smaller LQ mass MLQ < 4 TeV is viable for
+the RD(∗) anomaly, the LQ mass dependence on the NP sensitivity of the present LHC searches is
+important. Then, one can see that theτ±ν + b search at
+∫
+L dt = 3000 fb−1 can reach the sensitivity
+to probe this scenario, while τ±ν cannot.
+– 20 –
+
+=== PDF PAGE 22 ===
+-0.1 0.0 0.1 0.2 0.3
+-0.4
+-0.2
+0.0
+0.2
+0.4
+0.6
+(a) MS1 LQ = 1.5 TeV
+-0.1 0.0 0.1 0.2 0.3
+-0.4
+-0.2
+0.0
+0.2
+0.4
+0.6 (b) MS1 LQ = 4.0 TeV
+Figure 3 . The S 1 LQ scenario with MLQ = 1.5 TeV and 4 .0 TeV on the (CV1,CS2) plane. The color
+convention is the same as in Fig. 2. The magenta lines are the current bound from the experimental data with∫
+L dt = 36 fb−1 by assuming MLQ = 2 TeV (left panel) and the EFT limit (right panel) [35]. In addition, the
+cyan-shaded region is excluded by the B→ K∗νν measurement at the 90% CL, and the red-shaded region is
+excluded by ∆Ms.
+4.4.3 U 1 LQ scenarios
+The U1 vector LQ model introduced in Sec. 2.1 is one of the most promising candidates to solve
+the B anomalies. In fact, unlike the above two scalar LQ scenarios, ﬂavor constraints can be sup-
+pressed or avoided. Therefore, the LHC search is signiﬁcant to probe the model. In this paper, we
+investigate two scenarios in terms of the WCs of Eq. (6); the single CV1 scenario (setting CS1 = 0),
+and the scenario satisfying CS1 =−2eiφRCV1 with the U(2) ﬂavor symmetry, referred as the single-
+U1 and U(2)-U1 scenarios, respectively. By performing a parameter ﬁt for these two scenarios to
+the RD(∗) measurement, we obtain the following WCs,
+single-U1 : CV1(ΛLHC)≈ 0.09 , U(2)-U1 : CV1(ΛLHC)≈ 0.09 , φR≈± 0.42π . (18)
+Note again that± does not mean an uncertainty. Also, the phaseφR for U(2)-U1 is almost irrelevant
+for the present LHC study.
+In Fig. 4, the NP sensitivities are shown in the τ±ν (τ±ν + b) search by the blue (red) lines.
+The solid (dashed) lines correspond to
+∫
+L dt = 139 fb−1 (3000 fb−1). The vertical axis is a product
+of the U 1 couplings, h33
+L h23
+L ≡ hbτ hcν, and the horizontal one is the LQ mass, MLQ. The region
+favored by RD(∗) at the 1 σ (2 σ) level is also given in the green (yellow) color. Regarding the
+U(2)-U1 scenario, the relative phase is ﬁxed asφR = 0.42π.
+In the ﬁgure, the results are shown for Rs/b→ 0 and Rs/b = 1 in the left and right panels,
+respectively. The former corresponds to the single CV1 scenario, and hence, the NP sensitivity is
+exactly the same as that given in the previous section. On the other hand, since h23
+L = hsτ = hcν
+– 21 –
+
+=== PDF PAGE 23 ===
+2 3 4 5 6 70
+1
+2
+3
+4
+5
+6
+7
+MLQ [TeV]
+hbτ hcν
+U1 LQ:C S1 =0
+Rs/b →0
+2 3 4 5 6 70
+1
+2
+3
+4
+5
+6
+7
+MLQ [TeV]
+hbτ hcν
+U1 LQ:C S1 =0
+} ⟵R sb =2
+} ⟵R sb =4
+Rs/b =1(lines)
+2 3 4 5 6 70
+1
+2
+3
+4
+5
+6
+7
+MLQ [TeV]
+hbτ hcν
+U1 LQ:C S1 =-2e iϕ R CV1
+ϕR
+fit =0.42,R s/b →0
+2 3 4 5 6 70
+1
+2
+3
+4
+5
+6
+7
+MLQ [TeV]
+hbτ hcν
+U1 LQ:C S1 =-2e iϕ R CV1
+⟵R sb =4
+ϕR
+fit =0.42,R s/b =1(lines)
+Figure 4. Expected sensitivities to the U 1 LQ scenario. The vertical axis is a product of the U 1 couplings,
+h33
+L h23
+L ≡ hbτ hcν, and the horizontal one is the LQ mass, MLQ. Here, Rs/b→ 0 and Rs/b = 1 in the left and
+right panels, respectively. The RD(∗) anomaly is solved at the 1 σ (green) and 2 σ (yellow) levels. See Fig. 1
+for the conventions of the plot markers and colors. The sensitivities for Rs/b = 2,4 and 4 are also shown in
+the single-U1 and U(2)-U1 scenarios, respectively, at MLQ = 4 TeV.
+in the U1 LQ model as aforementioned in Sec. 3.2, the latter indicates how hsτ̸= 0 contribution to
+the signal production affects the NP sensitivity. For Rs/b = 1, it is found that the τ±ν search can
+be competitive to that of τ±ν + b. We also show the sensitivities for larger Rs/b as = 2,4 and 4 in
+the single-U1 and U(2)-U1 scenarios, respectively, at MLQ = 4 TeV for further comparison. It is
+concluded from the ﬁgures that both scenarios can be tested at HL-LHC with
+∫
+L dt = 3000 fb−1.
+Regarding theU(2)-U1 scenario, the present LHC data sample is large enough to probe the scenario
+– 22 –
+
+=== PDF PAGE 24 ===
+τ± ν(139fb -1)
+τ± ν(3000fb -1)
+τ± ν+b(139fb -1)
+τ± ν+b(3000fb -1)
+τ+ τ- (ATLAS 139fb-1 )
+0.0 0.5 1.0 1.5 2.0 2.5 3.00
+1
+2
+3
+4
+5
+hcν =h sτ
+hbτ
+U1 LQ:C S1 =0
+MLQ =2TeV
+0.0 0.5 1.0 1.5 2.0 2.5 3.00
+1
+2
+3
+4
+5
+hcν =h sτ
+hbτ
+U1 LQ:C S1 =0
+MLQ =4TeV
+0.0 0.5 1.0 1.5 2.00
+1
+2
+3
+4
+hcν =h sτ
+hbτ
+U1 LQ:C S1 =-2e iϕ R CV1
+ϕR
+fit =0.42,M LQ =2TeV
+0.0 0.5 1.0 1.5 2.0 2.5 3.00
+1
+2
+3
+4
+5
+hcν =h sτ
+hbτ
+U1 LQ:C S1 =-2e iϕ R CV1
+ϕR
+fit =0.42,M LQ =4TeV
+Figure 5 . Expected sensitivities to the U 1 LQ scenario as functions of the LQ couplings with the LQ
+mass of 2TeV (left) and 4TeV (right). The black dashed lines show the results with selecting τ−ν. The
+gray horizontal lines correspond to the current LHC bound recast from the ATLAS pp→ τ +τ− search. See
+Fig. 4 for other color conventions.
+if the τ±ν + b analysis is performed. Also, it should be mentioned that the result depends on Rs/b
+signiﬁcantly. It is shown that the sensitivities are enhanced by largerRs/b even in the EFT limit. Its
+contribution will be investigated in detail later.
+Figure 5 shows a dependence of the LHC sensitivity on the LQ couplings, h23
+L (= hsτ = hcν )
+and h33
+L (= hbτ ) for MLQ = 2 and 4 TeV. One can see that, for both scenarios, the result in the
+τ±ν + b search is sensitive to large hbτ and small hsτ, namely small Rs/b, whereas that of τ±ν is
+sensitive to larger Rs/b. For the single-U 1 scenario, the region favored by RD(∗) can be tested at
+– 23 –
+
+=== PDF PAGE 25 ===
+0.00 0.05 0.10 0.15 0.20 0.25 0.30
+-0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+(a) MU1 LQ = 1.5 TeV
+0.00 0.05 0.10 0.15 0.20 0.25 0.30
+-0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0 (b) MU1 LQ = 4.0 TeV
+Figure 6. The U(2)-U1 scenario with MLQ = 1.5 and 4.0 TeV on the (CV1, φR) plane. The color convention
+is the same as in Fig. 2. The magenta lines correspond to the current bound from the experimental data with∫
+L dt = 36 fb−1 by assuming MLQ = 2 TeV (left panel) and the EFT limit (right panel) [35].
+∫
+L dt = 3000 fb−1 by the τ±ν(+b) search only for hsτ ≳ 0.8(1.1) with MLQ = 2 TeV, and for
+hsτ ≳ 1.5(2.0) with MLQ = 4 TeV. As for U(2)-U1, on the other hand, the RD(∗)-favored region is
+fully probed by τ±ν + b at
+∫
+L dt = 3000 fb−1 for both MLQ = 2, 4 TeV.
+In Ref. [74], the pp→ τ +τ− search by the ATLAS [75] has been used to constrain the present
+two U1 LQ scenarios.#8 Their deﬁnition of the LQ couplings are related to ours as hbτ≡ gU β bτ
+L
+and hsτ≡ gU β sτ
+L by taking β bτ
+L = 1. Then, the upper limit on (gU , MLQ) has been recast from the
+ATLAS result at
+∫
+L dt = 139 fb−1, where β sτ
+L ⊃ [0.10,0.25] ([0.12,0.26]) is ﬁtted from relevant
+ﬂavor observables for single-U 1 (U(2)-U1). Although it is unclear how to implement the sub-
+leading contributions from bs/ss→ τ +τ− in their study, we naively translate their result into the
+(hsτ , hbτ ) plane as shown in the ﬁgure with gray lines. It is found that the τ±ν + b search is
+complementary to that of τ +τ−, though further discussions are needed on the analysis.
+In Fig. 6, theRD(∗)-favored region is compared with the LHC sensitivities and ﬂavor constraints
+for MLQ = 1.5 TeV (left) and 4 TeV (right) in the U(2)-U1 scenario on the (CV1, φR) plane. The
+region in the right-hand side of the vertical (solid/dashed) lines is probed or constrained by the
+LHC searches. The orange (yellow) region is favored by the measured RD(∗) at the 1 σ (2 σ) level.
+Note that the best ﬁt is given atφR≃± 0.42π, implying CS1/CV1≃− 0.50∓1.94i. Similar to the R2
+LQ model, imaginary component is favored to be large.#9 From this ﬁgure, we found that theRD(∗)-
+favored region can be fully (mostly) probed by τ±ν + b at
+∫
+L dt = 3000 fb−1 for MLQ > 4 TeV
+(< 4 TeV).
+Similar to the S 1 LQ scenario, there is a strong bound from ∆Ms, as brieﬂy mentioned in
+#8References [42, 76, 77] also provide bounds on the LQ scenarios from the pp→ τ +τ− search.
+#9Phase degrees of freedom are not taken into account in the parameter ﬁt in literature [74, 78].
+– 24 –
+
+=== PDF PAGE 26 ===
+Figure 7. Distribution of signal number density in ητ–ηb plane for the single-U1 (C
+Rs/b=0
+V1 ) (left) and single-
+R2 (CS2) (right). In both scenarios, the LQ mass is set to be 1 .5 TeV. The warmer/reddish (colder/bluish)
+colors represent larger (smaller) number of signal events.
+Sec. 2.1. In realistic model setups of the U 1 LQ scenario, vector-like leptons are introduced to
+realize a model ﬂavor structure appropriately [44, 45, 78–80]. Their mass scale is comparable
+to the LQ one up to a factor depending on gauge and Yukawa couplings. Then, the GIM-like
+mechanism does work and the box contributions to ∆Ms are suppressed. Since the vector-like
+lepton mass determines an energy scale of the breakdown of the GIM-like cancellation, it cannot
+become too large, i.e., must be around the TeV scale at most.#10 To summarize, model predictions
+of ∆Ms are quite model-dependent in the U1 LQ scenarios, and dedicated studies are necessary. In
+Figs. 4 and 5, we do not draw the bounds from ∆Ms, for simplicity.
+4.5 Angular correlations
+We investigate the angular distributions in the τ±ν + b searches, which would be helpful to distin-
+guish new physics scenarios and to further suppress the background. Requiring an additional b-jet
+not only ampliﬁes sensitivity of new physics search, but also provides us information of the angular
+observables. Since the LQ models are characterized by the Lorentz structure of new physics inter-
+actions and the angular distributions of the ﬁnal state are sensitive to them according to the analytic
+formulae of the scattering cross sections in Ref. [34], they are useful to discriminate the models.
+Let us ﬁrst demonstrate a correlation between the pseudorapidities of the bottom quark ( ηb)
+and of the τ lepton (ητ). Figure 7 shows a pseudorapidity correlation in the single-U1(CV1) scenario
+with Rs/b = 0 (left) and the single-R2(CS2) scenario (right) for MLQ = 1.5 TeV. Here, the LQ signal
+events passing cut b with mT≥ 700 GeV are exhibited. There are larger (smaller) number of signal
+events left after the cut in the reddish (blueish) points. As observed in the single-U 1(CV1) scenario
+#10In such a case, three-body decay branching ratios (mediated by U1 LQ) of the vector-like leptons become dominant,
+and conventional searches [81, 82] are not applicable directly. The dedicated search for such a vector-like lepton at the
+LHC would be, therefore, important to probe a footprint of the LQ scenarios behind the B anomalies.
+– 25 –
+
+=== PDF PAGE 27 ===
+(left panel), their positive correlation indicates that b and τ jets tend to be emitted in the same
+direction in the detector. On the other hand, the single-R 2(CS2) scenario (right panel) predicts a
+mild opposite correlation. Since the signal distribution on the ( ητ , ηb) plane depends on the NP
+scenarios, they could be distinguished by measuring the pseudorapidity correlation. It is noted that
+the same tendency is observed for MLQ = 20 TeV. Moreover, it is found that distributions in a
+case of Rs/b = 1 are similar to those for Rs/b = 0. This is because a contribution from the s–τ–U1
+interaction, which comes from the b-jet mis-tagged from c-jet, is negligible in the τ±ν + b events
+for Rs/b ≲ 1 (see Fig. 4).
+With having these observations, we propose the following quantities to probe the pseudora-
+pidity correlation:
+η′
+τ = sgn(ηb)× ητ , η′
+b = sgn(ητ )× ηb . (19)
+For instance, the former is a modiﬁcation of ητ according to the b-jet direction. If a distribution
+of the b-jet is isotropic, a peak of η′
+τ distribution must be placed at zero. However, events in the
+quadrants I and III of Fig. 7 provide a positiveη′
+τ, while the others yield a negative η′
+τ. As a result,
+when there is the positive (negative) pseudorapidity correlation, a peak of η′
+τ distribution shifts in
+a positive (negative) direction. Figure 8 shows the signal event distribution against η′
+τ (left) and
+η′
+b (right) in the scenarios of single-R2(CS2) (red), S1 with CV1 = 0 (black), single-U1 (CV1) (blue),
+and U(2)-U1 (light green). The event normalization for each histogram is taken to be arbitrary. As
+expected from Fig. 7, it is found that the single-R2(CS2) and single-U1 (CV1) scenarios have a peak
+in a negative and positiveη′
+τ (and also η′
+b) region, respectively. In fact, the conditionmT≥ 700 GeV
+leads to large amount of events aroundητ = 0, while ηb tends to be isotropic. As a result, it is found
+that modiﬁcation of the shape is clearer in the η′
+b plane than η′
+τ. It is also observed that for the S 1
+and U(2)-U1 scenarios predict larger numbers of signal events in the η′
+τ(b) > 0 region compared to
+η′
+τ(b) < 0.
+The azimuthal angle could also provide a tool to discriminate the UV models. We study the
+relative azimuthal angles among τ, ν (missing transverse momentum) and b to distinguish the NP
+scenarios. We show ∆φ (⃗p τ
+T, ⃗p b
+T) (left) and ∆φ (⃗pmiss
+T , ⃗p b
+T) (right) in Fig. 9. Note that ∆φ (⃗p τ
+T, ⃗pmiss
+T )
+distribution is already used in the cut as the back-to-back conﬁguration: ∆φ (⃗p τ
+T, ⃗pmiss
+T )≥ 2.4. The
+color convention is the same as the Fig. 8. It is observed that the single-R2(CS2) scenario has more
+events in 0≤ ∆φ (⃗p τ
+T, ⃗p b
+T)≤ π/2 than the rest of that region, while the S 1 scenario has more in
+π/2≤ ∆φ (⃗p τ
+T, ⃗p b
+T)≤ π. As for ∆φ (⃗pmiss
+T , ⃗p b
+T), it is found that the single-R 2(CS2) scenario has
+more events in π/2≤ ∆φ (⃗pmiss
+T , ⃗p b
+T)≤ π.
+In conclusion, once signal events are measured, they would be helpful to discriminate the LQ
+models.
+5 Conclusions and discussion
+The RD(∗) anomaly is one of the hottest topics in the ﬂavor physics from early in the last decade.
+Since the relevant b→ cτν process is induced by exchanging the W boson at the tree level within
+the SM and the observed deviation is +O(10)% at the amplitude level, the NP scale is indicated
+at around 1–10 TeV to solve the RD(∗) anomaly. Among the NP models, the LQ particles have
+attracted a lot of interests. Such particles have been searched for by studying direct pair-production
+– 26 –
+
+=== PDF PAGE 28 ===
+Figure 8. Distribution of signal event numbers against the modiﬁed pseudorapidity η′
+τ (left) and η′
+b (right)
+deﬁned by Eq. (19) in the scenarios of single-R2(CS2) (red), S1 (black), single-U1 (C
+Rs/b=0
+V1 ) (blue), andU(2)-
+U
+Rs/b=0
+1 (light green). Here, MLQ = 1.5 TeV is taken, and the normalization of each histogram is arbitrary.
+Figure 9 . Distribution of signal event numbers against ∆φ (⃗p τ
+T, ⃗p b
+T) (left) and ∆φ (⃗pmiss
+T , ⃗p b
+T) (right) in
+each LQ scenario. The color convention is the same as in Fig. 8. Here, MLQ = 1.5 TeV is taken, and the
+normalization of each histogram is arbitrary.
+channels at the ATLAS and CMS, and the LQ mass has been constrained to be > 1− 1.5 TeV.
+Although the next run will start at the LHC, if the mass is larger than ≳ 2 TeV, it is unlikely
+to discover the LQ directly in the near future. Nonetheless, thanks to the crossing symmetry of
+scattering amplitudes, the NP contributions to b→ cτν processes lead to bc→ τν scattering at the
+LHC. Such a process was studied to probe the NP contributions indirectly even if the LQ is heavier
+– 27 –
+
+=== PDF PAGE 29 ===
+than the LHC collision energy.
+To amplify experimental sensitivities of such a non-resonant search, we examined the impact
+of requiring an additionalb-jet in the ﬁnal state,e.g., gc→ bτν. We evaluated the current and future
+LHC sensitivities based on both the EFT framework and the viable models of scalar- and vector-
+LQs; S1, R2, and U 1 with/without the U(2) ﬂavor symmetry. It was observed that the additional
+b-jet requirement and τ− selection can improve the LHC sensitivity on the NP searches by≈ 40%
+and≈ 10% versus those in the τ±ν search, respectively. Furthermore, the LQ mass dependence
+of the sensitivities is explicitly shown in the LQ mass range of MLQ =O(1) TeV for the τ±ν + b
+search as well as the τ±ν case. In particular, it was found that the sensitivity from the τ±ν + b
+search is better than that from τ±ν in the whole mass region for Rs/b ≲ 1.
+Based on those ﬁndings, the LHC sensitivities are compared with the parameter regions that
+can accommodate the RD(∗) anomaly in several single LQ scenarios. There are three types of viable
+leptoquark models responsible for the anomaly; the R2, S1, and U1 LQ scenarios. We observed the
+following results:
+• For the single-R 2(CS2) LQ scenario, it is found that the current LHC data of
+∫
+L dt = 139 fb−1
+are enough to probe the R2 LQ, although the LQ mass dependence is crucial to claim whether
+the LQ is fully detectable. For instance, the τ±ν + b search with
+∫
+L dt = 139 fb−1 fully
+covers the single-R 2(CS2) scenario with MLQ > 2.5 TeV responsible for the RD(∗) anomaly,
+while the region of 1.5 TeV < MLQ < 2.5 TeV can be probed partially.
+• For the S 1 LQ scenario, the parameter region is already severely constrained fromB→ K∗νν
+and ∆Ms measurements, and the current LHC data can not test the allowed region. Larger
+luminosity such as the HL-LHC with requiring an additional b-jet is needed to probe these
+parameter regions.
+• For the U 1 LQ scenarios, there are several parameter regions that can accommodate theRD(∗)
+anomaly depending on ﬂavor structures of the LQ couplings and the LQ mass. It is found
+that the HL-LHC can probe the parameter regions in both the single-U 1 (CV1) and U(2)-U1
+scenarios by requiring an additional b-jet.
+• As mentioned in Sec. 4.1, the ATLAS collaboration observed smaller number of events than
+the expected one in the τ±ν category at the data of
+∫
+L dt = 139 fb−1, and provided stronger
+constraint than the expectation [26]. Therefore, an experimental analysis with requiring an
+additional b-jet is of great importance. Particularly, the single- R2 LQ scenario could be
+probed immediately by using the data of
+∫
+L dt = 139 fb−1.
+The angular correlations among τ-, b-jets and missing transverse momentum were also stud-
+ied. It was shown that the correlation between τ- and b-jets in the pseudorapidity plane could be
+useful to discriminate the LQ scenarios. Besides, it was found that the azimuthal angle distribu-
+tions would also be helpful. However, further studies especially with experimental information are
+needed for improving the analysis. In this paper, models with light right-handed (sterile) neutrinos
+are not discussed. In those scenarios, WCs are likely to be large to explain the RD(∗) anomaly,
+because there is no interference with the SM amplitude. For instance, the effective Hamiltonian
+– 28 –
+
+=== PDF PAGE 30 ===
+analogous to that of CV1 is given as
+Heff = 2
+√
+2GFVcbC′
+V1(cγ µ PLb)(τγ µ PRντ ) + h.c. , (20)
+and C′
+V1≈ 0.4± 0.05 can explain the RD(∗) anomaly. Since the LHC searches are expected to be
+insensitive to the neutrino chirality, we can apply the bound/sensitivity obtained forCV1 to the right-
+handed neutrino scenario. It was shown that the current data of
+∫
+L dt = 139 fb−1 are enough to
+probe C′
+V1 ≳ 0.2 (0.3) in the EFT limit (for MLQ = 1.5 TeV) in the τ±νR + b search, see Table 6.
+Thus, the parameter region of C′
+V1 favored by the RD(∗) anomaly can be tested immediately. Further
+improvements could be possible if larger amount of data is accumulated. In this work, we studied
+events in the region of mT > 1 TeV to derive the NP sensitivities. With larger data, one could push
+the mT condition to a larger side, e.g., mT > 2 TeV. Then, the sensitivity would be improved by
+further suppression of the SM backgrounds. Moreover, further suppression of ε j→b is expected to
+improve the sensitivity, since a large amount of the SM background events coming from fakeb-jets
+can be reduced.
+In the aspect of the ﬂavor physics, q2 distribution, D∗ polarization and τ polarization in B→
+D(∗)τν as well as the other b→ cτν processes, e.g., Bc→ J/ψτ ν, Λb→ Λcτν, and Bs→ Dsτν
+will be important to cross check the NP scenarios in the next decade. It would be exciting to see
+how the data evolves once we are moving to the higher precision. Since the LHC and Belle II
+experiments enjoy the high statistic era in this and next decades, the interplay between the ﬂavor
+physics and collider physics would become more signiﬁcant.
+Acknowledgement
+We thank Tomomi Kawaguchi and Yuta Takahashi for valuable comments and discussion on
+the ﬂavor tagging at the LHC. We also thank Sho Iwamoto for useful comments on MAD-
+GRAPH 5_aMC@NLO. We appreciate Kazuhiro Tobe and Yuki Otsu for fruitful discussion on the
+relation between ∆F = 2 observables and LQs. This work is supported by the Grant-in-Aid for
+Scientiﬁc Research on Innovative Areas (No. 21H00086 [ME] and No. 19H04613 [MT]), Scien-
+tiﬁc Research B (No. 21H01086 [ME]), Scientiﬁc Research C (No. 18K03611 [MT]), Early-Career
+Scientists (No. 16K17681 [ME] and No. 19K14706 [TK]), and JSPS Fellows (No. 19J10980 [SI])
+from the Ministry of Education, Culture, Sports, Science, and Technology (MEXT), Japan. The
+work of S. I. is supported by the World Premier International Research Center Initiative (WPI),
+MEXT, Japan (Kavli IPMU). The work of S. I., T. K., and M. T. is also supported by the JSPS
+Core-to-Core Program (Grant No. JPJSCCA20200002). R. W. is partially supported by the INFN
+grant ‘FLA VOR’ and the PRIN 2017L5W2PT. S. I is supported by the Deutsche Forschungsge-
+meinschaft (DFG, German Research Foundation) under grant 396021762–TRR 257. S. I thanks
+the Yukawa Institute for Theoretical Physics at Kyoto University, where this work was initiated
+during the YITP-W-19-05 on “Progress in Particle Physics 2019”. S. I appreciates Yuji Omura and
+C. -P. Yuan for the stimulating discussion at the initial stage.
+A Simulation details
+Here, we present some details of our MC setup and the signal and background cut ﬂows, whose
+ﬁnal results are summarized in Sec. 4.1.
+– 29 –
+
+=== PDF PAGE 31 ===
+Event generations and hadronizations are done as described in Sec. 3 with the following de-
+tails; as for a jet matching scale, qCut = 45 GeV is used to obtain the merged cross section; re-
+garding the SM background, a model of “ sm-no_b_mass” in MADGRAPH 5 is used, which sets the
+bottom quark mass to be 0 while keeping the Yukawa coupling non-vanishing. For the NP signal,
+the bottom mass is set to be 0.
+In the MC simulation, the following pre-cuts are imposed at the run_card level to reduce the
+computation cost:
+pτ
+T≥ 200 GeV, Emiss
+T ≥ 200 GeV, |ητ|≤ 5 , maxjetflavor = 5 , (21)
+and JetMatching:nJetMax=-1 (default number) is set. The number of generated background
+events are 5M for W j j, 40M for Z j j, 5M for t¯t with both W bosons decaying to τ, 5M for t¯t with
+one of the W bosons decaying to τ, 5M for t + j, 6M for tW (1), 1M for tW (2), 0.5M for tZ (1),
+5M for Z, γ DY , and 3M for eachWW , ZZ(γ), and W Z(γ) categories. For the signal simulations,
+100K events are generated in each model point of the NP signals. We have checked that the mT
+distributions after thecut a and cut b are well smooth for each SM background category and the LQ
+signal. For the analysis of angular distributions discussed in Sec. 4.5, we increased the generated
+event numbers by factors to suppress the MC-statistical uncertainty appropriately.
+Tables 9 and 10 are detailed cut ﬂows of the SM background for the cut a and cut b, respec-
+tively. As a comparison with literature, we show the results of Refs. [25] and [34] for cut a and
+Ref. [34] for cut b. It should be noted that some details in the analysis procedures are different
+from ours; particularly, the b-tagging efﬁciencies (different from Ref. [34] for cut b), the jet cone
+size (different from Ref. [25] for cut a and cut b), hadronic τ tagging method (not explained in
+Ref. [34] explicitly, and different from Ref. [25], for cut a and cut b), and so on. As for cut a the
+differences are expected to hardly affect the results, and we found that our result is consistent with
+those in Refs. [25] and [34].
+On the other hand, out result for cut b is well suppressed versus those in Ref. [34]. This is
+mainly because we used a working point with smaller b mis-tagging rates.
+Tables 11, 12, 13, and 14 are detailed cut ﬂows of the LQ signal for cut a and cut b. See the
+caption of Table 3 for the details.
+B Flavor observables
+In this appendix, the S1 LQ contributions to B→ K(∗)νν and Bs–Bs mixing are discussed.
+A ratios between the measured branching fractions of B→ K(∗)νν and the SM predictions is
+represented byRνν
+K(∗) [83]. For a case of the minimal coupling of the S1 LQ scenario, we obtain [84]
+Rνν
+K(∗) = 2
+3 + 1
+3
+⏐⏐⏐CSM,33
+L,sb +CNP,33
+L,sb
+⏐⏐⏐
+2
+⏐⏐⏐CSM,33
+L,sb
+⏐⏐⏐
+2 , (22)
+with
+CNP,33
+L,sb ≃ +2 π
+α CV1 , CSM,33
+L,sb ≃− 1.47
+sin2 θW
+, (23)
+– 30 –
+
+=== PDF PAGE 32 ===
+BG (cut a) W j j Z j j (Z→ νν) tt Z, γ DY VV single t
+τ cut (a-1) 4613.3 562.0 241.8 1236.4 72.2 52.4
+lepton cut (a-2) 4609.1 561.9 230.3 744.1 65.5 50.1
+MET cut (a-3) 2933.0 471.9 190.8 83.9 42.8 42.6
+back-to-back (a-4) 777.0 184.6 9.85 52.5 12.1 1.09
+0.7 < mT < 1 TeV 70.5 20.1 0.34 3.03 1.30 0.02
+1 TeV < mT 16.9 5.1 0.06 0.56 0.32 0.02
+1 TeV < mT [25] 22± 6.2 0 .9± 0.5 < 0.1 < 0.1 0 .7± 0.1 < 0.1
+1 TeV < mT [34] 18 5 .2 0 .44 0 .0025 1 .7 0 .1
+Table 9. Cut ﬂows of the SM background events in the cut a category (the τ±ν search). The expected
+number of events corresponding to
+∫
+L dt = 35.9 fb−1 at√s = 13 TeV are shown. The last two rows show
+the results by Refs. [25] and [34]. See, the main text for the detail.
+BG (cut b) W j j Z j j (Z→ νν) tt Z, γ DY VV single t
+number of jets 6693.4 235099 346.7 1813.2 125.8 151.8
+number of τ 3173.5 5617.1 73.9 894.9 59.7 34.0
+number of b 90.6 305.5 35.9 163.9 5.28 18.8
+isolated lepton 90.5 305.5 29.7 10.4 1.38 17.0
+τ kinematics 78.8 20.8 23.6 9.19 1.13 14.0
+MET cut 71.2 4.62 20.9 2.52 0.98 12.7
+back-to-back 7.84 3.61 1.67 0.57 0.18 0.54
+0.7 < mT < 1 TeV 0.58 0.37 0.056 0.28 0.018 0.029
+1 TeV< mT 0.16 0.06 0.01 0.007 0.005 0.005
+1 TeV< mT [34] 0.18(5) 0.21(12) 0.29(3) 4.2(4) ×10−5 0.35(5) 0.067(7)
+Table 10. Same as Table 9 but for cut b (the τ±ν + b search). The last row shows the results by Ref. [34].
+Note that their b-tagging efﬁciencies are different from ours (see, the footnote #3).
+and
+Hνν
+eff =− GF α√
+2π
+VtbV∗
+tsC f i
+L,sb (sγ µ PLb)
+(
+ν f γµ (1− γ5)νi
+)
++ h.c. , (24)
+– 31 –
+
+=== PDF PAGE 33 ===
+CV1,1.5 TeV CV1,EFT C
+Rs/b=1
+V1,1.5 TeV C
+Rs/b=1
+V1,EFT BG
+τ cut (a-1) 889 1198 2182 2876 6778
+lepton cut (a-2) 888 1198 2180 2874 6261
+MET cut (a-3) 539 783 1319 1861 3765
+back-to-back (a-4) 452 577 1015 1483 1030
+0.7 < mT < 1 TeV 90.0 139.4 225.9 351.4 95.3
+1 TeV < mT 54.4 123.6 146.9 345.8 23.0
+Table 11. Cut ﬂows of the signal event numbers in the cut a category for several setups of the CV1 scenario
+with CV1 = 1 and
+∫
+L dt = 35.9 fb−1. See the caption of Table 3 for the details.
+U
+Rs/b=0
+1,1.5 TeV U
+Rs/b=0
+1,EFT U
+Rs/b=1
+1,1.5 TeV U
+Rs/b=1
+1,EFT BG
+τ cut (a-1) 2875 4189 4106 6003 6778
+lepton cut (a-2) 2871 4184 4103 5999 6261
+MET cut (a-3) 1863 2934 2672 4123 3765
+back-to-back (a-4) 1530 2423 2108 3409 1030
+0.7 < mT < 1 TeV 361 582 502 809 95.3
+1 TeV < mT 204 571 279 799 23.0
+Table 12. Same as Table 11 but for the U 1 LQ scenario with the U(2) ﬂavor symmetry, where CV1 = 1 and∫
+L dt = 35.9 fb−1.
+where there are no QCD corrections from the RG evolution. Note that the WC, CV1, is deﬁned by
+the effective Hamiltonian in Eq. (1). The Belle collaboration has provided a severe upper bound on
+B→ K∗νν asRνν
+K∗ < 2.7 at the 90% C.L. [85]. From these numbers, we obtain
+−0.011 < CV1 < 0.027 , (25)
+for the S1 LQ scenario. It is clearly seen that the S1 LQ scenario is severely constrained (see Fig. 3).
+It is known, however, that addingSU(2)L triplet scalar LQ S3 can alleviate the constraints from the
+b→ sνν processes due to a destructive interference [43, 72, 86].#11
+Next, the S1 LQ contribution to ∆Ms (via LQ–ντ box) is given as [72, 73]
+∆Ms
+∆MSMs
+=
+⏐⏐⏐⏐1 + CNP
+1
+CSM
+1
+⏐⏐⏐⏐ , (26)
+#11Such a singlet-triplet LQ model can also explain theb→ sℓ+ℓ− anomaly [87, 88] and the muon g−2 anomaly [89],
+simultaneously [72].
+– 32 –
+
+=== PDF PAGE 34 ===
+CV1,1.5 TeV CV1,EFT C
+Rs/b=1
+V1,1.5 TeV C
+Rs/b=1
+V1,EFT BG
+number of jets 1529 1873 3290 4283 244230
+number of τ 693 907 1576 2114 9853
+number of b 144 182 178 237 620.0
+isolated lepton 142 180 177 234 454.5
+τ kinematics 128 165 156 210 147.5
+MET cut 99.5 131 125 169 112.9
+back-to-back 48.5 84.3 76.0 111 14.4
+0.7 < mT < 1 TeV 11.6 16.6 13.9 21.7 1.33
+1 TeV < mT 6.51 14.6 9.39 21.6 0.25
+Table 13. Same as Table 11 but in the cut b category. See the caption of Table 4 for the details.
+U
+Rs/b=0
+1,1.5 TeV U
+Rs/b=0
+1,EFT U
+Rs/b=1
+1,1.5 TeV U
+Rs/b=1
+1,EFT BG
+number of jets 4245 6085 5966 8376 244230
+number of τ 2024 2941 2898 4168 9853
+number of b 460 692 535 754 620.0
+isolated lepton 454 685 485 747 454.5
+τ kinematics 424 637 451 692 147.5
+MET cut 350 540 371 590 112.9
+back-to-back 258 402 263 443 14.4
+0.7 < mT < 1 TeV 53.9 86.4 55.8 92.0 1.33
+1 TeV < mT 26.0 71.6 30.7 101 0.25
+Table 14. Same as Table 13 but for the U 1 LQ scenario with the U(2) ﬂavor symmetry, where CV1 = 1 and∫
+L dt = 35.9 fb−1.
+with
+CNP
+1 ≃
+(αs(MLQ)
+αs(MW )
+)2
+7 (VcbGF MLQ)2
+4π2 C2
+V1 , CSM
+1 = 2.35 (VtbV∗
+ts GF MW )2
+4π2 , (27)
+– 33 –
+
+=== PDF PAGE 35 ===
+and
+Heff = C1 (sγ µ PLb)
+(
+sγµ PLb
+)
+. (28)
+Here, the WC, C1, is given at the electroweak scale, and the prefactor [αs(MLQ)/αs(MW )]
+2
+7 is
+the leading QCD correction from the RG evolution [90]. Using the experimental data ∆Mexp
+s =
+(17.741± 0.020)ps−1 [21] and the SM prediction is ∆MSM
+s = (18.4+0.7
+−1.2)ps−1 [91], one obtains the
+upper bound, ∆Ms/∆MSM
+s < 1.11, at 2 σ level.
+References
+[1] BaBar Collaboration, “Evidence for an excess of ¯B→ D(∗)τ− ¯ντ decays,” Phys. Rev. Lett. 109 (2012)
+101802 [arXiv:1205.5442].
+[2] BaBar Collaboration, “Measurement of an Excess of ¯B→ D(∗)τ− ¯ντ Decays and Implications for
+Charged Higgs Bosons,” Phys. Rev. D 88 (2013) 072012 [arXiv:1303.0571].
+[3] Belle Collaboration, “Measurement of the branching ratio of ¯B→ D(∗)τ− ¯ντ relative to ¯B→ D(∗)ℓ− ¯νℓ
+decays with hadronic tagging at Belle,” Phys. Rev. D 92 (2015) 072014 [arXiv:1507.03233].
+[4] Belle Collaboration, “Measurement of the τ lepton polarization and R(D∗) in the decay
+¯B→ D∗τ− ¯ντ,” Phys. Rev. Lett. 118 (2017) 211801 [arXiv:1612.00529].
+[5] Belle Collaboration, “Measurement of the τ lepton polarization and R(D∗) in the decay ¯B→ D∗τ− ¯ντ
+with one-prong hadronic τ decays at Belle,” Phys. Rev. D 97 (2018) 012004 [arXiv:1709.00129].
+[6] Belle Collaboration, “Measurement ofR(D) andR(D∗) with a semileptonic tagging method.”
+arXiv:1904.08794.
+[7] Belle Collaboration, “Measurement ofR(D) andR(D∗) with a semileptonic tagging method,” Phys.
+Rev. Lett. 124 (2020) 161803 [arXiv:1910.05864].
+[8] LHCb Collaboration, “Measurement of the ratio of branching fractions
+B( ¯B0→ D∗+τ− ¯ντ )/B( ¯B0→ D∗+µ− ¯νµ ),” Phys. Rev. Lett. 115 (2015) 111803
+[arXiv:1506.08614]. [Erratum: Phys.Rev.Lett. 115, 159901 (2015)].
+[9] LHCb Collaboration, “Measurement of the ratio of the B0→ D∗−τ +ντ and B0→ D∗−µ +νµ
+branching fractions using three-prong τ-lepton decays,” Phys. Rev. Lett. 120 (2018) 171802
+[arXiv:1708.08856].
+[10] LHCb Collaboration, “Test of Lepton Flavor Universality by the measurement of the B0→ D∗−τ +ντ
+branching fraction using three-prong τ decays,” Phys. Rev. D 97 (2018) 072013
+[arXiv:1711.02505].
+[11] S. Iguro and R. Watanabe, “Bayesian ﬁt analysis to full distribution data of B→ D(∗)ℓν :|Vcb|
+determination and new physics constraints,” JHEP 08 (2020) 006 [arXiv:2004.10208].
+[12] D. London and J. Matias, “ B Flavour Anomalies: 2021 Theoretical Status Report.”
+arXiv:2110.13270.
+[13] M. Blanke, et al., “Impact of polarization observables and Bc→ τν on new physics explanations of
+the b→ cτν anomaly,” Phys. Rev. D 99 (2019) 075006 [arXiv:1811.09603].
+[14] S. Iguro and Y . Omura, “Status of the semileptonic B decays and muon g-2 in general 2HDMs with
+right-handed neutrinos,” JHEP 05 (2018) 173 [arXiv:1802.01732].
+– 34 –
+
+=== PDF PAGE 36 ===
+[15] P. Asadi, M. R. Buckley, and D. Shih, “It’s all right(-handed neutrinos): a new W′ model for the RD(∗)
+anomaly,” JHEP 09 (2018) 010 [arXiv:1804.04135].
+[16] A. Greljo, D. J. Robinson, B. Shakya, and J. Zupan, “R(D (∗)) from W′ and right-handed neutrinos,”
+JHEP 09 (2018) 169 [arXiv:1804.04642].
+[17] D. J. Robinson, B. Shakya, and J. Zupan, “Right-handed neutrinos and R(D (∗)),” JHEP 02 (2019) 119
+[arXiv:1807.04753].
+[18] K. S. Babu, B. Dutta, and R. N. Mohapatra, “A theory of R(D ∗, D) anomaly with right-handed
+currents,” JHEP 01 (2019) 168 [arXiv:1811.04496].
+[19] N. Cabibbo, “Unitary Symmetry and Leptonic Decays,” Phys. Rev. Lett. 10 (1963) 531–533.
+[20] M. Kobayashi and T. Maskawa, “CP Violation in the Renormalizable Theory of Weak Interaction,”
+Prog. Theor. Phys. 49 (1973) 652–657.
+[21] Particle Data Group Collaboration, “Review of Particle Physics,” PTEP 2020 (2020) 083C01.
+[22] L. Di Luzio and M. Nardecchia, “What is the scale of new physics behind the B-ﬂavour anomalies?”
+Eur. Phys. J. C 77 (2017) 536 [arXiv:1706.01868].
+[23] CMS Collaboration, “Search for W′ decaying to tau lepton and neutrino in proton-proton collisions at√s = 8 TeV,” Phys. Lett. B 755 (2016) 196–216 [arXiv:1508.04308].
+[24] A TLASCollaboration, “Search for High-Mass Resonances Decaying to τν in pp Collisions at√s=13 TeV with the ATLAS Detector,” Phys. Rev. Lett.120 (2018) 161802 [arXiv:1801.06992].
+[25] CMS Collaboration, “Search for a W′ boson decaying to a τ lepton and a neutrino in proton-proton
+collisions at√s = 13 TeV,” Phys. Lett. B 792 (2019) 107–131 [arXiv:1807.11421].
+[26] A TLASCollaboration, “Search for high-mass resonances in ﬁnal states with a tau lepton and missing
+transverse momentum with the ATLAS detector,” ATLAS–CONF–2021–025, CERN, 2021.
+[27] D. A. Faroughy, A. Greljo, and J. F. Kamenik, “Confronting lepton ﬂavor universality violation in B
+decays with high-pT tau lepton searches at LHC,” Phys. Lett. B 764 (2017) 126–134
+[arXiv:1609.07138].
+[28] S. Iguro, Y . Omura, and M. Takeuchi, “Test of the R(D(∗)) anomaly at the LHC,” Phys. Rev. D 99
+(2019) 075013 [arXiv:1810.05843].
+[29] T. Mandal, S. Mitra, and S. Raz, “ RD(∗) motivatedS1 leptoquark scenarios: Impact of interference on
+the exclusion limits from LHC data,” Phys. Rev. D 99 (2019) 055028 [arXiv:1811.03561].
+[30] A. Greljo, J. Martin Camalich, and J. D. Ruiz-Álvarez, “Mono- τ Signatures at the LHC Constrain
+Explanations of B-decay Anomalies,” Phys. Rev. Lett. 122 (2019) 131803 [arXiv:1811.07920].
+[31] W. Altmannshofer, P. S. Bhupal Dev, and A. Soni, “ RD(∗) anomaly: A possible hint for natural
+supersymmetry with R-parity violation,” Phys. Rev. D 96 (2017) 095010 [arXiv:1704.06659].
+[32] S. Iguro and K. Tobe, “ R(D(∗)) in a general two Higgs doublet model,” Nucl. Phys. B 925 (2017)
+560–606 [arXiv:1708.06176].
+[33] M. Abdullah, J. Calle, B. Dutta, A. Flórez, and D. Restrepo, “Probing a simpliﬁed, W′ model of
+R(D(∗)) anomalies using b-tags, τ leptons and missing energy,” Phys. Rev. D 98 (2018) 055016
+[arXiv:1805.01869].
+[34] D. Marzocca, U. Min, and M. Son, “Bottom-Flavored Mono-Tau Tails at the LHC,” JHEP 12 (2020)
+035 [arXiv:2008.07541].
+– 35 –
+
+=== PDF PAGE 37 ===
+[35] S. Iguro, M. Takeuchi, and R. Watanabe, “Testing leptoquark/EFT in ¯B→ D(∗)l ¯ν at the LHC,” Eur.
+Phys. J. C 81 (2021) 406 [arXiv:2011.02486].
+[36] CMS Collaboration, “Measurement of the differential cross section and charge asymmetry for
+inclusive pp→ W± + X production at√s = 8 TeV,” Eur. Phys. J. C 76 (2016) 469
+[arXiv:1603.01803].
+[37] T.-J. Hou et al., “New CTEQ global analysis of quantum chromodynamics with high-precision data
+from the LHC,” Phys. Rev. D 103 (2021) 014013 [arXiv:1912.10053].
+[38] M. Blanke, et al., “Addendum to “Impact of polarization observables and Bc→ τν on new physics
+explanations of the b→ cτν anomaly”,” Phys. Rev. D 100 (2019) 035035 [arXiv:1905.08253].
+[39] S. Iguro, T. Kitahara, Y . Omura, R. Watanabe, and K. Yamamoto, “D∗ polarization vs. RD(∗)
+anomalies in the leptoquark models,” JHEP 02 (2019) 194 [arXiv:1811.08899].
+[40] D. Buttazzo, A. Greljo, G. Isidori, and D. Marzocca, “B-physics anomalies: a guide to combined
+explanations,” JHEP 11 (2017) 044 [arXiv:1706.07808].
+[41] A. Angelescu, D. Be ˇcirevi´c, D. A. Faroughy, and O. Sumensari, “Closing the window on single
+leptoquark solutions to the B-physics anomalies,” JHEP 10 (2018) 183 [arXiv:1808.08179].
+[42] A. Angelescu, D. Be ˇcirevi´c, D. A. Faroughy, F. Jaffredo, and O. Sumensari, “Single leptoquark
+solutions to the B-physics anomalies,” Phys. Rev. D 104 (2021) 055017 [arXiv:2103.12504].
+[43] A. Crivellin, D. Müller, and T. Ota, “Simultaneous explanation of R(D(∗)) and b→ sµ +µ−: the last
+scalar leptoquarks standing,” JHEP 09 (2017) 040 [arXiv:1703.09226].
+[44] L. Di Luzio, J. Fuentes-Martin, A. Greljo, M. Nardecchia, and S. Renner, “Maximal Flavour
+Violation: a Cabibbo mechanism for leptoquarks,” JHEP 11 (2018) 081 [arXiv:1808.00942].
+[45] J. Fuentes-Martín, G. Isidori, M. König, and N. Selimovi ´c, “Vector Leptoquarks Beyond Tree Level
+III: Vector-like Fermions and Flavor-Changing Transitions,” Phys. Rev. D102 (2020) 115015
+[arXiv:2009.11296].
+[46] R. Barbieri, G. R. Dvali, and L. J. Hall, “Predictions from a U(2) ﬂavor symmetry in supersymmetric
+theories,” Phys. Lett. B 377 (1996) 76–82 [hep-ph/9512388].
+[47] R. Barbieri, L. J. Hall, and A. Romanino, “Consequences of a U(2) ﬂavor symmetry,” Phys. Lett. B
+401 (1997) 47–53 [hep-ph/9702315].
+[48] R. Barbieri, G. Isidori, J. Jones-Perez, P. Lodone, and D. M. Straub, “ U(2) and Minimal Flavour
+Violation in Supersymmetry,” Eur. Phys. J. C 71 (2011) 1725 [arXiv:1105.2296].
+[49] R. Barbieri, P. Campli, G. Isidori, F. Sala, and D. M. Straub, “ B-decay CP-asymmetries in SUSY with
+a U(2)3 ﬂavour symmetry,” Eur. Phys. J. C 71 (2011) 1812 [arXiv:1108.5125].
+[50] R. Barbieri, D. Buttazzo, F. Sala, and D. M. Straub, “Flavour physics from an approximate U(2)3
+symmetry,” JHEP 07 (2012) 181 [arXiv:1203.4218].
+[51] G. Blankenburg, G. Isidori, and J. Jones-Perez, “Neutrino Masses and LFV from Minimal Breaking
+of U(3)5 and U(2)5 ﬂavor Symmetries,” Eur. Phys. J. C 72 (2012) 2126 [arXiv:1204.0688].
+[52] R. Barbieri, G. Isidori, A. Pattori, and F. Senia, “Anomalies in B-decays and U(2) ﬂavour symmetry,”
+Eur. Phys. J. C 76 (2016) 67 [arXiv:1512.01560].
+[53] J. Fuentes-Martín, G. Isidori, J. Pagès, and K. Yamamoto, “With or without U(2)? Probing
+non-standard ﬂavor and helicity structures in semileptonic B decays,” Phys. Lett. B 800 (2020)
+135080 [arXiv:1909.02519].
+– 36 –
+
+=== PDF PAGE 38 ===
+[54] D. Be ˇcirevi´c, et al., “Scalar leptoquarks from grand uniﬁed theories to accommodate the B-physics
+anomalies,” Phys. Rev. D 98 (2018) 055003 [arXiv:1806.05689].
+[55] P. Asadi, New solutions to the charged current B-anomalies . PhD thesis, Rutgers U., Piscataway
+(main), 2019.
+[56] A. Alloul, N. D. Christensen, C. Degrande, C. Duhr, and B. Fuks, “FeynRules 2.0 - A complete
+toolbox for tree-level phenomenology,” Comput. Phys. Commun. 185 (2014) 2250–2300
+[arXiv:1310.1921].
+[57] J. Alwall, et al., “The automated computation of tree-level and next-to-leading order differential cross
+sections, and their matching to parton shower simulations,” JHEP 07 (2014) 079
+[arXiv:1405.0301].
+[58] T. Sjöstrand, et al., “An introduction to PYTHIA 8.2,” Comput. Phys. Commun. 191 (2015) 159–177
+[arXiv:1410.3012].
+[59] J. Alwall et al., “Comparative study of various algorithms for the merging of parton showers and
+matrix elements in hadronic collisions,” Eur. Phys. J. C 53 (2008) 473–500 [arXiv:0706.2569].
+[60] R. D. Ball et al., “Parton distributions with LHC data,” Nucl. Phys. B 867 (2013) 244–289
+[arXiv:1207.1303].
+[61] DELPHES 3 Collaboration, “DELPHES 3, A modular framework for fast simulation of a generic
+collider experiment,” JHEP 02 (2014) 057 [arXiv:1307.6346].
+[62] M. Cacciari, G. P. Salam, and G. Soyez, “The anti- kt jet clustering algorithm,” JHEP 04 (2008) 063
+[arXiv:0802.1189].
+[63] CMS Collaboration, “Performance of reconstruction and identiﬁcation of τ leptons decaying to
+hadrons and ντ in pp collisions at√s = 13 TeV,” JINST 13 (2018) P10005 [arXiv:1809.02816].
+[64] A TLASCollaboration, “ATLAS b-jet identiﬁcation performance and efﬁciency measurement witht¯t
+events in pp collisions at√s = 13 TeV,” Eur. Phys. J. C 79 (2019) 970 [arXiv:1907.05120].
+[65] J. Fuentes-Martin, A. Greljo, J. Martin Camalich, and J. D. Ruiz-Alvarez, “Charm physics confronts
+high-pT lepton tails,” JHEP 11 (2020) 080 [arXiv:2003.12421].
+[66] A TLASCollaboration, “Search for new phenomena in pp collisions in ﬁnal states with tau leptons,
+b-jets, and missing transverse momentum with the ATLAS detector.” arXiv:2108.07665.
+[67] CMS Collaboration, “Search for singly and pair-produced leptoquarks coupling to third-generation
+fermions in proton-proton collisions at s=13 TeV,” Phys. Lett. B 819 (2021) 136446
+[arXiv:2012.04178].
+[68] R. Alonso, E. E. Jenkins, A. V . Manohar, and M. Trott, “Renormalization Group Evolution of the
+Standard Model Dimension Six Operators III: Gauge Coupling Dependence and Phenomenology,”
+JHEP 04 (2014) 159 [arXiv:1312.2014].
+[69] M. González-Alonso, J. Martin Camalich, and K. Mimouni, “Renormalization-group evolution of
+new physics contributions to (semi)leptonic meson decays,” Phys. Lett. B 772 (2017) 777–785
+[arXiv:1706.00410].
+[70] J. Aebischer and B. Grinstein, “Standard Model prediction of the Bc lifetime,” JHEP 07 (2021) 130
+[arXiv:2105.02988].
+[71] J. Aebischer and B. Grinstein, “A novel determination of the Bc lifetime.” arXiv:2108.10285.
+[72] A. Crivellin, D. Müller, and F. Saturnino, “Flavor Phenomenology of the Leptoquark Singlet-Triplet
+Model,” JHEP 06 (2020) 020 [arXiv:1912.04224].
+– 37 –
+
+=== PDF PAGE 39 ===
+[73] A. Crivellin, J. F. Eguren, and J. Virto, “Next-to-Leading-Order QCD Matching for ∆F = 2 Processes
+in Scalar Leptoquark Models.” arXiv:2109.13600.
+[74] C. Cornella, D. A. Faroughy, J. Fuentes-Martin, G. Isidori, and M. Neubert, “Reading the footprints
+of the B-meson ﬂavor anomalies,” JHEP 08 (2021) 050 [arXiv:2103.16558].
+[75] A TLASCollaboration, “Search for heavy Higgs bosons decaying into two tau leptons with the
+ATLAS detector using pp collisions at√s = 13 TeV,” Phys. Rev. Lett. 125 (2020) 051801
+[arXiv:2002.12223].
+[76] U. Aydemir, T. Mandal, and S. Mitra, “Addressing the RD(∗) anomalies with an S1 leptoquark from
+SO(10) grand uniﬁcation,” Phys. Rev. D101 (2020) 015011 [arXiv:1902.08108].
+[77] A. Bhaskar, D. Das, T. Mandal, S. Mitra, and C. Neeraj, “Precise limits on the charge-2/3 U1 vector
+leptoquark,” Phys. Rev. D 104 (2021) 035016 [arXiv:2101.12069].
+[78] C. Cornella, J. Fuentes-Martin, and G. Isidori, “Revisiting the vector leptoquark explanation of the
+B-physics anomalies,” JHEP 07 (2019) 168 [arXiv:1903.11517].
+[79] L. Calibbi, A. Crivellin, and T. Li, “Model of vector leptoquarks in view of the B-physics anomalies,”
+Phys. Rev. D 98 (2018) 115002 [arXiv:1709.00692].
+[80] S. Iguro, J. Kawamura, S. Okawa, and Y . Omura, “TeV-scale vector leptoquark from Pati-Salam
+uniﬁcation with vectorlike families,” Phys. Rev. D104 (2021) 075008 [arXiv:2103.11889].
+[81] N. Kumar and S. P. Martin, “Vectorlike Leptons at the Large Hadron Collider,” Phys. Rev. D 92
+(2015) 115018 [arXiv:1510.03456].
+[82] CMS Collaboration, “Search for vector-like leptons in multilepton ﬁnal states in proton-proton
+collisions at√s = 13 TeV,” Phys. Rev. D 100 (2019) 052003 [arXiv:1905.10853].
+[83] A. J. Buras, J. Girrbach-Noe, C. Niehoff, and D. M. Straub, “ B→ K(∗)νν decays in the Standard
+Model and beyond,” JHEP 02 (2015) 184 [arXiv:1409.4557].
+[84] A. Carvunis, A. Crivellin, D. Guadagnoli, and S. Gangal, “The Forward-Backward Asymmetry in
+B→ D∗ℓν: One more hint for Scalar Leptoquarks?” arXiv:2106.09610.
+[85] Belle Collaboration, “Search for B →hν ¯ν decays with semileptonic tagging at Belle,” Phys. Rev. D
+96 (2017) 091101 [arXiv:1702.03224]. [Addendum: Phys.Rev.D 97, 099902 (2018)].
+[86] V . Gherardi, D. Marzocca, and E. Venturini, “Low-energy phenomenology of scalar leptoquarks at
+one-loop accuracy,” JHEP 01 (2021) 138 [arXiv:2008.09548].
+[87] LHCb Collaboration, “Test of lepton universality with B0→ K∗0ℓ+ℓ− decays,” JHEP 08 (2017) 055
+[arXiv:1705.05802].
+[88] LHCb Collaboration, “Test of lepton universality in beauty-quark decays.” arXiv:2103.11769.
+[89] Muon g-2 Collaboration, “Measurement of the Positive Muon Anomalous Magnetic Moment to 0.46
+ppm,” Phys. Rev. Lett. 126 (2021) 141801 [arXiv:2104.03281].
+[90] J. A. Bagger, K. T. Matchev, and R.-J. Zhang, “QCD corrections to ﬂavor changing neutral currents in
+the supersymmetric standard model,” Phys. Lett. B 412 (1997) 77–85 [hep-ph/9707225].
+[91] L. Di Luzio, M. Kirk, A. Lenz, and T. Rauh, “ ∆Ms theory precision confronts ﬂavour anomalies,”
+JHEP 12 (2019) 009 [arXiv:1909.11087].
+– 38 –

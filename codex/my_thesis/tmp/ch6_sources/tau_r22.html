@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Reconstruction, Identification, and Calibration of hadronically decaying tau leptons with the ATLAS detector for the LHC Run 3 and reprocessed Run 2 data
+            </title>
+        <link rel="icon" type="image/png" href="https://atlaspo.cern.ch/public/support/images/favicon.ico">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://atlaspo.cern.ch/public/support/figurepages.css">
+        <link rel="stylesheet" href="https://atlaspo.cern.ch/public/support/mathjax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}};</script>
+
+        <!-- Navbar -->
+        <div class="w3-top header_menu" id="header_menu">
+            <nav class="navigation_header">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">ATLAS Web Sites <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href=" https://atlas.cern/" class="twikiLink">ATLAS Public Site</a>
+                            <a href="https://cern.ch/atlas-collaboration" class="twikiLink">ATLAS Collaboration Site <i class="fa-solid fa-lock"></i></a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">Physics Results <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/BPhysPublicResults" class="twikiLink">B Physics and Light States</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/StandardModelPublicResults" class="twikiLink">Standard Model Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/TopPublicResults" class="twikiLink">Top Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/viewauth/AtlasPublic/HiggsAndDiHiggsPublicResults" class="twikiLink">Higgs and Di-Higgs Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/SearchesPublicResults" class="twikiLink">Searches</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/HeavyIonsPublicResults" class="twikiLink">Heavy Ions Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/MCPublicResults" class="twikiLink">Physics Modelling</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/UpgradePhysicsStudies" class="twikiLink">Upgrade Physics Studies</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">Performance Results <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/InDetTrackingPerformanceApprovedPlots" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Tracking</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/ElectronGammaPublicCollisionResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Electron and Photon</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/MuonPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Muon</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/TauPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Tau</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/JetEtmissPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Jets and Etmiss</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/FlavourTaggingPublicResultsCollisionData" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Flavour Tagging</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/SimulationPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Simulation</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">Detector <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/WebHome#Detector" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Detector Systems, Trigger, Luminosity, Data Taking</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/WebHome#Upgrade_Projects_and_Physics_Pro" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Upgrade</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Sidebar -->
+        <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar" style="z-index: 1;">
+            <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-blue w3-hide-large" title="Close Menu">
+                <i class="fa fa-remove"></i>
+            </a>
+            <h4 class="w3-bar-item"><img class="sidebar_image" src="https://atlaspo.cern.ch/public/support/images/ATLAS-logo-transparent.png"></h4>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic">
+                <i class="fa-solid fa-book"></i>
+                Public Results<br>
+                <span style="font-size: small;">(including search fields)</span>
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/Publications">
+                <i class="fa-solid fa-book"></i>
+                Papers
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/CONFnotes">
+                <i class="fa-solid fa-book"></i>
+                CONF Notes
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/PUBnotes">
+                <i class="fa-solid fa-book"></i>
+                PUB Notes
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://atlaspo.cern.ch/public/event_display/">
+                <i class="fa-solid fa-book"></i>
+                Event Displays
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/WebHome#Papers_Conference_notes_Public_n" target="_blank">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+            </a>
+        </nav>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+        <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+        <div class="w3-main main_page_content">
+
+
+            <div id="top" class="w3-row">
+                <div class="w3-container title_section">
+
+                
+                    <!-- TITLE -->
+                    <h2 class="w3-text-teal title_h2">
+                        
+                            Reconstruction, Identification, and Calibration of hadronically decaying tau leptons with the ATLAS detector for the LHC Run 3 and reprocessed Run 2 data
+                        
+                    </h2>
+                </div>
+                <!-- ABSTRACT -->
+                <div class="w3-container abstract_section" style="width: 100%;">
+                    <p style="font-size: math;">
+                        
+                            This document describes the reconstruction algorithms employed by the ATLAS experiment for Run 3 of the LHC to reconstruct, identify, and calibrate hadronically decaying $\tau$ leptons. The same algorithms are also used for the reprocessed data from Run 2 of the LHC. All algorithms have been improved and optimised with respect to the ones employed during Run 2 data-taking. The energy calibration relies on Monte Carlo simulation samples with hadronic tau lepton decays, and applies a Boosted Regression Tree based on calorimetric energy and tracking momentum measurements. The tau reconstruction and identification algorithms, as well as the electron rejection algorithm, employ Recurrent Neural Networks. The decay mode classification algorithm, based on DeepSet Neural Networks, is used to discriminate among the five main decay topologies. The performance of the deployed algorithms is assessed using Monte Carlo simulations.
+                        
+                    </p>
+                </div>
+                
+                <p class="centered_text">
+                    14 September 2022
+                </p>
+                                
+            </div>
+            <!-- LINKS SECTION -->
+
+
+            
+
+            
+
+
+            <div class="w3-row links_section">
+                <!-- 1st ROW -->
+                <p class="centered_text">
+                    
+                        <a target="_blank" href="http://cds.cern.ch/record/2827111"><b>ATL-PHYS-PUB-2022-044</b> - </a>
+                        <a target="_blank" href="http://cds.cern.ch/record/2827111/files/ATL-PHYS-PUB-2022-044.pdf"><b>pdf from CDS</b> - </a>
+                    
+                    
+                    <span style="font-size: small;">
+                        <a target="_blank" href="https://atlas-glance.cern.ch/atlas/analysis/pubnotes/details.php?ref_code=PUB-TAUP-2022-03">internal</a>
+                    </span>
+                    
+                </p>
+                <!-- 4th ROW (anchors) -->
+                <p class="centered_text"> 
+                    <a href="#figures_header">Figures</a>  |   
+                    <a href="#tables_header">Tables</a>  
+                    
+                    
+                </p>
+            </div>
+            
+
+            <!-- FIGURES -->
+            <div class="section_div" id="figures_div">
+                <!-- FIGURES HEADER -->
+                <div class="w3-row">
+                    <div class="w3-container section_title">
+                        <p id="figures_header" class="left_text material_header" onclick="hide_show('figures');"><b>Figures</b> <i class="fa-solid fa-circle-up show_hide_arrows"></i></p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01a</b></p>
+                            <br>
+                            The efficiency to select the correct &tau; production vertex using TJVA or the default primary vertex with &Sigma;p<sup>2</sup><sub>T,tracks</sub> in &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The efficiency is shown as a function of the average number of simultaneous pp-collisions &lang;&mu;&rang; (top) and p<sub>T</sub>(&tau;<sub>had-vis</sub>) (bottom), for truth 1-prong &tau;<sub>had</sub> decays (left) and truth 3-prong &tau;<sub>had</sub> decays (right).
+
+                            <br>
+                            <br>
+                            <a href="fig_01a.png">png (53kB)</a>&nbsp;
+                            <a href="fig_01a.pdf">pdf (17kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01a.png">
+                                <img src=".thumb_fig_01a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01b</b></p>
+                            <br>
+                            The efficiency to select the correct &tau; production vertex using TJVA or the default primary vertex with &Sigma;p<sup>2</sup><sub>T,tracks</sub> in &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The efficiency is shown as a function of the average number of simultaneous pp-collisions &lang;&mu;&rang; (top) and p<sub>T</sub>(&tau;<sub>had-vis</sub>) (bottom), for truth 1-prong &tau;<sub>had</sub> decays (left) and truth 3-prong &tau;<sub>had</sub> decays (right).
+
+                            <br>
+                            <br>
+                            <a href="fig_01b.png">png (53kB)</a>&nbsp;
+                            <a href="fig_01b.pdf">pdf (17kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01b.png">
+                                <img src=".thumb_fig_01b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01c</b></p>
+                            <br>
+                            The efficiency to select the correct &tau; production vertex using TJVA or the default primary vertex with &Sigma;p<sup>2</sup><sub>T,tracks</sub> in &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The efficiency is shown as a function of the average number of simultaneous pp-collisions &lang;&mu;&rang; (top) and p<sub>T</sub>(&tau;<sub>had-vis</sub>) (bottom), for truth 1-prong &tau;<sub>had</sub> decays (left) and truth 3-prong &tau;<sub>had</sub> decays (right).
+
+                            <br>
+                            <br>
+                            <a href="fig_01c.png">png (54kB)</a>&nbsp;
+                            <a href="fig_01c.pdf">pdf (16kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01c.png">
+                                <img src=".thumb_fig_01c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01d</b></p>
+                            <br>
+                            The efficiency to select the correct &tau; production vertex using TJVA or the default primary vertex with &Sigma;p<sup>2</sup><sub>T,tracks</sub> in &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The efficiency is shown as a function of the average number of simultaneous pp-collisions &lang;&mu;&rang; (top) and p<sub>T</sub>(&tau;<sub>had-vis</sub>) (bottom), for truth 1-prong &tau;<sub>had</sub> decays (left) and truth 3-prong &tau;<sub>had</sub> decays (right).
+
+                            <br>
+                            <br>
+                            <a href="fig_01d.png">png (54kB)</a>&nbsp;
+                            <a href="fig_01d.pdf">pdf (16kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01d.png">
+                                <img src=".thumb_fig_01d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 02</b></p>
+                            <br>
+                            Schematic of the track classification RNN architecture, the configurations of the first dense layer, BLSTM layer and second layer are chosen using a hyperparameter scan. The last dense layer configuration is fixed and results in 4 output probabilities for each input track. The classification category with the highest probability is then assigned to the track.
+                            <br>
+                            <br>
+                            <a href="fig_02.png">png (93kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_02.png">
+                                <img src=".thumb_fig_02.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 03a</b></p>
+                            <br>
+                            Probabilities to reconstruct a given truth track type as a certain track type, for truth 1-prong &tau;<sub>had</sub> decays (left) and truth 3-prong &tau;<sub>had</sub> decays (right) with the RNN track classifier in the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. &tau; lepton tracks, conversion tracks, isolation tracks and fake tracks, are denoted as TT, CT, IT and FT, respectively. The values along each column sum 100%, such that the RNN track classification efficiencies are given for each individual truth track type. The diagonal efficiency is defined as the weighted average of the correctly identified truth track types.
+
+                            <br>
+                            <br>
+                            <a href="fig_03a.png">png (45kB)</a>&nbsp;
+                            <a href="fig_03a.pdf">pdf (24kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_03a.png">
+                                <img src=".thumb_fig_03a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 03b</b></p>
+                            <br>
+                            Probabilities to reconstruct a given truth track type as a certain track type, for truth 1-prong &tau;<sub>had</sub> decays (left) and truth 3-prong &tau;<sub>had</sub> decays (right) with the RNN track classifier in the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. &tau; lepton tracks, conversion tracks, isolation tracks and fake tracks, are denoted as TT, CT, IT and FT, respectively. The values along each column sum 100%, such that the RNN track classification efficiencies are given for each individual truth track type. The diagonal efficiency is defined as the weighted average of the correctly identified truth track types.
+
+                            <br>
+                            <br>
+                            <a href="fig_03b.png">png (45kB)</a>&nbsp;
+                            <a href="fig_03b.pdf">pdf (24kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_03b.png">
+                                <img src=".thumb_fig_03b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 04</b></p>
+                            <br>
+                            Number of reconstructed tracks for &tau;<sub>had-vis</sub> candidates from truth 1-prong and 3-prong &tau;<sub>had</sub> decays using the &gamma;<sup>*</sup>&rarr;&tau;&tau; events.
+
+                            <br>
+                            <br>
+                            <a href="fig_04.png">png (49kB)</a>&nbsp;
+                            <a href="fig_04.pdf">pdf (15kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_04.png">
+                                <img src=".thumb_fig_04.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 05a</b></p>
+                            <br>
+                            Efficiency to reconstruct and identify the correct number of &tau; lepton tracks for truth &tau;<sub>had</sub> decays in &gamma;<sup>*</sup>&rarr;&tau;&tau; events as a function of p<sub>T</sub>(&tau;<sub>had-vis</sub>) (left) and the average number of simultaneous pp-collisions &lang;&mu;&rang; (right).
+
+                            <br>
+                            <br>
+                            <a href="fig_05a.png">png (63kB)</a>&nbsp;
+                            <a href="fig_05a.pdf">pdf (22kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_05a.png">
+                                <img src=".thumb_fig_05a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 05b</b></p>
+                            <br>
+                            Efficiency to reconstruct and identify the correct number of &tau; lepton tracks for truth &tau;<sub>had</sub> decays in &gamma;<sup>*</sup>&rarr;&tau;&tau; events as a function of p<sub>T</sub>(&tau;<sub>had-vis</sub>) (left) and the average number of simultaneous pp-collisions &lang;&mu;&rang; (right).
+
+                            <br>
+                            <br>
+                            <a href="fig_05b.png">png (49kB)</a>&nbsp;
+                            <a href="fig_05b.pdf">pdf (17kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_05b.png">
+                                <img src=".thumb_fig_05b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 06</b></p>
+                            <br>
+                            Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong &tau;<sub>had</sub> candidates from dijet background events as a function of the efficiency for truth &tau;<sub>had</sub> originating from  &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The two lines refer to 1-prong and 3-prong &tau;<sub>had</sub> candidates and markers demonstrate individual working points (Very Loose, Loose, Medium, Tight).
+
+                            <br>
+                            <br>
+                            <a href="fig_06.png">png (95kB)</a>&nbsp;
+                            <a href="fig_06.pdf">pdf (234kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_06.png">
+                                <img src=".thumb_fig_06.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07a</b></p>
+                            <br>
+                            Efficiency for &tau;<sub>had-vis</sub> identification (full symbols) and combined reconstruction and identification efficiency (open symbols) as a function of the &tau;<sub>had-vis</sub> p<sub>T</sub> (left) and of the average number of interaction per bunch-crossing, &lang;&mu;&rang;, (right) for 1-prong (top) and 3-prong (bottom) &tau;<sub>had-vis</sub> candidates using the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_07a.png">png (151kB)</a>&nbsp;
+                            <a href="fig_07a.pdf">pdf (29kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07a.png">
+                                <img src=".thumb_fig_07a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07b</b></p>
+                            <br>
+                            Efficiency for &tau;<sub>had-vis</sub> identification (full symbols) and combined reconstruction and identification efficiency (open symbols) as a function of the &tau;<sub>had-vis</sub> p<sub>T</sub> (left) and of the average number of interaction per bunch-crossing, &lang;&mu;&rang;, (right) for 1-prong (top) and 3-prong (bottom) &tau;<sub>had-vis</sub> candidates using the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_07b.png">png (66kB)</a>&nbsp;
+                            <a href="fig_07b.pdf">pdf (22kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07b.png">
+                                <img src=".thumb_fig_07b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07c</b></p>
+                            <br>
+                            Efficiency for &tau;<sub>had-vis</sub> identification (full symbols) and combined reconstruction and identification efficiency (open symbols) as a function of the &tau;<sub>had-vis</sub> p<sub>T</sub> (left) and of the average number of interaction per bunch-crossing, &lang;&mu;&rang;, (right) for 1-prong (top) and 3-prong (bottom) &tau;<sub>had-vis</sub> candidates using the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_07c.png">png (165kB)</a>&nbsp;
+                            <a href="fig_07c.pdf">pdf (33kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07c.png">
+                                <img src=".thumb_fig_07c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07d</b></p>
+                            <br>
+                            Efficiency for &tau;<sub>had-vis</sub> identification (full symbols) and combined reconstruction and identification efficiency (open symbols) as a function of the &tau;<sub>had-vis</sub> p<sub>T</sub> (left) and of the average number of interaction per bunch-crossing, &lang;&mu;&rang;, (right) for 1-prong (top) and 3-prong (bottom) &tau;<sub>had-vis</sub> candidates using the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_07d.png">png (65kB)</a>&nbsp;
+                            <a href="fig_07d.pdf">pdf (22kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07d.png">
+                                <img src=".thumb_fig_07d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 08a</b></p>
+                            <br>
+                            Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong &tau;<sub>had</sub> candidates from dijet events as a function of &tau;<sub>had-vis</sub> p<sub>T</sub> (left) and of the average number of interaction per bunch-crossing, &lang;&mu;&rang;, (right) for 1-prong (top) and 3-prong (bottom) &tau;<sub>had-vis</sub> candidates using dijet events. Values for Loose, Medium and Tight working points are shown.
+
+
+                            <br>
+                            <br>
+                            <a href="fig_08a.png">png (55kB)</a>&nbsp;
+                            <a href="fig_08a.pdf">pdf (16kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_08a.png">
+                                <img src=".thumb_fig_08a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 08b</b></p>
+                            <br>
+                            Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong &tau;<sub>had</sub> candidates from dijet events as a function of &tau;<sub>had-vis</sub> p<sub>T</sub> (left) and of the average number of interaction per bunch-crossing, &lang;&mu;&rang;, (right) for 1-prong (top) and 3-prong (bottom) &tau;<sub>had-vis</sub> candidates using dijet events. Values for Loose, Medium and Tight working points are shown.
+
+
+                            <br>
+                            <br>
+                            <a href="fig_08b.png">png (58kB)</a>&nbsp;
+                            <a href="fig_08b.pdf">pdf (19kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_08b.png">
+                                <img src=".thumb_fig_08b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 08c</b></p>
+                            <br>
+                            Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong &tau;<sub>had</sub> candidates from dijet events as a function of &tau;<sub>had-vis</sub> p<sub>T</sub> (left) and of the average number of interaction per bunch-crossing, &lang;&mu;&rang;, (right) for 1-prong (top) and 3-prong (bottom) &tau;<sub>had-vis</sub> candidates using dijet events. Values for Loose, Medium and Tight working points are shown.
+
+
+                            <br>
+                            <br>
+                            <a href="fig_08c.png">png (57kB)</a>&nbsp;
+                            <a href="fig_08c.pdf">pdf (16kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_08c.png">
+                                <img src=".thumb_fig_08c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 08d</b></p>
+                            <br>
+                            Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong &tau;<sub>had</sub> candidates from dijet events as a function of &tau;<sub>had-vis</sub> p<sub>T</sub> (left) and of the average number of interaction per bunch-crossing, &lang;&mu;&rang;, (right) for 1-prong (top) and 3-prong (bottom) &tau;<sub>had-vis</sub> candidates using dijet events. Values for Loose, Medium and Tight working points are shown.
+
+
+                            <br>
+                            <br>
+                            <a href="fig_08d.png">png (59kB)</a>&nbsp;
+                            <a href="fig_08d.pdf">pdf (19kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_08d.png">
+                                <img src=".thumb_fig_08d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 09a</b></p>
+                            <br>
+                            Distribution of input variables of &tau;<sub>had-vis</sub> objects for  &gamma;<sup>*</sup>&rarr;&tau;&tau; signal and  Z &rarr; ee background, used in the RNN training. For 1-prong  &tau;<sub>had-vis</sub> objects, transverse energy of the &tau;<sub>had-vis</sub> divided by the transverse momentum of the highest-p<sub>T</sub> track is shown in (a), and the energy deposited in the EM presampler and strip layers divided by the total energy deposited in the EM calorimeters (b).  For 3-prong  &tau;<sub>had-vis</sub> objects, the energy deposited in the hadronic calorimeter divided by the transverse momentum of the highest-p<sub>T</sub> track is shown in (c), and the fraction of energy deposited in the EM calorimeter divided by the total energy deposited in the EM and hadronic calorimeters of the &tau;<sub>had-vis</sub> candidates is shown in (d).
+
+
+                            <br>
+                            <br>
+                            <a href="fig_09a.png">png (16kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_09a.png">
+                                <img src=".thumb_fig_09a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 09b</b></p>
+                            <br>
+                            Distribution of input variables of &tau;<sub>had-vis</sub> objects for  &gamma;<sup>*</sup>&rarr;&tau;&tau; signal and  Z &rarr; ee background, used in the RNN training. For 1-prong  &tau;<sub>had-vis</sub> objects, transverse energy of the &tau;<sub>had-vis</sub> divided by the transverse momentum of the highest-p<sub>T</sub> track is shown in (a), and the energy deposited in the EM presampler and strip layers divided by the total energy deposited in the EM calorimeters (b).  For 3-prong  &tau;<sub>had-vis</sub> objects, the energy deposited in the hadronic calorimeter divided by the transverse momentum of the highest-p<sub>T</sub> track is shown in (c), and the fraction of energy deposited in the EM calorimeter divided by the total energy deposited in the EM and hadronic calorimeters of the &tau;<sub>had-vis</sub> candidates is shown in (d).
+
+
+                            <br>
+                            <br>
+                            <a href="fig_09b.png">png (19kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_09b.png">
+                                <img src=".thumb_fig_09b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 09c</b></p>
+                            <br>
+                            Distribution of input variables of &tau;<sub>had-vis</sub> objects for  &gamma;<sup>*</sup>&rarr;&tau;&tau; signal and  Z &rarr; ee background, used in the RNN training. For 1-prong  &tau;<sub>had-vis</sub> objects, transverse energy of the &tau;<sub>had-vis</sub> divided by the transverse momentum of the highest-p<sub>T</sub> track is shown in (a), and the energy deposited in the EM presampler and strip layers divided by the total energy deposited in the EM calorimeters (b).  For 3-prong  &tau;<sub>had-vis</sub> objects, the energy deposited in the hadronic calorimeter divided by the transverse momentum of the highest-p<sub>T</sub> track is shown in (c), and the fraction of energy deposited in the EM calorimeter divided by the total energy deposited in the EM and hadronic calorimeters of the &tau;<sub>had-vis</sub> candidates is shown in (d).
+
+
+                            <br>
+                            <br>
+                            <a href="fig_09c.png">png (18kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_09c.png">
+                                <img src=".thumb_fig_09c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 09d</b></p>
+                            <br>
+                            Distribution of input variables of &tau;<sub>had-vis</sub> objects for  &gamma;<sup>*</sup>&rarr;&tau;&tau; signal and  Z &rarr; ee background, used in the RNN training. For 1-prong  &tau;<sub>had-vis</sub> objects, transverse energy of the &tau;<sub>had-vis</sub> divided by the transverse momentum of the highest-p<sub>T</sub> track is shown in (a), and the energy deposited in the EM presampler and strip layers divided by the total energy deposited in the EM calorimeters (b).  For 3-prong  &tau;<sub>had-vis</sub> objects, the energy deposited in the hadronic calorimeter divided by the transverse momentum of the highest-p<sub>T</sub> track is shown in (c), and the fraction of energy deposited in the EM calorimeter divided by the total energy deposited in the EM and hadronic calorimeters of the &tau;<sub>had-vis</sub> candidates is shown in (d).
+
+
+                            <br>
+                            <br>
+                            <a href="fig_09d.png">png (17kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_09d.png">
+                                <img src=".thumb_fig_09d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 10a</b></p>
+                            <br>
+                            Efficiency of the  electron veto algorithm for 1-prong &tau; lepton as a function of (a) the average number of simultaneous pp-collisions &lang;&mu;&rang; and (b)  p<sub>T</sub> of 1-prong &tau;<sub>had-vis</sub> candidates. Electron rejection factors of the  electron veto algorithm are shown  as a function of (c) &lang;&mu;&rang; and (d)  p<sub>T</sub> of 1-prong &tau;<sub>had-vis</sub> candidates. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_10a.png">png (18kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_10a.png">
+                                <img src=".thumb_fig_10a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 10b</b></p>
+                            <br>
+                            Efficiency of the  electron veto algorithm for 1-prong &tau; lepton as a function of (a) the average number of simultaneous pp-collisions &lang;&mu;&rang; and (b)  p<sub>T</sub> of 1-prong &tau;<sub>had-vis</sub> candidates. Electron rejection factors of the  electron veto algorithm are shown  as a function of (c) &lang;&mu;&rang; and (d)  p<sub>T</sub> of 1-prong &tau;<sub>had-vis</sub> candidates. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_10b.png">png (17kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_10b.png">
+                                <img src=".thumb_fig_10b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 10c</b></p>
+                            <br>
+                            Efficiency of the  electron veto algorithm for 1-prong &tau; lepton as a function of (a) the average number of simultaneous pp-collisions &lang;&mu;&rang; and (b)  p<sub>T</sub> of 1-prong &tau;<sub>had-vis</sub> candidates. Electron rejection factors of the  electron veto algorithm are shown  as a function of (c) &lang;&mu;&rang; and (d)  p<sub>T</sub> of 1-prong &tau;<sub>had-vis</sub> candidates. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_10c.png">png (20kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_10c.png">
+                                <img src=".thumb_fig_10c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 10d</b></p>
+                            <br>
+                            Efficiency of the  electron veto algorithm for 1-prong &tau; lepton as a function of (a) the average number of simultaneous pp-collisions &lang;&mu;&rang; and (b)  p<sub>T</sub> of 1-prong &tau;<sub>had-vis</sub> candidates. Electron rejection factors of the  electron veto algorithm are shown  as a function of (c) &lang;&mu;&rang; and (d)  p<sub>T</sub> of 1-prong &tau;<sub>had-vis</sub> candidates. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_10d.png">png (17kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_10d.png">
+                                <img src=".thumb_fig_10d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 11a</b></p>
+                            <br>
+                            Efficiency of the  electron veto algorithm for 3-prong &tau; lepton as a function of (a) the average number of simultaneous pp-collisions &lang;&mu;&rang; and (b)  p<sub>T</sub> of 3-prong &tau;<sub>had-vis</sub> candidates. Electron rejection factors of the  electron veto algorithm are shown  as a function of (c) &lang;&mu;&rang; and (d)  p<sub>T</sub> of 3-prong &tau;<sub>had-vis</sub> candidates. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_11a.png">png (16kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_11a.png">
+                                <img src=".thumb_fig_11a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 11b</b></p>
+                            <br>
+                            Efficiency of the  electron veto algorithm for 3-prong &tau; lepton as a function of (a) the average number of simultaneous pp-collisions &lang;&mu;&rang; and (b)  p<sub>T</sub> of 3-prong &tau;<sub>had-vis</sub> candidates. Electron rejection factors of the  electron veto algorithm are shown  as a function of (c) &lang;&mu;&rang; and (d)  p<sub>T</sub> of 3-prong &tau;<sub>had-vis</sub> candidates. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_11b.png">png (17kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_11b.png">
+                                <img src=".thumb_fig_11b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 11c</b></p>
+                            <br>
+                            Efficiency of the  electron veto algorithm for 3-prong &tau; lepton as a function of (a) the average number of simultaneous pp-collisions &lang;&mu;&rang; and (b)  p<sub>T</sub> of 3-prong &tau;<sub>had-vis</sub> candidates. Electron rejection factors of the  electron veto algorithm are shown  as a function of (c) &lang;&mu;&rang; and (d)  p<sub>T</sub> of 3-prong &tau;<sub>had-vis</sub> candidates. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_11c.png">png (18kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_11c.png">
+                                <img src=".thumb_fig_11c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 11d</b></p>
+                            <br>
+                            Efficiency of the  electron veto algorithm for 3-prong &tau; lepton as a function of (a) the average number of simultaneous pp-collisions &lang;&mu;&rang; and (b)  p<sub>T</sub> of 3-prong &tau;<sub>had-vis</sub> candidates. Electron rejection factors of the  electron veto algorithm are shown  as a function of (c) &lang;&mu;&rang; and (d)  p<sub>T</sub> of 3-prong &tau;<sub>had-vis</sub> candidates. Values for Loose, Medium and Tight working points are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_11d.png">png (18kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_11d.png">
+                                <img src=".thumb_fig_11d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 12</b></p>
+                            <br>
+                            Inverse of the efficiency (rejection) for misidentified 1-prong and 3-prong &tau;<sub>had-vis</sub> candidates from Z &rarr; ee background events as a function of the efficiency for truth &tau;<sub>had-vis</sub> originating from  &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The two lines refer to 1-prong and 3-prong &tau;<sub>had</sub> candidates and the markers correspond to individual working points (Loose, Medium, Tight).
+
+                            <br>
+                            <br>
+                            <a href="fig_12.png">png (16kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_12.png">
+                                <img src=".thumb_fig_12.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 13</b></p>
+                            <br>
+                            Visualisation of the angular distances in displays of various truth &tau;<sub>had</sub> decay modes with the simulated &gamma;<sup>*</sup>&rarr;&tau;&tau; sample. The area of the circles is proportional to the momentum (energy) of the tracks (calorimetric objects). Detailed explanation of the figure can be found in the text.
+
+                            <br>
+                            <br>
+                            <a href="fig_13.png">png (161kB)</a>&nbsp;
+                            <a href="fig_13.pdf">pdf (412kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_13.png">
+                                <img src=".thumb_fig_13.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 14</b></p>
+                            <br>
+                            Architecture and training parameters of the DeepSet NN decay mode classifier. &rho;, &phi; and the layers after merging are feed forward NNs. The numbers indicate the number of nodes in each layers. The epoch and learning rate represent the maximum values, more details are provided in text. Adam is a stochastic gradient descent (SGD) optimisation algorithm, which is self adaptive in terms of estimating first and second order moments. &beta;<sub>1</sub> and &beta;<sub>2</sub> are the decay rates for first and second order moment estimates. More information about the parameters can be found in Keras documentation [32].
+                            <br>
+                            <br>
+                            <a href="fig_14.png">png (300kB)</a>&nbsp;
+                            <a href="fig_14.pdf">pdf (171kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_14.png">
+                                <img src=".thumb_fig_14.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 15a</b></p>
+                            <br>
+                            Efficiency matrix for reconstructing the same &tau; lepton decay mode as the truth decay mode with BDT-based (left) and DeepSet NN (right) classifier in &gamma;<sup>*</sup>&rarr;&tau;&tau; events. Only &tau;<sub>had-vis</sub> candidates with p<sub>T</sub> &gt; 20GeV and which pass Medium &tau;<sub>had</sub> identification working point are considered.  The values along each column sum 100%, such that reconstruction efficiencies are given for each individual truth &tau; decay mode.  The diagonal efficiency is defined as the weighted average of the correctly identified truth decay modes.
+
+                            <br>
+                            <br>
+                            <a href="fig_15a.png">png (123kB)</a>&nbsp;
+                            <a href="fig_15a.pdf">pdf (14kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_15a.png">
+                                <img src=".thumb_fig_15a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 15b</b></p>
+                            <br>
+                            Efficiency matrix for reconstructing the same &tau; lepton decay mode as the truth decay mode with BDT-based (left) and DeepSet NN (right) classifier in &gamma;<sup>*</sup>&rarr;&tau;&tau; events. Only &tau;<sub>had-vis</sub> candidates with p<sub>T</sub> &gt; 20GeV and which pass Medium &tau;<sub>had</sub> identification working point are considered.  The values along each column sum 100%, such that reconstruction efficiencies are given for each individual truth &tau; decay mode.  The diagonal efficiency is defined as the weighted average of the correctly identified truth decay modes.
+
+                            <br>
+                            <br>
+                            <a href="fig_15b.png">png (136kB)</a>&nbsp;
+                            <a href="fig_15b.pdf">pdf (14kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_15b.png">
+                                <img src=".thumb_fig_15b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 16a</b></p>
+                            <br>
+                            Efficiency of identifying the correct decay modes with the DeepSet NN classifier as functions of the p<sub>T</sub>(&tau;<sub>had-vis</sub>) and the average number of simultaneous pp-collisions &lang;&mu;&rang; (right) in &gamma;<sup>*</sup>&rarr;&tau;&tau; events. Only &tau;<sub>had-vis</sub> candidates with p<sub>T</sub> &gt; 20GeV and which pass Medium &tau;<sub>had</sub> identification working point are considered.
+
+                            <br>
+                            <br>
+                            <a href="fig_16a.png">png (114kB)</a>&nbsp;
+                            <a href="fig_16a.pdf">pdf (21kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_16a.png">
+                                <img src=".thumb_fig_16a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 16b</b></p>
+                            <br>
+                            Efficiency of identifying the correct decay modes with the DeepSet NN classifier as functions of the p<sub>T</sub>(&tau;<sub>had-vis</sub>) and the average number of simultaneous pp-collisions &lang;&mu;&rang; (right) in &gamma;<sup>*</sup>&rarr;&tau;&tau; events. Only &tau;<sub>had-vis</sub> candidates with p<sub>T</sub> &gt; 20GeV and which pass Medium &tau;<sub>had</sub> identification working point are considered.
+
+                            <br>
+                            <br>
+                            <a href="fig_16b.png">png (114kB)</a>&nbsp;
+                            <a href="fig_16b.pdf">pdf (22kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_16b.png">
+                                <img src=".thumb_fig_16b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 17a</b></p>
+                            <br>
+                            The resolution of the calorimeter, substructure, combined  and final (BRT-based) &tau;<sub>had-vis</sub> energy calibration shown for 1-prong (left) and 3-prong (right) &tau;<sub>had-vis</sub> candidates which pass Medium &tau;<sub>had</sub> identification working point using the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The resolution, shown as a function of the truth p<sub>T</sub>(&tau;<sub>had-vis</sub>) (top) and &lang;&mu;&rang;, is defined as half of the 68% central intervals of the ratio of the calibrated p<sub>T</sub> to the truth visible p<sub>T</sub>. Only the statistical uncertaintes are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_17a.png">png (178kB)</a>&nbsp;
+                            <a href="fig_17a.pdf">pdf (20kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_17a.png">
+                                <img src=".thumb_fig_17a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 17b</b></p>
+                            <br>
+                            The resolution of the calorimeter, substructure, combined  and final (BRT-based) &tau;<sub>had-vis</sub> energy calibration shown for 1-prong (left) and 3-prong (right) &tau;<sub>had-vis</sub> candidates which pass Medium &tau;<sub>had</sub> identification working point using the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The resolution, shown as a function of the truth p<sub>T</sub>(&tau;<sub>had-vis</sub>) (top) and &lang;&mu;&rang;, is defined as half of the 68% central intervals of the ratio of the calibrated p<sub>T</sub> to the truth visible p<sub>T</sub>. Only the statistical uncertaintes are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_17b.png">png (192kB)</a>&nbsp;
+                            <a href="fig_17b.pdf">pdf (20kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_17b.png">
+                                <img src=".thumb_fig_17b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 17c</b></p>
+                            <br>
+                            The resolution of the calorimeter, substructure, combined  and final (BRT-based) &tau;<sub>had-vis</sub> energy calibration shown for 1-prong (left) and 3-prong (right) &tau;<sub>had-vis</sub> candidates which pass Medium &tau;<sub>had</sub> identification working point using the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The resolution, shown as a function of the truth p<sub>T</sub>(&tau;<sub>had-vis</sub>) (top) and &lang;&mu;&rang;, is defined as half of the 68% central intervals of the ratio of the calibrated p<sub>T</sub> to the truth visible p<sub>T</sub>. Only the statistical uncertaintes are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_17c.png">png (154kB)</a>&nbsp;
+                            <a href="fig_17c.pdf">pdf (17kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_17c.png">
+                                <img src=".thumb_fig_17c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 17d</b></p>
+                            <br>
+                            The resolution of the calorimeter, substructure, combined  and final (BRT-based) &tau;<sub>had-vis</sub> energy calibration shown for 1-prong (left) and 3-prong (right) &tau;<sub>had-vis</sub> candidates which pass Medium &tau;<sub>had</sub> identification working point using the &gamma;<sup>*</sup>&rarr;&tau;&tau; events. The resolution, shown as a function of the truth p<sub>T</sub>(&tau;<sub>had-vis</sub>) (top) and &lang;&mu;&rang;, is defined as half of the 68% central intervals of the ratio of the calibrated p<sub>T</sub> to the truth visible p<sub>T</sub>. Only the statistical uncertaintes are shown.
+
+                            <br>
+                            <br>
+                            <a href="fig_17d.png">png (156kB)</a>&nbsp;
+                            <a href="fig_17d.pdf">pdf (18kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_17d.png">
+                                <img src=".thumb_fig_17d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+
+            </div>
+
+
+
+
+
+
+            <!-- TABLES -->
+            <div class="section_div" id="tables_div">
+                <!-- TABLES HEADER -->
+                <div class="w3-row">
+                    <div class="w3-container section_title">
+                        <p id="tables_header" class="left_text material_header" onclick="hide_show('tables');"><b>Tables</b> <i class="fa-solid fa-circle-up show_hide_arrows"></i></p>
+                    </div>
+                </div>
+
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 01</b></p>
+                            <br>
+                            Architecture of the track classification RNN.
+                            <br>
+                            <br>
+                            <a href="tab_01.png">png (12kB)</a>&nbsp;
+                            <a href="tab_01.pdf">pdf (28kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_01.png">
+                                <img src=".thumb_tab_01.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 02</b></p>
+                            <br>
+                            Input variables to the RNN Track Classifier.
+                            <br>
+                            <br>
+                            <a href="tab_02.png">png (53kB)</a>&nbsp;
+                            <a href="tab_02.pdf">pdf (60kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_02.png">
+                                <img src=".thumb_tab_02.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 03</b></p>
+                            <br>
+                            Variables used as input in the &tau;<sub>had</sub> identification RNN. The last two columns indicate if a given variable was used in the  1-prong and/or 3-prong case.
+
+                            <br>
+                            <br>
+                            <a href="tab_03.png">png (134kB)</a>&nbsp;
+                            <a href="tab_03.pdf">pdf (92kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_03.png">
+                                <img src=".thumb_tab_03.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 04</b></p>
+                            <br>
+                            List of defined working points with fixed truth &tau;<sub>had-vis</sub> selection efficiencies for the RNN classifier.
+
+                            <br>
+                            <br>
+                            <a href="tab_04.png">png (10kB)</a>&nbsp;
+                            <a href="tab_04.pdf">pdf (42kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_04.png">
+                                <img src=".thumb_tab_04.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 05</b></p>
+                            <br>
+                            Variables of the &tau;<sub>had-vis</sub> used as input in the eVeto RNN and related to the &tau;-jet. The last two columns indicate if a given variable is used in the 1 prong and/or 3 prongs case.
+
+                            <br>
+                            <br>
+                            <a href="tab_05.png">png (102kB)</a>&nbsp;
+                            <a href="tab_05.pdf">pdf (76kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_05.png">
+                                <img src=".thumb_tab_05.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 06</b></p>
+                            <br>
+                            Variables of the &tau;<sub>had-vis</sub> used as input in the eVeto RNN and related to the tracks and cluster variables. The last two columns indicate if a given variable was used in the  1-prong and/or 3-prong case.
+
+                            <br>
+                            <br>
+                            <a href="tab_06.png">png (50kB)</a>&nbsp;
+                            <a href="tab_06.pdf">pdf (61kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_06.png">
+                                <img src=".thumb_tab_06.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 07</b></p>
+                            <br>
+                            Five major decay modes of &tau;<sub>had</sub> and the corresponding branching ratio (B) with respect to total &tau; lepton decays [41]. h<sup>&plusmn;</sup> stands for &pi;<sup>&plusmn;</sup> or K<sup>&plusmn;</sup> (the latter contributes about 3%). Neutrinos are omitted. Decays with neutral kaons are neglected as they correspond to a branching ratio of &lt; 1%. The labels are in a form of 'ApBn', where 'A','B' are the number of prongs (the 'p') and neutral pions (the 'n') and 'X' stands for more than one or more than zero accordingly.
+
+                            <br>
+                            <br>
+                            <a href="tab_07.png">png (11kB)</a>&nbsp;
+                            <a href="tab_07.pdf">pdf (46kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_07.png">
+                                <img src=".thumb_tab_07.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 08</b></p>
+                            <br>
+                            Name and description of the kinematic variables and angular distances used as input features to the DeepSet NN decay mode classification. 'Object' refers to a &tau;<sub>had</sub> track,  &pi;<sup>0</sup> candidate, photon shot or conversion track. The &tau;<sub>had</sub> is the one that the objects are associated to by the TPF reconstruction. 'TrackECal' refers to the extrapolation of highest-p<sub>T</sub> &tau;<sub>had</sub> track to EM calorimeter.
+
+                            <br>
+                            <br>
+                            <a href="tab_08.png">png (21kB)</a>&nbsp;
+                            <a href="tab_08.pdf">pdf (34kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_08.png">
+                                <img src=".thumb_tab_08.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 09</b></p>
+                            <br>
+                            Name and description of the cluster classification variables for  &pi;<sup>0</sup> canddiates as input features to the DeepSet NN decay mode classification. The ones with log are transformed to the logarithm values (log<sub>10</sub>) in training and evaluation. More details are described in Ref. [42].
+                            <br>
+                            <br>
+                            <a href="tab_09.png">png (56kB)</a>&nbsp;
+                            <a href="tab_09.pdf">pdf (42kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_09.png">
+                                <img src=".thumb_tab_09.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 10</b></p>
+                            <br>
+                            List of input variables used in the boosted regression tree for &tau;<sub>had-vis</sub> energy calibration. The cluster variables are the energy weighted averages over the jet seed constituents within the &tau; lepton cone, as described in detail in Ref. [45].
+
+                            <br>
+                            <br>
+                            <a href="tab_10.png">png (70kB)</a>&nbsp;
+                            <a href="tab_10.pdf">pdf (75kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_10.png">
+                                <img src=".thumb_tab_10.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <!-- FOOTER -->
+            <footer id="myFooter">
+                <div class="w3-container w3-theme-l2 footer">
+                    <p>
+                        © 2022 CERN for the benefit of the ATLAS Collaboration.
+                        <br>
+                        <span class="footer_subsection">
+                            Reproduction of the article, figures and tables on this page is allowed as specified in the <a href="https://creativecommons.org/licenses/by/4.0/legalcode">CC-BY-4.0</a> license.
+                            <br><br>
+                            2026-09-08 00:11:49
+                        </span>
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            // Get the Sidebar
+            var mySidebar = document.getElementById("mySidebar");
+            // Get the DIV with overlay effect
+            var overlayBg = document.getElementById("myOverlay");
+            // Toggle between showing and hiding the sidebar, and add overlay effect
+            function w3_open() {
+                if (mySidebar.style.display === 'block') {
+                    mySidebar.style.display = 'none';
+                    overlayBg.style.display = "none";
+                } else {
+                    mySidebar.style.display = 'block';
+                    overlayBg.style.display = "block";
+                }
+            }
+            // Close the sidebar with the close button
+            function w3_close() {
+                mySidebar.style.display = "none";
+                overlayBg.style.display = "none";
+            }
+
+            function hide_show(section){
+                var header = document.getElementById(section+"_header");
+                var elements = document.getElementsByClassName(section+"_section");
+                var show = false;
+                var text = "Tables";
+                if (section == 'figures'){
+                    text = "Figures";
+                } else if (section == 'auxiliary'){
+                    text = "Auxiliary material";
+                } else if (section == 'animated'){
+                    text = "Animated plots";
+                }
+                var w = window.innerWidth;
+                for (var i=0; i<elements.length; i++){
+                    if (elements[i].style.display == "flex" || elements[i].style.display == "" || elements[i].style.display == "block"){
+                        elements[i].style.display = "none";
+                        show = false
+                    }else{
+                        if (w <= 800){
+                            elements[i].style.display = "block";
+                        }else{
+                            elements[i].style.display = "flex";
+                        }
+                        show = true;
+                    }
+                }
+                if (show){
+                    header.innerHTML = '<b>'+text+'</b> <i class="fa-solid fa-circle-up show_hide_arrows"></i>'
+                }else{
+                    header.innerHTML = '<b>'+text+'</b> <i class="fa-solid fa-circle-down show_hide_arrows"></i>'
+                }
+            }
+
+            /*
+            // Get the button
+            let mybutton = document.getElementById("myBtn");
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }*/
+
+            function toggleDropdown(id) {
+                var dropdown = document.getElementById(id);
+                if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                    dropdown.style.display = "block";
+                } else {
+                    dropdown.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>

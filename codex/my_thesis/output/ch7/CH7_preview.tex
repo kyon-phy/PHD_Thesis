@@ -1,0 +1,23 @@
+% Compile from the thesis root directory.
+% The preview reads the editable chapter and appendix sources directly.
+\documentclass[a4paper,12pt,times,numbered,oneside,custombib]{Classes/PhDThesisPSnPDF}
+\input{Preamble/preamble}
+\input{thesis-info}
+\hypersetup{pdftitle={Chapter 7: Event Selection and Supporting Studies},pdfauthor={Jiaqi Zang}}
+\usepackage{xr-hyper}
+\externaldocument[][nocite]{output/ch7/CH7_external_labels}[../../thesis.pdf]
+\begin{document}
+\mainmatter
+\setcounter{chapter}{6}
+\input{Chapters/CH7_event_selection}
+\begin{appendices}
+\setcounter{chapter}{1}
+\input{Chapters/Appendix/Appendix2}
+\input{Chapters/Appendix/Appendix3}
+\input{Chapters/Appendix/Appendix4}
+\end{appendices}
+\begin{spacing}{0.9}
+\bibliographystyle{unsrtnat}
+\bibliography{References/references}
+\end{spacing}
+\end{document}

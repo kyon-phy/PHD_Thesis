@@ -1,0 +1,476 @@
+--- before/Chapters/CH7_event_selection.tex
++++ after/Chapters/CH7_event_selection.tex
+@@ -1,6 +1,305 @@
+ \chapter{Event Selection}
+ \label{chapter:event_selection}
+ 
++The event selection separates the four signal topologies introduced in Section~\ref{subsec:lq_collider_benchmark} according to the presence of a $b$-tagged jet and the kinematics of resonant or non-resonant production.
++The analysis variables and common preselection are introduced first, followed by the optimisation of the one-$b$-jet regions and the definition of the zero-$b$-jet regions.
++
+ \section{Preselection and variables definition}
++\label{sec:ch7_preselection}
++
++The analysis variables are constructed from the calibrated objects defined in Chapter~\ref{chapter:object_reconstruction}, after overlap removal.
++Throughout this chapter, $\tau$ denotes the reconstructed visible decay products of the selected hadronically decaying $\tau$-lepton.
++For signal events, the neutrino from the $\tau$ decay is not included in this four-momentum and contributes to $\mpt$ together with the neutrino produced in the hard scattering.
++
++\subsection{Analysis variables}
++\label{subsec:ch7_variables}
++
++The transverse momenta, angular separations and reconstructed masses characterise the energy scale and geometry of the $\tau\nu+\mathrm{jets}$ final state.
++They distinguish the signal from $W$+jets and top-quark production, and separate the resonant and non-resonant signal contributions.
++
++\begin{itemize}
++    \item \textbf{The $\tau$ transverse momentum and $\met$} measure the visible and invisible transverse activity in the event.
++    Heavy-leptoquark production can produce an energetic $\tau$-lepton and neutrinos, whereas most SM events populate lower values of these quantities.
++    Requiring large $\pT^\tau$ and $\met$ therefore selects the high-energy part of the $\tau\nu$ spectrum in which a leptoquark contribution can become distinguishable~\cite{Endo2022NonResonant}.
++    The two quantities need not be equal because the jets carry transverse momentum and the $\tau$-decay neutrino contributes to $\mpt$.
++
++    \item \textbf{The azimuthal separation $\DphiTauMet$} is the angle between the visible $\tau$ momentum and $\mpt$ in the transverse plane, with values between zero and $\pi$.
++    In non-resonant production with a relatively soft recoiling jet, the $\tau$ and the invisible system tend to be back-to-back.
++    A lower requirement on $\DphiTauMet$ favours this geometry and reduces top-quark backgrounds with a more complex final state.
++    Resonant production contains an energetic jet from the leptoquark decay, so a back-to-back requirement on the $\tau$ and $\mpt$ can also remove the signal of interest.
++
++    \item \textbf{The transverse mass $\mT$} combines the two transverse momentum scales with their angular separation:
++    \begin{equation}
++        \mT = \sqrt{2\pT^\tau\met\left[1-\cos\DphiTauMet\right]}.
++        \label{eq:ch7_mt}
++    \end{equation}
++    This definition neglects the small visible $\tau$ mass.
++    It is useful because the longitudinal momenta of the neutrinos are unmeasured and the full $\tau\nu$ invariant mass cannot be reconstructed.
++    For an on-shell $W\to\tau\nu$ decay with correctly reconstructed momenta and no other source of $\mpt$, $\mT$ is bounded by the $W$-boson mass.
++    Off-shell $W$ production, additional neutrinos and detector resolution populate the high-$\mT$ tail of the SM background.
++    A heavy virtual leptoquark can enhance this tail, making $\mT$ particularly useful for non-resonant production.
++    Equation~\ref{eq:ch7_mt} also shows that its selection is correlated with those on $\pT^\tau$, $\met$ and $\DphiTauMet$.
++
++    \item \textbf{The visible invariant masses $m_{b\tau}$ and $m_{j\tau}$} are reconstructed from the selected $b$-jet or leading jet and the visible $\tau$:
++    \begin{align}
++        m_{b\tau}^{2} &= (p_b+p_\tau)^2, &
++        m_{j\tau}^{2} &= (p_{j_1}+p_\tau)^2,
++        \label{eq:ch7_visible_masses}
++    \end{align}
++    where $p_b$, $p_{j_1}$ and $p_\tau$ are four-momenta, and $j_1$ is the jet with the largest $\pT$.
++    In resonant $U_1\to b\tau$ production, $m_{b\tau}$ retains information about the leptoquark mass.
++    The neutrino from the $\tau$ decay shifts the visible mass below $\MU$ and broadens its distribution, with further smearing from the reconstructed jet and $\tau$ energies.
++    A lower mass threshold therefore selects heavy-particle decays without requiring a narrow peak at $\MU$.
++    The analogous variable $m_{j\tau}$ is used in the zero-$b$-jet regions, where the leading jet can originate from $U_1\to s\tau$.
++
++    \item \textbf{The selected-jet transverse momentum} distinguishes the two production topologies.
++    The $b$-jet from a resonant $U_1\to b\tau$ decay is typically energetic because it shares the decay energy of a heavy particle.
++    A $b$-jet radiated in non-resonant production is typically softer.
++    The $b$-jet $\pT$ is therefore used to divide the one-$b$-jet sample, while the leading-jet $\pT$ is used in the zero-$b$-jet sample.
++    These reconstructed categories enrich the corresponding production modes without separating them exactly.
++
++    \item \textbf{The object multiplicities} specify the reconstructed final state.
++    The numbers of hadronic $\tau$ candidates, electrons, muons, jets and $b$-tagged jets are denoted by $N_\tau$, $N_e$, $N_\mu$, $N_j$ and $N_b$, respectively, with $N_\ell=N_e+N_\mu$.
++    All jets, including $b$-tagged jets, enter $N_j$, so $N_j-N_b$ counts jets that are not $b$-tagged.
++    An upper requirement on this multiplicity suppresses $\ttbar$ events, whose two top-quark decays often produce several jets.
++\end{itemize}
++
++\subsection{Multijet suppression}
++\label{subsec:ch7_multijet}
++
++Multijet events can enter the selected sample when a jet is misidentified as a hadronic $\tau$ and a mismeasured jet produces large $\met$.
++In particular, an underestimated jet momentum produces a momentum imbalance pointing towards that jet.
++The minimum azimuthal separation and the corresponding momentum ratio are therefore defined as
++\begin{align}
++    \Delta\phi_{\min} &= \min_j\Delta\phi(\mpt,\vec p_{\mathrm{T}}^{\,j}),
++    &R_{\mathrm{miss}/j} &= \frac{\met}{\pT^{j_{\min}}},
++    \label{eq:ch7_qcd_variables}
++\end{align}
++where $j_{\min}$ is the jet with the smallest azimuthal separation from $\mpt$.
++It need not be the leading jet.
++Mismeasured multijet events tend to have small $\Delta\phi_{\min}$ and a modest $R_{\mathrm{miss}/j}$.
++By contrast, the neutrinos in signal events can produce large $\met$ even when a much softer jet happens to lie nearby in azimuth.
++
++Events are retained if
++\begin{equation}
++    \Delta\phi_{\min}>0.4
++    \quad\text{or}\quad
++    R_{\mathrm{miss}/j}>6.
++    \label{eq:ch7_qcd_cut}
++\end{equation}
++The second condition retains signal events that would be lost with the angular requirement alone.
++In the simulated study described in Appendix~\ref{App:QCD_bkg_study}, this selection rejects approximately $86\%$ of the multijet events while retaining $96.4\%$ of the signal after the loose study selection.
++These efficiencies describe the cleaning requirement at that stage, before the full SR selections.
++
++\subsection{Common preselection}
++\label{subsec:ch7_common_preselection}
++
++The common preselection selects events with one hadronic $\tau$, missing transverse momentum and at least one jet.
++The data-quality requirements in Section~\ref{sec:dataset_selection} and the primary-vertex requirement in Chapter~\ref{chapter:object_reconstruction} are applied first.
++Events must pass the lowest-threshold unprescaled $\met$ trigger for the relevant data-taking period and satisfy $\met>200~\GeV$, in the trigger-efficiency plateau described in Section~\ref{sec:analysis_triggers}.
++Exactly one baseline $\tau$ candidate is required, and it must also pass the Tight identification working point.
++Events containing a selected electron or muon are vetoed to suppress backgrounds with additional leptonic decays.
++At least one jet is required to define the jet-based variables, and the multijet suppression in Eq.~\ref{eq:ch7_qcd_cut} is applied.
++
++Table~\ref{tab:ch7_preselection} summarises these requirements.
++The common preselection does not fix $N_b$ or the final $\pT^\tau$ threshold, so it can be used for both flavour categories and as the starting point for the kinematic optimisation.
++
++\begin{table}[htbp]
++    \centering
++    \caption{Common preselection for the signal-region optimisation. Object definitions and overlap removal are given in Chapter~\ref{chapter:object_reconstruction}.}
++    \label{tab:ch7_preselection}
++    \begin{tabular}{ll}
++        \toprule
++        Requirement & Selection \\
++        \midrule
++        Data quality & Accepted data-taking periods \\
++        Primary vertex & At least two selected tracks \\
++        Trigger & Lowest-threshold unprescaled $\met$ trigger \\
++        Missing transverse momentum & $\met>200~\GeV$ \\
++        Hadronic $\tau$ multiplicity & $N_\tau=1$ at baseline level \\
++        Selected $\tau$ identification & Tight \\
++        Electron and muon veto & $N_\ell=0$ \\
++        Jet multiplicity & $N_j\geq1$ \\
++        Multijet suppression & $\Delta\phi_{\min}>0.4$ or $R_{\mathrm{miss}/j}>6$ \\
++        \bottomrule
++    \end{tabular}
++\end{table}
++
+ \section[One b-jet signal region (SR1b) optimisation and definition]{One b-jet signal region ($\SR$) optimisation and definition}
+-\section[b-veto signal region definition (SR0b)]{b-veto signal region definition ($\bVetoSR$)}+\label{sec:ch7_sr1b}
++
++The $\SR$ regions select exactly one $b$-tagged jet to target the $b\tau$ interaction in the $U_1$ model.
++The non-resonant selection is motivated by the high-$\mT$ $\tau\nu+b$ strategy of Ref.~\cite{Endo2022NonResonant}: an energetic $\tau$ and large $\met$ select the hard scattering, the $b$-tag reduces the inclusive $W$+jets background, and a restriction on additional jets suppresses top-quark production.
++The analysis also retains a resonant category to select an on-shell leptoquark decaying into $b\tau$.
++The sample is divided at $\pT^b=250~\GeV$, with $\pT^b>250~\GeV$ defining $\SR$-$\Res$ and $50<\pT^b<250~\GeV$ defining $\SR$-$\NonRes$.
++
++\subsection{Scan variables and optimisation criterion}
++\label{subsec:ch7_scan}
++
++The kinematic thresholds are scanned together because the discriminating variables are correlated.
++For example, increasing $\met$ also raises $\mT$ at fixed $\pT^\tau$ and $\DphiTauMet$, so the effect of an additional $\mT$ requirement depends on the other cuts.
++Lower thresholds on $\pT^\tau$, $\met$ and $\mT$ are scanned in both categories, together with an upper limit on $N_j-N_b$.
++A lower threshold on $\DphiTauMet$ is tested for the non-resonant topology.
++For the resonant topology, upper thresholds on this angle and a lower threshold on $m_{b\tau}$ are tested.
++The complete scan grid is given in Table~\ref{tab:ch7_scan_variables}.
++
++\begin{table}[htbp]
++    \centering
++    \small
++    \caption{Thresholds tested in the $\SR$ optimisation. Each set lists the trial values for the indicated inequality. A zero mass threshold or an angular upper threshold of $\pi$ represents no effective requirement on that variable.}
++    \label{tab:ch7_scan_variables}
++    \begin{tabular}{lcc}
++        \toprule
++        Variable & $\SR$-$\Res$ & $\SR$-$\NonRes$ \\
++        \midrule
++        $\DphiTauMet$ & $<\{0.3,1.2,2.4,2.6,\pi\}$ & $>\{0.3,1.2,2.4,2.6\}$ \\
++        $m_{b\tau}$ [$\GeV$] & $>\{0,800\}$ & Not scanned \\
++        $\met$ [$\GeV$] & \multicolumn{2}{c}{$>\{200,250,300,350,400,500,600\}$} \\
++        $\pT^\tau$ [$\GeV$] & \multicolumn{2}{c}{$>\{200,250,300,350,400,500,600\}$} \\
++        $\mT$ [$\GeV$] & \multicolumn{2}{c}{$>\{100,200,300,400,500,600,700,800,900,1000\}$} \\
++        $N_j-N_b$ & \multicolumn{2}{c}{$\leq\{1,2,3\}$} \\
++        \bottomrule
++    \end{tabular}
++\end{table}
++
++The mass scan uses only $m_{b\tau}>0$ and $800~\GeV$.
++The visible mass distribution is broad because of the unmeasured $\tau$-decay neutrino, while the simulated background has limited statistics in its high-mass tail.
++These features favour an inclusive mass requirement over a finely scanned mass window.
++The resonant optimisation targets $\MU=1.5~\TeV$, where on-shell production is important.
++The non-resonant optimisation uses $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, where virtual exchange provides the dominant signal contribution.
++
++The expected sensitivity of each cut combination is ranked using an approximate counting-experiment significance~\cite{ATL-PHYS-PUB-2020-025}:
++\begin{align}
++    Z^2 = 2\Bigg[&n\ln\!\left(\frac{n(b+\sigma_b^2)}{b^2+n\sigma_b^2}\right)
++    \nonumber\\
++    &-\frac{b^2}{\sigma_b^2}\ln\!\left(1+\frac{\sigma_b^2(n-b)}{b(b+\sigma_b^2)}\right)\Bigg],
++    \label{eq:ch7_optimisation_significance}
++\end{align}
++where $s$ and $b$ are the expected signal and background event yields, $n=s+b$, and $\sigma_b$ is the absolute uncertainty in the background expectation.
++A fractional background uncertainty of $30\%$, corresponding to $\sigma_b=0.30b$, is assumed for this scan.
++The signal yield contains the pure BSM contribution.
++Interference with the SM is treated separately in the final statistical analysis.
++The quantity $Z$ is used to compare selections, while the final confidence limits are obtained with the likelihood analysis in Chapter~\ref{chapter:results}.
++
++Cut combinations with $b\leq2$ are discarded to avoid selecting apparently background-free regions caused by limited MC statistics.
++If a particular simulated background has a negative weighted yield after a trial selection, its contribution is set to zero when evaluating the scan criterion.
++This is a prescription for comparing trial cuts in sparse simulated samples.
++It does not imply a negative physical event rate.
++
++\subsection{Signal efficiency and selected regions}
++\label{subsec:ch7_efficiency}
++
++The signal efficiency measures how much signal survives the selection.
++For the optimisation cutflow, the cumulative efficiency is defined with respect to the one-$b$-jet baseline, before the additional kinematic cuts:
++\begin{equation}
++    \epsilon_{\mathrm{rel}}(\mathrm{SR})
++    =\frac{N_s(\mathrm{SR})}{N_s(\text{one-}b\text{-jet baseline})}.
++    \label{eq:ch7_relative_efficiency}
++\end{equation}
++Both yields are weighted predictions for the same signal parameter point.
++This definition differs from the acceptance times selection efficiency, $A\epsilon$, whose denominator is the generated signal sample.
++The acceptance describes the fraction of generated events in the required kinematic and geometric range, and the selection efficiency describes the fraction of those events that are reconstructed and pass the selection.
++Their product relates the selected yield to the generated signal cross section through $N_s=\mathcal{L}\sigma_s A\epsilon$, using a consistent convention for the generated decay modes and any generator filters.
++
++For the resonant benchmark $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, the baseline yield of 35.2 events is reduced to 4.2 events, corresponding to $\epsilon_{\mathrm{rel}}\simeq11.9\%$.
++For the non-resonant optimisation benchmark, the yield changes from 111.0 to 6.6 events, giving $\epsilon_{\mathrm{rel}}\simeq5.9\%$.
++The corresponding total background prediction decreases from approximately 4027 baseline events to 2.4 and 2.1 events, respectively.
++These numbers illustrate the trade-off between signal retention and background rejection in the optimisation and are evaluated before the background fit.
++
++The selected $\SR$-$\Res$ requirements are $\pT^\tau>200~\GeV$, $\met>200~\GeV$, $\mT>200~\GeV$ and $m_{b\tau}>800~\GeV$, with at most three jets that are not $b$-tagged.
++No additional $\DphiTauMet$ requirement is retained.
++The visible-mass requirement provides strong rejection of backgrounds without a heavy $b\tau$ resonance, while the energetic $b$-jet selects the two-body decay topology.
++The region is treated as a single event-counting bin because the available background simulation does not support a finely binned fit to the broad $m_{b\tau}$ distribution.
++
++The selected $\SR$-$\NonRes$ requirements are $\pT^\tau>200~\GeV$, $\met>400~\GeV$, $\mT>600~\GeV$ and $\DphiTauMet>1.2$, with at most one jet that is not $b$-tagged.
++The tighter $\met$ and $\mT$ requirements select the high-energy tail, and the smaller allowed jet multiplicity reduces the top-quark background.
++No $m_{b\tau}$ requirement is imposed because the $b$-jet and $\tau$ do not reconstruct an on-shell leptoquark in the target topology.
++This region also contributes a single event count to the fit.
++
++Figure~\ref{fig:ch7_sr1b_distributions} shows the visible-mass distribution with the mass requirement removed, conventionally called an $N-1$ distribution, and the transverse-mass distribution in the selected high-$\mT$ range.
++The red arrow marks the $m_{b\tau}>800~\GeV$ threshold, while the $\mT$ panel displays events above $600~\GeV$.
++The background normalisations in these illustrations have been constrained by the background-only fit to the control regions described in Chapter~\ref{chapter:results}.
++The optimisation itself uses the simulated expectations described above.
++
++\begin{figure}[htbp]
++    \centering
++    \begin{subfigure}{0.49\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/SR1b_Res_InvM.pdf}
++        \caption{$\SR$-$\Res$: $m_{b\tau}$.}
++    \end{subfigure}\hfill
++    \begin{subfigure}{0.49\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/SR1b_NonRes_mT.pdf}
++        \caption{$\SR$-$\NonRes$: $\mT$.}
++    \end{subfigure}
++    \caption[Discriminating-variable distributions in SR1b]{Distributions of (a) $m_{b\tau}$ in $\SR$-$\Res$ before the mass requirement and (b) $\mT$ in $\SR$-$\NonRes$ above $600~\GeV$. Background normalisations are obtained from the background-only fit to the control regions. The dotted red and violet signal curves correspond to $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(3.0~\TeV,2.5,1.0)$, respectively. The red arrow marks the mass threshold, and overflow events enter the last bin. Lower panels show data divided by the background prediction. The hatched band includes statistical and systematic uncertainties, and upward triangles indicate ratios above the displayed range. The plot label $\tau_{\mathrm{had}}$ denotes the visible $\tau$ candidate.}
++    \label{fig:ch7_sr1b_distributions}
++\end{figure}
++
++\section[b-veto signal region definition (SR0b)]{b-veto signal region definition ($\bVetoSR$)}
++\label{sec:ch7_sr0b}
++
++The $\bVetoSR$ regions select signal events with no reconstructed $b$-tagged jet and extend the sensitivity to large $\beta_L^{23}$.
++As shown by the flavour current and coupling texture in Eqs.~\ref{eq:u1_current_expanded} and~\ref{eq:u1_beta_texture}, $\beta_L^{23}$ controls the $s\tau$ interaction and contributes $V_{cs}\beta_L^{23}$ to the $c\nu_\tau$ interaction.
++The resulting zero-$b$-jet topologies were introduced in Section~\ref{subsec:lq_collider_benchmark}.
++In particular, $U_1\to s\tau$ produces a resonant signal with a genuine non-$b$ jet, so $\bVetoSR$ retains a physically distinct signal contribution in addition to events in which a $b$-jet is not tagged or reconstructed.
++A leading jet in this category is not explicitly identified as a strange-quark jet.
++
++The two $\bVetoSR$ regions are defined by replacing the one-$b$-jet requirement with $N_b=0$ and using the leading jet in the topology-dependent selections.
++The resonant region requires $\pT^{j_1}>250~\GeV$ and $m_{j\tau}>800~\GeV$, while the non-resonant region requires $50<\pT^{j_1}<250~\GeV$.
++The $\pT^\tau$, $\met$, $\mT$ and $\DphiTauMet$ thresholds follow the corresponding one-$b$-jet regions.
++The upper limits are imposed on the total jet multiplicity: $N_j\leq4$ for $\bVetoSR$-$\Res$ and $N_j\leq2$ for $\bVetoSR$-$\NonRes$.
++These preserve the total jet limits used in $\SR$ after replacing the tagged jet with an untagged leading jet.
++
++The $\met>200~\GeV$ requirement in $\bVetoSR$-$\Res$ is retained to keep its kinematic selection aligned with $\SR$-$\Res$.
++A supplementary study of tighter $\met$ thresholds is presented in Appendix~\ref{app:sr0b_optimisation}.
++The $\bVetoSR$-$\NonRes$ threshold remains $\met>400~\GeV$, which also maximises the significance in that study.
++
++Signal efficiency in $\bVetoSR$ is evaluated for the pure BSM contribution, with $A\epsilon$ defined as in Section~\ref{subsec:ch7_efficiency}.
++For illustration, at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.0,0.2)$ with $\beta_R^{33}=0$, $A\epsilon$ is $0.30\%$ and $0.13\%$ in $\bVetoSR$-$\Res$ and $\bVetoSR$-$\NonRes$, compared with $0.64\%$ and $0.069\%$ in the corresponding $\SR$ regions.
++These efficiencies depend on the mass and flavour couplings because the relative contributions of the production and decay channels change.
++The interference contribution can have either sign and is included separately in the predicted event yield rather than interpreted as an efficiency.
++
++Figure~\ref{fig:ch7_sr0b_distributions} shows the discriminating variables in the two zero-$b$-jet regions.
++The high-$m_{j\tau}$ requirement selects the visible products of a heavy resonance, while the high-$\mT$ requirement selects non-resonant production.
++Together with the one-$b$-jet regions, these selections retain sensitivity to both $b\tau$ and $s\tau$ final states over the coupling range studied in this thesis.
++
++\begin{figure}[htbp]
++    \centering
++    \begin{subfigure}{0.49\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/SR0b_Res_InvM.pdf}
++        \caption{$\bVetoSR$-$\Res$: $m_{j\tau}$.}
++    \end{subfigure}\hfill
++    \begin{subfigure}{0.49\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/SR0b_NonRes_mT.pdf}
++        \caption{$\bVetoSR$-$\NonRes$: $\mT$.}
++    \end{subfigure}
++    \caption[Discriminating-variable distributions in SR0b]{Distributions of (a) $m_{j\tau}$ in $\bVetoSR$-$\Res$ before the mass requirement and (b) $\mT$ in $\bVetoSR$-$\NonRes$ above $600~\GeV$. Background normalisations are obtained from the background-only fit to the control regions. The dotted red and violet signal curves correspond to $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(3.0~\TeV,2.5,1.0)$, respectively. The red arrow marks the mass threshold, and overflow events enter the last bin. Lower panels show data divided by the background prediction, with the combined statistical and systematic uncertainty shown by the hatched band. Upward triangles indicate ratios outside the displayed range.}
++    \label{fig:ch7_sr0b_distributions}
++\end{figure}
++
++The final requirements for all four mutually exclusive SRs are summarised in Table~\ref{tab:ch7_signal_regions}.
++Each region contributes one event count to the simultaneous statistical analysis.
++
++\begin{table}[htbp]
++    \centering
++    \small
++    \caption{Final signal-region selections, applied in addition to the common preselection in Table~\ref{tab:ch7_preselection}. A dash denotes no additional requirement. The jet multiplicity includes $b$-tagged jets.}
++    \label{tab:ch7_signal_regions}
++    \begin{tabular}{lcccc}
++        \toprule
++        & \multicolumn{2}{c}{Resonant} & \multicolumn{2}{c}{Non-resonant} \\
++        Requirement & $\SR$-$\Res$ & $\bVetoSR$-$\Res$ & $\SR$-$\NonRes$ & $\bVetoSR$-$\NonRes$ \\
++        \midrule
++        $N_b$ & 1 & 0 & 1 & 0 \\
++        $\pT^b$ [$\GeV$] & $>250$ & -- & $50<\pT^b<250$ & -- \\
++        $\pT^{j_1}$ [$\GeV$] & -- & $>250$ & -- & $50<\pT^{j_1}<250$ \\
++        $\pT^\tau$ [$\GeV$] & \multicolumn{4}{c}{$>200$} \\
++        $\met$ [$\GeV$] & \multicolumn{2}{c}{$>200$} & \multicolumn{2}{c}{$>400$} \\
++        $\mT$ [$\GeV$] & \multicolumn{2}{c}{$>200$} & \multicolumn{2}{c}{$>600$} \\
++        $m_{b\tau}$ [$\GeV$] & $>800$ & -- & -- & -- \\
++        $m_{j\tau}$ [$\GeV$] & -- & $>800$ & -- & -- \\
++        $\DphiTauMet$ & \multicolumn{2}{c}{--} & \multicolumn{2}{c}{$>1.2$} \\
++        $N_j$ & \multicolumn{2}{c}{$\leq4$} & \multicolumn{2}{c}{$\leq2$} \\
++        \bottomrule
++    \end{tabular}
++\end{table}
+--- before/Chapters/Appendix/Appendix2.tex
++++ after/Chapters/Appendix/Appendix2.tex
+@@ -1,5 +1,104 @@
+ \chapter{Multijet background study}
+ \label{App:QCD_bkg_study}
+ 
+-% TODO: Describe the event-cleaning requirements used to suppress QCD multijet events.
+-% TODO: Add the study and validation plots assessing the residual multijet contribution.
++The multijet suppression used in Section~\ref{subsec:ch7_multijet} is studied with simulated dijet and leptoquark events.
++The purpose is to identify a selection that removes events with instrumental $\met$ while retaining the signal with neutrinos.
++The multijet production cross section is large, so a small probability for a jet to be misidentified as a $\tau$, combined with a large jet-energy mismeasurement, can produce events with the selected final state.
++
++\section{Origin of the discriminating variables}
++\label{sec:app_qcd_variables}
++
++Jet-momentum mismeasurement produces a characteristic direction for the apparent missing momentum.
++For example, if the transverse momentum of one jet is underestimated by $\delta\vec p_{\mathrm{T}}^{\,j}$, the reconstructed momentum imbalance receives a contribution in the direction of the missing part of that jet momentum.
++The resulting $\mpt$ is therefore approximately aligned with the jet.
++In a signal event, the neutrinos produce real missing momentum, whose direction is not fixed by a jet-energy mismeasurement.
++
++The variables $\Delta\phi_{\min}$ and $R_{\mathrm{miss}/j}$ defined in Eq.~\ref{eq:ch7_qcd_variables} test these two features.
++The first measures the angular alignment, and the second compares the missing momentum with the momentum of the closest jet in azimuth.
++The combination is useful because a low-$\pT$ jet can lie close to the direction of real missing momentum in a signal event.
++Such an event can have small $\Delta\phi_{\min}$ but large $R_{\mathrm{miss}/j}$.
++
++\section{Study selection and distributions}
++\label{sec:app_qcd_selection}
++
++The study selection is kept loose to retain enough simulated multijet events to examine the relevant distributions.
++It requires the $\met$ trigger, exactly one hadronic $\tau$ candidate, no selected electron or muon, and at least one jet, as listed in Table~\ref{tab:app_qcd_preselection}.
++The final SR thresholds on $\met$, $\pT^\tau$, $\mT$ and the visible invariant mass are not imposed at this stage.
++No $b$-tag multiplicity is required.
++
++\begin{table}[htbp]
++    \centering
++    \caption{Loose selection used to study the multijet suppression. This selection defines the denominator of the rejection fractions shown below.}
++    \label{tab:app_qcd_preselection}
++    \begin{tabular}{ll}
++        \toprule
++        Requirement & Selection \\
++        \midrule
++        Trigger & Lowest-threshold unprescaled $\met$ trigger \\
++        Hadronic $\tau$ multiplicity & $N_\tau=1$ \\
++        Electron and muon veto & $N_\ell=0$ \\
++        Jet multiplicity & $N_j\geq1$ \\
++        \bottomrule
++    \end{tabular}
++\end{table}
++
++Figure~\ref{fig:app_qcd_correlations} shows the two-dimensional distributions after this selection.
++The multijet sample is concentrated at small $\Delta\phi_{\min}$ and relatively small $R_{\mathrm{miss}/j}$.
++The signal occupies a broader angular range and extends to larger momentum ratios.
++Approximately $90\%$ of the multijet events have $R_{\mathrm{miss}/j}<6$, compared with approximately $55\%$ of the signal in the study sample.
++The ratio requirement alone would therefore reject a substantial fraction of the signal.
++It is instead combined with the angular requirement so that either a large angle or a large ratio is sufficient to retain an event.
++
++\begin{figure}[htbp]
++    \centering
++    \begin{subfigure}{0.49\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/QCD/DPhi_signal.pdf}
++        \caption{Signal.}
++    \end{subfigure}\hfill
++    \begin{subfigure}{0.49\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/QCD/DPhi_multijets.pdf}
++        \caption{Multijet background.}
++    \end{subfigure}
++    \caption[Variables used for multijet suppression]{Correlation between the minimum jet--$\mpt$ azimuthal separation and the ratio of $\met$ to the $\pT$ of the closest jet in azimuth, for (a) simulated signal with $\MU=1.5~\TeV$ and (b) simulated multijet background after the loose study selection. The concentration of multijet events at small values of both variables motivates a combined requirement.}
++    \label{fig:app_qcd_correlations}
++\end{figure}
++
++\section{Threshold scan and signal retention}
++\label{sec:app_qcd_scan}
++
++The angular threshold is scanned while the momentum-ratio threshold is fixed at six.
++For an angular threshold $X$, the rejected fraction is defined as
++\begin{equation}
++    f_{\mathrm{rej}}(X)=
++    \frac{N\!\left(\Delta\phi_{\min}<X\ \text{and}\ R_{\mathrm{miss}/j}<6\right)}
++    {N(\text{loose study selection})}.
++    \label{eq:app_qcd_rejection}
++\end{equation}
++The numerator requires both small angular separation and a small momentum ratio.
++Its complement is the accepted region, defined by the logical OR in Eq.~\ref{eq:ch7_qcd_cut}.
++The rejected fraction is evaluated separately for signal and multijet events, using each sample's yield after the loose selection as its denominator.
++
++Figure~\ref{fig:app_qcd_rejection_scan} shows the resulting rejection fractions.
++At $X=0.4$, approximately $86\%$ of the multijet events are rejected, while the signal loss is $3.6\%$.
++The corresponding signal efficiency for the cleaning cut is therefore $1-0.036=96.4\%$.
++Increasing the angular threshold rejects more multijet events but also removes more signal.
++The selected threshold provides substantial multijet rejection with a small signal loss in the studied sample.
++
++\begin{figure}[htbp]
++    \centering
++    \includegraphics[width=0.70\linewidth]{Figs/CH7/QCD/rejection_scan.pdf}
++    \caption[Scan of the multijet rejection threshold]{Rejected fractions of simulated signal and multijet events as a function of the minimum jet--$\mpt$ angular threshold $X$, with $R_{\mathrm{miss}/j}<6$ also required in the rejected sample. The red and black curves show signal loss and multijet rejection, respectively. The vertical dotted line marks the adopted threshold $X=0.4$. The denominator is the loose selection in Table~\ref{tab:app_qcd_preselection}.}
++    \label{fig:app_qcd_rejection_scan}
++\end{figure}
++
++\section{Residual multijet contribution}
++\label{sec:app_qcd_residual}
++
++The residual multijet contribution is examined after applying the cleaning cut and the full SR requirements.
++No simulated multijet events survive those selections in the samples used for the study.
++This supports neglecting the multijet contribution in the nominal SR prediction, but zero surviving simulated events does not establish an exactly zero physical rate or a quantitative upper bound without the effective sample size.
++
++Jets misidentified as $\tau$ candidates can still occur in other background processes.
++In particular, $Z\to\nu\nu$ production with jets contains genuine missing momentum and can pass the multijet cleaning even when the selected $\tau$ candidate is a jet.
++This contribution is included in the simulated $Z$+jets background.
++A supplementary selection requiring Medium $\tau$ identification while failing Tight also gives a negligible multijet contribution in the simulated study, supporting the effectiveness of the cleaning beyond the nominal Tight selection.
+--- before/Chapters/Appendix/Appendix3.tex
++++ after/Chapters/Appendix/Appendix3.tex
+@@ -0,0 +1,32 @@
++\chapter{Zero-b-jet signal-region optimisation}
++\label{app:sr0b_optimisation}
++
++The $\met$ threshold in $\bVetoSR$ is studied to assess whether tighter selections can improve the expected sensitivity at large $\beta_L^{23}$.
++Removing the $b$-tag requirement admits a larger SM background than in $\SR$ and increases the relevance of interference between the leptoquark and SM amplitudes.
++A tighter $\met$ selection can change the balance between the retained signal, background and interference contributions.
++The study therefore examines the significance as the lower $\met$ threshold is varied.
++
++The threshold is scanned from 200 to $1500~\GeV$ in $100~\GeV$ steps.
++The signal parameter points are $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,0.5,1.8)$ for $\bVetoSR$-$\Res$ and $(3.0~\TeV,2.0,1.8)$ for $\bVetoSR$-$\NonRes$.
++The large value of $\beta_L^{23}$ makes these benchmarks relevant to the zero-$b$-jet categories discussed in Section~\ref{sec:ch7_sr0b}.
++The scan outcomes and adopted thresholds are summarised in Table~\ref{tab:app_sr0b_scan}.
++
++\begin{table}[htbp]
++    \centering
++    \small
++    \caption{Signal benchmarks and preferred thresholds in the supplementary $\bVetoSR$ $\met$ scan. The last column gives the thresholds used in the final analysis.}
++    \label{tab:app_sr0b_scan}
++    \begin{tabular}{lccc}
++        \toprule
++        Region & $(\MU~[\TeV],\gU,\beta_L^{23})$ & Scan maximum & Adopted $\met$ cut \\
++        \midrule
++        $\bVetoSR$-$\Res$ & $(1.5,0.5,1.8)$ & $600~\GeV$ & $>200~\GeV$ \\
++        $\bVetoSR$-$\NonRes$ & $(3.0,2.0,1.8)$ & $400~\GeV$ & $>400~\GeV$ \\
++        \bottomrule
++    \end{tabular}
++\end{table}
++
++For $\bVetoSR$-$\NonRes$, the significance is maximised at $\met>400~\GeV$.
++The scan therefore supports retaining the threshold used in the final region definition.
++For $\bVetoSR$-$\Res$, the maximum occurs at $\met>600~\GeV$, giving an improvement of approximately $20\%$ in the significance at the chosen benchmark.
++The final resonant selection nevertheless retains $\met>200~\GeV$ to keep its kinematic requirements aligned with $\SR$-$\Res$.
+--- before/thesis.tex
++++ after/thesis.tex
+@@ -182,6 +182,7 @@
+ 
+ \include{Chapters/Appendix/Appendix1}
+ \include{Chapters/Appendix/Appendix2}
++\include{Chapters/Appendix/Appendix3}
+ 
+ \end{appendices}
+ 
+--- before/References/references.bib
++++ after/References/references.bib
+@@ -1552,3 +1552,11 @@
+   primaryClass  = {hep-ph},
+   doi           = {10.1016/j.nuclphysb.2012.10.003}
+ }
++
++@Booklet{ATL-PHYS-PUB-2020-025,
++    author       = {{ATLAS Collaboration}},
++    title        = {Formulae for Estimating Significance},
++    howpublished = {ATL-PHYS-PUB-2020-025},
++    year         = {2020},
++    url          = {https://cds.cern.ch/record/2736148}
++}

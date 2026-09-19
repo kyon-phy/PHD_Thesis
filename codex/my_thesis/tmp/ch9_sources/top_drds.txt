@@ -1,0 +1,1921 @@
+                                         Preprint typeset in JHEP style. - PAPER VERSION       CERN-TH/2008-104; ITP-UU-08/27
+                                                                                                 NIKHEF-2008-005; ITFA-2008-16
+                                                                                                         Cavendish-HEP-08/06
+
+
+                                         Single-top hadroproduction in association
+                                         with a W boson
+
+
+
+
+arXiv:0805.3067v1 [hep-ph] 20 May 2008
+                                         Stefano Frixione∗
+                                            PH Department, TH Unit, CERN, CH-1211 Geneva 23, Switzerland
+                                            ITPP, EPFL, CH-1015 Lausanne, Switzerland
+                                            E-mail: Stefano.Frixione@cern.ch
+
+                                         Eric Laenen
+                                            ITFA, University of Amsterdam, Valckenierstraat 65, 1018 XE Amsterdam,
+                                            Nikhef Theory Group, Kruislaan 409, 1098 SJ Amsterdam, The Netherlands
+                                            ITF, Utrecht University, Leuvenlaan 4, 3584 CE Utrecht
+                                            E-mail: Eric.Laenen@nikhef.nl
+
+                                         Patrick Motylinski
+                                            Nikhef Theory Group, Kruislaan 409, 1098 SJ Amsterdam, The Netherlands
+                                            E-mail: patrickm@nikhef.nl
+
+                                         Bryan R. Webber
+                                            Cavendish Laboratory, J.J. Thomson Avenue, Cambridge CB3 0HE, U.K.
+                                            E-mail: webber@hep.phy.cam.ac.uk
+
+                                         Chris White
+                                            Nikhef Theory Group, Kruislaan 409, 1098 SJ Amsterdam, The Netherlands
+                                            E-mail: cwhite@nikhef.nl
+
+
+                                         Abstract: We present the calculation of the W t single-top production channel to
+                                         next-to-leading order in QCD, interfaced with parton showers within the MC@NLO
+                                         formalism. This channel provides a complementary way of investigating the proper-
+                                         ties of the W tb vertex, with respect to the s- and t-channels. We pay special attention
+                                         to the separation of this process from top quark pair production.
+
+                                         Keywords: QCD, Monte Carlo, NLO Computations, Resummation, Collider
+                                         Physics, Heavy Quarks.
+
+                                            ∗
+                                                On leave of absence from INFN, Sez. di Genova, Italy
+Contents
+1. Introduction                                                                      1
+
+2. Nature of the problem                                                             3
+
+3. W t production at NLO                                                             5
+   3.1 Born level                                                                    5
+   3.2 NLO computation                                                               6
+        3.2.1 Virtual corrections                                                    7
+        3.2.2 Real corrections                                                       9
+   3.3 Implementation in MC@NLO                                                      9
+
+4. Interference between tt̄ and W t production                                      11
+   4.1 Previous approaches                                                          12
+   4.2 MC@NLO approach                                                              13
+
+5. Results                                                                          18
+   5.1 Transverse momentum veto                                                     19
+   5.2 Gauge (in)dependence of DR cross sections                                    21
+   5.3 Impact of interference                                                       24
+
+6. Discussion                                                                       28
+
+A. W − t and W + t̄ production                                                      30
+
+B. Calculation of M̃ in the helicity formalism                                      32
+
+
+
+
+1. Introduction
+The top quark was discovered in 1995 and has been intensively studied at the Teva-
+tron. It will also be a prime object of study at the forthcoming Large Hadron Collider
+(LHC). With production rates far in excess of current experiments, the LHC can be
+thought of as a veritable top quark factory. The large mass of the quark, near the
+electroweak scale, enables detailed scrutiny of its interactions unshrouded by hadroni-
+sation effects (which are suppressed by powers of the perturbative momentum scale).
+Furthermore, effects of physics beyond the Standard Model are thought to lie around
+
+
+
+                                          1
+the electroweak scale, thus the top quark sector provides a valuable window for new
+physics.
+     A useful process to study in this regard is the production of single top quarks
+via the weak interaction, as it offers a relatively clean probe of the properties of
+the heavy quark. Although there was recently at least a 3σ evidence of single top
+production at both Tevatron experiments (see e.g. refs. [1, 2]), the cross section is
+sufficiently small (within the SM) as to preclude detailed scrutiny. However, one
+expects a significant number of single top events at the LHC, where the centre of
+mass energy is much higher.
+     Accurate estimates of rates and kinematic distributions at hadron colliders ne-
+cessitate higher-order perturbative computations in QCD. Furthermore, in order to
+optimise acceptance cuts in experimental analyses or perform full detector simula-
+tions, one needs realistic hadron-level events. These are obtained using Monte Carlo
+event generators that incorporate the simulation of parton showers and hadronisation
+models. The complementary benefits of fixed-order computations and parton shower
+simulations are by now well-known, as are the advantages of combining them into a
+framework which utilizes the benefits of each of them. The MC@NLO approach [3, 4]
+provides a way of achieving this, by allowing one to match cross sections computed at
+NLO in QCD with an event generator. No modifications to the latter are necessary,
+and colour coherence is preserved by the matching procedure. Therefore, existing
+parton shower Monte Carlos with no add-ons can be used for this purpose.
+     There are three distinct production modes for single top quarks. In earlier
+work [5] we included two of these modes, the s- and t-channel processes, into the
+MC@NLO framework. In this paper, we implement the production of a single top
+quark in association with a final state W boson, thereby completing the description
+of single top processes in hadronic collisions at this level of accuracy, including spin
+correlations of decay products, which we incorporate as explained in ref. [6].
+     As is well known, the inclusion of higher order corrections for the W t channel
+has challenging peculiarities due to interference with the tt̄ process. This interference
+becomes extremely large in certain phase-space regions, and apparently renders the
+perturbative computation of the W t cross section meaningless. Nevertheless, owing
+to distinct features of tt̄ production, several definitions of the W t channel have been
+given in the literature, each with the aim of recovering a well-behaved expansion
+in αS . The problem of interference in fact affects any computation that considers
+                                                              2 2
+contributions beyond the leading order, i.e. at least O(gW      αS ). The cross section at
+this order has been previously presented in refs. [7, 8, 9], where only tree-level graphs
+were considered, and in refs. [10, 11, 12], where one-loop contributions were included
+as well. In ref. [13], the calculation of NLO electroweak effects has been carried out,
+using the results of ref. [11] as a basis. We shall comment on some of these papers
+in the following.
+     The aim of this paper is to critically examine the definition of the W t channel,
+
+
+
+                                            2
+and to propose two options that can be used in the context of an NLO calculation
+interfaced with parton showers. Although these two options are well defined even in
+the absence of kinematic cuts, we will in addition consider final-state cuts that will
+further help the separation of the W t and tt̄ processes. Such cuts, at variance with
+those of previous approaches (except ref. [9]), are easily applied in an experimental
+environment. The implementation of two definitions of the W t channel in the same
+framework will allow us to estimate the theoretical systematics potentially affecting
+the extraction of the W t signal from data. Although the implementation of any
+definition of the W t channel into any higher-order computation is technically non-
+trivial (and MC@NLO is no exception to that), we argue and make it plausible that
+an NLO+parton shower framework is uniquely suited to the discussion of the physical
+consequences of such a definition.
+     The structure of the paper is as follows. In section 2 we give a first general dis-
+cussion of the problem of interference with tt̄ production. In section 3 we recall the
+various modes of single top quark production, before giving some technical details
+on the implementation of W t production in MC@NLO, and on the underlying NLO
+computation. In section 4 we analyse the problem of interference in more detail, dis-
+cuss the approaches in the literature, and propose two definitions of the W t channel
+that can be used in a parton shower context and in an experimental analysis. We
+proceed in section 5 to present the results obtained by applying these two defini-
+tions in MC@NLO simulations. We discuss physical implications and conclude in
+section 6. Certain technical details are collected in the appendices.
+
+
+2. Nature of the problem
+In the perturbative computation of W t production, one must consider all possible
+partonic processes with final states
+                                         X
+                                   t+W +    Xi .                            (2.1)
+                                               i
+
+Here, {Xi } is a set of particles (partons in a QCD computation), whose multiplicity
+increases as the perturbative order increases. At the leading order (LO) in the SM,
+    2
+O(gW  αS ), such a set is empty, and the underlying partonic process is
+
+                                     bg −→ tW .                                    (2.2)
+
+When next-to-leading order (NLO) corrections in αS are considered, contributions
+(e.g. gg → tW b̄) will appear such that
+
+                                      {Xi } ≡ b̄ .                                 (2.3)
+
+Some of the relevant Feynman diagrams will feature the W b̄ pair originating from
+a t̄ internal line; in other words, the momentum flowing in the t̄ propagator will
+
+
+
+                                           3
+be kW + kb̄ . Therefore, in the computation of certain observables, one will need to
+integrate over the region
+                                2
+                              Mb̄W ≡ (kW + kb̄ )2 ≃ m2t .                         (2.4)
+When this is the case, a divergence is encountered, which is regulated only by using
+a finite width for the (anti-)top, Γt 6= 0. However, a non-zero top width is an all-
+order result in gW . Thus, the inclusion of higher-order QCD corrections forces one
+to include electroweak corrections to all orders so as to avoid divergences, and this
+potentially spoils the power counting in gW , according to which eq. (2.2) is the LO
+contribution to tW production.
+     It turns out that indeed the region of eq. (2.4) causes severe problems, and as
+a result NLO QCD corrections are much larger than the LO result obtained with
+eq. (2.2). One possible way out is that of considering only observables which are
+exclusive enough to allow one to exclude, through final-state cuts, the resonance
+region eq. (2.4). This is easily done in a fixed-order, parton-level theoretical com-
+putation, where the W and the b̄ are easily accessible. It becomes however a more
+indirect procedure in the context of a parton shower simulation, and impossible in a
+real experiment. Note also that, in order to avoid biases in an MC simulation, very
+loose cuts or no cuts at all will have to be imposed in the computation of underlying
+matrix elements, with the result that the majority of the events generated, being
+close to the t̄ resonance, will actually be thrown away by final-state cuts, leading to
+a very low efficiency.
+     The dominance of the t̄ resonance suggests that a possible approach is that
+of simply considering W + W − bb̄ final states (with the possibility of also including
+production spin correlations as well, for the fermions resulting from the decays of
+the W ’s – see e.g. ref. [14] for di-leptonic decays). In this way, what has previously
+been denoted as the LO contribution to W t production, eq. (2.2), can be seen as
+a correction to W + W − b observables (i.e., observables inclusive in the final-state
+b̄ present in the W + W − bb̄ matrix elements). The way in which this contribution
+is taken into account is a matter of careful definition, which is especially delicate
+(because of the double counting problem) when interfacing the matrix elements to
+parton showers – see what was done in ref. [9].
+     By emphasising the role of W + W − b(b̄) final states, these approaches have an
+immediate connection with data, and finding the W t “signal” is thus a matter of
+a careful counting experiment. The key question is: are these predictions accurate
+enough for the counting to be reliable? Indeed, in these approaches the problem of
+full NLO corrections, whose knowledge is known to be crucial in top physics, is not
+considered.
+     The computation of NLO corrections to W t production in QCD can only be se-
+riously undertaken by recovering a meaningful definition of a perturbative expansion
+whose LO contribution is that of eq. (2.2). We have seen that the problem arises
+
+
+
+                                          4
+Figure 1: Leading order diagrams for single-t production in the (1) s-channel, (2) t-channel
+and (3) W t-channel. The t-quark line is doubled.
+
+
+
+because of the interplay between αS and gW expansions, and specifically because of
+the necessity of considering all-order contributions in gW . The key observation is that
+the all-order result in gW that we need is associated with a decay, whereas we are only
+interested in the role of EW interactions in the production process. A meaningful
+expansion in αS of the W t cross section could therefore be achieved if electroweak
+effects in production and decay could be disentangled. Such a procedure can never
+be fully consistent theoretically, but it can be given an operational meaning, which
+can be tested experimentally. The rest of the paper will be devoted to separating
+production and decay EW effects in the context of MC@NLO.
+
+
+3. W t production at NLO
+In this section we introduce the various single top production modes at LO, before
+giving some details of the calculation of the W t channel at NLO in QCD. Technical
+details regarding the implementation in MC@NLO are presented, although as these
+are similar to those relevant to the other single top production channels [5] we refer
+the reader to previous publications where appropriate. Since in this section we will
+be mainly concerned with the computation of the matrix elements entering the NLO
+predictions, and with the construction of the MC subtraction terms for MC@NLO,
+we can safely ignore the issues discussed in sect. 2, but will return to them in sect. 4.
+
+3.1 Born level
+There are three modes for the production of a single top quark at LO1 . Each of
+these provides a separate and complementary means of studying the W tb vertex:
+the s-channel mode (fig. 1(1)) involves a time-like, off-shell vector boson which may
+reveal new resonances; the t-channel mode (fig. 1(2)) involves a spacelike boson and
+is sensitive to flavour changing neutral currents (FCNC’s). Finally, the W t mode
+(fig.1(3)) has an on-shell W boson, and thus provides a complementary source of
+   1
+    We assume throughout the paper that a 5 flavour scheme can be used for the quark sector,
+where the b quark is included in the initial state parton distributions. In principle the calculation
+could also be formulated in a 4 flavour scheme where all b quarks are generated in the final state.
+
+
+
+
+                                                 5
+information on the flavour structure of the vertex (i.e. Vtb ), and its chiral properties.
+Based on expectations from the SM, this latter process has far too small a cross
+section to be observed at the Tevatron, but is expected to be significant at the LHC.
+     As shown in fig. 1(3), the lowest order partonic process for W t production is
+
+                           b(p1 ) + g(p2 ) −→ t(k1 ) + W − (k2 ) .                   (3.1)
+
+Our description is confined to W − t production. As explained in appendix A, for
+W + t̄ production no new diagrams need be computed, so that the description below
+suffices. Where no confusion is possible in the following, we denote the light quark
+attached to the W t vertex as a b, implicitly representing any CKM-allowed down-type
+quark.
+     It is convenient to introduce the following invariants
+
+ s = (p1 +p2 )2 ,   t1 = t−m2t = (k1 −p1 )2 −m2t ,    u1 = u−m2t = (k2 −p1 )2 −m2t (3.2)
+
+such that s + t1 + u1 = m2W − m2t , with mt denoting the top quark mass. We treat
+all other quarks as massless, including the b quark. The lowest order cross section
+can be written
+
+                          dσ (0) = M(0) dφ2 ,                                        (3.3)
+                                                       2
+                                   1 1       1      2 gW
+                          M(0) =                  g      |A(0) |2                    (3.4)
+                                   2s 4 N(N 2 − 1) S 8
+
+where gS , gW are the QCD and EW coupling constants; N the number of colours;
+dφ2 denotes the two-body final state phase space, and the spin-summed Born-level
+matrix element is given by
+                     (                   
+    (0) 2                     s    u1  m2t
+  |A | = 16NCF −                 1+
+                                 +
+                              u1   s  2m2W
+                                                             
+                m2W (s + u1 )u1 + m2t m2W s       m2t     m4t
+             +2                              1−        −
+                           su21                  2m2W    2m4W
+                                                                   )
+                                        m4W       3m2t    m6t    m2t
+                                      −        2− 2 + 6         − 2    . (3.5)
+                                         su1      mW      mW     mW
+
+3.2 NLO computation
+In order to implement a process in MC@NLO, one must cancel the singularities
+arising in the real and virtual graphs in the particular subtraction formalism of
+refs. [15, 16] and denoted FKS henceforth. In the FKS formalism, the NLO cross
+section is expressed in terms of the finite quantities that result from the cancellation of
+the (universal and process-independent) soft and collinear poles arising from virtual
+and real corrections. In order to obtain these finite quantities for a given process, one
+
+
+
+                                             6
+needs the real matrix elements computed in 4 dimensions, and the virtual corrections
+computed in d dimensions. Although not strictly necessary in the FKS method, a
+d-dimensional virtual computation was carried out to fix the convention for its finite
+part.
+    The real and virtual matrix elements relevant to W t production can be extracted
+from the NLO calculation of the W c process [17], for which the diagrams are almost
+identical2 . Given that the computation of ref. [17] adopted the phase-space slicing
+method [18, 19, 20] for cancelling the real and virtual singularities, we converted the
+conventions of the phase-space slicing into those of FKS. In order to check that this
+was carried out correctly, we repeated the calculation of the matrix elements.
+
+3.2.1 Virtual corrections
+As stated above, we calculated the one-loop virtual diagrams in dimensional regu-
+larisation in d = 4 − 2ǫ dimensions. Tensor and vector integrals were reduced to
+scalar integrals using the standard Passarino-Veltman algorithm [21]. For generation
+and evaluation of the relevant amplitudes, we utilised the Mathematica packages
+FeynArts [22] and FeynCalc [23], together with the FORM [24] computer program.
+As discussed previously, the results were checked against the virtual contributions
+obtained for W c production in ref. [17], and found to be in agreement after the nec-
+essary analytical continuation (from mc < mW to mt > mW ). We have also checked,
+analytically and numerically, that our results for the scalar integrals are in agreement
+with those of ref. [25].
+     The virtual corrections are a Laurent series in the parameter ǫ, with double and
+single poles arising from soft, initial-state collinear, and ultraviolet (UV) singular-
+ities3 . To remove UV poles we renormalise the top quark mass using an on-shell
+condition, with the QCD coupling in the MS scheme modified such that the top
+quark loop contribution is subtracted on-shell. This particular scheme [26] ensures
+that the top quark virtual contributions decouple in the limit of small external mo-
+menta. Specifically, the coupling is renormalised through next-to-leading order as
+                                                   2 ǫ                       2 
+              2       αs (µ2R ) −1                     µF         αs (µ2R ) 2     µR
+    gS → gS (µR ) 1 +               + γE − ln 4π             β0 +             ln
+                          8π      ǫ                     2
+                                                       µR           8π 3          m2t
+                                                                                      (3.6)
+where µF is the factorisation scale, and µR the renormalisation scale. Furthermore,
+β0 = (11CA − 2nf )/3 with nf equal to the number of light flavors (here five) plus
+one. From this condition one can derive the following relation for the renormalised
+QCD coupling
+                             2                 2
+                                                           
+                    2 dgS (µR )         2 αs (µR )        2
+                   µR           = −gS (µR )          β0 +     + O(gS5 ) ,             (3.7)
+                         dµ2R               8π            3
+  2
+      Essentially, only the W + (cc̄) channel has no analogue in the present case.
+  3
+      Final-state collinear singularities are absent due to regularisation by the top mass.
+
+
+
+
+                                                   7
+which indeed removes the top quark loop from the β-function, such that the number
+of light flavours implemented in the code is nf . The renormalisation of the top quark
+mass is given by
+
+  mt → mt + δmt =
+                                                                2 
+                    αS (µ2R )      −3                             µR
+             mt 1 +           CF      + 3γE − 3 ln 4π − 4 − 3 ln         . (3.8)
+                      4π            ǫ                             m2t
+In contrast to the s and t single top production channels, the top quark occurs as an
+internal line in the Born amplitude. This gives rise to a contribution to the amplitude
+coming from the expansion of the renormalised top quark propagator
+                            i                   i        i            1
+                                       =           +         δmt          .                  (3.9)
+                   6 p − (mt + δmt )       6 p − mt 6 p − mt     6 p − mt
+The first term in this expansion gives the Born amplitude A0 , whereas the second
+gives a modified amplitude A′ (1) involving the “squared” top quark propagator. In
+terms of the finite remainder of δmt , the cross section receives the contribution
+                                             2                              
+       (1,V )            1 1     1        2 gW     (0) ′ †(1)     ′ (1) †(0)
+    dσδmt = (δmt )finite                g        A    A       + A      A       dφ2 , (3.10)
+                         2s 4 N(N 2 − 1) S 8
+where
+                                             (
+                                          2     6                        
+          †(1)     (1)                  m
+  A(0) A′      + A′ A†(0) = −16NCF 2 t 3        4mt s + 4m4t s(m2W + u1 )
+                                      mW su1
+                                                                       
+                     + m2t −8m4W s + 2m2W su1 + u1 (u1 + t1 )(s + 2t1 )
+                                                                                      )
+                                                                                 
+                   + u1 u1 t1 (u1 + t1 ) + m2W (−s(u1 − 2t1 ) + 4t1 (u1 + t1 ))           . (3.11)
+
+Following the renormalisation procedure, soft and collinear singularites remain and
+are proportional to the Born cross section such that the virtual terms may be written
+(c.f. eqs. (3.1) and (3.2) in ref. [15])
+                                                                    
+      (1,V )       2   2                2       s      −u1        −t1
+  dσ         = Cǫ gS − 2 (CF + CA ) + CA ln 2 + ln 2 − ln 2
+                       ǫ                 ǫ     mt      mt         mt
+                                                          
+                                   1        −t1         1        (0)     (1,V )
+                                + CF 4 ln 2 − 5 − β0 dσ4−2ǫ + dσfinite , (3.12)
+                                   ǫ        mt          ǫ
+         (0)
+where dσ4−2ǫ is the Born cross section in 4 − 2ǫ dimensions, and
+                                               ǫ
+                                   (4πe−γE )ǫ µ2F
+                             Cǫ =                     .                                     (3.13)
+                                      16π 2     m2t
+These remaining poles are cancelled by similar singularities in the real contributions
+and by the collinear counterterms that arise from the renormalisation of the parton
+densities, in a form prescribed by the FKS formalism.
+
+
+
+                                               8
+3.2.2 Real corrections
+Since only initial-state collinear singularities are present in the process considered
+here, it is not necessary to partition the phase-space according to the FKS prescrip-
+tion, as done in ref. [5] for the case of s- and t-channel single-top production (see
+sect. 2.1.2 of that paper).
+     Therefore, the only technical difficulty in assembling the real corrections is in the
+explicit calculation of the diagrams4 . As explain previously, we used the results of
+the W c calculation presented in ref. [17]. There, the matrix elements were computed
+by considering the fictitious W boson decays
+
+                        W (q) −→ Q(p) + b̄3 (q3 ) + g4 (q4 ) + g5 (q5 )                      (3.14)
+
+and
+                        W (q) −→ Q(p) + b̄3 (q3 ) + b4 (q4 ) + b̄5 (q5 ) ,                   (3.15)
+
+where Q denotes generically the only quark with mass different from zero. These were
+decomposed into colour-ordered amplitudes, and computed using FORM [24]. The
+W c and W t matrix elements were subsequently obtained by crossing and summing
+over colour orders. This saved somewhat on computational effort, since the colour-
+ordered amplitudes served a second purpose, namely in the accounting of colour
+connections in the parton shower stage of the MC@NLO construction.
+    As a further check on the real computation, we compared the results we obtained
+from our calculation against the corresponding tree level matrix elements generated
+using the MADGRAPH program [27, 28]. We found agreement in all cases.
+
+3.3 Implementation in MC@NLO
+Several processes have by now been computed in the MC@NLO formalism, and we
+will therefore refrain from describing here the necessary steps for the implementation
+of a new reaction. The interested reader can find all details in refs. [3, 4, 5], which
+also report all the relevant analytic formulae we need (these are process-independent,
+and therefore no new computation is specifically required for W t production). In this
+section, we will limit ourselves to giving the necessary information for the construc-
+tion of the MC subtraction terms (which are process dependent) necessary for the
+matching of the NLO computation with HERWIG [29, 30].
+     One may write the MC subtraction terms as (see refs. [4, 5])
+                                             XXX           (L,l)
+                               dσ        =               dσi            ,                    (3.16)
+                                    MC                             MC
+                                             i   L   l
+
+   4
+    There is a subtlety involving the construction of the local initial-state collinear counterterms
+used in numerical codes, as in all cases in which a gluon is exchanged. This issue is discussed in
+appendix B.
+
+
+
+
+                                                 9
+where i sums over the different partonic subprocesses, and L ∈ {+, −, f1 } labels the
+parton leg from which the FKS parton is emitted (respectively: incoming parton
+along the +z direction; incoming parton along the −z direction; final state top
+quark). The index l runs over the different colour structures. If qα and qβ denote
+the 4-momenta of the colour partners relevant to a given branching, the shower scale
+associated with the branching is
+
+                                                    E02 = |qα ·qβ |.                                        (3.17)
+
+The individual subtraction terms on the right-hand side of eq. (3.16) have the form
+(see eqs. (5.2)–(5.5) in ref. [4])
+
+                    (+,l)               1                  (l) (H )           (+,l)
+                dσi               =        f (H1 ) (x̄1i /z+ )fb 2 (x̄2i ) dσ̂i
+                                        (l) a
+                                                                                       dx̄1i dx̄2i ,        (3.18)
+                             MC        z+                                           MC
+
+
+                    (−,l)               1                  (H )        (l)    (−,l)
+                dσi               =        f (H1 ) (x̄1i )fb 2 (x̄2i /z− ) dσ̂i
+                                        (l) a
+                                                                                       dx̄1i dx̄2i ,        (3.19)
+                             MC        z−                                           MC
+
+                    (f ,l)                           (H )            (f ,l)
+                dσi 1             = fa(H1 ) (x̄1f )fb 2 (x̄2f ) dσ̂i 1             dx̄1f dx̄2f ,            (3.20)
+                             MC                                               MC
+
+         (H     )
+where fa,b 1,2 are the initial state parton distributions, and zL labels the partonic
+momentum fraction carried by the FKS parton. The short-distance cross sections
+   (L,l)
+dσ̂i     can be obtained from eqs. (5.6)–(5.8) of ref. [4]
+
+                    1 αS dξ± (l)
+                                        (l)                                     
+        (±,l)                                       (l)             (l) 2    (l)
+     dσ̂i         =           (l)
+                                   dz± Pa′ b′ (z± ) dσ̄i′ Θ (z± ) − ξ± ;                       (3.21)
+               MC   N 2π ξ±
+                                                                                          
+                          (l)
+                    αS dξf1 (l)                                                   mt 
+        (f ,l)                                (l)                  (l)     zf(l) − q
+     dσ̂i 1       =           dz  f   P gq (zf    ) dσ̄ i′Θ  1 − ξ f     Θ                   , (3.22)
+               MC   2π ξf(l)        1          1                     1         1
+                                                                                   E ξ
+                                                                                       (l)
+                                   1                                                               0   f1
+
+
+where N = 1 for quark branchings, and 2 for gluon branchings (since the gluon has
+two colour partners); see refs. [4, 5] for the definition of dσ̄. The various partonic
+subprocesses contributing to the W t channel are listed in table 1 (the initial states
+bq and qb represent also bq̄ and q̄b). The shower scales to be used in eqs. (3.21)
+and (3.22) are equal to the absolute values of the dot products given in table 1.
+From table 1, we see that N = 2 for all branchings in the processes with {b, q}, {b, b̄}
+and {b, b} initial states, and for branchings from leg − and leg + in the processes
+(b, g; t, W, g) and (g, b; t, W, g) respectively.
+     When interfacing the NLO calculation with a parton shower, it is also necessary
+to supply a colour flow to the Monte Carlo. When a given subprocess can have more
+than one colour flow, the one that is given to the parton shower is chosen on a statisti-
+cal basis. The weights that govern these probabilities are formed using leading order
+(in the number of colours N) approximations to the squared matrix elements of the
+corresponding tree-level diagrams. In our case, these have already been calculated,
+
+
+
+                                                            10
+            NLO                         (b, g; t, W )                                  (g, b; t, W )
+       (g, g; t, W, b̄)                  +(p̄1 · p̄2 )                                  −(p̄1 · p̄2)
+       (b, q; t, W, q)               −(p̄1 · p̄2, p̄2 · k̄1)
+       (q, b; t, W, q)                                                             +(p̄1 · p̄2 , p̄1 · k̄1)
+       (b, b̄; t, W, b̄)             −(p̄1 · p̄2, p̄2 · k̄1)
+       (b̄, b; t, W, b̄)                                                           +(p̄1 · p̄2 , p̄1 · k̄1)
+       (b, b; t, W, b)               −(p̄1 · p̄2, p̄2 · k̄1)                       +(p̄1 · p̄2 , p̄1 · k̄1)
+       (b, g; t, W, g)     +, f1 (p̄1 · k̄1 ); −(p̄1 · p̄2, p̄2 · k̄1)
+       (g, b; t, W, g)                                                   −, f1 (p̄2 · k̄1 ); +(p̄1 · p̄2 , p̄1 · k̄1 )
+
+Table 1: Short-distance contributions to MC subtraction terms. The two columns corre-
+spond to the two possible Born cross sections. For a given process, the entries show the
+emitting legs, and in round brackets the value(s) of the shower scale(s) E02 (up to a sign).
+
+
+as the real emission contributions were computed using colour ordered amplitudes.
+Given that there is a one-to-one mapping between the colour ordered amplitudes and
+the various colour flows, one can choose to use these colour ordered amplitudes in
+the statistical determination of the colour flow5 .
+
+
+4. Interference between tt̄ and W t production
+In section 3 we have discussed the calculation of the W t cross section within the FKS
+subtraction formalism, and its subsequent implementation in MC@NLO. However,
+the use of such a Monte Carlo event generator assumes that the W t channel is well-
+defined beyond LO. In fact, as already outlined in sect. 2, this is not the case, and
+the theoretical definition of this production channel is not straightforward.
+     At LO, the W t pair is produced through the reaction of eq. (3.1), and its cross
+section is smaller than that of top pair production by a factor of about 15. Beyond
+LO, some of the Feynman graphs that contribute to the W t channel and that are
+dominant in the region of eq. (2.4) are shown in fig. 2. These diagrams can be
+interpreted as the production of a tt̄ pair at LO, with subsequent decay of the t̄ into
+a b̄W pair. It follows that the set of Feynman graphs contributing to gg → tW b̄ or
+q q̄ → tW b̄ can be divided into two subsets, that are customarily denoted as doubly
+resonant and singly resonant, the former being those depicted in fig. 2 or analogous
+ones. The problem discussed in sect. 2 can be formulated in terms of the interference
+between these two subsets of graphs, and physically interpreted as the interference
+between W t and tt̄ production. This interpretation is consistent with our aim of
+   5
+    Other choices are possible, as one is free to modify the above procedure by terms subleading in
+the number of colours N .
+
+
+
+
+                                                          11
+Figure 2: Diagrams that are doubly-resonant, in the sense that the intermediate t̄ can be
+on-shell.
+
+
+
+emphasising the role of electroweak interactions in the production mechanism of the
+t and of the W . The interference would not cause any problem if the contribution
+from the doubly-resonant diagrams was small. However, a large increase of the cross
+section occurs when the t̄ propagator becomes resonant i.e. in the kinematic region
+of eq. (2.4). It follows that the naı̈ve calculation of the W t channel, defined as that
+resulting from the straightforward computation of Feynman diagram as discussed in
+sect. 3, becomes meaningless in perturbation theory. In this section, we will discuss
+how it is possible to separate out W t and tt̄ production, and recover a workable
+definition of the W t channel.
+
+4.1 Previous approaches
+
+This interference problem has already been discussed in several papers. Given that
+the problem here only arises for gg and q q̄ initial states, present in real-emission
+processes, it is not peculiar to full higher-order computations, but also occurs in
+those that only include tree-level graphs. Each of the previous W t computations
+beyond LO has introduced a strategy for isolating the W t production channel. We
+briefly discuss each of them in turn.
+     In ref. [8], the suggestion was made to place a cut on the invariant mass Mb̄W of
+the W b̄ pair, which can be written in the form:
+
+                                  |Mb̄W − mt | > κΓt ,                             (4.1)
+
+where Γt is the width of the top quark. This cut thus removes events from the re-
+gion of phase space corresponding to the t̄ resonance. It efficiently reduces the tt̄
+interference to the W t channel, but cannot be directly applied in an event gener-
+ation/experimental situation, where one is unable to unambiguously identify the b
+quark and W boson which originate in the hard interaction.
+     In ref. [7], the W t signal is defined by subtracting, at the level of squared am-
+plitudes, the tt̄ cross section multiplied by t → W b branching ratio; the procedure
+is defined in a fully-inclusive way. A comparison was made with the invariant mass
+cut approach of ref. [8], and the resulting cross section found to agree if the choice
+κ ∼ 15 was made.
+
+
+
+                                           12
+     As discussed in sect. 2, the approach of ref. [9] addresses the problem in a more
+general context, i.e. that of simulating W + W − b(b̄) production in a realistic parton-
+shower environment. As such, the definition of the W t channel does not need to
+be directly considered, except for the necessity of avoiding double counting. This
+way of by-passing the interference problem is correct, and facilitates the comparison
+with data. However, it does not allow one to include the full NLO corrections into
+the results, because of both problems of practice (the relevant one-loop, six-point
+amplitudes – or eight-point amplitudes, if fully decayed W ’s are considered – are
+not available yet), and of principle (how to combine the one-loop contribution for
+W + W − b with the rest).
+     The full NLO computation of ref. [10] follows the same type of strategy as ref. [7],
+where the total cross section is modified by a subtraction term which effectively
+removes the tt̄-like contribution. However, few details on how this subtraction term
+is defined are given. The results are presented only for total rates.
+     Finally, a definition of the W t channel within a fully differential NLO compu-
+tation was presented in ref. [11]. There, the suggestion was made to place a cut on
+the transverse momentum pbT of the “additional b quark that appears at the next-to-
+leading order” [11], namely the b quark that appears in the diagrams of fig. 2, which
+accompanies the b quark coming from the decay of the top (not shown in fig. 2). In
+practice, this amounts to keeping events that satisfy
+                                             (veto)
+                                      pbT < pT        ,                            (4.2)
+where appropriate. This means that in the case of partonic processes with no such
+additional b quark, no veto is applied. The reasoning for the condition in eq. (4.2)
+is that harder b quarks tend to have come from the decay of a top, and thus the
+probability for producing events with two hard b quarks is dominated by the contri-
+bution of diagrams with a t and a t̄ both on-shell or almost on-shell. By requiring
+the additional b to be softer, one thus reduces the interference between the doubly
+resonant diagrams and the singly resonant diagrams which are identified with the
+W t channel. Furthermore in ref. [11], the factorisation scale is chosen to be equal to
+  (veto)
+pT . If this condition is not met, doubly-resonant diagrams are removed from the
+computation at the amplitude level. Finally, processes with a q q̄ initial state are not
+included, independently of the choice of factorisation scale. This is only a problem
+of principle, since in practice the numerical impact of such processes is so small that
+they can be neglected. As in the other calculations discussed above, it is not possi-
+ble to apply this definition of the W t channel in an event generation/experimental
+situation, since the veto is based on a partonic picture at a given order in αS .
+
+4.2 MC@NLO approach
+In this section, we consider the problem of defining the W t channel in a way that is
+applicable in an event generator context, where both initial- and final-state parton
+
+
+
+                                           13
+showers are present. Although none of the approaches discussed in subsection 4.1 can
+be directly applied in this situation, they can be used to some degree in motivating
+suitable solutions.
+     The simplest and most drastic solution is to remove from the computation the
+contributions of those processes which contain doubly-resonant diagrams. At the
+NLO, this amounts to removing completely diagrams having gg or q q̄ initial states, i.e.
+regardless of whether or not they are doubly resonant. As far as the q q̄ contribution is
+concerned, this is what is done in MCFM [11]. It is not quite the same as what is done
+for the gg initial state, but is numerically very close to that, owing to the combination
+                                                                   (veto)
+of the veto, and of the choice of the factorisation scale µF = pT . However, even if
+one generalises the definition of the veto to apply in a parton shower context (as we
+will do in the following), the removal of processes characterised by a particular initial
+state is theoretically unfeasible. Firstly, renormalisation group invariance is violated
+such that the underlying NLO calculation has the same formal scale dependence as a
+LO one (thus undermining one of the motivations for using an NLO generator at all).
+Secondly, and perhaps more seriously, partonic processes mix as soon as higher-order
+effects are considered, as happens when initial-state showers are present. Thus, we
+discount this method as a viable means of separating out the W t channel in a full
+Monte Carlo generator and do not present further results from it here.
+     Instead, we present two definitions of the W t channel, that are designed in such
+a way that, by comparing them, one can directly assess the impact of the interference
+with tt̄. Thus, if the results from the two definitions agree, we can be confident of
+having isolated the W t channel. Such an agreement, when it occurs, is the result
+both of the definitions themselves, and of final-state cuts which may or may not be
+applied. It is important to stress that the definitions that we shall give are meaningful
+even without any subsequent cuts. This engenders a greater degree of flexibility in
+the practical investigation of whether the W t channel is well defined or not.
+     Our two definitions can be summarised as follows:
+
+  1. Diagram Removal (DR). Here one simply removes all diagrams in the NLO W t
+     amplitudes that are doubly resonant (i.e. those diagrams shown in figure 2).
+
+  2. Diagram Subtraction (DS). In this approach, one modifies the NLO W t cross
+     section by implementing a subtraction term designed to cancel locally the tt̄
+     contribution.
+
+Note that DR is different from the removal of gg- and q q̄-initiated processes discussed
+previously, since diagrams with these initial states are kept if they are not doubly
+resonant. Note also that the DS procedure is similar to what has been proposed
+in ref. [7], but the construction of its local subtraction term involves some technical
+complications, which we discuss later.
+
+
+
+                                           14
+    In order to discuss in detail the DR and DS definitions, we introduce some
+notation. Let us denote by Aαβ the O(gW αS ) amplitude of the process:
+
+                      α(p1 ) + β(p2 ) −→ t(k1 ) + W (k2 ) + δ(k) .                 (4.3)
+
+The precise identity of parton δ is not relevant for what follows, so we omit it from
+the notation. We have:
+                                         (W t)    (tt̄)
+                                Aαβ = Aαβ + Aαβ ,                                (4.4)
+where the two terms on the r.h.s. are the respective contributions of the singly- and
+doubly-resonant diagrams to the naı̈ve W t cross section. In the computation of the
+cross section at NLO, the following quantity appears:
+                                     2     n              o          2
+                               (W t)         (W t) (tt̄)⋆      (tt̄)
+                  |Aαβ |2 = Aαβ        + 2ℜ Aαβ Aαβ         + Aαβ                (4.5)
+                          ≡ Sαβ + Iαβ + Dαβ .                                      (4.6)
+
+We stress that the terms Iαβ and Dαβ are non-zero only in the cases of {α, β} = {g, g}
+and {q, q̄}, where in the latter process q may also be a b quark. In these cases, δ
+will be a b̄ quark or another down-type antiquark according to the CKM matrix.
+Furthermore, Dαβ has neither soft nor collinear singularities, while those of Iαβ are
+integrable and subleading w.r.t. those of Sαβ . Therefore, in the context of an NLO
+computation in the FKS formalism (or for that matter in any subtraction formalism),
+the NLO real-emission contribution to the subtracted short-distance partonic cross
+section including the flux factor and phase space will be:
+                                  1 ˆ                
+                         dσ̂αβ =     Sαβ + Iαβ + Dαβ dφ3 ,                       (4.7)
+                                  2s
+where the hat denotes that infrared singularities have been suitably subtracted. It
+is understood that the subtraction is performed by means of plus-type distributions,
+which therefore may apply to the phase space as well. The hadroproduction cross
+section resulting from eq. (4.7) is
+                            XZ
+                       (2)
+               dσ = dσ +            dx1 dx2 Lαβ dσ̂αβ
+                             αβ
+                          X Z dx1 dx2                     
+                      (2)
+                  = dσ +               Lαβ Ŝαβ + Iαβ + Dαβ dφ3 ,                  (4.8)
+                          αβ
+                              2x1 x2 S
+
+with S the squared centre of mass energy of the colliding hadrons and Lαβ the parton-
+level luminosity. The quantity dσ (2) , requiring a two-body phase space, denotes all
+contributions to the cross sections that are not already included in eq. (4.7), i.e. the
+Born, soft-virtual, and collinear remainder terms. Both dσ (2) and eq. (4.7) (but not
+their sum, eq. (4.8)) are convention-dependent, since finite pieces can be freely moved
+from one contribution to the other, but this is irrelevant for the following discussion.
+
+
+
+                                          15
+When the NLO computation is then matched to parton showers according to the
+MC@NLO prescription, the above equation must be modified by the subtraction of
+MC counterterms. We can choose to absorb these in Ŝαβ , because this is the only
+piece that contains leading soft and collinear singularities. Thus the schematic form
+of eq. (4.8) applies at both the NLO and MC@NLO levels. In this notation, the DR
+cross section corresponds to:
+                                      X Z dx1 dx2
+                         (DR)     (2)
+                      dσ      = dσ +                  Lαβ Ŝαβ dφ3 ,             (4.9)
+                                       αβ
+                                             2x1 x2 S
+
+i.e. there are now no terms Iαβ or Dαβ , as all doubly resonant diagrams have been
+removed from the amplitude. As mentioned previously, this cross section violates
+gauge invariance; this issue will be discussed in sect. 5.2.
+     Starting from eq. (4.8), we also define the DS cross section. This amounts to
+writing:
+
+                                 dσ (DS) = dσ − dσ subt ,                         (4.10)
+
+where dσ subt is designed to remove numerically the doubly-resonant contribution.
+This may be achieved locally by defining
+                                   XZ
+                            subt                      subt
+                         dσ      =      dx1 dx2 Lαβ dσαβ   ;               (4.11)
+                                     αβ
+
+                            subt     1 e
+                          dσαβ   =      Dαβ dφ3 ,                                 (4.12)
+                                     2s
+such that the quantity
+                                             eαβ
+                                       Dαβ − D                                    (4.13)
+will vanish when Mb̄W  2
+                         ≡ (k + k2 )2 → m2t . Note that Dαβ and D eαβ themselves will,
+in such a limit, either diverge, if Γt = 0, or have a Breit-Wigner-like peak, if Γt 6= 0.
+The DS cross section in eq. (4.10) can now be re-written in the same form as eq. (4.9):
+                         X Z dx1 dx2                                
+      dσ (DS)      (2)
+              = dσ +                     Lαβ Ŝαβ + Iαβ + Dαβ − Deαβ dφ3 .        (4.14)
+                         αβ
+                               2x 1 x2 S
+
+
+One sees that the difference between the DR and DS cross sections has the form:
+                            X Z dx1 dx2                     
+        dσ (DS)
+                − dσ (DR)
+                          =                               eαβ dφ3 ,
+                                          Lαβ Iαβ + Dαβ − D                 (4.15)
+                                 2x1 x2 S
+                            αβ
+
+and thus is composed of a contribution from the interference term, and of the differ-
+ence between the subtraction term and the true doubly resonant contribution to the
+NLO cross section.
+     Our aim is now to construct a gauge-invariant subtraction term, such that the
+difference Dαβ − Deαβ is as close to zero as possible. Note also that requiring the
+
+
+
+
+                                            16
+subtraction term to be local and gauge invariant prevents this difference from being
+identically zero. The subtraction term should have the schematic form:
+
+               eαβ = |A(0) (αβ → tt̄)|2 × BW(Mb̄W ) × |A(0) (t̄ → W b̄)|2
+               D                                                                   (4.16)
+
+where A(0) (αβ → tt̄) is the LO (i.e., O(αS )) top pair production amplitude, A(0) (t̄ →
+W b̄) the decay amplitude of the anti-top, and BW(Mb̄W ) is the Breit-Wigner func-
+tion.
+     The first obvious difficulty in constructing a workable implementation of eq. (4.16)
+is that the kinematics on the l.h.s. should be that of the full αβ → tW b̄ process (due
+to the requirement of local cancellation in eq. (4.14)), whereas at the same time the
+t̄ needs to be on-shell in order to compute the quantity A(0) (αβ → tt̄) in a gauge-
+invariant way. A second difficulty is that, while A(0) (αβ → tt̄) is computed with top
+width Γt = 0, the Breit-Wigner factor in eq. (4.16) requires non-zero Γt .
+     As a first attempt to overcome these difficulties one can reshuffle the momenta
+of the decay products, to obtain an on-shell t̄ quark. In this case, one uses a non-zero
+top width only in the Breit-Wigner factor. However, a more fundamental problem
+with eq. (4.16) is that spin correlations are not included, thus spoiling again the local
+cancellation property we seek to achieve. Therefore, rather than eq. (4.16), we need
+a subtraction term of the form:
+                                                2
+                                 eαβ = A(tt̄)
+                                 D                           ,                     (4.17)
+                                        αβ
+                                                reshuffled
+
+         (tt̄)                                         eαβ would be identical to Dαβ ,
+where Aαβ is defined in eq. (4.4). In other words, D
+were it not for the reshuffling. Being a full amplitude, eq. (4.17) does implement spin
+correlations in the decay of the t̄. A divergence present in eq. (4.17) when Γt = 0
+disappears by setting Γt 6= 0. However, the reshuffling implies that D  eαβ is not likely
+to have the Breit-Wigner shape in Mb̄W that would be desirable in order for the
+difference in eq. (4.13) to be as small as possible in the whole phase space. This is
+easily rectified by defining:
+
+                          eαβ = BW (Mb̄W ) A(tt̄)
+                                                        2
+                          D                 αβ               .                     (4.18)
+                                 BW (mt )         reshuffled
+
+
+By construction, the amplitude of this subtraction term at Mb̄W = mt is precisely
+such as to cancel the resonant contribution to the NLO W t cross-section.
+     However, even after this modification, there is a problem. For appropriate cancel-
+lations of collinear singularities, we would also have to use Γt 6= 0 in the computation
+of |Aαβ |2 . Unfortunately, after setting Γt 6= 0 in the radiative amplitudes in this way,
+their collinear limits are modified, and in order not to disrupt the local cancellation
+of collinear divergences one would need to perform the full calculation adopting a
+framework for the consistent inclusion of finite-width effects in all kinematic regions
+
+
+
+                                           17
+of interest (e.g. the complex mass scheme [31]). Given the scope of the present pa-
+per, a more pragmatic approach suffices, which has been extensively used at LEP in
+dealing with resonant decays. Namely, we set Γt 6= 0 only in the doubly-resonant dia-
+grams, and leave Γt = 0 in the singly-resonant ones. This strategy is straightforward
+to implement in MADGRAPH.
+
+
+
+5. Results
+
+In the previous section we discussed the problem of interference between tt̄-like am-
+plitudes (followed by decay of the t̄) and W t-like amplitudes. Two separation mech-
+anisms, DR and DS, were defined as being suitable for an all orders computation
+of the scattering amplitude, as occurs in a Monte Carlo event generator. We have
+implemented both of these separation mechanisms in the MC@NLO framework, as
+discussed in sect. 3. We stress that the MC subtraction terms given in sect. 3 are
+identical for DS and DR, since such terms only modify (w.r.t. a pure-NLO compu-
+tation) the form of Ŝαβ , which is identical in the DS and DR cross sections. In this
+section we present sample results, and compare in detail the output of the DS and
+DR calculations. Our aim is to analyse, from a perturbative point of view, the degree
+to which separation of the W t channel is possible, thus giving an upper bound for
+the impact of the interference that can be obtained with a realistic analysis. De-
+tailed phenomenological results will not be presented here, but are postponed to a
+forthcoming publication. In particular, we only consider fully leptonic decays of the
+final-state W bosons, as these are sufficient to furnish a comparison between the
+different separation mechanisms. In practice, semileptonic rather than fully leptonic
+decays will be studied first by experiments at the LHC. Furthermore, our results are
+obtained by neglecting production spin correlations, which is not restrictive as far as
+comparing the two definitions of the W t channel given here is concerned. We have
+however implemented spin correlations in the DR calculation, using the method of
+ref. [6]. Their implementation in the DS calculation along those lines is technically
+slightly more complicated (but possible), owing to the negativity of the “squared”
+matrix elements at some phase-space points (due to the subtraction term), and is
+also deferred to the future.
+    All of the following numerical results have been obtained for the LHC with the
+MRST2002 default PDF set [32], setting the top mass and width to mt = 170.9
+GeV and Γt = 1.41 GeV, as well as the W mass and width to mW = 80.4 GeV and
+ΓW = 2.141 GeV. The default values of the renormalisation and factorisation scales
+are equal to the top mass. The LO results quoted in this section have been obtained
+using the same parameters (including PDFs and two-loop αS ) as those adopted for
+NLO computations.
+
+
+
+                                          18
+5.1 Transverse momentum veto
+As discussed previously, the definitions we gave of the W t channel are independent
+of any cuts that are subsequently used to further reduce the interference from tt̄
+production. Nevertheless, it is unrealistic to define the W t channel, in an actual
+experimental environment, with no cuts6 at all. It is not the purpose of this paper to
+undertake a thorough investigation of various cut strategies. Therefore, we shall limit
+our considerations to one particular cut, motivated by the transverse momentum veto
+proposed in ref. [11], and discussed here in sect. 4.1. As stated there, the veto acts
+on the additional b quark that may be present at the NLO level. Here we generalise
+this idea to an event generator context i.e. to a situation in which we cannot tell
+with certainty which parton or hadron is associated with the additional b quark.
+     Firstly, one searches all b-flavoured hadrons in a given event, and orders them in
+transverse momentum (or transverse energy). All hadrons whose pseudorapidity ηB
+is outside a given range, which we choose to be
+
+                                          |ηB | ≤ 2.5 ,                                     (5.1)
+
+are ignored. Secondly, a veto analogous to that of eq. (4.2) is applied on the transverse
+momentum (or transverse energy) of the second hardest B hadron satisfying eq. (5.1):
+                                                  (veto)
+                                          pB
+                                           T
+                                             < pT          .                                (5.2)
+
+In cases where no second-hardest B hadron satisfying the above requirements can be
+found, the event is accepted. Note that this is the case in processes which do interfere
+with tt̄ production, but in which a b quark is replaced by another down-type quark –
+an effect off-diagonal in the CKM matrix. In this paper, we assume a 100% b-tagging
+efficiency. However, it is clear that the veto procedure proposed here can be applied
+in more realistic b-tagging scenarios. A more detailed phenomenological investigation
+of this issue is postponed to a future publication.
+     In a realistic analysis the veto would be accompanied by a number of further cuts.
+For example, in the semileptonic decay mode, the veto can be used in combination
+with a jet topology cut, to further reduce the contamination of the W t “signal” from
+tt̄ “background”. Given that such cuts are absent in the results presented here, our
+findings correspond to a somewhat pessimistic scenario as far as the purity of the
+W t signal is concerned.
+     The definition of the veto adopted here can also be used in the context of a
+pure-NLO, parton-level computation, such as that of ref. [11], by simply replacing B
+hadrons with b quarks7 . It is instructive to see, however, that the veto is a much more
+   6
+     We mean here cuts whose only purpose is that of separating the W t and tt̄ processes, and not
+generic selection cuts aimed at selecting the t and/or the W in a collision event.
+   7
+     b quarks can also be considered in an MC context. We have found that MC@NLO results
+obtained by imposing b quark vetos are very similar to those obtained with B hadron vetos.
+
+
+
+
+                                               19
+natural constraint in an event generator context than in a parton-level, fixed-order
+computation. In table 2 we present the results for the DR and DS total cross sections,
+
+                             MC@NLO                                                       NLO
+           (DR)       (DS)
+       σ          σ           σ (LO) K (DR)     K   (DS)
+                                                                σ   (DR)
+                                                                           σ   (DS)
+                                                                                          σ (LO) K (DR)   K (DS)
+                                                (veto)
+                                           pT    = 10 GeV
+       34.66 33.89 26.60              1.30   1.27 35.05 34.74 34.67                               1.01    1.00
+                                                (veto)
+                                           pT    = 30 GeV
+       41.86 40.74 31.85              1.31   1.28 39.93 39.67 34.67                               1.15    1.14
+                                                (veto)
+                                           pT    = 50 GeV
+       44.61 42.92 33.71              1.32   1.27 42.81 42.00 34.67                               1.23    1.21
+                                                (veto)
+                                           pT    = 70 GeV
+       45.63 43.65 34.31              1.33   1.27 44.41 42.90 34.67                               1.28    1.24
+                                                    (veto)
+                                                  pT         =∞
+       46.33 44.12 34.67              1.34       1.27        46.33 44.12 34.67                    1.34    1.27
+
+Table 2: Results for the total DR, DS, and leading order cross sections (in pb), obtained
+with MC@NLO (five left columns) and our pure-NLO parton level computation (five right
+                                                  (veto)
+columns). See the text for details. The notation pT      = ∞ denotes no veto at all.
+
+obtained with MC@NLO and with our pure-NLO parton level computation. We also
+give the results (denoted by σ (LO) ) obtained in the two frameworks by keeping only
+LO matrix elements. In the case of MC@NLO, σ (LO) is thus equal to what one would
+get by simply running HERWIG standalone8 . The table finally reports the values of
+the ratios of NLO over LO cross sections:
+
+                                               σ (DR)                          σ (DS)
+                                    K (DR) =          ,         K (DS) =              .                          (5.3)
+                                               σ (LO)                          σ (LO)
+In the fixed-order computation at LO, there is simply no second-hardest b quark, and
+                                                 (veto)
+σ (LO) is therefore independent of the value of pT . On the other hand, in an MC
+context the initial-state b quark entering the hard partonic process at LO eventually
+results, because of parton showers, in the generation of a B hadron. Therefore, σ (LO)
+                                                      (veto)
+computed with an event generator does depend on pT . The interesting thing about
+this dependence is that it appears to be the same as that obtained at the NLO, as
+can be inferred from the basically constant values of K (DR) and K (DS) obtained with
+MC@NLO. This is not the case for the parton-level fixed-order computation, where
+   8
+    In fact, W t production is not implemented in HERWIG. We simply computed the LO matrix
+elements, and used the Les Houches interface [33] to give HERWIG the hard events, as in the case
+of MC@NLO.
+
+
+
+
+                                                           20
+                                                         (veto)
+the factors K display a significant dependence upon pT . This raises the following
+two issues. At small-pT , the fixed-order results lack Sudakov suppression at pbT → 0;
+                                                               (veto)
+it follows that the predictions obtained for small values of pT       are not particularly
+meaningful. At larger pT ’s, the real-emission matrix elements dominate, and an NLO
+computation is expected to be reliable. Unfortunately, since the veto does not enter
+the LO results, it is not possible to sensibly estimate the impact of higher-order
+                                  (veto)
+corrections: small changes to pT         lead to large changes in the factors K, which
+may effectively mask the impact of tt̄ interference. In summary, the imposition of a
+veto appears to be somewhat problematic in parton-level, fixed-order computations.
+This issue would imply a much (perhaps overly) larger theoretical systematic error,
+relative to an MC-based simulation, in the comparison between predictions and data.
+
+5.2 Gauge (in)dependence of DR cross sections
+As pointed out in sect. 4.2, the definition of the DR cross section, in which certain
+diagrams are removed from an amplitude, is not gauge invariant. In this section, we
+will argue that this is not a problem in practice, by repeating the DR calculation
+in a number of alternative gauges. We have checked several different observables,
+namely the total cross section; single-inclusive rapidity and transverse momentum
+distributions of the t, W and their decay products; and azimuthal and transverse
+momentum correlations between the charged leptons. We present here results for
+                                                         (ll)
+the total cross section and the transverse momentum pT of the charged lepton pair.
+These are representative of the corresponding results for other observables.
+     Our original calculation of the NLO cross section in the DR approach was carried
+out in the Feynman gauge, where the gluon propagator is given by:
+                                                gµν
+                                     Dµν = −        .                               (5.4)
+                                                k2
+The sum over the polarisation degrees of freedom of initial-state gluons has been
+restricted to transverse polarisations. In order to check the sensitivity to the choice
+of gauge, we repeated the calculation in various covariant and non-covariant gauges.
+We summarise these results as follows.
+     First, we note that the gauge dependence can only enter in the gg channel. This
+is because only diagrams involving two external gluons have broken gauge invariance,
+and these occur in the qg and gg channels. However, the qg channel has no resonant
+diagrams, thus no diagrams are removed. The diagrams kept in the gg channel
+(before crossing) are shown in figure 3. Only the third diagram in figure 3 leads to
+a gauge dependence, due to the presence of the gluon propagator. One can consider
+the general family of covariant gauges that result from replacing the propagator of
+eq. (5.4) with:                                            
+                                    1                 kµ kν
+                          Dµν = − 2 gµν + (1 − λ) 2           .                   (5.5)
+                                   k                   k
+
+
+
+                                           21
+Figure 3: Diagrams kept in the gg channel after removing resonant contributions, shown
+before crossing. These formally represent also the two additional diagrams in which the
+two gluons arising from the fermion line have their momenta exchanged.
+
+
+
+This is useful, as λ = 1 reproduces the Feynman gauge calculation. One thus has
+a continuous parameter in the DR calculation, such that it tends smoothly to the
+Feynman gauge calculation in a well-defined limit. However, it is easily seen from
+the form of the three gluon vertex that the second term in eq. (5.5) decouples from
+the amplitude. Thus, DR results do not depend on the choice of gauge within the
+family of covariant gauges.
+    One may also consider non-covariant gauges, in which the gluon propagator is
+given by9 :
+                                                           
+                                    nµ kν + nν kµ   n2 kµ kν 1
+                     Dµν = −gµν +                 −              .             (5.6)
+                                        n·k         (n · k)2 k 2
+
+The third term decouples for the same reason as in a covariant gauge, but a gauge
+dependence results from the second term. Here we report the numerical results for
+the MC@NLO cross section in DR, obtained with non-covariant gauges, for the three
+choices n2 > 0, n2 = 0, and n2 < 0. We start in table 3 with the results obtained by
+integrating over the whole phase space, except perhaps for the veto imposed on the
+second-hardest B hadron of the event (see sect. 5.1). For reference, we also report the
+results obtained in the Feynman gauge (which is our default). We define a relative
+difference as follows:
+
+                             σ (DR) (non − covariant) − σ (DR) (covariant)
+                 δ = 103 ×                                                 .          (5.7)
+                                           σ (DR) (covariant)
+
+ We observe very small relative differences, which are actually compatible with zero
+within the statistical errors of our runs (each of which consists of 500k events). Note
+that this conclusion holds regardless of whether a veto is imposed or not.
+    We have also checked that the same conclusion applies to more exclusive observ-
+ables. It is obviously impossible to reach the same level of statistical accuracy as
+that in table 3 for a differential distribution, especially in the tails of the transverse
+
+  9
+    The gluon propagator also depends in general on a gauge-fixing parameter α, which we set
+equal to zero in what follows. See e.g. refs. [34, 35].
+
+
+
+
+                                             22
+          (veto)           (veto)              (veto)             (veto)           (veto)
+         pT        = 10   pT        = 30     pT         = 50   pT          = 70   pT        =∞
+          σ          δ     σ          δ       σ           δ     σ            δ     σ         δ
+                                              Covariant
+        34.66        0    41.86       0      44.61   0         45.63         0    46.33      0
+                                n2 > 0
+        34.70 1.15 41.90 0.96 44.70 2.01 45.73 2.19 46.42 1.94
+                                n2 = 0
+        34.75 2.60 41.94 1.91 44.69 1.79 45.71 1.75 46.42 1.94
+                                n2 < 0
+        34.70 1.15 41.87 0.24 44.61   0                        45.63         0    46.37 0.86
+
+Table 3: Gauge dependence of DR rates. The cross sections σ are given in pb, and veto
+         (veto)
+values pT       in GeV. Note the factor 103 in the definition of δ, eq. (5.7). The notation
+ (veto)
+pT      = ∞ denotes no veto at all.
+
+
+momentum spectra which fall rather steeply. We have computed the ratios
+                                              ,
+                     dσ (DR)                    dσ (DR)
+            R(O) =           (non − covariant)          (covariant)                              (5.8)
+                      dO                          dO
+
+bin-by-bin for the observables O (we have considered rapidities and transverse mo-
+menta, both for single-inclusive observables and for correlations), and found all ratios
+to be compatible with one. The typical value of |R(O) − 1| is actually always much
+smaller than the statistical error affecting this quantity. The latter may be of the
+order of a few tens of percent in individual bins in the tails of pT distributions.
+However, since bin-by-bin fluctuations tend to integrate to zero if several contiguous
+bins are considered, we also fitted ratios in eq. (5.8) for those cases in which O is a
+transverse momentum, by assigning arbitrarily the same 0.1% relative errors to all
+bins, with the functional form
+
+                                          a1 + a2 pT + a3 p2T .                                  (5.9)
+
+This ensures that the tail of the pT distributions is treated in the fit on the same
+footing as the peak region, thus dealing in an efficient way with the problem of bin-
+by-bin fluctuations, and allowing us to uncover hints of non-flatness in R(pT ) as a
+function of pT . In this way, we have again found that all R(pT ) we have considered
+are compatible with one in the whole pT range. As an example, we present here the
+                                                  (ll)
+results obtained for the transverse momentum pT of the lepton pair, for the four veto
+                                                    (ll)
+choices, and for the gauge n2 > 0. The ratio R(pT ) are presented in the upper pane
+of fig. 4. The result is also given for the case in which no veto at all is applied. As
+
+
+
+                                                   23
+Figure 4: Gauge dependence of the DR cross section, as a function of the pT of the lepton
+pair, for a non-covariant gauge with n2 > 0. Upper pane: results of the fits, using the
+form in eq. (5.9). Lower pane: envelope of curves obtained by varying all parameters of
+the fit within their error ranges (see the text for details), divided by the best fit curve,
+minus one. Black solid, red dashed, blue dotted, and green dot-dashed lines correspond to
+ (veto)
+pT      = 10, 30, 50, and 70 GeV respectively. The magenta solid line with open boxes is
+obtained without imposing any veto.
+
+
+
+one can see from the figure, all curves resulting from the fit are remarkably flat (they
+cannot actually be easily distinguished). Some of them may be seen to depart from
+                      (ll)
+one at the largest pT values, but this behaviour is not statistically significant. To
+show this, we present in the lower pane of fig. 4 the envelope of the curves obtained
+by considering all combinations of values ai = a0i ± ∆(ai ), with a0i and ∆(ai ) being
+the best values and their fitting errors respectively (as given by MINUIT [36]). The
+envelope is then divided by the best fit curve and unity is subtracted, so as to give
+an upper bound for the error affecting the fitting procedure. Only the result relevant
+    (veto)
+to pT      = 10 GeV is presented in the lower pane of fig. 4, since all the others are
+essentially identical.
+    We therefore conclude that, regardless of the observable studied, the impact of
+gauge dependence in the DR computation can be safely neglected in the numerical
+studies that follow.
+
+
+5.3 Impact of interference
+
+In order to gauge how much of the difference between DS and DR is due to the
+
+
+
+                                            24
+interference term alone, it is useful to define the quantity:
+                              X Z dx1 dx2                        
+             dσ (NI)     (2)
+                     = dσ +                   Lαβ Sˆαβ + Dαβ − D
+                                                               eαβ dφ3 ,            (5.10)
+                                I
+                                     2x1 x2 S
+
+where the label NI stands for non-interference. Clearly
+                                        X Z dx1 dx2
+                       (DS)      (NI)
+                    dσ      − dσ      =              Lαβ Iαβ dφ3 ,                  (5.11)
+                                        I
+                                            2x1 x2 S
+
+which is then a direct estimate of the interference contribution, free of contaminations
+due to doubly-resonant contributions which are present in eq. (4.15). Although
+eq. (5.11) is not a physical quantity, it is useful to compute it because of the expression
+for dσ (DS) −dσ (DR) in eq. (4.15). As can be seen there, this quantity is the interference
+term eq. (5.11), plus the difference between the doubly-resonant contribution and the
+subtraction term. Thus, eq. (5.11) would be identical to dσ (DS) −dσ (DR) in the limiting
+case D ≡ D  e (which, we recall, is impossible to achieve if local cancellation and gauge
+invariance are simultaneously imposed).
+     Results for the total cross sections after implementation in MC@NLO are shown
+in table 4, where we have defined the relative differences:
+
+                                       σ (DS) − σ (DR)
+                                  δ1 =                  ,                           (5.12)
+                                            σ (DR)
+                                       σ (DS) − σ (NI)
+                                  δ2 =                 .                            (5.13)
+                                           σ (DR)
+ Overall, we observe that the relative differences are not large, and decrease for tighter
+vetoes. This is to be expected given that by requiring a stricter veto, one filters out
+more of the tt̄ process. Note that the relative differences due to the interference
+term alone are larger than those between DR and DS, implying that the terms I and
+D−D    e cancel out to some extent.
+     Although not reported in this table, we have studied the scale dependence of
+these results, by varying the renormalisation and factorisation scales between mt /2
+and 2mt . The two scales are always set equal to a common value, which is somewhat
+restrictive but sufficient for our present purposes. Although the individual cross
+sections depend very mildly on scales (the variations w.r.t. the central values being
++2       +1         +3
+−3 %, −2 %, and −4 % for DR, DS, and NI respectively), this is not the case for
+σ (DS) − σ (DR) and σ (DS) − σ (NI) , which have variations w.r.t. their central values of
+about ±20% and ±30% respectively. This behaviour is not surprising: the individual
+cross sections have been defined with the specific purpose of describing the W t cross
+section, which is known from the literature to have a mild scale dependence. On
+the other hand, as explicitly shown in eqs. (4.15) and (5.11), the differences of cross
+sections considered in table 4 are dominated by LO tt̄ production, which has a
+significant scale dependence (see e.g. ref. [37] for a recent update).
+
+
+
+                                            25
+        σ (DR)   σ (DS)   σ (NI)   σ (DS) − σ (DR)      δ1    σ (DS) − σ (NI)     δ2
+                                        (veto)
+                                      pT    = 10 GeV
+        34.66 33.89 35.08             −0.77     −2.2%            −1.19          −3.4%
+                                        (veto)
+                                      pT    = 30 GeV
+        41.86 40.74 42.83             −1.12     −2.7%            −2.09          −5.0%
+                                        (veto)
+                                      pT    = 50 GeV
+        44.61 42.92 46.59             −1.69     −3.8%            −3.67          −8.2%
+                                        (veto)
+                                      pT    = 70 GeV
+        45.63 43.65 48.24             −1.98     −4.3%            −4.59          −10.0%
+                                           (veto)
+                                        pT           =∞
+        46.33 44.12 49.58             −2.21           −4.8%      −5.46          −11.8%
+
+Table 4: Results for the total DR, DS, and NI cross sections (in pb) defined in eqs. (4.9),
+(4.14), and (5.10), for various values of the veto. We also give the relative differences as
+                                                  (veto)
+defined in eqs. (5.12) and (5.13). The notation pT       = ∞ denotes no veto at all.
+
+
+    We have also carried out similar studies on differential distributions. The results
+presented in table 4 are, not surprisingly, dominated by the small transverse momen-
+tum regions, where the bulk of the cross section lies. Analogously to what was done
+in eq. (5.8), we have computed the ratios
+                             ,                                   ,
+                                  (DR)                      (NI)
+                     dσ (DS)
+                               dσ                        dσ        dσ (DR)
+         R(DS) (O) =                   ,     R(NI) (O) =                   ,     (5.14)
+                      dO        dO                        dO        dO
+
+for several observables. In the cases in which O is a rapidity, these ratios are flat
+over the whole kinematically-accessible range, with values consistent with those given
+in table 4. The situation is more interesting if one considers transverse momenta,
+since in such cases the ratios in eq. (5.14) display a non-trivial shape. In particular,
+the largest values of R(DS) − 1 and R(NI) − 1 , amongst the observables we have
+                                       (ll)
+studied, are found in the tail of pT (which is the reason why this observable has
+been considered as a case study in this paper).
+     We start by presenting results for the quantities defined in eq. (5.14). In order
+to be able to superimpose five curves on the same plot and keep visibility (since
+histograms would blur the picture because of bin-by-bin fluctuations in the tail),
+the ratios have again been fitted with the functional form of eq. (5.9). The results
+are given in the upper panes of fig. 5. As can be seen from the figure, the impact
+                                                                      (ll)
+of interference can be very large for large enough values of pT , regardless of the
+            (veto)
+choice for pT      (although, of course, it is less significant for small vetos). It must be
+                                    (ll)
+stressed however that, at large pT , the cross section is small. This is documented
+
+
+
+                                                 26
+                                                                                    (ll)
+Figure 5: Upper panes: results for the ratios defined in eq. (5.14), as a function of pT and
+for various vetos. Lower panes: relative scale dependence (see eq. (5.16)). The linestyles
+are the same as those of fig. 4.
+
+
+
+
+                                                                          (ll)
+Figure 6: Left pane: differential DR, DS, and LO distributions in pT . Right pane:
+                                                 (min)      (ll)
+integral of the same distributions in the range pT     < pT < ∞, divided by the respective
+                                                     (veto)
+total rates. These results are relevant to the case pT       = 10 GeV.
+
+
+                                                                                     (ll)
+in fig. 6, where we present in the left pane the differential distributions in pT , as
+computed with DR, DS, and at LO. The same information is presented in the right
+pane of the figure, in an integral form:
+                                             Z ∞
+                         1      (min)     1             (ll) dσ
+                             Σ(pT ) =                 dpT     (ll)
+                                                                   .            (5.15)
+                        σtot             σtot pT(min)       dpT
+                                                              (veto)
+The results of fig. 6 have been obtained by choosing pT        = 10 GeV. Although
+the absolute value of the differential cross section has a non-negligible dependence
+    (veto)                                                     (veto)
+on pT , its shape is relatively stable against variations of pT . Thus, the right
+pane of fig. 6 can be used with table 4 for estimating the number of events with
+
+
+
+                                            27
+ (ll)   (min)
+pT ≥ pT        for any choice of the veto (or in its absence).
+     The comparison between fig. 5 and fig. 6 shows that, for the majority of events,
+the impact of interference is moderate. On the other hand, these results imply that
+conclusions concerning interference of W t with tt̄ are observable dependent. One
+particular analysis may be sensitive to an observable which receives much larger
+contributions from I and D − D      e than the total rate. With fig. 5 we have presented
+a worst-case scenario among the observables studied.
+     It is also interesting to study the scale dependence of these results. This cannot
+be done in the same way as for the total rates of table 4. There, differences of cross
+sections have been considered, and the relative variation w.r.t. the central values
+computed. In the case of the tail of a steeply falling differential distribution, bin-by-
+bin differences lead to such small numbers that it is impossible, in practice, to obtain
+a statistically significant result for the relative variation, since the latter would be a
+ratio of two extremely small numbers. On the other hand, we are able to compute
+the scale dependence of the ratios defined in eq. (5.14). In the lower panes of fig. 5,
+we present the quantities
+                                                 
+                              (ll)
+                     R(DS) pT ; µF = µR = κmt
+                                                 − 1,      κ = 1/2, 2             (5.16)
+                               (ll)
+                      R(DS) pT ; µF = µR = mt
+
+                                                     (ll)
+(and the analogous one for NI) as a function of pT . Equation (5.16) will not give
+directly the scale dependence of a tt̄-dominated cross section, as was the case for
+the differences of rates of table 4, but rather that of the fraction of the DS and NI
+cross sections arising from tt̄-like contributions. As can be seen from the figure, the
+scale dependence of such a fraction is largest in the region where the interference
+between singly- and doubly-resonant diagrams is largest. This is consistent with the
+naı̈ve expectation that W t-like contributions have a much milder scale dependence
+than tt̄-like ones. On the other hand, the study of scale dependence shows that the
+qualitative conclusion that one draws from fig. 5 is perturbatively stable, and that
+the interference is significant only in the large-pT region.
+
+
+6. Discussion
+
+In this paper we have presented the first calculation of single-top production in
+association with a W boson, accurate to NLO in QCD and interfaced with parton
+showers according to the MC@NLO formalism. In studying the W t channel, our
+main aim has been to investigate whether or not one can define it as a separate
+production process, since only in the case of a positive answer is the computation
+of the full NLO corrections meaningful and feasible with present technologies. The
+NLO+parton shower framework provides an excellent platform for addressing the
+
+
+
+                                           28
+problem. Parton showers give the capability of studying final states in a realistic
+environment, and testing ideas that can be applied without any modifications to
+an experimental analysis. The underlying NLO computation is, on the other hand,
+directly sensitive to interference effects with tt̄ production.
+     We have considered two separation mechanisms for defining the W t channel:
+diagram removal (DR) and diagram subtraction (DS). We have defined them in such
+a way that it is not necessary, in order to generate full hadronic events with high
+efficiency, to apply any kinematic cuts. In this way complete flexibility is achieved,
+to study the effects of any cuts whose aim is that of enhancing the W t “signal” w.r.t
+the tt̄ “background”. As an example, we have considered only one such cut, namely
+a veto on the transverse momentum of the second-hardest B hadron of the event.
+     The DR cross section is obtained by removing the doubly-resonant diagrams from
+the calculation of the W t amplitude, and thus violates gauge invariance. We have
+demonstrated that this is not a problem in practice. The DS cross section involves
+a modification of the naı̈ve W t cross-section by a gauge invariant subtraction term
+which acts to remove the doubly-resonant contribution from tt̄ final states. Given
+that this is done at the cross-section level, an interference term between the tt̄ and
+W t processes remains.
+     Ultimately, we are in a position to decide whether it is possible, and useful for
+data analysis, to define the W t channel as a production process in its own right. The
+key question is whether an approximate treatment of interference within a higher-
+order computation has to be preferred, for the sake of a counting experiment, to
+an exact treatment of interference without QCD corrections. Furthermore, the sep-
+aration of W t and tt̄ processes allows one to consider NLO W t results (which are
+     2 2
+O(gW   αS )) alongside NLO tt̄ results (which are O(αS3 )). This makes a realistic descrip-
+tion of phenomenology possible (since it is well known that higher-order corrections
+for tt̄ production are crucial in this respect), in spite of being unable to treat the
+problem exactly in its full complexity. In this paper we have found that NLO cor-
+rections are larger than interference effects, especially if cuts are employed that are
+designed to enhance the W t signature. The answer to the above question there-
+fore appears to be yes. However, the definitions that render it possible to compute
+higher-order corrections also imply an ambiguity in the theoretical predictions, that
+we identify with the difference between DR and DS cross sections. We have found
+that such an ambiguity is observable-dependent, and in particular is larger in those
+regions of the phase space that correspond to large transverse momenta. Since this
+ambiguity will be directly related to the theoretical systematic error, it follows that
+the accuracy with which W t properties can be measured depends on the observables
+that are most relevant to a given analysis.
+     To conclude, having implemented the W t production mode in an NLO plus
+parton shower context, we find based on our subsequent analysis that it does indeed
+seem feasible to analyse this process at the LHC.
+
+
+
+                                            29
+Acknowledgments
+We would like to thank Wim Beenakker, John Campbell, Borut Kersevan, Fabio
+Maltoni, Jan Smit, Francesco Tramontano and Giulia Zanderighi for valuable dis-
+cussions. We would also like to thank the CERN TH division for hospitality during
+the completion of this work. C.W. and E.L would like to thank the Galileo Galilei In-
+stitute for Theoretical Physics for the hospitality and the INFN for partial support
+during the completion of this work. S.F. would like to thank Nikhef for hospital-
+ity and support on many different occasions. The work of C.W., E.L. and P.M.
+is supported by the Netherlands Foundation for Fundamental Research of Matter
+(FOM) and the National Organization for Scientific Research (NWO); that of B.W.
+is supported in part by the UK Science and Technology Facilities Council.
+
+
+A. W −t and W +t̄ production
+In this appendix we demonstrate that the squared amplitudes for single top produc-
+tion with an associated W boson are independent of whether the final state top is a
+quark or an antiquark.
+    Firstly there is the issue of a possible charge asymmetry due to the electroweak
+coupling of the W boson. This merely constrains the helicity of the fermion line
+which includes the top quark in the graph, which occurs either as an open line or a
+closed loop. The t → t̄ transformation changes the direction of the line, and leads to
+a constraint on the helicity of the corresponding antifermion line. However, the sign
+and size of the coupling is the same in both cases.
+    Furthermore, there is the issue of a possible QCD asymmetry. One must consider
+in more detail the open or closed fermion loop associated with the top quark (and
+the b quark from top decay). The replacement t → t̄ can affect the amplitude in two
+ways:
+   1. It changes the sign of all momenta which occur in uncut propagators along the
+      top quark line10 . If pi are the propagating momenta, the fermion trace in each
+      diagram will contain the following terms:
+
+                                  (6 p1 − mt )(6 p2 − mt ) . . . (6 pM − mt ),                  (A.1)
+
+       where M is the number of uncut fermion momenta, and there may be additional
+       Dirac matrices between the propagator factors. Interchanging top and antitop
+       quarks gives instead the terms
+
+       (− 6 p1 −mt )(− 6 p2 −mt ) . . . (− 6 pM −mt ) = (−1)M (6 p1 +mt )(6 p2 +mt ) . . . (6 pM +mt ).
+                                                                                                 (A.2)
+  10
+    Cut propagators correspond to terms in the fermion trace of form 6 p ± mt depending on whether
+quark or antiquark spinors are involved i.e. the sign of the momentum is not changed.
+
+
+
+
+                                                  30
+      Given that the number of Dirac matrices in each interference graph is even,
+      only terms involving an even number of masses survive. Then the amplitude
+      for antiquark production is related to that for quark production via
+
+                                      At̄ = Cdiag At
+                                          = (−1)M At ,                            (A.3)
+
+      where At, t̄ is the amplitude associated with a given interference diagram. Here
+      Cdiag is the parity under t → t̄ of the diagram i.e. Cdiag = ±1.
+
+  2. The colour factor may be affected. In each of the diagrams for W t production,
+     one always has
+                                         Ct̄ = Ccol Ct ,                          (A.4)
+
+      where Ct, t̄ are the colour factors for the amplitude with a top and antitop quark
+      respectively, and Ccol = ±1.
+
+The total parity under t → t̄ is then given by
+
+                                 C = Cdiag Ccol = ±1.                             (A.5)
+
+Squared real emission diagrams will always have an even number of uncut prop-
+agators, and also symmetric colour factors under t → t̄. Regarding interference
+diagrams, there are 48 in total. These can be subdivided into gg, bb, bg and bb̄ initial
+states. Then diagrams with other quarks in the initial state form a subset of those
+already specified. The gg and bb̄ diagrams are always associated with real emissions.
+For the bb (and, hence, qq) initial state, there is only one Feynman amplitude and
+hence no interference term is possible. The qg initial states can be associated with
+real or virtual emissions. By evaluating the number of uncut fermion propagators
+and the colour factor for each graph, one can find its parity under t → t̄ using
+eq. (A.5).
+     There are two types of diagrams:
+
+  1. Diagrams with no triple gluon coupling. These all have symmetric colour fac-
+     tors under t → t̄, and an even number of uncut fermion propagators. Hence
+     C = 1 for such graphs.
+
+  2. Diagrams with a triple gluon coupling. These all have antisymmetric colour
+     factors, and an odd number of uncut fermion propagators (this latter fact can
+     be easily appreciated by considering removing a gluon line from a fermion in
+     graphs of type 1 and reattaching it to a gluon line). Hence C = (−1)2 = +1
+     for these graphs.
+
+
+
+                                           31
+One finds that every graph is even upon replacing top quarks by antitop quarks, and
+so the total squared amplitude for W t production is the same for both t and t̄.
+    Even if W − t and W + t̄ matrix elements are identical at this order, there is still
+the possibility of a charge asymmetry arising from differences between the b and b̄
+parton densities11 . However, these densities are equal in the global fits available at
+present. Thus, overall, the cross-sections and differential distributions considered
+here for top and anti-top production are strictly equal.
+
+
+B. Calculation of M̃ in the helicity formalism
+
+NLO subtraction formalisms such as FKS achieve a good numerical stability through
+the local cancellation between large contributions of opposite sign, which correspond
+to the real-emission matrix elements in the soft and collinear regions, and the coun-
+terterms. The counterterms are in fact constructed by calculating the above limits
+of the matrix elements, whose form is universal. If one considers e.g. the initial-state
+collinear limit p2 k k of the process
+
+                                  α(p1 ) + β(p2 ) −→ X(K) + δ(k) ,                        (B.1)
+
+with X a set of final state particles which are not relevant here (in our case, X ≡
+t + W ), the matrix element squared is (see e.g. eq. (B.41) of ref. [15])
+
+                              p2 kk   4παS h                                         i
+                M(p1 , p2 ) −→              P (z)M(0) (p1 , zp2 ) + Q(z)M̃(p1 , zp2 ) ,   (B.2)
+                                      k·p2
+
+where P are the usual Altarelli-Parisi kernels, Q are other universal kernels (given
+at the leading order in eqs. (B.42)–(B.45) of ref. [15] for initial-state collinear split-
+tings, and in eqs. (B.31)–(B.34) of that paper for final-state collinear splittings; these
+kernels are thus different for spacelike and timelike branchings already at the lead-
+ing order), M(0) is the relevant Born contribution, and M̃ is a Born-like function,
+which however keeps track of the azimuthal correlations in the branching process.
+The contribution of QM̃ vanishes upon integration over the azimuthal angle of the
+branching, which is why this term can be neglected in the analytical computation of
+the collinear divergences in 4 − 2ǫ dimensions. Locally, it is different from zero if the
+parton involved in the branching which enters the hard reaction is a gluon, and there-
+fore needs to be taken into account for the construction of the local counterterms in
+a (efficient) numerical NLO program.
+     Unlike the case of s- and t-channel single-top production, the W t channel has a
+gluon entering the hard reaction at the Born level, and we thus need to compute the
+relevant M̃ (which is process dependent, whereas the kernels Q are universal). This
+  11
+       As already discussed in refs. [7, 11].
+
+
+
+
+                                                    32
+                    +          (a)                     −          (c)
+
+
+
+
+                        +      (b)                          −     (d)
+
+
+Figure 7: Diagrams used in the calculation of M̃ for 0 → b(p1 ) + g(p2 ) + W − (p3 ) + t(p4 ),
+i.e. all momenta are defined to be outgoing.
+
+
+
+term is (see eq. (B.23) of ref. [15])
+                                                             
+                                              hkp2 i (0)† (0)
+                             M̃ = F Re              A A− ,                              (B.3)
+                                              [kp2 ] +
+
+        (0)
+with A± the Born amplitude for W t production with a positive/negative helicity
+initial state gluon respectively, and F a term which includes the flux and spin- and
+colour-average factors, and the coupling constants. We have computed the r.h.s. of
+eq. (B.3) in two independent ways, and found agreement. In this appendix we present
+some details on how the computation can be carried out by using spinor helicity
+methods [38, 39, 40, 41, 42]. As is conventional when applying such methods, we
+take all momenta to be outgoing in this appendix, in contrast to the rest of the paper.
+Furthermore, we relabel the outgoing momenta k2 , k1 as p3 and p4 respectively (see
+fig. 7), in order to be able to use a compact notation in what follows.
+     The relevant diagrams are illustrated in fig. 7. Besides the null momenta p1 and
+p2 , we define the null vector
+                                                      m2t
+                                     p5 = p4 −            p2 ,                          (B.4)
+                                                      u1
+
+where u1 = u − m2t = (p2 + p4 )2 − m2t . As is common, we adopt the notation
+
+                              |k ± i ≡ u± (k),        hk ± | ≡ ū± (k)                  (B.5)
+
+for massless quark spinors. Defining the Mandelstam invariants
+
+                             s = (p1 + p2 )2 ;        t = (p1 + p4 )2 ,                 (B.6)
+
+
+
+                                                 33
+                     (s)          (u)
+the contributions A+ and A+ of the positive helicity diagrams (denoted by (a) and
+(b) respectively in fig. 7) are given by (neglecting colour factors)
+                        √
+             (s)      2i 2
+            A+ = −          ǫµ (p3 )ū(p4 )γ µ |2−ih21ih2+|u(p1 );                (B.7)
+                      sh12i
+                       √
+             (u)    2i 2
+           A+ =            ǫµ (p3 )ū(p4 ) [|1+i[25]h5−| + m|2−ih1−|] γ µ u(p1 ), (B.8)
+                   u1 h12i
+where ǫµ (p3 ) is the polarisation vector of the W boson, and we have used the standard
+notation
+                            [ij] = hi + |j−i, hiji = hi − |j+i.                    (B.9)
+In deriving eqs. (B.7) and (B.8) we have used the following expressions for the gluon
+polarisation vectors
+                                 hq − |γµ |2−i                            hq + |γµ |2+i
+               ǫ+,µ (p2 , q) =      √          ,        ǫ−,µ (p2 , q) =      √          .   (B.10)
+                                      2hq2i                                    2[2q]
+Here q is an arbitrary null reference momentum, which has been set to p1 . One is
+in principle able to choose a different reference momentum for the negative helicity
+diagrams, owing to the fact that helicity amplitudes are separately gauge invariant.
+However, if one also chooses q2 = p1 in the negative helicity case then diagram (c)
+in fig. 7 vanishes. This relies on the helicity of the light quark line being fixed by
+the chiral boson coupling. Then the negative helicity amplitude is given solely by
+diagram (d):
+             √                                                                 
+    (0)    2i 2                      u
+  A− =            ǫµ (p3 )ū(p4 )      |2+i[12]h2−| + |2+i[15]h5−| + mt |1−ih2−| γ µ u(p1 ).
+          u1 [21]                   u1
+                                                                                      (B.11)
+                                 (0) 2     (0) 2
+It can be checked that |A+ | + |A− | , after summing over the W boson and quark
+spins, is equal to the known Born result, eq. (3.5). For the helicity interference term,
+                                                         (0)    (s)   (u)
+one uses eqs. (B.7), (B.8), and (B.11) to find (A+ = A+ + A+ ):
+
+                  (0)†     (0)       8 [15]2 h25i2 2
+                A+ A− =                           (mW − m2t )(2m2W + m2t ).                 (B.12)
+                                 u21 m2W [12]2
+Note the presence of squared spinor products, which cannot immediately be evaluated
+to form dot products. This is to be expected, given that M̃ is not a Lorentz invariant
+quantity. To evaluate the quantities in eq. (B.12) one can parameterise 4-momenta
+in the center of mass frame of the incoming particles as follows:
+                          √            √ 
+                              s           s
+                     p1 =       , 0, 0,       ;                                 (B.13)
+                             2           2
+                          √              √ 
+                              s             s
+                     p2 =       , 0, 0, −       ;                               (B.14)
+                             2             2
+                         p5 = (E, E sin θ cos φ, E sin θ sin φ, E cos θ) .                  (B.15)
+
+
+
+
+                                                   34
+Basis spinors satisfying the massless Dirac equation with conventional normalisation
+u† (pi )u(pi) = 2p0i are (choosing arbitrary phases)
+                                                    1                                
+                          0                             s 4 δλ+                       0
+                                                                             1       
+                         0                          0                        s 4 δλ+ 
+ u− (p5 ) =                                                                          
+             −pE(1 − cos θ)e−iφ  ; uλ (p1 ) =  0  ; uλ (p2 ) =  s 14 δ  ,
+             p                                                                    λ− 
+                                                          1
+                     E(1 + cos θ)                       s 4 δλ−                       0
+                                                                                       (B.16)
+from which one finds
+                                        
+                      hkp2 i [15]2 h25i2      (15)(25)
+                Re                   2
+                                           =−          [2 cos2 (φ − φ2k ) − 1],        (B.17)
+                       [kp2 ] [12]               s
+
+with φ2k the azimuthal relative angle between k and p2 . In the degenerate kinematics
+of the collinear limit, we may choose to absorb φ in a redefinition of φ2k . Combining
+these results with eq. (B.12), and reinstating the colour, flux, average factors and
+coupling constants, gives finally
+
+             gS2gW
+                 2
+ M̃ = −        2  2 2
+                      (2 cos2 φ2k − 1)(m2W − m2t )(2m2W + m2t )(m2W m2t − ut). (B.18)
+          16Ns u1 mW
+
+Note that this does indeed give zero contribution to the cross-section when integrated
+over the full domain of the azimuthal angle φ2k relevant to the branching, as discussed
+above.
+
+
+References
+ [1] R. Schwienhorst, talk given at the ”Rencontres de Moriond EW 2008”, La Thuile,
+     1-8 March 2008.
+
+ [2] V. M. Abazov et al. [D0 Collaboration], Evidence for production of single top quarks,
+     [arXiv:0803.0739 [hep-ex]].
+
+ [3] S. Frixione and B. R. Webber, Matching NLO QCD computations and parton shower
+     simulations, JHEP 06 (2002) 029 [arXiv:hep-ph/0204244].
+
+ [4] S. Frixione, P. Nason and B. R. Webber, Matching NLO QCD and parton showers in
+     heavy flavour production, JHEP 08 (2003) 007 [arXiv:hep-ph/0305252].
+
+ [5] S. Frixione, E. Laenen, P. Motylinski and B. R. Webber, Single-top production in
+     MC@NLO, JHEP 03 (2006) 092 [arXiv:hep-ph/0512250].
+
+ [6] S. Frixione, E. Laenen, P. Motylinski and B. R. Webber, Angular correlations of
+     lepton pairs from vector boson and top quark decays in Monte Carlo simulations,
+     JHEP 04 (2007) 081 [arXiv:hep-ph/0702198].
+
+
+
+
+                                             35
+ [7] T. M. P. Tait, The tW − mode of single top production, Phys. Rev. D61 (2000)
+     034001 [arXiv:hep-ph/9909352].
+
+ [8] A. S. Belyaev, E. E. Boos and L. V. Dudko, Single top quark at future hadron
+     colliders: Complete signal and background study, Phys. Rev. D 59 (1999) 075001
+     [arXiv:hep-ph/9806332].
+
+ [9] B. P. Kersevan and I. Hinchliffe, A consistent prescription for the production
+     involving massive quarks in hadron collisions, JHEP 0609 (2006) 033
+     [arXiv:hep-ph/0603068].
+
+[10] S. Zhu, Next-to-leading order QCD corrections to bg → tW − at the CERN Large
+     Hadron Collider, Phys. Lett. B524 (2002) 283–288.
+
+[11] J. Campbell and F. Tramontano, Next-to-leading order corrections to W t production
+     and decay, Nucl. Phys. B726 (2005) 109–130 [arXiv:hep-ph/0506289].
+
+[12] Q. H. Cao, Demonstration of One Cutoff Phase Space Slicing Method:
+     Next-to-Leading Order QCD Corrections to the tW Associated Production in Hadron
+     Collision, [arXiv:0801.1539 [hep-ph]].
+
+[13] M. Beccaria et. al., A complete one-loop description of associated tW production at
+     lhc and a search for possible genuine supersymmetric effects, [arXiv:0705.3101
+     [hep-ph]].
+
+[14] N. Kauer and D. Zeppenfeld, Finite-width effects in top quark production at hadron
+     colliders, Phys. Rev. D65 (2002) 014021 [arXiv:hep-ph/0107181].
+
+[15] S. Frixione, Z. Kunszt and A. Signer, Three-jet cross sections to next-to-leading
+     order, Nucl. Phys. B467 (1996) 399–442 [arXiv:hep-ph/9512328].
+
+[16] S. Frixione, A general approach to jet cross sections in QCD, Nucl. Phys. B507
+     (1997) 295–314 [arXiv:hep-ph/9706545].
+
+[17] W. T. Giele, S. Keller and E. Laenen, QCD corrections to W boson plus heavy quark
+     production at the Tevatron, Phys. Lett. B372 (1996) 141–149
+     [arXiv:hep-ph/9511449].
+
+[18] W. T. Giele and E. W. N. Glover, Higher order corrections to jet cross-sections in
+     e+ e- annihilation, Phys. Rev. D46 (1992) 1980–2010.
+
+[19] W. T. Giele, E. W. N. Glover and D. A. Kosower, Higher order corrections to jet
+     cross-sections in hadron colliders, Nucl. Phys. B403 (1993) 633–670
+     [arXiv:hep-ph/9302225].
+
+[20] S. Keller and E. Laenen, Next-to-leading order cross-sections for tagged reactions,
+     Phys. Rev. D59 (1999) 114004 [arXiv:hep-ph/9812415].
+
+[21] G. Passarino and M. J. G. Veltman, One Loop Corrections For e+ e− Annihilation
+     Into µ+ µ− In The Weinberg Model, Nucl. Phys. B 160 (1979) 151.
+
+
+
+
+                                            36
+[22] T. Hahn, Generating Feynman diagrams and amplitudes with FeynArts 3, Comput.
+     Phys. Commun. 140 (2001) 418 [arXiv:hep-ph/0012260].
+
+[23] R. Mertig, M. Bohm and A. Denner, FEYNCALC: Computer algebraic calculation of
+     Feynman amplitudes, Comput. Phys. Commun. 64 (1991) 345.
+
+[24] J. A. M. Vermaseren, New features of FORM, [arXiv:math-ph/0010025].
+
+[25] R. K. Ellis and G. Zanderighi, Scalar one-loop integrals for QCD, JHEP 0802 (2008)
+     002 [arXiv:0712.1851 [hep-ph]].
+
+[26] J. Collins, F. Wilczek and A. Zee, Low-energy manifestations of heavy particles:
+     Application to the neutral current, Phys. Rev. D18 (1978) 242.
+
+[27] F. Maltoni and T. Stelzer, MadEvent: Automatic event generation with MadGraph,
+     JHEP 0302 (2003) 027 [arXiv:hep-ph/0208156].
+
+[28] J. Alwall et al., MadGraph/MadEvent v4: The New Web Generation, JHEP 0709
+     (2007) 028 [arXiv:0706.2334 [hep-ph]].
+
+[29] G. Corcella et al., HERWIG 6: An event generator for hadron emission reactions
+     with interfering gluons (including supersymmetric processes), JHEP 0101 (2001) 010
+     [arXiv:hep-ph/0011363].
+
+[30] G. Corcella et al., HERWIG 6.5 release note, [arXiv:hep-ph/0210213].
+
+[31] A. Denner, S. Dittmaier, M. Roth and L. H. Wieders, Electroweak corrections to
+     charged-current e+ e− → 4 fermion processes: Technical details and further results,
+     Nucl. Phys. B724 (2005) 247 [arXiv:hep-ph/0505042].
+
+[32] A. D. Martin, R. G. Roberts, W. J. Stirling and R. S. Thorne, Uncertainties of
+     predictions from parton distributions. i: Experimental errors. ((t)), Eur. Phys. J.
+     C28 (2003) 455–473 [arXiv:hep-ph/0211080].
+
+[33] E. Boos et al., Generic user process interface for event generators,
+     [arXiv:hep-ph/0109068].
+
+[34] G. Leibbrandt, Introduction to Noncovariant Gauges, Rev. Mod. Phys. 59 (1987)
+     1067.
+
+[35] A. Bassetto, G. Nardelli and R. Soldati, Yang-Mills theories in algebraic
+     noncovariant gauges: Canonical quantization and renormalization, Singapore,
+     Singapore: World Scientific (1991) 227 p
+
+[36] F. James and M. Roos, Minuit: A System For Function Minimization And Analysis
+     Of The Parameter Errors And Correlations, Comput. Phys. Commun. 10 (1975) 343.
+
+[37] M. Cacciari, S. Frixione, M. M. Mangano, P. Nason and G. Ridolfi, Updated
+     predictions for the total production cross sections of top and of heavier quark pairs at
+     the Tevatron and at the LHC [arXiv:0804.2800 [hep-ph]].
+
+
+
+
+                                             37
+[38] F. A. Berends, R. Kleiss, P. De Causmaecker, R. Gastmans and T. T. Wu, Single
+     Bremsstrahlung Processes In Gauge Theories, Phys. Lett. B 103 (1981) 124.
+
+[39] P. De Causmaecker, R. Gastmans, W. Troost and T. T. Wu, Multiple
+     Bremsstrahlung In Gauge Theories At High-Energies. 1. General Formalism For
+     Quantum Electrodynamics, Nucl. Phys. B 206 (1982) 53.
+
+[40] Z. Xu, D. H. Zhang and L. Chang, Helicity Amplitudes for Multiple Bremsstrahlung
+     in Massless Nonabelian Gauge Theories, Nucl. Phys. B 291 (1987) 392.
+
+[41] R. Kleiss and W. J. Stirling, Spinor Techniques For Calculating P Anti-P → W+- /
+     Z0 + Jets, Nucl. Phys. B 262 (1985) 235.
+
+[42] J. F. Gunion and Z. Kunszt, Improved Analytic Techniques For Tree Graph
+     Calculations And The G G Q Anti-Q Lepton Anti-Lepton Subprocess, Phys. Lett. B
+     161 (1985) 333.
+
+
+
+
+                                         38
+

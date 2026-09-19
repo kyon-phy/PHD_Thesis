@@ -1,0 +1,119 @@
+diff --git a/output/ch6/objects/tracks.tex b/output/ch6/objects/tracks.tex
+--- a/output/ch6/objects/tracks.tex
++++ b/output/ch6/objects/tracks.tex
+@@ -4,11 +4,11 @@
+ \subsection{Reconstruction}
+ 
+-A track is reconstructed by fitting the trajectory of a charged particle to measurements in the ID.
+-Its momentum and charge are determined from the curvature in the magnetic field, while its position near the beam line is used to associate it with a production vertex.
++A track is reconstructed by fitting the trajectory of a charged particle to hits in the ID.
++Its momentum and charge are determined from the curvature in the magnetic field, while its position near the beam line is used to assign it to a production vertex.
+ Track reconstruction is performed in the following stages~\cite{ATLAS2017DenseTracking}:
+ \begin{enumerate}
+     \item \textbf{Space-point formation.} Signals in neighbouring channels of a silicon sensor are grouped into clusters. The coordinates provided by Pixel clusters and SCT clusters are converted into three-dimensional space points.
+     \item \textbf{Seeding and track finding.} Combinations of space points are used to form track seeds. These seeds are extended through the silicon layers with a combinatorial Kalman filter, which is used to refine the track parameters.
+-    \item \textbf{Ambiguity resolution.} Track candidates are ranked based on their fit quality, assigned clusters and other criteria. And candidates that share the same clusters are marked as "shared hits". At last the low-quality candidates that fail the track-quality or hit-sharing requirements are rejected to suppress duplicate and fake tracks.
++    \item \textbf{Ambiguity resolution.} Track candidates are ranked using their fit quality, momentum and hit variables, such as the numbers of recorded hits and missing expected hits. Candidates that fail the track-quality requirements or limits on cluster sharing are rejected to suppress duplicate and fake tracks.
+     \item \textbf{TRT extension.} Tracks are extended with additional TRT hits. The extended track is retained if its quality score is higher than that of the original track reconstructed using only pixel and SCT hits.
+ \end{enumerate}
+diff --git a/output/ch6/objects/electrons.tex b/output/ch6/objects/electrons.tex
+--- a/output/ch6/objects/electrons.tex
++++ b/output/ch6/objects/electrons.tex
+@@ -9,5 +9,5 @@
+ \begin{enumerate}
+     \item \textbf{Topo-cluster reconstruction.} Neighbouring cells are grouped into topological clusters according to their signal significance above the expected noise. Clusters with a substantial electromagnetic energy fraction are used as electron seeds.
+-    \item \textbf{Track refitting and matching.} Electron-track candidates are refitted with a Gaussian-sum filter, in which a mixture of Gaussian components is used to describe radiative energy losses. The refitted tracks are extrapolated to the second layer of the EM calorimeter and matched to clusters using their differences in $\eta$ and $\phi$. If several tracks match the same cluster, the $\Delta R$ between each extrapolated track position and the cluster centre is used together with the pixel and SCT hits to rank the tracks.
++    \item \textbf{Track refitting and matching.} Electron-track candidates are refitted with a Gaussian-sum filter, in which a mixture of Gaussian components is used to describe radiative energy losses. The refitted tracks are extrapolated to the second layer of the EM calorimeter and matched to clusters using their differences in $\eta$ and $\phi$. If several tracks match the same cluster, the $\Delta R$ between each extrapolated track position and the cluster centre is used together with the pixel and SCT hit variables to rank the tracks.
+     \item \textbf{Supercluster formation.} Nearby clusters are added to the seed to recover energy from bremsstrahlung. Additional clusters sharing the matched electron track can be collected over a wider region in $\phi$.
+ \end{enumerate}
+@@ -25,5 +25,5 @@
+ 
+ Electron candidates are distinguished from hadronic showers and converted photons using a likelihood discriminant~\cite{ATLAS2019ElectronReco}.
+-Its inputs include the shower shapes in the EM calorimeter, track-hit variables, and the agreement between the track and calorimeter measurements.
++Its inputs include the shower shapes in the EM calorimeter, hit variables, and the agreement between the track and calorimeter measurements.
+ The \texttt{Loose}, \texttt{Medium} and \texttt{Tight} working points are defined and provide increasing background rejection with the different likelihood discriminant threshold.
+ The \texttt{Tight} likelihood working point, denoted \texttt{TightLH}, is used for all electron candidates in this analysis.
+diff --git a/output/ch6/objects/btagging.tex b/output/ch6/objects/btagging.tex
+--- a/output/ch6/objects/btagging.tex
++++ b/output/ch6/objects/btagging.tex
+@@ -11,5 +11,5 @@
+ The tagger uses the GN2v01 algorithm, which is based on a transformer neural network~\cite{ATLAS2026GN2}.
+ Its inputs include jet kinematics, track impact parameters and hit variables.
+-Within the transformer, information from other tracks in the jet is used to update the representation of each track.
++Within the transformer, information from other tracks is used to update the representation of each track.
+ Correlations between tracks can thereby be used to recognise a common displaced origin without requiring explicitly reconstructed secondary vertices as separate inputs.
+ During training, the jet-flavour classification is supplemented by two auxiliary tasks: identifying track origins and determining which tracks originate from the same vertex.
+diff --git a/output/ch6/objects/jets.tex b/output/ch6/objects/jets.tex
+--- a/output/ch6/objects/jets.tex
++++ b/output/ch6/objects/jets.tex
+@@ -23,6 +23,6 @@
+ \begin{itemize}
+     \item \textbf{Jet cleaning} is performed with the requirements on calorimeter pulse shapes and the distribution of energy among calorimeter layers to reject noise and non-collision backgrounds. For example, a jet with $|\eta|<2$ is rejected if more than 99\% of its energy is deposited in a single calorimeter layer. The efficiency for collision jets exceeds 99.5\%~\cite{ATLAS2015JetCleaning}.
+-    \item \textbf{Pile-up rejection} uses the vertex origins and $\pT$ of tracks associated with each jet.
+-    The jet-vertex tagger (JVT) is constructed from two variables using these tracks~\cite{ATLAS2014JVT}.
++    \item \textbf{Pile-up rejection} uses the vertex origins and $\pT$ of the jet tracks.
++    The jet-vertex tagger (JVT) is constructed from two variables~\cite{ATLAS2014JVT}.
+     The first is based on the ratio of the $\pT$ sum of tracks from the PV to that of tracks from all vertices.
+     The second is the same PV-track $\pT$ sum divided by the reconstructed jet $\pT$.
+diff --git a/output/ch6/objects/met.tex b/output/ch6/objects/met.tex
+--- a/output/ch6/objects/met.tex
++++ b/output/ch6/objects/met.tex
+@@ -23,5 +23,5 @@
+ \begin{itemize}
+     \item \textbf{Hard term}: the electron, muon, hadronic-tau and jet contributions accepted by the reconstruction. No separate photon collection is supplied in this analysis.
+-    \item \textbf{Track soft term}: the vector sum of selected tracks associated with the primary vertex and not assigned to retained hard-object contributions.
++    \item \textbf{Track soft term}: the vector sum of transverse momenta of selected PV tracks not used in the hard term.
+ \end{itemize}
+ The primary-vertex requirement suppresses charged-particle contributions from pile-up.
+diff --git a/output/ch6/objects/overlap_removal.tex b/output/ch6/objects/overlap_removal.tex
+--- a/output/ch6/objects/overlap_removal.tex
++++ b/output/ch6/objects/overlap_removal.tex
+@@ -7,5 +7,5 @@
+ Geometrical overlaps are evaluated using $\Delta R_y$, obtained by replacing $\eta$ with rapidity $y=\tfrac{1}{2}\ln[(E+p_z)/(E-p_z)]$ in Eq.~\eqref{eq:delta_r}.
+ Muon--jet matches are also identified using \emph{ghost association}, in which a particle with negligible momentum is added along the muon direction during jet clustering.
+-The muon is associated with the jet containing this particle, without changing the jet momentum.
++The jet containing this particle is matched to the muon without changing the jet momentum.
+ 
+ The following steps are applied in order to the baseline objects, using only candidates retained by the preceding steps:
+@@ -18,7 +18,6 @@
+     \item \textbf{Jet--electron}: a jet within $\Delta R_y<0.2$ of an electron is removed, retaining the electron interpretation of the EM shower.
+     \item \textbf{Electron--jet}: an electron within $\Delta R_y<0.4$ of a remaining jet is removed to reject electrons embedded in hadronic jets.
+-    \item \textbf{Jet--muon}: a jet with fewer than three associated tracks is removed if the muon is ghost-associated with it. The small track multiplicity suggests that the jet candidate is dominated by activity associated with the muon.
++    \item \textbf{Jet--muon}: a jet with fewer than three tracks is removed if the muon is ghost-associated with it. The small track multiplicity suggests that the jet candidate is dominated by the muon's detector signals.
+     \item \textbf{Muon--jet}: a muon within $\Delta R_y<0.4$ of a remaining jet is removed.
+     \item \textbf{Jet--tau}: a jet within $\Delta R_y<0.2$ of a remaining tau candidate is removed.
+ \end{enumerate}
+-
+diff --git a/output/ch6/objects/primary_vertex.tex b/output/ch6/objects/primary_vertex.tex
+--- a/output/ch6/objects/primary_vertex.tex
++++ b/output/ch6/objects/primary_vertex.tex
+@@ -6,3 +6,3 @@
+ Its position is determined from tracks originating from a common point.
+ Several PVs can be reconstructed in an event because of pile-up.
+-The vertex with the largest sum of squared transverse momenta of its associated tracks is selected as the PV of the hard scattering~\cite{ATLAS2015Vertex}.
++The vertex with the largest sum of squared transverse momenta of its tracks is selected as the PV of the hard scattering~\cite{ATLAS2015Vertex}.
+diff --git a/output/ch6/objects/taus.tex b/output/ch6/objects/taus.tex
+--- a/output/ch6/objects/taus.tex
++++ b/output/ch6/objects/taus.tex
+@@ -9,7 +9,7 @@
+ 
+ Hadronic tau candidates are first seeded by anti-$k_t$ jets with $R=0.4$.
+-To identify the $pp$ collision associated with each candidate, tracks within $\Delta R<0.2$ of the seed axis are then used to select the production vertex, choosing the vertex with the largest fraction of their $\pT$ sum.
++The production vertex is then chosen as the vertex with the largest fraction of the $\pT$ sum of tracks within $\Delta R<0.2$ of the seed axis.
+ This vertex provides the reference for track association and impact-parameter calculations.
+-The associated tracks are subsequently classified by a recurrent neural network (RNN) to select tau-decay tracks.
++The tracks are then classified by a recurrent neural network (RNN) to select tau-decay tracks.
+ The number of selected tau-decay tracks defines the prong multiplicity: candidates with one or three such tracks are called one-prong or three-prong candidates, respectively.
+ 
+@@ -25,5 +25,5 @@
+ For reconstructed one-prong (three-prong) candidates, the target identification efficiencies are 85\% (75\%) for \texttt{Loose} and 60\% (45\%) for \texttt{Tight}~\cite{ATLAS2022TauR22}.
+ 
+-Electrons can be misidentified as hadronic tau candidates because their narrow showers and associated tracks resemble the signature of a one-prong tau decay~\cite{ATLAS2022TauR22}.
++Electrons can be misidentified as hadronic tau candidates because their narrow showers and tracks resemble the signature of a one-prong tau decay~\cite{ATLAS2022TauR22}.
+ To suppress this background, both baseline and signal tau candidates are required to pass \texttt{Loose} electron rejection.
+ This working point requires a minimum score from a separate RNN using shower and track information, including the relation between calorimeter energy and track momentum.
+@@ -41,3 +41,3 @@
+ In addition to the momentum calibration, differences in tau reconstruction, identification and electron-rejection efficiencies between data and simulation must be correcte.
+ For this purpose, data-to-simulation scale factors are applied to simulated event weights.
+-In this analysis, for signal candidates passing \texttt{Tight} tau identification, the electron-veto scale factors associated with \texttt{Medium} tau identification are used because no corresponding factors were available for \texttt{Tight}.
++In this analysis, for signal candidates passing \texttt{Tight} tau identification, the electron-veto scale factors for \texttt{Medium} tau identification are used because no corresponding factors were available for \texttt{Tight}.

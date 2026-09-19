@@ -1,0 +1,2744 @@
+
+=== PDF PAGE 1 ===
+EUROPEAN ORGANISATION FOR NUCLEAR RESEARCH (CERN)
+Nature Commun. 17 (2026) 541
+DOI: 10.1038/s41467-025-65059-6
+CERN-EP-2025-103
+27th January 2026
+Transforming jet flavour tagging at ATLAS
+The ATLAS Collaboration
+Jet flavour tagging enables the identification of jets originating from heavy-flavour quarks in
+proton–proton collisions at the Large Hadron Collider, playing a critical role in its physics
+programmes. This paper presents GN2, a transformer-based flavour tagging algorithm
+deployed by the ATLAS Collaboration that represents a different methodology compared
+to previous approaches. Designed to classify jets based on the flavour of their constituent
+particles, GN2 processes low-level tracking information in an end-to-end architecture and
+incorporates physics-informed auxiliary training objectives to enhance both interpretability and
+performance. Its performance is validated in both simulation and collision data. The measured
+𝑐-jet (light-jet) rejection in data is improved by a factor of 3.5 (1.8) for a 70% 𝑏-jet tagging
+efficiency, compared to the previous algorithm. GN2 provides substantial benefits for physics
+analyses involving heavy-flavour jets, such as measurements of Higgs boson pair production
+and the couplings of bottom and charm quarks to the Higgs boson, and demonstrates the
+impact of advanced machine learning methods in experimental particle physics.
+© 2026 CERN for the benefit of the ATLAS Collaboration.
+Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+arXiv:2505.19689v2 [hep-ex] 26 Jan 2026
+
+=== PDF PAGE 2 ===
+The Large Hadron Collider (LHC) [1] is the world’s most powerful particle collider. It is used to extend
+the boundaries of our understanding of fundamental particles and their interactions. It offers a unique
+opportunity to test the Standard Model (SM) of particle physics, as well as search for new phenomena
+beyond the Standard Model (BSM). The demanding experimental conditions at the LHC necessitate
+continuous innovation by the main experiments, pushing them to apply cutting-edge technologies to
+efficiently identify physics processes of interest within the largest proton–proton (𝑝 𝑝) collision dataset
+ever recorded. Hadronic jets, collimated streams of particles initialised by quarks or gluons, are the
+most abundant physics objects in 𝑝 𝑝 collision events, and their characteristics are widely utilised in data
+analyses.
+The flavour of a hadronic jet is determined by the types of hadrons or leptons it contains. Flavour tagging
+concerns the classification of hadronic jets into those containing 𝑏-hadrons (𝑏-jets), 𝑐-hadrons (𝑐-jets),
+hadronic 𝜏-lepton decays (𝜏-jets), and none of the above (light-jets), using algorithms sensitive to the
+distinctive properties of the respective classes. Since the beginning of Run 1 of the LHC (2009–2013), the
+ATLAS experiment [2, 3] has achieved continuous improvement in the performance of these algorithms.
+The progress has mostly been driven by the integration of machine-learning techniques, including boosted
+decision trees and neural networks. The state-of-the-art algorithms used thus far to analyse the data at
+√
+𝑠 = 13 TeV from Run 2 of the LHC (2015–2018) [4, 5] led to very impactful physics results such as the
+observations of the Higgs boson decaying to bottom quarks [6] and its production in association with a
+pair of top quarks [7]. Flavour tagging plays an essential role in the comprehensive research programme
+of ATLAS, which includes precision measurements of the Higgs boson [8], top quark [9] and other SM
+processes [10], as well as the searches for supersymmetry [11] and other BSM phenomena [12]. This work
+describes a flavour tagging algorithm developed by the ATLAS Collaboration for the analysis of data from
+𝑝 𝑝 collisions recorded during Run 2 (2015–2018) and Run 3 (2022–2026) of the LHC at centre-of-mass
+energies of √
+𝑠 = 13 TeV and √
+𝑠 = 13.6 TeV, respectively.
+Flavour-tagging techniques rely on the long lifetime, high mass, high decay multiplicity and characteristic
+decay modes of 𝑏- and 𝑐-hadrons, and the properties of heavy-quark fragmentation [13]. The typical
+lifetime of the order of 𝜏 ≈ 1.5 ps [13–15] for 𝑏-hadrons in jets with transverse momenta in the range from
+tens to hundreds of GeV results in them travelling a mean flight length ⟨𝑙⟩ = 𝛽𝛾𝑐𝜏 in the range from few
+millimetres to centimetres before decaying, which often leads to a secondary vertex significantly displaced
+from the collision point. Displaced vertices can also be produced by 𝑐-hadrons, which have lifetimes of
+𝜏 ≈ 0.2 −1.0 ps, depending on the species [16–18], and 𝜏-leptons, which have a lifetime of 𝜏 ≈ 0.29 ps but
+a much lower decay multiplicity [18, 19]. The majority of 𝑏-jets also contain a tertiary vertex from the
+decay of the 𝑐-hadron produced in the 𝑏-hadron decay.
+The traditional flavour-tagging algorithms developed by the ATLAS Collaboration are based on a two-stage
+approach [4, 5, 20]. In the first step, specialised low-level algorithms employ complementary approaches
+to extract information from the trajectories of the charged-particle constituents (‘tracks’) associated with
+the jet. These specialised algorithms either rely on the properties of individual tracks or leverage their
+correlations with properties of other tracks to explicitly reconstruct displaced vertices. In the second step,
+the outputs of low-level algorithms are subsequently combined in a high-level multivariate classifier to
+maximise performance. The most recent algorithm employed by the ATLAS Collaboration, following this
+paradigm, is a deep neural network (DL1d) that leverages a low-level track-based algorithm (DIPS) [21]
+based on Deep Sets [22]. DL1d has already improved the performance by a factor of 1.3 relative to the
+most advanced algorithm used in published Run-2 physics analyses [5].
+The introduction of graph neural networks for object reconstruction in particle physics experiments [23]
+prompted a shift in the design strategy of the ATLAS Collaboration. This led to the development of
+2
+
+=== PDF PAGE 3 ===
+Jet 
+flavour 
+network
+Tr
+ack 
+origin 
+network
+Vertex 
+grouping 
+network
+Conditional track 
+representation
+Initial track 
+representation
+Tr
+ack 
+initi
+aliser
+Combined inputs
+ntracks × (njf + ntf)
+Track inputs
+ntracks × ntf
+Jet inputs
+njf
+Transverse impact 
+parameter
+light jet
+Primary vertex
+Secondary vertex Transverse 
+decay length
+b-jet
+Transformer
+Figure 1: Illustration of the GN2 algorithm with jet and track input variables, discriminating between jet flavours
+by exploiting secondary vertices and other properties stemming from the displaced decays of 𝑏-hadrons, in the
+transverse plane. The jet features are copied for each track associated with the jet. The combined vectors are then fed
+into a per-track initialisation network, followed by a transformer encoder and a global representation of the jet. 𝑛jf
+(𝑛tf) corresponds to the number of jet (track) features. The pooled jet representation and output track embeddings
+are provided as inputs to the three task-specific networks. Details of the GN2 architecture are summarised in the
+Methods section.
+the General Network (GN) series of flavour-tagging algorithms, which directly process track and jet
+information and are trained using target labels extracted from Monte Carlo (MC) simulation. In parallel, the
+CMS Collaboration followed a similar trajectory, evolving from two-stage approaches [24, 25] to unified,
+end-to-end network architectures [26–28].
+The ATLAS GN tagger uses jet flavour prediction as its primary training target and introduces auxiliary
+training objectives to reconstruct the internal structure of a jet by grouping tracks originating from a common
+vertex and by predicting the underlying physics process from which each track originated. Such physics
+domain knowledge is embedded in a combined loss function that enables a simultaneous optimisation,
+instead of relying on manually optimised low-level algorithms. This flexible structure allows the swift
+re-tuning of the algorithms to suit alternative experimental conditions or physics goals. A demonstrator
+version, GN1, achieves the above design goals using a graph-neural-network [29], while the deployment
+version, GN2, applies a single transformer model [30], illustrated in Figure 1.
+Details of the algorithm architectures are summarised in the Methods section, together with descriptions of
+the ATLAS detector, simulation samples, physics objects, and analysis strategies.
+GN2 achieves a remarkable performance boost compared with the DL1d algorithm, with improvements by
+a factor of 1.5–4 observed in its major experimental applications. The deployment of GN2 should greatly
+enhance the physics reach of ATLAS in flagship analyses, such as the search for Higgs pair production and
+the 𝑐-quark Yukawa coupling measurement, for which the projected sensitivity at the High Luminosity
+LHC is improved by up to 30% [31]. These improvements do not come with a strong dependence on
+the choice and configuration of the MC event generator, and are confirmed by measured performance in
+recorded collisions. The innovative auxiliary training objectives bring excellent interpretability and opens
+up new avenues for future applications.
+3
+
+=== PDF PAGE 4 ===
+To facilitate future developments and strengthen the connections between collider experiments and the
+broader scientific research community, a subset of the training sample with all the required information to
+train GN2 can be acquired via the CERN Open Data Portal [32, 33].
+Results
+Algorithm performance in simulation
+The performance of a 𝑏-tagging algorithm is evaluated based on its ability to reject 𝑐-, 𝜏- and light-jets
+while maintaining a desired 𝑏-jet tagging efficiency. Similarly, the 𝑐-tagging performance is assessed by its
+capability to distinguish 𝑐-jets from the other jet flavours. The data samples used for training and evaluation
+of the model must contain jets from all flavour classes. This is achieved using jets sampled from a mixture
+of simulated top quark pair (𝑡𝑡¯) and 𝑍
+′
+events, where the latter sample considers a hypothetical heavy BSM
+particle, 𝑍
+′
+[34], which can decay into pairs of 𝑏-quarks, 𝑐-quarks, 𝜏-leptons or light quarks, to populate
+jets in the TeV regime. The samples are simulated with MC event generators at centre-of-mass energies of
+both √
+𝑠 = 13 TeV and √
+𝑠 = 13.6 TeV. All simulated events are processed through the ATLAS detector
+simulation [35] based on Geant4 [36–38]. Further details on the simulation samples and the jet flavour
+labelling are discussed in the Methods section. A mixture of samples generated at √
+𝑠 = 13.6 TeV and
+√
+𝑠 = 13 TeV is used in the training, to achieve similar performance in both conditions. In this section, the
+performance evaluated with Run-3 samples at √
+𝑠 = 13.6 TeV is presented. Jets are classified for 𝑏-tagging
+using a single discriminant 𝐷𝑏, which combines the algorithm’s jet flavour prediction output probabilities
+of a jet being a 𝑏-jet (𝑝𝑏), a 𝑐-jet (𝑝𝑐), a 𝜏-jet (𝑝𝜏) or a light-jet (𝑝𝑢) and is defined as:
+𝐷𝑏 = log 
+𝑝𝑏
+𝑓𝑐 𝑝𝑐 + 𝑓𝜏 𝑝𝜏 + (1 − 𝑓𝑐 − 𝑓𝜏) 𝑝𝑢
+
+.
+A jet is considered 𝑏-tagged if it has a 𝐷𝑏 score larger than a given value. A selection on 𝐷𝑏 defines an
+operating point (OP) associated with a certain inclusive 𝑏-jet tagging efficiency, calculated as the fraction
+of 𝑏-jets that are 𝑏-tagged. The mis-tagging rate for 𝑐-, 𝜏- and light-jets is determined by the fraction of jets
+that are mistakenly 𝑏-tagged, for that given jet flavour, and the rejection is the reciprocal of the mis-tagging
+rate. The ATLAS Collaboration uses a sample of simulated 𝑡𝑡¯ events, where most jets have a 𝑝T below
+250 GeV, to derive the OPs. The free parameters 𝑓𝑐(𝜏) determine the relative weighting between 𝑝𝑐(𝜏)
+and 𝑝𝑢 in the discriminant 𝐷𝑏. The specific value of 𝑓𝑐 is determined through an optimisation procedure
+aimed at obtaining a certain balance between rejections of 𝑐-jets and light-jets in simulated 𝑡𝑡¯ events. The
+value of 𝑓𝜏 is optimised to maximise the 𝜏-jet rejection, while ensuring a negligible impact upon the 𝑐-jet
+and light-jet rejection. In the case of GN2, 𝑓𝑐(𝜏)
+is set to 0.2 (0.05), while for DL1d, which does not have a
+𝜏-jet output in the model, 𝑓𝑐 is set to 0.018. For GN2, 𝑓𝑐 is tuned to reach a much higher 𝑐-jet rejection,
+while still achieving a better light-jet rejection, compared with DL1d.
+Figure 2 illustrates the tagger performance in terms of the 𝑐-jet, light-jet and 𝜏-jet rejection as a function of
+the 𝑏-jet tagging efficiency. In both the 𝑡𝑡¯ and 𝑍
+′
+samples, GN2 exhibits significantly better background
+rejection compared with DL1d across the entire range of 𝑏-jet tagging efficiencies. The degree of
+improvement depends on the 𝑏-jet tagging efficiency. In the 𝑡𝑡¯sample, the 𝑐-jet (light-jet) rejection of GN2
+improves by more than a factor of 3 (1.6), compared with DL1d, for the most commonly used 70% OP. The
+performance of both algorithms starts degrading once the jet 𝑝T reaches around 200 GeV, due to several
+confounding factors, including suboptimal tracking performance in dense environments where the spatial
+4
+
+=== PDF PAGE 5 ===
+separation between tracks becomes smaller [39]. In the 𝑍
+′
+sample, applying the 70% OP selection on 𝐷𝑏
+yields a 𝑏-jet tagging efficiency of 30%, and the 𝑐-jet (light-jet) rejection of GN2 improves by more than
+a factor of 3 (4), compared with DL1d. The inclusion of a 𝜏-jet output node in GN2 leads to an even
+greater enhancement in the 𝜏-jet rejection, by up to a factor of 8 (9) for jets in the 𝑡𝑡¯ (𝑍
+′
+) sample, without
+significantly degrading the 𝑐-jet and light-jet rejection.
+10
+0
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+Background rejection
+ATLAS Simulation
+s = 13.6 TeV, tt events
+20 < pT < 250 GeV, | | < 2.5
+GN2
+DL1d
+2
+4 c-jets
+1.0
+1.5
+2.0
+Light-jets
+0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00
+b-jet efficiency
+2.5
+5.0
+7.5 -jets
+Ratio to DL1d
+(a)
+10
+0
+10
+1
+10
+2
+10
+3
+10
+4
+Background rejection
+ATLAS Simulation
+s = 13.6 TeV, Z' events
+250 < pT < 6000 GeV, | | < 2.5
+GN2
+DL1d
+2
+4
+c-jets
+2
+4
+Light-jets
+0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+b-jet efficiency
+5
+-jets
+Ratio to DL1d
+(b)
+Figure 2: The 𝑐-jet (solid), light-jet (dotted-dashed), and 𝜏-jet (dashed) rejections as a function of the 𝑏-jet
+tagging efficiency for (a) jets in the 𝑡𝑡¯ sample with 20 < 𝑝T < 250 GeV and (b) jets in the 𝑍
+′
+sample with
+250 < 𝑝T < 6000 GeV, for both GN2 (light blue) and DL1d (dark orange). The performance of GN2 with respect to
+DL1d is shown in the bottom panels. The 68% confidence intervals calculated assuming no correlations between
+the rejections are indicated by the shaded regions, and the uncertainty on each rejection is obtained according to a
+binomial distribution.
+The performance of a 𝑐-tagging algorithm is evaluated based on its ability to reject 𝑏-, 𝜏- and light-jets
+while maintaining a desired 𝑐-jet tagging efficiency. Due to the end-to-end architecture that does not rely
+on low-level tagger inputs, GN2 can seamlessly be adapted as a 𝑐-tagging algorithm without re-training
+any lower level algorithms. Similar to 𝑏-tagging, a discriminant, 𝐷𝑐, is constructed as:
+𝐷𝑐 = log 
+𝑝𝑐
+𝑓𝑏 𝑝𝑏 + 𝑓𝜏 𝑝𝜏 + (1 − 𝑓𝑏 − 𝑓𝜏) 𝑝𝑢
+
+,
+where 𝑓𝑏(𝜏)
+is the free parameter that controls the flavour composition of the background in the background
+hypothesis. The value chosen for 𝑓𝑏(𝜏)
+is 0.3 (0.01) for GN2, while for DL1d, 𝑓𝑏 is 0.1, following a similar
+optimisation procedure as for 𝐷𝑏.
+5
+
+=== PDF PAGE 6 ===
+The 𝑐-tagging performance of DL1d and GN2 are compared in Figure 3, which shows a significant
+improvement in performance across all 𝑐-jet tagging efficiencies. The 𝑏-jet (light-jet) rejection is enhanced
+by a factor of approximately 1.8 (2.2) in the 𝑡𝑡¯sample at a 30% 𝑐-jet tagging efficiency, which is a typical
+choice in measurements of the 𝑐-quark Yukawa coupling [40]. The 𝑏-jet (light-jet) rejection is increased
+by a factor of approximately 2.7 (4.7) in the 𝑍
+′
+sample at a corresponding efficiency of 10%. The 𝜏-jet
+rejection is improved by a factor of approximately 15 (40) in the 𝑡𝑡¯ (𝑍
+′
+) sample.
+10
+0
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+Background rejection
+ATLAS Simulation
+s = 13.6 TeV, tt events
+20 < pT < 250 GeV, | | < 2.5
+GN2
+DL1d
+1.5
+2.0 b-jets
+1
+2
+Light-jets
+0.1 0.2 0.3 0.4 0.5 0.6
+c-jet efficiency
+0
+50
+-jets
+Ratio to DL1d
+(a)
+10
+0
+10
+1
+10
+2
+10
+3
+10
+4
+Background rejection
+ATLAS Simulation
+s = 13.6 TeV, Z' events
+250 < pT < 6000 GeV, | | < 2.5
+GN2
+DL1d
+1
+2
+b-jets
+2
+4
+Light-jets
+0.1 0.2 0.3 0.4 0.5 0.6
+c-jet efficiency
+20
+40 -jets
+Ratio to DL1d
+(b)
+Figure 3: The 𝑏-jet (solid), light-jet (dotted-dashed), and 𝜏-jet (dashed) rejections as a function of the 𝑐-jet
+tagging efficiency for (a) jets in the 𝑡𝑡¯ sample with 20 < 𝑝T < 250 GeV and (b) jets in the 𝑍
+′
+sample with
+250 < 𝑝T < 6000 GeV, for both GN2 (light blue) and DL1d (dark orange). The performance of GN2 relative to
+DL1d is shown in the bottom panels. The 68% confidence intervals calculated assuming no correlations between
+the rejections are indicated by the shaded regions, and the uncertainty on each rejection is obtained according to a
+binomial distribution.
+Algorithm performance in collision data
+Due to imperfections in the physics modelling of the MC generator and in the simulated detector response,
+the distribution of the input variables to the algorithms and their correlations differ between collision
+data and simulation, resulting in a performance difference. It is not practical to correct each individual
+mis-modelled variable, so dedicated calibration analyses are employed to measure the tagging efficiency
+of 𝑏-jets, 𝑐-jets and light-jets for pre-defined operating points (OPs) directly [4, 41, 42]. In the case of
+the GN2 algorithm, five OPs are defined corresponding to inclusive 𝑏-jet tagging efficiencies of 65%,
+70%, 77%, 85% and 90% while for DL1d four OPs are constructed corresponding to inclusive 𝑏-jet
+tagging efficiencies of 60%, 70%, 77% and 85%. The results presented in this paper are derived using 𝑝 𝑝
+collision data recorded during Run 2 of the LHC at √
+𝑠 = 13 TeV, corresponding to an integrated luminosity
+6
+
+=== PDF PAGE 7 ===
+0.55 0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95
+b-jet efficiency
+10
+0
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+Light-jet rejection
+ATLAS
+140 fb
+1
+, s = 13 TeV
+tt 1-lepton(e or ) events
+20 < pT < 250 GeV, | | < 2.5
+GN2
+GN2 calibrated
+DL1d
+DL1d calibrated
+(a)
+0.55 0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95
+b-jet efficiency
+10
+0
+10
+1
+10
+2
+10
+3
+c-jet reje
+ctio
+n
+ATLAS
+140 fb
+1
+, s = 13 TeV
+tt 1-lepton(e or ) events
+20 < pT < 250 GeV, | | < 2.5
+GN2
+GN2 calibrated
+DL1d
+DL1d calibrated
+(b)
+Figure 4: The (a) light-jet rejection and (b) 𝑐-jet rejection as a function of the 𝑏-jet tagging efficiency for GN2
+(light blue) and DL1d (dark orange), directly obtained in simulation (hollowed circle) and rescaled to match those
+in collision data (solid point). The horizontal error bands correspond to the uncertainties associated with the 𝑏-jet
+tagging efficiency measurement, while the vertical error bands indicate the uncertainties associated with the rejection
+measurements. A 𝑡𝑡¯ MC simulation sample with a reconstructed electron or muon is used to derive these results.
+of 140 fb−1
+. The tagging performance in data for 𝑏-jets, 𝑐-jets, and light-jets is measured, in order to
+obtain jet-flavour-dependent simulation-to-data correction factors, binned in jet 𝑝T. They are applied to
+MC-simulated jets to rescale their tagging efficiencies and mis-tagging rates to match those measured in
+collision data. The calibration of 𝑏-jets and 𝑐-jets is done with 𝑡𝑡¯ events [4, 41], while the calibration of
+light-jets is performed using jets produced in association with a 𝑍 boson [42]. Details of the calibration
+analyses are provided in the Methods section.
+Figure 4 presents the calibrated tagging efficiencies and rejections of GN2 and DL1d, along with their
+associated uncertainties, for each OP. The inclusive efficiencies and rejections are obtained by averaging
+over the events in a simulated 𝑡𝑡¯ sample after requiring the presence of one reconstructed electron or
+muon. The original efficiencies from the simulated sample are included as references, enabling a direct
+comparison that shows similar agreement between data and simulation for both GN2 and DL1d. The
+GN2 tagger demonstrates clear improvements over DL1d in collision data. For instance, the measured
+𝑐-jet (light-jet) rejection in data is increased by a factor of 3.5 (1.8) for the 70% OP. The measurements in
+data provide conclusive evidence of the enhanced performance enabled by advanced machine-learning
+algorithms in identifying heavy-flavour jets at the LHC.
+Discussion
+Key challenges with machine-learning algorithms based on low-level inputs, such as GN2, include the
+potential loss of interpretability and the need to ensure consistent performance across different MC
+simulation methods. Robustness against these potential shortcomings is critical to prevent the algorithm
+from relying on unphysical features of the training sample. In this section, these aspects are discussed
+further.
+Physics inspiration and the auxiliary training objectives: A key strength of the GN2 model lies in
+7
+
+=== PDF PAGE 8 ===
+its physics-inspired constraints, which aid the main task of jet classification while also improving the
+interpretability of the model. This is accomplished by incorporating two additional training objectives:
+predicting the origin of tracks associated with the jet and determining which tracks originate from common
+vertices. These objectives are not strictly necessary for the jet classification task and are therefore referred
+to as auxiliary training objectives. The technical implementation details are provided in the Methods
+section.
+The track classification auxiliary training objective aims to estimate the probability that a track originates
+from one of the following physical processes: a pile-up interaction [43]; the primary hard-scatter interaction;
+the decay of a 𝑏-hadron; the decay of a 𝑐-hadron produced by a 𝑏-hadron; the decay of a 𝑐-hadron; the decay
+of a 𝜏-lepton; or any other secondary source. Class-weighted losses are applied during training to mitigate
+the class imbalance, and tracks are classified by the highest-probability category during evaluation. The
+class weights are fixed and based on the inverse class frequencies in the training dataset. The classification
+efficiency refers to the probability for the track’s origin to be correctly predicted, in a group of tracks
+with certain target origins, while the purity corresponds to the fraction of correctly predicted tracks,
+within a group of tracks with specific predicted origins. When combining the two categories involving
+a 𝑏-hadron, GN2 achieves an efficiency (purity) of 84% (84%). For tracks that are not of heavy-flavour
+(HF) origin, the efficiency (purity) is 85% (96%). The above performance is evaluated in Run-3 samples at
+√
+𝑠 = 13.6 TeV.
+The vertex finding auxiliary training objective aims to identify groups of tracks that originate from a
+common spatial point. Each pair of tracks in the jet is classified to determine whether they share the same
+vertex. Using these pair-wise compatibility scores, track groups (vertices) are formed via a union-find
+algorithm [44]. SV1, an existing secondary vertex reconstruction algorithm detailed in Ref. [5], serves
+as a reference algorithm. SV1 reconstructs a single inclusive vertex, whereas GN2 can identify multiple
+vertices of various types within a jet. Therefore, an aggregation procedure is applied to the output of
+GN2 to enable a direct comparison with the single inclusive vertex produced by SV1. To study the vertex
+properties of 𝑏-jets, the identified vertex containing the most tracks that have a predicted primary origin is
+removed, as this is likely to be the vertex associated with the primary hard-scatter interaction. Next, the
+remaining GN2 vertices that include at least one track predicted to have a HF origin are consolidated into a
+single inclusive vertex.
+An inclusive reference vertex is constructed in simulated events, by combining all tracks from simulation￾level secondary vertices within the jet that consist solely of HF tracks. A Billoir fit [45] is performed on
+the tracks selected by the GN2 and SV1 vertex finding algorithms to obtain the transverse displacement of
+the vertex, 𝐿𝑥 𝑦. Figure 5 presents the 𝐿𝑥 𝑦 distribution for vertices obtained with GN2 and DL1d in 𝑏-jets
+from a simulated 𝑡𝑡¯ sample, compared to the expected distribution derived from the inclusive reference
+vertex. GN2 consistently achieves higher vertex-finding efficiency than SV1 across the entire distribution
+of 𝐿𝑥 𝑦. The mass of the secondary vertex can also be calculated using the momenta of tracks selected by
+the vertex finding algorithms. The distribution of the secondary vertex mass normalised to unity is also
+shown in Figure 5. Remarkably, the mass of the secondary vertices reconstructed by GN2 exhibits good
+agreement with the mass of the inclusive reference vertex, despite the vertex mass not being explicitly
+targeted during training. Unlike SV1, GN2 does not impose explicit selections on track properties such as
+impact parameters. This leads to a higher efficiency, albeit with a small contamination from non-HF tracks,
+which results in a slightly larger secondary vertex mass.
+GN2 identifies all types of vertices including those from material interactions, photon conversions, and
+in-flight decays of light hadrons. Consequently, the rate of vertices reconstructed in light-jets, defined as
+the fraction of light-jets containing a GN2 inclusive vertex, is expected to be much higher compared to
+8
+
+=== PDF PAGE 9 ===
+SV1 if no selections are applied in the aggregation procedure described above. Figure 6 confirms this with
+light-jets in the simulated 𝑡𝑡¯sample and shows that once requiring the GN2 inclusive vertex to contain at
+least one track with predicted HF origin, the vertexing rate is dramatically reduced, down to the same level
+as SV1.
+10
+2
+10
+1
+10
+0
+Normalised to number of jets
+ATLAS Simulation
+s = 13.6 TeV
+tt, 20 < pT < 250 GeV, | | < 2.5
+Inclusive vertexing, b-jets
+GN2 + vertex fit
+MC truth + vertex fit
+SV1 + vertex fit
+0 5 10 15 20 25 30
+Lxy [mm]
+0.5
+1.0
+Ratio
+(a)
+0.00
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+Normalised to number of vertices
+ATLAS Simulation
+s = 13.6 TeV
+tt, 20 < pT < 250 GeV, | | < 2.5
+Inclusive vertexing, b-jets
+GN2
+MC truth
+SV1
+0 1 2 3 4 5
+mSV [GeV]
+0.75
+1.00
+1.25
+Ratio
+(b)
+Figure 5: The (a) transverse displacement and the (b) mass of the secondary vertex obtained by the GN2 (solid) and
+the SV1 (dotted) algorithms. While the transverse displacement is calculated via a Billoir fit performed on the tracks
+assigned to the vertex by the respective algorithm, the vertex mass is defined as the invariant mass of the same set of
+assigned tracks. MC truth (dashed) corresponds to an inclusive reference vertex derived from all tracks associated to
+simulation-level vertices containing only 𝑏-hadron tracks. The last bin in each plot includes overflow.
+50 100 150 200
+pT [GeV]
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+Vertex rate
+ATLAS Simulation Preliminary
+s = 13.6 TeV, tt events
+20 < pT < 250 GeV, | | < 2.5
+Inclusive vertexing, light-jets
+GN2
+GN2 (all)
+SV1 Figure 6: The rate of inclusive vertices reconstructed by the GN2 algorithm in light-jets as a function of the jet 𝑝T,
+without any selections (dotted-dashed) and with the requirement of the vertex containing at least one track with
+predicted HF origin (solid). Results from the SV1 algorithm are added as a reference (dotted). The 68% confidence
+intervals calculated according to a binomial distribution are indicated by the shaded regions.
+To test the impact of the auxiliary objectives on the performance of the main jet classification task, various
+GN2 configurations are trained and tested. The resulting 𝑐-jet and light-jet rejections are reduced by up to
+30% in both the 𝑡𝑡¯ and 𝑍
+′
+samples, if both auxiliary objectives are disabled. Disabling only one of them is
+9
+
+=== PDF PAGE 10 ===
+sufficient to recover most of the performance loss, indicating that the two tasks are highly correlated in
+their contributions to the main jet flavour tagging objective.
+Although the outputs from the auxiliary tasks described above mainly serve as a way to improve HF
+jet identification, with future development, their direct usage in physics analyses remains a promising
+possibility.
+Robustness against generator modelling variations: Flavour-tagging algorithms are sensitive to the
+modelling of parton showering, hadronisation, the underlying event and the properties of heavy-hadron
+decays [46]. To evaluate the robustness of the algorithm against modelling variations, a comparative study
+of the GN2 performance in the nominal simulated 𝑡𝑡¯sample used during training and samples produced
+with alternative generator settings, both with Run-2 conditions at √
+𝑠 = 13 TeV, is performed.
+The event and showering generators adopted for the nominal sample are Powheg Box [47–50] and
+Pythia [51], respectively. The alternative samples include the use of a different showering generator
+(Herwig [52–54]), whilst keeping the same event generator, and the use of Sherpa [55] which applies a
+different approach to all parts of the event generation model. The ratio between the efficiency obtained
+with an alternative generator setup and with the nominal setup is used to quantify the generator dependence
+of the algorithms.
+Table 1 shows these ratios for 𝑏-jets, 𝑐-jets, and light-jets at the 70% and 85% OPs. Across the tested
+generators, the GN2 performance for 𝑏-jets agrees to within 1–2%, for 𝑐-jets the agreement is within 10%,
+and for light-jets the agreement is within 4%. Similar agreement is also observed for other OPs. The level
+of relative disagreement between DL1d and GN2 is close to unity, suggesting that despite the GN2 model
+being significantly more complex, it does not induce additional generator dependence.
+Table 1: Ratios of the efficiencies obtained with samples using alternative MC generators, relative to those in
+the nominal Powheg Box + Pythia sample used during training of the algorithm. Statistical uncertainties from
+evaluating the same algorithm on different samples are negligible and thus not shown.
+70% OP 85% OP
+DL1d GN2 DL1d GN2
+Powheg Box + Herwig
+𝑏-jets 0.984 0.984 0.989 0.990
+𝑐-jets 0.951 0.904 0.977 0.983
+light-jets 1.003 1.000 1.015 1.011
+Sherpa
+𝑏-jets 0.996 0.995 0.992 0.992
+𝑐-jets 0.923 0.938 0.947 0.931
+light-jets 1.039 1.013 1.077 1.042
+Methods
+The ATLAS detector
+The ATLAS experiment [2, 3] at the LHC is a multipurpose particle detector with a forward–backward
+symmetric cylindrical geometry and a solid-angle coverage of almost 4𝜋. It is used to record particles
+10
+
+=== PDF PAGE 11 ===
+produced in 𝑝 𝑝 collisions at the LHC through a combination of particle position and energy measurements.
+It includes an inner-tracking detector (ID) surrounded by a thin superconducting solenoid providing a 2 T
+axial magnetic field, electromagnetic and hadronic calorimeters, and a muon spectrometer. The ID consists
+of silicon pixel, silicon microstrip, and transition radiation tracking detectors. The muon spectrometer
+surrounds the calorimeters and is based on three large superconducting air-core toroidal magnets with eight
+coils each providing a field integral of between 2 T m and 6 T m across the detector.
+An extensive software suite [56] is used in data simulation, the reconstruction and analysis of real and
+simulated data, detector operations, and the trigger and data acquisition systems of the experiment.
+Monte Carlo simulation samples
+The 𝑡𝑡¯ events at √
+𝑠 = 13 TeV are modelled using the Powheg Box v2 [47–50] event generator at next-to￾leading-order (NLO) in the strong coupling constant 𝛼s with the NNPDF3.0nlo [57] parton distribution
+function (PDF) set and the first-gluon-emission cut-off scale parameter ℎdamp set to 1.5𝑚𝑡
+, with a top-quark
+mass of 𝑚𝑡 = 172.5 GeV. Parton shower, hadronisation, and the underlying event are modelled by
+interfacing Powheg Box v2 to Pythia 8.230 [51], using the A14 set of tuned parameters [58] and the
+NNPDF2.3lo PDF set [59]. The decays of 𝑏- and 𝑐-hadrons are performed by EvtGen 1.6.0 [60].
+The 𝑍
+′
+events at √
+𝑠 = 13 TeV used to enrich the dataset with high-𝑝T jets are generated using Pythia 8.243
+with the A14 set of tuned parameters for the underlying event and the leading-order (LO) NNPDF2.3lo
+PDF set. A broad jet 𝑝T spectrum with an almost uniform distribution between 250 GeV and 1.5 TeV and a
+tail expanding to 6 TeV is obtained by applying a weighting factor that modifies the original cross-section
+of the 𝑍
+′
+resonance. The decays to 𝑏𝑏¯, 𝑐𝑐¯, and light-flavour quark pairs are set to have equal branching
+ratios, while the branching ratio to 𝜏𝜏¯ is set to 5%. The decays of 𝑏- and 𝑐-hadrons are performed by
+EvtGen 1.7.0.
+The 𝑡𝑡¯ and 𝑍
+′
+events at √
+𝑠 = 13.6 TeV are produced using the same setups, but with newer versions of
+Pythia (8.308) and EvtGen (2.1.1).
+The impact of using different generators and models for parton shower and hadronisation is studied with
+simulated 𝑡𝑡¯ events from alternative generator setups. Two scenarios are considered, where either only
+the showering algorithm is varied, or the entire chain is changed. The former is achieved by interfacing
+the Powheg Box v2 generator with the Herwig 7.2.1 [52–54] showering algorithm using the Herwig 7.1
+default set of tuned parameters, with the NNPDF3.0nlo set of PDFs. The latter is realised with the
+Sherpa 2.2.12 [55] generator, using NLO-accurate matrix elements for up to one additional parton, and
+LO-accurate matrix elements for up to four additional partons, calculated with the COMIX [61] and
+OpenLoops [62–64] libraries. The Sherpa parton shower [65, 66] is applied using the MEPS@NLO
+prescription [67–70] and the set of tuned parameters developed by the Sherpa authors to match the
+NNPDF3.0nnlo set of PDFs.
+Objects for flavour tagging
+ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point in the centre
+of the detector and the 𝑧-axis along the beam pipe. The 𝑥-axis points from the nominal interaction point to
+the centre of the LHC ring, and the 𝑦-axis points upwards. Cylindrical coordinates (𝑟, 𝜙) are used in the
+transverse plane, 𝜙 being the azimuthal angle around the 𝑧-axis. The pseudorapidity is defined in terms of
+the polar angle 𝜃 as 𝜂 = − ln tan(𝜃/2). Angular distance is measured in units of Δ𝑅 ≡
+√︁
+(Δ𝜂)
+2 + (Δ𝜙)
+2
+.
+The fundamental objects for flavour tagging are jets, tracks, and vertices. A concise description of these
+objects is provided below, while a detailed description is available in Ref. [5].
+11
+
+=== PDF PAGE 12 ===
+Tracks are reconstructed from ID information [39, 71]. To be considered for jet flavour tagging they are
+required to be within |𝜂| < 2.5, have 𝑝T > 0.5 GeV and satisfy criteria designed to reject fake and poorly
+measured tracks [72].
+Primary vertices (PVs) are reconstructed from tracks in the luminous region of the colliding LHC beams
+using an adaptive multi-vertex filter [73, 74]. The PV with the highest sum of squared transverse momenta
+𝑝T of contributing tracks is selected as the primary interaction point (IP) and provides the reference point
+in an event. The distance of closest approach of a track to the IP, the ‘perigee’, is indicated in the transverse
+plane by the transverse impact parameter 𝑑0. The longitudinal separation between the IP and the point on
+the track where 𝑑0 is measured, is indicated by the longitudinal impact parameter 𝑧0. Tracks with large
+impact parameters can indicate the presence of displaced decays, providing vital information to the flavour
+tagging algorithms.
+The DIPS and GN2 algorithms require tracks to be reconstructed from at least 8 hits in the silicon detector,
+at most one of which contributes to two tracks, at most two ‘holes’ in the silicon detector, and at most one
+hole in the pixel detector, where hole denotes a hit missing where one is expected from the track trajectory.
+Further, requirements on the track impact parameters, |𝑑0| < 3.5 mm and |𝑧0 sin 𝜃| < 5 mm, retain charged
+particle tracks originating from HF hadron decays while suppressing tracks from other sources.
+Jets are reconstructed using the anti-𝑘𝑡 algorithm [75] with radius parameter 𝑅 = 0.4 using the ‘fastjet’
+package [76]. The input constituents are ‘particle-flow’ objects [77] which combine signals in the ATLAS
+calorimeters and ID to exploit precision tracking information for low-𝑝T charged hadrons spatially matched
+with calorimeter energy deposits. The jet 𝑝T is corrected to the corresponding particle-level jet 𝑝T using
+calibration techniques described in Ref. [78]. The jets are required to have 𝑝T > 20 GeV (to be within the
+valid calibration range) and |𝜂| < 2.5 (to be within the tracking fiducial volume set by the ID acceptance)
+to be considered for flavour tagging. Additionally, jets from pile-up interactions are suppressed by the ‘jet
+vertex tagger’ (JVT) algorithm [79], which uses the ID tracks associated with the jet to form a multivariate
+discriminant. The JVT efficiency for jets originating from the IP is 92% in the simulation. The jet axis,
+derived from the sum of the momenta of the jet constituents, is used when associating tracks with the jet
+and when assigning a lifetime sign to the tracks’ impact parameters. Tracks are associated with a given jet
+by setting a maximum allowed angular separation Δ𝑅 between the track momenta, defined at the perigee,
+and the jet axis. The Δ𝑅 requirement varies as a function of the jet 𝑝T to account for decay products from
+𝑏-hadrons with larger 𝑝T being more collimated, ranging from 0.45 for jet 𝑝T = 20 GeV to 0.26 for jet
+𝑝T > 150 GeV. If a track can be associated with multiple jets, it is assigned to the jet closest in Δ𝑅. The
+sign convention for the lifetime-signed impact parameters assigns a positive sign if the track intersects
+the jet axis in the transverse plane in front of the IP, and a negative sign if the intersection lies behind the
+IP [20]. The flavour labels of jets in simulation are assigned depending on the hadrons associated with the
+jet. The set of weakly decaying hadrons and hadronically decaying 𝜏-leptons with 𝑝T > 5 GeV within a
+Δ𝑅 < 0.3 cone around the jet axis determines the jet flavour following a sequential labelling decision tree.
+A jet is labelled a 𝑏-jet if it contains at least one 𝑏-hadron with 𝑝T > 5 GeV, a 𝑐-jet (𝜏-jet) if it contains at
+least one 𝑐-hadron (hadronic 𝜏-lepton decay) and no 𝑏-hadron, and otherwise it is called a light-jet, where
+the latter is an inclusive label for the jets originating from a light quark or gluon. These labels are used
+both for training the algorithms, and for evaluating their performance.
+Targets for the auxiliary training objectives are obtained from the simulation-level event record. Tracks are
+matched with simulation-level particles using the approach in Ref. [39]. Track-origin labels are obtained
+by analysing the decay history of the matched particles, while track-pair-compatibility labels are obtained
+by considering the production vertices of the matched particles. Production vertices within 0.1 mm in
+12
+
+=== PDF PAGE 13 ===
+3D space are merged to account for the finite resolution of the detector, and the matched track-pairs are
+assigned the same label.
+The algorithm architecture
+The primary flavour tagging algorithm presented is GN2, which directly learns from the charged particle
+tracks via a transformer-based model. Another algorithm, DL1d, which follows previous approaches of
+combining inputs from several low-level taggers in a multivariate technique, is also discussed as a baseline
+reference.
+Both algorithms are trained on a dataset created from combining the simulated 𝑡𝑡¯ and 𝑍
+′
+samples described
+earlier in this section. Jets with 20 GeV < 𝑝T < 250 GeV are taken from the 𝑡𝑡¯ sample and those with
+250 GeV < 𝑝T < 6 TeV from the 𝑍
+′
+sample. The 𝑏-jets, light-jets and 𝜏-jets are re-sampled in 𝑝T and 𝜂 to
+match the corresponding 𝑐-jet distributions, thereby preventing the models from discriminating between jet
+flavours based on relative kinematic differences. All input variables to the algorithm training are normalised
+to have zero mean and unit variance. A coarse optimisation of hyperparameters, such as the number of
+layers, is carried out for both algorithms, and the AdamW [80] (Adam [81]) optimizer is used for training
+GN2 (DL1d) with the learning rate and optimisation schedule defined below.
+The GN2 algorithm is an end-to-end architecture without any intermediate taggers involved, as illustrated in
+Figure 1. It is based on the GN1 [29] demonstrator version of the algorithm, replacing the Graph Attention
+Network [82] with a Transformer [30] along with other architecture optimisations. GN2 directly accepts
+information about the jet and associated tracks that are provided by the standard event reconstruction. This
+results in a simpler and more flexible algorithm which can be easily reoptimised for different physics
+objectives, such as the identification of highly energetic Higgs bosons decaying into 𝑏- or 𝑐-quark pairs [83],
+jet energy regression [84], exotic jet tagging [85], and jet flavour tagging in the ATLAS high-level
+trigger [86]. Additionally, when compared with DL1d, GN2 is trained to recognise an additional class of
+jets that originate from hadronic 𝜏-lepton decays.
+First, the jet features are concatenated with a fixed-size array of 40 track feature vectors, with unused
+elements masked when fewer than 40 tracks are available, allowing it to handle variable track multiplicity
+without zero-padding. Tracks with smaller absolute track impact parameter significance [5] are dropped
+if there are more than 40 tracks. The same inputs as for GN1 [29] are used, except the variables related
+to holes in the silicon tracker, which were found to have no impact on performance. A complementary
+interpretability analysis using integrated gradients shows that the impact parameter significances and
+angular variables emerge as particularly influential [87]. The combined vectors are then fed into a per-track
+initialisation network, which is composed of a single hidden layer and an output layer of size 256. Next,
+a four layer transformer encoder with eight attention heads is used to produce track representations that
+incorporate information from other tracks inside the jet. The transformer has an embedding size of 256
+and a feed-forward dimension of 512, and uses pre-LayerNorm [88]. After the transformer encoder, the
+output track representations are projected down to dimension 128, and a global representation of the jet is
+produced using attention pooling [89]. The pooled jet representation and output track embeddings are
+provided as inputs to the three task-specific networks. The primary objective, jet classification, uses only
+the pooled jet representation and has an output layer of size 4, providing 𝑝𝑏, 𝑝𝑐, 𝑝𝑢 and 𝑝𝜏 for the final
+discriminant definition. The two auxiliary objectives introduced in the Discussion section take advantage of
+the track embeddings, in addition to the global jet representation. The track origin classification task uses
+individual track embeddings and has 7 output categories, while the track-pair compatibility task employs a
+binary output layer, using the embeddings of each pair of tracks. Each task-specific network consists of
+three hidden layers with size 128, 64 and 32, respectively. ReLU activation [90] is used throughout the
+13
+
+=== PDF PAGE 14 ===
+model. Cross-entropy loss is used by all three task-specific networks, which is combined with tunable
+weights to form the final loss function, enabling a simultaneous optimisation of the entire algorithm. GN2
+applies the same auxiliary network structures and loss weights as GN1 [29].
+GN2 is trained using a 4-fold strategy to prevent memorisation of the training samples, given their possible
+use in ATLAS physics analyses. Jets are assigned to one of the four folds pseudo-randomly, with a number
+seeded by the event number and discrete jet properties. Four classifiers are then trained, each excluding one
+of the four folds from the training dataset. In physics analysis, each jet is tagged using the classifier it was
+excluded from during training. Each of the four networks has approximately 2.3M trainable parameters
+and is trained using approximately 45M (18M) 𝑏-jets, 45M (18M) 𝑐-jets, 90M (36M) light-jets and 6.25M
+(2.5M) 𝜏-jets from the 𝑡𝑡¯ (𝑍
+′
+) sample, simulated at both √
+𝑠 = 13 TeV and √
+𝑠 = 13.6 TeV, with a mixing
+ratio of 2:1. A learning rate scheduler with cosine annealing [91] is used with the initial learning rate set to
+1 × 10−7
+, which is increased to 5 × 10−4
+after the first 1% of training steps have been completed. It reduces
+to 1 × 10−5 over the remainder of the training run. A weight decay of 1 × 10−5
+is also added. A batch
+size of 12000 is adopted. The different folds have compatible performance within statistical uncertainty.
+The training data is translated from a standard ATLAS format [56] to HDF5 [92]. The network is trained
+with PyTorch Lightning [93–95], consuming roughly 300 GPU hours on an NVIDIA A100 card. It is
+deployed in ATLAS software with OnnxRuntime [96], adding negligible CPU time. With the updated
+architecture and training setup, the 𝑐-jet (light-jet) rejection is improved by a factor of 1.5 (1.7) for a 70%
+𝑏-jet tagging efficiency, in the 𝑡𝑡¯ sample, and by a factor of 1.3 (1.4) for the corresponding 30% 𝑏-jet
+tagging efficiency, in the 𝑍
+′
+sample.
+The DL1d algorithm inherits the architecture from its predecessor DL1r, described in Ref. [5], but processes
+track impact parameters with the DIPS algorithm based on DeepSets [21, 22] instead of a recurrent neural
+network [97]. Overall, 44 input features are fed into DL1d, including the jet 𝑝T and 𝜂. The architecture of
+DL1d includes eight hidden layers of size 256, 128, 60, 48, 36, 24, 12, and 6, each followed with ReLU
+activation and batch normalisation. The training was performed with a learning rate of 1 × 10−3
+and
+training batch size of 15,000. The training data pipeline is similar to GN2, with the exception that training
+is done with Keras and Tensorflow [98] via Umami, a dedicated Python toolkit [99], and deployed in the
+ATLAS software with lwtnn [100].
+Performance measurement strategies in collision data
+The measurement of the 𝑏-jet tagging efficiency in collision data is carried out in a roughly 90% pure
+sample of 𝑡𝑡¯ events where both top quarks decay leptonically into a lepton, a neutrino and a 𝑏-quark. The
+events are required to contain exactly one electron and one muon of opposite charge, in addition to two
+jets. The invariant masses of the two lepton-jet pairs are used to define one region enriched in 𝑏-jets and
+three control regions (CRs). The 𝑏-jet-enriched region is determined by requiring that both lepton-jet pairs
+have invariant masses compatible with an on-shell top quark decay. The CRs are used in a likelihood
+fit to constrain the predicted jet flavour composition. They are constructed to have increased fractions
+of non-𝑏-jets by requiring that at least one or both of the lepton-jet pairs do not originate from the same
+top-quark decay. The analysis employs a statistical model based on a likelihood function that extracts
+the efficiency in collision data binned in 𝑝T for all the 𝑏-jets in the sample. The dominant systematic
+uncertainty comes from the modelling of 𝑡𝑡¯ events. Additional details on the 𝑏-jet calibration procedure
+are available in Ref. [4].
+The calibration measurement of the 𝑐-jet mis-tagging rate is performed in 𝑡𝑡¯ events where one top
+quark decays leptonically while the other top quark decays hadronically. A sample of 𝑐-jets is obtained
+through the 𝑊± → 𝑐𝑠¯(𝑐𝑠¯ ) decay from the hadronically decaying top quark. A likelihood-based kinematic
+14
+
+=== PDF PAGE 15 ===
+reconstruction is employed to find, among the four jets in the event, two jets associated with the hadronically
+decaying 𝑊-boson and two jets stemming from the 𝑏-quarks produced in the top quark decays. The
+mis-tagging rate of 𝑐-jets is determined by minimizing a 𝜒
+2
+function computed in bins of the jet 𝑝T of
+the two jets from the 𝑊-boson decay. Additional terms that correct for the potential mis-modelling of
+the total number of events in each jet 𝑝T bin are estimated simultaneously from the fit to collision data,
+while the contribution of background events, in which no 𝑐-jets are associated with the 𝑊-boson decay, is
+estimated from simulations. The mis-tagging rate of light-jets in this sample is corrected using the method
+described below. As with the 𝑏-jets calibration analysis, the leading source of systematic uncertainties is
+the modelling of 𝑡𝑡¯ events. The 𝑐-jet mis-tagging rate calibration procedure is detailed in Ref. [41].
+The mis-tagging rate for light-jets is determined using jets produced in association with a 𝑍 boson, where
+the 𝑍 boson decays into muon or electron pairs. The key challenge in this calibration is to develop a
+method capable of extracting a light-jet mis-tagging rate in data despite the high rejection of the taggers.
+The method used in this work involves exploiting transformed track variables in alternate taggers that
+provide reduced 𝑏(𝑐)-jet tagging efficiency and almost unchanged light-jet rejection. The mis-tagging rate
+of this modified tagger is measured from a fit to the flavour-sensitive secondary vertex mass distribution
+in collision data, and dedicated uncertainties are introduced so that it can be extrapolated to that of the
+nominal tagger. These extrapolation uncertainties are a leading source of systematic uncertainty. A detailed
+description of the procedure is provided in Ref. [42].
+Data availability
+Raw data were generated by the ATLAS experiment. Derived data supporting the findings of this study are
+available from the ATLAS Collaboration upon request. A subset of the training sample and instructions to
+train GN2 can be acquired via the CERN Open Data Portal [32, 33].
+Code availability
+The ATLAS data reduction software is available at Zenodo (https://doi.org/10.5281/zenodo.
+4772550) [101]. The GN2 training software suite can be found at JOSS (https://joss.theoj.
+org/papers/10.21105/joss.07217) [95], and the DL1d training software stack is available at JOSS
+(https://joss.theoj.org/papers/10.21105/joss.05833) [99].
+Acknowledgements
+We thank CERN for the very successful operation of the LHC and its injectors, as well as the support staff
+at CERN and at our institutions worldwide without whom ATLAS could not be operated efficiently.
+The crucial computing support from all WLCG partners is acknowledged gratefully, in particular from
+CERN, the ATLAS Tier-1 facilities at TRIUMF/SFU (Canada), NDGF (Denmark, Norway, Sweden),
+CC-IN2P3 (France), KIT/GridKA (Germany), INFN-CNAF (Italy), NL-T1 (Netherlands), PIC (Spain),
+RAL (UK) and BNL (USA), the Tier-2 facilities worldwide and large non-WLCG resource providers.
+Major contributors of computing resources are listed in Ref. [102].
+We gratefully acknowledge the support of ANPCyT, Argentina; YerPhI, Armenia; ARC, Australia; BMWFW
+and FWF, Austria; ANAS, Azerbaijan; CNPq and FAPESP, Brazil; NSERC, NRC and CFI, Canada; CERN;
+ANID, Chile; CAS, MOST and NSFC, China; Minciencias, Colombia; MEYS CR, Czech Republic; DNRF
+and DNSRC, Denmark; IN2P3-CNRS and CEA-DRF/IRFU, France; SRNSFG, Georgia; BMFTR, HGF
+and MPG, Germany; GSRI, Greece; RGC and Hong Kong SAR, China; ICHEP and Academy of Sciences
+15
+
+=== PDF PAGE 16 ===
+and Humanities, Israel; INFN, Italy; MEXT and JSPS, Japan; CNRST, Morocco; NWO, Netherlands;
+RCN, Norway; MNiSW, Poland; FCT, Portugal; MNE/IFA, Romania; MSTDI, Serbia; MSSR, Slovakia;
+ARIS and MVZI, Slovenia; DSI/NRF, South Africa; MICIU/AEI, Spain; SRC and Wallenberg Foundation,
+Sweden; SERI, SNSF and Cantons of Bern and Geneva, Switzerland; NSTC, Taipei; TENMAK, Türkiye;
+STFC/UKRI, United Kingdom; DOE and NSF, United States of America.
+Individual groups and members have received support from BCKDF, CANARIE, CRC and DRAC,
+Canada; CERN-CZ, FORTE and PRIMUS, Czech Republic; COST, ERC, ERDF, Horizon 2020, ICSC￾NextGenerationEU and Marie Skłodowska-Curie Actions, European Union; Investissements d’Avenir Labex,
+Investissements d’Avenir Idex and ANR, France; DFG and AvH Foundation, Germany; Herakleitos, Thales
+and Aristeia programmes co-financed by EU-ESF and the Greek NSRF, Greece; BSF-NSF and MINERVA,
+Israel; NCN and NAWA, Poland; La Caixa Banking Foundation, CERCA Programme Generalitat de
+Catalunya and PROMETEO and GenT Programmes Generalitat Valenciana, Spain; Göran Gustafssons
+Stiftelse, Sweden; The Royal Society and Leverhulme Trust, United Kingdom.
+In addition, individual members wish to acknowledge support from Armenia: Yerevan Physics Institute
+(FAPERJ); CERN: European Organization for Nuclear Research (CERN DOCT); Chile: Agencia Nacional
+de Investigación y Desarrollo (FONDECYT 1230812, FONDECYT 1240864); China: Chinese Ministry
+of Science and Technology (MOST-2023YFA1605700, MOST-2023YFA1609300), National Natural
+Science Foundation of China (NSFC - 12175119, NSFC 12275265); Czech Republic: Czech Science
+Foundation (GACR - 24-11373S), Ministry of Education Youth and Sports (ERC-CZ-LL2327, FORTE
+CZ.02.01.01/00/22_008/0004632), PRIMUS Research Programme (PRIMUS/21/SCI/017); EU: H2020
+European Research Council (ERC - 101002463); European Union: European Research Council (BARD No.
+101116429, ERC - 948254, ERC 101089007), European Regional Development Fund (SMASH COFUND
+101081355, SLO ERDF), Horizon 2020 Framework Programme (MUCCA - CHIST-ERA-19-XAI-00),
+European Union, Future Artificial Intelligence Research (FAIR-NextGenerationEU PE00000013), Italian
+Center for High Performance Computing, Big Data and Quantum Computing (ICSC, NextGenerationEU);
+France: Agence Nationale de la Recherche (ANR-21-CE31-0022, ANR-22-EDIR-0002); Germany:
+Baden-Württemberg Stiftung (BW Stiftung-Postdoc Eliteprogramme), Deutsche Forschungsgemeinschaft
+(DFG - 469666862, DFG - CR 312/5-2); China: Research Grants Council (GRF); Italy: Istituto
+Nazionale di Fisica Nucleare (ICSC, NextGenerationEU), Ministero dell’Università e della Ricerca
+(NextGenEU 153D23001490006 M4C2.1.1, NextGenEU I53D23000820006 M4C2.1.1, NextGenEU
+I53D23001490006 M4C2.1.1, SOE2024_0000023); Japan: Japan Society for the Promotion of Science
+(JSPS KAKENHI JP22H01227, JSPS KAKENHI JP22H04944, JSPS KAKENHI JP22KK0227, JSPS
+KAKENHI JP23KK0245, JSPS KAKENHI JP24K23939); Norway: Research Council of Norway
+(RCN-314472); Poland: Ministry of Science and Higher Education (IDUB AGH, POB8, D4 no 9722),
+Polish National Science Centre (NCN 2021/42/E/ST2/00350, NCN OPUS 2023/51/B/ST2/02507, NCN
+OPUS nr 2022/47/B/ST2/03059, NCN UMO-2019/34/E/ST2/00393, UMO-2022/47/O/ST2/00148, UMO￾2023/49/B/ST2/04085, UMO-2023/51/B/ST2/00920, UMO-2024/53/N/ST2/00869); Portugal: Foundation
+for Science and Technology (FCT); Spain: Ministry of Science and Innovation (MCIN & NextGenEU
+PCI2022-135018-2, MICIN & FEDER PID2021-125273NB, RYC2019-028510-I, RYC2020-030254-I,
+RYC2021-031273-I, RYC2022-038164-I); Sweden: Carl Trygger Foundation (Carl Trygger Foundation CTS
+22:2312), Swedish Research Council (Swedish Research Council 2023-04654, VR 2021-03651, VR 2022-
+03845, VR 2022-04683, VR 2023-03403, VR 2024-05451), Knut and Alice Wallenberg Foundation (KAW
+2018.0458, KAW 2022.0358, KAW 2023.0366); Switzerland: Swiss National Science Foundation (SNSF -
+PCEFP2_194658); United Kingdom: Leverhulme Trust (Leverhulme Trust RPG-2020-004), Royal Society
+(NIF-R1-231091); United States of America: U.S. Department of Energy (ECA DE-AC02-76SF00515),
+Neubauer Family Foundation.
+16
+
+=== PDF PAGE 17 ===
+References
+[1] L. Evans and P. Bryant, LHC Machine, JINST 3 (2008) S08001.
+[2] ATLAS Collaboration, The ATLAS Experiment at the CERN Large Hadron Collider,
+JINST 3 (2008) S08003.
+[3] ATLAS Collaboration, The ATLAS experiment at the CERN Large Hadron Collider: a description
+of the detector configuration for Run 3, JINST 19 (2024) P05063, arXiv: 2305.16623 [hep-ex].
+[4] ATLAS Collaboration, ATLAS 𝑏-jet identification performance and efficiency measurement with 𝑡𝑡¯
+events in 𝑝 𝑝 collisions at √
+𝑠 = 13 TeV, Eur. Phys. J. C 79 (2019) 970,
+arXiv: 1907.05120 [hep-ex].
+[5] ATLAS Collaboration, ATLAS flavour-tagging algorithms for the LHC Run 2 𝑝 𝑝 collision dataset,
+Eur. Phys. J. C 83 (2023) 681, arXiv: 2211.16345 [physics.data-an].
+[6] ATLAS Collaboration,
+Observation of 𝐻 → 𝑏𝑏¯ decays and 𝑉𝐻 production with the ATLAS detector,
+Phys. Lett. B 786 (2018) 59, arXiv: 1808.08238 [hep-ex].
+[7] ATLAS Collaboration, Observation of Higgs boson production in association with a top quark
+pair at the LHC with the ATLAS detector, Phys. Lett. B 784 (2018) 173,
+arXiv: 1806.00425 [hep-ex].
+[8] ATLAS Collaboration, Characterising the Higgs boson with ATLAS data from the LHC Run-2,
+Phys. Rept. 1116 (2025) 4, arXiv: 2404.05498 [hep-ex].
+[9] ATLAS Collaboration, Climbing to the Top of the ATLAS 13 TeV data,
+Phys. Rept. 1116 (2025) 127, arXiv: 2404.10674 [hep-ex].
+[10] ATLAS Collaboration,
+Electroweak, QCD and flavour physics studies with ATLAS data from Run 2 of the LHC,
+Phys. Rept. 1116 (2025) 57, arXiv: 2404.06829 [hep-ex].
+[11] ATLAS Collaboration, The quest to discover supersymmetry at the ATLAS experiment,
+Phys. Rept. 1116 (2025) 261, arXiv: 2403.02455 [hep-ex].
+[12] ATLAS Collaboration, Exploration at the high-energy frontier: ATLAS Run 2 searches
+investigating the exotic jungle beyond the Standard Model, Phys. Rept. 1116 (2025) 301,
+arXiv: 2403.09292 [hep-ex].
+[13] HFLAV Collaboration, Averages of b-hadron, c-hadron, and 𝜏-lepton properties as of 2021,
+Phys. Rev. D 107 (2023) 052008, arXiv: 2206.07501 [hep-ex].
+[14] BABAR Collaboration,
+Measurement of the 𝐵
+0 and 𝐵
++ meson lifetimes with fully reconstructed hadronic final states,
+Phys. Rev. Lett. 87 (2001) 201803, arXiv: hep-ex/0107019.
+[15] ATLAS Collaboration, Precision measurement of the 𝐵
+0 meson lifetime using 𝐵
+0 → 𝐽/𝜓𝐾∗0
+decays with the ATLAS detector, Eur. Phys. J. C 85 (2025) 736, arXiv: 2411.09962 [hep-ex].
+[16] Belle-II Collaboration, Precise measurement of the 𝐷
+0 and 𝐷
++
+lifetimes at Belle II,
+Phys. Rev. Lett. 127 (2021) 211801, arXiv: 2108.03216 [hep-ex].
+[17] Belle-II Collaboration, Measurement of the Λc+ Lifetime, Phys. Rev. Lett. 130 (2023) 071802,
+arXiv: 2206.15227 [hep-ex].
+[18] P. A. Zyla et al., Review of Particle Physics, PTEP (2020) 083C01.
+17
+
+=== PDF PAGE 18 ===
+[19] Belle Collaboration, Measurement of the 𝜏-lepton lifetime at Belle,
+Phys. Rev. Lett. 112 (2014) 031801, arXiv: 1310.8503 [hep-ex].
+[20] ATLAS Collaboration, Performance of 𝑏-jet identification in the ATLAS Experiment,
+JINST 11 (2016) P04008, arXiv: 1512.01094 [hep-ex].
+[21] ATLAS Collaboration,
+Deep Sets based Neural Networks for Impact Parameter Flavour Tagging in ATLAS,
+ATL-PHYS-PUB-2020-014, 2020, url: https://cds.cern.ch/record/2718948.
+[22] P. T. Komiske, E. M. Metodiev and J. Thaler, Energy flow networks: deep sets for particle jets,
+JHEP 01 (2019) 121, arXiv: 1810.05165 [hep-ph].
+[23] J. Shlomi, P. Battaglia and J.-R. Vlimant, Graph Neural Networks in Particle Physics, 2020,
+arXiv: 2007.13681 [hep-ex].
+[24] CMS Collaboration,
+Identification of heavy-flavour jets with the CMS detector in pp collisions at 13 TeV,
+JINST 13 (2018) P05011, arXiv: 1712.07158 [physics.ins-det].
+[25] E. Bols, J. Kieseler, M. Verzetti, M. Stoye and A. Stakia, Jet flavour classification using DeepJet,
+JINST 15 (2020) P12012.
+[26] H. Qu and L. Gouskos, ParticleNet: Jet Tagging via Particle Clouds,
+Phys. Rev. D 101 (2020) 056019, arXiv: 1902.08570 [hep-ph].
+[27] CMS Collaboration, A unified approach for jet tagging in Run 3 at √
+𝑠 = 13.6 TeV in CMS,
+CMS-DP-2024-066, 2024, url: https://cds.cern.ch/record/2904702.
+[28] CMS Collaboration, Performance of heavy-flavour jet identification in boosted topologies in
+proton-proton collisions at √
+𝑠 = 13 TeV, CMS-PAS-BTV-22-001, 2023,
+url: https://cds.cern.ch/record/2866276/.
+[29] ATLAS Collaboration, Graph Neural Network Jet Flavour Tagging with the ATLAS Detector,
+ATL-PHYS-PUB-2022-027, 2022, url: https://cds.cern.ch/record/2811135.
+[30] A. Vaswani et al., Attention Is All You Need, 2017, arXiv: 1706.03762 [cs.CL].
+[31] ATLAS and CMS Collaborations,
+Highlights of the HL-LHC physics projections by ATLAS and CMS,
+ATL-PHYS-PUB-2025-018 CMS-HIG-25-002, 2025, arXiv: 2504.00672 [hep-ex].
+[32] ATLAS Collaboration, ATLAS t𝑡 simulation for ML-based jet flavour tagging (JetSet),
+CERN Open Data Portal (2025).
+[33] The JetSet Developers, Transforming Jet Flavor,
+Libraries used to train a GN2-like tagger are tagged as GN2OpenDataV00,
+url: https://gitlab.cern.ch/atlas/open-data/transforming-jet-flavor.
+[34] P. Langacker, The Physics of Heavy 𝑍
+′ Gauge Bosons, Rev. Mod. Phys. 81 (2009) 1199,
+arXiv: 0801.1345 [hep-ph].
+[35] ATLAS Collaboration, The ATLAS Simulation Infrastructure, Eur. Phys. J. C 70 (2010) 823,
+arXiv: 1005.4568 [physics.ins-det].
+[36] S. Agostinelli et al., Geant4 – a simulation toolkit, Nucl. Instrum. Meth. A 506 (2003) 250.
+[37] J. Allison et al., Geant4 developments and applications,
+IEEE Transactions on Nuclear Science 53 (2006) 270.
+18
+
+=== PDF PAGE 19 ===
+[38] J. Allison et al., Recent developments in Geant4, Nucl. Instrum. Meth. A 835 (2016) 186.
+[39] ATLAS Collaboration,
+Performance of the ATLAS Track Reconstruction Algorithms in Dense Environments in LHC Run 2,
+Eur. Phys. J. C 77 (2017) 673, arXiv: 1704.07983 [hep-ex].
+[40] ATLAS Collaboration,
+Measurements of 𝑊𝐻 and 𝑍𝐻 production with Higgs boson decays into bottom quarks and direct
+constraints on the charm Yukawa coupling in 13 TeV 𝑝 𝑝 collisions with the ATLAS detector,
+JHEP 04 (2025) 075, arXiv: 2410.19611 [hep-ex].
+[41] ATLAS Collaboration, Measurement of the 𝑐-jet mistagging efficiency in 𝑡𝑡¯ events using 𝑝 𝑝
+collision data at √
+𝑠 = 13 TeV collected with the ATLAS detector, Eur. Phys. J. C 82 (2022) 95,
+arXiv: 2109.10627 [hep-ex].
+[42] ATLAS Collaboration,
+Calibration of the light-flavour jet mistagging efficiency of the 𝑏-tagging algorithms with 𝑍+jets
+events using 139 fb−1
+of ATLAS proton–proton collision data at √
+𝑠 = 13 TeV,
+Eur. Phys. J. C 83 (2023) 728, arXiv: 2301.06319 [hep-ex].
+[43] G. Soyez, Pileup mitigation at the LHC: A theorist’s view, Phys. Rept. 803 (2019) 1,
+arXiv: 1801.09721 [hep-ph].
+[44] D. C. Kozen, ‘Union-Find’, The Design and Analysis of Algorithms,
+New York, NY: Springer New York, 1992 48, isbn: 978-1-4612-4400-4,
+url: https://doi.org/10.1007/978-1-4612-4400-4_10.
+[45] P. Billoir and S. Qian, Fast vertex fitting with a local parametrization of tracks,
+Nucl. Instrum. Meth. A 311 (1992) 139.
+[46] A. Buckley et al., General-purpose event generators for LHC physics, Phys. Rept. 504 (2011) 145,
+arXiv: 1101.2599 [hep-ph].
+[47] S. Frixione, G. Ridolfi and P. Nason,
+A positive-weight next-to-leading-order Monte Carlo for heavy flavour hadroproduction,
+JHEP 09 (2007) 126, arXiv: 0707.3088 [hep-ph].
+[48] P. Nason, A new method for combining NLO QCD with shower Monte Carlo algorithms,
+JHEP 11 (2004) 040, arXiv: hep-ph/0409146.
+[49] S. Frixione, P. Nason and C. Oleari,
+Matching NLO QCD computations with parton shower simulations: the POWHEG method,
+JHEP 11 (2007) 070, arXiv: 0709.2092 [hep-ph].
+[50] S. Alioli, P. Nason, C. Oleari and E. Re, A general framework for implementing NLO calculations
+in shower Monte Carlo programs: the POWHEG BOX, JHEP 06 (2010) 043,
+arXiv: 1002.2581 [hep-ph].
+[51] T. Sjöstrand et al., An introduction to PYTHIA 8.2, Comput. Phys. Commun. 191 (2015) 159,
+arXiv: 1410.3012 [hep-ph].
+[52] M. Bähr et al., Herwig++ physics and manual, Eur. Phys. J. C 58 (2008) 639,
+arXiv: 0803.0883 [hep-ph].
+[53] J. Bellm et al., Herwig 7.0/Herwig++ 3.0 release note, Eur. Phys. J. C 76 (2016) 196,
+arXiv: 1512.01178 [hep-ph].
+19
+
+=== PDF PAGE 20 ===
+[54] J. Bellm et al., Herwig 7.2 release note, Eur. Phys. J. C 80 (2020) 452,
+arXiv: 1912.06509 [hep-ph].
+[55] E. Bothmann et al., Event generation with Sherpa 2.2, SciPost Phys. 7 (2019) 034,
+arXiv: 1905.09127 [hep-ph].
+[56] ATLAS Collaboration, Software and computing for Run 3 of the ATLAS experiment at the LHC,
+Eur. Phys. J. C 85 (2025) 234, arXiv: 2404.06335 [hep-ex].
+[57] NNPDF Collaboration, R. D. Ball et al., Parton distributions for the LHC run II,
+JHEP 04 (2015) 040, arXiv: 1410.8849 [hep-ph].
+[58] ATLAS Collaboration, ATLAS Pythia 8 tunes to 7 TeV data, ATL-PHYS-PUB-2014-021, 2014,
+url: https://cds.cern.ch/record/1966419.
+[59] NNPDF Collaboration, R. D. Ball et al., Parton distributions with LHC data,
+Nucl. Phys. B 867 (2013) 244, arXiv: 1207.1303 [hep-ph].
+[60] D. J. Lange, The EvtGen particle decay simulation package,
+Nucl. Instrum. Meth. A 462 (2001) 152.
+[61] T. Gleisberg and S. Höche, Comix, a new matrix element generator, JHEP 12 (2008) 039,
+arXiv: 0808.3674 [hep-ph].
+[62] F. Buccioni et al., OpenLoops 2, Eur. Phys. J. C 79 (2019) 866, arXiv: 1907.13071 [hep-ph].
+[63] F. Cascioli, P. Maierhöfer and S. Pozzorini, Scattering Amplitudes with Open Loops,
+Phys. Rev. Lett. 108 (2012) 111601, arXiv: 1111.5206 [hep-ph].
+[64] A. Denner, S. Dittmaier and L. Hofer,
+Collier: A fortran-based complex one-loop library in extended regularizations,
+Comput. Phys. Commun. 212 (2017) 220, arXiv: 1604.06792 [hep-ph].
+[65] T. Gleisberg et al., Event generation with SHERPA 1.1, JHEP 02 (2009) 007,
+arXiv: 0811.4622 [hep-ph].
+[66] S. Schumann and F. Krauss,
+A parton shower algorithm based on Catani–Seymour dipole factorisation, JHEP 03 (2008) 038,
+arXiv: 0709.1027 [hep-ph].
+[67] S. Höche, F. Krauss, M. Schönherr and F. Siegert,
+A critical appraisal of NLO+PS matching methods, JHEP 09 (2012) 049,
+arXiv: 1111.1220 [hep-ph].
+[68] S. Höche, F. Krauss, M. Schönherr and F. Siegert,
+QCD matrix elements + parton showers. The NLO case, JHEP 04 (2013) 027,
+arXiv: 1207.5030 [hep-ph].
+[69] S. Catani, F. Krauss, B. R. Webber and R. Kuhn, QCD Matrix Elements + Parton Showers,
+JHEP 11 (2001) 063, arXiv: hep-ph/0109231.
+[70] S. Höche, F. Krauss, S. Schumann and F. Siegert, QCD matrix elements and truncated showers,
+JHEP 05 (2009) 053, arXiv: 0903.1219 [hep-ph].
+[71] ATLAS Collaboration, Software Performance of the ATLAS Track Reconstruction for LHC Run 3,
+Comput. Softw. Big Sci. 8 (2024) 9, arXiv: 2308.09471 [hep-ex].
+[72] ATLAS Collaboration, Performance of ATLAS Pixel Detector and Track Reconstruction at the
+start of Run 3 in LHC Collisions at √
+𝑠 = 900 GeV, ATL-PHYS-PUB-2022-033, 2022,
+url: https://cds.cern.ch/record/2814766.
+20
+
+=== PDF PAGE 21 ===
+[73] ATLAS Collaboration, Reconstruction of primary vertices at the ATLAS experiment in Run 1
+proton–proton collisions at the LHC, Eur. Phys. J. C 77 (2017) 332,
+arXiv: 1611.10235 [hep-ex].
+[74] ATLAS Collaboration, Vertex Reconstruction Performance of the ATLAS Detector at √
+𝑠 = 13 TeV,
+ATL-PHYS-PUB-2015-026, 2015, url: https://cds.cern.ch/record/2037717.
+[75] M. Cacciari, G. P. Salam and G. Soyez, The anti-𝑘𝑡
+jet clustering algorithm, JHEP 04 (2008) 063,
+arXiv: 0802.1189 [hep-ph].
+[76] M. Cacciari, G. P. Salam and G. Soyez, FastJet user manual, Eur. Phys. J. C 72 (2012) 1896,
+arXiv: 1111.6097 [hep-ph].
+[77] ATLAS Collaboration,
+Jet reconstruction and performance using particle flow with the ATLAS Detector,
+Eur. Phys. J. C 77 (2017) 466, arXiv: 1703.10485 [hep-ex].
+[78] ATLAS Collaboration, Jet energy scale and resolution measured in proton–proton collisions at
+√
+𝑠 = 13 TeV with the ATLAS detector, Eur. Phys. J. C 81 (2021) 689,
+arXiv: 2007.02645 [hep-ex].
+[79] ATLAS Collaboration, Tagging and suppression of pileup jets with the ATLAS detector,
+ATLAS-CONF-2014-018, 2014, url: https://cds.cern.ch/record/1700870.
+[80] I. Loshchilov and F. Hutter, Fixing Weight Decay Regularization in Adam, 2017,
+arXiv: 1711.05101 [cs.LG].
+[81] D. P. Kingma and J. Ba, Adam: A Method for Stochastic Optimization, 2017,
+arXiv: 1412.6980 [cs.LG].
+[82] S. Brody, U. Alon and E. Yahav, How Attentive are Graph Attention Networks?, 2021,
+arXiv: 2105.14491 [cs.LG].
+[83] ATLAS Collaboration, Transformer Neural Networks for Identifying Boosted Higgs Bosons
+decaying into 𝑏𝑏¯ and 𝑐𝑐¯ in ATLAS, ATL-PHYS-PUB-2023-021, 2023,
+url: https://cds.cern.ch/record/2866601.
+[84] ATLAS Collaboration,
+Transformer networks for constituent-based 𝑏-jet calibration with the ATLAS detector,
+ATL-PHYS-PUB-2025-012, 2024, url: https://cds.cern.ch/record/2905688.
+[85] ATLAS Collaboration,
+Search for emerging jets in pp collisions at √
+𝑠 = 13.6 TeV with the ATLAS experiment,
+Rept. Prog. Phys. 88 (2025) 097801, arXiv: 2505.02429 [hep-ex].
+[86] ATLAS Collaboration, Configuration, Performance, and Commissioning of the ATLAS b-jet
+Triggers for the 2022 and 2023 LHC data-taking periods, JINST 20 (2025) P03002,
+arXiv: 2501.11420 [hep-ex].
+[87] ATLAS Collaboration,
+Explaining the ATLAS GN2 Flavour Tagging Algorithm with Integrated Gradients,
+ATL-PHYS-PUB-2025-029, 2025, url: https://cds.cern.ch/record/2936634.
+[88] R. Xiong et al., On Layer Normalization in the Transformer Architecture, 2020,
+arXiv: 2002.04745 [cs.LG].
+[89] Y. Li, D. Tarlow, M. Brockschmidt and R. Zemel, Gated Graph Sequence Neural Networks, 2015,
+arXiv: 1511.05493 [cs.LG].
+21
+
+=== PDF PAGE 22 ===
+[90] K. Fukushima, Cognitron: A self-organizing multilayered neural network,
+Biological Cybernetics 20 (1975) 121, url: https://doi.org/10.1007/BF00342633.
+[91] I. Loshchilov and F. Hutter, SGDR: Stochastic Gradient Descent with Warm Restarts, 2016,
+arXiv: 1608.03983 [cs.LG].
+[92] The HDF Group, Hierarchical Data Format, version 5,
+url: https://github.com/HDFGroup/hdf5.
+[93] J. Ansel et al., ‘PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode
+Transformation and Graph Compilation’, 29th ACM International Conference on Architectural
+Support for Programming Languages and Operating Systems, Volume 2 (ASPLOS ’24),
+ACM, 2024, url: https://pytorch.org/assets/pytorch2-2.pdf.
+[94] F. William et al., PyTorch Lightning, version 1.4, 2019,
+url: https://github.com/Lightning-AI/lightning.
+[95] J. Barr et al., Salt: Multimodal Multitask Machine Learning for High Energy Physics,
+Journal of Open Source Software 10 (2025) 7217.
+[96] ONNX Runtime developers, ONNX Runtime, https://onnxruntime.ai/, Version: 1.19.2,
+2021.
+[97] ATLAS Collaboration, Identification of Jets Containing 𝑏-Hadrons with Recurrent Neural
+Networks at the ATLAS Experiment, ATL-PHYS-PUB-2017-003, 2017,
+url: https://cds.cern.ch/record/2255226.
+[98] TensorFlow Developers, TensorFlow, 2022,
+url: https://doi.org/10.5281/zenodo.4724125.
+[99] J. Barr et al., Umami: A Python toolkit for jet flavour tagging,
+Journal of Open Source Software 9 (2024) 5833,
+url: https://doi.org/10.21105/joss.05833.
+[100] D. H. Guest et al., lwtnn/lwtnn: v2.14.1, version v2.14.1, 2024,
+url: https://doi.org/10.5281/zenodo.14276439.
+[101] ATLAS Collaboration, Athena, version 21.0.127, 2021,
+url: https://doi.org/10.5281/zenodo.4772550.
+[102] ATLAS Collaboration, ATLAS Computing Acknowledgements, ATL-SOFT-PUB-2025-001, 2025,
+url: https://cds.cern.ch/record/2922210.
+22
+
+=== PDF PAGE 23 ===
+The ATLAS Collaboration
+G. Aad 104, E. Aakvaag 17, B. Abbott 123, S. Abdelhameed 119a, K. Abeling 55, N.J. Abicht 49
+,
+S.H. Abidi 30, M. Aboelela 45, A. Aboulhorma 36e, H. Abramowicz 157, Y. Abulaiti 120
+,
+B.S. Acharya 69a,69b,m, A. Ackermann 63a, C. Adam Bourdarios 4
+, L. Adamczyk 87a
+,
+S.V. Addepalli 149, M.J. Addison 103, J. Adelman 118, A. Adiguzel 22c, T. Adye 137
+,
+A.A. Affolder 139, Y. Afik 40, M.N. Agaras 13, A. Aggarwal 102, C. Agheorghiesei 28c
+,
+F. Ahmadov 39,ad, S. Ahuja 97, X. Ai 143b, G. Aielli 76a,76b, A. Aikot 169, M. Ait Tamlihat 36e
+,
+B. Aitbenchikh 36a, M. Akbiyik 102, T.P.A. Åkesson 100, A.V. Akimov 151, D. Akiyama 174
+,
+N.N. Akolkar 25, S. Aktas 22a, G.L. Alberghi 24b, J. Albert 171, U. Alberti 20, P. Albicocco 53
+,
+G.L. Albouy 60, S. Alderweireldt 52, Z.L. Alegria 124, M. Aleksa 37, I.N. Aleksandrov 39
+,
+C. Alexa 28b, T. Alexopoulos 10, F. Alfonsi 24b, M. Algren 56, M. Alhroob 173, B. Ali 135
+,
+H.M.J. Ali 93,w, S. Ali 32, S.W. Alibocus 94, M. Aliev 34c, G. Alimonti 71a, W. Alkakhi 55
+,
+C. Allaire 66, B.M.M. Allbrooke 152, J.S. Allen 103, J.F. Allen 52, P.P. Allport 21
+,
+A. Aloisio 72a,72b, F. Alonso 92, C. Alpigiani 142, Z.M.K. Alsolami 93, A. Alvarez Fernandez 102
+,
+M. Alves Cardoso 56, M.G. Alviggi 72a,72b, M. Aly 103, Y. Amaral Coutinho 83b, A. Ambler 106
+,
+C. Amelung37, M. Amerl 103, C.G. Ames 111, T. Amezza 130, D. Amidei 108, B. Amini 54
+,
+K. Amirie 161, A. Amirkhanov 39, S.P. Amor Dos Santos 133a, K.R. Amos 169
+,
+D. Amperiadou 158, S. An84, C. Anastopoulos 145, T. Andeen 11, J.K. Anders 94
+,
+A.C. Anderson 59, A. Andreazza 71a,71b, S. Angelidakis 9
+, A. Angerami 42, A.V. Anisenkov 39
+,
+A. Annovi 74a, C. Antel 37, E. Antipov 151, M. Antonelli 53, F. Anulli 75a, M. Aoki 84
+,
+T. Aoki 159, M.A. Aparo 152, L. Aperio Bella 48, M. Apicella31, C. Appelt 157, A. Apyan 27
+,
+M. Arampatzi 10, S.J. Arbiol Val 88, C. Arcangeletti 53, A.T.H. Arce 51, J-F. Arguin 110
+,
+S. Argyropoulos 158, J.-H. Arling 48, O. Arnaez 4
+, H. Arnold 151, G. Artoni 75a,75b
+,
+H. Asada 113, K. Asai 121, S. Asai 159, S. Asatryan 179, N.A. Asbah 37
+,
+R.A. Ashby Pickering 173, A.M. Aslam 97, K. Assamagan 30, R. Astalos 29a, K.S.V. Astrand 100
+,
+S. Atashi 165, R.J. Atkin 34a, H. Atmani36f, P.A. Atmasiddha 131, K. Augsten 135, A.D. Auriol 41
+,
+V.A. Austrup 103, G. Avolio 37, K. Axiotis 56, A. Azzam 13, D. Babal 29b, H. Bachacou 138
+,
+K. Bachas 158,q, A. Bachiu 35, E. Bachmann 50, M.J. Backes 63a, A. Badea 40, T.M. Baer 108
+,
+P. Bagnaia 75a,75b, M. Bahmani 19, D. Bahner 54, K. Bai 126, J.T. Baines 137, L. Baines 96
+,
+O.K. Baker 178, E. Bakos 16, D. Bakshi Gupta 8
+, L.E. Balabram Filho 83b, V. Balakrishnan 123
+,
+R. Balasubramanian 4
+, E.M. Baldin 38, P. Balek 87a, E. Ballabene 24b,24a, F. Balli 138
+,
+L.M. Baltes 63a, W.K. Balunas 33, J. Balz 102, I. Bamwidhi 119b, E. Banas 88
+,
+M. Bandieramonte 132, A. Bandyopadhyay 25, S. Bansal 25, L. Barak 157, M. Barakat 48
+,
+E.L. Barberio 107, D. Barberis 18b, M. Barbero 104, M.Z. Barel 117, T. Barillari 112
+,
+M-S. Barisits 37, T. Barklow 149, P. Baron 136, D.A. Baron Moreno 103, A. Baroncelli 62
+,
+A.J. Barr 129, J.D. Barr 98, F. Barreiro 101, J. Barreiro Guimarães da Costa 14
+,
+M.G. Barros Teixeira 133a, S. Barsov 38, F. Bartels 63a, R. Bartoldus 149, A.E. Barton 93
+,
+P. Bartos 29a, A. Basan 102, M. Baselga 49, S. Bashiri88, A. Bassalat 66,b, M.J. Basso 162a
+,
+S. Bataju 45, R. Bate 170, R.L. Bates 59, S. Batlamous101, M. Battaglia 139, D. Battulga 19
+,
+M. Bauce 75a,75b, M. Bauer 79, P. Bauer 25, L.T. Bayer 48, L.T. Bazzano Hurrell 31
+,
+J.B. Beacham 112, T. Beau 130, J.Y. Beaucamp 92, P.H. Beauchemin 164, P. Bechtle 25
+,
+H.P. Beck 20,p, K. Becker 173, A.J. Beddall 82, V.A. Bednyakov 39, C.P. Bee 151
+,
+L.J. Beemster 16, M. Begalli 83d, M. Begel 30, J.K. Behr 48, J.F. Beirer 37, F. Beisiegel 25
+,
+M. Belfkir 119b, G. Bella 157, L. Bellagamba 24b, A. Bellerive 35, C.D. Bellgraph 68
+,
+P. Bellos 21, K. Beloborodov 38, D. Benchekroun 36a, F. Bendebba 36a, Y. Benhammou 157
+,
+23
+
+=== PDF PAGE 24 ===
+K.C. Benkendorfer 61, L. Beresford 48, M. Beretta 53, E. Bergeaas Kuutmann 167, N. Berger 4
+,
+B. Bergmann 135, J. Beringer 18a, G. Bernardi 5
+, C. Bernius 149, F.U. Bernlochner 25
+,
+F. Bernon 37, A. Berrocal Guardia 13, T. Berry 97, P. Berta 136, A. Berthold 50, A. Berti133a
+,
+R. Bertrand 104, S. Bethke 112, A. Betti 75a,75b, A.J. Bevan 96, L. Bezio 56, N.K. Bhalla 54
+,
+S. Bharthuar 112, S. Bhatta 151, P. Bhattarai 149, Z.M. Bhatti 120, K.D. Bhide 54
+,
+V.S. Bhopatkar 124, R.M. Bianchi 132, G. Bianco 24b,24a, O. Biebel 111, M. Biglietti 77a
+,
+C.S. Billingsley45, Y. Bimgdi 36f, M. Bindi 55, A. Bingham 177, A. Bingul 22b, C. Bini 75a,75b
+,
+G.A. Bird 33, M. Birman 175, M. Biros 136, S. Biryukov 152, T. Bisanz 49, E. Bisceglie 24b,24a
+,
+J.P. Biswal 137, D. Biswas 147, I. Bloch 48, A. Blue 59, U. Blumenschein 96, J. Blumenthal 102
+,
+V.S. Bobrovnikov 39, L. Boccardo 57b,57a, M. Boehler 54, B. Boehm 172, D. Bogavac 13
+,
+A.G. Bogdanchikov 38, L.S. Boggia 130, V. Boisvert 97, P. Bokan 37, T. Bold 87a, M. Bomben 5
+,
+M. Bona 96, M. Boonekamp 138, A.G. Borbély 59, I.S. Bordulev 38, G. Borissov 93
+,
+D. Bortoletto 129, D. Boscherini 24b, M. Bosman 13, K. Bouaouda 36a, N. Bouchhar 169
+,
+L. Boudet 4
+, J. Boudreau 132, E.V. Bouhova-Thacker 93, D. Boumediene 41, R. Bouquet 57b,57a
+,
+A. Boveia 122, J. Boyd 37, D. Boye 30, I.R. Boyko 39, L. Bozianu 56, J. Bracinik 21
+,
+N. Brahimi 4
+, G. Brandt 177, O. Brandt 33, B. Brau 105, J.E. Brau 126, R. Brener 175
+,
+L. Brenner 117, R. Brenner 167, S. Bressler 175, G. Brianti 78a,78b, D. Britton 59, D. Britzger 112
+,
+I. Brock 25, R. Brock 109, G. Brooijmans 42, A.J. Brooks68, E.M. Brooks 162b, E. Brost 30
+,
+L.M. Brown 171,162a, L.E. Bruce 61, T.L. Bruckler 129, P.A. Bruckman de Renstrom 88
+,
+B. Brüers 48, A. Bruni 24b, G. Bruni 24b, D. Brunner 47a,47b, M. Bruschi 24b, N. Bruscino 75a,75b
+,
+T. Buanes 17, Q. Buat 142, D. Buchin 112, A.G. Buckley 59, O. Bulekov 82, B.A. Bullard 149
+,
+S. Burdin 94, C.D. Burgard 49, A.M. Burger 91, B. Burghgrave 8
+, O. Burlayenko 54
+,
+J. Burleson 168, J.C. Burzynski 148, E.L. Busch 42, V. Büscher 102, P.J. Bussey 59
+,
+J.M. Butler 26, C.M. Buttar 59, J.M. Butterworth 98, W. Buttinger 137, C.J. Buxo Vazquez 109
+,
+A.R. Buzykaev 39, S. Cabrera Urbán 169, L. Cadamuro 66, D. Caforio 58, H. Cai 132
+,
+Y. Cai 24b,114c,24a, Y. Cai 114a, V.M.M. Cairo 37, O. Cakir 3a, N. Calace 37, P. Calafiura 18a
+,
+G. Calderini 130, P. Calfayan 35, L. Calic 100, G. Callea 59, L.P. Caloba83b, D. Calvet 41
+,
+S. Calvet 41, R. Camacho Toro 130, S. Camarda 37, D. Camarero Munoz 27, P. Camarri 76a,76b
+,
+C. Camincher 171, M. Campanelli 98, A. Camplani 43, V. Canale 72a,72b, A.C. Canbay 3a
+,
+E. Canonero 97, J. Cantero 169, Y. Cao 168, F. Capocasa 27, M. Capua 44b,44a, A. Carbone 71a,71b
+,
+R. Cardarelli 76a, J.C.J. Cardenas 8
+, M.P. Cardiff 27, G. Carducci 44b,44a, T. Carli 37
+,
+G. Carlino 72a, J.I. Carlotto 13, B.T. Carlson 132,r, E.M. Carlson 171, J. Carmignani 94
+,
+L. Carminati 71a,71b, A. Carnelli 4
+, M. Carnesale 37, S. Caron 116, E. Carquin 140g, I.B. Carr 107
+,
+S. Carrá 73a,73b, G. Carratta 24b,24a, A.M. Carroll 126, M.P. Casado 13,h, P. Casolaro 72a,72b
+,
+M. Caspar 48, F.L. Castillo 4
+, L. Castillo Garcia 13, V. Castillo Gimenez 169, N.F. Castro 133a,133e
+,
+A. Catinaccio 37, J.R. Catmore 128, T. Cavaliere 4
+, V. Cavaliere 30, L.J. Caviedes Betancourt 23b
+,
+E. Celebi 82, S. Cella 37, V. Cepaitis 56, K. Cerny 125, A.S. Cerqueira 83a, A. Cerri 74a,74b,ak
+,
+L. Cerrito 76a,76b, F. Cerutti 18a, B. Cervato 71a,71b, A. Cervelli 24b, G. Cesarini 53, S.A. Cetin 82
+,
+P.M. Chabrillat 130, R. Chakkappai 66, S. Chakraborty 173, J. Chan 18a, W.Y. Chan 159
+,
+J.D. Chapman 33, E. Chapon 138, B. Chargeishvili 155b, D.G. Charlton 21, C. Chauhan 136
+,
+Y. Che 114a, S. Chekanov 6
+, S.V. Chekulaev 162a, G.A. Chelkov 39,a, B. Chen 157, B. Chen 171
+,
+H. Chen 114a, H. Chen 30, J. Chen 144a, J. Chen 148, M. Chen 129, S. Chen 89, S.J. Chen 114a
+,
+X. Chen 144a, X. Chen 15,ag, Z. Chen 62, C.L. Cheng 176, H.C. Cheng 64a, S. Cheong 149
+,
+A. Cheplakov 39, E. Cherepanova 117, R. Cherkaoui El Moursli 36e, E. Cheu 7
+, K. Cheung 65
+,
+L. Chevalier 138, V. Chiarella 53, G. Chiarelli 74a, G. Chiodini 70a, A.S. Chisholm 21
+,
+A. Chitan 28b, M. Chitishvili 169, M.V. Chizhov 39,s, K. Choi 11, Y. Chou 142, E.Y.S. Chow 116
+,
+K.L. Chu 175, M.C. Chu 64a, X. Chu 14,114c, Z. Chubinidze 53, J. Chudoba 134
+,
+24
+
+=== PDF PAGE 25 ===
+J.J. Chwastowski 88, D. Cieri 112, K.M. Ciesla 87a, V. Cindro 95, A. Ciocio 18a, F. Cirotto 72a,72b
+,
+Z.H. Citron 175, M. Citterio 71a, D.A. Ciubotaru28b, A. Clark 56, P.J. Clark 52, N. Clarke Hall 98
+,
+C. Clarry 161, S.E. Clawson 48, C. Clement 47a,47b, Y. Coadou 104, M. Cobal 69a,69c
+,
+A. Coccaro 57b, R.F. Coelho Barrue 133a, R. Coelho Lopes De Sa 105, S. Coelli 71a
+,
+L.S. Colangeli 161, B. Cole 42, P. Collado Soto 101, J. Collot 60, R. Coluccia70a,70b
+,
+P. Conde Muiño 133a,133g, M.P. Connell 34c, S.H. Connell 34c, E.I. Conroy 129
+,
+M. Contreras Cossio 11, F. Conventi 72a,ai, A.M. Cooper-Sarkar 129, L. Corazzina 75a,75b
+,
+F.A. Corchia 24b,24a, A. Cordeiro Oudot Choi 142, L.D. Corpe 41, M. Corradi 75a,75b
+,
+F. Corriveau 106,ab, A. Cortes-Gonzalez 159, M.J. Costa 169, F. Costanza 4
+, D. Costanzo 145
+,
+B.M. Cote 122, J. Couthures 4
+, G. Cowan 97, K. Cranmer 176, L. Cremer 49
+,
+D. Cremonini 24b,24a, S. Crépé-Renaudin 60, F. Crescioli 130, T. Cresta 73a,73b, M. Cristinziani 147
+,
+M. Cristoforetti 78a,78b, V. Croft 117, J.E. Crosby 124, G. Crosetti 44b,44a, A. Cueto 101, H. Cui 98
+,
+Z. Cui 7
+, B.M. Cunnett 152, W.R. Cunningham 59, F. Curcio 169, J.R. Curran 52
+,
+M.J. Da Cunha Sargedas De Sousa 57b,57a, J.V. Da Fonseca Pinto 83b, C. Da Via 103
+,
+W. Dabrowski 87a, T. Dado 37, S. Dahbi 154, T. Dai 108, D. Dal Santo 20, C. Dallapiccola 105
+,
+M. Dam 43, G. D’amen 30, V. D’Amico 111, J. Damp 102, J.R. Dandoy 35, M. D’Andrea 57a
+,
+D. Dannheim 37, G. D’anniballe 74a,74b, M. Danninger 148, V. Dao 151, G. Darbo 57b
+,
+S.J. Das 30, F. Dattola 48, S. D’Auria 71a,71b, A. D’Avanzo 72a,72b, T. Davidek 136
+,
+J. Davidson 173, I. Dawson 96, K. De 8
+, C. De Almeida Rossi 161, R. De Asmundis 72a
+,
+N. De Biase 48, S. De Castro 24b,24a, N. De Groot 116, P. de Jong 117, H. De la Torre 118
+,
+A. De Maria 114a, A. De Salvo 75a, U. De Sanctis 76a,76b, F. De Santis 70a,70b, A. De Santo 152
+,
+J.B. De Vivie De Regie 60, J. Debevc 95, D.V. Dedovich39, J. Degens 94, A.M. Deiana 45
+,
+J. Del Peso 101, L. Delagrange 130, F. Deliot 138, C.M. Delitzsch 49, M. Della Pietra 72a,72b
+,
+D. Della Volpe 56, A. Dell’Acqua 37, L. Dell’Asta 71a,71b, M. Delmastro 4
+, C.C. Delogu 102
+,
+P.A. Delsart 60, S. Demers 178, M. Demichev 39, S.P. Denisov 38, H. Denizli 22a,l
+,
+L. D’Eramo 41, D. Derendarz 88, F. Derue 130, P. Dervan 94, A.M. Desai 1
+, K. Desch 25
+,
+F.A. Di Bello 57b,57a, A. Di Ciaccio 76a,76b, L. Di Ciaccio 4
+, A. Di Domenico 75a,75b
+,
+C. Di Donato 72a,72b, A. Di Girolamo 37, G. Di Gregorio 37, A. Di Luca 78a,78b
+,
+B. Di Micco 77a,77b, R. Di Nardo 77a,77b, K.F. Di Petrillo 40, M. Diamantopoulou 35, F.A. Dias 117
+,
+M.A. Diaz 140a,140b, A.R. Didenko 39, M. Didenko 169, S.D. Diefenbacher 18a, E.B. Diehl 108
+,
+S. Díez Cornell 48, C. Diez Pardos 147, C. Dimitriadi 150, A. Dimitrievska 21, A. Dimri 151
+,
+Y. Ding62, J. Dingfelder 25, T. Dingley 129, I-M. Dinu 28b, S.J. Dittmeier 63b, F. Dittus 37
+,
+M. Divisek 136, B. Dixit 94, F. Djama 104, T. Djobava 155b, C. Doglioni 103,100
+,
+A. Dohnalova 29a, Z. Dolezal 136, K. Domijan 87a, K.M. Dona 40, M. Donadelli 83d
+,
+B. Dong 109, J. Donini 41, A. D’Onofrio 72a,72b, M. D’Onofrio 94, J. Dopke 137, A. Doria 72a
+,
+N. Dos Santos Fernandes 133a, I.A. Dos Santos Luz 83e, P. Dougan 103, M.T. Dova 92
+,
+A.T. Doyle 59, M.A. Draguet 129, M.P. Drescher 55, E. Dreyer 175, I. Drivas-koulouris 10
+,
+M. Drnevich 120, M. Drozdova 56, D. Du 62, T.A. du Pree 117, Z. Duan114a, M. Dubau 4
+,
+F. Dubinin 39, M. Dubovsky 29a, E. Duchovni 175, G. Duckeck 111, P.K. Duckett98, O.A. Ducu 28b
+,
+D. Duda 52, A. Dudarev 37, E.R. Duden 27, M. D’uffizi 103, L. Duflot 66, M. Dührssen 37
+,
+I. Duminica 28g, A.E. Dumitriu 28b, M. Dunford 63a, S. Dungs 49, K. Dunne 47a,47b
+,
+A. Duperrin 104, H. Duran Yildiz 3a, M. Düren 58, A. Durglishvili 155b, D. Duvnjak 35
+,
+G.I. Dyckes 18a, M. Dyndal 87a, B.S. Dziedzic 37, Z.O. Earnshaw 152, G.H. Eberwein 129
+,
+B. Eckerova 29a, S. Eggebrecht 55, E. Egidio Purcino De Souza 83e, G. Eigen 17
+,
+K. Einsweiler 18a, T. Ekelof 167, P.A. Ekman 100, S. El Farkh 36b, Y. El Ghazali 62
+,
+H. El Jarrari 37, A. El Moussaouy 36a, V. Ellajosyula 167, M. Ellert 167, F. Ellinghaus 177
+,
+T.A. Elliot 97, N. Ellis 37, J. Elmsheuser 30, M. Elsawy 119a, M. Elsing 37, D. Emeliyanov 137
+,
+25
+
+=== PDF PAGE 26 ===
+Y. Enari 84, I. Ene 18a, S. Epari 110, D. Ernani Martins Neto 88, F. Ernst37, M. Errenst 177
+,
+M. Escalier 66, C. Escobar 169, E. Etzion 157, G. Evans 133a,133b, H. Evans 68, L.S. Evans 97
+,
+A. Ezhilov 38, S. Ezzarqtouni 36a, F. Fabbri 24b,24a, L. Fabbri 24b,24a, G. Facini 98
+,
+V. Fadeyev 139, R.M. Fakhrutdinov 38, D. Fakoudis 102, S. Falciano 75a
+,
+L.F. Falda Ulhoa Coelho 133a, F. Fallavollita 112, G. Falsetti 44b,44a, J. Faltova 136, C. Fan 168
+,
+K.Y. Fan 64b, Y. Fan 14, Y. Fang 14,114c, M. Fanti 71a,71b, M. Faraj 69a,69b, Z. Farazpay 99
+,
+A. Farbin 8
+, A. Farilla 77a, K. Farman 154, T. Farooque 109, J.N. Farr 178, S.M. Farrington 137,52
+,
+F. Fassi 36e, D. Fassouliotis 9
+, L. Fayard 66, P. Federic 136, P. Federicova 134, O.L. Fedin 38,a
+,
+M. Feickert 176, L. Feligioni 104, D.E. Fellers 18a, C. Feng 143a, Z. Feng 117, M.J. Fenton 165
+,
+L. Ferencz 48, B. Fernandez Barbadillo 93, P. Fernandez Martinez 67, M.J.V. Fernoux 104
+,
+J. Ferrando 93, A. Ferrari 167, P. Ferrari 117,116, R. Ferrari 73a, D. Ferrere 56, C. Ferretti 108
+,
+M.P. Fewell 1
+, D. Fiacco 75a,75b, F. Fiedler 102, P. Fiedler 135, S. Filimonov 39, M.S. Filip 28b,t
+,
+A. Filipčič 95, E.K. Filmer 162a, F. Filthaut 116, M.C.N. Fiolhais 133a,133c,c, L. Fiorini 169
+,
+W.C. Fisher 109, T. Fitschen 103, P.M. Fitzhugh138, I. Fleck 147, P. Fleischmann 108, T. Flick 177
+,
+M. Flores 34d,af, L.R. Flores Castillo 64a, L. Flores Sanz De Acedo 37, F.M. Follega 78a,78b
+,
+N. Fomin 33, J.H. Foo 161, A. Formica 138, A.C. Forti 103, E. Fortin 37, A.W. Fortman 18a
+,
+L. Foster 18a, L. Fountas 9,i, D. Fournier 66, H. Fox 93, P. Francavilla 74a,74b, S. Francescato 61
+,
+S. Franchellucci 56, M. Franchini 24b,24a, S. Franchino 63a, D. Francis37, L. Franco 116
+,
+V. Franco Lima 37, L. Franconi 48, M. Franklin 61, G. Frattari 27, Y.Y. Frid 157, J. Friend 59
+,
+N. Fritzsche 37, A. Froch 56, D. Froidevaux 37, J.A. Frost 129, Y. Fu 109
+,
+S. Fuenzalida Garrido 140g, M. Fujimoto 104, K.Y. Fung 64a, E. Furtado De Simas Filho 83e
+,
+M. Furukawa 159, J. Fuster 169, A. Gaa 55, A. Gabrielli 24b,24a, A. Gabrielli 161, P. Gadow 37
+,
+G. Gagliardi 57b,57a, L.G. Gagnon 18a, S. Gaid 85b, S. Galantzan 157, J. Gallagher 1
+,
+E.J. Gallas 129, A.L. Gallen 167, B.J. Gallop 137, K.K. Gan 122, S. Ganguly 159, Y. Gao 52
+,
+A. Garabaglu 142, F.M. Garay Walls 140a,140b, C. García 169, A. Garcia Alonso 117
+,
+A.G. Garcia Caffaro 178, J.E. García Navarro 169, M.A. Garcia Ruiz 23b, M. Garcia-Sciveres 18a
+,
+G.L. Gardner 131, R.W. Gardner 40, N. Garelli 164, R.B. Garg 149, J.M. Gargan 52, C.A. Garner161
+,
+C.M. Garvey 34a, V.K. Gassmann164, G. Gaudio 73a, V. Gautam13, P. Gauzzi 75a,75b
+,
+J. Gavranovic 95, I.L. Gavrilenko 133a, A. Gavrilyuk 38, C. Gay 170, G. Gaycken 126
+,
+E.N. Gazis 10, A. Gekow122, C. Gemme 57b, M.H. Genest 60, A.D. Gentry 115, S. George 97
+,
+T. Geralis 46, A.A. Gerwin 123, P. Gessinger-Befurt 37, M.E. Geyik 177, M. Ghani 173
+,
+K. Ghorbanian 96, A. Ghosal 147, A. Ghosh 165, A. Ghosh 7
+, B. Giacobbe 24b, S. Giagu 75a,75b
+,
+T. Giani 117, A. Giannini 62, S.M. Gibson 97, M. Gignac 139, D.T. Gil 87b, A.K. Gilbert 87a
+,
+B.J. Gilbert 42, D. Gillberg 35, G. Gilles 117, D.M. Gingrich 2,ah, M.P. Giordani 69a,69c
+,
+P.F. Giraud 138, G. Giugliarelli 69a,69c, D. Giugni 71a, F. Giuli 76a,76b, I. Gkialas 9,i
+,
+L.K. Gladilin 38, C. Glasman 101, M. Glazewska 20, R.M. Gleason 165, G. Glemža 48
+,
+M. Glisic126, I. Gnesi 44b, Y. Go 30, M. Goblirsch-Kolb 37, B. Gocke 49, D. Godin110
+,
+B. Gokturk 22a, S. Goldfarb 107, T. Golling 56, M.G.D. Gololo 34c, D. Golubkov 38
+,
+J.P. Gombas 109, A. Gomes 133a,133b, G. Gomes Da Silva 147, A.J. Gomez Delegido 169
+,
+R. Gonçalo 133a, L. Gonella 21, A. Gongadze 155c, F. Gonnella 21, J.L. Gonski 149
+,
+R.Y. González Andana 52, S. González de la Hoz 169, M.V. Gonzalez Rodrigues 48
+,
+R. Gonzalez Suarez 167, S. Gonzalez-Sevilla 56, L. Goossens 37, B. Gorini 37, E. Gorini 70a,70b
+,
+A. Gorišek 95, T.C. Gosart 131, A.T. Goshaw 51, M.I. Gostkin 39, S. Goswami 124
+,
+C.A. Gottardo 37, S.A. Gotz 111, M. Gouighri 36b, A.G. Goussiou 142, N. Govender 34c
+,
+R.P. Grabarczyk 129, I. Grabowska-Bold 87a, K. Graham 35, E. Gramstad 128
+,
+S. Grancagnolo 70a,70b, C.M. Grant1
+, P.M. Gravila 28f, F.G. Gravili 70a,70b, H.M. Gray 18a
+,
+M. Greco 112, M.J. Green 1
+, C. Grefe 25, A.S. Grefsrud 17, I.M. Gregor 48, K.T. Greif 165
+,
+26
+
+=== PDF PAGE 27 ===
+P. Grenier 149, S.G. Grewe112, A.A. Grillo 139, K. Grimm 32, S. Grinstein 13,x, J.-F. Grivaz 66
+,
+E. Gross 175, J. Grosse-Knetter 55, L. Guan 108, G. Guerrieri 37, D. Guest 19, R. Guevara 128
+,
+R. Gugel 102, J.A.M. Guhit 108, A. Guida 19, E. Guilloton 173, S. Guindon 37, F. Guo 14,114c
+,
+J. Guo 144a, L. Guo 48, L. Guo 114b,v, Y. Guo 108, A. Gupta 49, R. Gupta 132, S. Gupta 27
+,
+S. Gurbuz 25, S.S. Gurdasani 48, G. Gustavino 75a,75b, P. Gutierrez 123
+,
+L.F. Gutierrez Zagazeta 131, M. Gutsche 50, C. Gutschow 98, C. Gwenlan 129, C.B. Gwilliam 94
+,
+E.S. Haaland 128, A. Haas 120, M. Habedank 59, C. Haber 18a, H.K. Hadavand 8
+, A. Haddad 41
+,
+A. Hadef 50, A.I. Hagan 93, J.J. Hahn 147, E.H. Haines 98, M. Haleem 172, J. Haley 124
+,
+G.D. Hallewell 104, L. Halser 20, K. Hamano 171, H. Hamdaoui 167, M. Hamer 25
+,
+S.E.D. Hammoud 66, E.J. Hampshire 97, J. Han 143a, L. Han 114a, L. Han 62, S. Han 14
+,
+K. Hanagaki 84, M. Hance 139, D.A. Hangal 42, H. Hanif 148, M.D. Hank 131, J.B. Hansen 43
+,
+P.H. Hansen 43, D. Harada 56, T. Harenberg 177, S. Harkusha 179, M.L. Harris 105
+,
+Y.T. Harris 25, J. Harrison 13, N.M. Harrison 122, P.F. Harrison173, M.L.E. Hart 98
+,
+N.M. Hartman 112, N.M. Hartmann 111, R.Z. Hasan 97,137, Y. Hasegawa 146, F. Haslbeck 129
+,
+S. Hassan 17, R. Hauser 109, M. Haviernik 136, C.M. Hawkes 21, R.J. Hawkings 37
+,
+Y. Hayashi 159, D. Hayden 109, C. Hayes 108, R.L. Hayes 117, C.P. Hays 129, J.M. Hays 96
+,
+H.S. Hayward 94, M. He 14,114c, Y. He 48, Y. He 98, N.B. Heatley 96, V. Hedberg 100
+,
+C. Heidegger 54, K.K. Heidegger 54, J. Heilman 35, S. Heim 48, T. Heim 18a, J.G. Heinlein 131
+,
+J.J. Heinrich 126, L. Heinrich 112, J. Hejbal 134, M. Helbig 50, A. Held 176, S. Hellesund 17
+,
+C.M. Helling 170, S. Hellman 47a,47b, A.M. Henriques Correia37, H. Herde 100
+,
+Y. Hernández Jiménez 151, L.M. Herrmann 25, T. Herrmann 50, G. Herten 54, R. Hertenberger 111
+,
+L. Hervas 37, M.E. Hesping 102, N.P. Hessey 162a, J. Hessler 112, M. Hidaoui 36b, N. Hidic 136
+,
+E. Hill 161, T.S. Hillersoy 17, S.J. Hillier 21, J.R. Hinds 109, F. Hinterkeuser 25, M. Hirose 127
+,
+S. Hirose 163, D. Hirschbuehl 177, T.G. Hitchings 103, B. Hiti 95, J. Hobbs 151, R. Hobincu 28e
+,
+N. Hod 175, A.M. Hodges 168, M.C. Hodgkinson 145, B.H. Hodkinson 129, A. Hoecker 37
+,
+D.D. Hofer 108, J. Hofer 169, M. Holzbock 37, L.B.A.H. Hommels 33, V. Homsak 129
+,
+B.P. Honan 103, J.J. Hong 68, T.M. Hong 132, B.H. Hooberman 168, W.H. Hopkins 6
+,
+M.C. Hoppesch 168, Y. Horii 113, M.E. Horstmann 112, S. Hou 154, M.R. Housenga 168
+,
+A.S. Howard 95, J. Howarth 59, J. Hoya 6
+, M. Hrabovsky 125, T. Hryn’ova 4
+, P.J. Hsu 65
+,
+S.-C. Hsu 142, T. Hsu 66, M. Hu 18a, Q. Hu 62, S. Huang 33, X. Huang 14,114c, Y. Huang 136
+,
+Y. Huang 114b, Y. Huang 102, Y. Huang 14, Z. Huang 66, Z. Hubacek 135, M. Huebner 25
+,
+F. Huegging 25, T.B. Huffman 129, M. Hufnagel Maranha De Faria 83a, C.A. Hugli 48
+,
+M. Huhtinen 37, S.K. Huiberts 17, R. Hulsken 106, C.E. Hultquist 18a, D.L. Humphreys 105
+,
+N. Huseynov 12, J. Huston 109, J. Huth 61, R. Hyneman 7
+, G. Iacobucci 56, G. Iakovidis 30
+,
+L. Iconomidou-Fayard 66, J.P. Iddon 37, P. Iengo 72a,72b, R. Iguchi 159, Y. Iiyama 159
+,
+T. Iizawa 159, Y. Ikegami 84, D. Iliadis 158, N. Ilic 161, H. Imam 36a, G. Inacio Goncalves 83d
+,
+S.A. Infante Cabanas 140c, T. Ingebretsen Carlson 47a,47b, J.M. Inglis 96, G. Introzzi 73a,73b
+,
+M. Iodice 77a, V. Ippolito 75a,75b, R.K. Irwin 94, M. Ishino 159, W. Islam 176, C. Issever 19
+,
+S. Istin 22a,am, K. Itabashi 84, H. Ito 174, R. Iuppa 78a,78b, A. Ivina 175, V. Izzo 72a, P. Jacka 135
+,
+P. Jackson 1
+, P. Jain 48, K. Jakobs 54, T. Jakoubek 175, J. Jamieson 59, W. Jang 159
+,
+S. Jankovych 136, M. Javurkova 105, P. Jawahar 103, L. Jeanty 126, J. Jejelava 155a,ae, P. Jenni 54,f
+,
+C.E. Jessiman 35, C. Jia 143a, H. Jia 170, J. Jia 151, X. Jia 14,114c, Z. Jia 114a, C. Jiang 52
+,
+Q. Jiang 64b, S. Jiggins 48, M. Jimenez Ortega 169, J. Jimenez Pena 13, S. Jin 114a, A. Jinaru 28b
+,
+O. Jinnouchi 141, P. Johansson 145, K.A. Johns 7
+, J.W. Johnson 139, F.A. Jolly 48
+,
+D.M. Jones 152, E. Jones 48, K.S. Jones8
+, P. Jones 33, R.W.L. Jones 93, T.J. Jones 94
+,
+H.L. Joos 55,37, R. Joshi 122, J. Jovicevic 16, X. Ju 18a, J.J. Junggeburth 37, T. Junkermann 63a
+,
+A. Juste Rozas 13,x, M.K. Juzek 88, S. Kabana 140f, A. Kaczmarska 88, M. Kado 112
+,
+27
+
+=== PDF PAGE 28 ===
+H. Kagan 122, M. Kagan 149, A. Kahn 131, C. Kahra 102, T. Kaji 159, E. Kajomovitz 156
+,
+N. Kakati 175, N. Kakoty 13, I. Kalaitzidou 54, S. Kandel 8
+, N.J. Kang 139, D. Kar 34h
+,
+K. Karava 129, E. Karentzos 25, O. Karkout 117, S.N. Karpov 39, Z.M. Karpova 39
+,
+V. Kartvelishvili 93, A.N. Karyukhin 38, E. Kasimi 158, J. Katzy 48, S. Kaur 35, K. Kawade 146
+,
+M.P. Kawale 123, C. Kawamoto 89, T. Kawamoto 62, E.F. Kay 37, F.I. Kaya 164, S. Kazakos 109
+,
+V.F. Kazanin 38, J.M. Keaveney 34a, R. Keeler 171, G.V. Kehris 61, J.S. Keller 35, J.M. Kelly 171
+,
+J.J. Kempster 152, O. Kepka 134, J. Kerr 162b, B.P. Kerridge 137, B.P. Kerševan 95
+,
+L. Keszeghova 29a, R.A. Khan 132, A. Khanov 124, A.G. Kharlamov 38, T. Kharlamova 38
+,
+E.E. Khoda 142, M. Kholodenko 133a, T.J. Khoo 19, G. Khoriauli 172, Y. Khoulaki 36a
+,
+J. Khubua 155b,*, Y.A.R. Khwaira 130, B. Kibirige34h, D. Kim 6
+, D.W. Kim 47a,47b, Y.K. Kim 40
+,
+N. Kimura 98, M.K. Kingston 55, A. Kirchhoff 55, C. Kirfel 25, F. Kirfel 25, J. Kirk 137
+,
+A.E. Kiryunin 112, S. Kita 163, O. Kivernyk 25, M. Klassen 164, C. Klein 35, L. Klein 172
+,
+M.H. Klein 45, S.B. Klein 56, U. Klein 94, A. Klimentov 30, T. Klioutchnikova 37, P. Kluit 117
+,
+S. Kluth 112, E. Kneringer 79, T.M. Knight 161, A. Knue 49, M. Kobel 50, D. Kobylianskii 175
+,
+S.F. Koch 129, M. Kocian 149, P. Kodyš 136, D.M. Koeck 126, T. Koffas 35, O. Kolay 50
+,
+I. Koletsou 4
+, T. Komarek 88, K. Köneke 55, A.X.Y. Kong 1
+, T. Kono 121, N. Konstantinidis 98
+,
+P. Kontaxakis 56, B. Konya 100, R. Kopeliansky 42, S. Koperny 87a, K. Korcyl 88
+,
+K. Kordas 158,d, A. Korn 98, S. Korn 55, I. Korolkov 13, N. Korotkova 38, B. Kortman 117
+,
+O. Kortner 112, S. Kortner 112, W.H. Kostecka 118, M. Kostov 29a, V.V. Kostyukhin 147
+,
+A. Kotsokechagia 37, A. Kotwal 51, A. Koulouris 37, A. Kourkoumeli-Charalampidi 73a,73b
+,
+C. Kourkoumelis 9
+, E. Kourlitis 112, O. Kovanda 126, R. Kowalewski 171, W. Kozanecki 126
+,
+A.S. Kozhin 38, V.A. Kramarenko 38, G. Kramberger 95, P. Kramer 25, M.W. Krasny 130
+,
+A. Krasznahorkay 105, A.C. Kraus 118, J.W. Kraus 177, J.A. Kremer 48, N.B. Krengel 147
+,
+T. Kresse 50, L. Kretschmann 177, J. Kretzschmar 94, P. Krieger 161, K. Krizka 21
+,
+K. Kroeninger 49, H. Kroha 112, J. Kroll 134, J. Kroll 131, K.S. Krowpman 109, U. Kruchonak 39
+,
+H. Krüger 25, N. Krumnack81, M.C. Kruse 51, O. Kuchinskaia 39, S. Kuday 3a, S. Kuehn 37
+,
+R. Kuesters 54, T. Kuhl 48, V. Kukhtin 39, Y. Kulchitsky 39, S. Kuleshov 140d,140b, J. Kull 1
+,
+E.V. Kumar 111, M. Kumar 34h, N. Kumari 48, P. Kumari 162b, A. Kupco 134, T. Kupfer49
+,
+A. Kupich 38, O. Kuprash 54, H. Kurashige 86, L.L. Kurchaninov 162a, O. Kurdysh 4
+,
+Y.A. Kurochkin 38, A. Kurova 38, M. Kuze 141, A.K. Kvam 105, J. Kvita 125, N.G. Kyriacou 108
+,
+C. Lacasta 169, F. Lacava 75a,75b, H. Lacker 19, D. Lacour 130, N.N. Lad 98, E. Ladygin 39
+,
+A. Lafarge 41, B. Laforge 130, T. Lagouri 178, F.Z. Lahbabi 36a, S. Lai 55, W.S. Lai 98
+,
+J.E. Lambert 171, S. Lammers 68, W. Lampl 7
+, C. Lampoudis 158,d, G. Lamprinoudis 102
+,
+A.N. Lancaster 118, E. Lançon 30, U. Landgraf 54, M.P.J. Landon 96, V.S. Lang 54
+,
+O.K.B. Langrekken 128, A.J. Lankford 165, F. Lanni 37, K. Lantzsch 25, A. Lanza 73a
+,
+M. Lanzac Berrocal 169, J.F. Laporte 138, T. Lari 71a, D. Larsen 17, L. Larson 11
+,
+F. Lasagni Manghi 24b, M. Lassnig 37, S.D. Lawlor 145, R. Lazaridou165, M. Lazzaroni 71a,71b
+,
+H.D.M. Le 109, E.M. Le Boulicaut 178, L.T. Le Pottier 18a, B. Leban 24b,24a, F. Ledroit-Guillon 60
+,
+T.F. Lee 162b, L.L. Leeuw 34c, M. Lefebvre 171, C. Leggett 18a, G. Lehmann Miotto 37
+,
+M. Leigh 56, W.A. Leight 105, W. Leinonen 116, A. Leisos 158,u, M.A.L. Leite 83c
+,
+C.E. Leitgeb 19, R. Leitner 136, K.J.C. Leney 45, T. Lenz 25, S. Leone 74a, C. Leonidopoulos 52
+,
+A. Leopold 150, J.H. Lepage Bourbonnais 35, R. Les 109, C.G. Lester 33, M. Levchenko 38
+,
+J. Levêque 4
+, L.J. Levinson 175, G. Levrini 24b,24a, M.P. Lewicki 88, C. Lewis 142, D.J. Lewis 4
+,
+L. Lewitt 145, A. Li 30, B. Li 143a, C. Li108, C-Q. Li 112, H. Li 143a, H. Li 103, H. Li 15, H. Li62
+,
+H. Li 143a, J. Li 144a, K. Li 14, L. Li 144a, R. Li 178, S. Li 14,114c, S. Li 144b,144a, T. Li 5
+,
+X. Li 106, Z. Li 159, Z. Li 14,114c, Z. Li 62, S. Liang 14,114c, Z. Liang 14, M. Liberatore 138
+,
+B. Liberti 76a, K. Lie 64c, J. Lieber Marin 83e, H. Lien 68, H. Lin 108, S.F. Lin 151
+,
+28
+
+=== PDF PAGE 29 ===
+L. Linden 111, R.E. Lindley 7
+, J.H. Lindon 37, J. Ling 61, E. Lipeles 131, A. Lipniacka 17
+,
+A. Lister 170, J.D. Little 68, B. Liu 14, B.X. Liu 114b, D. Liu 144b,144a, D. Liu 139
+,
+E.H.L. Liu 21, J.K.K. Liu 120, K. Liu 144b, K. Liu 144b,144a, M. Liu 62, M.Y. Liu 62, P. Liu 14
+,
+Q. Liu 144b,142,144a, X. Liu 62, X. Liu 143a, Y. Liu 114b,114c, Y.L. Liu 143a, Y.W. Liu 62
+,
+Z. Liu 66,k, S.L. Lloyd 96, E.M. Lobodzinska 48, P. Loch 7
+, E. Lodhi 161, T. Lohse 19
+,
+K. Lohwasser 145, E. Loiacono 48, J.D. Lomas 21, J.D. Long 42, I. Longarini 165, R. Longo 168
+,
+A. Lopez Solis 13, N.A. Lopez-canelas 7
+, N. Lorenzo Martinez 4
+, A.M. Lory 111, M. Losada 119a
+,
+G. Löschcke Centeno 152, X. Lou 47a,47b, X. Lou 14,114c, A. Lounis 66, P.A. Love 93, M. Lu 66
+,
+S. Lu 131, Y.J. Lu 154, H.J. Lubatti 142, C. Luci 75a,75b, F.L. Lucio Alves 114a, F. Luehring 68
+,
+B.S. Lunday 131, O. Lundberg 150, J. Lunde 37, N.A. Luongo 6
+, M.S. Lutz 37, A.B. Lux 26
+,
+D. Lynn 30, R. Lysak 134, V. Lysenko 135, E. Lytken 100, V. Lyubushkin 39, T. Lyubushkina 39
+,
+M.M. Lyukova 151, M.Firdaus M. Soberi 52, H. Ma 30, K. Ma 62, L.L. Ma 143a, W. Ma 62
+,
+Y. Ma 124, J.C. MacDonald 102, P.C. Machado De Abreu Farias 83e, R. Madar 41, T. Madula 98
+,
+J. Maeda 86, T. Maeno 30, P.T. Mafa 34c,j, H. Maguire 145, M. Maheshwari 33, V. Maiboroda 66
+,
+A. Maio 133a,133b,133d, K. Maj 87a, O. Majersky 48, S. Majewski 126, R. Makhmanazarov 38
+,
+N. Makovec 66, V. Maksimovic 16, B. Malaescu 130, J. Malamant128, Pa. Malecki 88
+,
+V.P. Maleev 38, F. Malek 60,o, M. Mali 95, D. Malito 97, U. Mallik 80,*, A. Maloizel 5
+,
+S. Maltezos10, A. Malvezzi Lopes 83d, S. Malyukov39, J. Mamuzic 13, G. Mancini 53
+,
+M.N. Mancini 27, G. Manco 73a,73b, J.P. Mandalia 96, S.S. Mandarry 152, I. Mandić 95
+,
+L. Manhaes de Andrade Filho 83a, I.M. Maniatis 175, J. Manjarres Ramos 91, D.C. Mankad 175
+,
+A. Mann 111, T. Manoussos 37, M.N. Mantinan 40, S. Manzoni 37, L. Mao 144a, X. Mapekula 34c
+,
+A. Marantis 158, R.R. Marcelo Gregorio 96, G. Marchiori 5
+, M. Marcisovsky 134, C. Marcon 71a
+,
+E. Maricic 16, M. Marinescu 48, S. Marium 48, M. Marjanovic 123, A. Markhoos 54
+,
+M. Markovitch 66, M.K. Maroun 105, G.T. Marsden103, E.J. Marshall 93, Z. Marshall 18a
+,
+S. Marti-Garcia 169, J. Martin 98, T.A. Martin 137, V.J. Martin 52, B. Martin dit Latour 17
+,
+L. Martinelli 75a,75b, M. Martinez 13,x, P. Martinez Agullo 169, V.I. Martinez Outschoorn 105
+,
+P. Martinez Suarez 13, S. Martin-Haugh 137, G. Martinovicova 136, V.S. Martoiu 28b
+,
+A.C. Martyniuk 98, A. Marzin 37, D. Mascione 78a,78b, L. Masetti 102, J. Masik 103
+,
+A.L. Maslennikov 39, S.L. Mason 42, P. Massarotti 72a,72b, P. Mastrandrea 74a,74b
+,
+A. Mastroberardino 44b,44a, T. Masubuchi 127, T.T. Mathew 126, J. Matousek 136, D.M. Mattern 49
+,
+J. Maurer 28b, T. Maurin 59, A.J. Maury 66, B. Maček 95, C. Mavungu Tsava 104
+,
+D.A. Maximov 38, A.E. May 103, E. Mayer 41, R. Mazini 34h, I. Maznas 118, S.M. Mazza 139
+,
+E. Mazzeo 37, J.P. Mc Gowan 171, S.P. Mc Kee 108, C.A. Mc Lean 6
+, C.C. McCracken 170
+,
+E.F. McDonald 107, A.E. McDougall 117, L.F. Mcelhinney 93, J.A. Mcfayden 152
+,
+R.P. McGovern 131, R.P. Mckenzie 34h, T.C. Mclachlan 48, D.J. Mclaughlin 98, S.J. McMahon 137
+,
+C.M. Mcpartland 94, R.A. McPherson 171,ab, S. Mehlhase 111, A. Mehta 94, D. Melini 169
+,
+B.R. Mellado Garcia 34h, A.H. Melo 55, F. Meloni 48, A.M. Mendes Jacques Da Costa 103
+,
+L. Meng 93, S. Menke 112, M. Mentink 37, E. Meoni 44b,44a, G. Mercado 118, S. Merianos 158
+,
+C. Merlassino 69a,69c, C. Meroni 71a,71b, J. Metcalfe 6
+, A.S. Mete 6
+, E. Meuser 102, C. Meyer 68
+,
+J-P. Meyer 138, Y. Miao114a, R.P. Middleton 137, M. Mihovilovic 66, L. Mijović 52
+,
+G. Mikenberg 175, M. Mikestikova 134, M. Mikuž 95, H. Mildner 102, A. Milic 37
+,
+D.W. Miller 40, E.H. Miller 149, L.S. Miller 35, A. Milov 175, D.A. Milstead47a,47b, T. Min114a
+,
+A.A. Minaenko 38, I.A. Minashvili 155b, A.I. Mincer 120, B. Mindur 87a, M. Mineev 39
+,
+Y. Mino 89, L.M. Mir 13, M. Miralles Lopez 59, M. Mironova 18a, M.C. Missio 116, A. Mitra 173
+,
+V.A. Mitsou 169, Y. Mitsumori 113, O. Miu 161, P.S. Miyagawa 96, T. Mkrtchyan 63a
+,
+M. Mlinarevic 98, T. Mlinarevic 98, M. Mlynarikova 37, S. Mobius 20, M.H. Mohamed Farook 115
+,
+S. Mohapatra 42, S. Mohiuddin 124, G. Mokgatitswane 34h, L. Moleri 175, U. Molinatti 129
+,
+29
+
+=== PDF PAGE 30 ===
+L.G. Mollier 20, B. Mondal 134, S. Mondal 135, K. Mönig 48, E. Monnier 104
+,
+L. Monsonis Romero169, J. Montejo Berlingen 13, A. Montella 47a,47b, M. Montella 122
+,
+F. Montereali 77a,77b, F. Monticelli 92, S. Monzani 69a,69c, A. Morancho Tarda 43, N. Morange 66
+,
+A.L. Moreira De Carvalho 48, M. Moreno Llácer 169, C. Moreno Martinez 56, J.M. Moreno Perez23b
+,
+P. Morettini 57b, S. Morgenstern 37, M. Morii 61, M. Morinaga 159, M. Moritsu 90
+,
+F. Morodei 75a,75b, P. Moschovakos 37, B. Moser 54, M. Mosidze 155b, T. Moskalets 45
+,
+P. Moskvitina 116, J. Moss 32, P. Moszkowicz 87a, A. Moussa 36d, Y. Moyal 175
+,
+H. Moyano Gomez 13, E.J.W. Moyse 105, T.G. Mroz 88, O. Mtintsilana 34h, S. Muanza 104
+,
+M. Mucha25, J. Mueller 132, R. Müller 37, G.A. Mullier 167, A.J. Mullin33, J.J. Mullin51
+,
+A.C. Mullins45, A.E. Mulski 61, D.P. Mungo 161, D. Munoz Perez 169, F.J. Munoz Sanchez 103
+,
+W.J. Murray 173,137, M. Muškinja 95, C. Mwewa 48, A.G. Myagkov 38,a, A.J. Myers 8
+,
+G. Myers 108, M. Myska 135, B.P. Nachman 18a, K. Nagai 129, K. Nagano 84, R. Nagasaka159
+,
+J.L. Nagle 30,aj, E. Nagy 104, A.M. Nairz 37, Y. Nakahama 84, K. Nakamura 84, K. Nakkalil 5
+,
+A. Nandi 63b, H. Nanjo 127, E.A. Narayanan 45, Y. Narukawa 159, I. Naryshkin 38
+,
+L. Nasella 71a,71b, S. Nasri 119b, C. Nass 25, G. Navarro 23a, J. Navarro-Gonzalez 169
+,
+A. Nayaz 19, P.Y. Nechaeva 38, S. Nechaeva 24b,24a, F. Nechansky 134, L. Nedic 129, T.J. Neep 21
+,
+A. Negri 73a,73b, M. Negrini 24b, C. Nellist 117, C. Nelson 106, K. Nelson 108, S. Nemecek 134
+,
+M. Nessi 37,g, M.S. Neubauer 168, J. Newell 94, P.R. Newman 21, Y.W.Y. Ng 168, B. Ngair 119a
+,
+H.D.N. Nguyen 110, J.D. Nichols 123, R.B. Nickerson 129, R. Nicolaidou 138, J. Nielsen 139
+,
+M. Niemeyer 55, J. Niermann 37, N. Nikiforou 37, V. Nikolaenko 38,a, I. Nikolic-Audit 130
+,
+P. Nilsson 30, I. Ninca 48, G. Ninio 157, A. Nisati 75a, R. Nisius 112, N. Nitika 69a,69c
+,
+J-E. Nitschke 50, E.K. Nkadimeng 34b, T. Nobe 159, D. Noll 18a, T. Nommensen 153
+,
+M.B. Norfolk 145, B.J. Norman 35, M. Noury 36a, J. Novak 95, T. Novak 95, R. Novotny 135
+,
+L. Nozka 125, K. Ntekas 165, N.M.J. Nunes De Moura Junior 83b, J. Ocariz 130, A. Ochi 86
+,
+I. Ochoa 133a, S. Oerdek 48,y, J.T. Offermann 40, A. Ogrodnik 136, A. Oh 103, C.C. Ohm 150
+,
+H. Oide 84, M.L. Ojeda 37, Y. Okumura 159, L.F. Oleiro Seabra 133a, I. Oleksiyuk 56
+,
+G. Oliveira Correa 13, D. Oliveira Damazio 30, J.L. Oliver 165, R. Omar 68, Ö.O. Öncel 54
+,
+A.P. O’Neill 20, A. Onofre 133a,133e,e, P.U.E. Onyisi 11, M.J. Oreglia 40, D. Orestano 77a,77b
+,
+R. Orlandini 77a,77b, R.S. Orr 161, L.M. Osojnak 131, Y. Osumi 113, G. Otero y Garzon 31
+,
+H. Otono 90, M. Ouchrif 36d, F. Ould-Saada 128, T. Ovsiannikova 142, M. Owen 59
+,
+R.E. Owen 137, V.E. Ozcan 22a, F. Ozturk 88, N. Ozturk 8
+, S. Ozturk 82, H.A. Pacey 129
+,
+K. Pachal 162a, A. Pacheco Pages 13, C. Padilla Aranda 13, G. Padovano 75a,75b
+,
+S. Pagan Griso 18a, G. Palacino 68, A. Palazzo 70a,70b, J. Pampel 25, J. Pan 178, T. Pan 64a
+,
+D.K. Panchal 11, C.E. Pandini 60, J.G. Panduro Vazquez 137, H.D. Pandya 1
+, H. Pang 138
+,
+P. Pani 48, G. Panizzo 69a,69c, L. Panwar 130, L. Paolozzi 56, S. Parajuli 168, A. Paramonov 6
+,
+C. Paraskevopoulos 53, D. Paredes Hernandez 64b, A. Pareti 73a,73b, K.R. Park 42, T.H. Park 112
+,
+F. Parodi 57b,57a, J.A. Parsons 42, U. Parzefall 54, B. Pascual Dias 41, L. Pascual Dominguez 101
+,
+E. Pasqualucci 75a, S. Passaggio 57b, F. Pastore 97, P. Patel 88, U.M. Patel 51, J.R. Pater 103
+,
+T. Pauly 37, F. Pauwels 136, C.I. Pazos 164, M. Pedersen 128, R. Pedro 133a, S.V. Peleganchuk 38
+,
+O. Penc 134, E.A. Pender 52, S. Peng 15, G.D. Penn 178, K.E. Penski 111, M. Penzin 38
+,
+B.S. Peralva 83d, A.P. Pereira Peixoto 142, L. Pereira Sanchez 149, D.V. Perepelitsa 30,aj
+,
+G. Perera 105, E. Perez Codina 37, M. Perganti 10, H. Pernegger 37, S. Perrella 75a,75b
+,
+K. Peters 48, R.F.Y. Peters 103, B.A. Petersen 37, T.C. Petersen 43, E. Petit 104, V. Petousis 135
+,
+A.R. Petri 71a,71b, C. Petridou 158,d, T. Petru 136, A. Petrukhin 147, M. Pettee 18a, A. Petukhov 82
+,
+K. Petukhova 37, R. Pezoa 140g, L. Pezzotti 24b,24a, G. Pezzullo 178, L. Pfaffenbichler 37
+,
+A.J. Pfleger 37, T.M. Pham 176, T. Pham 107, P.W. Phillips 137, G. Piacquadio 151, E. Pianori 18a
+,
+F. Piazza 126, R. Piegaia 31, D. Pietreanu 28b, A.D. Pilkington 103, M. Pinamonti 69a,69c
+,
+30
+
+=== PDF PAGE 31 ===
+J.L. Pinfold 2
+, B.C. Pinheiro Pereira 133a, J. Pinol Bel 13, A.E. Pinto Pinoargote 130
+,
+L. Pintucci 69a,69c, K.M. Piper 152, A. Pirttikoski 56, D.A. Pizzi 35, L. Pizzimento 64b
+,
+A. Plebani 33, M.-A. Pleier 30, V. Pleskot 136, E. Plotnikova39, G. Poddar 96, R. Poettgen 100
+,
+L. Poggioli 130, S. Polacek 136, G. Polesello 73a, A. Poley 148, A. Polini 24b, C.S. Pollard 173
+,
+Z.B. Pollock 122, E. Pompa Pacchi 123, N.I. Pond 98, D. Ponomarenko 68, L. Pontecorvo 37
+,
+S. Popa 28a, G.A. Popeneciu 28d, A. Poreba 37, D.M. Portillo Quintero 162a, S. Pospisil 135
+,
+M.A. Postill 145, P. Postolache 28c, K. Potamianos 173, P.A. Potepa 87a, I.N. Potrap 39
+,
+C.J. Potter 33, H. Potti 153, J. Poveda 169, M.E. Pozo Astigarraga 37, R. Pozzi 37
+,
+A. Prades Ibanez 76a,76b, S.R. Pradhan 145, J. Pretel 171, D. Price 103, M. Primavera 70a
+,
+L. Primomo 69a,69c, M.A. Principe Martin 101, R. Privara 125, T. Procter 87b, M.L. Proffitt 142
+,
+N. Proklova 131, K. Prokofiev 64c, G. Proto 112, J. Proudfoot 6
+, M. Przybycien 87a
+,
+W.W. Przygoda 87b, A. Psallidas 46, J.E. Puddefoot 145, D. Pudzha 53, H.I. Purnell 1
+,
+D. Pyatiizbyantseva 116, J. Qian 108, R. Qian 109, D. Qichen 103, Y. Qin 13, T. Qiu 52
+,
+A. Quadt 55, M. Queitsch-Maitland 103, G. Quetant 56, R.P. Quinn 170, G. Rabanal Bolanos 61
+,
+D. Rafanoharana 112, F. Raffaeli 76a,76b, F. Ragusa 71a,71b, J.L. Rainbolt 40, J.A. Raine 56
+,
+S. Rajagopalan 30, E. Ramakoti 39, L. Rambelli 57b,57a, I.A. Ramirez-Berend 35, K. Ran 48,114c
+,
+D.S. Rankin 131, N.P. Rapheeha 34h, H. Rasheed 28b, D.F. Rassloff 63a, A. Rastogi 18a
+,
+S. Rave 102, S. Ravera 57b,57a, B. Ravina 37, I. Ravinovich 175, M. Raymond 37, A.L. Read 128
+,
+N.P. Readioff 145, D.M. Rebuzzi 73a,73b, A.S. Reed 59, K. Reeves 27, J.A. Reidelsturz 177
+,
+D. Reikher 126, A. Rej 49, C. Rembser 37, H. Ren 62, M. Renda 28b, F. Renner 48
+,
+A.G. Rennie 59, A.L. Rescia 48, S. Resconi 71a, M. Ressegotti 57b,57a, S. Rettie 37
+,
+W.F. Rettie 35, M.M. Revering 33, E. Reynolds 18a, O.L. Rezanova 39, P. Reznicek 136
+,
+H. Riani 36d, N. Ribaric 51, B. Ricci 69a,69c, E. Ricci 78a,78b, R. Richter 112, S. Richter 47a,47b
+,
+E. Richter-Was 87b, M. Ridel 130, S. Ridouani 36d, P. Rieck 120, P. Riedler 37, E.M. Riefel 47a,47b
+,
+J.O. Rieger 117, M. Rijssenbeek 151, M. Rimoldi 37, L. Rinaldi 24b,24a, P. Rincke 167,55
+,
+G. Ripellino 167, I. Riu 13, J.C. Rivera Vergara 171, F. Rizatdinova 124, E. Rizvi 96
+,
+B.R. Roberts 18a, S.S. Roberts 139, D. Robinson 33, M. Robles Manzano 102, A. Robson 59
+,
+A. Rocchi 76a,76b, C. Roda 74a,74b, S. Rodriguez Bosca 37, Y. Rodriguez Garcia 23a
+,
+A.M. Rodríguez Vera 118, S. Roe37, J.T. Roemer 37, O. Røhne 128, R.A. Rojas 37
+,
+C.P.A. Roland 130, A. Romaniouk 79, E. Romano 73a,73b, M. Romano 24b
+,
+A.C. Romero Hernandez 168, N. Rompotis 94, L. Roos 130, S. Rosati 75a, B.J. Rosser 40
+,
+E. Rossi 129, E. Rossi 72a,72b, L.P. Rossi 61, L. Rossini 54, R. Rosten 122, M. Rotaru 28b
+,
+B. Rottler 54, D. Rousseau 66, D. Rousso 48, S. Roy-Garand 161, A. Rozanov 104
+,
+Z.M.A. Rozario 59, Y. Rozen 156, A. Rubio Jimenez 169, V.H. Ruelas Rivera 19, T.A. Ruggeri 1
+,
+A. Ruggiero 129, A. Ruiz-Martinez 169, A. Rummler 37, Z. Rurikova 54, N.A. Rusakovich 39
+,
+S. Ruscelli 49, H.L. Russell 171, G. Russo 75a,75b, J.P. Rutherfoord 7
+, S. Rutherford Colmenares 33
+,
+M. Rybar 136, P. Rybczynski 87a, A. Ryzhov 45, J.A. Sabater Iglesias 56, H.F-W. Sadrozinski 139
+,
+F. Safai Tehrani 75a, S. Saha 1
+, M. Sahinsoy 82, B. Sahoo 175, A. Saibel 169, B.T. Saifuddin 123
+,
+M. Saimpert 138, G.T. Saito 83c, M. Saito 159, T. Saito 159, A. Sala 71a,71b, A. Salnikov 149
+,
+J. Salt 169, A. Salvador Salas 157, F. Salvatore 152, A. Salzburger 37, D. Sammel 54
+,
+E. Sampson 93, D. Sampsonidis 158,d, D. Sampsonidou 126, J. Sánchez 169
+,
+V. Sanchez Sebastian 169, H. Sandaker 128, C.O. Sander 48, J.A. Sandesara 176, M. Sandhoff 177
+,
+C. Sandoval 23b, L. Sanfilippo 63a, D.P.C. Sankey 137, T. Sano 89, A. Sansoni 53
+,
+M. Santana Queiroz 18b, L. Santi 37, C. Santoni 41, H. Santos 133a,133b, A. Santra 175
+,
+E. Sanzani 24b,24a, K.A. Saoucha 85b, J.G. Saraiva 133a,133d, J. Sardain 7
+, O. Sasaki 84
+,
+K. Sato 163, C. Sauer37, E. Sauvan 4
+, P. Savard 161,ah, R. Sawada 159, C. Sawyer 137
+,
+L. Sawyer 99, C. Sbarra 24b, A. Sbrizzi 24b,24a, T. Scanlon 98, J. Schaarschmidt 142
+,
+31
+
+=== PDF PAGE 32 ===
+U. Schäfer 102, A.C. Schaffer 66,45, D. Schaile 111, R.D. Schamberger 151, C. Scharf 19
+,
+M.M. Schefer 20, V.A. Schegelsky 38, D. Scheirich 136, M. Schernau 140f, C. Scheulen 56
+,
+C. Schiavi 57b,57a, M. Schioppa 44b,44a, B. Schlag 149, S. Schlenker 37, J. Schmeing 177
+,
+E. Schmidt 112, M.A. Schmidt 177, K. Schmieden 102, C. Schmitt 102, N. Schmitt 102
+,
+S. Schmitt 48, N.A. Schneider 111, L. Schoeffel 138, A. Schoening 63b, P.G. Scholer 35
+,
+E. Schopf 147, M. Schott 25, S. Schramm 56, T. Schroer 56, H-C. Schultz-Coulon 63a
+,
+M. Schumacher 54, B.A. Schumm 139, Ph. Schune 138, H.R. Schwartz 139, A. Schwartzman 149
+,
+T.A. Schwarz 108, Ph. Schwemling 138, R. Schwienhorst 109, F.G. Sciacca 20, A. Sciandra 30
+,
+G. Sciolla 27, F. Scuri 74a, C.D. Sebastiani 37, K. Sedlaczek 118, S.C. Seidel 115, A. Seiden 139
+,
+B.D. Seidlitz 42, C. Seitz 48, J.M. Seixas 83b, G. Sekhniaidze 72a, L. Selem 60
+,
+N. Semprini-Cesari 24b,24a, A. Semushin 179, D. Sengupta 56, V. Senthilkumar 169, L. Serin 66
+,
+M. Sessa 72a,72b, H. Severini 123, F. Sforza 57b,57a, A. Sfyrla 56, Q. Sha 14, E. Shabalina 55
+,
+H. Shaddix 118, A.H. Shah 33, R. Shaheen 150, J.D. Shahinian 131, M. Shamim 37, L.Y. Shan 14
+,
+M. Shapiro 18a, A. Sharma 37, A.S. Sharma 170, P. Sharma 30, P.B. Shatalov 38, K. Shaw 152
+,
+S.M. Shaw 103, Q. Shen 144a, D.J. Sheppard 148, P. Sherwood 98, L. Shi 98, X. Shi 14
+,
+S. Shimizu 84, C.O. Shimmin 178, I.P.J. Shipsey 129,*, S. Shirabe 90, M. Shiyakova 39,z
+,
+M.J. Shochet 40, D.R. Shope 128, B. Shrestha 123, S. Shrestha 122,al, I. Shreyber 39
+,
+M.J. Shroff 171, P. Sicho 134, A.M. Sickles 168, E. Sideras Haddad 34h,166, A.C. Sidley 117
+,
+A. Sidoti 24b, F. Siegert 50, Dj. Sijacki 16, F. Sili 92, J.M. Silva 52, I. Silva Ferreira 83b
+,
+M.V. Silva Oliveira 30, S.B. Silverstein 47a, S. Simion66, R. Simoniello 37, E.L. Simpson 103
+,
+H. Simpson 152, L.R. Simpson 6
+, S. Simsek 82, S. Sindhu 55, P. Sinervo 161, S.N. Singh 27
+,
+S. Singh 30, S. Sinha 48, S. Sinha 103, M. Sioli 24b,24a, K. Sioulas 9
+, I. Siral 37, E. Sitnikova 48
+,
+J. Sjölin 47a,47b, A. Skaf 55, E. Skorda 21, P. Skubic 123, M. Slawinska 88, I. Slazyk 17
+,
+I. Sliusar 128, V. Smakhtin175, B.H. Smart 137, S.Yu. Smirnov 140b, Y. Smirnov 82
+,
+L.N. Smirnova 38,a, O. Smirnova 100, A.C. Smith 42, D.R. Smith165, J.L. Smith 103
+,
+M.B. Smith 35, R. Smith149, H. Smitmanns 102, M. Smizanska 93, K. Smolek 135
+,
+P. Smolyanskiy 135, A.A. Snesarev 39, H.L. Snoek 117, S. Snyder 30, R. Sobie 171,ab
+,
+A. Soffer 157, C.A. Solans Sanchez 37, E.Yu. Soldatov 39, U. Soldevila 169, A.A. Solodkov 34h
+,
+S. Solomon 27, A. Soloshenko 39, K. Solovieva 54, O.V. Solovyanov 41, P. Sommer 50
+,
+A. Sonay 13, A. Sopczak 135, A.L. Sopio 52, F. Sopkova 29b, J.D. Sorenson 115
+,
+I.R. Sotarriva Alvarez 141, V. Sothilingam63a, O.J. Soto Sandoval 140c,140b, S. Sottocornola 68
+,
+R. Soualah 85a, Z. Soumaimi 36e, D. South 48, N. Soybelman 175, S. Spagnolo 70a,70b
+,
+M. Spalla 112, D. Sperlich 54, B. Spisso 72a,72b, D.P. Spiteri 59, L. Splendori 104, M. Spousta 136
+,
+E.J. Staats 35, R. Stamen 63a, E. Stanecka 88, W. Stanek-Maslouska 48, M.V. Stange 50
+,
+B. Stanislaus 18a, M.M. Stanitzki 48, B. Stapf 48, E.A. Starchenko 38, G.H. Stark 139, J. Stark 91
+,
+P. Staroba 134, P. Starovoitov 85b, R. Staszewski 88, C. Stauch 111, G. Stavropoulos 46
+,
+A. Stefl 37, A. Stein 102, P. Steinberg 30, B. Stelzer 148,162a, H.J. Stelzer 132, O. Stelzer 162a
+,
+H. Stenzel 58, T.J. Stevenson 152, G.A. Stewart 37, J.R. Stewart 124, M.C. Stockton 37
+,
+G. Stoicea 28b, M. Stolarski 133a, S. Stonjek 112, A. Straessner 50, J. Strandberg 150
+,
+S. Strandberg 47a,47b, M. Stratmann 177, M. Strauss 123, T. Strebler 104, P. Strizenec 29b
+,
+R. Ströhmer 172, D.M. Strom 126, R. Stroynowski 45, A. Strubig 47a,47b, S.A. Stucci 30
+,
+B. Stugu 17, J. Stupak 123, N.A. Styles 48, D. Su 149, S. Su 62, X. Su 62, D. Suchy 29a
+,
+K. Sugizaki 131, V.V. Sulin 38, M.J. Sullivan 94, D.M.S. Sultan 129, L. Sultanaliyeva 38
+,
+S. Sultansoy 3b, S. Sun 176, W. Sun 14, O. Sunneborn Gudnadottir 167, N. Sur 100
+,
+M.R. Sutton 152, H. Suzuki 163, M. Svatos 134, P.N. Swallow 33, M. Swiatlowski 162a
+,
+T. Swirski 172, A. Swoboda 37, I. Sykora 29a, M. Sykora 136, T. Sykora 136, D. Ta 102
+,
+K. Tackmann 48,y, A. Taffard 165, R. Tafirout 162a, Y. Takubo 84, M. Talby 104, A.A. Talyshev 38
+,
+32
+
+=== PDF PAGE 33 ===
+K.C. Tam 64b, N.M. Tamir 157, A. Tanaka 159, J. Tanaka 159, R. Tanaka 66, M. Tanasini 151
+,
+Z. Tao 170, S. Tapia Araya 140g, S. Tapprogge 102, A. Tarek Abouelfadl Mohamed 109
+,
+S. Tarem 156, K. Tariq 14, G. Tarna 37, G.F. Tartarelli 71a, M.J. Tartarin 91, P. Tas 136
+,
+M. Tasevsky 134, E. Tassi 44b,44a, A.C. Tate 168, G. Tateno 159, Y. Tayalati 36e,aa, G.N. Taylor 107
+,
+W. Taylor 162b, A.S. Tegetmeier 91, P. Teixeira-Dias 97, J.J. Teoh 161, K. Terashi 159
+,
+J. Terron 101, S. Terzo 13, M. Testa 53, R.J. Teuscher 161,ab, A. Thaler 79, O. Theiner 56
+,
+T. Theveneaux-Pelzer 104, D.W. Thomas97, J.P. Thomas 21, E.A. Thompson 18a, P.D. Thompson 21
+,
+E. Thomson 131, R.E. Thornberry 45, C. Tian 62, Y. Tian 56, V. Tikhomirov 82
+,
+Yu.A. Tikhonov 39, S. Timoshenko38, D. Timoshyn 136, E.X.L. Ting 1
+, P. Tipton 178
+,
+A. Tishelman-Charny 30, K. Todome 141, S. Todorova-Nova 136, L. Toffolin 69a,69c, M. Togawa 84
+,
+J. Tojo 90, S. Tokár 29a, O. Toldaiev 68, G. Tolkachev 104, M. Tomoto 84,113, L. Tompkins 149,n
+,
+E. Torrence 126, H. Torres 91, E. Torró Pastor 169, M. Toscani 31, C. Tosciri 40, M. Tost 11
+,
+D.R. Tovey 145, T. Trefzger 172, P.M. Tricarico 13, A. Tricoli 30, I.M. Trigger 162a
+,
+S. Trincaz-Duvoid 130, D.A. Trischuk 27, A. Tropina39, L. Truong 34c, M. Trzebinski 88
+,
+A. Trzupek 88, F. Tsai 151, M. Tsai 108, A. Tsiamis 158, P.V. Tsiareshka39, S. Tsigaridas 162a
+,
+A. Tsirigotis 158,u, V. Tsiskaridze 155a, E.G. Tskhadadze 155a, M. Tsopoulou 158, Y. Tsujikawa 89
+,
+I.I. Tsukerman 38, V. Tsulaia 18a, S. Tsuno 84, K. Tsuri 121, D. Tsybychev 151, Y. Tu 64b
+,
+A. Tudorache 28b, V. Tudorache 28b, S.B. Tuncay 129, S. Turchikhin 57b,57a, I. Turk Cakir 3a
+,
+R. Turra 71a, T. Turtuvshin 39,ac, P.M. Tuts 42, S. Tzamarias 158,d, E. Tzovara 102, Y. Uematsu 84
+,
+F. Ukegawa 163, P.A. Ulloa Poblete 140c,140b, E.N. Umaka 30, G. Unal 37, A. Undrus 30
+,
+G. Unel 165, J. Urban 29b, P. Urrejola 140a, G. Usai 8
+, R. Ushioda 160, M. Usman 110
+,
+F. Ustuner 52, Z. Uysal 82, V. Vacek 135, B. Vachon 106, T. Vafeiadis 37, A. Vaitkus 98
+,
+C. Valderanis 111, E. Valdes Santurio 47a,47b, M. Valente 37, S. Valentinetti 24b,24a, A. Valero 169
+,
+E. Valiente Moreno 169, A. Vallier 91, J.A. Valls Ferrer 169, D.R. Van Arneman 117
+,
+A. Van Der Graaf 49, H.Z. Van Der Schyf 34h, P. Van Gemmeren 6
+, M. Van Rijnbach 37
+,
+S. Van Stroud 98, I. Van Vulpen 117, P. Vana 136, M. Vanadia 76a,76b, U.M. Vande Voorde 150
+,
+W. Vandelli 37, E.R. Vandewall 124, D. Vannicola 157, L. Vannoli 53, R. Vari 75a, M. Varma 178
+,
+E.W. Varnes 7
+, C. Varni 118, D. Varouchas 66, L. Varriale 169, K.E. Varvell 153, M.E. Vasile 28b
+,
+L. Vaslin84, M.D. Vassilev 149, A. Vasyukov 39, L.M. Vaughan 124, R. Vavricka136
+,
+T. Vazquez Schroeder 13, J. Veatch 32, V. Vecchio 103, M.J. Veen 105, I. Veliscek 30
+,
+I. Velkovska 95, L.M. Veloce 161, F. Veloso 133a,133c, S. Veneziano 75a, A. Ventura 70a,70b
+,
+A. Verbytskyi 112, M. Verducci 74a,74b, C. Vergis 96, M. Verissimo De Araujo 83b
+,
+W. Verkerke 117, J.C. Vermeulen 117, C. Vernieri 149, M. Vessella 165, M.C. Vetterli 148,ah
+,
+A. Vgenopoulos 102, N. Viaux Maira 140g, T. Vickey 145, O.E. Vickey Boeriu 145
+,
+G.H.A. Viehhauser 129, L. Vigani 63b, M. Vigl 112, M. Villa 24b,24a, M. Villaplana Perez 169
+,
+E.M. Villhauer40, E. Vilucchi 53, M. Vincent 169, M.G. Vincter 35, A. Visibile117, C. Vittori 37
+,
+I. Vivarelli 24b,24a, E. Voevodina 112, F. Vogel 111, J.C. Voigt 50, P. Vokac 135, Yu. Volkotrub 87b
+,
+L. Vomberg 25, E. Von Toerne 25, B. Vormwald 37, K. Vorobev 51, M. Vos 169, K. Voss 147
+,
+M. Vozak 37, L. Vozdecky 123, N. Vranjes 16, M. Vranjes Milosavljevic 16, M. Vreeswijk 117
+,
+N.K. Vu 144b,144a, R. Vuillermet 37, O. Vujinovic 102, I. Vukotic 40, I.K. Vyas 35, J.F. Wack 33
+,
+S. Wada 163, C. Wagner149, J.M. Wagner 18a, W. Wagner 177, S. Wahdan 177, H. Wahlberg 92
+,
+C.H. Waits 123, J. Walder 137, R. Walker 111, K. Walkingshaw Pass59, W. Walkowiak 147
+,
+A. Wall 131, E.J. Wallin 100, T. Wamorkar 18a, K. Wandall-Christensen 169, A. Wang 62
+,
+A.Z. Wang 139, C. Wang 102, C. Wang 11, H. Wang 18a, J. Wang 64c, P. Wang 103, P. Wang 98
+,
+R. Wang 61, R. Wang 6
+, S.M. Wang 154, S. Wang 14, T. Wang 62, T. Wang 62, W.T. Wang 80
+,
+W. Wang 14, X. Wang 168, X. Wang 144a, X. Wang 48, Y. Wang 114a, Y. Wang 62, Z. Wang 108
+,
+Z. Wang 144b, Z. Wang 108, C. Wanotayaroj 84, A. Warburton 106, A.L. Warnerbring 147
+,
+33
+
+=== PDF PAGE 34 ===
+N. Warrack 59, S. Waterhouse 97, A.T. Watson 21, H. Watson 52, M.F. Watson 21, E. Watton 59
+,
+G. Watts 142, B.M. Waugh 98, J.M. Webb 54, C. Weber 30, H.A. Weber 19, M.S. Weber 20
+,
+S.M. Weber 63a, C. Wei 62, Y. Wei 54, A.R. Weidberg 129, E.J. Weik 120, J. Weingarten 49
+,
+C. Weiser 54, C.J. Wells 48, T. Wenaus 30, B. Wendland 49, T. Wengler 37, N.S. Wenke112
+,
+N. Wermes 25, M. Wessels 63a, A.M. Wharton 93, A.S. White 61, A. White 8
+, M.J. White 1
+,
+D. Whiteson 165, L. Wickremasinghe 127, W. Wiedenmann 176, M. Wielers 137, R. Wierda 150
+,
+C. Wiglesworth 43, H.G. Wilkens 37, J.J.H. Wilkinson 33, D.M. Williams 42, H.H. Williams131
+,
+S. Williams 33, S. Willocq 105, B.J. Wilson 103, D.J. Wilson 103, P.J. Windischhofer 40
+,
+F.I. Winkel 31, F. Winklmeier 126, B.T. Winter 54, M. Wittgen149, M. Wobisch 99, T. Wojtkowski60
+,
+Z. Wolffs 117, J. Wollrath37, M.W. Wolter 88, H. Wolters 133a,133c, M.C. Wong139
+,
+E.L. Woodward 42, S.D. Worm 48, B.K. Wosiek 88, K.W. Woźniak 88, S. Wozniewski 55
+,
+K. Wraight 59, C. Wu 161, C. Wu 21, J. Wu 159, M. Wu 114b, M. Wu 116, S.L. Wu 176
+,
+S. Wu 14, X. Wu 62, Y. Wu 62, Z. Wu 4
+, Z. Wu 114a, J. Wuerzinger 112, T.R. Wyatt 103
+,
+B.M. Wynne 52, S. Xella 43, L. Xia 114a, M. Xia 15, M. Xie 62, A. Xiong 126, J. Xiong 18a
+,
+D. Xu 14, H. Xu 62, L. Xu 62, R. Xu 131, T. Xu 108, Y. Xu 142, Z. Xu 52, R. Xue 132
+,
+B. Yabsley 153, S. Yacoob 34a, Y. Yamaguchi 84, E. Yamashita 159, H. Yamauchi 163
+,
+T. Yamazaki 18a, Y. Yamazaki 86, S. Yan 59, Z. Yan 105, H.J. Yang 144a,144b, H.T. Yang 62
+,
+S. Yang 62, T. Yang 64c, X. Yang 37, X. Yang 14, Y. Yang 159, Y. Yang62, W-M. Yao 18a
+,
+C.L. Yardley 152, J. Ye 14, S. Ye 30, X. Ye 62, Y. Yeh 98, I. Yeletskikh 39, B. Yeo 18b
+,
+M.R. Yexley 98, T.P. Yildirim 129, K. Yorita 174, C.J.S. Young 37, C. Young 149, N.D. Young126
+,
+Y. Yu 62, J. Yuan 14,114c, M. Yuan 108, R. Yuan 144b,144a, L. Yue 98, M. Zaazoua 62
+,
+B. Zabinski 88, I. Zahir 36a, A. Zaio57b,57a, Z.K. Zak 88, T. Zakareishvili 169, S. Zambito 56
+,
+J.A. Zamora Saa 140d, J. Zang 159, R. Zanzottera 71a,71b, O. Zaplatilek 135, C. Zeitnitz 177
+,
+H. Zeng 14, J.C. Zeng 168, D.T. Zenger Jr 27, O. Zenin 38, T. Ženiš 29a, S. Zenz 96
+,
+D. Zerwas 66, M. Zhai 14,114c, D.F. Zhang 145, G. Zhang 14, J. Zhang 143a, J. Zhang 6
+,
+K. Zhang 14,114c, L. Zhang 62, L. Zhang 114a, P. Zhang 14,114c, R. Zhang 114a, S. Zhang 91
+,
+T. Zhang 159, Y. Zhang 142, Y. Zhang 98, Y. Zhang 62, Y. Zhang 114a, Z. Zhang 143a
+,
+Z. Zhang 66, H. Zhao 142, T. Zhao 143a, Y. Zhao 35, Z. Zhao 62, Z. Zhao 62
+,
+A. Zhemchugov 39, J. Zheng 114a, K. Zheng 168, X. Zheng 62, Z. Zheng 149, D. Zhong 168
+,
+B. Zhou 108, H. Zhou 7
+, N. Zhou 144a, Y. Zhou 15, Y. Zhou 114a, Y. Zhou7
+, C.G. Zhu 143a
+,
+J. Zhu 108, X. Zhu144b, Y. Zhu 144a, Y. Zhu 62, X. Zhuang 14, K. Zhukov 68, N.I. Zimine 39
+,
+J. Zinsser 63b, M. Ziolkowski 147, L. Živković 16, A. Zoccoli 24b,24a, K. Zoch 61, A. Zografos 37
+,
+T.G. Zorbas 145, O. Zormpa 46, L. Zwalinski 37
+.
+1Department of Physics, University of Adelaide, Adelaide; Australia.
+2Department of Physics, University of Alberta, Edmonton AB; Canada.
+3 (𝑎)Department of Physics, Ankara University, Ankara;(𝑏)Division of Physics, TOBB University of
+Economics and Technology, Ankara; Türkiye.
+4LAPP, Université Savoie Mont Blanc, CNRS/IN2P3, Annecy; France.
+5APC, Université Paris Cité, CNRS/IN2P3, Paris; France.
+6High Energy Physics Division, Argonne National Laboratory, Argonne IL; United States of America.
+7Department of Physics, University of Arizona, Tucson AZ; United States of America.
+8Department of Physics, University of Texas at Arlington, Arlington TX; United States of America.
+9Physics Department, National and Kapodistrian University of Athens, Athens; Greece.
+10Physics Department, National Technical University of Athens, Zografou; Greece.
+11Department of Physics, University of Texas at Austin, Austin TX; United States of America.
+12Institute of Physics, Azerbaijan Academy of Sciences, Baku; Azerbaijan.
+34
+
+=== PDF PAGE 35 ===
+13Institut de Física d’Altes Energies (IFAE), Barcelona Institute of Science and Technology, Barcelona;
+Spain.
+14Institute of High Energy Physics, Chinese Academy of Sciences, Beijing; China.
+15Physics Department, Tsinghua University, Beijing; China.
+16Institute of Physics, University of Belgrade, Belgrade; Serbia.
+17Department for Physics and Technology, University of Bergen, Bergen; Norway.
+18 (𝑎)Physics Division, Lawrence Berkeley National Laboratory, Berkeley CA;(𝑏)University of California,
+Berkeley CA; United States of America.
+19Institut für Physik, Humboldt Universität zu Berlin, Berlin; Germany.
+20Albert Einstein Center for Fundamental Physics and Laboratory for High Energy Physics, University of
+Bern, Bern; Switzerland.
+21School of Physics and Astronomy, University of Birmingham, Birmingham; United Kingdom.
+22 (𝑎)Department of Physics, Bogazici University, Istanbul;(𝑏)Department of Physics Engineering,
+Gaziantep University, Gaziantep;(𝑐)Department of Physics, Istanbul University, Istanbul; Türkiye.
+23 (𝑎)Facultad de Ciencias y Centro de Investigaciónes, Universidad Antonio Nariño,
+Bogotá;(𝑏)Departamento de Física, Universidad Nacional de Colombia, Bogotá; Colombia.
+24 (𝑎)Dipartimento di Fisica e Astronomia A. Righi, Università di Bologna, Bologna;(𝑏)
+INFN Sezione di
+Bologna; Italy.
+25Physikalisches Institut, Universität Bonn, Bonn; Germany.
+26Department of Physics, Boston University, Boston MA; United States of America.
+27Department of Physics, Brandeis University, Waltham MA; United States of America.
+28 (𝑎)Transilvania University of Brasov, Brasov;(𝑏)Horia Hulubei National Institute of Physics and Nuclear
+Engineering, Bucharest;(𝑐)Department of Physics, Alexandru Ioan Cuza University of Iasi, Iasi;(𝑑)National
+Institute for Research and Development of Isotopic and Molecular Technologies, Physics Department,
+Cluj-Napoca;(𝑒)National University of Science and Technology Politechnica, Bucharest;( 𝑓 )West
+University in Timisoara, Timisoara;(𝑔)Faculty of Physics, University of Bucharest, Bucharest; Romania.
+29 (𝑎)Faculty of Mathematics, Physics and Informatics, Comenius University, Bratislava;(𝑏)Department of
+Subnuclear Physics, Institute of Experimental Physics of the Slovak Academy of Sciences, Kosice; Slovak
+Republic.
+30Physics Department, Brookhaven National Laboratory, Upton NY; United States of America.
+31Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Física, y
+CONICET, Instituto de Física de Buenos Aires (IFIBA), Buenos Aires; Argentina.
+32California State University, CA; United States of America.
+33Cavendish Laboratory, University of Cambridge, Cambridge; United Kingdom.
+34 (𝑎)Department of Physics, University of Cape Town, Cape Town;(𝑏)
+iThemba Labs, Western
+Cape;(𝑐)Department of Mechanical Engineering Science, University of Johannesburg,
+Johannesburg;(𝑑)National Institute of Physics, University of the Philippines Diliman
+(Philippines);(𝑒)Department of Physics, Stellenbosch University, Matieland;( 𝑓 )University of South Africa,
+Department of Physics, Pretoria;(𝑔)University of Zululand, KwaDlangezwa;(ℎ)School of Physics,
+University of the Witwatersrand, Johannesburg; South Africa.
+35Department of Physics, Carleton University, Ottawa ON; Canada.
+36 (𝑎)Faculté des Sciences Ain Chock, Université Hassan II de Casablanca;(𝑏)Faculté des Sciences,
+Université Ibn-Tofail, Kénitra;(𝑐)Faculté des Sciences Semlalia, Université Cadi Ayyad,
+LPHEA-Marrakech;(𝑑)LPMR, Faculté des Sciences, Université Mohamed Premier, Oujda;(𝑒)Faculté des
+sciences, Université Mohammed V, Rabat;( 𝑓 )
+Institute of Applied Physics, Mohammed VI Polytechnic
+University, Ben Guerir; Morocco.
+37CERN, Geneva; Switzerland.
+35
+
+=== PDF PAGE 36 ===
+38Affiliated with an institute formerly covered by a cooperation agreement with CERN.
+39Affiliated with an international laboratory covered by a cooperation agreement with CERN.
+40Enrico Fermi Institute, University of Chicago, Chicago IL; United States of America.
+41LPC, Université Clermont Auvergne, CNRS/IN2P3, Clermont-Ferrand; France.
+42Nevis Laboratory, Columbia University, Irvington NY; United States of America.
+43Niels Bohr Institute, University of Copenhagen, Copenhagen; Denmark.
+44 (𝑎)Dipartimento di Fisica, Università della Calabria, Rende;(𝑏)
+INFN Gruppo Collegato di Cosenza,
+Laboratori Nazionali di Frascati; Italy.
+45Physics Department, Southern Methodist University, Dallas TX; United States of America.
+46National Centre for Scientific Research "Demokritos", Agia Paraskevi; Greece.
+47 (𝑎)Department of Physics, Stockholm University;(𝑏)Oskar Klein Centre, Stockholm; Sweden.
+48Deutsches Elektronen-Synchrotron DESY, Hamburg and Zeuthen; Germany.
+49Fakultät Physik , Technische Universität Dortmund, Dortmund; Germany.
+50Institut für Kern- und Teilchenphysik, Technische Universität Dresden, Dresden; Germany.
+51Department of Physics, Duke University, Durham NC; United States of America.
+52SUPA - School of Physics and Astronomy, University of Edinburgh, Edinburgh; United Kingdom.
+53INFN e Laboratori Nazionali di Frascati, Frascati; Italy.
+54Physikalisches Institut, Albert-Ludwigs-Universität Freiburg, Freiburg; Germany.
+55II. Physikalisches Institut, Georg-August-Universität Göttingen, Göttingen; Germany.
+56Département de Physique Nucléaire et Corpusculaire, Université de Genève, Genève; Switzerland.
+57 (𝑎)Dipartimento di Fisica, Università di Genova, Genova;(𝑏)
+INFN Sezione di Genova; Italy.
+58II. Physikalisches Institut, Justus-Liebig-Universität Giessen, Giessen; Germany.
+59SUPA - School of Physics and Astronomy, University of Glasgow, Glasgow; United Kingdom.
+60LPSC, Université Grenoble Alpes, CNRS/IN2P3, Grenoble INP, Grenoble; France.
+61Laboratory for Particle Physics and Cosmology, Harvard University, Cambridge MA; United States of
+America.
+62Department of Modern Physics and State Key Laboratory of Particle Detection and Electronics,
+University of Science and Technology of China, Hefei; China.
+63 (𝑎)Kirchhoff-Institut für Physik, Ruprecht-Karls-Universität Heidelberg, Heidelberg;(𝑏)Physikalisches
+Institut, Ruprecht-Karls-Universität Heidelberg, Heidelberg; Germany.
+64 (𝑎)Department of Physics, Chinese University of Hong Kong, Shatin, N.T., Hong Kong;(𝑏)Department
+of Physics, University of Hong Kong, Hong Kong;(𝑐)Department of Physics and Institute for Advanced
+Study, Hong Kong University of Science and Technology, Clear Water Bay, Kowloon, Hong Kong; China.
+65Department of Physics, National Tsing Hua University, Hsinchu; Taiwan.
+66IJCLab, Université Paris-Saclay, CNRS/IN2P3, 91405, Orsay; France.
+67Centro Nacional de Microelectrónica (IMB-CNM-CSIC), Barcelona; Spain.
+68Department of Physics, Indiana University, Bloomington IN; United States of America.
+69 (𝑎)
+INFN Gruppo Collegato di Udine, Sezione di Trieste, Udine;(𝑏)
+ICTP, Trieste;(𝑐)Dipartimento
+Politecnico di Ingegneria e Architettura, Università di Udine, Udine; Italy.
+70 (𝑎)
+INFN Sezione di Lecce;(𝑏)Dipartimento di Matematica e Fisica, Università del Salento, Lecce; Italy.
+71 (𝑎)
+INFN Sezione di Milano;(𝑏)Dipartimento di Fisica, Università di Milano, Milano; Italy.
+72 (𝑎)
+INFN Sezione di Napoli;(𝑏)Dipartimento di Fisica, Università di Napoli, Napoli; Italy.
+73 (𝑎)
+INFN Sezione di Pavia;(𝑏)Dipartimento di Fisica, Università di Pavia, Pavia; Italy.
+74 (𝑎)
+INFN Sezione di Pisa;(𝑏)Dipartimento di Fisica E. Fermi, Università di Pisa, Pisa; Italy.
+75 (𝑎)
+INFN Sezione di Roma;(𝑏)Dipartimento di Fisica, Sapienza Università di Roma, Roma; Italy.
+76 (𝑎)
+INFN Sezione di Roma Tor Vergata;(𝑏)Dipartimento di Fisica, Università di Roma Tor Vergata,
+Roma; Italy.
+36
+
+=== PDF PAGE 37 ===
+77 (𝑎)
+INFN Sezione di Roma Tre;(𝑏)Dipartimento di Matematica e Fisica, Università Roma Tre, Roma;
+Italy.
+78 (𝑎)
+INFN-TIFPA;(𝑏)Università degli Studi di Trento, Trento; Italy.
+79Universität Innsbruck, Department of Astro and Particle Physics, Innsbruck; Austria.
+80University of Iowa, Iowa City IA; United States of America.
+81Department of Physics and Astronomy, Iowa State University, Ames IA; United States of America.
+82Istinye University, Sariyer, Istanbul; Türkiye.
+83 (𝑎)Departamento de Engenharia Elétrica, Universidade Federal de Juiz de Fora (UFJF), Juiz de
+Fora;(𝑏)Universidade Federal do Rio De Janeiro COPPE/EE/IF, Rio de Janeiro;(𝑐)
+Instituto de Física,
+Universidade de São Paulo, São Paulo;(𝑑)Rio de Janeiro State University, Rio de Janeiro;(𝑒)Federal
+University of Bahia, Bahia; Brazil.
+84KEK, High Energy Accelerator Research Organization, Tsukuba; Japan.
+85 (𝑎)Khalifa University of Science and Technology, Abu Dhabi;(𝑏)University of Sharjah, Sharjah; United
+Arab Emirates.
+86Graduate School of Science, Kobe University, Kobe; Japan.
+87 (𝑎)AGH University of Krakow, Faculty of Physics and Applied Computer Science, Krakow;(𝑏)Marian
+Smoluchowski Institute of Physics, Jagiellonian University, Krakow; Poland.
+88Institute of Nuclear Physics Polish Academy of Sciences, Krakow; Poland.
+89Faculty of Science, Kyoto University, Kyoto; Japan.
+90Research Center for Advanced Particle Physics and Department of Physics, Kyushu University, Fukuoka ;
+Japan.
+91L2IT, Université de Toulouse, CNRS/IN2P3, UPS, Toulouse; France.
+92Instituto de Física La Plata, Universidad Nacional de La Plata and CONICET, La Plata; Argentina.
+93Physics Department, Lancaster University, Lancaster; United Kingdom.
+94Oliver Lodge Laboratory, University of Liverpool, Liverpool; United Kingdom.
+95Department of Experimental Particle Physics, Jožef Stefan Institute and Department of Physics,
+University of Ljubljana, Ljubljana; Slovenia.
+96Department of Physics and Astronomy, Queen Mary University of London, London; United Kingdom.
+97Department of Physics, Royal Holloway University of London, Egham; United Kingdom.
+98Department of Physics and Astronomy, University College London, London; United Kingdom.
+99Louisiana Tech University, Ruston LA; United States of America.
+100Fysiska institutionen, Lunds universitet, Lund; Sweden.
+101Departamento de Física Teorica C-15 and CIAFF, Universidad Autónoma de Madrid, Madrid; Spain.
+102Institut für Physik, Universität Mainz, Mainz; Germany.
+103School of Physics and Astronomy, University of Manchester, Manchester; United Kingdom.
+104CPPM, Aix-Marseille Université, CNRS/IN2P3, Marseille; France.
+105Department of Physics, University of Massachusetts, Amherst MA; United States of America.
+106Department of Physics, McGill University, Montreal QC; Canada.
+107School of Physics, University of Melbourne, Victoria; Australia.
+108Department of Physics, University of Michigan, Ann Arbor MI; United States of America.
+109Department of Physics and Astronomy, Michigan State University, East Lansing MI; United States of
+America.
+110Group of Particle Physics, University of Montreal, Montreal QC; Canada.
+111Fakultät für Physik, Ludwig-Maximilians-Universität München, München; Germany.
+112Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München; Germany.
+113Graduate School of Science and Kobayashi-Maskawa Institute, Nagoya University, Nagoya; Japan.
+114 (𝑎)Department of Physics, Nanjing University, Nanjing;(𝑏)School of Science, Shenzhen Campus of Sun
+37
+
+=== PDF PAGE 38 ===
+Yat-sen University;(𝑐)University of Chinese Academy of Science (UCAS), Beijing; China.
+115Department of Physics and Astronomy, University of New Mexico, Albuquerque NM; United States of
+America.
+116Institute for Mathematics, Astrophysics and Particle Physics, Radboud University/Nikhef, Nijmegen;
+Netherlands.
+117Nikhef National Institute for Subatomic Physics and University of Amsterdam, Amsterdam;
+Netherlands.
+118Department of Physics, Northern Illinois University, DeKalb IL; United States of America.
+119 (𝑎)New York University Abu Dhabi, Abu Dhabi;(𝑏)United Arab Emirates University, Al Ain; United
+Arab Emirates.
+120Department of Physics, New York University, New York NY; United States of America.
+121Ochanomizu University, Otsuka, Bunkyo-ku, Tokyo; Japan.
+122Ohio State University, Columbus OH; United States of America.
+123Homer L. Dodge Department of Physics and Astronomy, University of Oklahoma, Norman OK; United
+States of America.
+124Department of Physics, Oklahoma State University, Stillwater OK; United States of America.
+125Palacký University, Joint Laboratory of Optics, Olomouc; Czech Republic.
+126Institute for Fundamental Science, University of Oregon, Eugene, OR; United States of America.
+127Graduate School of Science, University of Osaka, Osaka; Japan.
+128Department of Physics, University of Oslo, Oslo; Norway.
+129Department of Physics, Oxford University, Oxford; United Kingdom.
+130LPNHE, Sorbonne Université, Université Paris Cité, CNRS/IN2P3, Paris; France.
+131Department of Physics, University of Pennsylvania, Philadelphia PA; United States of America.
+132Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh PA; United States of
+America.
+133 (𝑎)Laboratório de Instrumentação e Física Experimental de Partículas - LIP, Lisboa;(𝑏)Departamento
+de Física, Faculdade de Ciências, Universidade de Lisboa, Lisboa;(𝑐)Departamento de Física,
+Universidade de Coimbra, Coimbra;(𝑑)Centro de Física Nuclear da Universidade de Lisboa,
+Lisboa;(𝑒)Departamento de Física, Escola de Ciências, Universidade do Minho, Braga;( 𝑓 )Departamento
+de Física Teórica y del Cosmos, Universidad de Granada, Granada (Spain);(𝑔)Departamento de Física,
+Instituto Superior Técnico, Universidade de Lisboa, Lisboa; Portugal.
+134Institute of Physics of the Czech Academy of Sciences, Prague; Czech Republic.
+135Czech Technical University in Prague, Prague; Czech Republic.
+136Charles University, Faculty of Mathematics and Physics, Prague; Czech Republic.
+137Particle Physics Department, Rutherford Appleton Laboratory, Didcot; United Kingdom.
+138IRFU, CEA, Université Paris-Saclay, Gif-sur-Yvette; France.
+139Santa Cruz Institute for Particle Physics, University of California Santa Cruz, Santa Cruz CA; United
+States of America.
+140 (𝑎)Departamento de Física, Pontificia Universidad Católica de Chile, Santiago;(𝑏)Millennium Institute
+for Subatomic physics at high energy frontier (SAPHIR), Santiago;(𝑐)
+Instituto de Investigación
+Multidisciplinario en Ciencia y Tecnología, y Departamento de Física, Universidad de La
+Serena;(𝑑)Universidad Andres Bello, Department of Physics, Santiago;(𝑒)Universidad San Sebastian,
+Recoleta;( 𝑓 )
+Instituto de Alta Investigación, Universidad de Tarapacá, Arica;(𝑔)Departamento de Física,
+Universidad Técnica Federico Santa María, Valparaíso; Chile.
+141Department of Physics, Institute of Science, Tokyo; Japan.
+142Department of Physics, University of Washington, Seattle WA; United States of America.
+143 (𝑎)
+Institute of Frontier and Interdisciplinary Science and Key Laboratory of Particle Physics and Particle
+38
+
+=== PDF PAGE 39 ===
+Irradiation (MOE), Shandong University, Qingdao;(𝑏)School of Physics, Zhengzhou University; China.
+144 (𝑎)State Key Laboratory of Dark Matter Physics, School of Physics and Astronomy, Shanghai Jiao Tong
+University, Key Laboratory for Particle Astrophysics and Cosmology (MOE), SKLPPC, Shanghai;(𝑏)State
+Key Laboratory of Dark Matter Physics, Tsung-Dao Lee Institute, Shanghai Jiao Tong University,
+Shanghai; China.
+145Department of Physics and Astronomy, University of Sheffield, Sheffield; United Kingdom.
+146Department of Physics, Shinshu University, Nagano; Japan.
+147Department Physik, Universität Siegen, Siegen; Germany.
+148Department of Physics, Simon Fraser University, Burnaby BC; Canada.
+149SLAC National Accelerator Laboratory, Stanford CA; United States of America.
+150Department of Physics, Royal Institute of Technology, Stockholm; Sweden.
+151Departments of Physics and Astronomy, Stony Brook University, Stony Brook NY; United States of
+America.
+152Department of Physics and Astronomy, University of Sussex, Brighton; United Kingdom.
+153School of Physics, University of Sydney, Sydney; Australia.
+154Institute of Physics, Academia Sinica, Taipei; Taiwan.
+155 (𝑎)E. Andronikashvili Institute of Physics, Iv. Javakhishvili Tbilisi State University, Tbilisi;(𝑏)High
+Energy Physics Institute, Tbilisi State University, Tbilisi;(𝑐)University of Georgia, Tbilisi; Georgia.
+156Department of Physics, Technion, Israel Institute of Technology, Haifa; Israel.
+157Raymond and Beverly Sackler School of Physics and Astronomy, Tel Aviv University, Tel Aviv; Israel.
+158Department of Physics, Aristotle University of Thessaloniki, Thessaloniki; Greece.
+159International Center for Elementary Particle Physics and Department of Physics, University of Tokyo,
+Tokyo; Japan.
+160Graduate School of Science and Technology, Tokyo Metropolitan University, Tokyo; Japan.
+161Department of Physics, University of Toronto, Toronto ON; Canada.
+162 (𝑎)TRIUMF, Vancouver BC;(𝑏)Department of Physics and Astronomy, York University, Toronto ON;
+Canada.
+163Division of Physics and Tomonaga Center for the History of the Universe, Faculty of Pure and Applied
+Sciences, University of Tsukuba, Tsukuba; Japan.
+164Department of Physics and Astronomy, Tufts University, Medford MA; United States of America.
+165Department of Physics and Astronomy, University of California Irvine, Irvine CA; United States of
+America.
+166University of West Attica, Athens; Greece.
+167Department of Physics and Astronomy, University of Uppsala, Uppsala; Sweden.
+168Department of Physics, University of Illinois, Urbana IL; United States of America.
+169Instituto de Física Corpuscular (IFIC), Centro Mixto Universidad de Valencia - CSIC, Valencia; Spain.
+170Department of Physics, University of British Columbia, Vancouver BC; Canada.
+171Department of Physics and Astronomy, University of Victoria, Victoria BC; Canada.
+172Fakultät für Physik und Astronomie, Julius-Maximilians-Universität Würzburg, Würzburg; Germany.
+173Department of Physics, University of Warwick, Coventry; United Kingdom.
+174Waseda University, Tokyo; Japan.
+175Department of Particle Physics and Astrophysics, Weizmann Institute of Science, Rehovot; Israel.
+176Department of Physics, University of Wisconsin, Madison WI; United States of America.
+177Fakultät für Mathematik und Naturwissenschaften, Fachgruppe Physik, Bergische Universität
+Wuppertal, Wuppertal; Germany.
+178Department of Physics, Yale University, New Haven CT; United States of America.
+179Yerevan Physics Institute, Yerevan; Armenia.
+39
+
+=== PDF PAGE 40 ===
+𝑎 Also at Affiliated with an institute formerly covered by a cooperation agreement with CERN.
+𝑏 Also at An-Najah National University, Nablus; Palestine.
+𝑐 Also at Borough of Manhattan Community College, City University of New York, New York NY; United
+States of America.
+𝑑 Also at Center for Interdisciplinary Research and Innovation (CIRI-AUTH), Thessaloniki; Greece.
+𝑒 Also at Centre of Physics of the Universities of Minho and Porto (CF-UM-UP); Portugal.
+𝑓 Also at CERN, Geneva; Switzerland.
+𝑔 Also at Département de Physique Nucléaire et Corpusculaire, Université de Genève, Genève;
+Switzerland.
+ℎ Also at Departament de Fisica de la Universitat Autonoma de Barcelona, Barcelona; Spain.
+𝑖 Also at Department of Financial and Management Engineering, University of the Aegean, Chios; Greece.
+𝑗 Also at Department of Mathematical Sciences, University of South Africa, Johannesburg; South Africa.
+𝑘 Also at Department of Modern Physics and State Key Laboratory of Particle Detection and Electronics,
+University of Science and Technology of China, Hefei; China.
+𝑙 Also at Department of Physics, Bolu Abant Izzet Baysal University, Bolu; Türkiye.
+𝑚 Also at Department of Physics, King’s College London, London; United Kingdom.
+𝑛 Also at Department of Physics, Stanford University, Stanford CA; United States of America.
+𝑜 Also at Department of Physics, Stellenbosch University; South Africa.
+𝑝 Also at Department of Physics, University of Fribourg, Fribourg; Switzerland.
+𝑞 Also at Department of Physics, University of Thessaly; Greece.
+𝑟 Also at Department of Physics, Westmont College, Santa Barbara; United States of America.
+𝑠 Also at Faculty of Physics, Sofia University, ’St. Kliment Ohridski’, Sofia; Bulgaria.
+𝑡 Also at Faculty of Physics, University of Bucharest ; Romania.
+𝑢 Also at Hellenic Open University, Patras; Greece.
+𝑣 Also at Henan University; China.
+𝑤 Also at Imam Mohammad Ibn Saud Islamic University; Saudi Arabia.
+𝑥 Also at Institucio Catalana de Recerca i Estudis Avancats, ICREA, Barcelona; Spain.
+𝑦 Also at Institut für Experimentalphysik, Universität Hamburg, Hamburg; Germany.
+𝑧 Also at Institute for Nuclear Research and Nuclear Energy (INRNE) of the Bulgarian Academy of
+Sciences, Sofia; Bulgaria.
+𝑎𝑎 Also at Institute of Applied Physics, Mohammed VI Polytechnic University, Ben Guerir; Morocco.
+𝑎𝑏 Also at Institute of Particle Physics (IPP); Canada.
+𝑎𝑐 Also at Institute of Physics and Technology, Mongolian Academy of Sciences, Ulaanbaatar; Mongolia.
+𝑎𝑑 Also at Institute of Physics, Azerbaijan Academy of Sciences, Baku; Azerbaijan.
+𝑎𝑒 Also at Institute of Theoretical Physics, Ilia State University, Tbilisi; Georgia.
+𝑎 𝑓 Also at National Institute of Physics, University of the Philippines Diliman (Philippines); Philippines.
+𝑎𝑔 Also at The Collaborative Innovation Center of Quantum Matter (CICQM), Beijing; China.
+𝑎ℎ Also at TRIUMF, Vancouver BC; Canada.
+𝑎𝑖 Also at Università di Napoli Parthenope, Napoli; Italy.
+𝑎 𝑗 Also at University of Colorado Boulder, Department of Physics, Colorado; United States of America.
+𝑎𝑘 Also at University of Sienna; Italy.
+𝑎𝑙 Also at Washington College, Chestertown, MD; United States of America.
+𝑎𝑚 Also at Yeditepe University, Physics Department, Istanbul; Türkiye.
+∗ Deceased
+40

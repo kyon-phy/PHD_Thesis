@@ -1,0 +1,576 @@
+
+=== PDF PAGE 1 ===
+If you are experiencing TWiki instability from outside the CERN network, please connect via the CERN internal network - see
+KB0010688
+  for details
+LuminosityForPhysics
+Introduction
+Luminosity for physics analysis
+Luminosity requests
+Useful Links and Documentation
+Proton-proton data
+Combination of 2022 to 2024 13.6 TeV proton-proton data (preliminary)
+2024 13.6 TeV proton-proton (preliminary)
+Combination of 2022 and 2023 13.6 TeV proton-proton data (preliminary)
+2023 13.6 TeV proton-proton (preliminary)
+2022 13.6 TeV proton-proton (preliminary)
+2022 13.6 TeV proton-proton run for LHCf (preliminary)
+2015 - 2018 13 TeV proton-proton (final)
+Treatment of partial Run-2 datasets
+Treatment of combinations of measurements
+2017 and 2018 13 TeV proton-proton low-mu dataset (final)
+2012 8 TeV proton-proton final
+2011 7 TeV proton-proton final
+2010 7 TeV proton-proton final
+Heavy Ion data
+2025 5.36 TeV neon-neon preliminary April 2026
+2025 5.36 TeV oxygen-oxygen preliminary April 2026
+2025 9.62 TeV proton-oxygen preliminary January 2026
+2024 5.36 TeV proton-proton preliminary May 2026
+2023 5.36 TeV lead-lead preliminary November 2025
+2023 5.36 TeV lead-lead pre-preliminary July 2024
+2018 5.02 TeV lead-lead final January 2022
+2015 and 2017 5.02 TeV proton-proton (final)
+2016 8.16 TeV proton-lead final January 2019
+2015 5.0 TeV lead-lead final
+2013 proton-lead final
+2013 2.76 TeV proton-proton final
+2011 2.76 TeV proton-proton final
+2011 lead-lead (2.76 TeV /nucleon)
+2010 lead-lead (2.76 TeV /nucleon)
+ALFA data
+2018 13 TeV proton-proton beta*=90m (preliminary)
+2016 13 TeV proton-proton beta*=2.5km (preliminary)
+Introduction
+This page describes the luminosity recommendations for physics analyses from the LuminosityGroup. This includes the luminosity tag
+which is used to compute the integrated luminosity for a given dataset, and the associated systematic uncertainty to be propagated to the
+analysis results. The integrated luminosity is calculated separately by each analysis team, for its specific trigger and GRL setup.
+Instructions are available in the red box below.
+Luminosity for physics analysis
+Every analysis must calculate the luminosity for its specific setup, based on the luminosity tag, GRL, and trigger, using the ATLAS
+luminosity calculator
+ .
+Please make sure to follow these steps:
+use the appropriate GRL, which you can find on the GoodRunListsForAnalysis page.
+use the recommended lumi tag, which you can find below.
+as “physics trigger” use the trigger used in your particular analysis.
+TWiki > Atlas Web>DataPreparation>LuminosityGroup>LuminosityForPhysics (2026-07-06, KlausMoenig)
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 1/12
+
+=== PDF PAGE 2 ===
+follow the other instructions on the lumicalc page.
+Luminosity requests
+If your specific dataset is missing on this page, please contact the luminosity conveners 
+ atlas-luminosity-conveners. Luminosity requests
+are further handled through the luminosity JIRA page
+ . The JIRA ticket is created to make sure the information listed below is provided to
+allow the creation of a dedicated luminosity tag:
+A GRL with the list of runs and luminosity blocks which are good for analysis
+The luminosity algorithm that should be used for the luminosity calculation
+The JIRA ticket should indicate explicitly the name of the data set for which the luminosity should be calculated and the requested timeline.
+Useful Links and Documentation
+ATLAS Luminosity Calculator
+Luminosity Calculator Tutorial
+LAr Event Veto Information
+Information on available GRLs and where to download them can be found on the GoodRunListsForAnalysis page
+Previous, superseeded recommendations can be found at the LuminosityForPhysicsSuperseeded page
+Proton-proton data
+Combination of 2022 to 2024 13.6 TeV proton-proton data (preliminary)
+Data Sample data22/23/24_13p6TeV
+Luminosity Uncertainty 1.9%
+Documentation ATL-DAPR-PUB-2025-001
+Last update for this entry 13 November 2025
+For any common analysis of 2022 to 2024 data just add the luminosities of the three years. The uncertainty of the combined luminosity is
+1.9%. A brief explanation on the methodology, how this value is obtained can be found in ATL-DAPR-PUB-2024-001
+ . The reference for
+the PUB note is \cite{ATL-DAPR-PUB-2025-001} included in PubNotes.bib, the other references have not changed since Run-2 and can be
+found from the Run-2 entry: LuminosityForPhysics#2015_2018_13_TeV_proton_proton_f. The following sentence can be written in public
+CONF notes/papers: "The uncertainty in the integrated luminosity for data recorded in 2022-2024 is 1.9\%~ \cite{ATL-DAPR-PUB-2025-
+001}, following the methodology discussed in Ref.~ \cite{DAPR-2021-01}, using the LUCID-2 detector~\cite{LUCID2} for the primary
+luminosity measurements, complemented by measurements using the inner detector and calorimeters."
+2024 13.6 TeV proton-proton (preliminary)
+Data Sample data24_13p6TeV
+Luminosity Tag OflLumi-Run3-008
+Luminosity Uncertainty 2.0%
+Documentation ATL-DAPR-PUB-2025-001
+Additional Information vdM analysis
+  vdM and combination
+ , mu corrections
+ , calibration transfer
+Last update for this entry 13 November 2025
+The preliminary calibration of 2024 13.6 TeV pp data is available in the tag OflLumi-Run3-008. This result reduces the luminosity recorded
+by ATLAS by around 1.2% compared to the OflLumi-Run3-004 tag. The luminosity is constantly 0.26% higher than in the OffLumi-Run3-007
+tag.
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 2/12
+
+=== PDF PAGE 3 ===
+Combination of 2022 and 2023 13.6 TeV proton-proton data (preliminary)
+Data Sample data22/23_13p6TeV
+Luminosity Uncertainty 2.0%
+Documentation ATL-DAPR-PUB-2024-001
+Last update for this entry 27 August 2024
+For any common analysis of 2022 and 2023 data just add the luminosities of the two years. The uncertainty of the combined luminosity is
+2.0%. A brief explanation how this value is obtained can be found in ATL-DAPR-PUB-2024-001
+ .
+2023 13.6 TeV proton-proton (preliminary)
+Data Sample data23_13p6TeV
+Luminosity Tag OflLumi-Run3-004
+Luminosity Uncertainty 2.0%
+Documentation ATL-DAPR-PUB-2024-001
+Additional Information sigma_vis Calibration
+  Linearity and long-term stability
+  Calibration Transfer
+  Tag Validation
+Last update for this entry 25 August 2024
+The preliminary calibration of 2023 13.6 TeV pp data is available in the tag OflLumi-Run3-004. This result reduces the luminosity recorded
+by ATLAS by around 0.7% compared to the previous OflLumi-Run3-003 tag. Figures and tables documenting the calibration are published
+in ATL-DAPR-PUB-2024-001
+ .
+2022 13.6 TeV proton-proton (preliminary)
+Data Sample data22_13p6TeV
+Luminosity Tag OflLumi-Run3-003
+Luminosity Uncertainty 2.2%
+Documentation ATL-DAPR-PUB-2023-001
+Additional Information sigma_vis calibration
+ , mu calibration and tag presentation
+ , Combined uncertainties
+Last update for this entry 16 February 2023
+The preliminary calibration of 2022 13.6TeV pp data uses a calibration based on the vdM scans recorded 10-11 November 2022 (run
+439428), as well as a mu-correction determined in a standard physics fill at high mu on 20 August 2022 (run 431885) based on track
+counting data, which is anchored to LUCID in the quiescent periods of the vdM run above. The default luminometer from the LUCID side is
+LUCID Bi2 HITOR. Figures and tables documenting the calibration are published in ATL-DAPR-PUB-2023-001
+ .
+The updated tag shifts the integrated luminosity down by -5.4%. Analyses should re-evaluate the integrated luminosity of their GRL using
+the LumiCalc tool
+ . The following sentence can be written in public CONF notes/papers: "The uncertainty in the integrated luminosity for
+data recorded in 2022 is 2.2\%~ \cite{ATL-DAPR-PUB-2023-001}, following the methodology discussed in Ref.~ \cite{DAPR-2021-01},
+using the LUCID-2 detector~\cite{LUCID2} for the primary luminosity measurements, complemented by measurements using the inner
+detector and calorimeters."
+The reference for the PUB note is \cite{ATL-DAPR-PUB-2023-001} included in PubNotes.bib, the other references have not changed since
+Run-2 and can be found from the Run-2 entry: LuminosityForPhysics#2015_2018_13_TeV_proton_proton_f.
+2022 13.6 TeV proton-proton run for LHCf (preliminary)
+Data Sample data22_13p6TeV
+Luminosity Tag OflLumi-Run3-003
+Luminosity Uncertainty 1.5%
+Documentation ATL-DAPR-PUB-2023-001
+Additional Information sigma_vis calibration
+ , Time stability checks
+Last update for this entry 9 September 2025
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 3/12
+
+=== PDF PAGE 4 ===
+The preliminary calibration of 2022 13.6TeV pp LHCf data uses a calibration based on the vdM scans recorded 10-11 November 2022 (run
+439428), as well as stability tests based on tracking and LUCID. The default luminometer from the LUCID side is LUCID Bi2 HITOR.
+Figures and tables documenting the vdM calibration are included in ATL-DAPR-PUB-2023-001
+ .
+The following sentence can be written in public CONF notes/papers: "The uncertainty in the integrated luminosity for the LHCf data
+recorded in 2022 is 1.5%. The error is composed of 1.45% from the vdM calibration~ \cite{ATL-DAPR-PUB-2023-001}, following the
+methodology discussed in Ref.~ \cite{DAPR-2021-01}, using the LUCID-2 detector~\cite{LUCID2} for the primary luminosity
+measurements. An uncertainty of 0.5% is added in quadrature due to the extrapolation of the LUCID measurement from the vdM calibration
+run to the LHCf run, checked by comparing LUCD to tracking."
+2015 - 2018 13 TeV proton-proton (final)
+Data Sample data15/16/17/18_13TeV
+Luminosity Tag OflLumi-13TeV-011
+LuminosityUncertainty 0.83%
+Documentation Eur. Phys. J. C 83, 982 (2023)
+  Tag validation
+ , Luminosity group approval with preliminary beam-beam
+uncertainty
+ , Final results with updated beam-beam uncertainty
+Last update for thisentry 30 January 2023
+The final calibration of the 2015-2018 13 TeV pp data sample is now available in the tag OflLumi-13TeV-011. The uncertainty on the
+combined data set (2015-2018) is reduced to 0.83% from 1.7% previously [ATLAS-CONF-2019-021
+ ].
+Please note that this tag shifts the integrated luminosity up by about +0.8%, and the shift itself is not a constant scaling factor throughout
+the year(s). Analyses should therefore re-evaluate the integrated luminosity of their GRL using the LumiCalc tool. A rerunning of the pileup
+reweighting is not needed - you can continue to use the files from tag OflLumi-13TeV-010 for this. Note: The specified uncertainty is only
+valid for the full Run-2 dataset. If you use only a subset or individual years, please check out recommendations for partial Run-2
+combinations below, and please get in contact with the luminosity conveners, if your combination is not yet listed.
+The tag is also applicable for the low mu dataset in 2017 and 2018, with a different uncertainty though - see the separate entry for details. It
+does not include the high β* special ALFA datasets.
+The following sentence can be written in public CONF notes/papers: "The uncertainty in the combined 2015--2018 integrated luminosity is
+0.83\% \cite{DAPR-2021-01}, obtained using the LUCID-2 detector \cite{LUCID2} for the primary luminosity measurements, complemented
+by measurements using the inner detector and calorimeters."
+Please quote the total luminosity as follows:
+In figure legends and in text if the uncertainty is not quoted: '140 fb-1'
+If the absolute uncertainty is meant to be quoted: '140.1 ± 1.2 fb-1', following PDG rounding recommendations
+The value of 140 fb-1 corresponds to the standard 'AllGood' physics GRL; if you use a different GRL, the integrated luminosity may be
+different.
+Cite:
+[DAPR-2021-01] \cite{DAPR-2021-01} from ATLAS.bib
+[LUCID2] \cite{LUCID2} from ATLAS.bib
+@Article{DAPR-2021-01,
+    author         = "{ATLAS Collaboration}",
+    title          = "{Luminosity determination in $pp$ collisions at $\sqrt{s}=13$ TeV using the ATLAS detector at the LHC}",
+    eprint         = "2212.09379",
+    archivePrefix  = "arXiv",
+    primaryClass   = "hep-ex",
+    reportNumber   = "CERN-EP-2022-281",
+    doi = "10.1140/epjc/s10052-023-11747-w",
+    journal = "Eur. Phys. J. C",
+    volume = "83",
+    number = "10",
+    pages = "982",
+    year = "2023"
+}
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 4/12
+
+=== PDF PAGE 5 ===
+Treatment of partial Run-2 datasets
+If you use only a partial Run-2 dataset, please check the available combinations below, and get in contact with the luminosity conveners:
+atlas-luminosity-conveners@cern.ch, if the one you need is missing.
+For the combination of 2015+2016 data, using the same GRLs as for full Run-2 above, the luminosity information is given below:
+Data Sample data15+16_13TeV
+Luminosity Uncertainty 0.87%
+Documentation Partial Run-2 combination
+The following sentence for the 2015+2016 partial Run-2 data can be written in public CONF notes/papers: "The uncertainty in the
+integrated luminosity of the combined dataset from 2015 and 2016 is 0.87\%, using the same methodology as in Ref. \cite{DAPR-2021-01},
+and obtained using the LUCID-2 detector \cite{LUCID2} for the primary luminosity measurements, complemented by measurements using
+the inner detector and calorimeters."
+Please quote as follows:
+In figure legends and in text if the uncertainty is not quoted: '37 fb-1'
+If the absolute uncertainty is meant to be quoted: ' 36.65 ± 0.32 fb-1', following PDG rounding recommendations
+The references remain as for full Run-2.
+For the combination of 2016+2017+2018 data, using the same GRLs as for full Run-2 above, the luminosity information is given below:
+Data Sample data16+17+18_13TeV
+Luminosity Uncertainty 0.84%
+Documentation Partial Run-2 combination - Part 2
+The following sentence for the 2016+2017+2018 partial Run-2 data can be written in public CONF notes/papers: "The uncertainty in the
+integrated luminosity of the combined dataset from 2016, 2017 and 2018 is 0.84\%, using the same methodology as in Ref. \cite{DAPR-
+2021-01}, and obtained using the LUCID-2 detector \cite{LUCID2} for the primary luminosity measurements, complemented by
+measurements using the inner detector and calorimeters."
+Please quote as follows:
+In figure legends and in text if the uncertainty is not quoted: '137 fb-1'
+If the absolute uncertainty is meant to be quoted: ' 136.8 ± 1.1 fb-1', following PDG rounding recommendations
+The references remain as for full Run-2.
+Treatment of combinations of measurements
+Instructions for combinations of analyses using preliminary and final luminosity calibrations, as well as using full and partial datasets can be
+found in this presentation: Combination instructions, 17 Aug 2023
+If you intend to combine with Run-1 measurements, please contact the luminosity conveners (see below) early in your analysis process.
+In case something is not clear, or you are interested in another case of combinations, please get in contact with the luminosity conveners:
+atlas-luminosity-conveners@cern.ch .
+2017 and 2018 13 TeV proton-proton low-mu dataset (final)
+Data Sample data17/18_13TeV (low mu)
+Luminosity Tag OflLumi-13TeV-011
+LuminosityUncertainty 0.92%
+Documentation Tag validation
+ , Luminosity group approval with preliminary beam-beam uncertainty
+ , Final results with
+updated beam-beam uncertainty
+Last update for thisentry 20 December 2022
+The final calibration of the 2017 and 2018 13 TeV pp low-mu data sample is now available in the tag OflLumi-13TeV-011. The luminosity
+uncertainty for the combined dedicated low-mu dataset in 2017 and 2018 is reduced to 0.92% from 1.5% previously [ATLAS-CONF-2020-
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 5/12
+
+=== PDF PAGE 6 ===
+023
+ ]. Note: The specified uncertainty is only valid for the combined 2017-2018 low-mu dataset. If you use only a subset or one of the
+individual years, please get in contact with the luminosity conveners.
+For the GRLs, please check the DQ page: GoodRunListsForAnalysisRun2#Low_mu_proton_proton_data_taking
+The following sentence can be written in public CONF notes/papers: "The uncertainty in the integrated luminosity of the dedicated dataset
+in 2017 and 2018 used in this analysis is 0.92\% \cite{DAPR-2021-01}, obtained using the LUCID-2 detector \cite{LUCID2} for the primary
+luminosity measurements, complemented by measurements using the inner detector and calorimeters."
+Please quote as follows:
+In figure legends and in text if the uncertainty is not quoted: '338 pb-1'
+If the absolute uncertainty is meant to be quoted: '338.1 ± 3.1 pb-1', following PDG rounding recommendations
+The value of 338 pb-1 corresponds to the standard 'AllGood' lowMu physics GRL; if you use a different GRL, the integrated luminosity may
+be different.
+Cite:
+[DAPR-2021-01] See LuminosityForPhysics#2015_2018_13_TeV_proton_proton_f
+[LUCID2] as previously - see LuminosityForPhysics#2018_13_TeV_proton_proton_Morion
+2012 8 TeV proton-proton final
+Data Sample data12_8TeV
+Luminosity Tag OflLumi-8TeV-004
+Lumi Uncertainty 1.9%
+Documentation Eur. Phys. J. C 76 (2016) 653
+Last update for this entry 22 Feb 2017
+The following sentence(s) can be written in public conf notes/paper: "The absolute luminosity scale is derived from beam-separation scans
+performed in November 2012. The uncertainty in the integrated luminosity is 1.9%~\cite{DAPR-2013-01}."
+The luminosity uncertainties at 8 TeV (2012) and at 7 TeV (2010+2011) should be treated as uncorrelated, for the following reasons.
+- The vdM-calibration uncertainties in 2011 & 2012 are dominated by beam conditions at the time of the scan. These vary from scan
+session to scan session, even at the same c.m. energy. More information on this topic can be found in W. Kozanecki's presentation to the
+2012 Lumi Days workshop: https://indico.cern.ch/event/162948/session/5/contribution/18/material/0/
+- The vdM-calibration uncertainties in 2010 are dominated by the bunch-current product. These are more than 5 times larger in 2010 than in
+2011 & 2012, and their origin is such that the 2011/12 bunch-population uncertainty is uncorrelated with the corresponding 2010
+uncertainty.
+- In addition, the total uncertainty in the 2012 integrated luminosity receives large contributions from instrumental effects (long-term stability,
+calibration transfer from vdM to physics conditions) that did not affect the 2010 & 2011 luminosity measurements. A tabulated comparison of
+the 2011 and 2012 luminosity uncertainties can be found here:
+https://indico.cern.ch/event/577659/contributions/2339494/attachments/1355174/2047736/Run1_L_2011n2012_systs_WK_14Oct16.pdf
+The correlations between the ATLAS & CMS luminosity uncertainties at 7 and 8 TeV were finalized, and agreed upon between ATLAS &
+CMS, during the LLCMWG meeting of 6 Feb 2017. The conclusions of this meeting are documented in this LMTF presentation of 16 Feb
+2017: https://indico.cern.ch/event/571436/contributions/2479379/attachments/1413751/2169558/ATL-
+CMS_crrltnsUpd_R1_WK_6n16Feb17.pdf
+ , where pages 15 & 16 summarize in tabular form the correlations between ATLAS & CMS
+luminosity uncertainties applicable to the 2011 and 2012 running periods.
+[DAPR-2013-01] ATLAS Collaboration, Luminosity Determination in pp Collisions at sqrt(s) = 8 TeV using the ATLAS Detector at the LHC,
+Eur. Phys. J. C 76 (2016) 653, arXiv:1608.03953 [hep-ex].
+2011 7 TeV proton-proton final
+Data Sample data11_7TeV
+Luminosity Tag OflLumi-7TeV-004
+Lumi Uncertainty 1.8%
+Documentation Paper accepted by EPJC
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 6/12
+
+=== PDF PAGE 7 ===
+The luminosity scale has been modified by a constant factor of 1/1.0141 = 0.98610 from OflLumi-7TeV-003 to account for beam-beam
+effects during the vdM scans. The uncertainty is unchanged from the previous tag.
+The 2010 & 2011 luminosity uncertainties should be treated as uncorrelated, for the following reasons.
+- The vdM-calibration uncertainties in 2011 are dominated by beam conditions at the time of the scan. These vary from scan session to
+scan session, even at the same c.m. energy. More information on this topic can be found in W. Kozanecki's presentation to the 2012 Lumi
+Days workshop: https://indico.cern.ch/event/162948/session/5/contribution/18/material/0/
+- The vdM-calibration uncertainties in 2010 are dominated by the bunch-current product. These are more than 5 times larger in 2010 than in
+2011, and their origin is such that the 2011 bunch-population uncertainty is uncorrelated with the corresponding 2010 uncertainty.
+2010 7 TeV proton-proton final
+Data Sample data10_7TeV
+Luminosity Tag OflLumi-7TeV-004
+Lumi Uncertainty 3.5%
+Documentation Paper accepted by EPJC
+The luminosity scale has been modified by a constant factor of 1/1.0187 = 0.98164 from OflLumi-7TeV-003 to account for beam-beam
+effects during the vdM scans. The uncertainty has slightly increased (from 3.4%) compared to the previous tag.
+Heavy Ion data
+2025 5.36 TeV neon-neon preliminary April 2026
+Data Sample data25_hi
+Luminosity Tag OflLumi-Run3-009
+Lumi Uncertainty 4.6%
+Documentation Slides 16/04/2026
+This is the preliminary calibration for the 2025 Ne+Ne 5.36 TeV/n data with a total uncertainty of 4.6%. The following sentences can be
+written in public CONF notes: "The uncertainty in the integrated luminosity of the data sample is 4.6\%. It is derived from the calibration of
+the luminosity scale using $x$-$y$ emittance scans, following a methodology similar to that detailed in Ref.~\cite{DAPR-2021-01}, and
+using the LUCID-2 detector for the baseline luminosity measurements \cite{LUCID2}."
+2025 5.36 TeV oxygen-oxygen preliminary April 2026
+Data Sample data25_hi
+Luminosity Tag OflLumi-Run3-009
+Lumi Uncertainty 2.6%
+Documentation Slides 23/04/2026
+This is the preliminary calibration for the 2025 O+O 5.36 TeV/n data with a total uncertainty of 2.6%. The following sentences can be written
+in public CONF notes: "The uncertainty in the integrated luminosity of the data sample is 2.6\%. It is derived from the calibration of the
+luminosity scale using $x$-$y$ beam-separation scans, following a methodology similar to that detailed in Ref.~\cite{DAPR-2021-01}, and
+using the LUCID-2 detector for the baseline luminosity measurements \cite{LUCID2}."
+2025 9.62 TeV proton-oxygen preliminary January 2026
+Data Sample data25_hi
+Luminosity Tag OflLumi-Run3-009
+Lumi Uncertainty 2.3%
+Documentation Slides 15/01/26
+This is the preliminary calibration for the 2025 p+O 9.62 TeV/n data with a total uncertainty of 2.3%. The following sentences can be written
+in public CONF notes: "The uncertainty in the integrated luminosity of the data sample is 2.3\%. It is derived from the calibration of the
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 7/12
+
+=== PDF PAGE 8 ===
+luminosity scale using $x$-$y$ beam-separation scans, following a methodology similar to that detailed in Ref.~\cite{DAPR-2021-01}, and
+using the LUCID-2 detector for the baseline luminosity measurements \cite{LUCID2}."
+2024 5.36 TeV proton-proton preliminary May 2026
+Data Sample data24_5p36TeV
+Luminosity Tag OflLumi-Run3-009
+Luminosity Uncertainty 1.5%
+Documentation Slides: vdM calibration
+  Calibration transfer and long-term stability
+This is the preliminary calibration for the 2025 Pb+Pb 5.36 TeV/n data with a total uncertainty of 1.5%. The following sentence can be
+written in public CONF notes: "The uncertainty in the integrated luminosity of the data sample is 1.5\%. It is derived from the calibration of
+the luminosity scale using $x$-$y$ beam-separation scans, following a methodology similar to that detailed in Ref.~\cite{DAPR-2021-01},
+and using the LUCID-2 detector for the baseline luminosity measurements \cite{LUCID2}, complemented by measurements using the inner
+detector and calorimeters."
+2023 5.36 TeV lead-lead preliminary November 2025
+Data Sample data25_hi
+Luminosity Tag OflLumi-Run3-009
+Lumi Uncertainty 2.6%
+Documentation Note ATL-COM-DAPR-2025-021
+This is the preliminary calibration for the 2023 Pb+Pb 5.36 TeV/n data with a total uncertainty of 2.6%. The luminosity went up by 2%
+compared to the pre-preliminary calibration. The following sentences can be written in public CONF notes: "The uncertainty in the
+integrated luminosity of the data sample is 2.6\%. It is derived from the calibration of the luminosity scale using $x$-$y$ beam-separation
+scans, following a methodology similar to that detailed in Ref.~\cite{DAPR-2021-01}, and using the LUCID-2 detector for the baseline
+luminosity measurements \cite{LUCID2}."
+2023 5.36 TeV lead-lead pre-preliminary July 2024
+Data Sample data23_hi
+Luminosity Tag OflLumi-Run3-005
+Lumi Uncertainty 3.5%
+Documentation Slides 18/07/24
+This is the first pre-preliminary calibration for the 2023 Pb+Pb 5.36 TeV/n data that was produced to support the heavy-ion monopole
+analysis that was presented at ICHEP24. The uncertainty of 3.5% reflects the pre-preliminary nature of this result, where several steps of
+the vdM analysis were either not performed, or done with a very simple treatment to get a first understanding. In particular, the length scale
+analysis and orbit drift corrections were not available.
+The following sentences can be written in public CONF notes: "The uncertainty in the integrated luminosity of the data sample is 3.5\%. It is
+derived from the calibration of the luminosity scale using $x$-$y$ beam-separation scans, following a methodology similar to that detailed
+in Ref.~\cite{DAPR-2021-01}, and using the LUCID-2 detector for the baseline luminosity measurements \cite{LUCID2}." If you plan to
+release a conf note or publish a paper on this dataset, please contact the luminosity conveners, as an improved value may be possible on a
+short timescale.
+2018 5.02 TeV lead-lead final January 2022
+Data Sample data18_hi
+Luminosity Tag OflLumi-HI-010
+Lumi Uncertainty 2.0% or 1.9%
+Documentation Slides 16/12/21
+  and 13/1/22
+This is the final result for the 2018 Pb+Pb 5.02 TeV/n data. The uncertainty is 2.0% if the data from runs 367318-367384, where the ATLAS
+toroid magnet is off, is included (i.e. using the HeavyIonP_ignore_TOROIDSTATUS.xml GRL) , or 1.9% if this data is excluded (i.e. using
+the HeavyIonP_2018.xml GRL).
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 8/12
+
+=== PDF PAGE 9 ===
+The following sentences can be written in public CONF notes/papers: "The uncertainty in the integrated luminosity of the data sample is
+2.0\% (or 1.9\%). It is derived from the calibration of the luminosity scale using $x$-$y$ beam-separation scans, following a methodology
+similar to that detailed in Ref.~\cite{DAPR-2013-01}, and using the LUCID-2 detector for the baseline luminosity measurements
+\cite{LUCID2}."
+If this dataset is combined with the 2015 Pb+Pb dataset using the luminosity tag OflLumi-HI-010, the uncertainty on the integrated
+luminosity of the combined dataset is 1.6% if the full dataset including the 2018 toroid-off data is used, and 1.5% if the toroid-off data is
+excluded. For the 2015 data, either tag OflLumi-HI-007, OflLumi-HI-009 or OflLumi-HI-010 may be used (the tag contents for the 2015 data
+are identical). Details of the combination are shown here
+ , and the last slide of the talk summarises all the dataset combinations and
+possible uncertainties. The same sentence as above may be used in CONF notes/papers, quoting the 1.6% or 1.5% uncertainty in place of
+2.0%.
+See above/below for the references and BibTex entries.
+2015 and 2017 5.02 TeV proton-proton (final)
+Data Sample data15/17_5TeV
+Luminosity Tag OflLumi-5TeV-004
+Luminosity Uncertainty 1.0% (combined), 1.0% (2017 only), 1.9% (2015 only, as previously)
+Documentation sigma_vis calibration
+ , Calibration transfer, long-term stability and combination
+ , Tag preparation
+Last update for this entry 2 March 2023
+The final calibration of 2017 5TeV pp reference data uses a calibration based on the vdM scans from 11-12 November 2017 (run 340634),
+a calibration transfer determined in the long reference run from 13-14 Nov 2017 (run 340718) which resulted in a scaling by 0.9983 applied
+to LUCID (no μ-dependence). The calibration transfer is based on track counting data which is anchored to LUCID in the head-on parts of
+vdM fill above. The default luminometer from the LUCID side is LUCID Bi EvtOR.
+The updated tag is equivalent for 2017 to scaling the integrated luminosity by 0.9927. No change is done for 2015. Analyses can check the
+integrated luminosity of their GRL using the LumiCalc tool
+ . Using the standard GRL (see
+GoodRunListsForAnalysisRun2#2017_low_mu_runs_summary), you should get from the LumiCalc tool, the following numbers with the
+new luminosity tag:
+For the application in the analysis of 2017 5TeV data, it is sufficient to rescale your MC samples with the factor 0.9927 to the new integrated
+luminosity, and rerun with the updated luminosity uncertainty. Additional ATLAS-internal information on the details of the calibration can also
+be found from the notes listed here: LuminosityInternalNotes#2017_data
+The following sentence can be written in public CONF notes/papers for 2017 only, or for the combination of 2015 and 2017 data: "The
+uncertainty in the integrated luminosity is 1.0\%, following the methodology discussed in Ref.~ \cite{DAPR-2021-01}, using the LUCID-2
+detector~\cite{LUCID2} for the primary luminosity measurements, complemented by measurements using the inner detector and
+calorimeters."
+Please quote as follows:
+In figure legends and in text if the uncertainty is not quoted: '255 pb-1' (2017), '280 pb-1' (2015+2017)
+If the absolute uncertainty is meant to be quoted: '254.9 ± 2.6 pb-1' (2017), '280.1 ± 2.9 pb-1' (2015+2017), following PDG rounding
+recommendations
+The final 2015 calibration is discussed in a separate entry: LuminosityForPhysics#2015_5_02_TeV_proton_proton_fina. For the references
+please see LuminosityForPhysics#2015_2018_13_TeV_proton_proton_f.
+2016 8.16 TeV proton-lead final January 2019
+Data Sample data16_hip8TeV
+Luminosity Tag OflLumi-HI-006
+Lumi Uncertainty 2.9/2.4/2.4% (p+Pb/Pb+p/combined)
+Documentation Slides Offline lumi 20/12/18
+This is the final result for the 2016 p+Pb and Pb+p 8.16 TeV/n data. There are separate uncertainties for p+Pb (2.9%) and Pb+p (2.4%)
+data-taking periods, which have 1/3 and 2/3 of the integrated luminosity. The uncertainties are not fully correlated, as separate vdM scans
+were used to calibrate the two periods, and the combined uncertainty for the complete data sample (assuming all events are weighted
+equally) is 2.4%.
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 9/12
+
+=== PDF PAGE 10 ===
+The following sentences can be written in public CONF notes/papers: "The uncertainty in the integrated luminosity of the combined data
+sample is 2.4%. It is derived from the calibration of the luminosity scale using $x$-$y$ beam-separation scans, following a methodology
+similar to that detailed in Ref.~\cite{DAPR-2013-01}, and using the LUCID-2 detector for the baseline luminosity measurements
+\cite{LUCID2}."
+[DAPR-2013-01] ATLAS Collaboration, Luminosity Determination in pp Collisions at sqrt(s) = 8 TeV using the ATLAS Detector at the LHC,
+Eur. Phys. J. C 76 (2016) 653, arXiv:1608.03953 [hep-ex].
+[LUCID2] G. Avoni et al., The new LUCID-2 detector for luminosity measurement and monitoring in ATLAS, JINST(2018) 13 P07017.
+See above for the Bibtex entry for the LUCID paper.
+[This entry last updated by RH on 23 Jan 2019]
+2015 5.0 TeV lead-lead final
+Data Sample data15_hi
+Luminosity Tag OflLumi-HI-009
+Lumi Uncertainty 1.5%
+Documentation ATL-COM-DAPR-2019-022
+This is the final result for the 2015 5.0 TeV/nucleon lead-lead data. The following sentence can be written in public CONF notes/papers:
+"The uncertainty in the integrated luminosity for the 2015 PbPb run at sqrt(s_NN) = 5.0 TeV is 1.5%. It is derived from the calibration of the
+luminosity scale using $x$-$y$ beam-separation scans, following a methodology similar to that detailed in Ref.~\cite{DAPR-2013-01}, and
+using the LUCID-2 detector for the baseline luminosity measurements \cite{LUCID2}."
+[DAPR-2013-011] ATLAS Collaboration, Luminosity Determination in pp Collisions at sqrt(s) = 8 TeV using the ATLAS Detector at the LHC,
+submitted to Eur. Phys. J. C, arXiv:1608.03953 [hep-ex].
+2013 proton-lead final
+Data Sample data13_hip
+Luminosity Tag OflLumi-HI-003
+Lumi Uncertainty 2.7%
+Documentation ATL-COM-DAPR-2014-001 (v. 6.0)
+This is the final result for the 2013 5.02 TeV proton-lead data. The total integrated luminosity went up by 1.03% from the preliminary result
+available at QM2014, and the uncertainty has been reduced from 3.4% to 2.7%. It is determined, following a methodology similar to that
+detailed in the 2011 luminosity paper (DAPR-2011-01, Eur. Phys. J. C (2013) 73:2518), from a calibration of the luminosity scale derived
+from beam-separation scans performed during the pPb operation of the LHC in 2013. The dominant uncertainty is associated with non-
+factorization effects.
+2013 2.76 TeV proton-proton final
+Data Sample data13_2p76TeV
+Luminosity Tag OflLumi-2p76TeV-002
+Lumi Uncertainty 3.1%
+Documentation Internal Note
+This is the final result for the 2013 2.76 TeV proton-proton data. The central value is unchanged from the preliminary result available at
+QM2014, but the uncertainty has been reduced from 3.4% to 3.1%. It is determined, following the same methodology as that detailed in the
+2011 luminosity paper (DAPR-2011-01, Eur. Phys. J. C (2013) 73:2518), from a calibration of the luminosity scale derived from beam-
+separation scans performed during the 2.76 TeV operation of the LHC in 2013.
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 10/12
+
+=== PDF PAGE 11 ===
+2011 2.76 TeV proton-proton final
+Data Sample data11_2p76TeV
+Luminosity Tag OflLumi-2p76TeV-002
+Lumi Uncertainty 2.7%
+Documentation Internal Note
+The best reference for this is probably the inclusive jet cross-section paper
+  which was the first publication to use this result.
+2011 lead-lead (2.76 TeV /nucleon)
+No approved vdM-based luminosity calibration exists for this running period.
+2010 lead-lead (2.76 TeV /nucleon)
+No vdM-based luminosity calibration exists for this running period.
+ALFA data
+2018 13 TeV proton-proton beta*=90m (preliminary)
+Data sample data18_13TeV (ALFA runs)
+Luminosity Tag Individually calibrated runs
+Luminosity Uncertainty 1.0%
+Documentation vdM calibration
+ , calibration transfer and long term stability (part 1)
+ , calibration transfer and long term
+stability (part 2)
+Last update for thisentry 9 March 2023
+The preliminary calibration of 2018 ALFA pp data (beta*=90m) uses the final calibration based on the vdM scans recorded 3-4 July 2018
+(run 354494), and a dedicated calibration transfer and long term stability estimate, including the TightLumi and TightModLumi working
+points for track counting. The default luminometer from the LUCID side is LUCID EventORA Bi2. The uncertainty is 0.93% from the
+absolute calibration, 0.39% from the stability and consistency of luminosity algorithms, 0.041% for the background subtraction systematics,
+and 0.074% for beam gas, so together and rounded 1.0%.
+The values for the integrated luminosities for the 4 runs of the ALFA 2018 13TeV period can be found:
+Per LB: LumiPerLB_ALFA_90m.txt
+Per Run: Slide 14 in this presentation
+Total: Slide 15 in the same presentation above
+Please quote as follows:
+In figure legends and in text if the uncertainty is not quoted: '664 nb-1'
+If the absolute uncertainty is meant to be quoted: '664 ± 7 nb-1', following PDG rounding recommendations
+Please contact the luminosity conveners before any publication including these values is released, to confirm that the central value and
+uncertainty are not in the process of being updated with improved calibration.
+2016 13 TeV proton-proton beta*=2.5km (preliminary)
+Data sample data16_13TeV (ALFA runs)
+Luminosity Tag Individually calibrated runs
+Luminosity Uncertainty 2.15%
+Documentation vdM calibration
+ , calibration transfer and long term stability
+Last update for this entry 6 February 2023
+The preliminary calibration of 2016 ALFA pp data (beta*=2.5km) uses the preliminary calibration based on the vdM scans recorded 18-19
+May and 27 May 2016 (runs 299390 and 300287), discussed in ATLAS-CONF-2019-021
+ , and a dedicated calibration transfer and long
+term stability estimate, including BCM and the TightModLumi working point from track counting, discussed in STDM-2018-08
+ . The default
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 11/12
+
+=== PDF PAGE 12 ===
+Copyright &© 2008-2026 by the contributing authors. All material on this collaboration platform is the propertyof the contributing authors.or Ideas, requests, problems regarding TWiki? use Discourse or Send feedback
+luminometer from the LUCID side is LUCID EventORC Bi. The uncertainty is 1.1% from the absolute calibration and 1.85% from the
+stability and consistency of luminosity algorithms, so together 2.15%.
+The final value of the integrated luminosity is: Lint = 339.9 ± 0.1 (stat.) ± 7.3 (syst.) μb −1
+Major updates:
+-- GiuliaRipellino - 2026-06-24
+Responsible: Antonio Sbrizzi, Giulia Ripellino
+Last reviewed by: Never reviewed
+Topic revision: r130 - 2026-07-06 - KlausMoenig
+07/09/2026, 19:34 LuminosityForPhysics < Atlas < TWiki
+https://twiki.cern.ch/twiki/bin/viewauth/Atlas/LuminosityForPhysics 12/12

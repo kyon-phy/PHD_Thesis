@@ -1,0 +1,354 @@
+### PAGE 1
+Non-resonant search in LHC-ATLAS motivated by B anomalyD2Jiaqi Zang01/08/2023
+1
+Based on https://arxiv.org/abs/2111.04748
+NOTES: 
+
+### PAGE 2
+Physicsmotivation –Banomaly
+2
+•SignsofLFUviolationintheBmesondecaysarereported.      – B anomalyin𝐵→𝐷(∗)𝑙𝜈supportsnewphysics!
+•Lepton Flavor Universality (LFU)  – The weak interaction between different generations of leptons should be the same.
+3.0𝜎
+Latestresult(2023.03.08)SM
+LQ
+•Leptoquark(LQ)isacandidatemodeltoexplainsuchanomaly.
+NOTES: 
+
+### PAGE 3
+3
+Analysisoverview
+•Background (detector + pileup).ØMajorbackgroundsource:𝑊→𝜏̅𝜈,𝑍→𝜈𝜈,𝑡→𝑏𝑊→𝑏𝜏𝜈ØATLASMCsamples:§W/Z+ jets(Sherpa)ßlightflavoredjetsmis-taggedasbjets§QCDmulti-jet(Pythia8)ßfake𝜏jets§𝑡̅𝑡andsingletop(Powheg+Phytia8).§Diboson…§𝑆=13TeV, Run-2 realistic pileup files are included.
+•Signalsamples (truth level).ØGeneratedbyMG5_aMC@NLO+Pythia8.ØUsingVLQBM1scenarioofsingletvectorLQ(U1).ØTaggerefficiencyareemulated.ØLQ mass = 1.5 TeV,𝑔$=1.5is used for optimization.•Expecting data-set:ØFull Run-2 + partial Run-3 dataset(300fb-1intotal).
+NOTES: 
+
+### PAGE 4
+4
+Currentstatus•MCsamplesinvestigation.ØMultiplep-tagversionsofMC20samplesareused.ØCurrentrecommandedp-tagisp5631,alldatasetsarealreadyavailable.(Summarytable)
+•Zàmumu+1faketauCRstudyØToestimateZànunuBGinSR.ØCheckeddata/MCandZmumupurity.ØInvestigatedthediscrepancyafterapplyingdifferentcut.
+•ATLASsignalMCsamplegeneration.ØSeveralpresentationsaregivenintheTau+Xgroupmeetingandreceivedseveralcomments.(@Junichi,@Shigeki,@Takuya)•Frameworkdevelopment.ØBtaggingtooldevelopmentforAnalysisTop.(@Alan)ØSRandCRstudywithxTAUFramework.(@Jiaqi)
+•Signaloptimization
+NOTES: 
+
+### PAGE 5
+Problemremainedintheprevioustalk
+5
+•Pre-selection is applied.
+TurnsoutthatMCsamplesaredoublecounted…àfixed
+•Data (p5440) and MC sample (p5631) discrepancy
+NOTES: 
+
+### PAGE 6
+6
+•Electron(twiki)•pT>20GeV•IsolationWP:Tight_VarRad•IDWP:Loose + B-layer cut•|d0BLsignificance| < 5•|Δ z0BLsin θ| < 0.5 mm•Goodobjectquality(badelectron clusterremoval)•|eta|<1.37||1.52<|eta|<2.47•OLRbasedonASGrecommendation(slide)
+•Muon (twiki)•pT> 20 GeV•Isolation WP: Loose_VarRad•ID WP: Medium Quality•|d0BLsignificance| < 3•|Δ z0BLsin θ| < 0.5 mm•PassedIDCuts(twiki)•|eta|<2.47•OLRbasedonASGrecommendation•Tau (twiki)•Pt > 20 GeV•ID: RNN_loose•|eta|<1.37 || 1.52<|eta|<2.47•Ntracks: 1 or 3
+•B tagging WP: DL1dv01_60
+CR study (Zàmumu+ 1Tau)–Objectdefinition
+NOTES: 
+
+### PAGE 7
+CR study (Zàmumu+ 1Tau)–EventSelection
+7
+•Pre-selection (Zàmumu + 1 Tau)•75 < Mll < 105 GeV•Single RNN loose tau jet•𝐸"##$%&'' > 200 GeV•𝑃"##$%&'' > 130 GeV•Loose_VarRad isolation•Jet pT > 30 GeV && |eta|<2.5•N_muons = 2•Trigger (Twiki)•2015: HLT_xe70_mht||HLT_xe70_tc_lcw||HLT_xe70_tc_lcw•2016: HLT_xe90_mht_L1XE50 || HLT_xe110_mht_L1XE50•2017: HLT_xe90_pufit_L1XE50 || HLT_xe100_pufit_L1XE55 || HLT_xe100_pufit_L1XE50 || HLT_xe110_pufit_L1XE50 || HLT_xe110_pufit_L1XE55•2018: HLT_xe110_pufit_xe70_L1XE50 || HLT_xe110_pufit_xe65_L1XE50 || HLT_xe120_pufit_L1XE50•Veto events that fire HLT_noalg_L1J400
+NOTES: 
+
+### PAGE 8
+CR study (Zàmumu+ 1Tau)–METtriggerstudy
+8
+•METtriggerefficiency•Events(met&mu)/events(mu)•TaupT>200GeVBeforepre-selectionAfterpre-selection
+Beforepre-selection
+Afterpre-selection
+NOTES: 
+
+### PAGE 9
+CR study (Zàmumu+ 1Tau)–METtriggerstudy
+9
+•After pre-selection and fired by met trigger 
+
+NOTES: 
+
+### PAGE 10
+CR study (Zàmumu+ 1Tau)–Tauidstudy
+10
+•TauRNNidscoreBeforepre-selectionandmettriggerBeforepre-selectionandaftermettrigger
+afterpre-selectionandmettrigger
+
+NOTES: 
+
+### PAGE 11
+CR study (Zàmumu+ 1Tau)–Runnumberstudy
+11
+•RunnumberMC/datadiscrepancy
+Mettrigger(noofflinemetcut)Mettrigger(𝐸!""#$%&& > 200GeV)
+Mettrigger+Singletaujet
+Mettrigger+Singletau+di-muon
+Mettrigger+Singletau+di-muon+𝑃!""#$%&&cut
+NOTES: 
+
+### PAGE 12
+CR study (Zàmumu+ 1Tau)–Truthstudy
+12
+•After pre-selection and fired by met trigger 
+Diboson is the main truth tau resource. 
+NOTES: 
+
+### PAGE 13
+CR study (Zàmumu+ 1Tau)–Truthstudy
+13
+•Dibosonyields(mediumtauid)datasetlllllllvllvvlvvvvvvvYields28.17133.993.170.010
+•truthmatchedtaufraction
+
+NOTES: 
+
+### PAGE 14
+CR study (Zàmumu+ 1Tau)–Variables
+14
+•After pre-selection and fired by met trigger 
+
+NOTES: 
+
+### PAGE 15
+15
+•After pre-selection and fired by met trigger 
+CR study (Zàmumu+ 1Tau)–Variables
+NOTES: 
+
+### PAGE 16
+16
+•After pre-selection and fired by met trigger 
+jet
+CR study (Zàmumu+ 1Tau)–Variables
+NOTES: 
+
+### PAGE 17
+CR study (Zàmumu+ 1Tau)–N-1plots
+17
+§N-1plots(cutbasedonsignalregionstudy)§Tau pT> 100 GeV§Subleadinglepton pT> 30 GeV§Δ𝜙(𝜏,𝑝"##+𝑝"%&''&*+)>1§,!"-!##$%&''<2§#ofbjets=1§#oflightjets<=2
+
+NOTES: 
+
+### PAGE 18
+CR study (Zàmumu+ 1Tau)
+18
+AfterpreselectionAfterpreselection+1bjetAfterpreselection+0bjet+1jet
+AfterpreselectionAfterpreselection+1bjet
+
+NOTES: 
+
+### PAGE 19
+CR study (Zàmumu+ 1Tau)
+19
+AfterpreselectionAfterpreselection+1bjetAfterpreselection+0bjet+1jet
+AfterpreselectionAfterpreselection+1bjetAfterpreselection+0bjet+1jet
+
+NOTES: 
+
+### PAGE 20
+CR study (Zàmumu+ 1Tau)
+20
+AfterpreselectionAfterpreselection+1bjetAfterpreselection+0bjet+1jet
+AfterpreselectionAfterpreselection+1bjetAfterpreselection+0bjet+1jet
+
+NOTES: 
+
+### PAGE 21
+21
+•Variablesusedincutscan(basedon2111.04748):ØTransversemass𝑚"Ø𝐸"%&''Ø𝑝".ØΔ𝜙(𝑝".,𝑝"%&''&*+)Ø𝑝"./𝐸"%&''Ø𝑝"/ØNumberoflightflavorjetsØNumberofbjets
+ØWorkingpointweighted(fixed)o𝜏id(RNN):medium(eff=0.7)oBtagging:70(eff=0.7)ScanallvariablestomaximizeZvalue(𝑏≥0)
+•𝑍=2(𝑛ln*/$0(/($*0(−/(0(ln/($*0(//$0()•Backgrounduncertainty=30%
+CutoptimizationforSR
+* ForBG<0duetothelowstatistics,itwouldsetas0
+
+NOTES: 
+
+### PAGE 22
+CutoptimizationforSR
+22
+•Variables
+
+NOTES: 
+
+### PAGE 23
+CutoptimizationforSR
+23
+•Variables
+•Optimizedvariablecut:Ø𝑚%>1000GeVØ𝐸%&'((>200GeVØ𝑝%)>100GeV ØNumberoflightflavorjets≤3ØNumberofbjets=1ØTau-idworkingpoint:mediumØb-taggingworkingpoint:70Ø𝑝%*>25GeVØΔ𝜙(𝑝%),𝑝%&'(('+,)>1.5Ø𝑝%)/𝐸%&'(('+,∈[0.7,1.3]
+NOTES: 
+
+### PAGE 24
+CutoptimizationforSR
+24
+W+jetsZ+jets𝒕̅𝒕SingletopDibosonBGSignalEvents00.21±0.070000.21±0.071.24±0.65
+•Numberofeventsafteroptimizedselection(300fb-1)(RedforBGssetto0byhand)
+•Searchlimit(2𝜎):𝑅𝐷∗,𝑅𝐾∗preferred
+•Searchlimitfordifferentluminosity
+(1.5,1.67)
+(3,3.17)(5,5.17)
+CMS𝜏𝜏search
+NOTES: 
+
+### PAGE 25
+25
+Summary&Plan
+•FixedthedoublecountingissueforBG.•DataandMCarecomparedusingfullRun-2dataintheZàmumu+1tauCR.•Trigger,tau-idandtruthstudyisalsoperformedforCR.•Consideringthepossibilityofusing0bjetinsteadof1bjetcutforCR.•Feasibilitystudyisperformed.Theresultusingoptimizedcutisobtained.•NotenoughstatisticsfortheWtaunusamplesinSRoptimization.Plan
+Summary
+•FigureouttheissueofMCsamplesfromyear2015.•UnderstandtheunexpectedexcessiveZàeeeventsinyear2017.•Understandtheinefficiencyofmettrigger.•Checkshapeof0bjetand1bjetforCRcuttoobtainmorestatistics.•CheckN-1distributionsandsignificanceplotsforSRcutoptimizationtoseeifthecutisreallyoptimized.
+NOTES: 
+
+### PAGE 26
+26
+Backup
+NOTES: 
+
+### PAGE 27
+New Physics scenario –Leptoquark (LQ) model
+27
+•WhatisLQ?-Leptoquarks arehypothetical bosonscarrying both baryon number (B) and lepton number (L).
+•Parameter:(𝑚<, g=)CouplingconstantMassof𝑈-LQ
+•𝑈>LQarepickedasthebenchmarkincurrentstage.
+•Why LQ?-It can couple to different generations of leptons in a non-universal way and lead to different decay rate (violation of LFU) for B meson decay.
+•Signalscenario:VLQBM1Ø𝛽?/.=1Ø𝛽?'.=0.19Ø𝛽@/.=𝛽?A.=𝛽?'B=𝛽?/B=0ØSame as CMS 𝜏𝜏search
+Left-handedcouplingRight-handedcoupling
+NOTES: 
+
+### PAGE 28
+28CMS, CMS-HIG-21-001
+•Pairproduction§Searchisnotdependedonthecouplingconstant.§LQmasslessthan~1.5TeVarealreadyexcludedbyCMSandALTAS.•Singleproductionandt-channelproduction§Searchstronglydependsonthecouplingconstantandcanreachhigh-massregion.§Run-2datacanaccesstotheregionconsistentwithR(D*).àallregioninHL-LHC§SuggestedbypaperEndoM,etal.:2111.04748,searchof𝜏𝜈𝑏finalstatemayreachthesimilarsensitivitytoCMS𝜏𝜏searchresult.§Currently𝜏𝜈𝑏finalstateisnotstudiedinATLAS.àworthatry!
+Target:Back-to-back𝜏𝜈+soft𝑏jet
+Analysisoverview
+1.5
+NOTES: 
+
+### PAGE 29
+Signal kinematics•SamplesofATLASUFOwithCMS:VLQBM1.•Kinematicsof different mass point afterpre-selection(normalized):
+29
+Fort-channelprocess, kinematicsdon’tchangebyLQmass!
+•𝑚"=1.5TeVisusedforcutscan.
+
+NOTES: 
+
+### PAGE 30
+30
+𝜏identification•BaselinetauselectionrecommendationØ𝑝">20𝐺𝑒𝑉Ø𝜂<2.5(excluding1.37<𝜂<1.52)Ø1or3tracks
+* FromATL-PHYS-PUB-2019-033
+•Workingpointefficiency•Backgroundrejection
+
+NOTES: 
+
+### PAGE 31
+31
+•Optimizedvariablecut:Ø𝑚%>1000GeVØ𝐸%&'((>200GeVØ𝑝%)>100GeV
+ØNumberoflightflavorjets≤2ØNumberofbjets=1ØTau-idworkingpoint:mediumØb-taggingworkingpoint:60
+W+jetsZ+jets𝒕̅𝒕SingletopBGSignalEvents0.77±0.560.31±0.31001.08±0.640.68±0.30
+•Numberofeventsafteroptimizedselection(300fb-1)(onlylookingatregionwhereBG>1)
+Cutscanresult
+•Searchlimit(2𝜎):
+(1.5,2.05)
+(3,4.90)
+(5,7.40)
+Ø𝑝%*>75GeVØΔ𝜙(𝑝%),𝑝%&'(('+,)>1.5Ø𝑝%)/𝐸%&'(('+,∈[0.5,1.5]
+𝑅𝐷∗,𝑅𝐾∗preferred
+𝑔"=1.5𝑚"=1.5TeV
+àVeryroughresultàPlantoreprocesstheMCsamplesusinglatestp-tagp5511àStartwithstatisticinvestigation
+NOTES: 
+
+### PAGE 32
+32
+Eventweightinvestigation•Eventweight=1000*lumi*pileup_weight*cross_section*kfactor*filter_efficiency*weight_mc/SumOfWeight
+Wtaunu
+pT(GeV)Eventweight
+NOTES: 
+
+### PAGE 33
+33
+•Eventweight=1000*lumi*pileup_weight*cross_section*kfactor*filter_efficiency*weight_mc/SumOfWeight
+dijets
+ singleTop
+Eventweightinvestigation
+NOTES: 
+
+### PAGE 34
+34
+•Eventweight=1000*lumi*pileup_weight*cross_section*kfactor*filter_efficiency*weight_mc/SumOfWeight
+ttbar•Eventswithleadingjets<500(GeV)arenotwellsimulatedinWtaunuanddijets…
+Eventweightinvestigation
+W tau nuZ nunu𝒕̅𝒕SingletopMulti-jetsWenuWmunuWeightperMCevent2.890.480.910.05816.130.620.63
+•Eventweightsandeventnumbersafterpreselection.(300fb-1)
+NOTES: 
+
+### PAGE 35
+35
+Dijetssamplesinvestigation
+Recoleading jet pT truth leading jet pT
+•AnissuewasfoundbeforeinleadingjetpTofdifferentdijetsslides.•Turnedouttpbeaproblemwitheventweight.
+NOTES: 
+
+### PAGE 36
+36
+Dijetssampleinvestigation•Leading pT looks good after fixing the event weight
+•JW1 and JW2 aretemporaryremovedbeforespecifyingthelargeweightevents.
+•Some events in JZ1 and JZ2 contribute to the large uncerternty bins
+JZ1JZ2
+𝑝".
+NOTES: 
+
+### PAGE 37
+bjetspTinvestigation
+37
+After preselection
+before preselection
+•The preselection cause the depressionaround150GeV.
+•PreselectionØSinglelooseRNNtaujetØMET<200GeVØMuonandelectronveto
+NOTES: 
+
+### PAGE 38
+38
+Numberofbjetsinvestigation
+After preselectionbefore preselection
+•Notduetopre-selectionbias.
+•PreselectionØSinglelooseRNNtaujetØMET<200GeVØMuonandelectronveto
+NOTES: 
+
+### PAGE 39
+39
+eta
+pT/GeVeta
+events•EtaandpTdistributionafterpreselectionChecksonbjets
+NOTES: 
+
+### PAGE 40
+40
+•METandpTareallrelativelylowintheeventswith4/5/6numberofbjets.•ManylowpTbjetsarestackedin1and2bin.met
+NumberofbjetsNumberofbjets
+pT/GeV
+Checksonbjets
+NOTES: 
+
+### PAGE 41
+41
+reco
+•50 GeV cut
+•30 GeV cut•Before pre-selection
+•Cut of 50 GeV may be better to cut pileup jets.
+Checksonbjets
+NOTES: 
+
+### PAGE 42
+Data (p5440) and MC sample (p5631) comparison
+42
+•JZ1 and JZ2 is temporary removed until the large weight events are excluded.
+•Pre-selection is applied.
+NOTES: 
+
+### PAGE 43
+Signalsamplesanalysis
+43
+•Transverse mass mTis introduced to analyze high pTevents.•Sensitivities to the NP can be weaken for high mT.
+•Following cuts are applied:
+NOTES: 
+
+### PAGE 44
+44
+Datasets•Goodrunlistdata15_13TeV/20170619/data15_13TeV .periodAllYear_DetStatus-v89-pro21-02_Unknown_PHYS_StandardGRL_All_Good_25ns.xmldata16_13TeV/20180129/data16_13TeV .periodAllYear_DetStatus-v89-pro21-01_DQDefects-00-02-04_PHYS_StandardGRL_All_Good_25ns.xmldata17_13TeV/20180619/data17_13TeV .periodAllYear_DetStatus-v99-pro22-01_Unknown_PHYS_StandardGRL_All_Good_25ns_Triggerno17e33prim.xmldata18_13TeV/20190318/data18_13TeV .periodAllYear_DetStatus-v102-pro22-04_Unknown_PHYS_StandardGRL_All_Good_25ns_Triggerno17e33prim.xmldata22_13p6TeV/20230116/data22_13p6TeV .periodAllYear_DetStatus-v109-pro28-04_MERGED_PHYS_StandardGRL_All_Good_25ns_ignore_TRIGLAR.xml
+•DatasetØdata15_13TeV:data15_13TeV.periodAllYear.physics_Main.PhysCont.DAOD_PHYS.grp15_v01_p5631Ødata16_13TeV:data16_13TeV.periodAllYear.physics_Main.PhysCont.DAOD_PHYS.grp16_v01_p5631Ødata17_13TeV:data17_13TeV.periodAllYear.physics_Main.PhysCont.DAOD_PHYS.grp17_v01_p5631Ødata18_13TeV:data18_13TeV.periodAllYear.physics_Main.PhysCont.DAOD_PHYS.grp18_v01_p5631
+NOTES: 

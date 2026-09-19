@@ -1,0 +1,1651 @@
+Rc files read:
+  NONE
+Latexmk: This is Latexmk, John Collins, 27 Dec. 2024. Version 4.86a.
+Force everything to be remade.
+Latexmk: applying rule 'bibtex thesis'...
+Rule 'bibtex thesis':  Reasons for rerun
+Category 'other':
+  Rerun of 'bibtex thesis' forced or previously required:
+    Reason or flag: 'go_mode'
+
+------------
+Run number 1 of rule 'bibtex thesis'
+------------
+------------
+Running 'bibtex  "thesis.aux"'
+------------
+This is BibTeX, Version 0.99d (TeX Live 2025)
+The top-level auxiliary file: thesis.aux
+The style file: unsrtnat.bst
+Database file #1: References/references.bib
+Warning--empty journal in MartinSUSYPrimer
+Warning--empty year in CERNAbout
+Warning--empty year in CERNLHC
+Warning--empty journal in Herr2006Luminosity
+Warning--empty journal in ATLASRun3Starts
+(There were 5 warnings)
+Latexmk: applying rule 'makeindex output/ch7/full_build/thesis.idx'...
+Rule 'makeindex output/ch7/full_build/thesis.idx':  Reasons for rerun
+Category 'other':
+  Rerun of 'makeindex output/ch7/full_build/thesis.idx' forced or previously required:
+    Reason or flag: 'go_mode'
+
+------------
+Run number 1 of rule 'makeindex output/ch7/full_build/thesis.idx'
+------------
+Latexmk: Change directory to 'output/ch7/full_build/'.
+------------
+Running 'makeindex  -o "thesis.ind" "thesis.idx"'
+------------
+This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
+Scanning input file thesis.idx...done (0 entries accepted, 0 rejected).
+Nothing written in thesis.ind.
+Transcript written in thesis.ilg.
+Latexmk: Change directory back to '/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required:
+    Reason or flag: 'go_mode'
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -synctex=1 -recorder -output-directory="output/ch7/full_build"  "thesis.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/thesi
+s.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Class
+es/PhDThesisPSnPDF.cls
+
+LaTeX Warning: You have requested document class `Classes/PhDThesisPSnPDF',
+               but the document class provides `PhDThesisPSnPDF'.
+
+Document Class: PhDThesisPSnPDF 2016/04/23 A PhD thesis class file by Krishna K
+umar (v2.3.1)
+https://github.com/kks32/phd-thesis-template/
+
+Class PhDThesisPSnPDF Warning: Bibliography selection conflict: A bibliography 
+style aleady specified. Please check the document class options in case you hav
+e defined two bibliography styles. on input line 238.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/bk12.clo))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/lscape.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/appendix/appendix.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/dvipsnam.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/grfext/grfext.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty))
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/datetime/datetime.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fmtcount.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fcprefix.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fcnumparser.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/datetime/datetime-defaults.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/mathptmx.sty)
+PhDThesisPSnPDF: Using Times Roman font
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1ptm.fd))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Class
+es/glyphtounicode.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty)) (/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty))
+PhDThesisPSnPDF: The University identity guidelines recommend using left aligne
+d text. Please use `flushleft' in the documentclass option, if you wish to left
+ align your text
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/nomencl/nomencl.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/tocbasic.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrbase.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlogo.sty))))))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file thesis.idx
+)
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Pream
+ble/preamble.tex
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lineno/lineno.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-feynman/tikz-feynman.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfil
+tered.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.
+tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-feynman/tikzlibraryfeynman.c
+ode.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.markings.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.markings.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathreplacing.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/graphs/tikzlibrarygraphs.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypatterns.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
+s.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.geometric.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.geometric.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-feynman/tikzfeynman.keys.cod
+e.tex))) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xspace.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/adjcalc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/trimclip.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/collectbox/collectbox.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/tc-pdftex.def))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/varwidth/varwidth.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJKutf8.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJK.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/mule/MULEenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJK.enc))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty)))
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/thesi
+s-info.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(output/ch7/full_build/thesis.aux
+(output/ch7/full_build/Acknowledgement/acknowledgement.aux)
+(output/ch7/full_build/Abstract/abstract.aux)
+(output/ch7/full_build/Chapters/CH1_introduction.aux)
+(output/ch7/full_build/Chapters/CH2_theoretical_background.aux)
+(output/ch7/full_build/Chapters/CH3_LQ_search.aux)
+(output/ch7/full_build/Chapters/CH4_LHC_ATLAS_experiment.aux)
+(output/ch7/full_build/Chapters/CH5_MC_simulation.aux)
+(output/ch7/full_build/Chapters/CH6_object_definition.aux)
+(output/ch7/full_build/Chapters/CH7_event_selection.aux)
+(output/ch7/full_build/Chapters/CH8_Background_estimation.aux)
+(output/ch7/full_build/Chapters/CH9_Systematics_uncertainties.aux)
+(output/ch7/full_build/Chapters/CH10_Statistical_analysis_and_results.aux)
+(output/ch7/full_build/Chapters/CH11_Discussion_and_conclusion.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix1.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix2.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix3.aux))
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fc-english.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
+(output/ch7/full_build/thesis.out) (output/ch7/full_build/thesis.out)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\CJK' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\CJK' on input line 110.
+
+
+Package tikz-feynman Warning: LuaTeX is required if you wish to have vertices a
+utomatically placed. You can disable this warning by setting /tikzfeynman/warn 
+luatex=false on input line 110.
+
+
+Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[co
+mpat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on
+ input line 110.
+
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-d
+ictionary-english.trsl)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omlztmcm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omsztmcm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omxztmcm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.bdg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.enc)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/ipaex-type1/c70ipxm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/ipaex-type1/c70ipxm.fdx)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.enc)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr)
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/l
+ocal/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/20
+25/texmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u5b.enc}{/usr/local/texlive/202
+5/texmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u9a.enc}{/usr/local/texlive/2025
+/texmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u30.enc}{/usr/local/texlive/2025/
+texmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u91.enc}{/usr/local/texlive/2025/t
+exmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u5f.enc}{/usr/local/texlive/2025/te
+xmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u7c.enc}{/usr/local/texlive/2025/tex
+mf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u96.enc}{/usr/local/texlive/2025/texm
+f-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u88.enc}{/usr/local/texlive/2025/texmf
+-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u7a.enc}{/usr/local/texlive/2025/texmf-
+dist/fonts/enc/dvips/ipaex-type1/ipxt1-u75.enc}{/usr/local/texlive/2025/texmf-d
+ist/fonts/enc/dvips/ipaex-type1/ipxt1-u6d.enc}{/usr/local/texlive/2025/texmf-di
+st/fonts/enc/dvips/ipaex-type1/ipxt1-u59.enc}{/usr/local/texlive/2025/texmf-dis
+t/fonts/enc/dvips/ipaex-type1/ipxt1-u6a.enc}{/usr/local/texlive/2025/texmf-dist
+/fonts/enc/dvips/ipaex-type1/ipxt1-u90.enc}{/usr/local/texlive/2025/texmf-dist/
+fonts/enc/dvips/ipaex-type1/ipxt1-u52.enc}{/usr/local/texlive/2025/texmf-dist/f
+onts/enc/dvips/ipaex-type1/ipxt1-u4f.enc}{/usr/local/texlive/2025/texmf-dist/fo
+nts/enc/dvips/ipaex-type1/ipxt1-u8c.enc}{/usr/local/texlive/2025/texmf-dist/fon
+ts/enc/dvips/ipaex-type1/ipxt1-u63.enc}{/usr/local/texlive/2025/texmf-dist/font
+s/enc/dvips/ipaex-type1/ipxt1-u7d.enc}{/usr/local/texlive/2025/texmf-dist/fonts
+/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2025/texmf-dist/fonts/e
+nc/dvips/ipaex-type1/ipxt1-u85.enc}{/usr/local/texlive/2025/texmf-dist/fonts/en
+c/dvips/ipaex-type1/ipxt1-u56.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc
+/dvips/ipaex-type1/ipxt1-u74.enc}]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Ackno
+wledgement/acknowledgement.tex
+[2])
+[3]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Abstr
+act/abstract.tex
+[4])
+[5]
+[6] (output/ch7/full_build/thesis.toc
+[7]
+[8]
+[9])
+[10] (output/ch7/full_build/thesis.lof)
+[11]
+[12] (output/ch7/full_build/thesis.lot)
+No file thesis.nls.
+
+[13]
+[14]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH1_introduction.tex
+Chapter 1.
+
+[1])
+[2]
+[3]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH2_theoretical_background.tex
+[4]
+Chapter 2.
+
+[5]
+[6]
+[7]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 274.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 274.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 274.
+
+
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+[19]
+[20]
+[21 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH2/rdrds_ckm2025_new.pdf, page is rotated 90 degrees>])
+[22]
+[23]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH3_LQ_search.tex
+[24]
+Chapter 3.
+
+[25]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 80.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 80.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 80.
+
+
+[26]
+[27]
+[28]
+[29]
+[30 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH3/CLL_CLR_lowPT_HFLAV2023.pdf>]
+[31]
+[32 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH3/LQ_single_production.png> </Users/zang/Desktop/ICEPP/博士课题/lepto
+quark/Thesis/codex/my_thesis/Figs/CH3/LQ_pair_production.png> </Users/zang/Desk
+top/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Figs/CH3/LQ_tchannel_p
+roduction.png>]
+[33 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH3/atlas_LQ_summary_u1_ym.pdf>])
+[34 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH3/Diagram1.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis
+/codex/my_thesis/Figs/CH3/Diagram2.pdf>]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH4_LHC_ATLAS_experiment.tex
+Chapter 4.
+
+[35]
+[36 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/LHC_ring.png>]
+[37] (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+[38 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_slide.pdf>]
+[39]
+[40 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/coordinate system.pdf>]
+[41 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_magnet.pdf>]
+[42 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_IBL.pdf>]
+[43 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/LAr_calo_view.pdf>]
+[44 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/lar_barrel.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thes
+is/codex/my_thesis/Figs/CH4/LAr_EndCap.png> </Users/zang/Desktop/ICEPP/博士�
+�题/leptoquark/Thesis/codex/my_thesis/Figs/CH4/LAr_cells.pdf>]
+[45]
+[46 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_MS.pdf>]
+[47 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_TDAQ.pdf>]
+[48])
+[49]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH5_MC_simulation.tex
+[50]
+Chapter 5.
+
+[51]
+[52]
+[53]
+[54]
+[55])
+[56]
+[57 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH5/trigger_electron_efficiency.pdf, page is rotated 90 degrees> </Users/za
+ng/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Figs/CH5/trigge
+r_muon_efficiency_barrel.pdf, page is rotated 90 degrees> </Users/zang/Desktop/
+ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Figs/CH5/trigger_muon_effi
+ciency_endcap.pdf, page is rotated 90 degrees>]
+[58 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH5/trigger_met_efficiency.pdf, page is rotated 90 degrees>]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH6_object_definition.tex
+Chapter 6.
+)
+[59]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH7_event_selection.tex
+[60]
+Chapter 7.
+
+[61]
+[62]
+[63]
+[64]
+
+Package natbib Warning: Citation `ATL-PHYS-PUB-2020-025' on page 65 undefined o
+n input line 171.
+
+
+[65]
+[66]
+[67 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH7/SR1b_Res_InvM.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark/T
+hesis/codex/my_thesis/Figs/CH7/SR1b_NonRes_mT.pdf>])
+[68]
+[69 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH7/SR0b_Res_InvM.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark/T
+hesis/codex/my_thesis/Figs/CH7/SR0b_NonRes_mT.pdf>]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH8_Background_estimation.tex
+[70]
+Chapter 8.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\bool_gset_true:N' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\g__siunitx_emulation_unit_warning_\bar_boo
+l' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\msg_warning:nnnn' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 7.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\tau' on input line 7.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 7.
+
+)
+[71]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH9_Systematics_uncertainties.tex
+[72]
+Chapter 9.
+)
+[73]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH10_Statistical_analysis_and_results.tex
+[74]
+Chapter 10.
+)
+[75]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH11_Discussion_and_conclusion.tex
+[76]
+Chapter 11.
+)
+[77]
+[78]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/thesi
+s.bbl
+[79]
+[80] (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+[81{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c}]
+[82]
+[83]
+[84])
+[85]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/Appendix/Appendix1.tex
+[86]
+Appendix A.
+)
+[87]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/Appendix/Appendix2.tex
+[88]
+Appendix B.
+
+[89]
+[90 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH7/QCD/DPhi_signal.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark
+/Thesis/codex/my_thesis/Figs/CH7/QCD/DPhi_multijets.pdf>]
+[91 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH7/QCD/rejection_scan.pdf>])
+[92]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/Appendix/Appendix3.tex
+Appendix C.
+)
+[93]
+[94] (output/ch7/full_build/thesis.ind)
+
+Package natbib Warning: There were undefined citations.
+
+(output/ch7/full_build/thesis.aux
+(output/ch7/full_build/Acknowledgement/acknowledgement.aux)
+(output/ch7/full_build/Abstract/abstract.aux)
+(output/ch7/full_build/Chapters/CH1_introduction.aux)
+(output/ch7/full_build/Chapters/CH2_theoretical_background.aux)
+(output/ch7/full_build/Chapters/CH3_LQ_search.aux)
+(output/ch7/full_build/Chapters/CH4_LHC_ATLAS_experiment.aux)
+(output/ch7/full_build/Chapters/CH5_MC_simulation.aux)
+(output/ch7/full_build/Chapters/CH6_object_definition.aux)
+(output/ch7/full_build/Chapters/CH7_event_selection.aux)
+(output/ch7/full_build/Chapters/CH8_Background_estimation.aux)
+(output/ch7/full_build/Chapters/CH9_Systematics_uncertainties.aux)
+(output/ch7/full_build/Chapters/CH10_Statistical_analysis_and_results.aux)
+(output/ch7/full_build/Chapters/CH11_Discussion_and_conclusion.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix1.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix2.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix3.aux)) )</usr/local/texlive/2
+025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/202
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u30.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u4f.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u52.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u56.pfb></usr/local/texl
+ive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u59.pfb></usr/local/t
+exlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u5b.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u5f.pfb></usr/l
+ocal/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u63.pfb></us
+r/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u6a.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u6d.pf
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u74
+.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-
+u75.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm
+-r-u7a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/i
+pxm-r-u7c.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type
+1/ipxm-r-u7d.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-t
+ype1/ipxm-r-u85.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipae
+x-type1/ipxm-r-u88.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/i
+paex-type1/ipxm-r-u8c.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
+c/ipaex-type1/ipxm-r-u90.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
+blic/ipaex-type1/ipxm-r-u91.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/ipaex-type1/ipxm-r-u96.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
+pe1/public/ipaex-type1/ipxm-r-u9a.pfb></usr/local/texlive/2025/texmf-dist/fonts
+/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/cm-super/sfss0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
+e1/public/cm-super/sftt1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/cm-super/sftt1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/u
+rw/symbol/usyr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/symbol/u
+syr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></
+usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local
+/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2
+025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on output/ch7/full_build/thesis.pdf (108 pages, 4168196 bytes).
+SyncTeX written on output/ch7/full_build/thesis.synctex.gz.
+Transcript written on output/ch7/full_build/thesis.log.
+Latexmk: Getting log file 'output/ch7/full_build/thesis.log'
+Latexmk: Examining 'output/ch7/full_build/thesis.fls'
+Latexmk: Examining 'output/ch7/full_build/thesis.log'
+Latexmk: Index file 'output/ch7/full_build/thesis.idx' was written
+Latexmk: Missing input file 'thesis.nls' (or dependence on it) from following:
+  No file thesis.nls.
+Latexmk: Found input bbl file 'thesis.bbl'
+Latexmk: Log file says output to 'output/ch7/full_build/thesis.pdf'
+Have index file 'output/ch7/full_build/thesis.idx', output/ch7/full_build/thesis.ind output/ch7/full_build/thesis
+Latexmk: Found bibliography file(s):
+  ./References/references.bib
+Latexmk: applying rule 'bibtex thesis'...
+Rule 'bibtex thesis':  Reasons for rerun
+Changed files or newly in use/created:
+  output/ch7/full_build/Chapters/Appendix/Appendix1.aux
+  output/ch7/full_build/Chapters/Appendix/Appendix2.aux
+  output/ch7/full_build/Chapters/CH10_Statistical_analysis_and_results.aux
+  output/ch7/full_build/Chapters/CH11_Discussion_and_conclusion.aux
+  output/ch7/full_build/Chapters/CH1_introduction.aux
+  output/ch7/full_build/Chapters/CH2_theoretical_background.aux
+  output/ch7/full_build/Chapters/CH3_LQ_search.aux
+  output/ch7/full_build/Chapters/CH4_LHC_ATLAS_experiment.aux
+  output/ch7/full_build/Chapters/CH5_MC_simulation.aux
+  output/ch7/full_build/Chapters/CH6_object_definition.aux
+  output/ch7/full_build/Chapters/CH7_event_selection.aux
+  output/ch7/full_build/Chapters/CH8_Background_estimation.aux
+  output/ch7/full_build/Chapters/CH9_Systematics_uncertainties.aux
+
+------------
+Run number 2 of rule 'bibtex thesis'
+------------
+------------
+Running 'bibtex  "thesis.aux"'
+------------
+This is BibTeX, Version 0.99d (TeX Live 2025)
+The top-level auxiliary file: thesis.aux
+The style file: unsrtnat.bst
+Database file #1: References/references.bib
+Warning--empty journal in MartinSUSYPrimer
+Warning--empty year in CERNAbout
+Warning--empty year in CERNLHC
+Warning--empty journal in Herr2006Luminosity
+Warning--empty journal in ATLASRun3Starts
+(There were 5 warnings)
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  output/ch7/full_build/Chapters/Appendix/Appendix1.aux
+  output/ch7/full_build/Chapters/Appendix/Appendix2.aux
+  output/ch7/full_build/Chapters/Appendix/Appendix3.aux
+  output/ch7/full_build/Chapters/CH10_Statistical_analysis_and_results.aux
+  output/ch7/full_build/Chapters/CH11_Discussion_and_conclusion.aux
+  output/ch7/full_build/Chapters/CH1_introduction.aux
+  output/ch7/full_build/Chapters/CH2_theoretical_background.aux
+  output/ch7/full_build/Chapters/CH3_LQ_search.aux
+  output/ch7/full_build/Chapters/CH4_LHC_ATLAS_experiment.aux
+  output/ch7/full_build/Chapters/CH5_MC_simulation.aux
+  output/ch7/full_build/Chapters/CH6_object_definition.aux
+  output/ch7/full_build/Chapters/CH7_event_selection.aux
+  output/ch7/full_build/Chapters/CH8_Background_estimation.aux
+  output/ch7/full_build/Chapters/CH9_Systematics_uncertainties.aux
+  output/ch7/full_build/thesis.aux
+  output/ch7/full_build/thesis.toc
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -synctex=1 -recorder -output-directory="output/ch7/full_build"  "thesis.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/thesi
+s.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Class
+es/PhDThesisPSnPDF.cls
+
+LaTeX Warning: You have requested document class `Classes/PhDThesisPSnPDF',
+               but the document class provides `PhDThesisPSnPDF'.
+
+Document Class: PhDThesisPSnPDF 2016/04/23 A PhD thesis class file by Krishna K
+umar (v2.3.1)
+https://github.com/kks32/phd-thesis-template/
+
+Class PhDThesisPSnPDF Warning: Bibliography selection conflict: A bibliography 
+style aleady specified. Please check the document class options in case you hav
+e defined two bibliography styles. on input line 238.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/bk12.clo))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/lscape.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifpdf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifxetex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/appendix/appendix.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/dvipsnam.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/grfext/grfext.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty))
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/datetime/datetime.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fmtcount.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fcprefix.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fcnumparser.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/datetime/datetime-defaults.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/mathptmx.sty)
+PhDThesisPSnPDF: Using Times Roman font
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1ptm.fd))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Class
+es/glyphtounicode.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty)) (/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty))
+PhDThesisPSnPDF: The University identity guidelines recommend using left aligne
+d text. Please use `flushleft' in the documentclass option, if you wish to left
+ align your text
+(/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/nomencl/nomencl.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/tocbasic.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrbase.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/koma-script/scrlogo.sty))))))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file thesis.idx
+)
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Pream
+ble/preamble.tex
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lineno/lineno.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-feynman/tikz-feynman.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfil
+tered.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.
+tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-feynman/tikzlibraryfeynman.c
+ode.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.markings.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.markings.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathreplacing.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/graphs/tikzlibrarygraphs.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypatterns.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypattern
+s.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.geometric.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.geometric.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-feynman/tikzfeynman.keys.cod
+e.tex))) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xspace.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/adjcalc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/trimclip.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/collectbox/collectbox.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/tc-pdftex.def))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/varwidth/varwidth.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/bm.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJKutf8.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJK.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/mule/MULEenc.sty)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJK.enc))
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty)))
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/thesi
+s-info.tex)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(output/ch7/full_build/thesis.aux
+(output/ch7/full_build/Acknowledgement/acknowledgement.aux)
+(output/ch7/full_build/Abstract/abstract.aux)
+(output/ch7/full_build/Chapters/CH1_introduction.aux)
+(output/ch7/full_build/Chapters/CH2_theoretical_background.aux)
+(output/ch7/full_build/Chapters/CH3_LQ_search.aux)
+(output/ch7/full_build/Chapters/CH4_LHC_ATLAS_experiment.aux)
+(output/ch7/full_build/Chapters/CH5_MC_simulation.aux)
+(output/ch7/full_build/Chapters/CH6_object_definition.aux)
+(output/ch7/full_build/Chapters/CH7_event_selection.aux)
+(output/ch7/full_build/Chapters/CH8_Background_estimation.aux)
+(output/ch7/full_build/Chapters/CH9_Systematics_uncertainties.aux)
+(output/ch7/full_build/Chapters/CH10_Statistical_analysis_and_results.aux)
+(output/ch7/full_build/Chapters/CH11_Discussion_and_conclusion.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix1.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix2.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix3.aux))
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fc-english.def)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
+(output/ch7/full_build/thesis.out) (output/ch7/full_build/thesis.out)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\CJK' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 110.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\CJK' on input line 110.
+
+
+Package tikz-feynman Warning: LuaTeX is required if you wish to have vertices a
+utomatically placed. You can disable this warning by setting /tikzfeynman/warn 
+luatex=false on input line 110.
+
+
+Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[co
+mpat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on
+ input line 110.
+
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-d
+ictionary-english.trsl)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omlztmcm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omsztmcm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/omxztmcm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.bdg)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.enc)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/ipaex-type1/c70ipxm.fd)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/ipaex-type1/c70ipxm.fdx)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.enc)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr)
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/l
+ocal/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/20
+25/texmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u5b.enc}{/usr/local/texlive/202
+5/texmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u9a.enc}{/usr/local/texlive/2025
+/texmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u30.enc}{/usr/local/texlive/2025/
+texmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u91.enc}{/usr/local/texlive/2025/t
+exmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u5f.enc}{/usr/local/texlive/2025/te
+xmf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u7c.enc}{/usr/local/texlive/2025/tex
+mf-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u96.enc}{/usr/local/texlive/2025/texm
+f-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u88.enc}{/usr/local/texlive/2025/texmf
+-dist/fonts/enc/dvips/ipaex-type1/ipxt1-u7a.enc}{/usr/local/texlive/2025/texmf-
+dist/fonts/enc/dvips/ipaex-type1/ipxt1-u75.enc}{/usr/local/texlive/2025/texmf-d
+ist/fonts/enc/dvips/ipaex-type1/ipxt1-u6d.enc}{/usr/local/texlive/2025/texmf-di
+st/fonts/enc/dvips/ipaex-type1/ipxt1-u59.enc}{/usr/local/texlive/2025/texmf-dis
+t/fonts/enc/dvips/ipaex-type1/ipxt1-u6a.enc}{/usr/local/texlive/2025/texmf-dist
+/fonts/enc/dvips/ipaex-type1/ipxt1-u90.enc}{/usr/local/texlive/2025/texmf-dist/
+fonts/enc/dvips/ipaex-type1/ipxt1-u52.enc}{/usr/local/texlive/2025/texmf-dist/f
+onts/enc/dvips/ipaex-type1/ipxt1-u4f.enc}{/usr/local/texlive/2025/texmf-dist/fo
+nts/enc/dvips/ipaex-type1/ipxt1-u8c.enc}{/usr/local/texlive/2025/texmf-dist/fon
+ts/enc/dvips/ipaex-type1/ipxt1-u63.enc}{/usr/local/texlive/2025/texmf-dist/font
+s/enc/dvips/ipaex-type1/ipxt1-u7d.enc}{/usr/local/texlive/2025/texmf-dist/fonts
+/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2025/texmf-dist/fonts/e
+nc/dvips/ipaex-type1/ipxt1-u85.enc}{/usr/local/texlive/2025/texmf-dist/fonts/en
+c/dvips/ipaex-type1/ipxt1-u56.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc
+/dvips/ipaex-type1/ipxt1-u74.enc}]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Ackno
+wledgement/acknowledgement.tex
+[2])
+[3]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Abstr
+act/abstract.tex
+[4])
+[5]
+[6] (output/ch7/full_build/thesis.toc
+[7]
+[8]
+[9])
+[10] (output/ch7/full_build/thesis.lof)
+[11]
+[12] (output/ch7/full_build/thesis.lot)
+No file thesis.nls.
+
+[13]
+[14]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH1_introduction.tex
+Chapter 1.
+
+[1])
+[2]
+[3]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH2_theoretical_background.tex
+[4]
+Chapter 2.
+
+[5]
+[6]
+[7]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 274.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 274.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 274.
+
+
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+[19]
+[20]
+[21 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH2/rdrds_ckm2025_new.pdf, page is rotated 90 degrees>])
+[22]
+[23]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH3_LQ_search.tex
+[24]
+Chapter 3.
+
+[25]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 80.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 80.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 80.
+
+
+[26]
+[27]
+[28]
+[29]
+[30 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH3/CLL_CLR_lowPT_HFLAV2023.pdf>]
+[31]
+[32 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH3/LQ_single_production.png> </Users/zang/Desktop/ICEPP/博士课题/lepto
+quark/Thesis/codex/my_thesis/Figs/CH3/LQ_pair_production.png> </Users/zang/Desk
+top/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Figs/CH3/LQ_tchannel_p
+roduction.png>]
+[33 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH3/atlas_LQ_summary_u1_ym.pdf>])
+[34 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH3/Diagram1.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis
+/codex/my_thesis/Figs/CH3/Diagram2.pdf>]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH4_LHC_ATLAS_experiment.tex
+Chapter 4.
+
+[35]
+[36 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/LHC_ring.png>]
+[37] (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
+[38 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_slide.pdf>]
+[39]
+[40 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/coordinate system.pdf>]
+[41 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_magnet.pdf>]
+[42 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_IBL.pdf>]
+[43 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/LAr_calo_view.pdf>]
+[44 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/lar_barrel.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thes
+is/codex/my_thesis/Figs/CH4/LAr_EndCap.png> </Users/zang/Desktop/ICEPP/博士�
+�题/leptoquark/Thesis/codex/my_thesis/Figs/CH4/LAr_cells.pdf>]
+[45]
+[46 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_MS.pdf>]
+[47 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH4/ATLAS_TDAQ.pdf>]
+[48])
+[49]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH5_MC_simulation.tex
+[50]
+Chapter 5.
+
+[51]
+[52]
+[53]
+[54]
+[55])
+[56]
+[57 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH5/trigger_electron_efficiency.pdf, page is rotated 90 degrees> </Users/za
+ng/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Figs/CH5/trigge
+r_muon_efficiency_barrel.pdf, page is rotated 90 degrees> </Users/zang/Desktop/
+ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Figs/CH5/trigger_muon_effi
+ciency_endcap.pdf, page is rotated 90 degrees>]
+[58 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH5/trigger_met_efficiency.pdf, page is rotated 90 degrees>]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH6_object_definition.tex
+Chapter 6.
+)
+[59]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH7_event_selection.tex
+[60]
+Chapter 7.
+
+[61]
+[62]
+[63]
+[64]
+
+Package natbib Warning: Citation `ATL-PHYS-PUB-2020-025' on page 65 undefined o
+n input line 171.
+
+
+[65]
+[66]
+[67 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH7/SR1b_Res_InvM.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark/T
+hesis/codex/my_thesis/Figs/CH7/SR1b_NonRes_mT.pdf>])
+[68]
+[69 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH7/SR0b_Res_InvM.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark/T
+hesis/codex/my_thesis/Figs/CH7/SR0b_NonRes_mT.pdf>]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH8_Background_estimation.tex
+[70]
+Chapter 8.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\bool_gset_true:N' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\g__siunitx_emulation_unit_warning_\bar_boo
+l' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\msg_warning:nnnn' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 7.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\tau' on input line 7.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 7.
+
+)
+[71]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH9_Systematics_uncertainties.tex
+[72]
+Chapter 9.
+)
+[73]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH10_Statistical_analysis_and_results.tex
+[74]
+Chapter 10.
+)
+[75]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/CH11_Discussion_and_conclusion.tex
+[76]
+Chapter 11.
+)
+[77]
+[78]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/thesi
+s.bbl
+[79]
+[80] (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+[81{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c}]
+[82]
+[83]
+[84])
+[85]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/Appendix/Appendix1.tex
+[86]
+Appendix A.
+)
+[87]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/Appendix/Appendix2.tex
+[88]
+Appendix B.
+
+[89]
+[90 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH7/QCD/DPhi_signal.pdf> </Users/zang/Desktop/ICEPP/博士课题/leptoquark
+/Thesis/codex/my_thesis/Figs/CH7/QCD/DPhi_multijets.pdf>]
+[91 </Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/F
+igs/CH7/QCD/rejection_scan.pdf>])
+[92]
+(/Users/zang/Desktop/ICEPP/博士课题/leptoquark/Thesis/codex/my_thesis/Chapt
+ers/Appendix/Appendix3.tex
+Appendix C.
+)
+[93]
+[94] (output/ch7/full_build/thesis.ind)
+
+Package natbib Warning: There were undefined citations.
+
+(output/ch7/full_build/thesis.aux
+(output/ch7/full_build/Acknowledgement/acknowledgement.aux)
+(output/ch7/full_build/Abstract/abstract.aux)
+(output/ch7/full_build/Chapters/CH1_introduction.aux)
+(output/ch7/full_build/Chapters/CH2_theoretical_background.aux)
+(output/ch7/full_build/Chapters/CH3_LQ_search.aux)
+(output/ch7/full_build/Chapters/CH4_LHC_ATLAS_experiment.aux)
+(output/ch7/full_build/Chapters/CH5_MC_simulation.aux)
+(output/ch7/full_build/Chapters/CH6_object_definition.aux)
+(output/ch7/full_build/Chapters/CH7_event_selection.aux)
+(output/ch7/full_build/Chapters/CH8_Background_estimation.aux)
+(output/ch7/full_build/Chapters/CH9_Systematics_uncertainties.aux)
+(output/ch7/full_build/Chapters/CH10_Statistical_analysis_and_results.aux)
+(output/ch7/full_build/Chapters/CH11_Discussion_and_conclusion.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix1.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix2.aux)
+(output/ch7/full_build/Chapters/Appendix/Appendix3.aux)) )</usr/local/texlive/2
+025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/202
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u30.pfb></usr/local/texlive/2025/
+texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u4f.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u52.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u56.pfb></usr/local/texl
+ive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u59.pfb></usr/local/t
+exlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u5b.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u5f.pfb></usr/l
+ocal/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u63.pfb></us
+r/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u6a.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u6d.pf
+b></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-u74
+.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm-r-
+u75.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/ipxm
+-r-u7a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type1/i
+pxm-r-u7c.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-type
+1/ipxm-r-u7d.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipaex-t
+ype1/ipxm-r-u85.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/ipae
+x-type1/ipxm-r-u88.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/i
+paex-type1/ipxm-r-u8c.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publi
+c/ipaex-type1/ipxm-r-u90.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/pu
+blic/ipaex-type1/ipxm-r-u91.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/ipaex-type1/ipxm-r-u96.pfb></usr/local/texlive/2025/texmf-dist/fonts/ty
+pe1/public/ipaex-type1/ipxm-r-u9a.pfb></usr/local/texlive/2025/texmf-dist/fonts
+/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/t
+ype1/public/cm-super/sfss0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/typ
+e1/public/cm-super/sftt1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1
+/public/cm-super/sftt1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/u
+rw/symbol/usyr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/symbol/u
+syr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></
+usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local
+/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2
+025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on output/ch7/full_build/thesis.pdf (108 pages, 4168201 bytes).
+SyncTeX written on output/ch7/full_build/thesis.synctex.gz.
+Transcript written on output/ch7/full_build/thesis.log.
+Latexmk: Getting log file 'output/ch7/full_build/thesis.log'
+Latexmk: Examining 'output/ch7/full_build/thesis.fls'
+Latexmk: Examining 'output/ch7/full_build/thesis.log'
+Latexmk: Index file 'output/ch7/full_build/thesis.idx' was written
+Latexmk: Missing input file 'thesis.nls' (or dependence on it) from following:
+  No file thesis.nls.
+Latexmk: Found input bbl file 'thesis.bbl'
+Latexmk: Log file says output to 'output/ch7/full_build/thesis.pdf'
+Have index file 'output/ch7/full_build/thesis.idx', output/ch7/full_build/thesis.ind output/ch7/full_build/thesis
+Latexmk: Found bibliography file(s):
+  ./References/references.bib
+Latexmk: Summary of warnings from last run of *latex:
+  Latex failed to resolve 1 citation(s)
+Latexmk: ====Undefined refs and citations with line #s in .tex file:
+  Citation `ATL-PHYS-PUB-2020-025' on page 65 undefined on input line 171
+Latexmk: All targets (output/ch7/full_build/thesis.pdf) are up-to-date
+

@@ -1,0 +1,842 @@
+# --------------- %
+# ---  JOB    --- %
+# --------------- %
+
+Job:
+  Name: "fit_taunub_N_minus_1"
+  POI: "gU_square"
+  # Label: "tau+x"
+  LumiLabel: "140 fb^{-1}"
+  # Lumi: XXX_LUMI
+  PlotOptions: "NOSIG,YIELDS,OVERSIG" #,"CHI2","NOXERR","PREFITONPOSTFIT" #"NORMSIG","NOSIG"
+  PlotLabel: "Internal"
+  # MCstatThreshold: 0.01
+  # #UseGammasForCorr: TRUE
+  # #GuessMCStatEmptyBins: FALSE
+  # SystErrorBars: TRUE
+  SystControlPlots: TRUE
+  SystPruningShape: 0.005
+  SystPruningNorm: 0.005
+  # #SystLarge: 0.90
+  # #SystCategoryTables: TRUE
+  # #CorrelationThreshold: 0.20
+  # HistoChecks: NOCRASH
+  PrePostFitCanvasSize: 800,600
+  LegendX1: 0.46
+  # #SplitHistoFiles: TRUE   # set this in order to have separated .root files in Histograms/ for different regions
+  ImageFormat: "png" #,"eps","pdf"
+  DoSummaryPlot: TRUE
+  DoTables: TRUE
+  # DoSignalRegionsPlot: TRUE
+  DoPieChartPlot: TRUE
+  # SummaryPlotYmin: 1
+  SummaryPlotYmax: 1e5 #CRs
+  LegendX1Summary: 0.35
+  LegendX2Summary: 0.9
+  RatioType: "DATAOVERBKG"
+  RatioYmin: 0 #0.5
+  RatioYmax: 2 #1.5
+  # # RatioYtitle: "S/(S+B)"
+  # BlindingThreshold: 0.05
+  # BlindingType: SOVERB
+  # ReplacementFile: /afs/cern.ch/work/z/zang/LQanalysis/TRExFitter_xTAU/TRExFitter/config/replacement_TauX_jiaqi.txt
+  RankingMaxNP: 20
+  RankingPlot: Merge
+  # DebugLevel: 2
+  # #RemoveSystOnEmptySample: TRUE
+  # #RemoveLargeSyst: TRUE
+  # BlindingThreshold: 0.05
+  # GetChi2: STAT
+  BlindSRs: TRUE
+  RatioYminPostFit: 0 #0.5
+  RatioYmaxPostFit: 2 #1.5
+  # StatOnly: True
+  # # test options
+  # #HideNP: SigXsecOverSM
+  RecreateBinningFiles: True
+  # SmoothingOption: "MAXVARIATION"
+  MergeUnderOverFlow: True
+  UseGammaPulls: True
+
+# --------------- %
+# ---  FIT    --- %
+# --------------- %
+
+Fit:
+  #  FitType: SPLUSB
+   FitType: BONLY
+  #  FitRegion: CRSR
+   FitRegion: CRONLY
+   FitBlind: False
+   POIAsimov: 1
+   UseMinos: "gU_square"
+   #UseMinos: "gU_quad"
+  #  UseMinos: all
+   NumCPU: 8
+   doLHscan: "gU_square"
+  #  ToleranceScale: 0.01
+   #DoNonProfileFit: True
+   LHscanSteps: 20
+  #  FitStrategy: 3
+
+# --------------- %
+# ---  LIMIT  --- %
+# --------------- %
+
+#  Limit: "limit"
+#    LimitType: ASYMPTOTIC
+#    LimitBlind: FALSE
+#    SignalInjection: TRUE
+
+# --------------- %
+# --- REGIONS --- %
+# --------------- %
+
+Regions:  
+  - name: "WCR_0tau1e0b_tch_jet_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{jet0} [GeV]"
+
+  - name: "WCR_0tau1mu0b_tch_jet_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{jet0} [GeV]"
+
+  - name: "WCR_0tau1e0b_sch_jet_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{jet0} [GeV]"
+
+  - name: "WCR_0tau1mu0b_sch_jet_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{jet0} [GeV]"
+
+  - name: "WCR_0tau1e0b_tch_mT_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "m_{T}(p_{T}^{l}, E_{T}^{miss}) [GeV]"
+
+  - name: "WCR_0tau1mu0b_tch_mT_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "m_{T}(p_{T}^{l}, E_{T}^{miss}) [GeV]"
+
+  - name: "WCR_0tau1e0b_sch_mT_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "m_{T}(p_{T}^{l}, E_{T}^{miss}) [GeV]"
+
+  - name: "WCR_0tau1mu0b_sch_mT_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "m_{T}(p_{T}^{l}, E_{T}^{miss}) [GeV]"
+
+  - name: "WCR_0tau1e0b_tch_met_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "E_{T}^{miss} [GeV]"
+
+  - name: "WCR_0tau1mu0b_tch_met_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "E_{T}^{miss} [GeV]"
+
+  - name: "WCR_0tau1e0b_sch_met_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "E_{T}^{miss} [GeV]"
+
+  - name: "WCR_0tau1mu0b_sch_met_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "E_{T}^{miss} [GeV]"
+
+  - name: "WCR_0tau1e0b_tch_lep0_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{l} [GeV]"
+
+  - name: "WCR_0tau1mu0b_tch_lep0_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{l} [GeV]"
+
+  - name: "WCR_0tau1e0b_sch_lep0_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{l} [GeV]"
+
+  - name: "WCR_0tau1mu0b_sch_lep0_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{l} [GeV]"
+
+  - name: "WCR_0tau1e0b_tch_Nbjets_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of b-jets"
+
+  - name: "WCR_0tau1mu0b_tch_Nbjets_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of b-jets"
+    
+  - name: "WCR_0tau1e0b_sch_Nbjets_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of b-jets"
+
+  - name: "WCR_0tau1mu0b_sch_Nbjets_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of b-jets"
+
+  - name: "WCR_0tau1e0b_tch_lep_met_deltaphi_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "#Delta#phi(p_{T}^{lep0}, E_{T}^{miss})"
+
+  - name: "WCR_0tau1mu0b_tch_lep_met_deltaphi_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Non-Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "#Delta#phi(p_{T}^{lep0}, E_{T}^{miss})"
+
+  - name: "WCR_0tau1e0b_sch_lep_met_deltaphi_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1e0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "M_{l+jet0} [GeV]"
+
+  - name: "WCR_0tau1mu0b_sch_lep_met_deltaphi_N_minus_1*"
+    Type: CONTROL
+    Label: "0#tau1#mu0b, Resonance WCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "M_{l+jet0} [GeV]"
+
+  - name: "topCR_1tau1e_sch_mT_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1e, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "m_{T}(#tau, E_{T}^{miss}) [GeV]"
+
+  - name: "topCR_1tau1mu_sch_mT_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1#mu, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "m_{T}(#tau, E_{T}^{miss}) [GeV]"
+
+  - name: "topCR_1tau1e_tch_mT_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1e, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "m_{T}(#tau, E_{T}^{miss}) [GeV]"
+
+  - name: "topCR_1tau1mu_tch_mT_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1#mu, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "m_{T}(#tau, E_{T}^{miss}) [GeV]"
+
+  - name: "topCR_1tau1e_sch_bjet_pt_0_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1e, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{b} [GeV]"
+
+  - name: "topCR_1tau1mu_sch_bjet_pt_0_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1#mu, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{b} [GeV]"
+
+  - name: "topCR_1tau1e_tch_bjet_pt_0_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1e, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{b} [GeV]"
+
+  - name: "topCR_1tau1mu_tch_bjet_pt_0_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1#mu, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{b} [GeV]"
+
+  - name: "topCR_1tau1e_sch_tau_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1e, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{#tau} [GeV]"
+
+  - name: "topCR_1tau1mu_sch_tau_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1#mu, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{#tau} [GeV]"
+
+  - name: "topCR_1tau1e_tch_tau_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1e, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{#tau} [GeV]"
+
+  - name: "topCR_1tau1mu_tch_tau_pt_N_minus_1*"
+    Type: CONTROL
+    Label: "1#tau1#mu, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "p_{T}^{#tau} [GeV]"
+
+  - name: "topCR_1tau1e_sch_met"
+    Type: CONTROL
+    Label: "1#tau1e, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "E_{T}^{miss} [GeV]"
+
+  - name: "topCR_1tau1mu_sch_met"
+    Type: CONTROL
+    Label: "1#tau1#mu, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "E_{T}^{miss} [GeV]"
+
+  - name: "topCR_1tau1e_tch_met"
+    Type: CONTROL
+    Label: "1#tau1e, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "E_{T}^{miss} [GeV]"
+
+  - name: "topCR_1tau1mu_tch_met"
+    Type: CONTROL
+    Label: "1#tau1#mu, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "E_{T}^{miss} [GeV]"
+
+  - name: "topCR_1tau1e_sch_Mbtau"
+    Type: CONTROL
+    Label: "1#tau1e, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "M_{#tau+b} [GeV]"
+
+  - name: "topCR_1tau1mu_sch_Mbtau"
+    Type: CONTROL
+    Label: "1#tau1#mu, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "M_{#tau+b} [GeV]"
+
+  - name: "topCR_1tau1e_tch_Mbtau"
+    Type: CONTROL
+    Label: "1#tau1e, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "M_{#tau+b} [GeV]"
+
+  - name: "topCR_1tau1mu_tch_Mbtau"
+    Type: CONTROL
+    Label: "1#tau1#mu, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "M_{#tau+b} [GeV]"
+
+  - name: "topCR_1tau1e_sch_tau_met_deltaphi"
+    Type: CONTROL
+    Label: "1#tau1e, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "#Delta#phi(#tau, E_{T}^{miss})"
+
+  - name: "topCR_1tau1mu_sch_tau_met_deltaphi"
+    Type: CONTROL
+    Label: "1#tau1#mu, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "#Delta#phi(#tau, E_{T}^{miss})"
+
+  - name: "topCR_1tau1e_tch_tau_met_deltaphi"
+    Type: CONTROL
+    Label: "1#tau1e, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "#Delta#phi(#tau, E_{T}^{miss})"
+
+  - name: "topCR_1tau1mu_tch_tau_met_deltaphi"
+    Type: CONTROL
+    Label: "1#tau1#mu, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "#Delta#phi(#tau, E_{T}^{miss})"
+
+  - name: "topCR_1tau1e_sch_nbJets85"
+    Type: CONTROL
+    Label: "1#tau1e, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of b-jets"
+
+  - name: "topCR_1tau1mu_sch_nbJets85"
+    Type: CONTROL
+    Label: "1#tau1#mu, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of b-jets"
+
+  - name: "topCR_1tau1e_tch_nbJets85"
+    Type: CONTROL
+    Label: "1#tau1e, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of b-jets"
+
+  - name: "topCR_1tau1mu_tch_nbJets85"
+    Type: CONTROL
+    Label: "1#tau1#mu, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of b-jets"
+
+  - name: "topCR_1tau1e_sch_nJets"
+    Type: CONTROL
+    Label: "1#tau1e, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of jets"
+
+  - name: "topCR_1tau1mu_sch_nJets"
+    Type: CONTROL
+    Label: "1#tau1#mu, Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of jets"
+
+  - name: "topCR_1tau1e_tch_nJets"
+    Type: CONTROL
+    Label: "1#tau1e, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of jets"
+
+  - name: "topCR_1tau1mu_tch_nJets"
+    Type: CONTROL
+    Label: "1#tau1#mu, Non-Resonance TopCR"
+    Ymax: 1e5
+    Ymin: 1e-1
+    LogScale: True
+    DataType: DATA
+    VariableTitle: "Number of jets"
+    
+# --------------- %
+# --- SAMPLES --- %
+# --------------- %
+
+## Signal samples ##
+
+## Background samples ##
+
+samples:
+
+  # - name: "LQ_taunub_M1500_BSM"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2, BSM"
+  #   TexTitle: $LQ$ (U1, 1.5 TeV), BF
+  #   Group: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2, BSM+Inf"
+  #   Regions: "SR_*"
+  #   FillColor: 2
+  #   LineColor: 2
+  
+  # - name: "LQ_taunub_M1500_Inf"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2, Inf"
+  #   TexTitle: $LQ$ (U1, 1.5 TeV), BVeto
+  #   Group: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2, BSM+Inf"
+  #   Regions: "SR_*"
+  #   FillColor: 2
+  #   LineColor: 2
+  
+  # - name: "LQ_taunub_M2500_BSM"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, BSM"
+  #   TexTitle: $LQ$ (U1, 2.5 TeV), NET150
+  #   Group: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, BSM+Inf"
+  #   Regions: "SR_*"
+  #   FillColor: 2
+  #   LineColor: 2
+  
+  # - name: "LQ_taunub_M2500_Inf"
+  #   Type: SIGNAL
+  #   Title: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1"
+  #   Group: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, BSM+Inf"
+  #   Regions: "SR_*"
+  #   FillColor: 2
+  #   LineColor: 2
+
+  - name: "LQ_taunub_M1500"
+    Type: SIGNAL
+    Title: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2"
+    Group: "M_{LQ}=1.5 TeV, g_{U}=1.5, #beta_{23}=0.2, BSM+Inf"
+    Regions: "SR_*sch*"
+    FillColor: 2
+    LineColor: 2
+
+  - name: "LQ_taunub_M2500"
+    Type: SIGNAL
+    Title: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1"
+    Group: "M_{LQ}=2.5 TeV, g_{U}=2.5, #beta_{23}=1, BSM+Inf"
+    Regions: "SR_*tch*"
+    FillColor: 2
+    LineColor: 2
+
+  - name: "Data"
+    Type: DATA
+    Title: "Data"
+    TexTitle: Data
+    FillColor: 1
+    LineColor: 1
+
+  - name: "ttbar_dilep"
+    Type: BACKGROUND
+    Title: "t#bar{t}"
+    FillColor: 117 #"kP10Blue"
+    LineColor: 117 #"kP10Blue"
+    # Group: "Top"
+    #Smooth: TRUE
+
+  # - name: "ttbar_nonallhad"
+  #   Type: BACKGROUND
+  #   Title: "t#bar{t}_nonallhad"
+  #   Regions: "SR_*"
+  #   FillColor: 117 #"kP10Blue"
+  #   LineColor: 117 #"kP10Blue"
+  #   # Group: "Top"
+  #   #Smooth: TRUE
+
+  - name: "SingleTop"
+    Type: BACKGROUND
+    Title: "Single Top"
+    FillColor: 119 #"kP10Red"
+    LineColor: 119 #"kP10Red"
+    # Group: "Top"
+  
+  
+  - name: "ttZ"
+    Type: BACKGROUND
+    Title: "ttZ"
+    FillColor: 120 #"kP10Gray"
+    LineColor: 120 #"kP10Gray"
+    # Group: "Top"
+  
+  - name: "Zll"
+    Type: BACKGROUND
+    Title: "Zll+j"
+    Group: "Zll+j"
+    FillColor: 121 #"kP10Violet"
+    LineColor: 121 #"kP10Violet"
+    # Group: "Z+jets"
+  
+  - name: "Znunu"
+    Type: BACKGROUND
+    Title: "Z#nu#nu+j"
+    Group: "Z#nu#nu+j"
+    FillColor: 122 #"kP10Brown"
+    LineColor: 122 #"kP10Brown"
+    # Group: "Z+jets"
+  
+  - name: "Ztautau"
+    Type: BACKGROUND
+    Title: "Z#tau#tau+j"
+    Group: "Z#tau#tau+j"
+    FillColor: 123 #"kP10Orange"
+    LineColor: 123 #"kP10Orange"
+    # Group: "Z+jets"
+  
+  - name: "Zjet_EWK"
+    Type: BACKGROUND
+    Title: "Zjet_EWK"
+    Group: "Zjet_EWK"
+    # Group: "Z+jets"
+    FillColor: 106 #"kP8 Grape"
+    LineColor: 106 #"kP8 Grape"
+  
+  - name: "Wtaunu_METTAU"
+    Type: BACKGROUND
+    Title: "W#tau#nu+j"
+    # Group: "W#tau#nu+j"
+    Group: "W+j"
+    FillColor: 126 #"kP10Cyan"
+    LineColor: 126 #"kP10Cyan"
+
+  - name: "Wtaunu_HF"
+    Type: BACKGROUND
+    Title: "W#tau#nu+j"
+    # Group: "W#tau#nu+j"
+    Group: "W+j"
+    FillColor: 126 #"kP10Cyan"
+    LineColor: 126 #"kP10Cyan"
+
+  - name: "Wlnu"
+    Type: BACKGROUND
+    Title: "Wl#nu+j"
+    Group: "W+j"
+    # Smooth: TRUE
+    FillColor: 125 #"kP10Azure"
+    LineColor: 125 #"kP10Azure"
+
+  
+  - name: "Diboson"
+    Type: BACKGROUND
+    Title: "Diboson"
+    Group: "Diboson"
+    # Smooth: TRUE
+    FillColor: 118 #"kP10Yellow"
+    LineColor: 118 #"kP10Yellow"
+
+  
+  - name: "Diboson_semiLep"
+    Type: BACKGROUND
+    Title: "Diboson_semilep"
+    Group: "Diboson"
+    FillColor: 118 #"kP10Yellow"
+    LineColor: 118 #"kP10Yellow"
+    # Smooth: TRUE
+
+  - name: "Dijet"
+    Type: BACKGROUND
+    Title: "Dijet"
+    FillColor: 124 #"kP10Green"
+    LineColor: 124 #"kP10Green"
+
+
+# --------------- %
+# - NORMFACTORS - %
+# --------------- %
+
+NormFactors:
+  - name: "gU_square"
+    Title: "#gu^2(signal)"
+    Nominal: 1
+    Min: -0.5
+    Max: 10
+    Samples: "LQ_taunub_M1500"
+    Category: "Theory"
+
+  # - name: "gU_quad"
+  #   Title: "#gu^4(signal)"
+  #   Expression: "gU_square*gU_square: gU_square[1,0,10]"
+  #   Nominal: 1
+  #   Min: -0.5
+  #   Max: 10
+  #   Samples: "BSM_M1500_gU1_0_23L0_2"
+  #   Category: "Theory"
+
+
+  - name: "top_Norm_tch"
+    Title: "#mu(top_tch)"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Samples: ["tt*","SingleTop*"]
+    Constant: False
+    Category: "top"
+    Regions: "*tch*"
+
+  - name: "Wjets_Norm_tch"
+    Title: "#mu(Wjets_tch)"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Constant: False
+    Samples: "W*"
+    Category: "W+jets"
+    Regions: "*tch*"
+
+  - name: "top_Norm_sch"
+    Title: "#mu(top_sch)"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Samples: ["tt*","SingleTop*"]
+    Constant: False
+    Category: "top"
+    Regions: "*sch*"
+
+  - name: "Wjets_Norm_sch"
+    Title: "#mu(Wjets_sch)"
+    Nominal: 1
+    Min: 0
+    Max: 3
+    Constant: False
+    Samples: "W*"
+    Category: "W+jets"
+    Regions: "*sch*"

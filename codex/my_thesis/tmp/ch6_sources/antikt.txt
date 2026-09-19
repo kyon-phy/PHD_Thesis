@@ -1,0 +1,621 @@
+
+=== PDF PAGE 1 ===
+arXiv:0802.1189v2 [hep-ph] 21 Apr 2008
+The anti-kt jet clustering algorithm
+Matteo Cacciari and Gavin P. Salam
+LPTHE
+UPMC Universit´e Paris 6,
+Universit´e Paris Diderot – Paris 7,
+CNRS UMR 7589, Paris, France
+Gregory Soyez
+Brookhaven National Laboratory, Upton, NY, USA
+February 2008
+LPTHE-07-03
+Abstract: The kt and Cambridge/Aachen inclusive jet finding algorithms for hadron-hadron col￾lisions can be seen as belonging to a broader class of sequential recombination jet algorithms,
+parametrised by the power of the energy scale in the distance measure. We examine some prop￾erties of a new member of this class, for which the power is negative. This “anti-kt” algorithm
+essentially behaves like an idealised cone algorithm, in that jets with only soft fragmentation are
+conical, active and passive areas are equal, the area anomalous dimensions are zero, the non-global
+logarithms are those of a rigid boundary and the Milan factor is universal. None of these properties
+hold for existing sequential recombination algorithms, nor for cone algorithms with split–merge
+steps, such as SISCone. They are however the identifying characteristics of the collinear unsafe
+plain “iterative cone” algorithm, for which the anti-kt algorithm provides a natural, fast, infrared
+and collinear safe replacement.
+1 Introduction and definition
+Jet clustering algorithms are among the main tools for analysing data from hadronic collisions.
+Their widespread use at the Tevatron and the prospect of unprecedented final-state complexity
+at the upcoming Large Hadron Collider (LHC) have stimulated considerable debate concerning
+the merits of different kinds of jet algorithm. Part of the discussion has centred on the relative
+advantages of sequential recombination (kt
+[1] and Cambridge/Aachen [2]) and cone (e.g. [3]) jet
+algorithms, with an issue of particular interest being that of the regularity of the boundaries of the
+resulting jets. This is related to the question of their sensitivity to non-perturbative effects like
+hadronisation and underlying event contamination and arises also in the context of experimental
+calibration.
+Recently [4], tools have been developed that allow one, for the first time, to support the debate
+with analytical calculations of the contrasting properties of boundaries of jets within different
+algorithms. One of the main results of that work is that all known infrared and collinear (IRC)
+safe algorithms have the property that soft radiation can provoke irregularities in the boundaries of
+the final jets. This is the case even for SISCone [5], an IRC-safe jet algorithm based on the search
+for stable cones, together with a split–merge step that disentangles overlapping stable cones. One
+might describe current IRC-safe algorithms in general as having a ‘soft-adaptable’ boundary.
+1
+
+=== PDF PAGE 2 ===
+A priori it is not clear whether it is better to have regular (‘soft-resilient’) or less regular (soft￾adaptable) jets. In particular, regularity implies a certain rigidity in the jet algorithm’s ability to
+adapt a jet to the successive branching nature of QCD radiation. On the other hand knowledge
+of the typical shape of jets is often quoted as facilitating experimental calibration of jets, and
+soft-resilience can simplify certain theoretical calculations, as well as eliminate some parts of the
+momentum-resolution loss caused by underlying-event and pileup contamination.
+Examples of jet algorithms with a soft-resilient boundary are the plain “iterative cone” algo￾rithm, as used for example in the CMS collaboration [6], and fixed-cone algorithms such as Pythia’s
+[7] CellJet. The CMS iterative cone takes the hardest object (particle, calorimeter tower) in the
+event, uses it to seed an iterative process of looking for a stable cone, which is then called a jet.
+It then removes all the particles contained in that jet from the event and repeats the procedure
+with the hardest available remaining seed, again and again until no seeds remain. The fixed-cone
+algorithms are similar, but simply define a jet as the cone around the hardest seed, skipping the
+iterative search for a stable cone. Though simple experimentally, both kinds of algorithm have the
+crucial drawback that if applied at particle level they are collinear unsafe, since the hardest particle
+is easily changed by a quasi-collinear splitting, leading to divergences in higher-order perturbative
+calculations.1
+In this paper it is not our intention to advocate one or other type of algorithm in the debate
+concerning soft-resilient versus soft-adaptable algorithms. Rather, we feel that this debate can be
+more fruitfully served by proposing a simple, IRC safe, soft-resilient jet algorithm, one that leads
+to jets whose shape is not influenced by soft radiation. To do so, we take a quite non-obvious route,
+because instead of making use of the concept of a stable cone, we start by generalising the existing
+sequential recombination algorithms, kt
+[1] and Cambridge/Aachen [2].
+As usual, one introduces distances dij between entities (particles, pseudojets) i and j and diB
+between entity i and the beam (B). The (inclusive) clustering proceeds by identifying the smallest
+of the distances and if it is a dij recombining entities i and j, while if it is diB calling i a jet and
+removing it from the list of entities. The distances are recalculated and the procedure repeated
+until no entities are left.
+The extension relative to the kt and Cambridge/Aachen algorithms lies in our definition of the
+distance measures:
+dij = min(k
+2p
+ti , k2p
+tj )
+∆2
+ij
+R2
+, (1a)
+diB = k
+2p
+ti , (1b)
+where ∆2
+ij = (yi − yj )
+2 + (φi − φj )
+2 and kti, yi and φi are respectively the transverse momentum,
+rapidity and azimuth of particle i. In addition to the usual radius parameter R, we have added a
+parameter p to govern the relative power of the energy versus geometrical (∆ij ) scales.
+For p = 1 one recovers the inclusive kt algorithm. It can be shown in general that for p > 0
+the behaviour of the jet algorithm with respect to soft radiation is rather similar to that observed
+for the kt algorithm, because what matters is the ordering between particles and for finite ∆ this
+is maintained for all positive values of p. The case of p = 0 is special and it corresponds to the
+inclusive Cambridge/Aachen algorithm.
+1This is discussed in the appendix in detail for the iterative cone, and there we also introduce the terminology
+iterative cone with split–merge steps (IC-SM) and iterative cone with progressive removal (IC-PR), so as to distinguish
+the two broad classes of iterative cone algorithms.
+2
+
+=== PDF PAGE 3 ===
+Negative values of p might at first sight seem pathological. We shall see that they are not.2 The
+behaviour with respect to soft radiation will be similar for all p < 0, so here we will concentrate on
+p = −1, and refer to it as the “anti-kt” jet-clustering algorithm.
+2 Characteristics and properties
+2.1 General behaviour
+The functionality of the anti-kt algorithm can be understood by considering an event with a few well￾separated hard particles with transverse momenta kt1, kt2, . . . and many soft particles. The d1i =
+min(1/k2
+t1
+, 1/k2
+ti)∆2
+1i
+/R2 between a hard particle 1 and a soft particle i is exclusively determined by
+the transverse momentum of the hard particle and the ∆1i separation. The dij between similarly
+separated soft particles will instead be much larger. Therefore soft particles will tend to cluster with
+hard ones long before they cluster among themselves. If a hard particle has no hard neighbours
+within a distance 2R, then it will simply accumulate all the soft particles within a circle of radius
+R, resulting in a perfectly conical jet.
+If another hard particle 2 is present such that R < ∆12 < 2R then there will be two hard jets. It
+is not possible for both to be perfectly conical. If kt1 ≫ kt2 then jet 1 will be conical and jet 2 will
+be partly conical, since it will miss the part overlapping with jet 1. Instead if kt1 = kt2 neither jet
+will be conical and the overlapping part will simply be divided by a straight line equally between
+the two. For a general situation, kt1 ∼ kt2, both cones will be clipped, with the boundary b between
+them defined by ∆R1b/kt1 = ∆2b/kt2.
+Similarly one can work out what happens with ∆12 < R. Here particles 1 and 2 will cluster to
+form a single jet. If kt1 ≫ kt2 then it will be a conical jet centred on k1. For kt1 ∼ kt2 the shape
+will instead be more complex, being the union of cones (radius < R) around each hard particle plus
+a cone (of radius R) centred on the final jet.
+The key feature above is that the soft particles do not modify the shape of the jet, while hard
+particles do. I.e. the jet boundary in this algorithm is resilient with respect to soft radiation, but
+flexible with respect to hard radiation.3
+The behaviours of different jet algorithms are illustrated in fig. 1. We have taken a parton-level
+event together with ∼ 104
+random soft ‘ghost’ particles (as in [4]) and then clustered them with
+4 different jet algorithms. For each of the partonic jets, we have shown the region within which
+the random ghosts are clustered into that jet. For the kt and Cambridge/Aachen algorithms, that
+region depends somewhat on the specific set of ghosts and the jagged borders of the jets are a
+consequence of the randomness of the ghosts — the jet algorithm is adaptive in its response to soft
+particles, and that adaptiveness applies also to the ghosts which take part in the clustering. For
+SISCone one sees that single-particle jets are regular (though with a radius R/2 — as pointed out
+in [4]), while composite jets have more varied shapes. Finally with the anti-kt algorithm, the hard
+jets are all circular with a radius R, and only the softer jets have more complex shapes. The pair
+of jets near φ = 5 and y = 2 provides an interesting example in this respect. The left-hand one
+is much softer than the right-hand one. SISCone (and Cam/Aachen) place the boundary between
+2Note that, for p < 0, min(k
+2p
+ti , k2p
+tj ) differs from another possible extension, [min(k
+2
+ti, k2
+tj )]p
+, which can lead to
+strange behaviours.
+3For comparison, IC-PR algorithms behave as follows: with R < ∆12 < 2R, the harder of the two jets will be
+fully conical, while the softer will be clipped regardless of whether pt1 and pt2 are similar or disparate scales; with
+∆12 < R the jet will be just a circle centred on the final jet.
+3
+
+=== PDF PAGE 4 ===
+Figure 1: A sample parton-level event (generated with Herwig [8]), together with many random soft
+“ghosts”, clustered with four different jets algorithms, illustrating the “active” catchment areas of
+the resulting hard jets. For kt and Cam/Aachen the detailed shapes are in part determined by the
+specific set of ghosts used, and change when the ghosts are modified.
+the jets roughly midway between them. Anti-kt
+instead generates a circular hard jet, which clips a
+lens-shaped region out of the soft one, leaving behind a crescent.
+The above properties of the anti-kt algorithm translate into concrete results for various quanti￾tative properties of jets, as we outline below.
+2.2 Area-related properties
+The most concrete context in which to quantitatively discuss the properties of jet boundaries for
+different algorithms is in the calculation of jet areas.
+Two definitions were given for jet areas in [4]: the passive area (a) which measures a jet’s
+susceptibility to point-like radiation, and the active area (A) which measures its susceptibility to
+diffuse radiation. The simplest place to observe the impact of soft resilience is in the passive area for
+a jet consisting of a hard particle p1 and a soft one p2, separated by a y − φ distance ∆12. In usual
+IRC safe jet algorithms (JA), the passive area aJA,R(∆12) is πR2 when ∆12 = 0, but changes when
+∆12 is increased. In contrast, since the boundaries of anti-kt
+jets are unaffected by soft radiation,
+4
+
+=== PDF PAGE 5 ===
+a(1PJ) A(1PJ) σ(1PJ) Σ(1PJ) d D s S
+kt 1 0.81 0 0.28 0.56 0.52 0.45 0.41
+Cam/Aachen 1 0.81 0 0.26 0.08 0.08 0.24 0.19
+SISCone 1 1/4 0 0 −0.06 0.12 0.09 0.07
+anti-kt 1 1 0 0 0 0 0 0
+Table 1: A summary of main area results for the anti-kt algorithm compared to those for other IRC
+safe algorithms in [4]: the passive (a) and active (A) areas for 1-particle jets (1PJ), the magnitude of
+the passive/active area fluctuations (σ, Σ), followed by the coefficients of the respective anomalous
+dimensions (d, D; s, S), in the presence of perturbative QCD radiation. All results are normalised
+to πR2
+, and rounded to two decimal figures. For algorithms other than anti-kt
+, active-area results
+hold only in the small-R limit, though finite-R corrections are small.
+their passive area is always independent of ∆12:
+aanti-kt,R(∆12) = πR2
+. (2)
+Furthermore, since soft particles only cluster among themselves after all clusterings with hard
+particles have occurred, passive and active areas are identical, another feature that is unique to the
+anti-kt algorithm. Thus, specifically for our energy-ordered two-particle configuration, the active
+area is
+Aanti-kt,R(∆12) = aanti-kt,R(∆12) = πR2
+. (3)
+In [4] the fact that aJA,R(0) 6= aJA,R(∆12) (and similarly for the active area) meant that the jet
+areas acquired an anomalous dimension in their dependence on the jet transverse momentum ptJ ,
+related to emission of perturbative soft particles:
+haJA,Ri = πR2 + dJA,R
+C1
+πb0
+ln αs(Q0)
+αs(RptJ )
+, (4)
+where C1 is the colour factor of the hard particle in the jet, Q0 is the non-perturbative scale and
+the coefficient of the anomalous dimension, dJA,R, is given by
+dJA,R =
+Z 2R
+0
+dθ
+θ
+(aJA,R(θ) − πR2
+). (5)
+Obviously in this case danti-kt,R = 0 and similarly for the active area anomalous dimension coefficient
+Danti-kt,R. One corollary of this is that anti-kt
+jet areas can be calculated perturbatively, order by
+order, since they are infrared safe. In this respect we recall that they do deviate from πR2
+for
+configurations with several neighbouring hard particles.
+A summary of these and other properties of the jet area is given in table 1, together with a
+comparison to other IRC safe algorithms as studied in [4]. Fig. 2 illustrates the distribution of
+areas in dijet events at the LHC (generated with Pythia 6.4, with a transverse momentum cut of
+1 TeV on the 2 → 2 scattering, considering those among the two hardest jets in each event that
+have |y| < 2), compared with those for other algorithms, and one sees a near δ-function at an area
+of πR2
+, to be compared to the broader distributions of other algorithms. Fig. 3 shows the mean jet
+area, together with a band representing the event-by-event fluctuations of the area, as a function of
+the jet pt
+in gg → gg events, now generated with Herwig. This highlights the independence of the
+area on the jet pt and, once again, the very small fluctuations in the jet area. In this respect, we
+recall that the impact of the UE and pileup on the momentum resolution for jets is related both to
+the typical value of the area (smaller than kt
+, similar to Cambridge/Aachen, larger than SISCone)
+and to the extent of the fluctuations of the area, which are close to zero only for anti-kt
+.
+5
+
+=== PDF PAGE 6 ===
+0
+2
+4
+6
+8
+10
+ 0 0.5 1 1.5 2 2.5
+(π R
+2)/N dN/da
+area/(πR
+2
+)
+parton level
+passive area
+(a) SISCone
+Cam/Aac
+kt
+anti-kt
+ (x0.1)
+ 0 0.5 1 1.5 2 2.5
+0
+2
+4
+6
+8
+10
+(π R
+2)/N dN/dA
+area/(πR
+2
+)
+hadron-level + pileup
+active area
+Pythia 6.4
+pt,min=1 TeV
+2 hardest jets
+|y|<2, R=1
+(b)
+Figure 2: Distribution of areas in dijet events at the LHC. We have generated events with Pythia 6.4
+with a pt,min of 1 TeV. Only the two hardest jets have been kept with a further requirement |y| ≤ 2.
+The area distribution obtained from anti-kt (scaled by 0.1) is compared to the other algorithms.
+(a) passive area at parton level; (b) active area at hadron level including the underlying event and
+pileup corresponding to high luminosity LHC running.
+ 0
+ 0.5
+ 1
+ 1.5
+ 2
+5 10 100 1000
+〈AJA,R
+〉/πR
+2
+pt
+ (GeV)
+Herwig 6.5
+LHC, gg
+R=1
+SISCone(f=0.75)
+Cam/Aachen
+kt
+anti-kt
+ 0.9
+ 1
+ 1.1
+5 10 100 1000
+Figure 3: Average jet area in dijet events at the LHC. We have generated events with Herwig 6.5
+and only the two hardest jets with |y| ≤ 2 have been kept. The curves correspond to the average
+jet area at a given pt
+. The yellow band around the anti-kt
+line corresponds to the area fluctuations.
+For clarity, the latter are not shown for the other algorithms. The encapsulated graph is a zoom
+on the anti-kt results. Note that the horizontal scale is ln ln(pt/ΛQCD) with ΛQCD = 200 MeV.
+6
+
+=== PDF PAGE 7 ===
+ 0.001
+ 0.01
+ 0.1
+ 1
+-20 -15 -10 -5 0 5 10 15
+1/N dN/dpt (GeV-1
+)
+∆pt
+(B) (GeV)
+R=1
+Pythia 6.4
+LHC (high lumi)
+2 hardest jets
+pt,jet> 1 TeV
+|y|<2
+SISCone (f=075)
+Cam/Aachen
+kt
+anti-kt
+Figure 4: Distribution of back-reaction for the anti-kt algorithm as compared to kt
+, Cam￾bridge/Aachen and SISCone. It is calculated for dijet events simulated with Pythia 6.4 in which the
+two hardest jets have pt > 200 GeV and are both situated at |y| < 2. The back reaction corresponds
+to the net transverse momentum change of each of the two hardest jets due to the reassignment of
+non-pileup particles when one adds high-luminosity LHC pileup to the event (∼ 25 pp interactions
+per bunch crossing).
+Back reaction. Suppose one has a hard scattering event that leads to a set of jets {Ji}. If one
+adds a soft event (UE, pileup) to it and reruns the the algorithm, one will obtain a set of jets
+{J˜
+i} that differ in two respects: soft energy will have been added to each jet, and additionally
+the way the particles from the hard event are distributed into jets may also have changed: even
+if one finds the J˜
+i that is closest to the original J1, the two jets will not contain exactly the same
+subset of particles from the original hard event. This was called “back-reaction” in [4]. If the soft
+particles that are added have a density ρ of transverse momentum per unit area, then for usual
+sequential recombination algorithms the probability, dP/d ln ∆p
+(B)
+t
+, of having a back reaction of
+∆p
+(B)
+t
+is O (αsρ/∆p
+(B)
+t
+) for ∆p
+(B)
+t & ρ.
+4
+For the anti-kt algorithm, one can show that the probability of back-reaction is suppressed not
+by the amount of back reaction itself, ∆p
+(B)
+t
+, but by the jet transverse momentum ptJ , leading to a
+much smaller effect. The impact of this is illustrated in fig. 4, which shows the back reaction that
+occurs for the hard jet events when adding high luminosity LHC pileup to the event. One sees that
+it is strongly suppressed for the anti-kt algorithm relative to the others, a characteristic that can
+help reduce the smearing of jets’ momenta due to the UE and pileup.
+2.3 Other properties
+Non-global logarithms. Resummations of observables involving boundaries in phase space are
+known to involve ‘non-global’ logarithms. Examples are the jet-mass distribution [9] and energy flow
+distributions in restricted regions [10, 11, 12]. In both cases there are all-order single logarithmic
+terms (for a hard scale Q, α
+n
+s
+lnn Q/m for jet-mass distributions, α
+n
+s
+lnn Q/E for energy flow), that
+are related to the impact of emissions outside the boundary that radiate a gluon across the boundary
+and so affect the observable defined only on particles within the boundary.
+4For smaller values of ∆p
+(B)
+t
+the full answer requires a resummation that has yet to be carried out, and in the case
+of SISCone, it depends on the nature of the fluctuations of soft event.
+7
+
+=== PDF PAGE 8 ===
+It was pointed out in [13] that the structure of these non-global terms is more complex with
+clustering jet algorithms, because the boundary of the jet itself depends on the soft radiation.5
+Furthermore this affects even the contribution from independent emissions [14] which remained
+simple in the case of a rigid boundary. So far these effects have been calculated only for the kt
+algorithm, while for the cone and Cambridge/Aachen algorithms little is known about the non￾global logarithms other than that they too involve a subtle interaction between the clustering and
+the non-global resummation.
+Because soft radiation does not affect the boundary of anti-kt
+jets, it is straightforward to see
+that their single-logarithmic non-global terms are identically those associated with ideal cones,
+considerably simplifying their determination.
+Milan factor. A crucial ingredient in analytical studies of non-perturbative effects in event and
+jet-shapes is the Milan factor [15, 16, 17], which is the correction that relates calculations made in
+a single soft (almost non-perturbative) gluon approximation to calculations in which the soft gluon
+splits at large angle. A remarkable characteristic of the Milan factor (‘universality’) is that it is
+identical for all event shapes. This is essentially because for all event shapes, if one takes an event
+with hard momenta pi and soft momenta ki
+, then the event shape can be approximated as
+V ({pi}, {ki}) = V ({pi}) +X
+{ki}
+fV (θi
+, {pi})kti (6)
+where fV is a function specific to the event shape observable V . The key feature is the linearity
+of the second term on the right-hand side of eq. (6) (see also [18]). If, however, the event shape is
+defined for just a jet (or is simply a characteristic of the jet such as its transverse momentum), then
+one loses the linear dependence on soft momenta, since the question of whether one soft particle
+contributes to the observable is affected by its potential clustering with other soft particles.
+In the case of anti-kt
+jets, the independence of the jet boundary on the soft particle configuration
+means that the approximation eq. (6) does hold and the Milan factor retains its ‘universal’ value
+(M = 1.49 for 3 active non-perturbative flavours [15, 16]).
+Speed. A relevant issue in order for a jet algorithm to be useful in practice is the computing time
+required to carry out the clustering. The full class of generalised kt algorithms is amenable to fast
+implementation using the techniques of [19], with the proviso that for p < 0, the specific manner in
+which particles are clustered triggers a worst-case scenario for the Voronoi-diagram based dynamic
+nearest-neighbour graph determination [20]. This means that asymptotically the algorithm takes
+a time O
+
+N3/2
+
+to cluster N particles (rather than N ln N for the kt algorithm). However for
+N . 20000 the FastJet implementation [21] in any case uses other strategies, which are insensitive
+to this issue, and the anti-kt clustering is then as fast as kt clustering.
+2.4 Example application: top reconstruction
+One may wonder whether the unusual soft-resilience of the anti-kt algorithm leads to poorer results
+in phenomenological applications. We have investigated various examples and found that in general
+this is not the case. In figure 5 we illustrate this for top mass reconstruction in LHC tt¯ events, as
+simulated with Pythia [7], where both the t and the t¯decay hadronically, according to t → bW+ →
+5There are cases where, despite the added analytical complexity, this is an advantage since it can cancel a significant
+part of the non-global logarithms.
+8
+
+=== PDF PAGE 9 ===
+ 0
+ 0.002
+ 0.004
+ 0.006
+ 0.008
+ 0.01
+ 0.012
+ 140 150 160 170 180 190 200 210
+1/N dN/dm (GeV-1
+)
+reconstructed top mass (GeV)
+Pythia 6.4
+tune DWT
+LHC (no pileup)
+R=0.4
+top mass = 175 GeV
+SISCone (f=0.75)
+Cam/Aachen
+kt
+anti-kt
+Figure 5: Top mass reconstruction in Pythia-simulated LHC tt¯ events. Both the t and the t¯ decay
+hadronically, t → bW+ → bqq¯ and t¯ → ¯bW− → ¯bqq¯. All jet algorithms have been used with
+R = 0.4.
+bqq¯ and t¯→ ¯bW− → ¯bqq¯. The following simple analysis procedure has been used: we select events
+with at least 6 hard jets (with pt above 10 GeV and |y| < 5); we assume that both b-jets have been
+tagged; the 4 hardest remaining jets are paired according to the combination that better reproduces
+the W masses; finally, the W- and b-jets are recombined to minimise the mass-difference between the
+two t-jets. We use the same four algorithms shown in figure 1, now with R = 0.4, and find that they
+all behave rather similarly, with Cambridge/Aachen and anti-kt performing marginally better than
+the other two. We note that the difference between various choices of R can be substantially greater
+than the differences between the various algorithms at a given R. One should also bear in mind that
+top reconstruction, near threshold, with a moderate jet radius and no pileup is a relatively simple
+application for inclusive jet algorithms. One expects that greater differences between algorithms
+will be seen in other contexts, an extreme example being multi-scale processes with large pileup.
+3 Conclusions
+There starts to be a certain choice of infrared and collinear safe inclusive jet algorithms for hadron
+colliders. As we have seen, some of these (kt and Cambridge/Aachen) belong to a more general
+class of sequential recombination algorithms, parametrised by a continuous parameter p, which sets
+the power of the transverse momentum scale relative to the geometrical distance (p = 1 gives kt
+,
+p = 0 gives Cambridge/Aachen).
+Rather surprisingly, taking p to be negative also yields an algorithm that is infrared and collinear
+safe and has sensible phenomenological behaviour. We have specifically studied p = −1, the
+“anti-kt” algorithm, and highlighted various simple theoretical properties, notably the resilience
+of its jet boundaries with respect to soft radiation. The other properties that we’ve discussed are
+essentially consequences of this feature. These properties are characteristic also of certain “iterative
+cone” (and fixed-cone) algorithms, those with progressive removal (IC-PR) of the stable cones, as
+used for example in CMS. However in the anti-kt algorithm these properties are obtained without
+having to pay the price of collinear unsafety. Therefore the anti-kt algorithm should be a good
+candidate as a replacement algorithm for IC-PR algorithms.
+One might worry that the resilience (or rigidity) with respect to soft radiation could worsen
+9
+
+=== PDF PAGE 10 ===
+the practical performance of the tool. This seems not to be the case, at the least in examples
+examined so far, including the one shown in section 2.4, top reconstruction. One reason for this
+might be that any loss of resolution due to inflexibility in adapting to perturbative branching may
+be compensated for by the reduced fluctuations caused by the underlying event radiation (due
+to suppression of area fluctuations and back reaction). It should also be kept in mind that soft
+particles contribute only a modest component of the overall jet momentum, and the algorithm
+remains flexible in its adaptation to hard (sub)structure in the jets. In this respect it might also
+be interesting in future phenomenological investigations to examine less negative values of p, for
+which the ‘hard’-adaptability extends down to softer momenta than is the case with p = −1.
+Note. Subsequent to the first presentation of the anti-kt algorithm and its main properties at the
+June 2007 Les Houches workshop on Physics at TeV colliders, it was brought to our attention by
+Pierre-Antoine Delsart and Peter Loch that a variant of the kt sequential recombination algorithm
+had been coded within the ATLAS software framework and called reverse-kt
+. It has distance
+measures dij = max(k
+2
+ti, k2
+tj )R2/∆2
+ij and diB = k
+2
+ti, and recombines the pair of objects with the
+largest dij unless a diB is larger in which case i is called a jet. We observe that these distance
+measures are just the reciprocals of those for anti-kt
+; together with the recombination of the most
+distant pair first, this causes the algorithm to produce identical jets to anti-kt
+.
+Acknowledgements
+One of us (GPS) thanks Bruce Knuteson for a stimulating discussion on the interest of parametrised
+clustering jet algorithms. We are grateful to G¨unther Dissertori for providing us with the details
+of the implementation of the CMS iterative cone algorithm. Figure 5 was generated making use
+of tools developed in collaboration with Juan Rojo and we thank him for discussions on this and
+related matters. This work has been supported in part by grant ANR-05-JCJC-0046-01 from the
+French Agence Nationale de la Recherche and under Contract No. DE-AC02-98CH10886 with the
+U.S. Department of Energy.
+Appendix: comment on the “iterative cone”
+There are two broad classes of iterative cone algorithms: some find stables cones (of radius R) by
+iterating from all seeds (and sometimes midpoint seeds) and then run some split–merge procedure
+to deal with overlapping stable cones. These algorithms, iterative cones with a split–merge step
+(IC-SM), are used at the Tevatron (for instance the MidPoint algorithm) and it is our understanding
+that the ATLAS cone jet algorithm is of this type too. A second class takes the hardest seed particle
+in the event, iterates to find a stable cone, calls it a jet, removes all particles contained in that jet
+from the event, and then repeats the procedure with the remaining particles, over and over until
+there remain no seeds. This iterative-cone with progressive removal of particles (IC-PR) is the
+iterative cone in the CMS experiment.6
+IC-SM algorithms have been widely studied, are known to suffer from infrared (IR) safety issues
+(see e.g. [3, 23, 5]). The IR safe equivalent is SISCone. Though referred to as “cones,” they do not
+as a rule give jets with an area of πR2
+[4].
+6
+It is often ascribed to UA1, ref. [22], however the algorithm described there is not based on the iteration of cones.
+10
+
+=== PDF PAGE 11 ===
+IC-PR algorithms have received less attention, and they behave rather differently from the IC￾SM variety. For reference we therefore document some aspects of them here. A main point to note
+is that they suffer from a collinear safety issue (in the limit of a fine calorimeter). This can be
+illustrated with the following configuration for an algorithm with radius R:
+p1 : y = 0, φ = 0.0R, pt = 130 GeV , (7a)
+p2 : y = 0, φ = 0.7R, pt = 200 GeV , (7b)
+p3 : y = 0, φ = 1.5R, pt = 90 GeV . (7c)
+The hardest seed is p2, and in the small R limit (in which the results are independent of the
+recombination scheme) it leads to a jet that contains all particles, and is centred at φ ≃ 0.65R. If
+particle p2 splits collinearly into
+p2a : y = 0, φ = 0.7R, pt = 120 GeV , (8a)
+p2b : y = 0, φ = 0.7R, pt = 80 GeV , (8b)
+then p1 is now the hardest seed and it leads to a jet at φ ≃ 0.42R which contains p1, p2a, p2b. That
+leaves p3, which seeds a second jet, and so the number of hard jets is modified by the collinear
+splitting. This will for example lead to divergences at NNNLO in inclusive jet cross sections, at
+NNLO in 3-jet and W+2-jet cross sections and at NLO in jet-mass distributions for 3-jet and W+2-
+jet events. We recall, as discussed e.g. in [5], that a cross section that diverges at NpLO can only
+be reliably calculated up to Np−2LO. In this respect IC-PR are ‘dangerous’ to the same extent as
+midpoint-variants of the IC-SM algorithms.7
+Unlike their IC-SM cousins, and the collinear-safety issue aside, IC-PR algorithms do have all
+the features of an “ideal” cone algorithm as described here for the anti-kt algorithm, in particular
+they are soft-resilient and give circular jets of radius R. Thus the anti-kt algorithm seems a natural
+replacement for them, especially as they happen to be identical perturbatively at NLO in the
+inclusive jet spectrum (if used with the same recombination scheme). An alternative replacement
+would be the following: find all stable cones (as in SISCone), label the hardest one a jet, remove its
+particles from the event, and then repeat the procedure on the remaining particles, over and over.
+It too would have the property of soft-resilience, but would differ perturbatively from IC-PR at
+NLO. This, together with the issue of computational speed, leads us to prefer the anti-kt algorithm
+as a replacement.
+References
+[1] S. Catani, Y. L. Dokshitzer, M. H. Seymour and B. R. Webber, Nucl. Phys. B 406 (1993) 187
+and refs. therein; S. D. Ellis and D. E. Soper, Phys. Rev. D 48 (1993) 3160 [hep-ph/9305266].
+[2] Y. L. Dokshitzer, G. D. Leder, S. Moretti and B. R. Webber, JHEP 9708, 001 (1997)
+[hep-ph/9707323]; M. Wobisch and T. Wengler, hep-ph/9907280.
+[3] G. C. Blazey et al., hep-ex/0005012.
+[4] M. Cacciari, G. P. Salam and G. Soyez, JHEP 0804 (2008) 005 [arXiv:0802.1188].
+[5] G. P. Salam and G. Soyez, JHEP 0705 (2007) 086 [arXiv:0704.0292].
+7Note, however, that beyond LO in the inclusive jet spectrum, their perturbative expansions differ.
+11
+
+=== PDF PAGE 12 ===
+[6] G. L. Bayatian et al. [CMS Collaboration], “CMS physics: Technical design report.”
+[7] T. Sjostrand et al., Comput. Phys. Commun. 135 (2001) 238 [hep-ph/0010017]; T. Sjostrand
+et al., hep-ph/0308153.
+[8] G. Corcella et al., arXiv:hep-ph/0210213.
+[9] M. Dasgupta and G. P. Salam, Phys. Lett. B 512, 323 (2001) [arXiv:hep-ph/0104277].
+[10] M. Dasgupta and G. P. Salam, JHEP 0203 (2002) 017 [arXiv:hep-ph/0203009].
+[11] C. F. Berger, T. Kucs and G. Sterman, Phys. Rev. D 68 (2003) 014012 [arXiv:hep-ph/0303051].
+[12] A. Banfi, G. Marchesini and G. Smye, JHEP 0208 (2002) 006 [arXiv:hep-ph/0206076].
+[13] R. B. Appleby and M. H. Seymour, JHEP 0212 (2002) 063 [arXiv:hep-ph/0211426].
+[14] A. Banfi and M. Dasgupta, JHEP 0401 (2004) 027 [arXiv:hep-ph/0312108]; Y. Delenda, R. Ap￾pleby, M. Dasgupta and A. Banfi, JHEP 0612 (2006) 044 [arXiv:hep-ph/0610242].
+[15] Y. L. Dokshitzer, A. Lucenti, G. Marchesini and G. P. Salam, Nucl. Phys. B 511,
+396 (1998) [Erratum-ibid. B 593, 729 (2001)] [arXiv:hep-ph/9707532]; JHEP 9805, 003
+(1998) [arXiv:hep-ph/9802381]; M. Dasgupta and B. R. Webber, JHEP 9810 (1998) 001
+[arXiv:hep-ph/9809247].
+[16] M. Dasgupta, L. Magnea and G. Smye, JHEP 9911 (1999) 025 [arXiv:hep-ph/9911316].
+[17] M. Beneke, V. M. Braun and L. Magnea, Nucl. Phys. B 497 (1997) 297 [arXiv:hep-ph/9701309].
+[18] C. Lee and G. Sterman, Phys. Rev. D 75 (2007) 014022 [arXiv:hep-ph/0611061].
+[19] M. Cacciari and G. P. Salam, Phys. Lett. B 641 (2006) 57 [arXiv:hep-ph/0512210].
+[20] A. Fabri et al., Softw. Pract. Exper. 30 (2000) 1167; J.-D. Boissonnat et al., Comp. Geom. 22
+(2001) 5.
+[21] M. Cacciari, G. P. Salam and G. Soyez, http://www.lpthe.jussieu.fr/~salam/fastjet
+[22] G. Arnison et al. [UA1 Collaboration], Phys. Lett. B 132 (1983) 214.
+[23] S. D. Ellis, J. Huston, K. Hatakeyama, P. Loch and M. Tonnesmann, Prog. Part. Nucl. Phys.
+60 (2008) 484 [arXiv:0712.2447].
+12

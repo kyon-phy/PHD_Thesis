@@ -1,0 +1,374 @@
+### PAGE 1
+Non-resonant search in LHC-ATLAS motivated by B anomalyD2Jiaqi Zang28/11/2023
+1
+Based on https://arxiv.org/abs/2111.047482023/11/28 Jiaqi ZANGICEPP Analysis meeting
+NOTES: 
+
+### PAGE 2
+Physics motivation – B anomaly•Lepton Flavor Universality (LFU)ØWeakinteractionisuniversalfor3leptonflavorsinStandardModel.
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting2
+•SignsofLFUviolationintheBmesondecaysarereported.Ø𝑏→𝑐𝑙𝜈 :𝜏vs.lightleptons(𝜇,𝑒).Ø~3.0𝜎excessoverSM(𝐷and𝐷∗combined).ØLeptoquark(LQ)isapossibleexplanationofsuchviolation.
+SM
+BSM
+3𝜎
+NOTES: 
+
+### PAGE 3
+New Physics scenario –Leptoquark (LQ) model
+3
+•SingletvectorLQ(𝑈")arepickedasthebenchmarkincurrentstage.
+•Signalscenario:VLQBM1Ø𝛽#$%=1Ø𝛽#&%=0.19Ø𝛽'$%=𝛽#(%=𝛽#&)=𝛽#$)=0ØSame as CMS 𝜏𝜏search
+Left-handedcouplingRight-handedcoupling
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting
+From:T.Kitahara
+NOTES: 
+
+### PAGE 4
+4
+Currentstatus•MCsamplesupdate.ØP5631isalreadypartiallyremoved.P5885isusedinstead.(Summarysheet)
+•Z+jetsfaketauCRstudy.•UpdatedZtautausamples(Sherpa2.2.1àSherpa2.2.14)•CheckedCRoffsetoriginandZeeevents.
+•ATLASMCsamplerequest.ØSeveralpresentationismadetorequestsignalsamplebyTanaka-san.(slides)ØStillneedmorevalidation.Severalkindsofsignalsamplesareproposedtogenerate.ØPresentationforBGMCsamplerequestismadeon11/08Tau+Xgroupmeeting.(slides)ØProposedtoproducemoreWtaunuandZtautausamples.ØSupported byLPXconvenerandwillproceedthroughLPX/Exotics.•GroupFrameworkdevelopment.ØAnalysisTopwillmigratetoTopCPToolkit.(AMGreport)ØGN2(GeneralNtuple2)productionisdone.(spreadsheet)
+•AvalidationregionoflowmTisproposedtocheckMCsamplemodelingwithtruetau.2023/11/28 Jiaqi ZANGICEPP Analysis meeting
+NOTES: 
+
+### PAGE 5
+MCsamples
+ICEPP Analysis meeting5
+•SMbackground(detector+pileup):ØSamplesofMC20withr13144/r13145/r13167andp5631areused.ØW/Z+jets.(Sherpa2.2.11,Sherpa2.2.1)o𝑊→𝑙̅𝜈,𝑍→𝜈̅𝜈,𝑍→𝑙𝑙ØQCDmulti-jets.(Pythia8)Ø𝑡̅𝑡andsingle𝑡.(Pythia8)o𝑡→𝑏𝑊→𝑏𝜏̅𝜈o𝑡̅𝑡→𝑏𝑊!-𝑏𝑊",withatleastoneWdecayleptonically.ØDi-boson.(Sherpa2.2.12)o𝑊𝑊→𝑙𝜈𝑙𝜈,𝑍𝑍→𝑙𝑙𝜈𝜈,𝑊𝑍→𝑙𝜈𝑙𝑙
+•Targetsignal:back-to-back𝜏𝜈+softbjetØGeneratebyMG5_aMC@NLO+Pythia8.àtruth-levelØUsethesamescenarioofsingletvectorLQ(U1)asCMS𝜏𝜏search.ØUsesampleswith𝑚#=1.5,𝑔#=1.8forsensitivityestimation.ØAssumingacombinationofATLASRun-2andpartialRun-3data(~300fb-1).Ø𝑠=13TeVsamplesareusedatcurrentstage.
+2023/11/28 Jiaqi ZANG
+NOTES: 
+
+### PAGE 6
+MCsamples
+ICEPP Analysis meeting6
+•SMbackground(detector+pileup):ØSamplesofMC20withr13144/r13145/r13167andp5631areused.ØW/Z+jets.(Sherpa2.2.11,Sherpa2.2.1)o𝑊→𝑙̅𝜈,𝑍→𝜈̅𝜈,𝑍→𝑙𝑙ØQCDmulti-jets.(Pythia8)Ø𝑡̅𝑡andsingle𝑡.(Pythia8)o𝑡→𝑏𝑊→𝑏𝜏̅𝜈o𝑡̅𝑡→𝑏𝑊!-𝑏𝑊",withatleastoneWdecayleptonically.ØDi-boson.(Sherpa2.2.12)o𝑊𝑊→𝑙𝜈𝑙𝜈,𝑍𝑍→𝑙𝑙𝜈𝜈,𝑊𝑍→𝑙𝜈𝑙𝑙
+•Targetsignal:back-to-back𝜏𝜈+softbjetØGeneratebyMG5_aMC@NLO+Pythia8.àtruth-levelØUsethesamescenarioofsingletvectorLQ(U1)asCMS𝜏𝜏search.ØUsesampleswith𝑚#=1.5,𝑔#=1.8forsensitivityestimation.ØAssumingacombinationofATLASRun-2andpartialRun-3data(~300fb-1).Ø𝑠=13TeVsamplesareusedatcurrentstage.
+2023/11/28 Jiaqi ZANG
+NOTES: 
+
+### PAGE 7
+ICEPP Analysis meeting7
+MCsamples•Eventsnumberof MC20 AODsamples(PMG Twiki)𝑾→𝝉𝝂Bfilter𝑾→𝝉𝝂CFilterBVeto𝑾→𝝉𝝂CVetoBVeto𝑾→𝝁𝝂Bfilter𝑾→𝝁𝝂CFilterBVeto𝑾→𝝁𝝂CVetoBVetoDSID700347700348700349700341700342700343nEvents/10001656830673141042104317218686614679xsec*kfactor*eff (pb)123202511971214318418394Effective lumi (fb-1)13515124876933
+ØW+jets(Sherpa2.2.11)
+2023/11/28 Jiaqi ZANG
+Z→𝝉𝝉MV0_70CVetoBVetoZ→𝝉𝝉MV0_70CFilterBVetoZ→𝝉𝝉MV0_70BFilterZ→𝝂𝝂BfilterZ→𝝂𝝂CFilterBVetoZ→𝝂𝝂CVetoBVetoDSID364128364129364130700335700336700337nEvents/100020009710610277095683094130445xsec*kfactor*eff (pb)158721212737.790.5319Effective lumi (fb-1)133481882918409
+ØZ+jets(Sherpa2.2.1for𝑍→𝜏𝜏,Sherpa2.2.11for𝑍→𝜈𝜈)(old)
+NOTES: 
+
+### PAGE 8
+ICEPP Analysis meeting8
+MCsamples•Eventsnumberof MC20 AODsamples(PMG Twiki)
+2023/11/28 Jiaqi ZANG
+Z→𝝉𝝉BfilterZ→𝝉𝝉CFilterBVetoZ→𝝉𝝉CVetoBVetoZ→𝝂𝝂BfilterZ→𝝂𝝂CFilterBVetoZ→𝝂𝝂CVetoBVetoDSID700792700793700794700335700336700337nEvents/1000516521245716176377095683094130445xsec*kfactor*eff (pb)55.7289189537.790.5319Effective lumi (fb-1)9274313261882918409
+ØZ+jets(newSherpa2.2.14for𝑍→𝜏𝜏,Sherpa2.2.11for𝑍→𝜈𝜈/𝑒𝑒/𝜇𝜇)(New)
+Z→𝒆𝒆BfilterZ→𝒆𝒆CFilterBVetoZ→𝒆𝒆CVetoBVetoZ→𝝁𝝁BfilterZ→𝝁𝝁CFilterBVetoZ→𝝁𝝁CVetoBVetoDSID700320700321700322700323700324700325nEvents/100099099206615334128142287181795334234xsec*kfactor*eff (pb)55.4288187954.22891880Effective lumi (fb-1)17897171782625629178
+NOTES: 
+
+### PAGE 9
+MCsamples–newP-tagcheck
+ICEPP Analysis meeting9
+p5631
+•METtrigger&𝑁)=2&75𝐺𝑒𝑉<𝑀))<105𝐺𝑒𝑉
+p5855
+2023/11/28 Jiaqi ZANG
+NOTES: 
+
+### PAGE 10
+ICEPP Analysis meeting10
+CR study (𝑍→𝜇𝜇+𝜏)–fake𝝉source
+2023/11/28 Jiaqi ZANG
+mettrigger+2𝜇+𝑀))+1𝜏(medium)+1bmettrigger+2𝜇+𝑀))+1𝜏(medium)+0bPdgId PdgId•Fractionofbin1bregionlookslikehigherthanthefractionofbin0bregion
+(fake𝜏)e.g.
+b b𝜏𝜏𝜏𝜏 ee ee
+𝜇 𝜇
+NOTES: 
+
+### PAGE 11
+•Severalpossiblesolutionforthelowstatisticsin1b-jetregionisconsidered.ØObtainNFfrom0b-jetregionandextrapolateto1b-jetregion.ØInclude𝑍→𝑒𝑒+𝜏𝑏intheCR.
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting11
+CR study (𝑍→𝜇𝜇+𝜏)–Possiblesolutionsforlowstatistics
+0b-jet
+Signal𝑝1%region
+𝒑𝑻𝝉range(GeV)𝒑𝑻𝝉>50𝒑𝑻𝝉>100𝒑𝑻𝝉<𝟏𝟎𝟎NF(0b)0.63±0.060.57±0.060.81±0.030b-jetsregionhasenoughstatisticsinhigh-𝑝1%toextrapolatetheNFto1b-jetregion.
+1b-jet
+Signal!!"region
+1-factorNF
+NOTES: 
+
+### PAGE 12
+ICEPP Analysis meeting12
+CR study (𝑍→𝜇𝜇+𝜏)–taupToffset
+2023/11/28 Jiaqi ZANG
+mettriggermettrigger+2𝜇
+mettrigger+2𝜇+𝑀##+1𝜏(medium)mettrigger+2𝜇+𝑀##+1𝜏(medium)+0b
+Offsetisfromsingletauselection
+mettrigger+2𝜇+𝑀##
+NOTES: 
+
+### PAGE 13
+ICEPP Analysis meeting13
+CR study (𝑍→𝜇𝜇+𝜏)
+2023/11/28 Jiaqi ZANG
+•Numberofb-jets
+mettrigger+2𝜇+𝑀## mettrigger+2𝜇+𝑀##+1𝜏(medium)•Requiringsingletauwouldenlargethedifferencebetween0and1bjetsregion
+NOTES: 
+
+### PAGE 14
+ICEPP Analysis meeting142023/11/28 Jiaqi ZANG
+CR study (𝑍→𝑒𝑒/𝜇𝜇+𝜏)
+•trigger+𝑙𝑙+𝑀22+1𝜏(medium)+0b+offlineMET(200GeV)+𝑝122
+Singleelectrontrigger,𝑙=𝑒 Mettrigger,𝑙=𝜇
+NOTES: 
+
+### PAGE 15
+ICEPP Analysis meeting15
+CR study (𝑍→𝑒𝑒/𝜇𝜇+𝜏)
+2023/11/28 Jiaqi ZANG
+Singleelectrontrigger,𝑙=𝑒 Mettrigger,𝑙=𝜇
+•trigger+𝑙𝑙+𝑀22+1𝜏(medium)+0b+offlineMET(200GeV)+𝑝122
+NOTES: 
+
+### PAGE 16
+ICEPP Analysis meeting162023/11/28 Jiaqi ZANG
+CR study (𝑍→𝑒𝑒/𝜇𝜇+𝜏)
+•ComparisonofMCBGyieldsforZeeandZmumuselectiontrigger+𝑙𝑙+𝑀22+1𝜏(medium)+0b+offlineMET(200GeV)+𝑝122
+NOTES: 
+
+### PAGE 17
+ICEPP Analysis meeting172023/11/28 Jiaqi ZANG
+CR study (𝑍→𝑒𝑒/𝜇𝜇+𝜏)•ComparisonofMCBGyieldsforZeeandZmumuselectiontrigger+𝑙𝑙+𝑀22+1𝜏(medium)+0b+offlineMET(200GeV)+𝑝122
+Totalratio~0.9,maybeisduetodifferentid/isoWP
+NOTES: 
+
+### PAGE 18
+ICEPP Analysis meeting182023/11/28 Jiaqi ZANG
+CR study (𝑍→𝑒𝑒/𝜇𝜇+𝜏)•Data/MCbeforeaddingZeeandZmumueventstogether,Zmumueventsselected,0bregion
+
+NOTES: 
+
+### PAGE 19
+ICEPP Analysis meeting192023/11/28 Jiaqi ZANG
+CR study (𝑍→𝑒𝑒/𝜇𝜇+𝜏)•Data/MCafteraddingZeeandZmumueventstogether
+
+NOTES: 
+
+### PAGE 20
+ICEPP Analysis meeting20
+CR study (𝑍→𝑒𝑒/𝜇𝜇+𝜏)
+2023/11/28 Jiaqi ZANG
+•Selectionw/andw/orequiringsingleRNNtau-idjetw/tau-idw/otau-id
+
+NOTES: 
+
+### PAGE 21
+ICEPP Analysis meeting21
+VR study 
+2023/11/28 Jiaqi ZANG
+•VR study•Propose to have a validation region with the same selection with SR except for mT.•UseforcheckingthemodelingofBGswithtruetau.(Wtaunu,singletop…)•Considering SR selection, 150<mT< 500 GeV could be chosen as the VR.
+N-1mT
+Emuveto+1tau+met>200GeV
+VRSR
+•SignalcontaminationisquitelowinlowmTVR.(<0.5%)
+NOTES: 
+
+### PAGE 22
+Summary&Plan•InvestigatethestatisticsofMCsamples.WtaunuandZtautauislessthantheothers.•BGandsignalMCrequestison-going.•FirstNtupleproductionwithAnalysisTopisdone.•Studied𝑍→𝜇𝜇+𝜏(fake)CR.ØOffsetoftaupTisfromRNNtauid.ØValidatedthatZeeeventshavegoodagreementwithZmumuevents.ØWithaddedZeeevents,statisticsofcontrolregiondoubled.ØCheckedsignalcontaminationinthetruetauvalidationregion.
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting22
+Summary
+Plan•ComparedataandMCinVR,checkifsampleswithtruetauiswellmodelled.•ConsiderwaystocutoffmultijetsinSR.•Checkvalidationregiontovalidatettbar.
+NOTES: 
+
+### PAGE 23
+23
+Backup
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting
+NOTES: 
+
+### PAGE 24
+Eventtopologyandselection
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting24
+SMbackground(detector+pileup)
+TwotypesofBackground
+!"
+#!
+$̅&
+'"
+signal(truth-level)•Eventtopology
+•EventselectionØ𝑚$>850GeVØ𝐸$%&''>400GeVØ𝑝$(>300GeVØNumberoflightflavorjets≤2ØNumberofbjets=1ØTau-idworkingpoint:looseØb-taggingworkingpoint:70Ø𝑝$)>25GeVØΔ𝜙(⃗𝑝$(,⃗𝑝$%&'')>1Ø𝑝$(/𝐸$%&''∈[0.3,1.7] 𝑚!N-1distribution
+SR
+(fake𝜏)
+(true𝜏)
+NOTES: 
+
+### PAGE 25
+VariablesN-1distribution•Tohavemoreintuitivevisiononcuts,followingcutsareapplied(exceptforthevariableitself)
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting25
+Ø𝑚$>650GeVØ𝐸$%&''>400GeVØ𝑝$(>100GeV ØNumberoflightflavorjets≤2ØNumberofbjets=1ØTau-idworkingpoint:mediumØb-taggingworkingpoint:70
+Ø𝑝$)>25GeVØΔ𝜙(𝑝$(,𝑝$%&''&*+)>1.0Ø𝑝$(/𝐸$%&''&*+∈[0.3,1.7]
+
+NOTES: 
+
+### PAGE 26
+VariablesN-1distribution•Tohavemoreintuitivevisiononcuts,followingcutsareapplied(exceptforthevariableitself)
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting26
+Ø𝑚$>650GeVØ𝐸$%&''>400GeVØ𝑝$(>100GeV ØNumberoflightflavorjets≤2ØNumberofbjets=1ØTau-idworkingpoint:mediumØb-taggingworkingpoint:70
+Ø𝑝$)>25GeVØΔ𝜙(𝑝$(,𝑝$%&''&*+)>1.0Ø𝑝$(/𝐸$%&''&*+∈[0.3,1.7]
+
+NOTES: 
+
+### PAGE 27
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting27
+SREventselection•Backgroundandsignalyieldswithselection(𝑔4=1.8,300Bb5")
+•Topand𝑍→𝜈𝜈aredominantbackground.ØInthispresentation,modelingof𝑍→𝜈𝜈+𝜏(fake)eventsisestimatedwithsemi-data-drivenmethod,usingdedicatedCRforZ+jets.ØBGlikesingletopwithtrue𝜏willbeevaluateddifferentway.(notcoveredinthistalk)
+•𝑚1isthemosteffectivevariablesespeciallyforcutting𝑡̅𝑡background.•𝑍→𝜈𝜈andsingletophavehighertailin𝑚1distribution.
+𝑾→𝝉𝝂𝒁→𝝂𝝂𝒕̅𝒕Singletop𝒁→𝝉𝝉Di-bosonDi-jetsBGSignalEvents0.68±0.410.90±0.360.76±0.441.32±0.600.89±0.680.23±0.190.41±0.245.16±1.181.19±0.03𝜏mainsourceTrueFakeTrueTrueTrueTrueFake
+NOTES: 
+
+### PAGE 28
+•Purpose:Correctmis-modelingof𝑍→𝜈𝜈inSRduetofake 𝜏background.•Strategy:ØSemi-data-drivennormalizationfactor(NF)correctionmethod.•𝑁𝐹=$!"#$%&'(,*+%+$!"#$%&'(,,'•𝑁%!&'()*+=𝑁%!&'()*+,-.×𝑁𝐹ØControlRegionselection
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting28
+CR study (𝑍→𝜇𝜇+𝜏)–Purposeandstrategy
+𝑁%!&'().+,/0−numberofeventsfromtheZ+jetsinMCsamples
+SRBG𝑍→𝜈𝜈+𝜏𝑏(𝑍→𝑙𝑙)+𝜏𝑏
+SimilarphasespaceSametrigger(𝑍→𝜇𝜇)+𝜏𝑏
+𝐸1MN&&trigger
+!!""
+"#
+•Preliminarystudyfor𝑍→𝜇𝜇+𝜏isconducted.ØBoth1b-jetand0b-jetregionisstudiedinthefirststage.
+NOTES: 
+
+### PAGE 29
+Objectdefinition
+29
+•Electron•pT>28GeV•IsolationWP:Tight_VarRad•IDWP:Loose + B-layer cut•|d0BLsignificance| < 5•|Δ z0BLsin θ| < 0.5 mm•Goodobjectquality(badelectron clusterremoval)•|eta|<1.37||1.52<|eta|<2.47•OLRbasedonASGrecommendation(slide)
+•Muon •pT> 28 GeV•Isolation WP: Loose_VarRad•ID WP: Medium Quality•|d0BLsignificance| < 3•|Δ z0BLsin θ| < 0.5 mm•PassedIDCuts•|eta|<2.5•OLRbasedonASGrecommendation•Tau •Pt > 20 GeV•ID: RNN_medium•|eta|<1.37 || 1.52<|eta|<2.47•Ntracks: 1 or 3
+•B tagging WP: DL1dv01_70
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting
+NOTES: 
+
+### PAGE 30
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting30
+•FoundanissuewhilenormalizingMC20adata.•2015data/MCisstillnotconsistent.
+BeforefixingthenormalizationissueAfterfixingthenormalizationissue
+20152016201720182015201620172018
+CR study (𝑍→𝜇𝜇+𝜏)–Issues
+NOTES: 
+
+### PAGE 31
+•Efficiency of𝐸1/2))Triggerwhentriggeringby𝜇𝜇needtobechecked.•𝐸1MN&&TriggerEfficiency𝜖Ø𝜖=3and4-./&&triggeredevents3triggeredevents•ScannedinpO%−𝑝122spacebyselection:Ø𝑁#=2Ø75GeV<𝑀,,<105GeVØ𝐸$##-%&''>200GeVØSingleloose𝜏jet
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting31
+CR study (𝑍→𝜇𝜇+𝜏)–triggerefficiency
+Looksgoodinhigh-𝑝122region
+𝜖
+
+NOTES: 
+
+### PAGE 32
+•Data/MCconsistencycheckwithpre-selection:
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting32
+•𝜏-identificationinATLASisbasedonRNNalgorithm.ØTracksandenergyclusterinformationisusedfor𝜏-id.ØMCisover-estimatedinhighscoreregion.(𝜏-idregion)ØFake𝜏backgroundcouldbethereasonofsuchdiscrepancy.
+CR study (𝑍→𝜇𝜇+𝜏)–Data/MCconsistency
+𝑾→𝝁𝝂𝑾→𝒆𝝂𝒕̅𝒕Singletop𝒁→𝝉𝝉Di-boson𝒁→𝝁𝝁𝒁→𝒆𝒆MCEvents16.905963.00.4340.51195.594586.70•Backgroundyields
+loose𝜏id
+𝑍→𝜇𝜇purityisalreadyover90%afterpre-selection.
+𝜇𝑁%./&0%_#=275GeV<𝑀##<105GeV𝑝$#>28GeV𝜂#<2.5
+𝑜𝑡ℎ𝑒𝑟𝑠|⃗𝑝$%&''+⃗𝑝$##|>200GeV
+NOTES: 
+
+### PAGE 33
+𝑜𝑡ℎ𝑒𝑟𝑠|⃗𝑝$%&''+⃗𝑝$##|>200GeV𝑃$##>130GeV
+•Eventselection:
+•𝑍→𝜇𝜇purityareabout90%inbothregion.•1b-jetregionhavemuchlessstatisticsthan0b-jetregion.2023/11/28 Jiaqi ZANGICEPP Analysis meeting33
+CR study (𝑍→𝜇𝜇+𝜏)–Eventselection
+𝒕̅𝒕Di-boson𝒁→𝝁𝝁BG𝑁23''4567,963.889.51277.71371.0true𝜏fraction19%71%0.2%1%
+Suppress𝑡̅𝑡background•Eventyields
+𝜇𝑁%./&0%_#=275GeV<𝑀##<105GeV𝑝$#>28GeV𝜂#<2.5
+𝜏𝑁,::'._(=1𝑝$(>20GeV𝜂(<1.371.52<𝜂(<2.47
+𝑏𝑁%./&0%_)=0(1)𝑝$)>30GeV𝜂)<2.5
+𝒕̅𝒕Di-boson𝒁→𝝁𝝁BG𝑁23''4567,9618.99.2182.8210.9true𝜏fraction20%76%0.7%5%
+1b-jet0b-jet
+93%purity 87%purity
+NOTES: 
+
+### PAGE 34
+•𝑝1%distributionaftersubtractingDi-bosonevents.
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting34
+CR study (𝑍→𝜇𝜇+𝜏)–Normalizationfactor(1b-jet)
+1b-jet
+Signal𝑝1%region𝑁𝐹=𝑁P',(RSR−𝑁TN5$U&UVP',WP𝑁P',WP−𝑁TN5$U&UVP',WP
+1-factorNF𝒑𝑻𝝉range(GeV)𝒑𝑻𝝉>50𝒑𝑻𝝉>100𝒑𝑻𝝉<𝟏𝟎𝟎NF(1b)0.76±0.180.66±0.241.03±0.08
+•SizablediscrepancyofNFisidentified.àcanbeunderstoodaspoormodelingfor𝑍→𝜇𝜇+𝜏𝑏.à1-factorNFismainlydecidedbylow𝑝1%region.àInsufficientstatisticsinhigh-𝑝1%region.
+NOTES: 
+
+### PAGE 35
+•Severalpossiblesolutionforthelowstatisticsin1b-jetregionisconsidered.ØObtainNFfrom0b-jetregionandextrapolateto1b-jetregion.ØInclude𝑍→𝑒𝑒+𝜏𝑏intheCR.
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting35
+CR study (𝑍→𝜇𝜇+𝜏)–Possiblesolutionsforlowstatistics
+0b-jet
+Signal𝑝1%region
+𝒑𝑻𝝉range(GeV)𝒑𝑻𝝉>50𝒑𝑻𝝉>100𝒑𝑻𝝉<𝟏𝟎𝟎NF(0b)0.63±0.060.57±0.060.81±0.030b-jetsregionhasenoughstatisticsinhigh-𝑝1%toextrapolatetheNFto1b-jetregion.
+1b-jet
+Signal!!"region
+1-factorNF
+NOTES: 
+
+### PAGE 36
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting36
+CR study (𝑍→𝜇𝜇+𝜏)–0/1b-jetcomparison
+Signal𝑝1%region
+Notenoughstatistics,needfurtherstudy.
+•ComparisonofNFbetween0b-jetand1-bjetregion.
+NOTES: 
+
+### PAGE 37
+Analysisoverview
+372023/11/28 Jiaqi ZANGICEPP Analysis meeting
+CMS, CMS-HIG-21-001
+Regionfavoredbytheanomalies
+ØSearchforpairproductioninCMSandATLASexcluded𝑚56<1.5TeV.àSearchdoesnotdependon𝑔#.ØSearchfort-channelproductiongivesachancetoreachunexploredhigh-massregion.àStronglyDependsontheLQcouplingà𝜏𝜈+𝑏finalstateisnotstudiedinATLASyet.àresearchofinterest!
+•Therehasbeenmanyprevioussearchesandstillalargeunexploredregionremaining.
+1.5
+excluded•SingletvectorLQispickedasthebenchmarkatthefirststage.ØSameasCMS𝜏𝜏search.Ø𝑔#~1.8,𝜅#=1,𝑚#=1.5TeV.Ø𝛽578=1,𝛽5)8=0.19(R(D)andR(K)preferred)ØAssumingacombinationofATLASRun-2andpartialRun-3data(~300fb-1).Ø𝑠=13TeVsamplesareusedatcurrentstage.
+ExpectedinlastJPS𝑔!𝛽"#$
+𝑔!𝛽"#$
+NOTES: 
+
+### PAGE 38
+MCsamples
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting38
+•SMbackground(detector+pileup):ØW/Z+jets.(Sherpa2.2.11,Sherpa2.2.1)o𝑊→𝑙̅𝜈o𝑍→𝜈̅𝜈,𝑍→𝑙𝑙ØQCDmulti-jets.(Pythia8)Ø𝑡̅𝑡andsingle𝑡.(Pythia8)o𝑡→𝑏𝑊→𝑏𝜏̅𝜈o𝑡̅𝑡→𝑏𝑊!-𝑏𝑊",withatleastoneWdecayleptonically.ØDi-boson.(Sherpa2.2.12)o𝑊𝑊→𝑙𝜈𝑙𝜈,𝑍𝑍→𝑙𝑙𝜈𝜈,𝑊𝑍→𝑙𝜈𝑙𝑙
+signal
+W/Z+jets
+!"
+#!
+$̅&
+'"
+•Targetsignal:back-to-back𝜏𝜈+softbjetØGeneratebyMG5_aMC@NLO+Pythia8.àtruth-levelØUsethesamescenarioofsingletvectorLQ(U1)asCMS𝜏𝜏search.ØUsesampleswith𝑚#=1.5,𝑔#=1.5forsensitivityestimation.ØAssumingacombinationofATLASRun-2andpartialRun-3data(~300fb-1).Ø𝑠=13TeVsamplesareusedatcurrentstage.
+NOTES: 
+
+### PAGE 39
+Searchstrategyforsignalregion•Objectandeventpre-selection
+•Trigger:𝐸1MN&&trigger (𝐸1MN&&>90 GeV).•Difficulty:There are no specificvariablestosignificantlyseparatethe signal and the background.àScanforoptimizedcut•CutScan:•FurtherinvestigationsincelastJPStalk.•Signal:𝑚;=1.5TeV,𝑔;=1.5•8variablesarescannedtofindanoptimizedcut.Ø𝑚$isusedforhigh-𝑝$eventsstudy.•Duetolackofstatistics,requiringbackgroundprotection.ØS>1,B>42023/11/28 Jiaqi ZANGICEPP Analysis meeting39
+Can’tbedistinguishedintuitively
+𝜏𝑁%./&0%_(=1𝑝$(>20GeV|𝜂(|<1.37,1.52<|𝜂(|<2.47 𝑁)=1𝑝$)>30GeV𝑒,𝜇𝑁.,#=0𝑝$.,#>28GeV𝜂.<2.47,𝜂0<2.5𝐸$%&''>200GeV
+others
+
+NOTES: 
+
+### PAGE 40
+Signal kinematics•Kinematicsof different mass point afterpre-selection(normalized):
+40
+Fort-channelprocess, kinematicsdon’tchangebyLQmass!
+•𝑚#=1.5TeVisusedforcutscan.
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting
+
+NOTES: 
+
+### PAGE 41
+41
+𝜏identificationinATLAS•BaselinetauselectionrecommendationØ𝑝1>20𝐺𝑒𝑉Ø𝜂<2.5(excluding1.37<𝜂<1.52)Ø1or3tracks
+* FromATL-PHYS-PUB-2019-033
+•Workingpointefficiency•Backgroundrejection
+2023/11/28 Jiaqi ZANGICEPP Analysis meeting
+NOTES: 

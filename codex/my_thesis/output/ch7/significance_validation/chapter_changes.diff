@@ -1,0 +1,71 @@
+--- CH7 before
++++ CH7 after
+@@ -75,7 +75,7 @@
+ \label{subsec:ch7_scan}
+ 
+ $\pT^\tau$ and $\met$ are selected in the first place as the signiture tend to have energetic $\tau$ leptons and neutrinos.
+-$b$-jet $\pT$ is also selected, with the consider of $\NonRes$ 
++$b$-jet $\pT$ is also selected, with the consider of $\Res$ and $\NonRes$ targeting energetic and soft $b$-jet, respectively.
+ 
+ High values of $\mT$ are selected to distinguish non-resonant leptoquark exchange from the falling SM background.
+ A tighter $\mT$ threshold is therefore imposed in $\bTagSR$-$\NonRes$ than in $\bTagSR$-$\Res$, where the $b\tau$ mass is also used.
+@@ -183,6 +183,25 @@
+ 
+ \subsection{Selected regions and background composition}
+ 
++The pre-fit signal and background yields in the final selections are summarised in Table~\ref{tab:ch7_prefit_yields}.
++For the two optimisation benchmarks, $Z=1.95$ and $2.94$ are obtained from Eq.~\ref{eq:ch7_optimisation_significance} with $\sigma_b=0.30b$.
++The yields agree with the rounded endpoints of the optimisation cutflow to within $2\%$.
++
++\begin{table}[htbp]
++    \centering
++    \small
++    \caption{Pre-fit pure BSM signal and background yields for the two optimisation benchmarks in the final $\bTagSR$ selections. The approximate significance is evaluated with $\sigma_b=0.30b$.}
++    \label{tab:ch7_prefit_yields}
++    \begin{tabular}{lcrrr}
++        \toprule
++        SR & $(\MU~[\TeV],\gU,\beta_L^{23})$ & $S$ & $B$ & $Z$ \\
++        \midrule
++        $\bTagSR$-$\Res$ & $(1.5,1.5,0.6)$ & 4.262 & 2.439 & 1.95 \\
++        $\bTagSR$-$\NonRes$ & $(2.5,2.5,1.0)$ & 6.583 & 2.097 & 2.94 \\
++        \bottomrule
++    \end{tabular}
++\end{table}
++
+ The selected $\bTagSR$-$\Res$ requirements are $\pT^\tau>200~\GeV$, $\met>200~\GeV$, $\mT>200~\GeV$ and $m_{b\tau}>800~\GeV$, with at most three jets that are not $b$-tagged.
+ No additional $\DphiTauMet$ requirement is retained.
+ The region is treated as a single event-counting bin because the available background simulation does not support a finely binned fit to the broad $m_{b\tau}$ distribution.
+@@ -198,6 +217,33 @@
+ The trigger-plateau requirement $\met>200~\GeV$ is retained.
+ These distributions therefore illustrate a larger phase space than the final SRs.
+ The resonant signal has a broad $m_{b\tau}$ distribution, while the non-resonant signal extends into the high-$\mT$ and high-$\met$ tails.
++
++The effect of the $\met$ threshold is checked separately in Figure~\ref{fig:ch7_met_significance_scan}, using $N-1$ samples with the other SR requirements retained at their nominal values.
++For each threshold, the signal and background yields are summed over the bins above it before $Z$ is evaluated.
++The original $200~\GeV$ binning is retained, and points with $b\leq2$ are excluded from the cut choice.
++Among the tested thresholds satisfying $b>2$, the largest $Z$ is obtained at $200~\GeV$ for $\bTagSR$-$\Res$ and $400~\GeV$ for $\bTagSR$-$\NonRes$.
++The corresponding distributions and cumulative significance are shown together in Figure~\ref{fig:ch7_met_with_significance}.
++
++\begin{figure}[htbp]
++    \centering
++    \includegraphics[width=\linewidth]{Figs/CH7/significance/SR1b_met_significance_scan.pdf}
++    \caption[SR1b significance scan in missing transverse momentum]{Approximate significance as a function of the $\met$ threshold for $\bTagSR$-$\Res$ (left) and $\bTagSR$-$\NonRes$ (right), using the pure BSM benchmarks $(\MU~[\TeV],\gU,\beta_L^{23})=(1.5,1.5,0.6)$ and $(2.5,2.5,1.0)$, respectively. The pre-fit $N-1$ distributions are integrated above each threshold and Eq.~\ref{eq:ch7_optimisation_significance} is evaluated with $\sigma_b=0.30b$. Open markers and dashed segments indicate points with $b\leq2$, which are excluded from the cut choice. The selected thresholds are marked by squares and vertical dotted lines.}
++    \label{fig:ch7_met_significance_scan}
++\end{figure}
++
++\begin{figure}[htbp]
++    \centering
++    \begin{subfigure}{0.49\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/significance/SR1b_Res_met_with_significance.pdf}
++        \caption{$\bTagSR$-$\Res$.}
++    \end{subfigure}\hfill
++    \begin{subfigure}{0.49\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/significance/SR1b_NonRes_met_with_significance.pdf}
++        \caption{$\bTagSR$-$\NonRes$.}
++    \end{subfigure}
++    \caption[SR1b missing transverse momentum with cumulative significance]{Pre-fit $N-1$ $\met$ distributions for the two optimisation benchmarks used in Figure~\ref{fig:ch7_met_significance_scan}. The other SR requirements are retained at their nominal values. The hatched bands show the uncertainties supplied with the background distributions. In each lower panel, $Z$ is calculated from the signal and background yields above the threshold on the horizontal axis, with $\sigma_b=0.30b$; it is not calculated separately for each bin. Dashed segments indicate $b\leq2$.}
++    \label{fig:ch7_met_with_significance}
++\end{figure}
+ 
+ \begin{figure}[p]
+     \centering

@@ -1,0 +1,2077 @@
+general:
+  debug_level: DEBUG
+
+  # paths
+  # input_filelist_path: "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/input/filelist_v04.txt"
+  # input_sumweights_path: "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/input/sum_of_weights_v04.txt"
+  input_filelist_path: "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/input/filelist_v04_sig_noPreselection.txt"
+  input_sumweights_path: "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/input/sum_of_weights_v04_sig_noPreselection.txt"
+  # output_path_histograms: "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_sig_CutFlow_wSFs"
+  output_path_histograms: "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v05_sig_Acceptance_Eff"
+  output_path_ntuples: "./output_ntuples/taunub/sigs_cutflow/"
+
+  # weights
+  default_sumweights: "NOSYS"
+  # default_event_weights: "weight_mc_NOSYS * weight_pileup_NOSYS * weight_beamspot * tauSF_NOSYS * elSF_NOSYS * muonSF_NOSYS * jetSF_NOSYS * weight_ftag_effSF_GN2v01_Continuous_NOSYS * globalTriggerEffSFSLT_wpSet0_NOSYS" # reco event weights. (=SFs*Xsec*Event_weight/SumOfWeights)
+  default_event_weights: "weight_mc_NOSYS" # pure reco event weights for cutflow counting. (=Xsec*Event_weight/SumOfWeights)
+  # default_event_weights: "sumWeights_NOSYS/(lumi*xSection)" # weight scaled to count raw number of events
+  # default_event_weights: "weight_mc_NOSYS * weight_pileup_NOSYS * weight_beamspot * tauSF_NOSYS * elSF_NOSYS * muonSF_NOSYS * jetSF_NOSYS * weight_ftag_effSF_GN2v01_Continuous_NOSYS * globalTriggerEffSFSLT_wpSet0_NOSYS/(140000*xSection)" # Acceptance * Efficiency. (=N_reco/(Xsec*FilterEff*luminosity))
+  # default_event_weights: "weight_mc_NOSYS * weight_pileup_NOSYS * weight_beamspot * tauSF_NOSYS * elSF_NOSYS * muonSF_NOSYS * jetSF_NOSYS * weight_ftag_effSF_GN2v01_Continuous_NOSYS * globalTriggerEffSFSLT_wpSet0_NOSYS/140000" # Xsec * Acceptance * Efficiency. (=Xsec*N_reco/(Xsec*FilterEff*luminosity))
+
+  # overwrite_event_weights: True
+  default_reco_tree_name: "reco"
+
+  # path to the file with cross-sections
+  xsection_files:
+    # - files: ["/cvmfs/atlas.cern.ch/repo/sw/database/GroupData/dev/PMGTools/PMGxsecDB_mc16.txt"]
+    - files: ["/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/PMGxsecDB_mc16.txt"]
+      campaigns: ["mc20a","mc20d","mc20e"]
+
+  # # name of the custom class
+  custom_frame_name: "TauXFastFrame"
+
+  # automatic systematics?
+  # automatic_systematics: True
+  # nominal_only: False
+  automatic_systematics: False
+  nominal_only: True
+  # exclude_systematics: ["EL.*", "MUON.*", "MET.*", "JET.*", "EG.*", "FT_EFF.*", "PRW.*", "TAUS.*"] # include Theory systematics
+  # exclude_systematics: ["EL.*", "MUON.*", "MET.*", "EG.*", "TAUS.*", "FT_EFF.*"] # Theory, PRW AND JET uncertainties
+  # exclude_systematics: ["EL.*", "MUON.*", "MET.*", "EG.*", "TAUS.*"] # Theory, PRW,JET and FT uncertainties
+
+  # # which objects to create lorentz vectors for
+  create_tlorentz_vectors_for: ["jet","mu","el","tau"]
+
+  number_of_cpus: 1
+
+  custom_options:
+    # https://gitlab.cern.ch/atlas-phys/exot/lpx/exot-2022-34/taux_fastframes/-/blob/master/TauXFastFrame/TauXFastFrame/WorkingPointMap.h
+    wpSet: "wpSet0" # LooseRNN
+    # wpSet: "" 
+    # wpElectron: "TightLH_Loose_VarRad"
+    # wpMuon: "Loose_Loose_VarRad"
+    # wpTau: "TightRNN"
+    # presel_el: "el_select_TightLH_HighPtCaloOnly_NOSYS && el_pt_NOSYS > 10000" # tight electron id and high pt calo only iso
+    presel_el: "el_select_TightLH_Loose_VarRad_NOSYS && el_pt_NOSYS > 10000" # tight electron id and high pt calo only iso
+    presel_mu: "mu_select_Loose_Loose_VarRad_NOSYS && mu_pt_NOSYS > 10000"
+    # presel_mu: "mu_select_Medium_Tight_VarRad_NOSYS && mu_pt_NOSYS > 10000"
+    presel_tau: "tau_select_LooseRNN_noElVeto_NOSYS && tau_pt_NOSYS > 20000" 
+    presel_jet: "abs(jet_eta) < 2.5 && jet_pt_NOSYS > 20000"
+    # presel_el: ""
+    # presel_mu: ""
+    # presel_tau: "" 
+    # presel_jet: ""
+
+
+
+# define ntuples
+ntuples:
+  # regions: ["WCR_0tau1mu0b_NonRes", "WCR_0tau1e0b_NonRes"] 
+  regions: ["SR_1tau0l1b_sch"] 
+  # regions: ["SR_1tau0l_NonRes_looseNbjets"] 
+  # samples: ["ttbar_nonallhad","ttbar_dilep", "Wlnu", "Wtaunu_METTAU", "Wtaunu_HF"]
+  # samples: ["MU1500_gU1_5_23L0_2_hadtau", "MU2500_gU2_5_23L1_0_hadtau"]
+  branches: ["eventNumber", "randomRunNumber", "weight_total_NOSYS", "jet_pt_NOSYS", "jet_select_wpSet0_NOSYS", "tauSF_NOSYS", "muonSF_NOSYS", "elSF_NOSYS", "lumi", "xSection", "jetSF_NOSYS", "weight_ftag_effSF_GN2v01_Continuous_NOSYS", "tau_0_pt", "tau_0_eta", "tau_0_phi", "tau_0_e", "MET_wpSet0_met_NOSYS", "jet_0_pt", "jet_0_eta", "jet_0_phi", "jet_0_e", "bJets85_pt_0_NOSYS", "bJets85_eta_0_NOSYS", "bJets85_phi_0_NOSYS", "nbJets85_NOSYS", "nbJets77_NOSYS", "nbJets90_NOSYS", "nbJets65_NOSYS", "nbJets70_NOSYS", "nJets_NOSYS","MET_wpSet0_phi_NOSYS","tau_truth_pt_vis","tau_truth_phi_vis","tau_truth_eta_vis", "tau_truth_m_vis", "tau_truth_origin","tau_truth_DecayMode","tau_truth_IsHadronicTau","PL_MET_met","PL_MET_phi","PL_nu_eta","PL_nu_phi","PL_nu_pt","PL_jet_eta","PL_jet_phi","PL_jet_pt","PL_jet_nGhosts_bHadron","PL_jet_nGhosts_cHadron","lepton_0_pt","lepton_0_eta","lepton_0_phi","lepton_0_isMu","lepton_0_isEl"]
+
+
+# define cutflows
+cutflows:
+  - name: "SR_1tau0l1b_sch"
+    samples: ["MU1500_gU1_5_23L0_6_noWeights_bsm", "MU3000_gU2_5_23L1_0_noWeights_bsm", "MU1500_gU1_5_23L0_6_noWeights_inf", "MU3000_gU2_5_23L1_0_noWeights_inf"]
+    # samples: ["MU1500_gU1_5_23L0_6_noWeights_bsm", "MU3000_gU2_5_23L1_0_noWeights_bsm"]
+    selections:
+      - selection: "MET_NOSYS.met()*0.001 >= 0"
+        title: "Total events with generator filter after derivation"
+      - selection: "flag_MET_decision_NOSYS"
+        title: "E_{T}^{miss} trigger"
+      - selection: "MET_wpSet0_met_NOSYS*0.001 > 200"
+        title: "E_{T}^{miss} > 200 GeV"
+      - selection: "Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1"
+        title: "N_{#tau} = 1"
+      - selection: "Leptons_NOSYS.size() == 0"
+        title: "N_{l} = 0"
+      - selection: "flag_minDPhi_NOSYS"
+        title: "QCD cleaning cut"
+      - selection: "Taus_NOSYS[0].Pt() * 1e-3 > 200"
+        title: "p_{T}^{#tau} > 200 GeV"
+      - selection: "Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200"
+        title: "m_{T}^{#tau} > 200 GeV"
+      - selection: "Jets_NOSYS.size() <= 4"
+        title: "N_{jets} <= 4"
+      - selection: "nbJets85_NOSYS == 1"
+        title: "N_{b} = 1"
+      - selection: "bJets85_pt_0_NOSYS * 1e-3 > 250"
+        title: "p_{T}^{b} > 250 GeV"
+      - selection: "Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 800"
+        title: "M_{b#tau} > 800 GeV"
+
+  - name: "SR_1tau0l1b_tch"
+    samples: ["MU1500_gU1_5_23L0_6_noWeights_bsm", "MU3000_gU2_5_23L1_0_noWeights_bsm", "MU1500_gU1_5_23L0_6_noWeights_inf", "MU3000_gU2_5_23L1_0_noWeights_inf"]
+    # samples: ["MU1500_gU1_5_23L0_6_noWeights_bsm", "MU3000_gU2_5_23L1_0_noWeights_bsm"]
+    selections:
+      - selection: "MET_NOSYS.met()*0.001 >= 0"
+        title: "Total events with generator filter after derivation"
+      - selection: "flag_MET_decision_NOSYS"
+        title: "E_{T}^{miss} trigger"
+      - selection: "MET_wpSet0_met_NOSYS*0.001 > 400"
+        title: "E_{T}^{miss} > 400 GeV"
+      - selection: "Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1"
+        title: "N_{#tau} = 1"
+      - selection: "Leptons_NOSYS.size() == 0"
+        title: "N_{l} = 0"
+      - selection: "flag_minDPhi_NOSYS"
+        title: "QCD cleaning cut"
+      - selection: "Taus_NOSYS[0].Pt() * 1e-3 > 200"
+        title: "p_{T}^{#tau} > 200 GeV"
+      - selection: "Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600"
+        title: "m_{T}^{#tau} > 600 GeV"
+      - selection: "abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+        title: "|#Delta#phi(#tau, E_{T}^{miss})| > 1.2"
+      - selection: "Jets_NOSYS.size() <= 2"
+        title: "N_{jets} <= 2"
+      - selection: "nbJets85_NOSYS == 1"
+        title: "N_{b} = 1"
+      - selection: "bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50"
+        title: "p_{T}^{b} < 250 GeV && p_{T}^{b} > 50 GeV"
+
+  - name: "SR_1tau0l0b_sch"
+    samples: ["MU1500_gU1_5_23L0_6_noWeights_bsm", "MU3000_gU2_5_23L1_0_noWeights_bsm", "MU1500_gU1_5_23L0_6_noWeights_inf", "MU3000_gU2_5_23L1_0_noWeights_inf"]
+    # samples: ["MU1500_gU1_5_23L0_6_noWeights_bsm", "MU3000_gU2_5_23L1_0_noWeights_bsm"]
+    selections:
+      - selection: "MET_NOSYS.met()*0.001 >= 0"
+        title: "Total events with generator filter after derivation"
+      - selection: "flag_MET_decision_NOSYS"
+        title: "E_{T}^{miss} trigger"
+      - selection: "MET_wpSet0_met_NOSYS*0.001 > 200"
+        title: "E_{T}^{miss} > 200 GeV"
+      - selection: "Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1"
+        title: "N_{#tau} = 1"
+      - selection: "Leptons_NOSYS.size() == 0"
+        title: "N_{l} = 0"
+      - selection: "flag_minDPhi_NOSYS"
+        title: "QCD cleaning cut"
+      - selection: "Taus_NOSYS[0].Pt() * 1e-3 > 200"
+        title: "p_{T}^{#tau} > 200 GeV"
+      - selection: "Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200"
+        title: "m_{T}^{#tau} > 200 GeV"
+      - selection: "Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0"
+        title: "N_{jets} <= 4 && N_{jets} > 0"
+      - selection: "nbJets85_NOSYS == 0"
+        title: "N_{b} = 0"
+      - selection: "Jets_NOSYS[0].Pt() * 1e-3 > 250"
+        title: "p_{T}^{leading jet} > 250 GeV"
+      - selection: "Taus_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800"
+        title: "M_{j#tau} > 800 GeV"
+
+  - name: "SR_1tau0l0b_tch"
+    samples: ["MU1500_gU1_5_23L0_6_noWeights_bsm", "MU3000_gU2_5_23L1_0_noWeights_bsm", "MU1500_gU1_5_23L0_6_noWeights_inf", "MU3000_gU2_5_23L1_0_noWeights_inf"]
+    # samples: ["MU1500_gU1_5_23L0_6_noWeights_bsm", "MU3000_gU2_5_23L1_0_noWeights_bsm"]
+    selections:
+      - selection: "MET_NOSYS.met()*0.001 >= 0"
+        title: "Total events with generator filter after derivation"
+      - selection: "flag_MET_decision_NOSYS"
+        title: "E_{T}^{miss} trigger"
+      - selection: "MET_wpSet0_met_NOSYS*0.001 > 400"
+        title: "E_{T}^{miss} > 400 GeV"
+      - selection: "Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1"
+        title: "N_{#tau} = 1"
+      - selection: "Leptons_NOSYS.size() == 0"
+        title: "N_{l} = 0"
+      - selection: "flag_minDPhi_NOSYS"
+        title: "QCD cleaning cut"
+      - selection: "Taus_NOSYS[0].Pt() * 1e-3 > 200"
+        title: "p_{T}^{#tau} > 200 GeV"
+      - selection: "Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600"
+        title: "m_{T}^{#tau} > 600 GeV"
+      - selection: "abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+        title: "|#Delta#phi(#tau, E_{T}^{miss})| > 1.2"
+      - selection: "Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0"
+        title: "N_{jets} <= 2 && N_{jets} > 0"
+      - selection: "nbJets85_NOSYS == 0"
+        title: "N_{b} = 0"
+      - selection: "((Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50) || (Jets_NOSYS.size() > 1 ? (Jets_NOSYS[1].Pt() * 1e-3 < 250 && Jets_NOSYS[1].Pt() * 1e-3 > 50) : 0))"
+        title: "p_{T}^{jet} < 250 GeV && p_{T}^{jet} > 50 GeV"
+      - selection: "Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50"
+        title: "p_{T}^{leading jet} < 250 GeV && p_{T}^{leading jet} > 50 GeV"
+
+
+
+# define regions
+regions:
+  - name: "SR_1tau0l1b_sch"
+    selection: "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS.size() <= 4 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    variables: &var_taunub
+      - name: "met"
+        title : ";E_{T}^{miss} [GeV];Events"
+        definition: "MET_wpSet0_met_NOSYS * 0.001"
+        type: "double"
+        binning:
+          bin_edges: [0, 10000]
+          # min: 0
+          # max: 1500
+          # number_of_bins: 15
+  - name: "SR_1tau0l1b_tch"
+    selection: "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Taus_NOSYS[0].Pt() * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS.size() <= 2 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50"
+    variables: 
+      - *var_taunub
+  - name: "WCR_0tau1l0b_sch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && ((Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1) || (Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_Tight_VarRad_NOSYS() == 1)) && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 4 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: &var_taunub_WCR
+      - name: "met"
+        title : ";E_{T}^{miss} [GeV];Events"
+        definition: "MET_wpSet0_met_NOSYS * 0.001"
+        type: "double"
+        binning:
+          bin_edges: [0, 10000]
+          # bin_edges: [200, 300, 400, 500, 600, 1200]
+  - name: "WCR_0tau1l0b_tch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && ((Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1) || (Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_Tight_VarRad_NOSYS() == 1)) && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() <= 2 && Jets_NOSYS.size() > 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && ((Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50) || (Jets_NOSYS.size() > 1 ? (Jets_NOSYS[1].Pt() * 1e-3 < 250 && Jets_NOSYS[1].Pt() * 1e-3 > 50) : 0))"
+    variables: 
+      - *var_taunub_WCR
+  - name: "topCR_1tau1l_sch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && ((Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1) || (Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_Tight_VarRad_NOSYS() == 1)) && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    variables: &var_taunub_TopCR
+      - name: "met"
+        title : ";E_{T}^{miss} [GeV];Events"
+        definition: "MET_wpSet0_met_NOSYS * 0.001"
+        type: "double"
+        binning:
+          bin_edges: [0, 10000]
+          # bin_edges: [0., 50., 100., 150., 200., 400., 700., 1000.]
+  - name: "topCR_1tau1l_tch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 1 && ((Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1) || (Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_Tight_VarRad_NOSYS() == 1)) && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS >= 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 100 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Leptons_NOSYS[0].Pt() * 1e-3 > 28 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    variables: 
+      - *var_taunub_TopCR
+  - name: "VR_0tau1l1b_sch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && ((Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1) || (Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_Tight_VarRad_NOSYS() == 1)) && globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 1 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Leptons_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 800 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    variables: &var_taunub_0tauVR
+      - name: "met_VR"
+        title : ";E_{T}^{miss} [GeV];Events"
+        definition: "MET_wpSet0_met_NOSYS * 0.001"
+        type: "double"
+        binning:
+          bin_edges: [0, 10000]
+          # bin_edges: [200, 300, 400, 500, 600, 1200]
+      # - name: "lep_pt_0_VR"
+      #   title : ";p_{T}^{l} [GeV];Events"
+      #   definition: "Leptons_NOSYS.size()>0 ? Leptons_NOSYS[0].Pt() * 1e-3 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [200., 300., 400., 600., 800., 1000.]
+      # - name: "bjet_pt_0_VR"
+      #   title : ";p_{T}^{b} [GeV];Events"
+      #   definition: "bJets85_NOSYS.size()>0 ? bJets85_pt_0_NOSYS * 1e-3 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [0., 100., 200., 300., 400., 600., 800., 1000.]
+      # - name: "mT_lep0_met_VR"
+      #   title : ";m_{T}(l, met) [GeV];Events"
+      #   definition: "Leptons_NOSYS.size()>0 ? Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [200., 300., 400., 600., 800., 1000.]
+      # - name: "nJets_VR"
+      #   title : ";Number of jets;Events"
+      #   definition: "Jets_NOSYS.size()"
+      #   type: "unsigned long"
+      #   binning:
+      #     min: 0
+      #     max: 4
+      #     number_of_bins: 4
+  - name: "VR_0tau1l1b_tch"
+    selection: "flag_SLT_decision_NOSYS && Taus_NOSYS.size() == 0 && Leptons_NOSYS.size() == 1 && ((Leptons_NOSYS[0].is_electron() && Leptons_NOSYS[0].El().select_TightLH_HighPtCaloOnly_NOSYS() == 1) || (Leptons_NOSYS[0].is_muon() && Leptons_NOSYS[0].Mu().select_Medium_Tight_VarRad_NOSYS() == 1))&& globalTriggerMatchSLT_wpSet0_NOSYS == 1 && nbJets85_NOSYS == 1 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Leptons_NOSYS[0].Pt() * 1e-3 > 200 && Leptons_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Leptons_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50"
+    variables: 
+      - *var_taunub_0tauVR
+  - name: "WVR_1tau0l0b_sch"
+    selection: "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() > 0 && Jets_NOSYS.size() <= 4 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Taus_NOSYS[0].InvM(Jets_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: &var_taunub_WVR
+      - name: "met"
+        title : ";E_{T}^{miss} [GeV];Events"
+        definition: "MET_wpSet0_met_NOSYS * 0.001"
+        type: "double"
+        binning:
+          bin_edges: [0, 10000]
+          # bin_edges: [200, 300, 400, 500, 600, 1200]
+      # - name: "tau_pt_0"
+      #   title : ";p_{T}^{#tau} [GeV];Events"
+      #   definition: "Taus_NOSYS.size()>0 ? Taus_NOSYS[0].Pt() * 0.001 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [0., 100., 200., 300., 400., 600., 800., 1000.]
+      # - name: "jet_pt_0"
+      #   title : ";p_{T}^{jet0} [GeV];Events"
+      #   definition: "Jets_NOSYS.size()>0 ? Jets_NOSYS[0].Pt() * 1e-3 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [0., 100., 200., 300., 400., 600., 800., 1000.]
+      # - name: "mT_tau_met"
+      #   title : ";m_{T}(#tau, met) [GeV];Events"
+      #   definition: "Taus_NOSYS.size()>0 ? Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [200., 300., 400., 600., 800., 1000.]
+      # - name: "nJets"
+      #   title : ";Number of jets;Events"
+      #   definition: "Jets_NOSYS.size()"
+      #   type: "unsigned long"
+      #   binning:
+      #     min: 0
+      #     max: 5
+      #     number_of_bins: 5
+  - name: "WVR_1tau0l0b_tch"
+    selection: "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 0 && Jets_NOSYS.size() > 0 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Taus_NOSYS[0].Pt() * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && ((Jets_NOSYS[0].Pt() * 1e-3 < 250 && Jets_NOSYS[0].Pt() * 1e-3 > 50) || (Jets_NOSYS.size() > 1 ? (Jets_NOSYS[1].Pt() * 1e-3 < 250 && Jets_NOSYS[1].Pt() * 1e-3 > 50) : 0))"
+    variables: 
+      - *var_taunub_WVR
+  - name: "topVR_1tau0l2b_sch"
+    selection: "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && (Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 400 || Taus_NOSYS[0].InvM(bJets85_NOSYS[1]) * 0.001 > 400) && Jets_NOSYS.size() <= 4 && bJets85_NOSYS[0].Pt() * 1e-3 > 250"
+    variables: &var_taunub_topVR
+      - name: "met"
+        title : ";E_{T}^{miss} [GeV];Events"
+        definition: "MET_wpSet0_met_NOSYS * 0.001"
+        type: "double"
+        binning:
+          bin_edges: [0, 10000]
+          # bin_edges: [200, 300, 400, 500, 600, 1200]
+      # - name: "tau_pt_0"
+      #   title : ";p_{T}^{#tau} [GeV];Events"
+      #   definition: "Taus_NOSYS.size()>0 ? Taus_NOSYS[0].Pt() * 0.001 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [0., 100., 200., 300., 400., 600., 800., 1000.]
+      # - name: "bjet_pt_0"
+      #   title : ";p_{T}^{bjet0} [GeV];Events"
+      #   definition: "bJets85_NOSYS.size()>0 ? bJets85_NOSYS[0].Pt() * 1e-3 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [0., 100., 200., 300., 400., 600., 800., 1000.]
+      # - name: "bjet_pt_1"
+      #   title : ";p_{T}^{bjet1} [GeV];Events"
+      #   definition: "bJets85_NOSYS.size()>1 ? bJets85_NOSYS[1].Pt() * 1e-3 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [0., 100., 200., 300., 400., 600., 800., 1000.]
+      # - name: "mT_tau_met"
+      #   title : ";m_{T}(#tau, met) [GeV];Events"
+      #   definition: "Taus_NOSYS.size()>0 ? Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 : 0"
+      #   type: "double"
+      #   binning:
+      #     bin_edges: [200., 300., 400., 600., 800., 1000.]
+      # - name: "nJets"
+      #   title : ";Number of jets;Events"
+      #   definition: "Jets_NOSYS.size()"
+      #   type: "unsigned long"
+      #   binning:
+      #     min: 0
+      #     max: 5
+      #     number_of_bins: 5
+  - name: "topVR_1tau0l2b_tch"
+    selection: "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 2 && Jets_NOSYS.size() <= 2 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && ((bJets85_NOSYS[0].Pt() * 1e-3 < 250 && bJets85_NOSYS[0].Pt() * 1e-3 > 50) || (bJets85_NOSYS[1].Pt() * 1e-3 < 250 && bJets85_NOSYS[1].Pt() * 1e-3 > 50))"
+    variables: 
+      - *var_taunub_topVR
+  # - name: "SR_1tau0l1b_sch_looseInvM" # Mtaub > 800 GeV --> 0 GeV
+  #   selection: "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Jets_NOSYS.size() <= 4 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+  #   variables: &var_taunub_looseInvMtaub
+  #     - name: "Mtaub"
+  #       title : ";M_{tau+b} [GeV];Events"
+  #       definition: "(Taus_NOSYS.size() > 0 && nbJets85_NOSYS>0) ? Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 : 0"
+  #       type: "double"
+  #       binning:
+  #         min: 0
+  #         max: 2000
+  #         number_of_bins: 40
+  #     - name: "met"
+  #       title : ";E_{T}^{miss} [GeV];Events"
+  #       definition: "MET_wpSet0_met_NOSYS * 1e-3"
+  #       type: "double"
+  #       binning:
+  #         min: 0
+  #         max: 2000
+  #         number_of_bins: 40
+  #     - name: "tau_pt_0"
+  #       title : ";p_{T}^{#tau} [GeV];Events"
+  #       definition: "Taus_NOSYS.size()>0 ? Taus_NOSYS[0].Pt() * 1e-3 : 0"
+  #       type: "double"
+  #       binning:
+  #         min: 0
+  #         max: 2000
+  #         number_of_bins: 40
+  #     - name: "bjet_pt_0"
+  #       title : ";p_{T}^{bjet0} [GeV];Events"
+  #       definition: "bJets85_NOSYS.size()>0 ? bJets85_NOSYS[0].Pt() * 1e-3 : 0"
+  #       type: "double"
+  #       binning:
+  #         min: 0
+  #         max: 2000
+  #         number_of_bins: 40
+  #     - name: "mT_tau_met"
+  #       title : ";m_{T}(#tau, met) [GeV];Events"
+  #       definition: "Taus_NOSYS.size()>0 ? Taus_NOSYS[0].mT(MET_NOSYS) * 1e-3 : 0"
+  #       type: "double"
+  #       binning:
+  #         min: 0
+  #         max: 2000
+  #         number_of_bins: 40
+  #     - name: "nJets"
+  #       title : ";Number of jets;Events"
+  #       definition: "Jets_NOSYS.size()"
+  #       type: "unsigned long"
+  #       binning:
+  #         min: 0
+  #         max: 5
+  #         number_of_bins: 5
+  # - name: "SR_1tau0l1b_initial" # no selection
+  #   selection: "Jets_NOSYS.size() >=0"
+  #   variables:
+  #     - *var_taunub_looseInvMtaub
+  # - name: "SR_1tau0l1b_METtrig" # met trigger 
+  #   selection: "flag_MET_decision_NOSYS && MET_NOSYS.met()*0.001 > 200"
+  #   variables:
+  #     - *var_taunub_looseInvMtaub
+  # - name: "SR_1tau0l_NonRes_looseNbjets" #  nbjets = 1 --> none, b jet pt (50,250) --> none
+  #   selection: "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Taus_NOSYS[0].Pt() * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS.size() <= 2"
+  #   variables: &var_taunub_looseMET_looseNbjets
+  #     - name: "met"
+  #       title : ";E_{T}^{miss} [GeV];Events"
+  #       definition: "MET_wpSet0_met_NOSYS * 0.001"
+  #       type: "double"
+  #       binning:
+  #         min: 0
+  #         max: 2000
+  #         number_of_bins: 40
+  #     - name: "Njets"
+  #       title : ";Number of jets;Events"
+  #       definition: "Jets_NOSYS.size()"
+  #       type: "unsigned long"
+  #       binning:
+  #         min: 0
+  #         max: 5
+  #         number_of_bins: 5
+
+
+# define samples
+samples:
+# ----------------------------------------------------- %
+# ---- background samples ---- %
+# ----------------------------------------------------- %
+  - name: "Ztautau"
+    dsids: [700792, 700793, 700794]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fullsim"
+
+
+
+
+# ----------------------------------------------------- %
+# ---- signal parameter scan for limit computation ---- %
+# ----------------------------------------------------- %
+
+# old signals for betaR33=0/1 comparison
+# betaR33=0
+  - name: "MU1500_gU1_0_23L0_2_noWeights_bsm"
+    dsids: [567621]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L0_2_noWeights_bsm"
+    dsids: [567622]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_0_23L0_2_noWeights_bsm"
+    dsids: [567623]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_0_23L0_2_noWeights_bsm"
+    dsids: [567624]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU4000_gU1_0_23L0_2_noWeights_bsm"
+    dsids: [567625]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU5000_gU1_0_23L0_2_noWeights_bsm"
+    dsids: [567626]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L0_2_noWeights_inf"
+    dsids: [567627]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+
+# betaR33=-1
+  - name: "MU1500_gU1_0_23L0_2_b33Rm1_0_noWeights_bsm"
+    dsids: [567628]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L0_2_b33Rm1_0_noWeights_bsm"
+    dsids: [567629]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_0_23L0_2_b33Rm1_0_noWeights_bsm"
+    dsids: [567630]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_0_23L0_2_b33Rm1_0_noWeights_bsm"
+    dsids: [567631]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU4000_gU1_0_23L0_2_b33Rm1_0_noWeights_bsm"
+    dsids: [567632]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU5000_gU1_0_23L0_2_b33Rm1_0_noWeights_bsm"
+    dsids: [567633]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L0_2_b33Rm1_0_noWeights_inf"
+    dsids: [567634]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+
+# new signals with default weights
+  - name: "MU1500_gU0_5_23L0_6_noWeights_bsm"
+    dsids: [570604]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_5_23L1_0_noWeights_bsm"
+    dsids: [570605]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_5_23L1_4_noWeights_bsm"
+    dsids: [570606]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_5_23L1_8_noWeights_bsm"
+    dsids: [570607]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_5_23L2_2_noWeights_bsm"
+    dsids: [570608]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_75_23L1_4_noWeights_bsm"
+    dsids: [570609]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_75_23L1_8_noWeights_bsm"
+    dsids: [570610]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_75_23L2_2_noWeights_bsm"
+    dsids: [570611]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L0_6_noWeights_bsm"
+    dsids: [570612]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L1_0_noWeights_bsm"
+    dsids: [570613]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L1_2_noWeights_bsm"
+    dsids: [570614]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L1_4_noWeights_bsm"
+    dsids: [570615]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L1_8_noWeights_bsm"
+    dsids: [570616]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L2_2_noWeights_bsm"
+    dsids: [570617]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L0_2_noWeights_bsm"
+    dsids: [570618]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L0_6_noWeights_bsm"
+    dsids: [570619]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L0_6_noWeights_bsm_mc20a"
+    dsids: [570619]
+    campaigns: ["mc20a"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L0_6_noWeights_bsm_mc20d"
+    dsids: [570619]
+    campaigns: ["mc20d"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L0_6_noWeights_bsm_mc20e"
+    dsids: [570619]
+    campaigns: ["mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L0_8_noWeights_bsm"
+    dsids: [570620]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L1_0_noWeights_bsm"
+    dsids: [570621]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L1_4_noWeights_bsm"
+    dsids: [570622]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L1_8_noWeights_bsm"
+    dsids: [570623]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L2_2_noWeights_bsm"
+    dsids: [570624]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L0_0_noWeights_bsm"
+    dsids: [570625]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L0_2_noWeights_bsm"
+    dsids: [570626]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L0_4_noWeights_bsm"
+    dsids: [570627]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L0_6_noWeights_bsm"
+    dsids: [570628]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L1_0_noWeights_bsm"
+    dsids: [570629]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L1_4_noWeights_bsm"
+    dsids: [570630]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L0_0_noWeights_bsm"
+    dsids: [570631]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L0_2_noWeights_bsm"
+    dsids: [570632]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L0_4_noWeights_bsm"
+    dsids: [570633]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L0_6_noWeights_bsm"
+    dsids: [570634]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L1_0_noWeights_bsm"
+    dsids: [570635]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU3_0_23L0_0_noWeights_bsm"
+    dsids: [570636]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU3_0_23L0_2_noWeights_bsm"
+    dsids: [570637]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU3_0_23L0_4_noWeights_bsm"
+    dsids: [570638]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU3_0_23L0_6_noWeights_bsm"
+    dsids: [570639]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_5_23L1_0_noWeights_bsm"
+    dsids: [570640]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_5_23L1_4_noWeights_bsm"
+    dsids: [570641]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_5_23L1_8_noWeights_bsm"
+    dsids: [570642]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_5_23L2_2_noWeights_bsm"
+    dsids: [570643]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_75_23L2_2_noWeights_bsm"
+    dsids: [570644]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L0_6_noWeights_bsm"
+    dsids: [570645]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L1_0_noWeights_bsm"
+    dsids: [570646]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L1_4_noWeights_bsm"
+    dsids: [570647]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L1_8_noWeights_bsm"
+    dsids: [570648]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L2_2_noWeights_bsm"
+    dsids: [570649]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_25_23L1_4_noWeights_bsm"
+    dsids: [570650]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_25_23L1_8_noWeights_bsm"
+    dsids: [570651]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L0_2_noWeights_bsm"
+    dsids: [570652]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L0_6_noWeights_bsm"
+    dsids: [570653]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L1_0_noWeights_bsm"
+    dsids: [570654]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L1_2_noWeights_bsm"
+    dsids: [570655]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L1_4_noWeights_bsm"
+    dsids: [570656]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L1_8_noWeights_bsm"
+    dsids: [570657]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L2_2_noWeights_bsm"
+    dsids: [570658]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L0_0_noWeights_bsm"
+    dsids: [570659]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L0_2_noWeights_bsm"
+    dsids: [570660]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L0_6_noWeights_bsm"
+    dsids: [570661]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L0_8_noWeights_bsm"
+    dsids: [570662]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L1_0_noWeights_bsm"
+    dsids: [570663]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L1_4_noWeights_bsm"
+    dsids: [570664]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L1_8_noWeights_bsm"
+    dsids: [570665]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L0_0_noWeights_bsm"
+    dsids: [570666]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L0_2_noWeights_bsm"
+    dsids: [570667]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L0_4_noWeights_bsm"
+    dsids: [570668]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L0_6_noWeights_bsm"
+    dsids: [570669]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L1_0_noWeights_bsm"
+    dsids: [570670]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L1_4_noWeights_bsm"
+    dsids: [570671]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU3_0_23L0_2_noWeights_bsm"
+    dsids: [570672]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU3_0_23L0_4_noWeights_bsm"
+    dsids: [570673]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU3_0_23L0_6_noWeights_bsm"
+    dsids: [570674]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU3_0_23L1_0_noWeights_bsm"
+    dsids: [570675]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU0_5_23L1_8_noWeights_bsm"
+    dsids: [570676]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU0_5_23L2_2_noWeights_bsm"
+    dsids: [570677]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L0_6_noWeights_bsm"
+    dsids: [570678]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L1_0_noWeights_bsm"
+    dsids: [570679]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L1_4_noWeights_bsm"
+    dsids: [570680]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L1_8_noWeights_bsm"
+    dsids: [570681]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L2_2_noWeights_bsm"
+    dsids: [570682]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_25_23L1_4_noWeights_bsm"
+    dsids: [570683]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_25_23L1_8_noWeights_bsm"
+    dsids: [570684]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L0_6_noWeights_bsm"
+    dsids: [570685]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L1_0_noWeights_bsm"
+    dsids: [570686]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L1_2_noWeights_bsm"
+    dsids: [570687]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L1_4_noWeights_bsm"
+    dsids: [570688]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L1_8_noWeights_bsm"
+    dsids: [570689]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L2_2_noWeights_bsm"
+    dsids: [570690]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L0_2_noWeights_bsm"
+    dsids: [570691]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L0_6_noWeights_bsm"
+    dsids: [570692]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L0_8_noWeights_bsm"
+    dsids: [570693]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L1_0_noWeights_bsm"
+    dsids: [570694]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L1_4_noWeights_bsm"
+    dsids: [570695]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L1_8_noWeights_bsm"
+    dsids: [570696]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L0_2_noWeights_bsm"
+    dsids: [570697]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L0_4_noWeights_bsm"
+    dsids: [570698]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L0_6_noWeights_bsm"
+    dsids: [570699]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L1_0_noWeights_bsm"
+    dsids: [570700]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L1_4_noWeights_bsm"
+    dsids: [570701]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU3_0_23L0_2_noWeights_bsm"
+    dsids: [570702]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU3_0_23L0_4_noWeights_bsm"
+    dsids: [570703]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU3_0_23L0_6_noWeights_bsm"
+    dsids: [570704]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU3_0_23L1_0_noWeights_bsm"
+    dsids: [570705]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_0_23L1_8_noWeights_bsm"
+    dsids: [570706]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_0_23L2_2_noWeights_bsm"
+    dsids: [570707]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_25_23L1_8_noWeights_bsm"
+    dsids: [570708]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_25_23L2_2_noWeights_bsm"
+    dsids: [570709]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L1_0_noWeights_bsm"
+    dsids: [570710]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L1_4_noWeights_bsm"
+    dsids: [570711]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L1_6_noWeights_bsm"
+    dsids: [570712]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L1_8_noWeights_bsm"
+    dsids: [570713]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L2_2_noWeights_bsm"
+    dsids: [570714]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_75_23L1_4_noWeights_bsm"
+    dsids: [570715]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L0_6_noWeights_bsm"
+    dsids: [570716]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L1_0_noWeights_bsm"
+    dsids: [570717]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L1_2_noWeights_bsm"
+    dsids: [570718]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L1_4_noWeights_bsm"
+    dsids: [570719]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L1_8_noWeights_bsm"
+    dsids: [570720]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L2_2_noWeights_bsm"
+    dsids: [570721]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_5_23L0_6_noWeights_bsm"
+    dsids: [570722]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_5_23L0_8_noWeights_bsm"
+    dsids: [570723]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_5_23L1_0_noWeights_bsm"
+    dsids: [570724]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_5_23L1_4_noWeights_bsm"
+    dsids: [570725]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L0_2_noWeights_bsm"
+    dsids: [570726]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L0_4_noWeights_bsm"
+    dsids: [570727]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L0_6_noWeights_bsm"
+    dsids: [570728]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L0_8_noWeights_bsm"
+    dsids: [570729]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L1_0_noWeights_bsm"
+    dsids: [570730]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_0_23L1_8_noWeights_bsm"
+    dsids: [570731]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_0_23L2_2_noWeights_bsm"
+    dsids: [570732]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_25_23L2_2_noWeights_bsm"
+    dsids: [570733]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_5_23L1_4_noWeights_bsm"
+    dsids: [570734]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_5_23L1_8_noWeights_bsm"
+    dsids: [570735]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_5_23L2_0_noWeights_bsm"
+    dsids: [570736]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_5_23L2_2_noWeights_bsm"
+    dsids: [570737]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_75_23L1_4_noWeights_bsm"
+    dsids: [570738]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_75_23L1_6_noWeights_bsm"
+    dsids: [570739]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_75_23L1_8_noWeights_bsm"
+    dsids: [570740]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L1_0_noWeights_bsm"
+    dsids: [570741]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L1_2_noWeights_bsm"
+    dsids: [570742]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L1_4_noWeights_bsm"
+    dsids: [570743]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L1_8_noWeights_bsm"
+    dsids: [570744]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L2_2_noWeights_bsm"
+    dsids: [570745]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L0_6_noWeights_bsm"
+    dsids: [570746]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L0_8_noWeights_bsm"
+    dsids: [570747]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L1_0_noWeights_bsm"
+    dsids: [570748]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L1_2_noWeights_bsm"
+    dsids: [570749]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L1_4_noWeights_bsm"
+    dsids: [570750]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L1_8_noWeights_bsm"
+    dsids: [570751]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU3_0_23L0_6_noWeights_bsm"
+    dsids: [570752]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU3_0_23L0_8_noWeights_bsm"
+    dsids: [570753]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU3_0_23L1_0_noWeights_bsm"
+    dsids: [570754]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU3_0_23L1_4_noWeights_bsm"
+    dsids: [570755]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_5_23L0_6_noWeights_inf"
+    dsids: [570756]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_5_23L1_0_noWeights_inf"
+    dsids: [570757]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_5_23L1_4_noWeights_inf"
+    dsids: [570758]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_5_23L1_8_noWeights_inf"
+    dsids: [570759]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_5_23L2_2_noWeights_inf"
+    dsids: [570760]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_75_23L1_4_noWeights_inf"
+    dsids: [570761]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_75_23L1_8_noWeights_inf"
+    dsids: [570762]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU0_75_23L2_2_noWeights_inf"
+    dsids: [570763]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L0_6_noWeights_inf"
+    dsids: [570764]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L1_0_noWeights_inf"
+    dsids: [570765]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L1_2_noWeights_inf"
+    dsids: [570766]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L1_4_noWeights_inf"
+    dsids: [570767]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L1_8_noWeights_inf"
+    dsids: [570768]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_0_23L2_2_noWeights_inf"
+    dsids: [570769]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L0_2_noWeights_inf"
+    dsids: [570770]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L0_6_noWeights_inf"
+    dsids: [570771]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L0_8_noWeights_inf"
+    dsids: [570772]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L1_0_noWeights_inf"
+    dsids: [570773]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L1_4_noWeights_inf"
+    dsids: [570774]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L1_8_noWeights_inf"
+    dsids: [570775]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU1_5_23L2_2_noWeights_inf"
+    dsids: [570776]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L0_0_noWeights_inf"
+    dsids: [570777]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L0_2_noWeights_inf"
+    dsids: [570778]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L0_4_noWeights_inf"
+    dsids: [570779]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L0_6_noWeights_inf"
+    dsids: [570780]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L1_0_noWeights_inf"
+    dsids: [570781]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_0_23L1_4_noWeights_inf"
+    dsids: [570782]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L0_0_noWeights_inf"
+    dsids: [570783]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L0_2_noWeights_inf"
+    dsids: [570784]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L0_4_noWeights_inf"
+    dsids: [570785]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L0_6_noWeights_inf"
+    dsids: [570786]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU2_5_23L1_0_noWeights_inf"
+    dsids: [570787]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU3_0_23L0_0_noWeights_inf"
+    dsids: [570788]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU3_0_23L0_2_noWeights_inf"
+    dsids: [570789]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU3_0_23L0_4_noWeights_inf"
+    dsids: [570790]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1500_gU3_0_23L0_6_noWeights_inf"
+    dsids: [570791]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_5_23L1_0_noWeights_inf"
+    dsids: [570792]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_5_23L1_4_noWeights_inf"
+    dsids: [570793]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_5_23L1_8_noWeights_inf"
+    dsids: [570794]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_5_23L2_2_noWeights_inf"
+    dsids: [570795]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU0_75_23L2_2_noWeights_inf"
+    dsids: [570796]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L0_6_noWeights_inf"
+    dsids: [570797]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L1_0_noWeights_inf"
+    dsids: [570798]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L1_4_noWeights_inf"
+    dsids: [570799]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L1_8_noWeights_inf"
+    dsids: [570800]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_0_23L2_2_noWeights_inf"
+    dsids: [570801]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_25_23L1_4_noWeights_inf"
+    dsids: [570802]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_25_23L1_8_noWeights_inf"
+    dsids: [570803]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L0_2_noWeights_inf"
+    dsids: [570804]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L0_6_noWeights_inf"
+    dsids: [570805]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L1_0_noWeights_inf"
+    dsids: [570806]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L1_2_noWeights_inf"
+    dsids: [570807]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L1_4_noWeights_inf"
+    dsids: [570808]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L1_8_noWeights_inf"
+    dsids: [570809]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU1_5_23L2_2_noWeights_inf"
+    dsids: [570810]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L0_0_noWeights_inf"
+    dsids: [570811]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L0_2_noWeights_inf"
+    dsids: [570812]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L0_6_noWeights_inf"
+    dsids: [570813]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L0_8_noWeights_inf"
+    dsids: [570814]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L1_0_noWeights_inf"
+    dsids: [570815]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L1_4_noWeights_inf"
+    dsids: [570816]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_0_23L1_8_noWeights_inf"
+    dsids: [570817]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L0_0_noWeights_inf"
+    dsids: [570818]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L0_2_noWeights_inf"
+    dsids: [570819]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L0_4_noWeights_inf"
+    dsids: [570820]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L0_6_noWeights_inf"
+    dsids: [570821]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L1_0_noWeights_inf"
+    dsids: [570822]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU2_5_23L1_4_noWeights_inf"
+    dsids: [570823]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU3_0_23L0_2_noWeights_inf"
+    dsids: [570824]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU3_0_23L0_4_noWeights_inf"
+    dsids: [570825]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU3_0_23L0_6_noWeights_inf"
+    dsids: [570826]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU1800_gU3_0_23L1_0_noWeights_inf"
+    dsids: [570827]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU0_5_23L1_8_noWeights_inf"
+    dsids: [570828]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU0_5_23L2_2_noWeights_inf"
+    dsids: [570829]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L0_6_noWeights_inf"
+    dsids: [570830]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L1_0_noWeights_inf"
+    dsids: [570831]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L1_4_noWeights_inf"
+    dsids: [570832]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L1_8_noWeights_inf"
+    dsids: [570833]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_0_23L2_2_noWeights_inf"
+    dsids: [570834]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_25_23L1_4_noWeights_inf"
+    dsids: [570835]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_25_23L1_8_noWeights_inf"
+    dsids: [570836]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L0_6_noWeights_inf"
+    dsids: [570837]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L1_0_noWeights_inf"
+    dsids: [570838]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L1_2_noWeights_inf"
+    dsids: [570839]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L1_4_noWeights_inf"
+    dsids: [570840]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L1_8_noWeights_inf"
+    dsids: [570841]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU1_5_23L2_2_noWeights_inf"
+    dsids: [570842]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L0_2_noWeights_inf"
+    dsids: [570843]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L0_6_noWeights_inf"
+    dsids: [570844]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L0_8_noWeights_inf"
+    dsids: [570845]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L1_0_noWeights_inf"
+    dsids: [570846]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L1_4_noWeights_inf"
+    dsids: [570847]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_0_23L1_8_noWeights_inf"
+    dsids: [570848]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L0_2_noWeights_inf"
+    dsids: [570849]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L0_4_noWeights_inf"
+    dsids: [570850]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L0_6_noWeights_inf"
+    dsids: [570851]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L1_0_noWeights_inf"
+    dsids: [570852]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU2_5_23L1_4_noWeights_inf"
+    dsids: [570853]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU3_0_23L0_2_noWeights_inf"
+    dsids: [570854]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU3_0_23L0_4_noWeights_inf"
+    dsids: [570855]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU3_0_23L0_6_noWeights_inf"
+    dsids: [570856]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2000_gU3_0_23L1_0_noWeights_inf"
+    dsids: [570857]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_0_23L1_8_noWeights_inf"
+    dsids: [570858]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_0_23L2_2_noWeights_inf"
+    dsids: [570859]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_25_23L1_8_noWeights_inf"
+    dsids: [570860]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_25_23L2_2_noWeights_inf"
+    dsids: [570861]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L1_0_noWeights_inf"
+    dsids: [570862]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L1_4_noWeights_inf"
+    dsids: [570863]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L1_6_noWeights_inf"
+    dsids: [570864]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L1_8_noWeights_inf"
+    dsids: [570865]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_5_23L2_2_noWeights_inf"
+    dsids: [570866]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU1_75_23L1_4_noWeights_inf"
+    dsids: [570867]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L0_6_noWeights_inf"
+    dsids: [570868]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L1_0_noWeights_inf"
+    dsids: [570869]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L1_2_noWeights_inf"
+    dsids: [570870]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L1_4_noWeights_inf"
+    dsids: [570871]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L1_8_noWeights_inf"
+    dsids: [570872]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_0_23L2_2_noWeights_inf"
+    dsids: [570873]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_5_23L0_6_noWeights_inf"
+    dsids: [570874]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_5_23L0_8_noWeights_inf"
+    dsids: [570875]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_5_23L1_0_noWeights_inf"
+    dsids: [570876]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU2_5_23L1_4_noWeights_inf"
+    dsids: [570877]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L0_2_noWeights_inf"
+    dsids: [570878]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L0_4_noWeights_inf"
+    dsids: [570879]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L0_6_noWeights_inf"
+    dsids: [570880]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L0_8_noWeights_inf"
+    dsids: [570881]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU2500_gU3_0_23L1_0_noWeights_inf"
+    dsids: [570882]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_0_23L1_8_noWeights_inf"
+    dsids: [570883]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_0_23L2_2_noWeights_inf"
+    dsids: [570884]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_25_23L2_2_noWeights_inf"
+    dsids: [570885]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_5_23L1_4_noWeights_inf"
+    dsids: [570886]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_5_23L1_8_noWeights_inf"
+    dsids: [570887]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_5_23L2_0_noWeights_inf"
+    dsids: [570888]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_5_23L2_2_noWeights_inf"
+    dsids: [570889]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_75_23L1_4_noWeights_inf"
+    dsids: [570890]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_75_23L1_6_noWeights_inf"
+    dsids: [570891]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU1_75_23L1_8_noWeights_inf"
+    dsids: [570892]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L1_0_noWeights_inf"
+    dsids: [570893]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L1_2_noWeights_inf"
+    dsids: [570894]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L1_4_noWeights_inf"
+    dsids: [570895]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L1_8_noWeights_inf"
+    dsids: [570896]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_0_23L2_2_noWeights_inf"
+    dsids: [570897]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L0_6_noWeights_inf"
+    dsids: [570898]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L0_8_noWeights_inf"
+    dsids: [570899]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L1_0_noWeights_inf"
+    dsids: [570900]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L1_2_noWeights_inf"
+    dsids: [570901]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L1_4_noWeights_inf"
+    dsids: [570902]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU2_5_23L1_8_noWeights_inf"
+    dsids: [570903]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU3_0_23L0_6_noWeights_inf"
+    dsids: [570904]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU3_0_23L0_8_noWeights_inf"
+    dsids: [570905]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU3_0_23L1_0_noWeights_inf"
+    dsids: [570906]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"
+
+  - name: "MU3000_gU3_0_23L1_4_noWeights_inf"
+    dsids: [570907]
+    campaigns: ["mc20a", "mc20d", "mc20e"]
+    simulation_type: "fastsim"

@@ -1,0 +1,410 @@
+--- before/Chapters/Appendix/Appendix1.tex
++++ after/Chapters/Appendix/Appendix1.tex
+@@ -1,13 +1,13 @@
+ \chapter{Correction of the signal internal event weights}
+ \label{app:signal_weight_correction}
+ 
+-For the right-handed interpretation, the dependence of the signal prediction on $g_U$ and $\beta_L^{23}$ is obtained by reweighting the baseline sample generated at each $M_U$ value.
++For the right-handed interpretation, the dependence of the signal prediction on $\gU$ and $\beta_L^{23}$ is obtained by reweighting the baseline sample generated at each $\MU$ value.
+ The \textsc{MadGraph5\_aMC@NLO} internal event weights encode the change in the matrix element when these coupling parameters are varied.
+ Their performance is evaluated by comparing the reweighted predictions with samples generated independently at selected parameter points.
+ 
+ The internal event weights alone do not fully reproduce the reference predictions in regions where the relative contributions of resonant and non-resonant production change.
+ The overall normalisation is therefore adjusted to that of the corresponding reference prediction.
+-A bin-by-bin two-dimensional correction in the leading-jet $p_{\mathrm{T}}$ and $m_{b\tau}$ is then applied to account for the remaining shape differences.
++A bin-by-bin two-dimensional correction in the leading-jet $\pT$ and $m_{b\tau}$ is then applied to account for the remaining shape differences.
+ These observables provide sensitivity to the resonant and non-resonant components and allow both contributions to be corrected within the same sample.
+ 
+ The corrected predictions are validated using truth-level selections that reproduce the main signal-region requirements.
+--- before/Chapters/CH1_introduction.tex
++++ after/Chapters/CH1_introduction.tex
+@@ -24,7 +24,7 @@
+ ATLAS is a detector located at one of the interaction points of the LHC. 
+ It is designed to observe and study a wide range of physics processes, mainly from the $pp$ collisions, from precision measurements of SM interactions to searches for new particles. 
+ The detector consists of several sub-detectors surrounding the collision interaction point, including an inner tracking detector, electromagnetic and hadronic calorimeters, and a muon spectrometer. 
+-Together with a powerful magnet system, these components allow the reconstruction and identification of electrons, photons, muons, hadronically decaying $\tau$-leptons, jets, and missing transverse momentum, denoted by $E_{\mathrm{T}}^{\mathrm{miss}}$.
++Together with a powerful magnet system, these components allow the reconstruction and identification of electrons, photons, muons, hadronically decaying $\tau$-leptons, jets, and missing transverse momentum, denoted by $\met$.
+ 
+ Among the many possible extensions of the SM, leptoquarks~(LQs) provide a well-motivated class of new particles connecting the quark and lepton sectors. 
+ They are hypothetical bosons that couple directly to a quark and a lepton, and they appear naturally in theories such as grand unified theories and models of quark--lepton unification. 
+--- before/Chapters/CH3_LQ_search.tex
++++ after/Chapters/CH3_LQ_search.tex
+@@ -100,7 +100,7 @@
+     U_{1\mu\nu}^{\dagger}
+     U_{1}^{\mu\nu}
+     +
+-    M_{U}^{2}
++    \MU^{2}
+     U_{1\mu}^{\dagger}
+     U_{1}^{\mu}
+     \nonumber\\
+@@ -125,7 +125,7 @@
+     \right).
+     \label{eq:u1_full_lagrangian}
+ \end{align}
+-Here $U_{1}^{\mu}$ is the vector leptoquark field and $M_{U}$ is the leptoquark mass. 
++Here $U_{1}^{\mu}$ is the vector leptoquark field and $\MU$ is the leptoquark mass. 
+ The first term is the kinetic term, while the second term is the mass term. 
+ The field-strength tensor of $U_{1}$ is defined as
+ \begin{align}
+@@ -163,7 +163,7 @@
+ \begin{align}
+     J_{\mu}
+     =
+-    \frac{g_{U}}{\sqrt{2}}
++    \frac{\gU}{\sqrt{2}}
+     \left[
+         \beta_{L}^{i\alpha}
+         \left(
+@@ -182,9 +182,9 @@
+     \label{eq:u1_fermion_current}
+ \end{align}
+ Here $i=1,2,3$ labels the quark generation and $\alpha=1,2,3$ labels the lepton generation. $q_{L}^{i}$ and $\ell_{L}^{\alpha}$ are left-handed quark and lepton doublets, while $d_{R}^{i}$ and $e_{R}^{\alpha}$ are right-handed down-type quark and charged-lepton singlets. 
+-The parameter $g_{U}$ denotes the overall strength of the $U_{1}$ coupling to fermions. 
++The parameter $\gU$ denotes the overall strength of the $U_{1}$ coupling to fermions. 
+ The matrices $\beta_{L}^{i\alpha}$ and $\beta_{R}^{i\alpha}$ are complex $3\times3$ flavour-coupling matrices for the left- and right-handed interactions, respectively. 
+-The strength of a given flavour coupling is therefore proportional to $g_{U}\beta_{L,R}^{i\alpha}$.
++The strength of a given flavour coupling is therefore proportional to $\gU\beta_{L,R}^{i\alpha}$.
+ 
+ The down-quark and charged-lepton mass eigenstate basis is adopted for the $SU(2)$ multiplets~\cite{Cornella2019}:
+ \begin{align}
+@@ -243,12 +243,12 @@
+     \end{aligned}
+     \label{eq:u1_beta_texture}
+ \end{equation}
+-The third-generation coupling is normalised to $\beta_{L}^{33}=1$, while $g_{U}$ remains a free parameter controlling the overall fermionic coupling strength.
++The third-generation coupling is normalised to $\beta_{L}^{33}=1$, while $\gU$ remains a free parameter controlling the overall fermionic coupling strength.
+ 
+ Within this benchmark, $\beta_{L}^{23}$ controls the $s\tau$ and $c\nu_\tau$ coupling through the CKM factor $V_{cs}$, while $\beta_L^{33}$ controls the $b\tau$ coupling and contributes $c\nu_\tau$ coupling as $V_{cb}\beta_L^{33}$.
+ 
+ 
+-The heavy $U_{1}$ field can be integrated out at the matching scale $\mu\sim M_{U}$.
++The heavy $U_{1}$ field can be integrated out at the matching scale $\mu\sim \MU$.
+ At tree level, its exchange generates four-fermion operators involving left- and right-handed quark and lepton fields~\cite{Aebischer2022}. The corresponding effective Lagrangian can be written as
+ \begin{align}
+ \mathcal{L}_{\mathrm{eff}}^{U}
+@@ -329,11 +329,11 @@
+ \begin{align}
+ C_{U}
+ &=
+-\frac{g_{U}^{2}v^{2}}{4M_{U}^{2}},
++\frac{\gU^{2}v^{2}}{4\MU^{2}},
+ \label{eq:cu_definition}
+ \end{align}
+ where $v\simeq246~\GeV$ is the Higgs vacuum expectation value.
+-The coefficient $C_{U}$ sets the overall strength of the effective interaction and scales as $g_{U}^{2}/M_{U}^{2}$, while the flavour dependence is encoded in the coupling matrices $\beta_{L}$ and $\beta_{R}$.
++The coefficient $C_{U}$ sets the overall strength of the effective interaction and scales as $\gU^{2}/\MU^{2}$, while the flavour dependence is encoded in the coupling matrices $\beta_{L}$ and $\beta_{R}$.
+ 
+ The effective Lagrangian for the $b\to c\tau\nu$ transition can be written as:
+ \begin{align}
+@@ -457,7 +457,7 @@
+ \end{align}
+ This benchmark therefore corresponds to the diagonal line in Fig.~\ref{fig:cll_clr_low_energy_fit}, where the right-handed third-generation coupling has the same magnitude as the left-handed coupling.
+ 
+-The two scenarios are described by the parameter space $(\beta_L^{23},M_U,g_U)$ with different fixed values of $\beta_R^{33}$. Particular emphasis is placed on $\beta_L^{23}$, since charged-current low-energy data alone do not provide a stringent constraint on this coupling. For fixed $M_U$ and $g_U$, $\beta_L^{23}$ has a strong impact on $C_{LL}^{c}$ because its contribution is enhanced by the CKM ratio $V_{cs}/V_{cb}$.
++The two scenarios are described by the parameter space $(\beta_L^{23},\MU,\gU)$ with different fixed values of $\beta_R^{33}$. Particular emphasis is placed on $\beta_L^{23}$, since charged-current low-energy data alone do not provide a stringent constraint on this coupling. For fixed $\MU$ and $\gU$, $\beta_L^{23}$ has a strong impact on $C_{LL}^{c}$ because its contribution is enhanced by the CKM ratio $V_{cs}/V_{cb}$.
+ 
+ Indeed, one can constrain the size of $\beta_L^{23}$ by considering possible ultraviolet (UV) completions of the simplified $U_{1}$ model. While the simplified model parametrises the relevant interactions directly in terms of the couplings $\beta_{L}^{ij}$, the UV completion provides a more fundamental description of their origin. One example is the ``4321'' model, which is based on the extended gauge group $\mathcal{G}_{4321}=SU(4)\times SU(3)'\times SU(2)_L \times U(1)'$. In the flavour structure considered in this model, the $U_1$ couplings are non-universal, with $|\beta_{L}^{23}|<|\beta_{L}^{33}|$~\cite{Cornella2019}.
+ 
+@@ -532,7 +532,7 @@
+ \subsection{Leptoquark searches at the LHC}
+ \label{subsec:lq_searches_lhc}
+ 
+-Leptoquarks can be searched for at the LHC through several production modes, including pair production, resonant single production, and non-resonant $t$-channel exchange. Pair production is dominated by QCD interactions. For a fixed $\kappa$ choice, its cross section depends strongly on $M_U$ but weakly on the couplings $g_U$ and $\beta^{i\alpha}$. Pair-production searches therefore provide relatively robust constraints on the leptoquark mass.
++Leptoquarks can be searched for at the LHC through several production modes, including pair production, resonant single production, and non-resonant $t$-channel exchange. Pair production is dominated by QCD interactions. For a fixed $\kappa$ choice, its cross section depends strongly on $\MU$ but weakly on the couplings $\gU$ and $\beta^{i\alpha}$. Pair-production searches therefore provide relatively robust constraints on the leptoquark mass.
+ 
+ ATLAS and CMS have performed searches for pair-produced leptoquarks coupling
+ to third-generation fermions in final states containing $\tau$-leptons,
+@@ -541,7 +541,7 @@
+ For the vector $U_{1}$, the mass limit extends to approximately
+ $1.5$--$1.8~\TeV$ as shown in Fig.~\ref{fig:lq_atlas_summary_u1}. The limit also depends on the choice of the $U_{1}$--gluon coupling, such as the Yang--Mills or minimal-coupling scenario, as well as on the decay pattern determined by the assumed fermionic couplings.
+ 
+-For single production, the cross section also depends strongly on the leptoquark--fermion couplings. Searches for singly produced leptoquarks decaying into $b\tau$ have been performed in the $b\tau\tau$ final state, where the leptoquark is produced in association with a $\tau$-lepton as shown in Fig.~\ref{fig:lq_single_production}~\cite{ATLAS2023LQBTau,CMS2024LQBTau}. In addition, virtual $t$-channel $U_1$ exchange can contribute to final states such as $\tau\tau$ or $\tau\nu$, enhancing the event yields in the high-mass region. ATLAS and CMS have therefore searched for non-resonant leptoquark contributions in high-mass $\tau\tau$ production ~\cite{CMS2024LQBTau,ATLAS2025HighMassTauTau,CMS2023TauTauLQ}. These searches can remain sensitive to masses beyond the reach of the direct pair-production searches, particularly for large $g_U$, since the sensitivity is approximately governed by $g_U/M_U$.
++For single production, the cross section also depends strongly on the leptoquark--fermion couplings. Searches for singly produced leptoquarks decaying into $b\tau$ have been performed in the $b\tau\tau$ final state, where the leptoquark is produced in association with a $\tau$-lepton as shown in Fig.~\ref{fig:lq_single_production}~\cite{ATLAS2023LQBTau,CMS2024LQBTau}. In addition, virtual $t$-channel $U_1$ exchange can contribute to final states such as $\tau\tau$ or $\tau\nu$, enhancing the event yields in the high-mass region. ATLAS and CMS have therefore searched for non-resonant leptoquark contributions in high-mass $\tau\tau$ production ~\cite{CMS2024LQBTau,ATLAS2025HighMassTauTau,CMS2023TauTauLQ}. These searches can remain sensitive to masses beyond the reach of the direct pair-production searches, particularly for large $\gU$, since the sensitivity is approximately governed by $\gU/\MU$.
+ 
+ \begin{figure}[thbp]
+     \centering
+@@ -573,7 +573,7 @@
+ \begin{figure}[tbp]
+     \centering
+     \includegraphics[width=0.72\textwidth]{Figs/CH3/atlas_LQ_summary_u1_ym.pdf}
+-    \caption[ATLAS constraints on the $U_{1}$ leptoquark]{ Summary of the observed and expected $95\%$ CL constraints on the $U_{1}$ vector-leptoquark coupling $\lambda_{b\tau}$ as a function of the leptoquark mass in the Yang--Mills coupling scenario, with $\beta_R^{33}=0$. Pair-production searches dominate the direct mass constraint at lower masses, while single-production and $\tau\tau$ searches provide coupling-dependent sensitivity at larger masses. Here $\lambda_{b\tau}=g_{U}/\sqrt{2}$ for $\beta_{L}^{33}=1$~\cite{ATLAS2025LQSummary}.}
++    \caption[ATLAS constraints on the $U_{1}$ leptoquark]{ Summary of the observed and expected $95\%$ CL constraints on the $U_{1}$ vector-leptoquark coupling $\lambda_{b\tau}$ as a function of the leptoquark mass in the Yang--Mills coupling scenario, with $\beta_R^{33}=0$. Pair-production searches dominate the direct mass constraint at lower masses, while single-production and $\tau\tau$ searches provide coupling-dependent sensitivity at larger masses. Here $\lambda_{b\tau}=\gU/\sqrt{2}$ for $\beta_{L}^{33}=1$~\cite{ATLAS2025LQSummary}.}
+     \label{fig:lq_atlas_summary_u1}
+ \end{figure}
+ 
+@@ -584,7 +584,7 @@
+ \subsection{Signal model and target signatures}
+ \label{subsec:lq_collider_benchmark}
+ 
+-In this thesis, we focus on the simplified $U_{1}$ model introduced in Sec.~\ref{subsec:u1_simplified_model} in the Yang--Mills scenario, corresponding to $\kappa_c=\kappa_Y=0$ in Eq.~\ref{eq:u1_full_lagrangian}. The third-generation coupling is normalised to $\beta_{L}^{33}=1$, while the primary interpretation assumes a pure-left-handed scenario ($\beta_{R}^{33}=0$). An additional interpretation including a right-handed coupling is presented with the final results. Therefore, the signal is characterised by $(M_U,g_U,\beta_L^{23})$.
++In this thesis, we focus on the simplified $U_{1}$ model introduced in Sec.~\ref{subsec:u1_simplified_model} in the Yang--Mills scenario, corresponding to $\kappa_c=\kappa_Y=0$ in Eq.~\ref{eq:u1_full_lagrangian}. The third-generation coupling is normalised to $\beta_{L}^{33}=1$, while the primary interpretation assumes a pure-left-handed scenario ($\beta_{R}^{33}=0$). An additional interpretation including a right-handed coupling is presented with the final results. Therefore, the signal is characterised by $(\MU,\gU,\beta_L^{23})$.
+ 
+ Figure~\ref{fig:u1_taunu_target_topologies} shows representative $U_{1}$ signal diagrams targeted by the analysis. Both resonant single production and non-resonant $t$-channel exchange are considered, and each is divided according to the presence or absence of a $b$-tagged jet. This results in four target signatures: resonant $\tau\nu+b$, non-resonant $\tau\nu+b$, resonant $\tau\nu+0b$, and non-resonant $\tau\nu+0b$.
+ 
+--- before/Chapters/CH4_LHC_ATLAS_experiment.tex
++++ after/Chapters/CH4_LHC_ATLAS_experiment.tex
+@@ -137,7 +137,7 @@
+     -\ln \tan \left( \frac{\theta}{2} \right).
+     \label{eq:pseudorapidity}
+ \end{align}
+-The transverse momentum is defined as $p_{\mathrm{T}}=p\sin\theta$, and the transverse energy is defined similarly.
++The transverse momentum is defined as $\pT=p\sin\theta$, and the transverse energy is defined similarly.
+ The angular separation between two reconstructed objects is commonly expressed as
+ \begin{align}
+     \Delta R
+@@ -172,7 +172,7 @@
+ The toroid system provides magnetic fields of approximately $0.5~\mathrm{T}$ and $1~\mathrm{T}$ in the barrel and end-cap regions of the Muon Spectrometer, respectively.
+ The barrel toroid surrounds the calorimeter system in the central region, while the two end-cap toroids provide bending power in the forward regions.
+ The toroidal field bends muon trajectories, allowing their momenta to be measured using the precision tracking chambers of the MS.
+-The air-core design of the toroids reduces multiple scattering and helps preserve the momentum resolution for high-$\pt$ muons~\cite{ATLASDetector2008}.
++The air-core design of the toroids reduces multiple scattering and helps preserve the momentum resolution for high-$\pT$ muons~\cite{ATLASDetector2008}.
+ The combination of the solenoid and toroid systems allows charged-particle momenta to be measured independently in the ID and, for muons, in the MS.
+ 
+ \begin{figure}[htbp]
+@@ -334,7 +334,7 @@
+ 
+     The TGCs are multi-wire proportional chambers designed to provide fast signals for the Level-1 trigger.
+     They extend to approximately $|\eta|<2.7$ and provide trigger coverage in the end-cap region up to $|\eta|<2.4$~\cite{ATLASDetector2008}.
+-    The TGC system identifies high-$p_{\mathrm{T}}$ muon candidates and assigns them to the correct bunch crossing.
++    The TGC system identifies high-$\pT$ muon candidates and assigns them to the correct bunch crossing.
+     It also provides a second coordinate measurement, complementing the precision tracking information from MDTs and CSCs.
+ \end{itemize}
+ 
+--- before/Chapters/CH5_MC_simulation.tex
++++ after/Chapters/CH5_MC_simulation.tex
+@@ -64,20 +64,20 @@
+ The CKKW--L merging procedure~\cite{Lonnblad2012CKKWL} prevents the same radiation from being included in both the matrix-element and parton-shower calculations.
+ The Durham $k_{\perp}$ merging scale is set to $15~\GeV$ and the $D$ parameter to 0.4. Together, they determine whether an emission is treated as an additional matrix-element parton or as part of the shower.
+ 
+-For the pure-left-handed interpretation, dedicated signal samples are generated for 152 combinations of $(M_U,g_U,\beta_L^{23})$ satisfying
++For the pure-left-handed interpretation, dedicated signal samples are generated for 152 combinations of $(\MU,\gU,\beta_L^{23})$ satisfying
+ \begin{align}
+-    1.5~\TeV &\leq M_U \leq 3.0~\TeV, \\
+-    0.5 &\leq g_U \leq 3.0, \\
++    1.5~\TeV &\leq \MU \leq 3.0~\TeV, \\
++    0.5 &\leq \gU \leq 3.0, \\
+     0 &\leq \beta_L^{23} \leq 2.2,
+ \end{align}
+ with $\beta_L^{33}=1$ and $\beta_R^{33}=0$.
+ The lower boundary of the mass scan covers the region around the exclusion limits obtained from previous leptoquark pair-production searches~\cite{ATLAS2023LQBTau,CMS2021LQThirdGen}.
+-For $M_U>3~\TeV$, the selected signal is dominated by non-resonant exchange, where the sensitivity is governed mainly by the ratio $g_U/M_U$.
+-The primary mass scan is therefore restricted to $M_U\leq3~\TeV$.
+-
+-For the right-handed interpretation with $|\beta_R^{33}|=1$, one baseline sample is generated at each of the six mass points $M_U\in\{1.5,2.0,2.5,3.0,4.0,5.0\}~\TeV$ with $g_U=1$ and $\beta_L^{23}=0.2$.
+-Predictions at other values of $g_U$ and $\beta_L^{23}$ are obtained from these baseline samples using corrected \textsc{MadGraph5\_aMC@NLO} internal event weights, rather than from separately generated samples at every parameter point.
+-The correction includes an adjustment of the normalisation and a two-dimensional truth-level shape correction based on the leading-jet $p_{\mathrm{T}}$ and $m_{b\tau}$.
++For $\MU>3~\TeV$, the selected signal is dominated by non-resonant exchange, where the sensitivity is governed mainly by the ratio $\gU/\MU$.
++The primary mass scan is therefore restricted to $\MU\leq3~\TeV$.
++
++For the right-handed interpretation with $|\beta_R^{33}|=1$, one baseline sample is generated at each of the six mass points $\MU\in\{1.5,2.0,2.5,3.0,4.0,5.0\}~\TeV$ with $\gU=1$ and $\beta_L^{23}=0.2$.
++Predictions at other values of $\gU$ and $\beta_L^{23}$ are obtained from these baseline samples using corrected \textsc{MadGraph5\_aMC@NLO} internal event weights, rather than from separately generated samples at every parameter point.
++The correction includes an adjustment of the normalisation and a two-dimensional truth-level shape correction based on the leading-jet $\pT$ and $m_{b\tau}$.
+ Details of the correction and its validation are given in Appendix~\ref{app:signal_weight_correction}.
+ This strategy avoids repeating event generation and detector simulation for every coupling configuration, thereby reducing the required computing resources.
+ 
+@@ -116,43 +116,37 @@
+ \section{Background samples}
+ \label{sec:background_samples}
+ 
+-Several SM processes are considered and studied using the simulation samples in this thesis.
+-The dominant background is $W\rightarrow\tau\nu$ production in association with jets, with the $\tau$-lepton decays hadronically.
+-Top-quark production is the sub-dominant background.
+-Both $t\bar{t}$ and single-top processes can produce $\tau$-leptons or other leptons together with neutrinos and $b$-jets from top-quark decay.
+-Smaller background contributions arise from $Z+\mathrm{jets}$ and diboson production.
+-The strategies used to constrain the dominant $W+\mathrm{jets}$ and top-quark backgrounds with collision data are described in Chapter~\ref{chapter:background_estimation}.
+-
+-$W/Z+\mathrm{jets}$ is simulated with \textsc{Sherpa}~2.2.11~\cite{Bothmann2019Sherpa22} except that $Z\rightarrow\tau\tau$ is generated with \textsc{Sherpa}~2.2.14.
+-Matrix elements are calculated at next-to-leading-order~(NLO) accuracy in QCD for configurations containing up to two additional partons and at LO for configurations containing up to five additional partons.
+-These matrix elements are merged with the \textsc{Sherpa} parton shower~\cite{Schumann2008SherpaPS} using the MEPS@NLO prescription~\cite{Hoche2012MEPSNLO,Hoche2013MEPSNLO,Catani2001MEPS,Hoche2009MEPS}.
+-The NNPDF3.0nnlo PDF set~\cite{Ball2015NNPDF30} is used for the hard-scattering calculation.
+-The combination of matrix elements with different jet multiplicities improves the description of the additional energetic jets that are important for this analysis, while the parton shower provides the softer and more collinear QCD radiation. %这段主要是前面出现过的configuration. 可以简单描述，不用加太多定语
+-
+-The high-$E_{\mathrm{T}}^{\mathrm{miss}}$ tail of $W\rightarrow\tau\nu+\mathrm{jets}$ production is particularly important because it constitutes the dominant background in the signal regions.% 又把之前说的重复了一遍。同一件事不需要反复提及。
+-However, only a small fraction of an inclusive $W\rightarrow\tau\nu$ sample reaches this high-energy phase space, resulting in limited MC statistics after the analysis selections.
+-In paticular, dedicated filtered $W\rightarrow\tau\nu$ samples are used to increase the number of simulated events in the tail region due to the high-$\met$ requirement. %在preamble加上\met, \mT， \pT， \gU, \MLQ，\Wtaunu等 这种比较长的公式alias,整篇文章用这些alias，来简化这些常用数学符号的输入并且增加可读性。
++The simulated SM backgrounds considered in this analysis are $W+\mathrm{jets}$, $Z+\mathrm{jets}$, $\ttbar$, single-top and diboson production.
++The dominant contribution is $\Wtaunu+\mathrm{jets}$ production.
++
++The $W/Z+\mathrm{jets}$ samples are generated with \textsc{Sherpa}~2.2.11~\cite{Bothmann2019Sherpa22}, except for $Z\rightarrow\tau\tau$, which uses version~2.2.14.
++Matrix elements include up to two additional partons at next-to-leading order~(NLO) in QCD and up to five at LO.
++They are merged with the \textsc{Sherpa} parton shower~\cite{Schumann2008SherpaPS} using the MEPS@NLO prescription~\cite{Hoche2012MEPSNLO,Hoche2013MEPSNLO,Catani2001MEPS,Hoche2009MEPS}.
++The NNPDF3.0nnlo PDF set~\cite{Ball2015NNPDF30} is used.
++
++Only a small fraction of inclusive $\Wtaunu$ events passes the high-$\met$ requirement, leaving limited MC statistics.
++Dedicated filtered samples are therefore used to increase the number of simulated events in this region.
+ 
+ One filtered sample targets events satisfying the generator-level requirements
+ \begin{align}
+-    70~\GeV < E_{\mathrm{T}}^{\mathrm{miss}} < 150~\GeV
++    70~\GeV < \met < 150~\GeV
+     \quad\mathrm{and}\quad
+-    p_{\mathrm{T}}^{\tau} < 150~\GeV,
++    \pT^{\tau} < 150~\GeV,
+ \end{align}
+ while the second targets events satisfying
+ \begin{align}
+-    E_{\mathrm{T}}^{\mathrm{miss}} > 150~\GeV
++    \met > 150~\GeV
+     \quad\mathrm{or}\quad
+-    p_{\mathrm{T}}^{\tau} > 150~\GeV.
++    \pT^{\tau} > 150~\GeV.
+ \end{align}
+ The two samples use the same \textsc{Sherpa}~2.2.11 generator configuration as the nominal $W+\mathrm{jets}$ simulation.
+ They differ from each other in the phase-space filter used to allocate generated events efficiently between the lower- and higher-energy regions.
+ Unlike the nominal $V+\mathrm{jets}$ samples, the dedicated samples are inclusive in the heavy-flavour category rather than being divided by separate bottom-, charm- and light-flavour filters.
+ 
+-The signal-region selections defined in Chapter~\ref{chapter:event_selection} require $E_{\mathrm{T}}^{\mathrm{miss}}>200~\GeV$ for the resonant selection and $E_{\mathrm{T}}^{\mathrm{miss}}>400~\GeV$ for the non-resonant selection.
++The signal-region selections defined in Chapter~\ref{chapter:event_selection} require $\met>200~\GeV$ for the resonant selection and $\met>400~\GeV$ for the non-resonant selection.
+ The high-energy filtered sample is therefore designed to cover the signal-region phase space and substantially improves the available MC statistics.
+-Some control regions are instead selected using single-electron or single-muon triggers and extend to phase-space regions not fully covered by the high-$E_{\mathrm{T}}^{\mathrm{miss}}$ filter.
+-The nominal $W\rightarrow\tau\nu$ samples are used in these regions where appropriate.
++Some control regions are instead selected using single-electron or single-muon triggers and extend to phase-space regions not fully covered by the high-$\met$ filter.
++The nominal $\Wtaunu$ samples are used in these regions where appropriate.
+ The generator-filter efficiencies are included in the sample normalisation, and the same $W+\mathrm{jets}$ background component is subsequently constrained by the corresponding control-region data in the statistical analysis.
+ % TODO before submission: document the nominal-versus-filtered overlap removal
+ % and the validation of migrations across the generator-level filter boundary.
+@@ -160,15 +154,15 @@
+ Top-quark pair production is generated at NLO accuracy in QCD using \textsc{Powheg Box}~v2~\cite{Frixione2007PowhegHF,Nason2004Powheg,Frixione2007Powheg,Alioli2010PowhegBox}, interfaced to \textsc{Pythia}~8.230~\cite{Sjostrand2015Pythia82} for parton showering, hadronisation and the underlying event.
+ The A14 tune is used for the underlying-event model.
+ The NNPDF3.0nlo PDF set is used for the hard-scattering calculation.
+-The predicted $t\bar{t}$ yield is normalised to the inclusive production cross-section calculated at NNLO in QCD with NNLL soft-gluon resummation~\cite{CzakonMitov2014TopPP}.
+-
+-A generic $t\bar{t}$ event can contain zero, one or two charged leptons from the decays of the two $W$ bosons produced in the top-quark decays.
+-The large $E_{\mathrm{T}}^{\mathrm{miss}}$ and transverse-mass requirements used in this analysis strongly suppress fully hadronic and semileptonic $t\bar{t}$ events.
+-After the selections defined in Chapter~\ref{chapter:event_selection}, more than $95\%$ of the selected $t\bar{t}$ background originates from dileptonic decays.
+-A dilepton-filtered $t\bar{t}$ sample is therefore used to increase the available MC statistics for the part of the top-quark phase space relevant to the analysis.
++The predicted $\ttbar$ yield is normalised to the inclusive production cross-section calculated at NNLO in QCD with NNLL soft-gluon resummation~\cite{CzakonMitov2014TopPP}.
++
++A generic $\ttbar$ event can contain zero, one or two charged leptons from the decays of the two $W$ bosons produced in the top-quark decays.
++The large $\met$ and transverse-mass requirements used in this analysis strongly suppress fully hadronic and semileptonic $\ttbar$ events.
++After the selections defined in Chapter~\ref{chapter:event_selection}, more than $95\%$ of the selected $\ttbar$ background originates from dileptonic decays.
++A dilepton-filtered $\ttbar$ sample is therefore used to increase the available MC statistics for the part of the top-quark phase space relevant to the analysis.
+ 
+ Single-top-quark production in the $s$-channel, $t$-channel and associated $Wt$ production is also generated at NLO accuracy with \textsc{Powheg Box}~v2 interfaced to \textsc{Pythia}~8.230~\cite{Nason2004Powheg,Frixione2007Powheg,Alioli2010PowhegBox,Sjostrand2015Pythia82}.
+-Among the three production modes, associated $Wt$ production provides the largest single-top contribution after the analysis selections because its final state can resemble dileptonic $t\bar{t}$ production while containing genuine missing transverse momentum, leptons and a $b$-jet.
++Among the three production modes, associated $Wt$ production provides the largest single-top contribution after the analysis selections because its final state can resemble dileptonic $\ttbar$ production while containing genuine missing transverse momentum, leptons and a $b$-jet.
+ 
+ The $Z+\mathrm{jets}$ background enters the selected sample through several mechanisms.
+ In particular, $Z\rightarrow\nu\nu+\mathrm{jets}$ events contain genuine missing transverse momentum and can satisfy the signal selection when a jet is misidentified as a hadronically decaying $\tau$-lepton.
+@@ -176,7 +170,7 @@
+ The $Z\rightarrow\tau\tau$ process provides a smaller contribution containing genuine $\tau$-leptons and neutrinos from the $\tau$ decays.
+ 
+ Diboson production is also modelled with \textsc{Sherpa}.
+-Its contribution is small after the large-$E_{\mathrm{T}}^{\mathrm{miss}}$ and high-energy selections used in the analysis.
++Its contribution is small after the large-$\met$ and high-energy selections used in the analysis.
+ 
+ % Source reconciliation required before submission: Table 4.1 of
+ % ANA-EXOT-2025-06-INT1 lists Sherpa 2.2.11/2.2.12 QCD samples and Sherpa
+@@ -185,7 +179,7 @@
+ % leptonic modes. Confirm the final DSIDs and production configuration.
+ 
+ Multijet production and fully hadronic top-quark and diboson decays can enter the selected phase space when detector resolution or jet mismeasurement produces apparent missing transverse momentum.
+-These processes are strongly reduced by the event-cleaning requirements and by the large $E_{\mathrm{T}}^{\mathrm{miss}}$ selection.
++These processes are strongly reduced by the event-cleaning requirements and by the large $\met$ selection.
+ Their residual contribution is found to be negligible and is therefore not retained as a significant background component in the final background prediction.
+ 
+ The principal MC generator configurations are summarised in Table~\ref{tab:mc_generator_summary}.
+@@ -226,7 +220,7 @@
+         & NNPDF3.0nnlo
+         & \textsc{Sherpa} default \\
+ 
+-        $W\rightarrow\tau\nu+\mathrm{jets}$
++        $\Wtaunu+\mathrm{jets}$
+         & \textsc{Sherpa} 2.2.11
+         & NLO
+         & \textsc{Sherpa}
+@@ -247,7 +241,7 @@
+         & NNPDF3.0nnlo
+         & \textsc{Sherpa} default \\
+ 
+-        $t\bar{t}$
++        $\ttbar$
+         & \textsc{Powheg Box} v2
+         & NLO
+         & \textsc{Pythia} 8.230
+@@ -283,18 +277,18 @@
+ The ATLAS Run~2 trigger architecture was described in Chapter~\ref{chapter:LHC_ATLAS_experiment}.
+ Only the trigger selections used specifically in this analysis are discussed here.
+ 
+-The signal regions target events containing a high-$p_{\mathrm{T}}$ hadronically decaying $\tau$-lepton and a neutrino, resulting in large missing transverse momentum.
+-The signal-region event selection therefore uses the lowest-threshold unprescaled $E_{\mathrm{T}}^{\mathrm{miss}}$ trigger available in each Run~2 data-taking period~\cite{ATLASMETTriggerRun2}.
+-The corresponding HLT threshold was typically about $110~\GeV$, although the online $E_{\mathrm{T}}^{\mathrm{miss}}$ reconstruction algorithm and the detailed trigger configuration changed during Run~2~\cite{ATLASMETTriggerRun2}.
+-
+-The efficiency of an $E_{\mathrm{T}}^{\mathrm{miss}}$ trigger does not change abruptly at its nominal threshold.
+-Instead, the trigger efficiency increases through a turn-on region before reaching an approximately constant plateau at sufficiently large offline $E_{\mathrm{T}}^{\mathrm{miss}}$.
++The signal regions target events containing a high-$\pT$ hadronically decaying $\tau$-lepton and a neutrino, resulting in large missing transverse momentum.
++The signal-region event selection therefore uses the lowest-threshold unprescaled $\met$ trigger available in each Run~2 data-taking period~\cite{ATLASMETTriggerRun2}.
++The corresponding HLT threshold was typically about $110~\GeV$, although the online $\met$ reconstruction algorithm and the detailed trigger configuration changed during Run~2~\cite{ATLASMETTriggerRun2}.
++
++The efficiency of an $\met$ trigger does not change abruptly at its nominal threshold.
++Instead, the trigger efficiency increases through a turn-on region before reaching an approximately constant plateau at sufficiently large offline $\met$.
+ Using events within this plateau avoids introducing a strong trigger-efficiency dependence into the kinematic distributions used by the analysis.
+ 
+-The offline $E_{\mathrm{T}}^{\mathrm{miss}}$ requirements of the signal regions defined in Chapter~\ref{chapter:event_selection} are chosen well above the trigger turn-on region.
+-The resonant signal regions require $E_{\mathrm{T}}^{\mathrm{miss}}>200~\GeV$, while the non-resonant signal regions require $E_{\mathrm{T}}^{\mathrm{miss}}>400~\GeV$.
+-Consequently, events entering the signal regions lie on the efficiency plateau of the $E_{\mathrm{T}}^{\mathrm{miss}}$ trigger, and the trigger requirement does not introduce a significant distortion of the selected signal-region kinematics.
+-The same $E_{\mathrm{T}}^{\mathrm{miss}}$ trigger strategy is used for the corresponding $\tau$-based validation regions where appropriate.
++The offline $\met$ requirements of the signal regions defined in Chapter~\ref{chapter:event_selection} are chosen well above the trigger turn-on region.
++The resonant signal regions require $\met>200~\GeV$, while the non-resonant signal regions require $\met>400~\GeV$.
++Consequently, events entering the signal regions lie on the efficiency plateau of the $\met$ trigger, and the trigger requirement does not introduce a significant distortion of the selected signal-region kinematics.
++The same $\met$ trigger strategy is used for the corresponding $\tau$-based validation regions where appropriate.
+ 
+ The control regions described in Chapter~\ref{chapter:background_estimation} contain an electron or muon in place of, or in addition to, the hadronically decaying $\tau$-lepton signature and are used to constrain the dominant $W+\mathrm{jets}$ and top-quark backgrounds.
+ These events are selected using the lowest-threshold unprescaled single-electron and single-muon triggers~\cite{ATLASElectronTriggerRun2,ATLASMuonTriggerRun2}.
+--- before/Chapters/CH8_Background_estimation.tex
++++ after/Chapters/CH8_Background_estimation.tex
+@@ -3,7 +3,7 @@
+ 
+ \section{Strategy overview}
+ \section{$W$+jets estimation}
+-\section{$t\Bar{t}$ estimation}
++\section{$\ttbar$ estimation}
+ \section{Fake-$\tau$ estimation}
+ \section{Multi-jet cleaning}
+-\section{VRs}
+\ No newline at end of file
++\section{VRs}
+--- before/Chapters/object_definition/met.tex
++++ after/Chapters/object_definition/met.tex
+@@ -1,4 +1,4 @@
+ 
+-The missing transverse momentum, denoted by $E_{\mathrm{T}}^{\mathrm{miss}}$, is reconstructed from the negative vector sum of the transverse momenta of calibrated physics objects, together with additional contributions from tracks or calorimeter energy deposits depending on the reconstruction algorithm. 
++The missing transverse momentum, denoted by $\met$, is reconstructed from the negative vector sum of the transverse momenta of calibrated physics objects, together with additional contributions from tracks or calorimeter energy deposits depending on the reconstruction algorithm. 
+ It is sensitive to particles that escape detection, such as neutrinos. 
+-For the leptoquark search presented in this thesis, large $E_{\mathrm{T}}^{\mathrm{miss}}$ is an important feature of the signal region.
++For the leptoquark search presented in this thesis, large $\met$ is an important feature of the signal region.
+--- before/Preamble/preamble.tex
++++ after/Preamble/preamble.tex
+@@ -209,17 +209,24 @@
+ 
+ % ******************* My custom preamble ***************
+ \newcommand{\subsubtitle}[1]{\noindent\textbf{#1} \quad}
+-\newcommand*{\mt}{\ensuremath{m_{\text{T}}}\xspace}
+-\newcommand*{\pt}{\ensuremath{p_{\text{T}}}\xspace}
++% Common physics notation; commands work in both text and math mode.
++\newcommand*{\met}{\ensuremath{E_{\mathrm{T}}^{\mathrm{miss}}}\xspace}
++\newcommand*{\mT}{\ensuremath{m_{\mathrm{T}}}\xspace}
++\newcommand*{\pT}{\ensuremath{p_{\mathrm{T}}}\xspace}
++\newcommand*{\gU}{\ensuremath{g_U}\xspace}
++\newcommand*{\MU}{\ensuremath{M_U}\xspace}
++\newcommand*{\MLQ}{\ensuremath{M_{\mathrm{LQ}}}\xspace}
++\newcommand*{\Wtaunu}{\ensuremath{W\rightarrow\tau\nu}\xspace}
++\newcommand*{\ttbar}{\ensuremath{t\bar{t}}\xspace}
++% Compatibility with the original lower-case commands.
++\newcommand*{\mt}{\mT}
++\newcommand*{\pt}{\pT}
+ \newcommand*{\RD}{\ensuremath{R(D^{(*)})}}
+ \newcommand{\DphiTauMet}{\ensuremath{\Delta\phi(\tau, \met)}\xspace}
+ \newcommand{\DphiLepMet}{\ensuremath{\Delta\phi(\ell, \met)}\xspace}
+-\newcommand{\DphiJetMet}{\ensuremath{\Delta\phi(\met, \pt^{\text{jet}})}\xspace}
+-\newcommand{\minDphiJetPt}{\ensuremath{\pt^{\text{jet}(\min{\Delta\phi)}}}\xspace}
+-\newcommand{\MLQ}{\ensuremath{M_{\text{LQ}}}\xspace}
+-\newcommand{\ttbar}{\ensuremath{t\Bar{t}}\xspace}
++\newcommand{\DphiJetMet}{\ensuremath{\Delta\phi(\met, \pT^{\text{jet}})}\xspace}
++\newcommand{\minDphiJetPt}{\ensuremath{\pT^{\text{jet}(\min{\Delta\phi)}}}\xspace}
+ \newcommand{\betaL}{\ensuremath{\beta_L^{23}}\xspace}
+-\newcommand{\met}{\ensuremath{E_\text{T}^\text{miss}}\xspace}
+ \newcommand{\MeV}{\ensuremath{\mathrm{MeV}}}
+ \newcommand{\GeV}{\ensuremath{\mathrm{GeV}}}
+ \newcommand{\TeV}{\ensuremath{\mathrm{TeV}}}

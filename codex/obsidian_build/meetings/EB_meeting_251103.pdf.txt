@@ -1,0 +1,397 @@
+### PAGE 1
+𝜏𝜈+bsearch in LHC-ATLAS motivated by B anomaly:EditorialBoardmeetingJiaqi Zang,T akuyaNobe,To m o y aIizawa,JunichiT anakaTheUniversityofTo k y o03/11/2025
+1
+Based on https://arxiv.org/abs/2111.047482025/11/03 Jiaqi ZANGEB meeting
+NOTES: 
+
+### PAGE 2
+Physics motivation – B anomaly•Lepton Flavor Universality (LFU)ØWeakinteractionisuniversalfor3leptonflavorsinStandardModel.
+2025/11/03 Jiaqi ZANGEB meeting 2
+•SignsofLFUviolationintheBmesondecaysarereported.Ø𝑏→𝑐𝑙𝜈 :𝜏vs.lightleptons(𝜇,𝑒).Ø~3.0𝜎excessoverSM(𝐷and𝐷∗combined).ØLeptoquark(LQ)isapossibleexplanationofsuchviolation.
+SM
+BSM
+3𝜎
+NOTES: 
+
+### PAGE 3
+!"
+2025/11/03 Jiaqi ZANGEB meeting 3
+Signal(non-resonance)•Eventtopology:exact1hadronictau+exact1b-jet(hard/softpT)+largemET.•Targetsignal:𝜏𝜈+bjet(hard/soft)
+*high𝑝!"andhigh𝐸!#$%%
+•Final state never explored by ATLAS/CMS.•Lookfortheuniqueparameterspacethatsensitiveto𝑐𝜈coupling
+Softbjet Signal(resonance)
+* Hardbjet(>250GeV)
+Analysisoverview•Weareundertau+Xumbrellautilizingthecommonframeworkdevelopedbythegroup.(𝜏𝜈+𝑏LQsearchglance,Tau+Xglance)•TargetingananalysiswithonlyRun-2dataandthequickpublicationaroundtheendof2025.EBrequestisgivenatLepton+XweeklyonSep.8th.(indico)
+NOTES: 
+
+### PAGE 4
+UpdatessinceEBrequest•R22electroneffSFsandlatestF-tagrecommendationisupdated.•ThemuonWPischanged.(medium+looseisolationàmedium+tightisolation.)•Thevalidationforthetheoryuncertaintiesestimationisperformed.Nodistinctissueisfound.•ThelargecorrelatedNFsareinvestigated.Theyareunderstoodnow.•Newsignals(567621~567624)withinternalweightcorrectedisstudied.•TheresultsareupdatedwithupdatedSFsandsignals.
+2025/11/03 Jiaqi ZANGEB meeting 4
+NOTES: 
+
+### PAGE 5
+FrameworksandMCsamples
+2025/11/03 Jiaqi ZANGEB meeting 5
+•ProcesschainTopCPToolKitàFastFrameàTRexFitterisused.§TopCPToolKit 2.17.1andTau+XTopCPToolkit/FastFrameimplementationareused.§IncludedallCPrecommededuncertaintiestontuples.§Specialntupleproductionwithcustomizedskimmingfortheanalysisisgenerated.(TopCPKitforsubmissionandFastFramefortaunubsearch)§Thentuplesareproducedwith R22 egamma SFsandlatestb-tagrecommendation(MC20_2025-06-17_GN2v01_v4).•Samplesareskimmedwitheventsthatsatisfieseitherof:Ø1𝜏0𝑙:𝑝!">50GeV,𝐸!#$%%>150GeV.Ø1𝜏1𝑙:𝑝!">50GeV,𝑝!&/(>20GeV,𝐸!#$%%>50GeV.Ø0𝜏1𝑙:𝑝!&/(>20GeV,𝐸!#$%%>150GeV.
+NOTES: 
+
+### PAGE 6
+MCsamples
+2025/11/03 Jiaqi ZANGEB meeting 6
+•SignalreweightingiscurrentlyperformedfordifferentLQcouplings.•NewBSMsignalsampleswithdifferentparameterinternalweightsandmasspointrangearerequestedanddone.(JIRA)•FortheresultsshowninEBrequestandcurrentinternalnote,weusedthesamples(DSID537131~537142).Todaywewillpresenttheresultsstudiedwithnewsamples(DSID567621~567624)appliedwithweightcorrection.•Arequestforthesignalswithallmasspointsandnecessary(𝑔$,𝛽%&')setareconsideredafterthediscussionwithPMGexperts.Theweightcorrectionisusedfornowbutnotforthefinalinterpretation.
+Weightcorrectedbytruth
+NOTES: 
+
+### PAGE 7
+MCsamples
+2025/11/03 Jiaqi ZANGEB meeting 7
+Backgrounds(p6490)Special mET-filtered sample
+•The ATLAS Xsec file forspecialmET-filtered Wàtaunu samples missed hadronic tau branch fraction. Checked out to local xsec filefornow. 
+NOTES: 
+
+### PAGE 8
+Objectdefinitions
+2025/11/03 Jiaqi ZANGEB meeting 8
+Electron(signal: TightLH+HighPtCaloOnly)
+Muon(signal:medium+Tight_VarHad)
+Tau(signal:TightRNN)
+jets
+NOTES: 
+
+### PAGE 9
+Signalregionoptimization
+2025/11/03 Jiaqi ZANGEB meeting 9
+•Eventtopology:exact1hadronictau+exact1b-jet(hard/softpT)+largemET.•SignalregionoptimizationØA scan with various variable sets is performed.ØThe variable set which give the largest significance is chosen.ØScanwithcondition𝐵𝑘𝑔)*)+,>2(140fb-1)ØAppliedontopofthebaselineselection.
+
+NOTES: 
+
+### PAGE 10
+Signalregionandbackgroundcomposition
+2025/11/03 Jiaqi ZANGEB meeting 10
+•Bothdominant(𝑊→𝜏𝜈)andsub-dominant(Top)BGsareirreduciblebackground(truetau).•After the hard mET requirement, fake tau background is marginal (<10%).•Faketauestimation:ØMainlyfromtheminorbackground𝑍→𝜈𝜈+𝜏(fake),theconservative50%uncertaintyissetforthefakeestimationafterinvestigatinginZllVRwithMCsamples.
+𝑾→𝝉𝝂SingleTop𝒕̅𝒕Diboson𝒁+jetsAllBGsSoftb-jetSR1.5±0.20.1±0.10.2±0.10.4±0.10.2±0.12.4±0.3Hardb-jetSR1.6±0.50±0.10.3±0.10.1±0.10.2±0.12.1±0.5
+•Event yields(tobeupdated)
+NOTES: 
+
+### PAGE 11
+Backgroundestimationstrategy
+2025/11/03 Jiaqi ZANGEB meeting 11
+•SRandCRdefinition:ØSR:1tau+mET+1bØWCR:1e/1mu+mET+bvetoØTopCR:1e/1mu+1tau+bjets•Validationregionselection:Ø1e/1muà1tauextrapolation:validatedinWVR1tauandTopVR1tau.Øbvetoàbtagextrapolation:validatedinVR0tau.
+ !!
+!"!!
+"",$"
+!!
+!"
+!!̅di-leptonicdecay(SR)!!̅di-leptonicdecay(CR)
+Mis-identified
+NOTES: 
+
+### PAGE 12
+N-1 distribution in CRs(tobeupdated?)
+2025/11/03 Jiaqi ZANGEB meeting 12
+Resonance
+WCR(1e)
+Non-Resonance
+WCR(1mu)
+NOTES: 
+
+### PAGE 13
+2025/11/03 Jiaqi ZANGEB meeting 13
+TopCR(1e)N-1 distribution in CRs(tobeupdated?)
+TopCR(1mu)
+Resonance
+Non-Resonance
+NOTES: 
+
+### PAGE 14
+Theory uncertainty estimation•TheoryuncertaintiesforW+jetsandtopbackgroundareestimated,byfollowingPMGrecommendations.•Exception:thefractionofb/cjetsinW+jetsaffectsouranalysis,thatis,thefractionofb/cjetscouldbethesourceoftheW+jetsmodelinguncertaintieswhenextrapolatingthefitresultsfromb-vetoCRtotheb-tagSR/VRs.àWedecidedtoapplyadditional20%uncertaintyforW+jets.(willalsotrywith10%/30%)•Theuncertaintyof“transferfactor(CRàSR)”isestimated.•Mostofuncertaintiesarecancelledout between SR/VR and CRandfoundtobelessthan20%.•CRdefinitionisgood,andwecanusethephasespaceverysimilartoSR/VR.•Unexpectedlargeuncertaintiesarefound:e.g.TopPS.Andtheyareunderinvestigation.•Couldbeduetothestatuncertainty.•SRsselectionarerelaxed(1𝑏à≥1𝑏,removejetmultiplicityrequirement)onlywhenthealternativesampleshavetoofewevents.•The353QHsmoothalgorithmisappliedtothoseuncertainties.2025/11/03 Jiaqi ZANGEB meeting 14
+NOTES: 
+
+### PAGE 15
+Theoryuncertaintyestimation
+2025/11/03 Jiaqi ZANGEB meeting 15
+•Resonance regions
+
+NOTES: 
+
+### PAGE 16
+Theoryuncertaintyestimation
+2025/11/03 Jiaqi ZANGEB meeting 16
+•Non-Resonance regions
+
+NOTES: 
+
+### PAGE 17
+Studiesonthesignalreweightissue•Sincethen,thereweightingofthesignalsareusedtocalculatethesignificancefordifferentLQcoupling.•Thiswasfoundtobeofffromthetruthstudy.
+2025/11/03 Jiaqi ZANGEB meeting 17
+•TruthdistributionrefertotalkfromJunichi.MU=1.5TeV.•Ref:truthdistributionw/oreweighting.Weighted:reweightingw/ocorrection.
+𝛽%&',𝑔$=(0.2,0.5)𝛽%&',𝑔$=(0.2,3.0)
+Theresonancesignalwasover-estimatedasgUgoesup.
+NOTES: 
+
+### PAGE 18
+•Affectionsonthesignalacceptance.•Blue:Reweightedeventsw/ocorrection.Red:Reweightedeventswithcorrection•Parameters:𝑀-=1.5TeV,𝑔-=1.0,𝛽./0=0.2.
+2025/11/03 Jiaqi ZANGEB meeting 18
+Studiesonthesignalreweightissue
+
+NOTES: 
+
+### PAGE 19
+•Affectionsonthesignalacceptance.•Blue:Reweightedeventsw/ocorrection.Red:Reweightedeventswithcorrection•Parameters:𝑀-=1.5TeV,𝑔-=1.0,𝛽./0=0.2.
+2025/11/03 Jiaqi ZANGEB meeting 19
+Studiesonthesignalreweightissue
+Selection:Initial(Nocut)
+NOTES: 
+
+### PAGE 20
+•Affectionsonthesignalacceptance.•Blue:Reweightedeventsw/ocorrection.Red:Reweightedeventswithcorrection•Parameters:𝑀-=1.5TeV,𝑔-=1.0,𝛽./0=0.2.
+2025/11/03 Jiaqi ZANGEB meeting 20
+Studiesonthesignalreweightissue
+Selection:mET>200GeV
+Theover-estimationonlyaffecttheresonancesignals
+NOTES: 
+
+### PAGE 21
+•Affectionsonthesignalacceptance.•Blue:Reweightedeventsw/ocorrection.Red:Reweightedeventswithcorrection•Parameters:𝑀-=2.5TeV,𝑔-=2.5,𝛽./0=1.0.
+2025/11/03 Jiaqi ZANGEB meeting 21
+Studiesonthesignalreweightissue
+
+NOTES: 
+
+### PAGE 22
+•Affectionsonthesignalacceptance.•Blue:Reweightedeventsw/ocorrection.Red:Reweightedeventswithcorrection•Parameters:𝑀-=2.5TeV,𝑔-=2.5,𝛽./0=1.0.
+2025/11/03 Jiaqi ZANGEB meeting 22
+Studiesonthesignalreweightissue
+Selection:uptosingleb-jet
+Theover-estimationisalsoobservedinResonanceSRathighermassandgUregion.
+NOTES: 
+
+### PAGE 23
+Fitstrategy
+2025/11/03 Jiaqi ZANGEB meeting 23
+•Thefitisperformedwith1binforeachregionandSRisblinded.•BothdataandMCareuseddependingonregions:SRs(Asimov)andCRs(data).ØTheAsimovdataisconstructedusingS+Bmodel.ØBackgroundpseudo-dataconstructioninSRsisbasedontheNPvaluesobtainfromB-onlyfit.ØSignalstrength𝜇issetto0fortheB-onlyfitand1fortheS+Bfit.•TRExFitterconfig:•BlindSRs:True•FitBlind:False•CorrelationThreshold:0.2•SystPruningNorm:0.01(~0.1%sensitivitylosswhenincludeallSys)•SystPruningShape:0.01•ReferencesignalusedforS+Bfit:Ø𝑚-=1.5TeV,𝑔-=1.5,𝛽./0=0.2•Normalizationfactors:•𝜆)1&%,𝜆)2*341&%forTopCR,𝜆51&%,𝜆52*341&%forWCR
+NOTES: 
+
+### PAGE 24
+•Fit region: CRs
+2025/11/03 Jiaqi ZANGEB meeting 24
+B-onlyfitresults(CRonlyfit,tobeupdated)
+NOTES: 
+
+### PAGE 25
+•Fit region: CRs
+2025/11/03 Jiaqi ZANGEB meeting 25
+•Thediscrepancybetweendata/MCinnon-resonanceVR0tauis1.8sigma.
+B-onlyfitresults(CRonlyfit,tobeupdated)
+NOTES: 
+
+### PAGE 26
+B-onlyfitresults(CRonlyfit,tobeupdated)
+2025/11/03 Jiaqi ZANGEB meeting 26
+•NPCorrelations
+NOTES: 
+
+### PAGE 27
+•Fit region: SRs+CRs•Signal stength: 0
+2025/11/03 Jiaqi ZANGEB meeting 27
+B-onlyfitresults(SR+CR,tobeupdated)
+NOTES: 
+
+### PAGE 28
+•Fit region: SRs+CRs
+2025/11/03 Jiaqi ZANGEB meeting 28
+•TheresultsarethesameasfitregioninCRasexpected.
+B-onlyfitresults(SR+CR,tobeupdated)
+
+NOTES: 
+
+### PAGE 29
+2025/11/03 Jiaqi ZANGEB meeting 29
+•𝑚$,𝛽%&',𝑔$=(1500,1.5,0.2)
+•Leadingsystematics(w/otheoryuncertainties)•WjetsHFmodeling•TauTESsmearing•FTefficiency(light)
+S+Bfitresults(tobeupdated)
+NOTES: 
+
+### PAGE 30
+2025/11/03 Jiaqi ZANGEB meeting 30
+•𝑚$,𝛽%&',𝑔$=(2500,2.5,0.6)
+•Comparing with result form 𝑚$=1.5 TeVØThe component of Flavor tagging is changed. (light jet à bjets)ØThenon-resonancesignalbecomemoreimportantinthehigh-massregion,whichrequireshighb-jetpT.
+•Leadingsystematics(w/otheoryuncertainties)•TauTESsmearing•WjetsHFmodeling•Pileup•FT(b)
+S+Bfitresults(tobeupdated)
+NOTES: 
+
+### PAGE 31
+Expectedlimitswithexperimentalsystematics(tobeupdated)
+2025/11/03 Jiaqi ZANGEB meeting 31
+•Expected95%CLexclusionlimitsindifferentparameterspaces.MU=1.5TeVMU=2.5TeVMU=3TeV
+•Thesensitivityatlow𝑔$andhigh-massregiondoesnotchangemuchdifference.
+NOTES: 
+
+### PAGE 32
+Expectedlimitswithexperimentalsystematics(tobeupdated)
+2025/11/03 Jiaqi ZANGEB meeting 32
+•Expected95%CLexclusionlimitsindifferentparameterspaces.𝛽%&'=0.2
+ 𝛽%&'=1.0 𝛽%&'=2.2
+
+NOTES: 
+
+### PAGE 33
+Summary
+2025/11/03 Jiaqi ZANGEB meeting 33
+•The analysis startegy is alreadyfinalized.•Thentuples production with full systematics are done with p6490.•The data/MC studies for CRs and VRs are done. No distinct issue is found in the CR distributions. The discrepancy of data and MC in non-resonance VR0tau is considered due to the statistics fluctuation.•The theory and experimental systematics study isdone.Nodistinctissueisfound.•B-only/S+B fit is performedwithsignalscorrectedwithtruth. No significant issue is observed. •Theresonanceprocesswasover-estimatedatlowmassandlow𝑔$regioninoldsamples.Theresultswithsuchissuefixedareupdated.Theexpectedlimitcanstillexploretheb-anomaly-favoredregionathighmass.•Thesignalsrequestforthefinalinterpretationswithoutreweightingareon-going.•Wearetargetingtheunblindandpapercirculationthisyear.
+NOTES: 
+
+### PAGE 34
+34
+Backup
+2025/11/03 Jiaqi ZANGEB meeting
+NOTES: 
+
+### PAGE 35
+Theoryuncertaintysummary
+2025/11/03 Jiaqi ZANGEB meeting 35
+
+NOTES: 
+
+### PAGE 36
+Theory uncertainty validation
+2025/11/03 Jiaqi ZANGEB meeting 36
+•Relaxed region validation
+Double Ratio = -0.04Double Ratio = -0.08•Consist before/after relax the SR selection.
+NOTES: 
+
+### PAGE 37
+Theory uncertainty validation
+2025/11/03 Jiaqi ZANGEB meeting 37
+•Smoothing validation
+Double Ratio = 0.27±0.10Double Ratio = 0.15±0.12
+•Consist before/after applying the smoothing.
+NOTES: 
+
+### PAGE 38
+B-onlyfitresults(CRonlyfit)
+2025/11/03 Jiaqi ZANGEB meeting 38
+•NPCorrelations
+NOTES: 
+
+### PAGE 39
+Normfactorcorrelationissue.
+2025/11/03 Jiaqi ZANGEB meeting 39
+w/HADTAUSMETESDETECTORw/oHADTAUSMETESDETECTOR•Theresonance/non-resonanceTopnormfactorsarecorrelatedduetotheNPsthattakeeffecttobothresonance/non-resonanceTopCR
+NOTES: 
+
+### PAGE 40
+2025/11/03 Jiaqi ZANGEB meeting 40
+e/muinconsistencyinWCR
+•Data yield comparison in 1e/1mu WCR•Simulation yield comparison in 1e/1mu WCR
+•Data/MC(Non-resonanceWCR):0tau1e0b:1.017±0.0950tau1mu0b:0.79±0.07
+•2.6 sigma discrepency for data and 0.7 sigma for MC are observed.
+1.9sigmaNFinconsistencybetweene/muchannel
+NOTES: 
+
+### PAGE 41
+Event weights in non-resonance WCR
+2025/11/03 Jiaqi ZANGEB meeting 41
+1mu non-resonance WCR1e non-resonance WCR•Weight_total = weight_mc * weight_pileup * lumi * xSec / SumWeights
+•Difference from MC samples mainly from the specific large weight events (weight~30).•Withloosercuts,agreementimproved.àwillcheckthesensitivitywithlooseCRlater.(betterstatisticaluncertaintyv.s.systematicsincreasedbydifferentphasespacebtwSR/CR.)•Thedifferenceiscomingfromstatisticalfluctuation•e-andmu-channelsarecombinedforstat.•TrytoperformthefittoCRsandapplytheresultsto1tauVRstocheckthevalidities.
+
+NOTES: 
+
+### PAGE 42
+2025/11/03 Jiaqi ZANGEB meeting 42
+•Summary plots:
+Nominal-only fitinCR
+•ThediscrepancybetweendataandMCinnon-resonance0tauVRis3.1sigma.
+NOTES: 
+
+### PAGE 43
+0tau1l1bvalidation regioninvestigation
+2025/11/03 Jiaqi ZANGEB meeting 43
+•Cutflow
+•Discrepancy(mainlyfromWmunu)appearedsincemetcut,nexttocheckN-1distribution…
+NOTES: 
+
+### PAGE 44
+0tau1l1bvalidation regioninvestigation
+2025/11/03 Jiaqi ZANGEB meeting 44
+•Cutflow
+MetN-1•425 < mET< 450 GeV && 300 < lep0 pT < 400 GeV is off.•e-channel:5events.•Mu-channel:7events.
+
+NOTES: 
+
+### PAGE 45
+•Acloserlookatjet/leptoneta/phiinthe0tauVRwithcut425 < mET< 450 GeV.
+2025/11/03 Jiaqi ZANGEB meeting 45
+0tau1l1bvalidation regioninvestigation
+•Nodistinctfeaturefoundinspecificregion/period.Couldduetolackofstats.
+NOTES: 
+
+### PAGE 46
+2025/11/03 Jiaqi ZANGEB meeting 46
+0tau1l1bvalidation regioninvestigation•N-1distribution
+MetN-1 metN-1(mT>400GeV)•Discrepancyislocalizedin425<mET<450GeVwithoverall3.1sigma.•IfweloosenthemETcut>300GeV,data/MCagreementisimprovedto1.8sigma.•IfwetightenthemETcut>500GeV,data/MCagreementisalsoimprovedto1.5sigma.•IfweloosenthemTcutto>400GeV,agreementisimprovedtosigma2.1.•Ifweincludethejetsystematicsuncertainties,theagreementisrelaxedtosigma2.9
+NOTES: 
+
+### PAGE 47
+Signalreweightingstudy•Junichihasmadeapresentationonthis.(indico)•MadGraphMEreweightingfor(𝑔$,𝛽%&')scangenerallyworkswell.•Especiallyatsmall𝑔$.StrongcouplingisrelativelylargerthanNPcoupling,andthereweightingdoesnotworkwell.Perhapsatthatregion,theassumption𝑋𝑠𝑒𝑐∝𝑔$9isnotreliable.•Wewillapplyadditionaltruth-levelreweightingusingb-jetptandM(tau,b).
+2025/11/03 Jiaqi ZANGEB meeting 47
+𝑔:&
+𝑔$&
+𝛽&'(∈(0,2.2)
+NOTES: 
+
+### PAGE 48
+Multi-jetcleaning–Purposeandstrategy
+2025/11/03 Jiaqi ZANGEB meeting 48
+•Purpose:Cleanupthemulti-jetbackgroundinthesignalregion.•Strategy:Utilizefeatureofremainedmulti-jetprocessinSR.àThoseeventsarefulloffake𝐸!#$%%duetojetresolutioneffectsandlargecrosssection.àFake𝐸!#$%%tendstothedirectionofhardjetandhavelowerorhigherenergy.
+Trueandfake𝐸@AB::topology
+•Angulardistributionofmulti-jetafterpre-selection.
+Multi-jetsenrichedintheshadedregionSignal(w/𝜈)
+Multi-jet(w/o𝜈)
+
+NOTES: 
+
+### PAGE 49
+Multi-jetcleaning–Rejectionratio
+2025/11/03 Jiaqi ZANGEB meeting 49
+•Acutof𝑚𝑖𝑛ΔΦ(𝑝!#$%%,𝑝!6)>0.4||𝐸!#$%%/𝑝!6>6isselected.Ø86%multi-jetbackgroundrejection.Ø3.6%signallossàacceptable.
+•Cutson𝑚𝑖𝑛ΔΦ(𝑝!#$%%,𝑝!6)and𝐸!#$%%/𝑝!6isfoundtobeusefultosuppressmulti-jetbackground.•Rejectionratioscanfor𝑚𝑖𝑛ΔΦ(𝑝!"#$$,𝑝!%)when𝐸!#$%%/𝑝!6>6isperformedtofindapropercut.Rejectionratio=Numberofevents(rejected)Numberoftotalevents
+Multi-jetenrichedregionSRSignals distributionisquitedifferentthanMulti-jets
+SR
+ATLAS simulation work in progress𝑠=13	TeV,	140	,b!"
+LQ𝜏𝜏	t-channel
+NOTES: 
+
+### PAGE 50
+•Purpose:Estimate themis-modelingof𝑍→𝜈𝜈inSRduetofake 𝜏background.•Strategy:ØSemi-data-drivennormalizationfactor(NF)correctionmethod.•𝑁𝐹=2)*+,-./0,23-32)*+,-./0,4/•𝑁786&)%91=𝑁786&)%91,;<×𝑁𝐹ØMCsampleshavemorestatisticsthandata.Ø𝑍→𝑙𝑙+𝜏regionwasselectedtheCRduetohavingthesamediagramas𝑍→𝜈𝜈+𝜏andhighpurity.
+2025/11/03 Jiaqi ZANGEB meeting 50
+𝑍→𝑙𝑙+𝜏VR–Purposeandstrategy
+𝑁786&)%<1,#=−numberofeventsfromtheZ+jetsinMCsamples
+!→##CR
+2"
+SRb-tag
+b-veto
+0"
+ZllCR!!= 1, !"=0(!#= 2 && !$=0) ||(!$= 2 && !#=0)!%#&≥175 GeV < &'' < 105 GeV'()Δ+(!⃗!"#$$,!⃗!%&')>=0.4||,()*++	/	/(%#&>=6'(>100GeV
+/(!>100GeV/(''>130GeV|"⃗!"#$$+"⃗!%%|>200GeVΔ)"!&,"!"#$$>0.3"!&/.!"#$$<3Numberoflightjets≤3
+!!"#$$
+!!"#$$Diagramsof𝑍→𝑙𝑙/𝜈𝜈
+NOTES: 
+
+### PAGE 51
+𝒁→𝒍𝒍+𝝉CR
+2025/11/03 Jiaqi ZANGEB meeting 51
+•Comparisonw/wotauselection
+0𝜏&no𝑚@cut1𝜏(𝑝@>100GeV)&no𝑚@cut
+Dataandsimulationhaslargedeviationwhileselectingfake𝜏events.
+NOTES: 
+
+### PAGE 52
+𝒁→𝒍𝒍+𝝉CR
+2025/11/03 Jiaqi ZANGEB meeting 52
+•N-1Kinematicsplots(tight𝜏WP)
+CR
+ CR
+ CR
+𝒑𝑻𝝉range(GeV)NF𝒑𝑻𝝉>1000.44±0.06
+NOTES: 

@@ -1,0 +1,59 @@
+--- output/ch7/review/passive_voice_20260916_005641/CH7_event_selection.before.tex
++++ Chapters/CH7_event_selection.tex
+@@ -16,7 +16,7 @@
+         \label{eq:ch7_mt}
+     \end{equation}
+ Here $\DphiTauMet$ is the azimuthal separation between the $\tau$ momentum and $\mpt$.
+-The variable $\mT$ probes the high-energy tail of the $\tau\nu$ final state, which is particularly sensitive to non-resonant leptoquark contributions~\cite{Endo2022NonResonant}.
++The variable $\mT$ is used to probe the high-energy tail of the $\tau\nu$ final state, which is particularly sensitive to non-resonant leptoquark contributions~\cite{Endo2022NonResonant}.
+ 
+ The invariant masses $m_{b\tau}$ and $m_{j\tau}$ are defined as:
+     \begin{equation}
+@@ -88,34 +88,34 @@
+ \section[One b-jet signal region (SR1b) optimisation and definition]{One b-jet signal region ($\SR$) optimisation and definition}
+ \label{sec:ch7_sr1b}
+ 
+-The $\SR$ regions select exactly one $b$-tagged jet to target the $b\tau$ interaction in the $U_1$ model and suppress inclusive $W$+jets production.
++The $\SR$ regions are defined by requiring exactly one $b$-tagged jet to target the $b\tau$ interaction in the $U_1$ model and suppress inclusive $W$+jets production.
+ The SM subprocesses $gu\to b\tau\nu$ and $gc\to b\tau\nu$ are suppressed by the small CKM elements $V_{ub}$ and $V_{cb}$, respectively~\cite{Endo2022NonResonant}.
+ Competing SM $\tau\nu+\mathrm{jets}$ events without a genuine $b$-jet enter this category through mistagging.
+ 
+-The $b$-jet $\pT$ distinguishes resonant $U_1\to b\tau$ decays, which produce an energetic decay jet, from non-resonant production, where the radiated jet is typically softer.
++The $b$-jet $\pT$ is used to distinguish resonant $U_1\to b\tau$ decays, which produce an energetic decay jet, from non-resonant production, where the radiated jet is typically softer.
+ The sample is divided at $\pT^b=250~\GeV$, with $\pT^b>250~\GeV$ defining $\SR$-$\Res$ and $50<\pT^b<250~\GeV$ defining $\SR$-$\NonRes$.
+ 
+ \subsection{Scan variables and optimisation criterion}
+ \label{subsec:ch7_scan}
+ 
+ The $\tau$ $\pT$ spectrum from heavy-leptoquark production extends to higher values than the bulk of the SM background.
+-A lower $\pT^\tau$ threshold selects energetic $\tau$ leptons and improves the signal-to-background ratio.
+-
+-A high $\met$ threshold suppresses the large contribution from resonant SM $W$ production.
++A lower threshold on $\pT^\tau$ is imposed to select energetic $\tau$ leptons and improve the signal-to-background ratio.
++
++A high $\met$ threshold is imposed to suppress the large contribution from resonant SM $W$ production.
+ The leptoquark signal extends to larger $\met$, motivating a lower threshold in both categories.
+ 
+-High values of $\mT$ select the region where non-resonant leptoquark exchange can be distinguished from the falling SM background.
+-The $\SR$-$\NonRes$ selection therefore imposes a tighter $\mT$ threshold than $\SR$-$\Res$, which also uses the $b\tau$ mass.
+-
+-The invariant mass $m_{b\tau}$ probes resonant $U_1\to b\tau$ decays, while the SM backgrounds have no corresponding heavy resonance.
+-The $\tau$-decay neutrino shifts the signal distribution below $\MU$ and broadens it, with additional smearing from the jet and $\tau$ energy resolutions.
+-A lower mass threshold suppresses the SM backgrounds while retaining this broad signal.
++High values of $\mT$ are selected to distinguish non-resonant leptoquark exchange from the falling SM background.
++A tighter $\mT$ threshold is therefore imposed in $\SR$-$\NonRes$ than in $\SR$-$\Res$, where the $b\tau$ mass is also used.
++
++The invariant mass $m_{b\tau}$ is used to probe resonant $U_1\to b\tau$ decays, while the SM backgrounds have no corresponding heavy resonance.
++The signal distribution is shifted below $\MU$ and broadened by the $\tau$-decay neutrino, with additional smearing from the jet and $\tau$ energy resolutions.
++A lower mass threshold is imposed to suppress the SM backgrounds while retaining this broad signal.
+ 
+ The separation $\DphiTauMet$ is used to select the approximately back-to-back $\tau$ and $\mpt$ configuration of the non-resonant signal, which helps suppress top-quark backgrounds.
+-A strong back-to-back requirement also suppresses resonant leptoquark production, where the decay jet changes the transverse momentum balance.
++Resonant leptoquark production is also suppressed by a strong back-to-back requirement, because the transverse momentum balance is modified by the decay jet.
+ 
+ The jet multiplicity $N_j-N_b$ tends to be larger in $\ttbar$ events because the two top-quark decays produce additional jets.
+-An upper limit suppresses this background while retaining signal events with fewer jets.
++An upper limit is imposed to suppress this background while retaining signal events with fewer jets.
+ 
+ The kinematic thresholds are scanned together because the discriminating variables are correlated.
+ For example, increasing $\met$ also raises $\mT$ at fixed $\pT^\tau$ and $\DphiTauMet$, so the effect of an additional $\mT$ requirement depends on the other cuts.

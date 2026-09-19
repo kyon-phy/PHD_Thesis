@@ -1,0 +1,162 @@
+=== PDF PAGE 1 ===
+Table of Contents
+ RecommendedMetTriggers2016 .............................................1
+i
+
+=== PDF PAGE 2 ===
+RecommendedMetTriggers2016
+Trigger
+Group
+Single jet Multi jets MET HT
+period
+A
+HLT_j340
+HLT_j360_a10r_L1J100
+HLT_j360_a10_lcw_L1J100
+HLT_j260_320eta490
+HLT_3j175
+HLT_4j85
+HLT_5j55
+HLT_6j45
+HLT_7j45
+HLT_10j40_L14J20
+HLT_xe90_mht_L1XE50
+(a)
+HLT_ht850_L1J75
+period
+B-C
+HLT_j380
+HLT_j400_a10r_L1J100
+HLT_j400_a10_lcw_L1J100
+HLT_j260_320eta490
+HLT_3j175
+HLT_4j100
+HLT_5j70_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45
+HLT_10j40_L14J20
+HLT_xe90_mht_L1XE50 HLT_ht1000_L1J100
+period
+D1-D3
+HLT_j380
+HLT_j400_a10r_L1J100
+HLT_j400_a10_lcw_L1J100
+HLT_j260_320eta490
+HLT_3j175
+HLT_4j100
+HLT_5j70_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45
+HLT_10j40_L14J20
+HLT_xe90_mht_L1XE50 HLT_ht1000_L1J100
+period
+D4-E3
+HLT_j380
+HLT_j400_a10_lcw_L1J100
+HLT_j400_a10r_L1J100
+HLT_j260_320eta490
+HLT_3j175
+HLT_4j100
+HLT_5j70_L14J15
+HLT_5j65_0eta240_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45_L14J15
+HLT_10j40_L14J15
+HLT_xe110_mht_L1XE50
+(*)
+HLT_ht1000_L1J100
+period
+F1
+HLT_j380
+HLT_j420_a10_lcw_L1J100
+HLT_j420_a10r_L1J100
+HLT_j260_320eta490
+HLT_3j200
+HLT_4j100
+HLT_5j70_L14J15
+HLT_5j65_0eta240_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45_L14J15
+HLT_10j40_L14J15
+HLT_xe110_mht_L1XE50
+(*)
+HLT_ht1000_L1J100
+period
+F2-
+HLT_j380
+HLT_j420_a10_lcw_L1J100
+HLT_j420_a10r_L1J100
+HLT_j260_320eta490
+HLT_3j200
+HLT_4j100
+HLT_5j70_L14J15
+HLT_5j65_0eta240_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45_L14J15
+HLT_xe110_mht_L1XE50 HLT_ht1000_L1J100
+ RecommendedMetTriggers2016 1
+
+=== PDF PAGE 3 ===
+HLT_10j40_L14J15
+Trigger
+Group
+Single jet Multi jets MET HT
+(a) Analyses using MET triggers should also check events that fire
+HLT_noalg_L1J400 to see if any of these events were not fired by the met
+trigger in the analysis phase-space.
+(*) HLT_xe100_mht_L1XE50 ran unprescaled during D4-F1 other than at the
+start of some high-luminosity runs.
+The menu evolution for the un-prescaled triggers can also be found at
+LowestUnprescaledMET.
+Triggers monitored in the express stream are listed on the twiki
+The lowest unprescaled trigger for 2016 uses the MHT algorithm. MHT is
+the negative vector sum of trigger jet pT, where the trigger jet
+calibration is EM + pileup subtraction + JES.
+Luminosity calculation
+https://atlas-tagservices.cern.ch/tagservices/RunBrowser/runBrowserReport/runBrowserReport.php?fnt=&pn=&runs=&gfile=data16_13TeV.periodAllYear_DetStatus-v84-pro20-16_DQDefects-00-02-04_PHYS_StandardGRL_All_Good.xml&smk=&cn=HLT_xe110_mht_L1XE50&stt=&stm=
+The decision was made, based on a wide sample of physics analyses using
+2015 data, to dedicate the majority of the rate to the topocluster-based
+MET algorithms (tc_lcw and mht), calibrated at using the LCW algorithm,
+rather than the cell algorithm. The MET-only trigger is being allocated
+most rate rather than MET+X in order to maintain the lowest unprescaled
+threshold possible, since the MET-only trigger is used by a very wide
+range of analyses.
+The menu choices were based on the findings from 2015 data. Some basic
+performance plots from that data can be found in the 2015 Trigger
+performance paper https://cds.cern.ch/record/2140103/ . More of the
+rationale may be found in the Jira thread
+https://its.cern.ch/jira/browse/ATR-13380 .
+More general information on the content of the menu can be found at:
+TriggerPhysicsMenu#Physics_menu_for_2016 and on the spreadsheets from the
+Signature Coordination Meeting https://indico.cern.ch/event/512378/
+Major updates:
+-- MoritzBackes - 2017-10-05
+ Responsible: MoritzBackes
+ Last reviewed by: Never reviewed
+ RecommendedMetTriggers2016 < Atlas < TWiki
+ RecommendedMetTriggers2016 2
+
+=== PDF PAGE 4 ===
+This topic: Atlas>RecommendedMetTriggers2016
+Topic revision: r1 - 2017-05-10 - MoritzBackes
+
+Copyright &' 2008-2026 by the contributing authors. All
+material on this collaboration platform is the property of the
+contributing authors.
+or Ideas, requests, problems regarding TWiki? use Discourse or Send
+feedback
+ var _paq = window._paq = window._paq || []; /* tracker methods like
+"setCustomDimension" should be called before "trackPageView" */
+_paq.push([’trackPageView’]); _paq.push([’enableLinkTracking’]);
+(function() { var u="https://webanalytics.web.cern.ch/";
+_paq.push([’setTrackerUrl’, u+’matomo.php’]); _paq.push([’setSiteId’,
+’5’]); var d=document, g=d.createElement(’script’),
+s=d.getElementsByTagName(’script’)[0]; g.async=true; g.src=u+’matomo.js’;
+s.parentNode.insertBefore(g,s); })();
+ RecommendedMetTriggers2016 < Atlas < TWiki
+ RecommendedMetTriggers2016 3

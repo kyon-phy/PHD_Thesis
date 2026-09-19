@@ -1,0 +1,328 @@
+### PAGE 1
+𝜏𝜈+bsearch in LHC-ATLAS motivated by B anomaly:EditorialBoardRequestJiaqi Zang,T akuyaNobe,To m o y aIizawa,JunichiT anakaTheUniversityofTo k y o08/09/2025
+1
+Based on https://arxiv.org/abs/2111.047482025/09/08 Jiaqi ZANGLPX weekly meeting
+NOTES: 
+
+### PAGE 2
+Outline•Analysis overview•MC samplesandFrameworks•Objects definition•SR optimization•Background estimation strategy•Theorysystematicsestimation•Fitresultswithfullsystematics•VRsstudies•Ongoingtasks•Summaryandplan2025/09/08 Jiaqi ZANGLPX weekly meeting2
+NOTES: 
+
+### PAGE 3
+Physics motivation – B anomaly•Lepton Flavor Universality (LFU)ØWeakinteractionisuniversalfor3leptonflavorsinStandardModel.
+2025/09/08 Jiaqi ZANGLPX weekly meeting3
+•SignsofLFUviolationintheBmesondecaysarereported.Ø𝑏→𝑐𝑙𝜈 :𝜏vs.lightleptons(𝜇,𝑒).Ø~3.0𝜎excessoverSM(𝐷and𝐷∗combined).ØLeptoquark(LQ)isapossibleexplanationofsuchviolation.
+SM
+BSM
+3𝜎
+NOTES: 
+
+### PAGE 4
+!"
+2025/09/08 Jiaqi ZANGLPX weekly meeting4
+Signal(non-resonance)•Eventtopology:exact1hadronictau+exact1b-jet(hard/softpT)+largemET.•Targetsignal:𝜏𝜈+bjet(hard/soft)
+*high𝑝!"andhigh𝐸!#$%%
+•Final state never explored by ATLAS/CMS.•Lookfortheuniqueparameterspacethatsensitiveto𝑐𝜈coupling
+Softbjet Signal(resonance)
+* Hardbjet(>250GeV)
+Analysisoverview•Weareundertau+Xumbrellautilizingthecommonframeworkdevelopedbythegroup.(𝜏𝜈+𝑏LQsearchglance,Tau+Xglance)•TargetingananalysiswithonlyRun-2dataandthequickpublicationaroundtheendof2025.
+NOTES: 
+
+### PAGE 5
+FrameworksandMCsamples
+2025/09/08 Jiaqi ZANGLPX weekly meeting5
+•ProcesschainTopCPToolKitàFastFrameàTRexFitterisused.§TopCPToolKit 2.17.1andTau+XTopCPToolkit/FastFrameimplementationareused.§IncludedallCPrecommededuncertaintiestontuples.§Specialntupleproductionwithcustomizedskimmingfortheanalysisisgenerated.(TopCPKitforsubmissionandFastFramefortaunubsearch)§Duetothetimelimit,thesampleisproducedwith R21 egamma SFsandoldb-tagrecommendation(MC20_2024-10-17_GN2v01_v1).•Samplesareskimmedwitheventsthatsatisfieseitherof:Ø1𝜏0𝑙:𝑝!">50GeV,𝐸!#$%%>150GeV.Ø1𝜏1𝑙:𝑝!">50GeV,𝑝!&/(>20GeV,𝐸!#$%%>50GeV.Ø0𝜏1𝑙:𝑝!&/(>20GeV,𝐸!#$%%>150GeV.
+NOTES: 
+
+### PAGE 6
+MCsamples
+2025/09/08 Jiaqi ZANGLPX weekly meeting6
+•SignalreweightingisperformedfordifferentLQcouplings.•Currentstudyisperformedwiththeformersignalsamples(DSID537131~537142).•NewBSMsignalsampleswithwiderparameterandmasspointrangeforthefinalinterpretationarerequestedanddone.(JIRA)•ArequestforthesignalinterferenceswithSMsofdifferentmasspoints(2TeV,2.5TeV,3TeV)isplaned.
+Signals(p6490)
+NOTES: 
+
+### PAGE 7
+MCsamples
+2025/09/08 Jiaqi ZANGLPX weekly meeting7
+Backgrounds(p6490)Special mET-filtered sample
+•The ATLAS Xsec file forspecialmET-filtered Wàtaunu samples missed hadronic tau branch fraction. Checked out to local xsec filefornow. 
+NOTES: 
+
+### PAGE 8
+Objectdefinitions
+2025/09/08 Jiaqi ZANGLPX weekly meeting8
+Electron(signal: TightLH+HighPtCaloOnly)
+Muon(signal:medium_nonIso)
+Tau(signal:TightRNN)
+jets
+NOTES: 
+
+### PAGE 9
+Signalregionoptimization
+2025/09/08 Jiaqi ZANGLPX weekly meeting9
+•Eventtopology:exact1hadronictau+exact1b-jet(hard/softpT)+largemET.•SignalregionoptimizationØA scan with various variable sets is performed.ØThe variable set which give the largest significance is chosen.ØScanwithcondition𝐵𝑘𝑔)*)+,>2(140fb-1)ØAppliedontopofthebaselineselection.
+
+NOTES: 
+
+### PAGE 10
+Signalregionandbackgroundcomposition
+2025/09/08 Jiaqi ZANGLPX weekly meeting10
+•Bothdominant(𝑊→𝜏𝜈)andsub-dominant(Top)BGsareirreduciblebackground(truetau).•After the hard mET requirement, fake tau background is marginal (<10%).•Faketauestimation:ØMainlyfromtheminorbackground𝑍→𝜈𝜈+𝜏(fake),theconservative50%uncertaintyissetforthefakeestimationafterinvestigatinginZllVRwithMCsamples.
+𝑾→𝝉𝝂SingleTop𝒕̅𝒕Diboson𝒁+jetsAllBGsSoftb-jetSR1.5±0.20.1±0.10.2±0.10.4±0.10.2±0.12.4±0.3Hardb-jetSR1.6±0.50±0.10.3±0.10.1±0.10.2±0.12.1±0.5
+•Event yields
+NOTES: 
+
+### PAGE 11
+Backgroundestimationstrategy
+2025/09/08 Jiaqi ZANGLPX weekly meeting11
+•SRandCRdefinition:ØSR:1tau+mET+1bØWCR:1e/1mu+mET+bvetoØTopCR:1e/1mu+1tau+bjets•Validationregionselection:Ø1e/1muà1tauextrapolation:validatedinWVR1tauandTopVR1tau.Øbvetoàbtagextrapolation:validatedinVR0tau.
+ !!
+!"!!
+"",$"
+!!
+!"
+!!̅di-leptonicdecay(SR)!!̅di-leptonicdecay(CR)
+Mis-identified
+NOTES: 
+
+### PAGE 12
+N-1 distribution in CRs
+2025/09/08 Jiaqi ZANGLPX weekly meeting12
+Resonance
+WCR(1e)
+Non-Resonance
+WCR(1mu)
+NOTES: 
+
+### PAGE 13
+2025/09/08 Jiaqi ZANGLPX weekly meeting13
+TopCR(1e)N-1 distribution in CRs
+TopCR(1mu)
+Resonance
+Non-Resonance
+NOTES: 
+
+### PAGE 14
+Theory uncertainty estimation•TheoryuncertaintiesforW+jetsandtopbackgroundareestimated,byfollowingPMGrecommendations.•Exception:thefractionofb/cjetsinW+jetsaffectsouranalysis,thatis,thefractionofb/cjetscouldbethesourceoftheW+jetsmodelinguncertaintieswhenextrapolatingthefitresultsfromb-vetoCRtotheb-tagSR/VRs.àWedecidedtoapplyadditional20%uncertaintyforW+jets.•Theuncertaintyof“transferfactor(CRàSR)”isestimated.•Mostofuncertaintiesarecancelledout between SR/VR and CRandfoundtobelessthan20%.•CRdefinitionisgood,andwecanusethephasespaceverysimilartoSR/VR.•Unexpectedlargeuncertaintiesarefound:e.g.TopPS.Andtheyareunderinvestigation.•Couldbeduetothestatuncertainty.•SRsselectionarerelaxed(1𝑏à≥1𝑏,removejetmultiplicityrequirement)onlywhenthealternativesampleshavetoofewevents.•The353QHsmoothalgorithmisappliedtothoseuncertainties.2025/09/08 Jiaqi ZANGLPX weekly meeting14
+NOTES: 
+
+### PAGE 15
+Theoryuncertaintyestimation
+2025/09/08 Jiaqi ZANGLPX weekly meeting15
+•Resonance regions
+
+NOTES: 
+
+### PAGE 16
+Theoryuncertaintyestimation
+2025/09/08 Jiaqi ZANGLPX weekly meeting16
+•Non-Resonance regions
+
+NOTES: 
+
+### PAGE 17
+Fitstrategy
+2025/09/08 Jiaqi ZANGLPX weekly meeting17
+•Thefitisperformedwith1binforeachregionandSRisblinded.•BothdataandMCareuseddependingonregions:SRs(Asimov)andCRs(data).ØTheAsimovdataisconstructedusingS+Bmodel.ØBackgroundpseudo-dataconstructioninSRsisbasedontheNPvaluesobtainfromB-onlyfit.ØSignalstrength𝜇issetto0fortheB-onlyfitand1fortheS+Bfit.•TRExFitterconfig:•BlindSRs:True•FitBlind:False•CorrelationThreshold:0.2•SystPruningNorm:0.01(~0.1%sensitivitylosswhenincludeallSys)•SystPruningShape:0.01•ReferencesignalusedforS+Bfit:Ø𝑚-=1.5TeV,𝑔-=1.5,𝛽./0=0.2•Normalizationfactors:•𝜆)1&%,𝜆)2*341&%forTopCR,𝜆51&%,𝜆52*341&%forWCR•TheoryuncertaintiescurrentlyonlyareappliedtoB-onlyfit.WillupdatetheS+Bfitsoon
+NOTES: 
+
+### PAGE 18
+•Fit region: CRs
+2025/09/08 Jiaqi ZANGLPX weekly meeting18
+B-onlyfitresults(CRonlyfit)
+NOTES: 
+
+### PAGE 19
+•Fit region: CRs
+2025/09/08 Jiaqi ZANGLPX weekly meeting19
+•Thediscrepancybetweendata/MCinnon-resonanceVR0tauis1.8sigma.
+B-onlyfitresults(CRonlyfit)
+NOTES: 
+
+### PAGE 20
+B-onlyfitresults(CRonlyfit)
+2025/09/08 Jiaqi ZANGLPX weekly meeting20
+•NPCorrelations
+NOTES: 
+
+### PAGE 21
+•Fit region: SRs+CRs•Signal stength: 0
+2025/09/08 Jiaqi ZANGLPX weekly meeting21
+B-onlyfitresults(SR+CR)
+NOTES: 
+
+### PAGE 22
+•Fit region: SRs+CRs
+2025/09/08 Jiaqi ZANGLPX weekly meeting22
+•TheresultsarethesameasfitregioninCRasexpected.
+B-onlyfitresults(SR+CR)
+
+NOTES: 
+
+### PAGE 23
+2025/09/08 Jiaqi ZANGLPX weekly meeting23
+•𝑚5,𝛽678,𝑔5=(1500,1.5,0.2)
+•Leadingsystematics(w/otheoryuncertainties)•WjetsHFmodeling•TauTESsmearing•FTefficiency(light)
+S+Bfitresults
+NOTES: 
+
+### PAGE 24
+2025/09/08 Jiaqi ZANGLPX weekly meeting24
+•𝑚5,𝛽678,𝑔5=(2500,2.5,0.6)
+•Comparing with result form 𝑚5=1.5 TeVØThe component of Flavor tagging is changed. (light jet à bjets)ØThenon-resonancesignalbecomemoreimportantinthehigh-massregion,whichrequireshighb-jetpT.
+•Leadingsystematics(w/otheoryuncertainties)•TauTESsmearing•WjetsHFmodeling•Pileup•FT(b)
+S+Bfitresults
+NOTES: 
+
+### PAGE 25
+Expectedlimitswithexperimentalsystematics
+2025/09/08 Jiaqi ZANGLPX weekly meeting25
+•Expected95%CLexclusionlimitsindifferentparameterspaces.MU=1.5TeV
+ Beta=0.2TeV
+NOTES: 
+
+### PAGE 26
+Ongoingtasks•Applythecorrectionfunctionsforthesignalreweightingandupdateresultswithnewsignals.(talkfromJunichiT.)•Validationforthetheoryuncertaintiesestimation.Especiallyinrelaxedregionsandsmoothingmethods.•Investigate the NPs that have large correlations. (HADTAU SME TES DETECTOR) •ApplyS+Bfitformoremasspoints.(2/2.5/3TeV)•PerformfullasymptoticCLscalculationandadduncertaintybands.•W+jets CKKW and QSF scale variations estimation if necessary. (need to request alternative samples).
+2025/09/08 Jiaqi ZANGLPX weekly meeting26
+NOTES: 
+
+### PAGE 27
+Summary
+2025/09/08 Jiaqi ZANGLPX weekly meeting27
+•The analysis startegy is almostfinalized.•The ntuples production with full systematics are done with p6490.•The data/MC studies for CRs and VRs are done. No distinct issue is found in the CR distributions. The discrepancy of data and MC in non-resonance VR0tau is considered due to the statistics fluctuation.•The theory and experimental systematics study is almost done. Several items need to be checked.•Prelimary B-only/S+B fit is performed. No significant issue is observed. Investigation on the strong anti-correlated NP is ongoing.•Wearetargetingtheunblindandpublicationthisyear.•Atlast,thanksforallthesupportsandwekindlyrequestedfortheEditorialBoards.
+NOTES: 
+
+### PAGE 28
+28
+Backup
+2025/09/08 Jiaqi ZANGLPX weekly meeting
+NOTES: 
+
+### PAGE 29
+Theoryuncertaintysummary
+2025/09/08 Jiaqi ZANGLPX weekly meeting29
+
+NOTES: 
+
+### PAGE 30
+•Thesmoothisappliedasfollowing:1)AlternativesampleisnormalizedtothenominalintheCR.2)Smoothingisappliedfor𝑀!"#and𝐸$%&''N-1distributioninrelaxedregiontoobtainthereasonabletailestimation.3)ApplythecutforSR/VRandintegratetheyieldsinthetailregion.
+2025/09/08 Jiaqi ZANGLPX weekly meeting30
+Smoothingforthetheoryuncertainties
+BeforesmoothingAftersmoothing
+NOTES: 
+
+### PAGE 31
+2025/09/08 Jiaqi ZANGLPX weekly meeting31
+e/muinconsistencyinWCR
+•Data yield comparison in 1e/1mu WCR•Simulation yield comparison in 1e/1mu WCR
+•Data/MC(Non-resonanceWCR):0tau1e0b:1.017±0.0950tau1mu0b:0.79±0.07
+•2.6 sigma discrepency for data and 0.7 sigma for MC are observed.
+1.9sigmaNFinconsistencybetweene/muchannel
+NOTES: 
+
+### PAGE 32
+Event weights in non-resonance WCR
+2025/09/08 Jiaqi ZANGLPX weekly meeting32
+1mu non-resonance WCR1e non-resonance WCR•Weight_total = weight_mc * weight_pileup * lumi * xSec / SumWeights
+•Difference from MC samples mainly from the specific large weight events (weight~30).•Withloosercuts,agreementimproved.àwillcheckthesensitivitywithlooseCRlater.(betterstatisticaluncertaintyv.s.systematicsincreasedbydifferentphasespacebtwSR/CR.)•Thedifferenceiscomingfromstatisticalfluctuation•e-andmu-channelsarecombinedforstat.•TrytoperformthefittoCRsandapplytheresultsto1tauVRstocheckthevalidities.
+
+NOTES: 
+
+### PAGE 33
+2025/09/08 Jiaqi ZANGLPX weekly meeting33
+•Summary plots:
+Nominal-only fitinCR
+•ThediscrepancybetweendataandMCinnon-resonance0tauVRis3.1sigma.
+NOTES: 
+
+### PAGE 34
+0tau1l1bvalidation regioninvestigation
+2025/09/08 Jiaqi ZANGLPX weekly meeting34
+•Cutflow
+•Discrepancy(mainlyfromWmunu)appearedsincemetcut,nexttocheckN-1distribution…
+NOTES: 
+
+### PAGE 35
+0tau1l1bvalidation regioninvestigation
+2025/09/08 Jiaqi ZANGLPX weekly meeting35
+•Cutflow
+MetN-1•425 < mET< 450 GeV && 300 < lep0 pT < 400 GeV is off.•e-channel:5events.•Mu-channel:7events.
+
+NOTES: 
+
+### PAGE 36
+•Acloserlookatjet/leptoneta/phiinthe0tauVRwithcut425 < mET< 450 GeV.
+2025/09/08 Jiaqi ZANGLPX weekly meeting36
+0tau1l1bvalidation regioninvestigation
+•Nodistinctfeaturefoundinspecificregion/period.Couldduetolackofstats.
+NOTES: 
+
+### PAGE 37
+2025/09/08 Jiaqi ZANGLPX weekly meeting37
+0tau1l1bvalidation regioninvestigation•N-1distribution
+MetN-1 metN-1(mT>400GeV)•Discrepancyislocalizedin425<mET<450GeVwithoverall3.1sigma.•IfweloosenthemETcut>300GeV,data/MCagreementisimprovedto1.8sigma.•IfwetightenthemETcut>500GeV,data/MCagreementisalsoimprovedto1.5sigma.•IfweloosenthemTcutto>400GeV,agreementisimprovedtosigma2.1.•Ifweincludethejetsystematicsuncertainties,theagreementisrelaxedtosigma2.9
+NOTES: 
+
+### PAGE 38
+Signalreweightingstudy•Junichihasmadeapresentationonthis.(indico)•MadGraphMEreweightingfor(𝑔5,𝛽678)scangenerallyworkswell.•Especiallyatsmall𝑔5.StrongcouplingisrelativelylargerthanNPcoupling,andthereweightingdoesnotworkwell.Perhapsatthatregion,theassumption𝑋𝑠𝑒𝑐∝𝑔59isnotreliable.•Wewillapplyadditionaltruth-levelreweightingusingb-jetptandM(tau,b).
+2025/09/08 Jiaqi ZANGLPX weekly meeting38
+𝑔:7
+𝑔57
+𝛽&'(∈(0,2.2)
+NOTES: 
+
+### PAGE 39
+Multi-jetcleaning–Purposeandstrategy
+2025/09/08 Jiaqi ZANGLPX weekly meeting39
+•Purpose:Cleanupthemulti-jetbackgroundinthesignalregion.•Strategy:Utilizefeatureofremainedmulti-jetprocessinSR.àThoseeventsarefulloffake𝐸!#$%%duetojetresolutioneffectsandlargecrosssection.àFake𝐸!#$%%tendstothedirectionofhardjetandhavelowerorhigherenergy.
+Trueandfake𝐸@AB::topology
+•Angulardistributionofmulti-jetafterpre-selection.
+Multi-jetsenrichedintheshadedregionSignal(w/𝜈)
+Multi-jet(w/o𝜈)
+
+NOTES: 
+
+### PAGE 40
+Multi-jetcleaning–Rejectionratio
+2025/09/08 Jiaqi ZANGLPX weekly meeting40
+•Acutof𝑚𝑖𝑛ΔΦ(𝑝!#$%%,𝑝!6)>0.4||𝐸!#$%%/𝑝!6>6isselected.Ø86%multi-jetbackgroundrejection.Ø3.6%signallossàacceptable.
+•Cutson𝑚𝑖𝑛ΔΦ(𝑝!#$%%,𝑝!6)and𝐸!#$%%/𝑝!6isfoundtobeusefultosuppressmulti-jetbackground.•Rejectionratioscanfor𝑚𝑖𝑛ΔΦ(𝑝$%&'',𝑝$()when𝐸!#$%%/𝑝!6>6isperformedtofindapropercut.Rejectionratio=Numberofevents(rejected)Numberoftotalevents
+Multi-jetenrichedregionSRSignals distributionisquitedifferentthanMulti-jets
+SR
+ATLAS simulation work in progress𝑠=13	TeV,	140	,b!"
+LQ𝜏𝜏	t-channel
+NOTES: 
+
+### PAGE 41
+•Purpose:Estimate themis-modelingof𝑍→𝜈𝜈inSRduetofake 𝜏background.•Strategy:ØSemi-data-drivennormalizationfactor(NF)correctionmethod.•𝑁𝐹=2)*+,-./0,23-32)*+,-./0,4/•𝑁786&)%91=𝑁786&)%91,;<×𝑁𝐹ØMCsampleshavemorestatisticsthandata.Ø𝑍→𝑙𝑙+𝜏regionwasselectedtheCRduetohavingthesamediagramas𝑍→𝜈𝜈+𝜏andhighpurity.
+2025/09/08 Jiaqi ZANGLPX weekly meeting41
+𝑍→𝑙𝑙+𝜏VR–Purposeandstrategy
+𝑁786&)%<1,#=−numberofeventsfromtheZ+jetsinMCsamples
+!→##CR
+2"
+SRb-tag
+b-veto
+0"
+ZllCR!!= 1, !"=0(!#= 2 && !$=0) ||(!$= 2 && !#=0)!%#&≥175 GeV < &'' < 105 GeV'()Δ+(!⃗!"#$$,!⃗!%&')>=0.4||,()*++	/	/(%#&>=6'(>100GeV
+/(!>100GeV/(''>130GeV|"⃗!"#$$+"⃗!%%|>200GeVΔ)"!&,"!"#$$>0.3"!&/.!"#$$<3Numberoflightjets≤3
+!!"#$$
+!!"#$$Diagramsof𝑍→𝑙𝑙/𝜈𝜈
+NOTES: 
+
+### PAGE 42
+𝒁→𝒍𝒍+𝝉CR
+2025/09/08 Jiaqi ZANGLPX weekly meeting42
+•Comparisonw/wotauselection
+0𝜏&no𝑚@cut1𝜏(𝑝@>100GeV)&no𝑚@cut
+Dataandsimulationhaslargedeviationwhileselectingfake𝜏events.
+NOTES: 
+
+### PAGE 43
+𝒁→𝒍𝒍+𝝉CR
+2025/09/08 Jiaqi ZANGLPX weekly meeting43
+•N-1Kinematicsplots(tight𝜏WP)
+CR
+ CR
+ CR
+𝒑𝑻𝝉range(GeV)NF𝒑𝑻𝝉>1000.44±0.06
+NOTES: 

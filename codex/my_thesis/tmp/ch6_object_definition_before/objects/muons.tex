@@ -1,0 +1,41 @@
+\section{Muons}
+\label{sec:ch6_muons}
+
+\subsection{Reconstruction}
+
+Muons are reconstructed using tracks in the ID and MS, together with their energy deposits in the calorimeters~\cite{ATLAS2021MuonID}.
+Their relatively small energy loss allows most muons to reach the MS.
+The main reconstruction categories are:
+\begin{itemize}
+    \item \textbf{Combined muons}: ID and MS tracks are matched and fitted together, including the energy loss between the two tracking systems.
+    \item \textbf{Segment-tagged muons}: an ID track is matched to one or more local track segments in the MS when a complete MS track is unavailable.
+    \item \textbf{Calorimeter-tagged muons}: an ID track is matched to calorimeter deposits compatible with a minimum-ionising particle. Acceptance is recovered in regions with limited MS coverage.
+    \item \textbf{MS-extrapolated muons}: an MS track is extrapolated towards the interaction region without a matched ID track. This category extends reconstruction beyond the ID acceptance and is not used by the $|\eta|<2.5$ selection here.
+\end{itemize}
+
+\subsection{Identification}
+
+Muon identification is based on the detector hit content, fit quality and consistency of the independent ID and MS momentum measurements~\cite{ATLAS2021MuonID}.
+These requirements suppress hadrons decaying in flight and incorrectly matched tracks.
+Baseline muons are required to satisfy:
+\begin{itemize}
+    \item $\pT>10~\GeV$ and $|\eta|<2.5$.
+    \item \texttt{Loose} identification.
+    \item $|d_0|/\sigma(d_0)<3$ and $|\Delta z_0\sin\theta|<0.5~\mm$.
+\end{itemize}
+Additional reconstruction categories are retained by the \texttt{Loose} working point to improve efficiency.
+Signal muons are required to pass \texttt{Medium} identification, with more restrictive requirements on the reconstruction quality.
+
+\subsection{Isolation}
+
+Muons from heavy-flavour decays are often accompanied by other particles inside a jet.
+They are suppressed using track and calorimeter isolation, defined by the surrounding activity after excluding the muon's own contribution~\cite{ATLAS2021MuonID}.
+The track cone is reduced as the muon $\pT$ increases.
+The \texttt{Loose\_VarRad} working point is applied to baseline muons, while \texttt{Tight\_VarRad} is additionally required for signal muons.
+
+\subsection{Calibration}
+
+The muon momentum scale and resolution are calibrated using resonance decays, particularly $\zmumu$ and $J/\psi\rightarrow\mu\mu$~\cite{ATLAS2023MuonCalibration}.
+The reconstructed mass distributions constrain biases from the magnetic-field description, detector alignment and material modelling.
+The corrections are applied to the combined momentum measurement used in the analysis.
+Reconstruction, identification and isolation scale factors are measured with tag-and-probe samples and applied to simulated event weights for the selected working points~\cite{ATLAS2021MuonID}.

@@ -1,0 +1,118 @@
+--- /tmp/ch5-trigger.aOl27b/CH5_before.tex	2026-09-06 23:02:18
++++ Chapters/CH5_MC_simulation.tex	2026-09-06 23:08:22
+@@ -239,13 +239,112 @@
+ \label{sec:analysis_triggers}
+ 
+ The ATLAS Run~2 trigger architecture was described in Chapter~\ref{chapter:LHC_ATLAS_experiment}.
+-Only the trigger selections used specifically in this analysis are discussed here. In general, the selection of triggers for each region is decided considering signal efficiency and the background rejection.
++This analysis uses only single-electron, single-muon and $\met$ triggers.
++The trigger selection for each region balances efficiency for the targeted final state against background rejection.
+ 
+ The signal-region event selection uses the lowest-threshold unprescaled $\met$ trigger, which is fully efficient for offline $\met>200~\GeV$.
+-Meanwhile, the offline $\met$ thresholds in all signal regions are applied at least $200~\GeV$, then ensuring full signal efficiency.
++Since all signal regions require offline $\met$ above at least $200~\GeV$, their selections lie within this trigger-efficiency plateau.
+ The same $\met$ trigger strategy is used for the corresponding validation regions.
+ 
+-The lowest-threshold unprescaled single-electron and single-muon triggers~\cite{ATLASElectronTriggerRun2,ATLASMuonTriggerRun2} are used in the  regions containing an electron or muon, while the lepton trigger threshold is approximately $26~\GeV$,.
++Single-electron and single-muon triggers are used in regions containing an electron or muon.
++The low-threshold single-lepton chains require electron $E_{\mathrm{T}}>24~\GeV$ or muon $\pT>20~\GeV$ in 2015; the thresholds increase to $26~\GeV$ during 2016 and remain at this value in 2017--2018~\cite{ATLASElectronTriggerRun2,ATLASMuonTriggerRun2}.
++The corresponding $\met$ trigger thresholds range from $70~\GeV$ in 2015 to $110~\GeV$ in the later Run~2 periods~\cite{ATLASMETTriggerRun2}.
++Table~\ref{tab:run2_trigger_chains} lists the relevant low-threshold chains in the Run~2 reference menu.
++
++In an HLT chain name, \texttt{e}, \texttt{mu} and \texttt{xe} identify an electron, a muon and $\met$, respectively; the following number gives the online threshold in GeV.
++An explicit \texttt{L1} suffix identifies the first-level trigger that seeds the chain.
++The electron labels \texttt{lhmedium} and \texttt{lhtight} specify likelihood-based identification requirements, while \texttt{nod0} indicates that transverse-impact-parameter information is omitted.
++The labels \texttt{iloose}, \texttt{ivarloose} and \texttt{ivarmedium} specify isolation requirements, with \texttt{var} denoting a cone size that decreases with lepton $\pT$.
++For $\met$, \texttt{mht} denotes a calculation based on the negative vector sum of jet transverse momenta, whereas \texttt{pufit} denotes a calorimeter-based calculation with a fit-based pile-up correction~\cite{ATLASElectronTriggerRun2,ATLASMuonTriggerRun2,ATLASMETTriggerRun2}.
+ 
++% Source-based reference menu, not yet an audit of the analysis configuration.
++% Confirm the 2015 MET algorithm, the early-2016 lepton-chain choices and any
++% high-threshold single-lepton OR before describing every listed chain as used.
++\begin{table}[htbp]
++    \centering
++    \caption[Run~2 single-lepton and missing-transverse-momentum trigger chains]{
++        Low-threshold single-electron, single-muon and $\met$ chains in the Run~2 reference menu~\cite{ATLASLowestUnprescaled,ATLASRecommendedMET2015,ATLASRecommendedMET2016,ATLASRecommendedMET2017}.
++        Letters denote ATLAS data-taking periods within a year.
++        The three 2015 $\met$ entries are alternative unprescaled algorithms, not an implied logical OR.
++        For later $\met$ periods, the recommendations that preserve the full available luminosity are shown.
++        The extra \texttt{xe70} or \texttt{xe65} in the 2018 names denotes an additional calorimeter-cell $\met$ requirement of 70 or $65~\GeV$.
++    }
++    \label{tab:run2_trigger_chains}
++    \begingroup
++    \small
++    \setlength{\tabcolsep}{4pt}
++    \renewcommand{\arraystretch}{1.08}
++    \begin{tabular}{lll}
++        \toprule
++        Trigger & Data-taking period & HLT chain \\
++        \midrule
++        Single-electron & 2015 & \texttt{\detokenize{HLT_e24_lhmedium_L1EM20VH}} \\
++        & 2016 A--D3 & \texttt{\detokenize{HLT_e24_lhtight_nod0_ivarloose}} \\
++        & 2016 D4--2018 & \texttt{\detokenize{HLT_e26_lhtight_nod0_ivarloose}} \\
++        \midrule
++        Single-muon & 2015 & \texttt{\detokenize{HLT_mu20_iloose_L1MU15}} \\
++        & 2016 A & \texttt{\detokenize{HLT_mu24_iloose}} \\
++        & & \texttt{\detokenize{HLT_mu24_ivarloose}} \\
++        & 2016 B--D3 & \texttt{\detokenize{HLT_mu24_ivarmedium}} \\
++        & 2016 D4--2018 & \texttt{\detokenize{HLT_mu26_ivarmedium}} \\
++        \midrule
++        $\met$ & 2015 & \texttt{\detokenize{HLT_xe70}} \\
++        & & \texttt{\detokenize{HLT_xe70_mht}} \\
++        & & \texttt{\detokenize{HLT_xe70_tc_lcw}} \\
++        & 2016 A--D3 & \texttt{\detokenize{HLT_xe90_mht_L1XE50}} \\
++        & 2016 D4--end & \texttt{\detokenize{HLT_xe110_mht_L1XE50}} \\
++        & 2017 B--D5 & \texttt{\detokenize{HLT_xe110_pufit_L1XE55}} \\
++        & 2017 D6--end & \texttt{\detokenize{HLT_xe110_pufit_L1XE50}} \\
++        & 2018, before run 350067 & \texttt{\detokenize{HLT_xe110_pufit_xe70_L1XE50}} \\
++        & 2018, from run 350067 & \texttt{\detokenize{HLT_xe110_pufit_xe65_L1XE50}} \\
++        \bottomrule
++    \end{tabular}
++    \endgroup
++\end{table}
++
++Figures~\ref{fig:run2_lepton_trigger_efficiency} and~\ref{fig:run2_met_trigger_efficiency} show representative Run~2 trigger-efficiency measurements.
++The single-lepton results include logical OR combinations with higher-threshold chains and illustrate the general trigger performance, rather than the efficiency of an individual low-threshold chain.
++
+ The trigger response is included in the simulated event samples.
+ Residual differences in trigger efficiency between collision data and simulation are corrected using data-to-simulation efficiency scale factors where required.
++
++\begin{figure}[htbp]
++    \centering
++    \begin{subfigure}{0.62\textwidth}
++        \centering
++        \includegraphics[width=\linewidth]{Figs/CH5/trigger_electron_efficiency.pdf}
++        \caption{Single-electron trigger combination.}
++    \end{subfigure}
++    \par\medskip
++    \begin{subfigure}{0.48\textwidth}
++        \centering
++        \includegraphics[width=\linewidth]{Figs/CH5/trigger_muon_efficiency_barrel.pdf}
++        \caption{Single-muon triggers, barrel.}
++    \end{subfigure}
++    \hfill
++    \begin{subfigure}{0.48\textwidth}
++        \centering
++        \includegraphics[width=\linewidth]{Figs/CH5/trigger_muon_efficiency_endcap.pdf}
++        \caption{Single-muon triggers, end-cap.}
++    \end{subfigure}
++    \caption[Run~2 single-lepton trigger efficiencies]{
++        Single-lepton trigger efficiencies measured in $Z\rightarrow\ell\ell$ events.
++        (a) Electron efficiency versus offline $E_{\mathrm{T}}$ in 2015--2018, relative to Tight identification and FCTight isolation~\cite{ATLASElectronTriggerRun2}.
++        The combination includes the low-threshold electron trigger and higher-threshold chains at 60 and $120~\GeV$ in 2015, or 60 and $140~\GeV$ in 2016--2018.
++        (b,c) Muon efficiency versus offline $\pT$ in 2016--2018 for the logical OR of \texttt{\detokenize{HLT_mu26_ivarmedium}} and \texttt{\detokenize{HLT_mu50}}, shown separately for the barrel and end-cap~\cite{ATLASMuonTriggerRun2}.
++        Lower panels give data-to-simulation efficiency ratios.
++        Electron uncertainties include statistical and systematic contributions; muon uncertainties are statistical only.
++    }
++    \label{fig:run2_lepton_trigger_efficiency}
++\end{figure}
++
++\begin{figure}[htbp]
++    \centering
++    \includegraphics[width=0.72\textwidth]{Figs/CH5/trigger_met_efficiency.pdf}
++    \caption[Run~2 missing-transverse-momentum trigger efficiencies]{
++        Combined L1 and HLT $\met$ trigger efficiencies in $Z\rightarrow\mu\mu$ events for each year of Run~2~\cite{ATLASMETTriggerRun2}.
++        Since muons are treated as invisible by these calorimeter-based triggers, the dimuon transverse momentum $\pT(\mu\mu)$ provides a reference for the missing transverse momentum measured by the trigger.
++        The curves use the lowest unprescaled trigger as it changes within each year; error bars show statistical uncertainties.
++    }
++    \label{fig:run2_met_trigger_efficiency}
++\end{figure}

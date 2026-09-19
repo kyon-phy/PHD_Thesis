@@ -1,0 +1,31 @@
+--- before/btagging.tex
++++ after/btagging.tex
+@@ -9,17 +9,22 @@
+ These features are used for jet flavour tagging.
+ 
+ The tagger uses the GN2v01 algorithm, which is based on a transformer neural network~\cite{ATLAS2026GN2}.
+-Its inputs include jet kinematics, track impact parameters and hit variables.
+-Within the transformer, information from other tracks is used to update the representation of each track.
++Its inputs include jet and track kinematics, track impact parameters and their significances, and hit variables.
++These variables are first encoded as a numerical vector for each track.
++Within the transformer, each vector is updated through self-attention, using information from the other tracks.
+ Correlations between tracks can thereby be used to recognise a common displaced origin without requiring explicitly reconstructed secondary vertices as separate inputs.
+-During training, the jet-flavour classification is supplemented by two auxiliary tasks: identifying track origins and determining which tracks originate from the same vertex.
+-The shared network and its three tasks are illustrated in Figure~\ref{fig:ch6_gn2}.
++The updated vectors are then combined into a single jet representation by attention pooling, a sum with weights learned by the network.
+ 
+-Four classifier outputs are obtained for the $b$-jet, $c$-jet, hadronic-$\tau$ and light-jet hypotheses, where light jets originate from $u$, $d$ or $s$ quarks or gluons.
++The network is trained on simulated jets, for which the true jet flavours, track origins and production vertices are available.
++Jet-flavour classification is trained jointly with two auxiliary tasks: identifying track origins and predicting whether pairs of tracks originate from the same vertex.
++These tasks share the transformer, encouraging it to learn the decay structure relevant to flavour tagging.
++The network and its three tasks are illustrated in Figure~\ref{fig:ch6_gn2}.
++
++From the jet representation, four classifier outputs are obtained for the $b$-jet, $c$-jet, hadronic-$\tau$ and light-jet hypotheses, where light jets originate from $u$, $d$ or $s$ quarks or gluons.
+ These outputs are combined into a single discriminant, $D_b$, which compares the $b$-jet output with a weighted combination of the other three outputs.
+ Larger values favour the $b$-jet hypothesis~\cite{ATLAS2026GN2}.
+ The GN2v01 85\% working point is used in this analysis.
+-A jet is tagged when $D_b$ exceeds a fixed threshold corresponding to a nominal $b$-jet tagging efficiency of 85\%.
++A jet is tagged when $D_b$ exceeds a fixed threshold corresponding to a $b$-jet tagging efficiency of 85\% in a reference simulated sample.
+ The efficiency depends on the jet kinematics and can therefore differ in the signal samples.
+ 
+ \begin{figure}[htbp]

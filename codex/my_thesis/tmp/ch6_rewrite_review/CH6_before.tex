@@ -1,0 +1,450 @@
+% CH6 reading draft, 8 September 2026.
+% Structure follows Chapters/CH6_object_definition.tex.
+% Analysis blueprint: ANA_EXOT_2025_06_INT1, 20 April 2026, Section 5.
+% Paper cross-check: arXiv:2606.02067v1, Sections 5 and 7.
+% Source decisions and unresolved production details: CH6_source_notes.md.
+\chapter{Object Reconstruction and Identification}
+\label{chapter:object_reconstruction}
+
+Hadronically decaying $\tau$-leptons, electrons, muons and jets are used in this analysis.
+This chapter describes their reconstruction, identification and calibration, followed by overlap removal and the reconstruction of $\met$.
+
+These objects are reconstructed and identified using detector measurements.
+Tracks are used to determine charged-particle momenta and production vertices, while energy deposits are measured in the calorimeters.
+The reconstructed energies and momenta are calibrated to correct biases in the detector response.
+Simulated event weights are further corrected using efficiency scale factors.
+
+
+\section{Tracks}
+\label{sec:ch6_tracks}
+
+A track is a fitted trajectory of a charged particle through the inner detector.
+The solenoidal magnetic field bends the trajectory in the transverse plane, so that its curvature determines the charge-to-momentum ratio.
+Measurements close to the interaction point also determine whether the particle is compatible with production in the primary collision or originates from a displaced decay.
+These two functions make tracking central to both lepton reconstruction and flavour tagging.
+
+Track reconstruction begins by grouping neighbouring signals in the pixel and silicon microstrip detectors into clusters~\cite{ATLAS2017DenseTracking}.
+Pixel clusters provide three-dimensional position measurements, called space points.
+For the microstrip detector, measurements on the two sides of a module are combined to obtain a space point.
+Compatible combinations of space points form initial track seeds, which are extended through additional detector layers.
+During this extension, a combinatorial Kalman filter updates the trajectory estimate as measurements are added, accounting for measurement uncertainties and the effects of material along the trajectory.
+Several candidates may initially use the same measurements.
+An ambiguity-resolution procedure selects compatible candidates using their fit quality, hit content and missing expected measurements.
+Accepted silicon tracks are extended into the transition radiation tracker where suitable measurements are available.
+
+The fitted trajectory can be specified by five parameters at its point of closest approach to a reference beam line:
+\begin{align}
+    \left(d_0,\ z_0,\ \phi_0,\ \theta,\ q/p\right).
+    \label{eq:ch6_track_parameters}
+\end{align}
+Here, $d_0$ is the signed transverse impact parameter, $z_0$ is the longitudinal coordinate at closest approach, $\phi_0$ and $\theta$ describe the direction of the momentum there, and $q/p$ is the charge-to-momentum ratio.
+The fit also provides the covariance of these parameters.
+The transverse impact-parameter significance, $d_0/\sigma(d_0)$, therefore expresses a displacement in units of its measurement uncertainty.
+For longitudinal association to a vertex at $z_{\mathrm{PV}}$, the quantity $(z_0-z_{\mathrm{PV}})\sin\theta$ measures the longitudinal separation projected perpendicular to the track direction.
+In the object selections below, this difference is denoted by $\Delta z_0\sin\theta$.
+
+Prompt electrons and muons are expected to have small impact parameters, whereas tracks from $b$-hadron decays can have significant displacements.
+Track requirements must therefore be chosen for their intended use.
+The impact-parameter cuts used to select prompt leptons are not imposed on all tracks used for flavour tagging.
+Likewise, tracks associated with a $\tau$ candidate undergo a dedicated classification to distinguish its charged decay products from nearby activity.
+
+\section{Primary vertex}
+\label{sec:ch6_primary_vertex}
+
+Several proton--proton interactions can occur in the same bunch crossing, producing distinct collision vertices along the beam line.
+Vertex reconstruction groups tracks compatible with a common production point and fits that point using the track parameters and their uncertainties~\cite{ATLAS2015Vertex}.
+The vertex associated with the hard-scatter interaction provides the reference for prompt-object selection and for rejecting charged particles from pile-up.
+
+In this analysis, a vertex must have at least two associated tracks with $\pT>500~\MeV$.
+Among the reconstructed vertices, the primary vertex is chosen as the one with the largest sum of squared track transverse momenta~\cite{ATLAS2026LQTauNu},
+\begin{align}
+    v_{\mathrm{PV}}
+    = \operatorname*{arg\,max}_{v}
+      \sum_{i\in v} p_{\mathrm{T},i}^{\,2}.
+    \label{eq:ch6_primary_vertex}
+\end{align}
+The quadratic weighting gives greater importance to energetic tracks, which are more characteristic of the hard scattering than of the additional soft interactions.
+Events without a vertex satisfying these requirements are rejected.
+
+The reconstructed primary vertex is an event-by-event position.
+It differs from the \emph{beam spot}, which describes the spatial distribution of collision points over a period of data taking.
+The beam-line reference and its uncertainty enter transverse impact-parameter measurements, while the reconstructed vertex identifies the collision to which a track is associated.
+This association is used in lepton isolation, pile-up jet rejection and the track contribution to $\met$.
+Hadronic $\tau$ reconstruction additionally uses a dedicated association of each candidate to its production vertex, as described in Section~\ref{sec:ch6_tau}.
+
+\section{Electrons}
+\label{sec:ch6_electrons}
+
+An electron produces an inner-detector track and an electromagnetic shower in the calorimeter.
+Bremsstrahlung in the material upstream of the calorimeter can alter the track curvature and distribute the energy over several nearby deposits.
+Electron reconstruction therefore combines a track fit that accounts for bremsstrahlung with an electromagnetic \emph{supercluster}, which collects the main shower and compatible nearby clusters~\cite{ATLAS2019ElectronReco}.
+Calorimeter clusters are built from connected cells with signals significant compared with the expected noise.
+The spatial and energy measurements of the cluster are then matched to the extrapolated track.
+
+Identification tests whether this combined signature is compatible with an electron.
+The likelihood-based algorithm uses the lateral and longitudinal shower development, leakage into the hadronic calorimeter, track quality and track--cluster matching.
+These quantities distinguish electrons from hadronic showers and other backgrounds.
+The \texttt{TightLH} working point used in this analysis imposes a stringent requirement on the identification discriminant.
+Its name refers to electron identification and is independent of the isolation requirement.
+
+Isolation measures the additional activity around the candidate~\cite{ATLAS2019ElectronPerformance}.
+An electron from a heavy-flavour decay is often accompanied by other particles in a jet, whereas an electron from a leptonic $W$ or $Z$ decay is more often isolated.
+Track isolation sums the transverse momenta of nearby tracks after excluding the electron track.
+Calorimeter isolation measures the surrounding transverse energy after subtracting the electron contribution and correcting for additional activity.
+Variable-radius track isolation reduces the cone size as the electron momentum increases, limiting the loss of efficiency from nearby particles in energetic events.
+
+Baseline electrons must satisfy $\pT>10~\GeV$ and $|\eta|<2.47$, excluding the calorimeter transition region $1.37<|\eta|<1.52$.
+Candidates associated with problematic calorimeter regions are rejected.
+They must pass \texttt{TightLH} identification and \texttt{Loose\_VarRad} isolation, together with
+\begin{align}
+    \frac{|d_0|}{\sigma(d_0)} < 5,
+    \qquad
+    |\Delta z_0\sin\theta| < 0.5~\mm.
+    \label{eq:ch6_electron_ip}
+\end{align}
+These impact-parameter requirements suppress electrons from displaced decays and tracks inconsistent with the primary vertex.
+Electrons selected for the control regions additionally satisfy \texttt{HighPtCaloOnly} isolation, which uses calorimeter activity to suppress backgrounds in the high-$\pT$ selection.
+Their region-dependent momentum thresholds are specified with the event selections.
+
+The electron energy is calibrated to correct for material upstream of the calorimeter, energy outside the reconstructed cluster and variations in detector response~\cite{ATLAS2019ElectronPerformance}.
+Collision data, particularly $\zee$ events, constrain the remaining energy-scale and resolution differences between data and simulation.
+Reconstruction, identification and isolation efficiencies are measured using tag-and-probe methods.
+In this method, a well-identified electron selects a sample of resonance decays, and the second electron is used to measure the efficiency of the requirement under study after accounting for background.
+The resulting corrections are applied for the working points used in the analysis.
+
+\section{Muons}
+\label{sec:ch6_muons}
+
+Muons generally traverse the calorimeters with a relatively small energy deposit and leave measurements in the muon spectrometer.
+Most selected muons are reconstructed by matching an inner-detector track to a muon-spectrometer track and fitting their measurements together, with the energy loss in the calorimeters included in the fit~\cite{ATLAS2021MuonID}.
+The two tracking systems provide independent momentum information and a means of rejecting hadrons that decay in flight or produce misleading spectrometer signals.
+
+Additional reconstruction categories recover muons for which a complete spectrometer track is unavailable.
+A segment-tagged muon uses an inner-detector track matched to a short track segment in the spectrometer.
+A calorimeter-tagged muon uses an inner-detector track with calorimeter deposits compatible with a minimum-ionising particle.
+The latter category is relevant to the overlap-removal procedure because an electron and a calorimeter-tagged muon can be reconstructed from the same inner-detector track.
+
+Muon identification combines requirements on detector hit content and on the consistency of the inner-detector and spectrometer measurements.
+The \texttt{Loose} working point retains additional reconstruction categories to improve efficiency, while \texttt{Medium} imposes more restrictive quality requirements~\cite{ATLAS2021MuonID}.
+Isolation further suppresses muons from heavy-flavour decays by requiring little nearby track and calorimeter activity.
+As for electrons, the variable-radius track cone becomes smaller at higher $\pT$.
+
+Baseline muons are required to have $\pT>10~\GeV$ and $|\eta|<2.5$, to satisfy \texttt{Loose} identification and \texttt{Loose\_VarRad} isolation, and to fulfil
+\begin{align}
+    \frac{|d_0|}{\sigma(d_0)} < 3,
+    \qquad
+    |\Delta z_0\sin\theta| < 0.5~\mm.
+    \label{eq:ch6_muon_ip}
+\end{align}
+Muons in the control regions also pass \texttt{Medium} identification and \texttt{Tight\_VarRad} isolation.
+The momentum calibration accounts for differences in detector alignment, magnetic-field description and material effects between data and simulation~\cite{ATLAS2023MuonCalibration}.
+Resonance decays such as $\zmumu$ and $J/\psi\rightarrow\mu\mu$ constrain the momentum scale and resolution, while tag-and-probe measurements provide efficiency corrections for the reconstruction and selection requirements.
+
+\section{Hadronic tau leptons}
+\label{sec:ch6_tau}
+
+\subsection{Decay signature and reconstruction}
+
+The $\tau$-lepton has a proper lifetime of about $2.9\times10^{-13}$~s and is reconstructed through its decay products~\cite{ATLAS2022TauR22}.
+Approximately 65\% of its decays are hadronic, producing a tau neutrino and a small number of hadrons~\cite{ATLAS2022TauR22}.
+The dominant modes contain one or three charged hadrons, mainly pions, with possible additional neutral pions.
+The charged hadrons produce tracks, while the photons from $\pi^0\rightarrow\gamma\gamma$ contribute electromagnetic energy deposits.
+The boost of an energetic $\tau$-lepton collimates these particles, giving a narrow calorimeter signature with low charged-track multiplicity.
+
+The reconstructed object represents the visible decay products and is denoted by $\tau_{\mathrm{had\text{-}vis}}$ when this distinction needs to be explicit.
+The neutrino momentum is not included in its four-momentum.
+For brevity, $\tau_{\mathrm{had}}$ denotes this reconstructed visible object in the following selections.
+Consequently, the selected $\tau$ transverse momentum and a mass reconstructed from a $\tau$ candidate and a jet refer to visible quantities.
+The tau-decay neutrino contributes to $\met$ together with the neutrino produced in the hard process.
+
+Reconstruction starts from seed jets formed with the anti-$k_t$ algorithm with radius parameter $R=0.4$~\cite{Cacciari2008AntiKt,ATLAS2022TauR22}.
+These seeds group topological calorimeter clusters, whose constituent cells are calibrated with the local hadronic calibration scheme~\cite{ATLAS2017TopoClusters}.
+The scheme accounts for the different calorimeter responses to electromagnetic and hadronic energy deposits.
+These calorimeter-based seeds are distinct from the particle-flow jets used for event categorisation in Section~\ref{sec:ch6_jets}.
+
+A dedicated tau vertex association identifies the collision vertex most compatible with tracks within $\Delta R<0.2$ of the seed-jet direction.
+For each vertex, the algorithm evaluates the fraction of the scalar track-$\pT$ sum associated with that vertex and chooses the largest fraction~\cite{ATLAS2022TauR22}.
+This identifies the $\tau$ \emph{production} vertex and provides the reference for track association and impact parameters.
+A secondary vertex reconstructed from three charged decay products instead estimates the displaced $\tau$ \emph{decay} position.
+The two vertices therefore have different physical roles.
+
+Tracks near the candidate are first required to satisfy geometrical and impact-parameter criteria.
+A recurrent neural network (RNN) then classifies them as tau-decay tracks, conversion tracks, other nearby tracks or incorrectly reconstructed tracks~\cite{ATLAS2022TauR22}.
+This classification is needed because an extra track from pile-up or a photon conversion can otherwise change the reconstructed decay multiplicity.
+Candidates in this analysis must contain exactly one or three tracks classified as tau-decay tracks, with a total charge of $\pm1$ in units of the elementary charge.
+They are referred to as one-prong and three-prong candidates, respectively.
+
+\subsection{Identification and lepton rejection}
+
+Quark- and gluon-initiated jets are produced much more frequently than hadronic $\tau$ decays and can occasionally have similar low-multiplicity signatures.
+Tau identification exploits the narrower energy distribution, restricted track multiplicity and characteristic decay structure to suppress this background.
+The RNN-based identifier combines sequences of associated tracks and calorimeter clusters with quantities describing the candidate as a whole~\cite{ATLAS2019TauRNN,ATLAS2022TauR22}.
+The sequential inputs retain information about individual constituents and their correlations, including their momenta and angular separations.
+Candidate-level inputs include the concentration of calorimeter energy around the axis, the mass of the track system and the amount of activity outside the core.
+For three-prong decays, the significance of the transverse flight distance of the secondary vertex also contributes.
+This jet-rejection network performs a different task from the track-classification network used during reconstruction.
+
+Working points are defined by cuts on the identification score, with separate efficiency targets for one-prong and three-prong candidates.
+Table~\ref{tab:ch6_tau_id} gives the targets used for the Run-2 reprocessing algorithms.
+They describe identification conditional on reconstructing a suitable candidate and should not be interpreted as the total efficiency for a generated $\tau$-lepton to enter an analysis region.
+The latter also depends on the decay mode, geometrical acceptance, reconstruction, lepton rejection and kinematic selection.
+At high $\pT$, the charged decay products become more collimated and their tracks are harder to resolve individually.
+This can reduce the reconstruction efficiency, particularly for three-prong candidates, even when the identification working point has a fixed target efficiency~\cite{ATLAS2022TauR22}.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Target efficiencies of the RNN tau-identification working points for reconstructed candidates matched to genuine hadronic $\tau$ decays, from Table~4 of Ref.~\cite{ATLAS2022TauR22}. The analysis uses \texttt{Loose} for baseline candidates and \texttt{Tight} for signal candidates.}
+    \label{tab:ch6_tau_id}
+    \begin{tabular}{lcc}
+        \toprule
+        Working point & One-prong & Three-prong \\
+        \midrule
+        \texttt{Loose}  & 85\% & 75\% \\
+        \texttt{Medium} & 75\% & 60\% \\
+        \texttt{Tight}  & 60\% & 45\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Electrons can also mimic one-prong $\tau$ decays because they produce a charged track and a concentrated electromagnetic shower.
+A separate RNN electron-rejection discriminant uses tracking and calorimeter information, including shower development and the consistency of the measured energy with the track momentum~\cite{ATLAS2022TauR22}.
+All baseline and signal candidates must satisfy its \texttt{Loose} working point.
+Thus, tightening the tau jet-rejection requirement does not change the electron-rejection working point.
+Candidates overlapping with identified electrons or muons are also removed according to Section~\ref{sec:ch6_overlap}.
+
+\subsection{Energy calibration and analysis definition}
+
+The tau energy calibration estimates the momentum of the visible decay products.
+It combines calorimeter and tracking information, taking advantage of their different resolutions~\cite{ATLAS2022TauR22}.
+The calorimeter-based estimate is combined with an estimate formed from reconstructed charged and neutral decay products.
+A boosted regression tree then refines the response using information about the calorimeter shower, track multiplicity, reconstructed decay structure and pile-up.
+The resulting multivariate tau energy scale is used for the candidate kinematics in this analysis.
+It calibrates the visible object and does not recover the momentum carried by the tau-decay neutrino.
+
+Baseline $\tau_{\mathrm{had}}$ candidates must have $\pT>20~\GeV$ and $|\eta|<2.5$, excluding $1.37<|\eta|<1.52$.
+They must satisfy the one- or three-prong and unit-charge requirements, \texttt{Loose} RNN jet rejection and \texttt{Loose} RNN electron rejection.
+Signal candidates additionally pass \texttt{Tight} RNN jet rejection.
+The signal regions require $\pT^{\tau}>200~\GeV$, while some top-quark control and validation selections use a lower tau momentum threshold.
+These thresholds belong to the region definitions and do not change the baseline collection used to count additional candidates.
+
+Simulation is corrected for residual differences in the tau energy response and selection efficiencies using the corresponding ATLAS calibrations.
+The analysis uses the electron-veto efficiency correction associated with \texttt{Medium} tau identification for candidates passing \texttt{Tight} tau identification, following the prescription recorded in the internal analysis note~\cite{LQInternalNote2026}.
+% Internal note Section 5.4: no eVeto SF available specifically for Tight RNN;
+% Medium-RNN eVeto SF used by agreement with the Tau CP group.
+This prescription concerns the efficiency correction only.
+The selected candidates still pass \texttt{Tight} jet rejection and \texttt{Loose} electron rejection.
+Tau reconstruction and calibration are particularly relevant here because a change in the visible tau momentum affects both the tau selection and the reconstructed missing transverse momentum.
+
+\section{Jets}
+\label{sec:ch6_jets}
+
+\subsection{Particle-flow reconstruction and clustering}
+
+A high-energy quark or gluon produces a collimated collection of hadrons through parton showering and hadronisation.
+A jet algorithm combines their measured signals into an object whose four-momentum approximates that of the resulting hadronic system.
+The jets used for event selection are reconstructed from particle-flow constituents, combining inner-detector tracks and calorimeter clusters~\cite{ATLAS2017ParticleFlow}.
+For charged particles, tracking can provide a more precise momentum measurement than calorimetry over part of the relevant momentum range.
+The associated calorimeter contribution is subtracted when the track measurement is used, preventing the charged-particle momentum from being counted twice.
+The remaining calorimeter signal contributes to the neutral component.
+Vertex information also allows charged contributions from pile-up to be suppressed.
+
+The particle-flow constituents are clustered with the anti-$k_t$ algorithm using $R=0.4$~\cite{Cacciari2008AntiKt}.
+At each step, the algorithm compares pairwise distances and beam distances,
+\begin{align}
+    d_{ij}
+    &= \min\!\left(p_{\mathrm{T},i}^{-2},p_{\mathrm{T},j}^{-2}\right)
+       \frac{\Delta R_{y,ij}^{\,2}}{R^2},
+    &
+    d_{iB} &= p_{\mathrm{T},i}^{-2},
+    \label{eq:ch6_antikt}\\
+    \Delta R_{y,ij}
+    &= \sqrt{(y_i-y_j)^2+(\phi_i-\phi_j)^2},
+    &
+    y &= \frac{1}{2}\ln\frac{E+p_z}{E-p_z}.
+    \label{eq:ch6_rapidity}
+\end{align}
+Here, $y$ is rapidity, and the label $B$ denotes the beam distance rather than a physical beam constituent.
+If a pairwise distance is smallest, the two four-momenta are combined.
+If a beam distance is smallest, the corresponding object is declared a jet and removed from the clustering sequence.
+The inverse-$\pT^2$ weighting causes energetic constituents to collect nearby soft radiation and gives isolated jets approximately circular boundaries of radius $R$.
+The algorithm is infrared and collinear safe, meaning that adding an arbitrarily soft particle or replacing a particle by collinear fragments does not change the hard-jet configuration.
+
+The distance $\Delta R_y$ uses rapidity, whereas $\Delta R$ in Eq.~\eqref{eq:delta_r} uses pseudorapidity.
+They coincide for massless particles, but can differ for massive jets.
+The distinction is retained explicitly below because the overlap-removal tools also use rapidity.
+
+\subsection{Calibration, pile-up rejection and cleaning}
+
+Jet calibration corrects the reconstructed four-momentum for additional energy from pile-up, the non-uniform detector response and energy losses~\cite{ATLAS2021JetCalibration}.
+The first corrections remove the average pile-up contribution using the jet area and the transverse-momentum density of the event, followed by residual corrections for the pile-up dependence.
+Simulation-based corrections then restore the average energy scale and direction.
+Further corrections using jet properties reduce variations in response associated with the shower composition.
+For collision data, residual differences from simulation are constrained with in situ momentum-balance measurements in events containing a well-measured photon, $Z$ boson or reference jet system.
+
+The analysis retains jets with calibrated $\pT>20~\GeV$ and $|\eta|<2.5$.
+Jets from additional collisions are suppressed with the neural-network jet-vertex tagger, NNJVT, at the \texttt{FixedEffPt} working point.
+This tagger uses the association of charged tracks to vertices to distinguish jets from the hard scattering from pile-up jets.
+The requirement is applied in the momentum and pseudorapidity range specified by the corresponding calibration recommendation.
+% ANA_EXOT_2025_06_INT1, Table 5.4: NNJVT FixedEffPt; fJVT not applied.
+The \texttt{LooseBad} jet-quality selection rejects detector signatures inconsistent with a jet from a collision, such as those arising from calorimeter noise or non-collision backgrounds.
+
+The reconstructed jet multiplicity and momenta enter the event categorisation.
+For resonant production, a jet can contain the quark from the leptoquark decay.
+In non-resonant production, the accompanying jet probes a different part of the hard-scattering kinematics.
+The requirements that distinguish these topologies are introduced in Chapter~\ref{chapter:event_selection}.
+The inclusive jet collection defined here is also the starting point for identifying $b$-tagged jets.
+
+\section{Jet flavour tagging}
+\label{sec:ch6_btag}
+
+Flavour tagging distinguishes jets containing heavy-flavour hadrons from jets initiated by light quarks or gluons.
+The characteristic signature of a $b$-jet arises from the lifetime of the $b$-hadron.
+Its mean flight distance is
+\begin{align}
+    \langle L\rangle = \beta\gamma c\tau_b,
+    \label{eq:ch6_b_flight}
+\end{align}
+where $\tau_b$ is its proper lifetime and $\beta\gamma$ is its boost.
+With a typical lifetime of about $1.5$~ps, a boosted $b$-hadron can travel several millimetres before decaying~\cite{ATLAS2026GN2}.
+Its charged decay products therefore have displaced impact parameters and may form a secondary vertex.
+The subsequent decay of a charm hadron can produce a further displaced vertex.
+These spatial correlations, together with the decay multiplicity and track momenta, distinguish $b$-jets from most light-flavour jets.
+Charm jets also contain displaced decays and are consequently a separate background to $b$-tagging.
+
+This analysis uses the GN2v01 flavour-tagging algorithm.
+GN2 processes the kinematics and tracking information of the jet constituents with a transformer-based neural network~\cite{ATLAS2026GN2}.
+The input includes the jet momentum and direction, track momenta, impact parameters and information about detector hits.
+The transformer allows each track representation to depend on the other tracks in the same jet, making correlated displacements and common decay origins available to the classifier.
+During training, auxiliary tasks predict track origins and whether pairs of tracks share a production vertex.
+These tasks encourage the network to learn the decay structure that carries the flavour information.
+GN2 therefore does not require a list of explicitly reconstructed secondary vertices as an input to a separate final discriminant.
+
+The network produces outputs for the $b$-, $c$-, hadronic-tau and light-jet hypotheses.
+They are combined into a $b$-tagging discriminant of the form
+\begin{align}
+    D_b = \ln\!\left[
+        \frac{p_b}
+        {f_c p_c + f_\tau p_\tau +(1-f_c-f_\tau)p_u}
+    \right],
+    \label{eq:ch6_gn2_discriminant}
+\end{align}
+where $p_b$, $p_c$, $p_\tau$ and $p_u$ are the respective classifier outputs~\cite{ATLAS2026GN2}.
+The fixed coefficients $f_c$ and $f_\tau$ tune the balance between rejecting different background flavours.
+They are properties of the discriminant and do not represent measured flavour fractions in the selected data.
+A jet is tagged when $D_b$ exceeds the threshold defining the chosen working point.
+
+The nominal selection uses the fixed-cut working point corresponding to an inclusive $b$-jet efficiency of 85\% in simulated $\ttbar$ events.
+This efficiency defines the reference operating point and is not a constant efficiency for every jet momentum or every signal model.
+For a background flavour $f$, the rejection is $1/\epsilon_f$, where $\epsilon_f$ is the probability of that flavour passing the same requirement.
+Both the tagging and mistagging efficiencies depend on the jet kinematics and are corrected using the appropriate flavour-dependent calibrations.
+
+These corrections affect events with tagged and untagged jets.
+For example, consider a single jet with simulated tagging efficiency $\epsilon_f^{\mathrm{MC}}$ and scale factor $\mathrm{SF}_f=\epsilon_f^{\mathrm{data}}/\epsilon_f^{\mathrm{MC}}$.
+The correction for the tagged outcome is $\mathrm{SF}_f$, while that for the untagged outcome follows from the complementary probability,
+\begin{align}
+    w_f^{\mathrm{untagged}}
+    = \frac{1-\epsilon_f^{\mathrm{data}}}
+           {1-\epsilon_f^{\mathrm{MC}}}
+    = \frac{1-\mathrm{SF}_f\epsilon_f^{\mathrm{MC}}}
+           {1-\epsilon_f^{\mathrm{MC}}}.
+    \label{eq:ch6_btag_untagged}
+\end{align}
+This relation explains why a $b$-tagging calibration changes the predicted population of the zero-tag category as well as that of the tagged category.
+The analysis applies the corresponding calibration through the flavour-tagging tools.
+
+The number of tagged jets separates the zero-$b$-tag and one-$b$-tag signal categories.
+The former can receive signal events when a $b$-jet is outside acceptance or fails the tag.
+It also has a direct signal contribution from $U_1\rightarrow s\tau$ when $\beta_L^{23}$ is sizeable.
+The zero-tag category therefore probes part of the signal flavour structure in its own right.
+It cannot be interpreted solely as a correction for imperfect $b$-tagging.
+Events with additional $b$-tagged jets are useful for constraining top-quark backgrounds, as discussed in Chapter~\ref{chapter:background_estimation}.
+
+\section{Overlap removal}
+\label{sec:ch6_overlap}
+
+Object reconstruction algorithms operate on partially shared detector information.
+An electron shower can also be reconstructed as a jet, and a hadronic $\tau$ candidate is itself seeded by a calorimeter jet.
+Counting all such candidates independently would distort object multiplicities and assign more than one interpretation to the same activity.
+An ordered overlap-removal procedure selects the objects used for event selection.
+Only objects surviving an earlier step are considered in subsequent steps.
+
+Table~\ref{tab:ch6_overlap} gives the sequence reported in the analysis paper~\cite{ATLAS2026LQTauNu}.
+The matching distances use $\Delta R_y$, defined in Eq.~\eqref{eq:ch6_rapidity}, in accordance with the rapidity convention of the overlap-removal tools.
+An inner electron--jet overlap is resolved in favour of the electron because the jet may be the electron shower reconstructed a second time.
+If a jet survives this step, an electron within the larger outer cone is removed because it is less consistent with an isolated electron.
+For muons, the jet track multiplicity helps distinguish calorimeter activity associated with the muon from a genuine hadronic jet containing a muon.
+The final tau--jet step retains the tau interpretation of an overlapping jet.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Ordered overlap-removal sequence as described in Ref.~\cite{ATLAS2026LQTauNu}. Each row is applied to candidates surviving the preceding rows. The muon--jet matching description and an additional electron--electron step in the internal note require the version checks recorded in the accompanying draft notes.}
+    \label{tab:ch6_overlap}
+    \renewcommand{\arraystretch}{1.16}
+    \begin{tabular}{clp{8.1cm}}
+        \toprule
+        Step & Rejected object & Condition \\
+        \midrule
+        1 & $\tau_{\mathrm{had}}$ & Within $\Delta R_y<0.2$ of an electron. \\
+        2 & $\tau_{\mathrm{had}}$ & Within $\Delta R_y<0.2$ of a muon. \\
+        3 & Muon & Calorimeter-tagged and sharing an inner-detector track with an electron. \\
+        4 & Electron & Sharing an inner-detector track with a muon. \\
+        5 & Jet & The closest jet within $\Delta R_y<0.2$ of an electron. \\
+        6 & Electron & Within $\Delta R_y<0.4$ of a surviving jet. \\
+        7 & Jet & Within $\Delta R_y<0.4$ of a muon and having at most two associated tracks, as specified in the paper. \\
+        8 & Muon & Within $\Delta R_y<0.4$ of a surviving jet. \\
+        9 & Jet & Within $\Delta R_y<0.2$ of a surviving $\tau_{\mathrm{had}}$ candidate. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Overlap removal for object counting must also be distinguished from the treatment of shared detector signals in the missing-momentum calculation.
+The latter uses associations between tracks, calorimeter signals and reconstructed objects to account for their momenta consistently.
+It is described in the following section.
+
+\section{Missing transverse momentum}
+\label{sec:ch6_met}
+
+The transverse momenta of the incoming partons are small compared with the momentum scale of the hard scattering.
+Momentum conservation therefore predicts an approximately balanced final state in the transverse plane when all particles are measured.
+Neutrinos escape detection and produce an imbalance in the measured visible momentum.
+In the signal considered here, both the hard-process neutrino and the tau-decay neutrino can contribute to this imbalance.
+Because they contribute as vectors, the measured imbalance depends on their directions as well as on their individual momenta.
+
+The reconstructed missing transverse momentum is the negative vector sum of the calibrated visible contributions~\cite{ATLAS2025METPerformance},
+\begin{align}
+    \vec p_{\mathrm{T}}^{\,\mathrm{miss}}
+    &= -\left(
+        \sum_{e}\vec p_{\mathrm{T}}^{\,e}
+        + \sum_{\mu}\vec p_{\mathrm{T}}^{\,\mu}
+        + \sum_{\tau_{\mathrm{had}}}\vec p_{\mathrm{T}}^{\,\tau}
+        + \sum_{\mathrm{jets}}\vec p_{\mathrm{T}}^{\,j}
+        + \vec p_{\mathrm{T}}^{\,\mathrm{soft}}
+       \right),
+    \label{eq:ch6_met_vector}\\
+    \met &= \left|\vec p_{\mathrm{T}}^{\,\mathrm{miss}}\right|.
+    \label{eq:ch6_met_magnitude}
+\end{align}
+The object sums form the \emph{hard term} and contain the contributions accepted by the missing-momentum reconstruction.
+The \emph{soft term}, $\vec p_{\mathrm{T}}^{\,\mathrm{soft}}$, accounts for additional charged activity associated with the primary vertex.
+No separate photon collection is supplied in this analysis, so Eq.~\eqref{eq:ch6_met_vector} contains the electron, muon, tau and jet collections used by its reconstruction configuration.
+
+The baseline lepton and tau selections provide the candidate inputs.
+An association map records which detector signals belong to each object, and the reconstruction resolves shared contributions before forming the sum~\cite{ATLAS2025METPerformance}.
+It can therefore treat partial overlaps and muon energy deposits within jets in more detail than the geometrical object-removal procedure.
+The jet term is subject to its own missing-momentum working point and should not be identified with the list of central jets counted in the event selection.
+In particular, the calculation is not a sum of only the high-$\pT$ objects satisfying the final signal-region requirements.
+
+The analysis uses the track soft term and the \texttt{Tight} missing-momentum operating point.
+The soft term includes suitable primary-vertex tracks not assigned to retained hard-object contributions, with additional quality and overlap requirements.
+Restricting it to primary-vertex tracks suppresses pile-up contamination because tracks can be associated with their production vertices.
+Soft neutral particles without an accepted hard-object contribution are not measured by this term.
+This is a limitation of its response, balanced by its reduced sensitivity to pile-up~\cite{ATLAS2025METPerformance}.
+The \texttt{Tight} operating point controls the jet contribution to the calculation and is independent of the \texttt{Tight} tau-identification requirement.
+
+Large $\met$ can also arise when visible energy is mismeasured, lost in uninstrumented material or affected by detector noise.
+For example, underestimating a jet momentum can produce an apparent missing-momentum vector along the jet direction.
+Jet-quality requirements and selections using the azimuthal separation between jets and $\vec p_{\mathrm{T}}^{\,\mathrm{miss}}$ suppress these contributions.
+Their precise event-level definitions are introduced in Chapter~\ref{chapter:event_selection}.
+Energy-scale and resolution variations of the hard objects are propagated to $\vec p_{\mathrm{T}}^{\,\mathrm{miss}}$, while separate uncertainties describe the track soft term.
+This treatment preserves the relationship between the visible-object kinematics and the momentum imbalance used to select the signal.

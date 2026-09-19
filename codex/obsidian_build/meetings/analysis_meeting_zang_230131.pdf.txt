@@ -1,0 +1,124 @@
+### PAGE 1
+Non-resonant search in LHC-ATLAS motivated by B anomalyD1Jiaqi Zang01/31/2023
+1
+Based on https://arxiv.org/abs/2111.04748
+NOTES: 
+
+### PAGE 2
+Motivation –B anomaly
+2
+•Lepton flavor Violation (LFV) is observed in B decay.
+Branch fraction
+A BSM heavy boson may couple to tau
+3.3𝜎 2.8𝜎
+BF(B→Dτντ)/BF(B→D l νl)
+BF(B→Dτντ)/BF(B→D l νl)
+SM
+NOTES: 
+
+### PAGE 3
+New Physics scenario –Leptoquark (LQ)
+3
+•WhatisLQ?-Leptoquarks arehypothetical bosonscarrying both baryon number (B) and lepton number (L)
+From:T.Kitahara
+Parameter:(𝐶!!,𝑅"/$)Wilsoncoefficient(BSMcontributioninHeavyflavordecay)
+Effectofadditionals-quarkcontribution
+
+NOTES: 
+
+### PAGE 4
+4
+•A non-resonant search for LQ using t-channel with tau, nu + b-jet final state is suggested, for example, in arXiv:2111.04748, to relax the collider bound.
+Endo, Iguro,etal., 2111.04748
+CMS, CMS PAS HIG-21-001
+•Comparisonofsensitivityfor𝜏𝜈𝑏searchand𝜏𝜏search
+àSimilarsensitivityfor139𝑓𝑏%&à𝜏𝜈𝑏final statehas not beenstudied at LHC yet,it’sworthatry!
+Motivation–Banomaly
+NOTES: 
+
+### PAGE 5
+5
+•ExpectedFTE:§Jiaqi Zang: 80%§Shigeki Hirose: 5%§Takuya Nobe: 5%§Junichi Tanaka: 5%§WaiYuan(Alan)Chan(newmember):?
+Currentstatus
+•PlantodevelopanalysistoolsforRelease22andcombineRun-3data.•Anlysisframework used§xTauFrameworkprovided by the TauCPgroupàCurrentlyusedforMCsampleprocessing.àAlreadyworkwithrelease22.§AnalysisTopàDevelopmenttargetwithintheExotics-LPXsubgroup.àCanbeusedforcross-checkwiththexTAUFramework.
+NOTES: 
+
+### PAGE 6
+6
+Currentstatus•Processedsomesignalsamplesofchannel𝑏𝑐𝜏𝜈forpreliminarytruthstudy.§UsingMG5_aMC@NLOsamples.§DAOD_TRUTHgeneratedwithrelease21.2byTanaka-san.§Usingscenariosingle𝐶!"=1,singletvectorLQ(U1).§Currentlycomparedseveralkindsofsamples:üTheMCsamplesofLQmass1.5/20TeVusingreferencepaper’ssettingüTheMCsamplesofLQmass1.6TeVusingcurrentATLASsetting.§Generatorlevelcut:ØjetpT>20GeVØchargedleptonspT>10GeVØChargedleptons|eta|<2.5§Moresampleswithdifferentsettingsaregeneratedrecently.ßwillchecksoon•ProcessedtheBGsusingxTAUFramework.ØMc20Wtaunu,ttbar,dijets,ZnunuandSingleTopareused.(grabfromtwiki)ØTriggerselectionisdisabled.ØOnlyminorpreselectionisappliedforthepurposeofcutoptimization.•Event weightarecomputed as1000*integratedluminosity*pileupW*CrossSection*kFactor*FilterEfficiency*MCweight/SumOfWeight
+NOTES: 
+
+### PAGE 7
+BGpreselection
+7
+•Theselectedeventsoftheabovepreselectionremainthesizeof700GBØCurrentlyusingHTcondortodothesecondskimming.
+NOTES: 
+
+### PAGE 8
+8
+•Transverse mass mTis introduced to analyze high pTevents.•Followingcutsarerefered:
+Preliminarystudy for MC samples
+arXiv:2111.04748
+NOTES: 
+
+### PAGE 9
+Signalsampleanalysis
+9
+•Distributionisquitedifferentfrom1.5TeVand1.6TeVsignalsample.Ø1.5/20TeVTRUTH1sample:generatedbyTanaka-san.Ø1.6TeVTRUTH1sample:generatedbyNobe-san,sameasATLASofficialsample.ØCurrent ATLAS sample cannot be used for the cut optimization.
+NOTES: 
+
+### PAGE 10
+10
+Signalsamplesanalysis•NewsamplesaregeneratedwithvariousUFOandsetting.ØTheoryUFOandsetting.ØTheoryUFOandATLASsetting.ØATLASUFOandsetting.•Each sample are generated with 10000 events.•Normalizedthedistributiontoanareaof1.•Cutflowisweightedbytheir own cross section.TheoryUFO,MLM30TheoryUFO,MLM15TheoryUFO,ktdurham15ATLASUFO,ktdurham15
+X-sec (pb)0.4830.7350.3920.475
+NOTES: 
+
+### PAGE 11
+11
+SignalsamplesanalysisCutflow(0.7GeV<mT<1TeV) Cutflow(mT>1TeV)•Cutflowfordifferentrangeoftransversemass
+
+NOTES: 
+
+### PAGE 12
+12
+Signalsamplesanalysis
+•Status23bandtaupT
+
+NOTES: 
+
+### PAGE 13
+13
+Signalsamplesanalysis
+•DistributionofMETandmT
+NOTES: 
+
+### PAGE 14
+14
+BGsamplesanalysis
+•ProcessforallBGfilesaredone.•Distributionofdijetslooksstrange.
+NOTES: 
+
+### PAGE 15
+15
+BGsamplesanalysis
+•ProcessforallBGfilesaredone.•Distributionofdijetslooksstrange.
+NOTES: 
+
+### PAGE 16
+16
+BGsamplesanalysis
+•ProcessforallBGfilesaredone.•Distributionofdijetslooksstrange.
+NOTES: 
+
+### PAGE 17
+17
+BGsamplesanalysis
+•ProcessforallBGfilesaredone.•Distributionofdijetslooksstrange.
+NOTES: 
+
+### PAGE 18
+Summary & Plan
+18
+Summary•Thebasic analysiscodeandtoolareready.•Havealreadyprocessedsomeofthesignalsamplesand BG samples.•ThedijetsMCsamples looks like strange.•Signal samples of Ktdurham15 have the similar distribution.
+Plan•Investigatetheeventweightforalldijetsslides.•Reproducetheresultofthepaperusing signal samples with ATLAS setting.•Contributeto theanalysistooldevelopmentforRelease22. 
+NOTES: 

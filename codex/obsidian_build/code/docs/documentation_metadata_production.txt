@@ -1,0 +1,300 @@
+https://atlas-project-topreconstruction.web.cern.ch/fastframesdocumentation/latest/documentation/metadata_production/
+Metadata Production - FastFrames
+:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}
+__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}
+Skip to content
+FastFrames
+Metadata Production
+Initializing search
+atlas-amglab/fastframes
+FastFrames
+atlas-amglab/fastframes
+Home
+Tutorial
+Documentation
+Documentation
+Installation
+Metadata Production
+Metadata Production
+Table of contents
+Overview
+filelist.txt
+sum_of_weights.txt
+Producing Metadata Files
+Speeding Up Metadata Production
+Accessing Files on the Grid
+Streaming Sums of Weights
+Sums of Weights Histograms Other Than Cutbookkeeper
+Skimming a Filelist
+Merging Empty Files
+Checking for Duplicate Events
+Custom Classes
+Histogramming
+Ntupling
+Truth Processing
+Unfolding
+Systematics
+Cutflows
+ONNX Inference
+Distributed Computing
+Helper Functions
+TRExFitter Integration
+Configuration
+Recommendations for running FastFrames
+Code flow
+Event Tutorials
+Event Tutorials
+Top Workshop 2025
+Changelog
+Table of contents
+Overview
+filelist.txt
+sum_of_weights.txt
+Producing Metadata Files
+Speeding Up Metadata Production
+Accessing Files on the Grid
+Streaming Sums of Weights
+Sums of Weights Histograms Other Than Cutbookkeeper
+Skimming a Filelist
+Merging Empty Files
+Checking for Duplicate Events
+Metadata Production
+Overview
+FastFrames needs two metadata files,
+filelist.txt
+and
+sum_of_weights.txt
+,
+to be able to figure out which of your input files belong to which sample and
+properly apply luminosity and cross-section weights.
+We provide a general
+produce_metadata_files.py
+script to produce these files,
+along with
+produce_filelist.py
+and
+produce_sum_weights_file.py
+if more
+fine-grained control is necessary. Datasets should be stored in local storage
+or on the grid.
+filelist.txt
+This file tells FastFrames where all of your input ROOT files are and which
+samples they belong to. The format of this file is
+[DSID] [Campaign/Year] [Simulation Type] [Path to ROOT File]
+sum_of_weights.txt
+This file tells FastFrames what the sums of weights for each variation over all
+of your samples. The format of this file is
+[DSID] [Campaign] [Simulation Type] [Variation] [Sum of Weights]
+Producing Metadata Files
+For many use cases it is recommended to use
+produce_metadata_files.py
+to
+produce your metadata files. If your input files are on local storage, it is
+very easy. Just give it the top-level directory containing all of your input
+files and a directory to store the metadata files in:
+python3
+produce_metadata_files.py
+\
+--root-files-folder
+/path/to/toplevel/directory/containing/root/files
+\
+--output-path
+/output/directory/for/metadata/files/
+This script has a number of options, including:
+Argument
+Description
+--root-files-folder
+(Required) Path to folder containing root files
+--output-path
+Path to the folder with output text files. (Default: Same folder as the input ROOT files.)
+--check-duplicates
+Whether to check for duplicates. Will loop over all input files and print a warning if there are duplicate events (with same DSID, data type, event number, and run number).
+--n-jobs
+Number of threads to use when generating the file list and sum of weights files. (Default: 1)
+--skip-missing
+Whether to skip missing files instead of exiting. (Default:
+False
+)
+Speeding Up Metadata Production
+Opening and closing ROOT files is a slow process.
+produce_metadata_files.py
+can speed this up by using multiple threads. Specify
+--n-jobs [N]
+to use
+N
+threads when obtaining metadata.
+Accessing Files on the Grid
+If your files are stored on the grid, a little extra work is necessary to get
+things working. First, you must stage all of your inputs on a single RSE.
+Rucio Storage Elements (RSEs)
+Rucio Storage Elements (RSEs) are different storage locations that Rucio can
+access. Examples include
+CERN-PROD
+,
+CERN-DISK
+,
+CERN-USERDISK
+, etc. See
+e.g.
+Intro to Rucio
+.
+Then you need to create a text file containing all of the relevant dataset names, e.g.
+# grid_datasets.txt
+user.dbaronmo:user.dbaronmo.601229.PhPy8EG.DAOD_PHYS.e8514_s4162_r14622_p5980.Common-FTAG-NTuples-v0.3.0_output
+user.dbaronmo:user.dbaronmo.601230.PhPy8EG.DAOD_PHYS.e8514_s4162_r14622_p5980.Common-FTAG-NTuples-v0.3.0_output
+user.dbaronmo:user.dbaronmo.601348.PhPy8EG.DAOD_PHYS.e8514_s4162_r14622_p5980.Common-FTAG-NTuples-v0.3.0_output
+Then run
+produce_metadata_files.py
+with
+--grid-datasets
+pointing to that file and
+--rse
+pointing to the RSE where your files are staged:
+python3
+produce_metadata_files.py
+\
+--grid-datasets
+<grid_datasets_file>
+--rse
+<RSE>
+--output-path
+<path_to_output_folder>
+Grid Access Limitations
+Accessing files on the grid is much slower than accessing local files, so
+producing metadata files with grid inputs can take a very long time. It is
+only recommended to use this option when you have local access to the RSE
+you want to use.
+Streaming Sums of Weights
+If your files are on the grid, it is possible for some of the network reads to
+fail. FastFrames streams sums of weights as they are read, so your progress is
+saved. To continue running, use
+produce_sum_weights_file.py
+with the
+--resume
+option:
+python3
+produce_sum_weights_file.py
+\
+--filelist-path
+/path/to/filelist.txt
+--output-path
+/output/directory/for/metadata/files/
+--resume
+Sums of Weights Histograms Other Than
+Cutbookkeeper
+If your sums of weights histogram is not named
+Cutbookkeeper
+, you can have
+produce_sum_weights_file.py
+use the correct histogram  with
+--histo-name [HISTO]
+.
+Skimming a Filelist
+Deprecated
+skim_filelist.py
+and the
+skip_empty_files
+option are deprecated and will
+be removed in a future release. They are not needed for inputs produced with
+recent CPAlgs versions.
+When using inputs stored on grid, opening and closing ROOT files is (even more)
+time intensive. If one uses
+skip_empty_files: true
+in the config, FastFrames
+has to open every file to check whether or not it is empty before it can begin
+processing. This process can be extremely slow. An alternative approach is to
+remove empty files from filelists.
+Limitations when Skimming a Filelist
+This approach has a few limitations:
+You must use the non-skimmed filelist to calculate sums of weights.
+This method cannot be used if you also need truth trees (there can be
+   files with 0 reco-level events, but with some truth-level events).
+To produce the skimmed filelist, use the
+skim_filelist.py
+script:
+python3
+skim_filelist_py
+/path/to/original/filelist.txt
+/path/to/skimmed/filelist.txt
+Merging Empty Files
+RDataFrames cannot handle files with empty or missing trees, but it is possible
+for your ntuple production to produce such files. FastFrames provides a script
+to merge empty files with other non-empty files with the same DSID, campaign
+and type (fastsim/fullsim/data) to avoid this problem.
+You can run the script using the following command:
+python3
+python/merge_empty_grid_files.py
+--root-files-folder
+<path
+to
+the
+folder
+with
+ROOT
+files>
+By default the script will look for trees named
+reco
+,
+truth
+and
+particleLevel
+, but you can specify other tree names with the
+--reco-tree
+and
+--truth-trees
+options. Pass
+--n-jobs [N]
+to speed things up when you
+have many files, and
+--log-level [LEVEL]
+(e.g.
+DEBUG
+) for more detailed
+logging. See
+merge_empty_grid_files.py --help
+for the full list.
+If you still encounter issues with the empty files after running the script
+(this can happen if there are no events in any of the files for a given DSID
+and campaign), consider using the
+skip_empty_files
+option in the
+general
+block of your config.
+TopCPToolkit v2.12.0 and Later
+From
+TopCPToolkit
+v2.12.0
+onwards
+,
+one should never get an output file with empty trees. Users of earlier TCT versions must use the
+--legacy-tct-output
+flag when running the merging script.
+Checking for Duplicate Events
+To be sure there are not any duplicate events in your input files, you can use
+--check-duplicates
+option in
+produce_metadata_files.py
+:
+python3
+produce_metadata_files.py
+\
+--root-files-folder
+/path/to/toplevel/directory/
+--check-duplicates
+You can also use the
+check_duplicate_events.py
+script to run the check as
+a separate step:
+python3
+check_duplicate_events.py
+--root-files-folder
+/path/to/toplevel/directory/
+var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))
+Previous
+Installation
+Next
+Custom Classes
+Copyright © 2002-2026 CERN for the benefit of the ATLAS Collaboration
+Made with
+Material for MkDocs
+{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.footer", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}

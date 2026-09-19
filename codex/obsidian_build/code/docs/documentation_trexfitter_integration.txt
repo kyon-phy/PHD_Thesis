@@ -1,0 +1,623 @@
+https://atlas-project-topreconstruction.web.cern.ch/fastframesdocumentation/latest/documentation/trexfitter_integration/
+TRExFitter Integration - FastFrames
+:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}
+__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}
+Skip to content
+FastFrames
+TRExFitter Integration
+Initializing search
+atlas-amglab/fastframes
+FastFrames
+atlas-amglab/fastframes
+Home
+Tutorial
+Documentation
+Documentation
+Installation
+Metadata Production
+Custom Classes
+Histogramming
+Ntupling
+Truth Processing
+Unfolding
+Systematics
+Cutflows
+ONNX Inference
+Distributed Computing
+Helper Functions
+TRExFitter Integration
+TRExFitter Integration
+Table of contents
+Creating config file for inclusive fit
+Creating config file for unfolding
+yaml file with additional TRExFitter settings
+Selecting regions
+Selecting samples
+Selecting systematics
+Job block
+Fit block
+Unfolding block
+variables block:
+variables_truth block:
+reco_variables_to_use_in_unfolding block
+Samples block
+Systematics block
+NormFactors block
+ShapeFactors block
+CustomBlocks block
+BlocksToCopy block
+General block
+Region block
+Configuration
+Recommendations for running FastFrames
+Code flow
+Event Tutorials
+Event Tutorials
+Top Workshop 2025
+Changelog
+Table of contents
+Creating config file for inclusive fit
+Creating config file for unfolding
+yaml file with additional TRExFitter settings
+Selecting regions
+Selecting samples
+Selecting systematics
+Job block
+Fit block
+Unfolding block
+variables block:
+variables_truth block:
+reco_variables_to_use_in_unfolding block
+Samples block
+Systematics block
+NormFactors block
+ShapeFactors block
+CustomBlocks block
+BlocksToCopy block
+General block
+Region block
+TRExFitter Integration
+The
+FastFrames
+package contains a python script which allows for automatic creation of config files for
+TRExFitter
+.
+Even though most of the things are done automatically based on the FastFrames config file, there are parts of the config which cannot be
+derived from FastFrames config and thus the user is advised to check the created config before using it.
+Creating config file for inclusive fit
+python3
+python/produce_trexfitter_config.py
+-c
+test/reference_files/configs_run/config.yml
+-o
+config_trex.config
+--trex-settings
+test/reference_files/trex_configs/trex_settings.yml
+where
+-c
+denotes the config file for FastFrames,
+-o
+is the address of the output TRExFitter config and the last argument,
+--trex-settings
+is optional. It contains additional settings, which will be used in the TRExFitter config and cannot be automatically obtained from the FastFrames config, such as colors for individual samples, LaTeX names of regions, normalization factors, additional systematic uncertainties etc.
+Creating config file for unfolding
+Creating the config file for unfolding is similar to the inclusive fit, however, one has to specify which variable is going to be unfolded at reco and truth level, what truth level is going to be used and which sample is the main signal sample. An example command:
+python3
+python/produce_trexfitter_config.py
+-c
+test/reference_files/configs_run/config.yml
+-o
+config_trex.config
+--u
+ttbar_FS:parton:Ttbar_MC_t_afterFSR_pt:jet_pt
+where the last argument denoted by
+--u
+is combination of 4 strings separated by
+:
+. The meaning of the 4 strings is as follows:
+1) Name of the nominal signal sample
+  2) Name of the truth block
+  3) Name of the truth-level variable to be unfolded
+  4) Name of the reco-level variable to be used for the unfolding
+yaml file with additional TRExFitter settings
+This is an optional yaml file, which provides additional settings for the
+TRExFitter
+config, which cannot be automatically deduced from the fastframes config, such as colors and titles used for individual samples, normalization uncertainties, norm. factors, type of the fit, used regions etc. The example of this file can be found in
+test/reference_files/trex_configs/trex_settings.yml
+.
+The overview of the supported blocks and options inside these blocks:
+Selecting regions
+In order to use only some
+region + variable
+pairs from the
+fastframes
+config in the resulting
+TRExFitter
+config, one can use
+--trex-regions
+flag with comma separated list of
+region + variable
+pairs to be used. The
+region + variable
+syntax is
+region_name + "_" variable_name
+- these are the names of "regions" in the resulting TRExFitter config. Regular expressions are supported.
+Few examples:
+python3
+python/produce_trexfitter_config.py
+--config
+test/reference_files/config_reading/config_testing.yml
+--trex-regions
+.*met_met
+
+python3
+python/produce_trexfitter_config.py
+--config
+test/reference_files/config_reading/config_testing.yml
+--trex-regions
+Electron_jet_pt,Muon_met_met
+one can also use
+selected_regions: ["region1", "region2" ...]
+in trex-fitter settings file to select the regions. If CLI option is used, it has the priority.
+Selecting samples
+In order to select samples used in the config, one can either use
+--samples
+command line option (as for fastframes itself), or
+selected_samples: ["sample1", "sample2"]
+can be added to the
+TRExFitter
+settings file. If both are specified, the CLI option has the priority.
+Selecting systematics
+Sometimes it can be useful to exclude some systematics uncertainties from TRExFitter config, even though FastFrames produced inputs for them, or to include just an explicitly defined subset of systematics into your
+TRExFitter
+config. You can do so by specifying
+excluded_systematics
+or
+selected_systematics
+in your trex-settings file. The value is a list of corresponding systematic uncertainties. Both options accept regular expressions.
+Job block
+All set options in the yaml config are included in the TRExFitter config, but the following options have default values set:
+Name
+HistoPath
+Lumi
+ImageFormat
+ReadFrom
+To run on ntuples instead of the default histograms, the
+ReadFrom
+option can be set to
+NTUP
+. This will replace
+HistoPath
+with
+NtuplePath
+and each of the
+HistoFile
+in the sample blocks with
+NtupleFile
+. NOTE: This does not currently work with systematics!
+If unfolding is run, default values for the following options are set:
+AcceptancePath
+MigrationPath
+SelectionEffPath
+If no unfolding is run, a default value for the following option is set:
+POI
+The job name can also be set via CLI argument
+--job-name
+.
+Fit block
+The following options are allowed; they override the default values. The meaning of these options (as well for all the other TRExFitter options), can be found in the
+TRExFitter config documentation
+.
+FitType:
+FitRegion:
+POIAsimov:
+FitBlind:
+UseMinos:
+Unfolding block
+The following options are supported:
+Option
+Value type
+Function
+DivideByBinWidth
+boolean
+Overrides the corresponding TRF option.
+DivideByLumi
+float
+Overrides the corresponding TRF option.
+MigrationTitleX
+str
+or
+list[str]
+Allows the user to set the x-axis label for migration matrices. If a string is supplied, it is passed to TRF as-is. If a list of strings is supplied, then the strings are appended within quotation marks with commas between them. In other words,
+["a", "b", "c"]
+will become
+"a","b","c"
+in the TRF config file.
+MigrationTitleY
+str
+or
+list[str]
+Allows the user to set the y-axis label for migration matrices. The behavior is the same as for
+MigrationTitleX
+.
+LogX
+boolean
+Overrides the corresponding TRF option.
+LogY
+boolean
+Overrides the corresponding TRF option.
+UnfoldNormXSec
+boolean
+Overrides the corresponding TRF option.
+variables block:
+Allows to define
+VariableTitle
+for a variable, to be used in TRExFitter plots. Syntax is the following:
+variables:
+  - name: "lepton_1_pt"
+    VariableTitle : "p_{T}^{1st lep} [GeV]"
+  - name: "lepton_2_pt"
+    VariableTitle : "p_{T}^{2nd lep} [GeV]"
+variables_truth block:
+It can be used to define labels for truth variables to be used in the unfolding. If title of the migration matrix and unfolded data plots are not set in the
+Unfolding
+block,
+the script will check if the truth-level variable is defined here. If it is, it will take the labels from this block. Syntax is the following:
+variables_truth:
+  - name: "lepton_1_pt_particle"
+    TitleX: "Particle-level p_{T}^{1st lep} [GeV]"
+    TitleY: "#frac{d#sigma}{dp_{T}^{1lep}} [fb #times GeV^{-1}]"
+reco_variables_to_use_in_unfolding block
+This block can be used if a different variable than the default one should be used at reco level for the unfolding. It is a dictionary with pairs
+<region name> : <variable name>
+.
+If the variable is not specified for a region, the default one is used.
+Samples block
+This allows a user to override some of the options for a given sample from config (it does not add a new sample). Samples can be excluded via the
+General
+block.
+name:
+this specifies the name of the sample - for which the block will be applied. It must match the name from the
+fastframes
+config.
+Color:
+this will override both
+FillColor
+and
+LineColor
+options in TRExFitter config
+FillColorRGB:
+this specifies the histogram fill color in RGB (i.e.
+255,0,0
+for red) as described in the
+TRExfitter docs
+. Overrides any
+FillColor
+or
+LineColor
+settings.
+LineColorRGB:
+this specifies the histogram line color in RGB. Only valid when
+FillColorRGB:
+is specified. Defaults to
+FillColorRGB:
+if not provided.
+Options to override:
+Title:
+Type:
+If provided by the user, the following option will be added to the sample definition in the TRExFitter config:
+Morphing:
+Template:
+The following options can be set for the nominal signal sample which is used for unfolding:
+TitleTruth:
+will become
+Title:
+for the nominal
+TruthSample
+(which is added as
+TruthSample
+automatically)
+LineStyle:
+LineWidth:
+Systematics block
+This adds new systematic uncertainty to the TRExFitter config file or modifies an existing, automatic systematic.
+name:
+specifies the name of the systematic uncertainty. All other options will be copied to the TRExFitter config. An example of adding a new Systematics block with luminosity and x-section uncertainty:
+Systematics
+:
+-
+name
+:
+"Luminosity"
+Title
+:
+"Luminosity"
+Type
+:
+"OVERALL"
+OverallUp
+:
+0.0083
+OverallDown
+:
+-0.0083
+Category
+:
+"Instrumental"
+-
+name
+:
+"Wjets_xsec"
+Title
+:
+"W+jets
+cross-section"
+Type
+:
+"OVERALL"
+OverallUp
+:
+0.1
+OverallDown
+:
+-0.1
+Samples
+:
+"Wjets"
+Category
+:
+"Theoretical"
+The
+numbering_sequence
+is supported for the fields
+name
+,
+Title
+,
+HistoFolderNameUp
+and
+HistoFolderNameDown
+.
+To modify an existing
+Systematics
+block, you need to use exactly the same name of the automatic systematic, e.g.
+-
+name
+:
+"EG_SCALE_AF2"
+SmoothingOption
+:
+"MAXVARIATION"
+will add the field
+SmoothingOption: MAXVARIATION
+to the automatically determined uncertainty
+EG_SCALE_AF2
+. If the same fields are set both in the automatically determined systematic and in the systematic in the trexfitter-config yaml, the field from the trexfitter-config yaml will be used.
+If you want to instead keep two different systematics, but with the same name, you can use the option
+-
+name
+:
+"EG_SCALE_AF2"
+SmoothingOption
+:
+"MAXVARIATION"
+MergeWithAutomaticSyst
+:
+False
+Additionally to the automatically determined systematic, a new field will be written out only containing the specified fields in the trexfitter-config yaml, here e.g.
+Systematic
+:
+"EG_SCALE_AF2"
+SmoothingOption
+:
+MAXVARIATION
+NormFactors
+block
+Similarly to
+Systematics
+block, the name identifies the norm. factor, which will be added to the config, the other options will be copied to the
+TRExFitter
+config.
+An example of such block:
+NormFactors
+:
+-
+name
+:
+"mu_signal"
+Title
+:
+"#mu(signal)"
+Nominal
+:
+1
+Min
+:
+-100
+Max
+:
+100
+Samples
+:
+"ttbar_FS"
+ShapeFactors
+block
+Identical to the
+NormFactors
+block, but produces
+ShapeFactors
+instead (i.e., one norm factor per bin of a distribution). An example is
+ShapeFactors
+:
+-
+name
+:
+"sf_ttbar"
+Title
+:
+"#mu(SF,ttbar)"
+Nominal
+:
+1.0
+Min
+:
+-100
+Max
+:
+100
+Samples
+:
+"ttbar_FS"
+Regions
+:
+-
+region_1
+-
+region_2
+CustomBlocks block
+In some cases it might be useful to define some additional blocks in TRExFitter config, for example ghost samples. One can use
+CustomBlocks
+block to achieve this.
+In order to add custom samples, just add
+Sample:
+under
+CustomBlocks
+in the trex-fitter settings file and then define list of custom samples there. Each sample must have
+name
+which will be
+used in TRExFitter config. The other options will just be copied to TRExFitter config, without checking if that option is implemented. It is up to the user to provide reasonable keys and values.
+The same can be done for unfolding samples with an
+UnfoldingSample:
+block.
+BlocksToCopy block
+This can be used to define custom blocks for TRExFitter config, such as Limit, Significance etc. The content of the block will be copied to the output config.
+Example:
+BlocksToCopy
+:
+Limit
+:
+-
+name
+:
+"limit"
+LimitType
+:
+ASYMPTOTIC
+LimitBlind
+:
+FALSE
+SignalInjection
+:
+TRUE
+Significance
+:
+-
+name
+:
+"sig"
+SignificanceBlind
+:
+TRUE
+General block
+Through the
+General
+yaml block, in the
+exclude_samples
+option, a list with strings of samples to exclude from the TRExFitter config can be passed (regex is supported).
+An example of such a block:
+General
+:
+exclude_samples
+:
+[
+"ttbar_dilep_Gt2p0_top_FS"
+,
+"bb4l_FS"
+]
+This block also allows to define additional settings for
+Systematics
+and
+UnfoldingSystematics
+that should be copied into the output config, such as:
+General
+:
+copy_to_systematics
+:
+Smoothing
+:
+30
+copy_to_unfolding_systematics
+:
+Smoothing
+:
+50
+In order to remove an option from the output trex-fitter config, set it to
+null
+in the
+trex_settings
+config.
+Other options are recorded below:
+Option
+Value type
+Function
+add_ghosts_as_truth_samples
+boolean
+Default
+True
+. Sets whether to add ghost samples read from the FastFrames config file as
+TruthSample
+blocks in the TRExFitter config
+auto_syst_categories
+dict[str, str]
+Default
+{}
+. If supplied, creates a map between automatic systematics and categories for TRExFitter. Should be a dictionary of the form
+{"syst_regex": "category_name"}
+. Supports regex.
+Region block
+Through the
+Region
+yaml block, the
+Type
+of the region can be specified. The region block needs a
+name
+field, which corresponds to automatically generated name for the region
+region_name + "_" variable_name
+(regex is supported).
+An example of such a block:
+Regions
+:
+-
+name
+:
+"Signal_emu_jet_pt_sum"
+Type
+:
+"VALIDATION"
+-
+name
+:
+"Signal_emu_jet1.*"
+Type
+:
+"VALIDATION"
+it is also possible to define another options, which will then be copied to the output
+TRExFitter
+config. It can be either defined for all variables in the same region (so region as defined in
+fastframes
+) or for a specific combination of
+region_name + "_" variable_name
+(so
+TRExFitter
+definition of "region"). If the same key is defined in both, the value from more specialized block (so
+region_name + "_" variable_name
+) will be used.
+var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))
+Previous
+Helper Functions
+Next
+Configuration
+Copyright © 2002-2026 CERN for the benefit of the ATLAS Collaboration
+Made with
+Material for MkDocs
+{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.footer", "navigation.indexes", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}

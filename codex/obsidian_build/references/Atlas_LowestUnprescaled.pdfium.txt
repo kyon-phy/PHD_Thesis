@@ -1,0 +1,4910 @@
+=== PDF PAGE 1 ===
+Table of Contents
+ Lowest un-prescaled triggers per data-taking period....................................................................................1
+ Getting information from the trigger DB................................................................................................1
+TrigConf portal (Run 2)...................................................................................................................1
+TriggerToolWeb (Run 3)..................................................................................................................1
+RunQuery.........................................................................................................................................1
+ COMA..............................................................................................................................................2
+TriggerAPI........................................................................................................................................2
+ Triggers for low-mu runs.................................................................................................................2
+ Triggers in 2025......................................................................................................................................2
+ Introduction......................................................................................................................................3
+ Trigger periods in intensity ramp-up (DRAFT)........................................................................3
+ Egamma (DRAFT)...........................................................................................................................3
+ Muon................................................................................................................................................4
+ Electron/Photon + Muon (DRAFT).................................................................................................4
+ Tau....................................................................................................................................................4
+ Electron/Muon + Tau.......................................................................................................................5
+ B-Jet + Tau.......................................................................................................................................5
+ MET (+ X)........................................................................................................................................5
+ Jets (DRAFT)...................................................................................................................................6
+ B-jets (DRAFT)................................................................................................................................7
+ B-physics (DRAFT).........................................................................................................................8
+ VBF (DRAFT)...............................................................................................................................10
+ Unconventional tracking (LLP) (DRAFT).....................................................................................10
+ Dedicated physics triggers (DRAFT).............................................................................................11
+ Triggers in 2024....................................................................................................................................13
+ Introduction....................................................................................................................................13
+ Trigger periods in intensity ramp-up (DRAFT)......................................................................13
+ Egamma..........................................................................................................................................14
+ Muon..............................................................................................................................................14
+ Electron/Photon + Muon................................................................................................................15
+ Tau..................................................................................................................................................15
+ Electron/Muon + Tau.....................................................................................................................16
+ B-Jet + Tau.....................................................................................................................................16
+ MET (+ X)......................................................................................................................................17
+ Jets..................................................................................................................................................17
+ B-jets..............................................................................................................................................18
+ B-physics........................................................................................................................................19
+ VBF................................................................................................................................................21
+ Unconventional tracking (LLP)......................................................................................................22
+ Dedicated physics triggers..............................................................................................................22
+ Triggers in 2023....................................................................................................................................24
+ Introduction....................................................................................................................................24
+ Trigger periods in intensity ramp-up.......................................................................................24
+ Egamma..........................................................................................................................................25
+ Muon..............................................................................................................................................25
+ Electron/Photon + Muon................................................................................................................26
+ Tau..................................................................................................................................................26
+ Electron/Muon + Tau.....................................................................................................................27
+ MET (+ X)......................................................................................................................................27
+ Jets..................................................................................................................................................28
+ B-jets..............................................................................................................................................29
+ B-physics........................................................................................................................................30
+ VBF................................................................................................................................................32
+ Unconventional tracking (LLP)......................................................................................................33
+i
+
+=== PDF PAGE 2 ===
+Table of Contents
+ Lowest un-prescaled triggers per data-taking period
+ Dedicated physics triggers..............................................................................................................33
+ Triggers in 2022....................................................................................................................................35
+ Introduction....................................................................................................................................35
+ Trigger periods in intensity ramp-up.......................................................................................35
+ Egamma..........................................................................................................................................36
+ Muon..............................................................................................................................................37
+ Electron/Photon + Muon................................................................................................................37
+ Tau..................................................................................................................................................37
+ Electron/Muon + Tau.....................................................................................................................38
+ MET (+ X)......................................................................................................................................38
+ Jets..................................................................................................................................................38
+ B-jets..............................................................................................................................................39
+ B-physics........................................................................................................................................40
+ VBF................................................................................................................................................42
+ Unconventional tracking (LLP)......................................................................................................43
+ Dedicated physics triggers..............................................................................................................43
+ Triggers in 2018....................................................................................................................................45
+ Introduction....................................................................................................................................45
+ Data Periods...................................................................................................................................45
+ Rulebook tags.................................................................................................................................45
+ Egamma..........................................................................................................................................46
+ Egamma + MET.............................................................................................................................46
+ Muon..............................................................................................................................................46
+ Electron + Muon.............................................................................................................................46
+ Electron/Muon + Photon................................................................................................................47
+ Bphysics.........................................................................................................................................47
+ Taus................................................................................................................................................48
+ Taus + electron/muon.....................................................................................................................49
+ Taus + MET + electron/muon........................................................................................................50
+ Jets..................................................................................................................................................51
+ MET................................................................................................................................................52
+ HT...................................................................................................................................................52
+ Bjet.................................................................................................................................................52
+ Bjet + HT........................................................................................................................................53
+ VBF................................................................................................................................................53
+ Dedicated physics triggers..............................................................................................................54
+ Triggers in 2017....................................................................................................................................56
+ Introduction....................................................................................................................................57
+ Data Periods...................................................................................................................................57
+ Rulebook tags.................................................................................................................................57
+ Egamma..........................................................................................................................................58
+ Egamma + MET/Jets......................................................................................................................58
+ Muon..............................................................................................................................................58
+ Electron + Muon.............................................................................................................................58
+ Electron/Muon + Photon................................................................................................................59
+ Bphysics.........................................................................................................................................59
+ Taus................................................................................................................................................59
+ Taus + electron/muon.....................................................................................................................60
+ Taus + MET + electron/muon........................................................................................................60
+ Jets, MET, HT................................................................................................................................60
+ Bjet.................................................................................................................................................64
+ Bjet + HT/MET..............................................................................................................................65
+ VBF................................................................................................................................................65
+ii
+
+=== PDF PAGE 3 ===
+Table of Contents
+ Lowest un-prescaled triggers per data-taking period
+ Dedicated physics triggers..............................................................................................................65
+ Triggers in 2016....................................................................................................................................67
+ Introduction....................................................................................................................................67
+ Data Periods...................................................................................................................................67
+ Rulebook tags.................................................................................................................................67
+ Egamma (+MET)...........................................................................................................................67
+ Muon..............................................................................................................................................68
+ Electron + Muon.............................................................................................................................69
+ Muon + Photon...............................................................................................................................70
+ Bphysics.........................................................................................................................................70
+ Taus (+ electron, muon, MET).......................................................................................................70
+ Jets, MET, Jet+MET, HT...............................................................................................................71
+ Bjet.................................................................................................................................................72
+ VBF/VH.........................................................................................................................................72
+ Special physics triggers..................................................................................................................73
+ Triggers in 2015....................................................................................................................................73
+ Introduction....................................................................................................................................73
+ Data Periods...................................................................................................................................73
+ Rulebook tags.................................................................................................................................74
+ Egamma (+MET)...........................................................................................................................74
+ Muon..............................................................................................................................................75
+ Electron + Muon.............................................................................................................................75
+ Muon + Photon...............................................................................................................................75
+ Bphysics.........................................................................................................................................75
+ Taus (+ electron, muon, MET).......................................................................................................75
+ Jets, MET, Jet+MET, HT...............................................................................................................76
+ Bjet.................................................................................................................................................76
+ VBF................................................................................................................................................77
+ Special physics triggers..................................................................................................................77
+ Triggers in Run-1 (2012,2011,2010)....................................................................................................77
+iii
+
+=== PDF PAGE 4 ===
+Lowest un-prescaled triggers per data-taking
+period
+This twiki provides a short information on trigger chains recommended for physics analysis (non exhaustive
+list) which were un-prescaled through a major part of the data taking. More accurate information on pre-scales
+and parameters can be extracted from the trigger DB using the web browsers described below.
+Please take note that pre-scales can change during various data taking periods. If a trigger chain was
+pre-scaled for a short period of time it still enters the table below. If lower thresholds are important for you,
+you can still use them, even if they are pre-scaled. Sometimes this would give you a better acceptance than
+using higher Pt un-prescaled triggers. Email hn-atlas-trigger-menus@cern.NOSPAMch or
+atlas-trigger-menu-expert@cern.NOSPAMch if you need help.
+Getting information from the trigger DB
+TrigConf portal (Run 2)
+https://atlas-trigconf.cern.ch/ - linked also from Run Query for Run 1, 2 runs - use "show all" or "show
+trigkeys" in run query and follow the links in the "Prescale keys" column ( example "find r
+data18_13TeV.periodD / show trigkeys" ) for individual keys or for the prescale evolution.
+TriggerToolWeb (Run 3)
+https://atlas-triggertool.web.cern.ch - linked also from Run Query for Run 3 runs - use "show all" or "show
+trigkeys" in run query and follow links in the "Prescale keys" column (disregard links for "prescale evolution"
+which incorrectly directs to a Run 2 page) ( example "find r data22_13p6TeV.periodF / show trigkeys" )
+RunQuery
+The Run Query (http://atlas-runquery.cern.ch ) is useful for getting the Super Master Key (SMK) as well as
+prescale keys and bunchgroup keys for a run with links to the TrigConf portal (Run 2) or TriggerToolWeb
+(Run 3), which contain further details (see above).
+One can also:
+For Run 2, obtain link to run's prescale evolution in TrigConf Portal by querying a run/data period
+with "show all" or "show trigkeys" and clicking on "prescale evolution..." in "Prescale keys" column (
+example "find r data18_13TeV.periodD / show trigkeys" ).
+• 
+For Run 2 and 3, obtain a prescale evolution graph of L1/HLT triggers, presented as (x - - 2 x
+2 - - - - - - - - - - - - - - x) where x means disabled, - means no change, and
+numbers are the prescales for that prescale set ( example "find r data22_13p6TeV.periodF / show tr
+HLT_j420*" ).
+For L1 triggers, querying "trigrates " will also display a trigger rate graph ( example "find r
+data22_13p6TeV.periodF / show tr L1_J100 and trigrates L1_J100" ).
+♦ 
+• 
+(see the "Trigger" tab in the Run Query site for more features).
+ Lowest un-prescaled triggers per data-taking period 1
+
+=== PDF PAGE 5 ===
+COMA
+The COMA Project (Conditions/Configuration Metadata for ATLAS) is described in TWiki
+ConditionsMetadata. Its web-based interfaces can be found via the COMA Portal . COMA is useful for
+quickly interrogating runs or periods, eg. for identifying the runs in each specific data period or sub-period,
+and interesting associated information. It also provides trigger and prescale related information by run or
+across many runs; useful to find which triggers went to which streams, which triggers were configured and/or
+active during runs or periods, and what were the prescales (or prescale ranges) during those runs. You will
+need the grid certificate uploaded to your browser to use the interface (see the TWiki page for help).
+The COMA Period Menu shows all ATLAS Data Periods. It offers links to reports describing each
+Period, its run/date range and other interesting information as well as links to other reports (AMI, Run
+Query, and COMA Reports).
+• 
+The COMA Report Menu (link from the COMA Portal page) allows user specification of a variety of
+input variables to generate COMA Reports: the COMA Report Type is determined by which input
+criteria is entered by the user (inputs include: Project, Period, Run, Stream Name, Trigger HLT Chain
+or L1 Item Name etc).
+• 
+COMA Examples:
+Example Quick Chain Query
+♦ Enter Chain name: , then click:
+• 
+Example GRL Chain Prescale Query
+Enter GRL name:
+and Chain name , then click:
+♦ 
+• 
+See the TWiki page for an overview of the COMA Reports and example links.
+TriggerAPI
+ Update 18/06/2024: *The TriggerAPI has been updated for Run 3. Please try using it to obtain lists of
+unprescaled triggers of a given type for your analysis. The main input for the new API is a good runs list, and
+the API will tell you the unprescaled triggers for that GRL.
+The Trigger API is a python interface to obtain information about the lowest-unprescaled triggers for a given
+signature and a given period. More information can be found on the dedicated TriggerAPI twiki page.
+Triggers for low-mu runs
+The list of lowest-unprescaled triggers for the 2017 and 2018 low-mu runs can be found here:
+LowestUnprescaledLowMuRun2
+The list of lowest-unprescaled triggers for the 2022 low-mu runs will be filled in at
+LowestUnprescaledLowMuRun3
+Triggers in 2025
+ LowestUnprescaled < Atlas < TWiki
+ COMA 2
+
+=== PDF PAGE 6 ===
+Introduction
+Recommended triggers for 2025 physics analyses can be found below. Known issues are detailed in
+TriggerIssues2025.
+See TriggerNamingRun3 for naming conventions.
+Trigger periods in intensity ramp-up (DRAFT)
+Rulebook branches listed are the final tag used for that period, which contain the most stringent rules applied.
+Intensity step Data periods First run number Rulebook branch
+For runs in each data periods, see COMA
+Egamma (DRAFT)
+Trigger
+Group
+Single electron Multi electron
+From 75
+bunches
+HLT_e26_lhtight_ivarloose_L1eEM26M
+HLT_e26_lhtight_ivarloose_L1eEM26T
+HLT_e20_lhtight_ivarloose_L1ZAFB-25DPHI-eEM18M
+HLT_e26_lhtight_ivarmedium_L1eEM26M
+HLT_e26_lhtight_ivartight_L1eEM26M
+HLT_e60_lhmedium_L1eEM26M
+HLT_e140_lhloose_L1eEM26M
+HLT_e140_lhloose_noringer_L1eEM26M
+HLT_e300_etcut_L1eEM26M
+Large-radius tracking
+HLT_e30_lhloose_nopix_lrtmedium_L1eEM26M
+HLT_2e17_lhvloose_L12eEM18M
+HLT_2e24_lhvloose_L12eEM24L
+HLT_e24_lhvloose_2e12_lhvloose_L1eEM24L_3eEM12L
+HLT_e26_lhtight_e14_idperf_tight_probe_50invmAB130_L1eEM26M
+HLT_e26_lhtight_e14_idperf_tight_nogsf_probe_50invmAB130_L1eEM26M
+HLT_e26_lhtight_e14_etcut_probe_50invmAB130_L1eEM26M
+Trigger
+Group
+Single photon Multi photon
+From 75
+bunches
+HLT_g140_loose_L1eEM26M
+HLT_g300_etcut_L1eEM26M
+HLT_2g22_tight_L12eEM18M
+HLT_2g50_loose_L12eEM24L
+HLT_2g20_tight_icaloloose_L12eEM18M
+HLT_g35_medium_g25_medium_L12eEM24L
+HLT_2g25_loose_g15_loose_L12eEM24L
+HLT_2g15_tight_25dphiAA_invmAA80_L1DPHI-M70-2eEM15M
+From
+Run
+476718
+HLT_g45_medium_g20_medium_L1eEM40L_2eEM18L
+Trigger
+Group
+Electron + photon
+From 75
+bunches
+HLT_e24_lhmedium_g25_medium_02dRAB_L12eEM24L
+HLT_e24_lhmedium_g12_loose_g12_loose_02dRAB_02dRAC_02dRBC_L1eEM24L_3eEM12L
+ LowestUnprescaled < Atlas < TWiki
+ Introduction 3
+
+=== PDF PAGE 7 ===
+HLT_e25_mergedtight_g35_medium_90invmAB_02dRAB_L12eEM24L
+Trigger
+Group
+Electron + photon
+Muon
+Trigger
+Group
+Single muon Multi muon
+75, 400
+bunches
+only
+N/A N/A
+From
+900
+bunches
+HLT_mu24_ivarmedium_L1MU14FCH
+HLT_mu50_L1MU14FCH
+HLT_mu60_0eta105_msonly_L1MU14FCH
+HLT_mu60_L1MU14FCH
+HLT_mu80_msonly_3layersEC_L1MU14FCH
+HLT_mu3vtx_L12MU8F
+Large-radius tracking
+HLT_mu20_LRT_d0loose_L1MU14FCH
+HLT_2mu14_L12MU8F
+HLT_mu20_ivarmedium_mu8noL1_L1MU14FCH
+HLT_mu22_mu8noL1_L1MU14FCH
+HLT_3mu6_L13MU5VF
+HLT_4mu4_L14MU3V
+HLT_2mu10_l2mt_L1MU10BOM
+Invariant mass cut
+HLT_mu10_ivarmedium_mu10_10invmAB70_L12MU8F
+HLT_mu20_ivarmedium_mu4noL1_10invmAB70_L1MU14FCH
+Electron/Photon + Muon (DRAFT)
+Trigger
+Group
+Electron + Muon Photon + Muon
+From
+400
+bunches
+N/A Photon + 2 muon
+HLT_g35_loose_mu15_mu2noL1_L1eEM28M
+From
+900
+bunches
+Electron + muon
+HLT_e7_lhmedium_L1eEM5_mu24_L1MU14FCH
+HLT_e17_lhloose_mu14_L1eEM18L_MU8F
+HLT_e26_lhmedium_mu8noL1_L1eEM26M
+2 electron + muon
+HLT_2e12_lhloose_mu10_L12eEM10L_MU8F
+Electron + 2muon
+HLT_e9_lhvloose_L1eEM5_mu20_mu8noL1_L1MU14FCH
+HLT_e12_lhloose_L1eEM10L_2mu10_L12MU8F
+Photon + muon
+HLT_g25_medium_L1eEM18L_mu24_L1MU14FCH
+HLT_g25_medium_L1eEM26M_mu24_ivarmedium_L1MU14FCH
+HLT_g35_loose_mu18_L1eEM28M
+HLT_g35_loose_mu15_mu2noL1_L1eEM28M
+HLT_g40_loose_L1eEM24L_mu40_msonly_L1MU14FCH
+2 photon + muon
+HLT_2g10_loose_L1eEM9_mu20_L1MU14FCH
+Tau
+ LowestUnprescaled < Atlas < TWiki
+ Egamma (DRAFT) 4
+
+=== PDF PAGE 8 ===
+Timeframe Single tau Multi tau
+2025 HLT_tau160_mediumGNTau_L1eTAU140
+Long-lived Particle ID - not scrutinized/validated in
+2025 data
+HLT_tau180_mediumRNN_tracktwoLLP_L1eTAU140
+HLT_tau25_mediumGNTau_tau20_mediumGNTau_03dRAB_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_tau35_mediumGNTau_tau25_mediumGNTau_03dRAB30_L1cTAU30M_2cTAU20M_DR-eTAU30eTAU20-jJ55
+HLT_tau35_mediumGNTau_tau25_mediumGNTau_03dRAB_L1cTAU30M_2cTAU20M_4jJ30p0ETA25
+HLT_tau40_mediumGNTau_tau35_mediumGNTau_03dRAB_L1cTAU35M_2cTAU30M_2jJ55_3jJ50
+HLT_tau80_mediumGNTau_tau35_mediumGNTau_03dRAB30_L1eTAU80_2cTAU30M_DR-eTAU30eTAU20
+HLT_tau80_mediumGNTau_tau60_mediumGNTau_03dRAB_L1eTAU80_2eTAU60
+Written to VBF Delayed Stream
+HLT_tau30_mediumGNTau_tau20_mediumGNTau_03dRAB_L1cTAU30M_2cTAU20M_4jJ30p0ETA25
+HLT_tau30_mediumGNTau_tau20_mediumGNTau_03dRAB30_L1cTAU30M_2cTAU20M_DR-eTAU30eTAU20-jJ55
+Long-lived Particle ID - not scrutinized/validated in 2025 data
+HLT_tau80_mediumRNN_tracktwoLLP_tau60_mediumRNN_tracktwoLLP_03dRAB_L1eTAU80_2eTAU60
+Electron/Muon + Tau
+Trigger
+Group
+Electron+Tau Muon + Tau
+2025 HLT_e24_lhmedium_ivarloose_tau20_mediumGNTau_03dRAB_L1eEM26M
+HLT_e17_lhmedium_ivarloose_tau25_mediumGNTau_03dRAB_L1eEM18M_2cTAU20M_4jJ30
+HLT_mu20_ivarloose_tau20_mediumGNTau_L1eTAU12_03dRAB_L1MU14FCH
+HLT_mu14_ivarloose_tau25_mediumGNTau_03dRAB_L1MU8F_cTAU20M_3jJ30
+B-Jet + Tau
+Trigger
+Group
+B-Jet+Tau
+2025 with b-jet and tau preselection; Main stream
+HLT_tau25_mediumGNTau_probe_L1eTAU12_j65c_020jvt_j40c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_j20c_020jvt_bgn285_pf_ftf_presel2c20XX1c20bgtwo85XX1c20gntau90_L1jJ85p0ETA21_3jJ40p0ETA25
+HLT_tau25_mediumGNTau_probe_L1eTAU12_j65c_020jvt_j40c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_j20c_020jvt_bgn285_pf_ftf_presel3c20XX1c20bgtwo85_L1jJ85p0ETA21_3jJ40p0ETA25
+MET (+ X)
+ LowestUnprescaled < Atlas < TWiki
+ Tau 5
+
+=== PDF PAGE 9 ===
+Trigger
+Group
+Pure MET MET + X
+From
+400
+bunches
+HLT_xe65_cell_xe105_nn_L1jXE100
+(recommended)
+HLT_xe65_cell_xe90_pfopufit_L1jXE100
+HLT_xe80_cell_xe115_tcpufit_L1jXE100
+HLT_e70_lhloose_xe70_cell_L1eEM26M
+HLT_g90_loose_xe90_cell_L1eEM26M
+HLT_tau50_mediumGNTau_xe80_tcpufit_xe50_cell_L1jXE110
+HLT_tau50_mediumGNTau_xe80_pfopufit_xe50_cell_L1jXE110
+HLT_mu14_tau25_mediumGNTau_xe50_cell_03dRAB_L1MU8F_cTAU20M_jXE70
+HLT_tau60_mediumGNTau_tau25_mediumGNTau_xe50_cell_03dRAB_L1eTAU60_2cTAU20M_jXE80
+HLT_e17_lhmedium_tau25_mediumGNTau_xe50_cell_03dRAB_L1eEM18M_2cTAU20M_jXE70
+Jets (DRAFT)
+Trigger
+Group
+Single jet Multi jets
+75
+bunches
+only
+HLT_j175f_L1jJ90p30ETA49 N/A
+75, 400
+bunches
+HLT_j420_L1jJ160
+HLT_j420_ftf_preselj225_L1jJ160
+Large-R
+HLT_j360_a10t_lcw_jes_L1jJ160
+HLT_j360_a10t_lcw_jes_L1SC175-SCjJ10
+HLT_j420_a10sd_cssk_pf_jes_ftf_preselj225_L1jJ160
+HLT_2j250c_j120c_ftf_presel2j180XXj80_L1jJ160
+HLT_3j200_L1jJ160
+HLT_3j200_ftf_presel3j150_L1jJ160
+HLT_4j115_ftf_presel4j85_L13jJ90
+HLT_5j70c_L14jJ40
+HLT_5j70c_ftf_presel5j50_L14jJ40
+HLT_5j85_L14jJ40
+HLT_5j85_ftf_presel5j50_L14jJ40
+HLT_6j55c_L14jJ40
+HLT_6j55c_ftf_presel6j40_L14jJ40
+HLT_6j70_L14jJ40
+HLT_6j70_ftf_presel6j40_L14jJ40
+HLT_7j45_L14jJ40
+HLT_7j45_ftf_presel7j30_L14jJ40
+HLT_10j40_L14jJ40
+HLT_10j40_ftf_presel7j30_L14jJ40
+From
+400
+bunches
+Small-R
+HLT_j400_pf_ftf_preselj225_L1jJ160
+HLT_j220f_L1jJ125p30ETA49
+Large-R
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1jJ160
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1SC175-SCjJ10
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1gLJ140p0ETA25
+HLT_j460_a10t_lcw_jes_L1jJ160
+HLT_j460_a10t_lcw_jes_L1SC175-SCjJ10
+HLT_j460_a10t_lcw_jes_L1gLJ140p0ETA25
+HLT_j460_a10r_L1jJ160
+HLT_j460_a10r_L1SC175-SCjJ10
+HLT_j460_a10r_L1gLJ140p0ETA25 (**)
+Small-R
+HLT_2j235c_j115c_pf_ftf_presel2j180XXj80_L1jJ160
+HLT_3j200_L1gJ400p0ETA25
+HLT_3j200_pf_ftf_presel3j150_L1gJ400p0ETA25
+HLT_4j110_pf_ftf_presel4j85_L13jJ90
+HLT_5j65c_pf_ftf_presel5c50_L14jJ40
+HLT_5j70c_pf_ftf_presel5j50_L14jJ40
+HLT_5j80_pf_ftf_presel5j50_L14jJ40
+HLT_6j35c_020jvt_pf_ftf_presel6c25_L14jJ40
+HLT_6j55c_pf_ftf_presel6j40_L14jJ40
+HLT_6j65_pf_ftf_presel6j40_L14jJ40
+ LowestUnprescaled < Atlas < TWiki
+ MET (+ X) 6
+
+=== PDF PAGE 10 ===
+HLT_j460_a10_lcw_subjes_L1jJ160
+HLT_j460_a10_lcw_subjes_L1SC175-SCjJ10
+HLT_j460_a10_lcw_subjes_L1gLJ140p0ETA25
+Large-R with mass cut
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_preselj225_L1jJ160
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_preselj225_L1SC175-SCjJ10
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_−preselj225_−L1gLJ140p0ETA25
+HLT_j420_35smcINF_a10t_lcw_jes_L1jJ160
+HLT_j420_35smcINF_a10t_lcw_jes_L1SC175-SCjJ10
+HLT_j420_35smcINF_a10t_lcw_jes_L1gLJ140p0ETA25
+H_T
+HLT_j0_HT1000_L1HT190-jJ40s5pETA21
+HLT_j0_HT1000_L1jJ160
+HLT_j0_HT1000_L1gJ400p0ETA25
+HLT_j0_HT650XX0eta240_pf_ftf_preselcHT450_L1HT190-jJ40s5pETA21
+HLT_j0_HT940_pf_ftf_preselcHT450_L1HT190-jJ40s5pETA21
+HLT_j0_HT940_pf_ftf_preselj180_L1HT190-jJ40s5pETA21
+HLT_7j45_pf_ftf_presel7j30_L14jJ40
+HLT_10j35_pf_ftf_presel7j30_L14jJ40
+Large-R with mass cut
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1jJ160
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC175-SCjJ10
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1gLJ140p0ETA25
+HLT_2j330_35smcINF_a10t_lcw_jes_L1jJ160
+HLT_2j330_35smcINF_a10t_lcw_jes_L1SC175-SCjJ10
+HLT_2j330_35smcINF_a10t_lcw_jes_L1gLJ140p0ETA25
+HLT_j360_60smcINF_j360_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC175-SCjJ10
+HLT_j360_60smcINF_j360_a10t_lcw_jes_L1SC175-SCjJ10
+HLT_j370_35smcINF_j370_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC175-SCjJ10
+HLT_j370_35smcINF_j370_a10t_lcw_jes_L1SC175-SCjJ10
+Trigger
+Group
+Single jet Multi jets
+B-jets (DRAFT)
+Trigger Group Single b-jet
+GN2 HLT_j210_0eta290_020jvt_bgn270_pf_ftf_preselj180_L1jJ160
+HLT_j225_0eta290_020jvt_bgn277_pf_ftf_preselj180_L1jJ160
+HLT_j275_0eta290_020jvt_bgn285_pf_ftf_preselj225_L1jJ160
+Trigger
+Group
+Multi b-jet
+From 75
+bunches
+2b
+HLT_j165_0eta290_020jvt_bgn260_j55_0eta290_020jvt_bgn260_pf_ftf_preselj140bgtwo85XXj45bgtwo85_L1jJ160
+2b + 1j
+HLT_j140_2j50_0eta290_020jvt_bgn270_pf_ftf_preselj80XX2j45bgtwo90_L1jJ140_3jJ60
+3b
+HLT_3j60_0eta290_020jvt_bgn277_pf_ftf_presel3j45bgtwo95_L13jJ70p0ETA23
+1b + 3j
+HLT_j70_0eta290_020jvt_bgn260_3j70_pf_ftf_preselj50bgtwo85XX3j50_L14jJ50
+2b + 2j, legacy HH
+HLT_2j35c_020jvt_bgn260_2j35c_020jvt_pf_ftf_presel2j25XX2j25bgtwo85_L14jJ40p0ETA25
+2b + 2j
+ LowestUnprescaled < Atlas < TWiki
+ Jets (DRAFT) 7
+
+=== PDF PAGE 11 ===
+HLT_2j45_0eta290_020jvt_bgn260_2j45_pf_ftf_presel2j25XX2j25bgtwo85_L14jJ40p0ETA25
+2b + HT
+HLT_2j45_0eta290_020jvt_bgn270_j0_HT290_j0_DJMASS700j35_pf_ftf_L1HT150-jJ50s5pETA32_jMJJ-400-CF
+3b + 1j
+HLT_3j35_0eta290_020jvt_bgn270_j35_pf_ftf_presel2j25XX2j25bgtwo85_L14jJ40p0ETA25
+4b
+HLT_2j35_0eta290_020jvt_bgn270_2j35_0eta290_020jvt_bgn285_pf_ftf_presel4j25bgtwo95_L14jJ40p0ETA25
+HLT_4j35_0eta290_020jvt_bgn277_pf_ftf_presel4j25bgtwo95_L14jJ40p0ETA25
+2b + 3j
+HLT_2j35_0eta290_020jvt_bgn260_3j35_pf_ftf_presel3j25XX2j25bgtwo85_L15jJ40p0ETA25
+1b+5j
+HLT_5j35c_020jvt_j25c_020jvt_SHARED_j25c_020jvt_bgn260_pf_ftf_presel5c25XXc25bgtwo85_L14jJ40
+Trigger
+Group
+Multi b-jet
+B-physics (DRAFT)
+Trigger Group K-star ee Triggers
+From 75, 400 bunches HLT_e5_lhvloose_bBeeM6000_L1BKeePrimary
+HLT_2e5_lhvloose_bBeeM6000_L1BKeePrimary
+HLT_e5_lhvloose_bBeeM6000_L1BKeePrescaled
+HLT_2e5_lhvloose_bBeeM6000_L1BKeePrescaled
+Trigger
+Group
+B-physics muon triggers B-physics muon triggers, End-of-Fill
+From 75
+bunches
+Dimuon
+HLT_2mu10_bJpsimumu_L12MU8F
+HLT_2mu10_bUpsimumu_L12MU8F
+HLT_mu11_mu6_bBmumu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuD0Xloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDploose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDsloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDstarloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuPi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BdmumuKst_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BpmumuKp_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BsmumuPhi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_LbPqKm_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_sigmaLxy3_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bPhi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bTau_L1MU8VF_2MU5VF
+Dimuon
+HLT_2mu6_bBmumu_L12MU5VF
+HLT_2mu6_bDimu_L12MU5VF
+HLT_2mu6_bPhi_L12MU5VF
+HLT_2mu4_bBmumux_BcmumuD0Xloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDploose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDsloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDstarloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuPi_L12MU3VF
+HLT_2mu4_bBmumux_BdmumuKst_L12MU3VF
+HLT_2mu4_bBmumux_BpmumuKp_L12MU3VF
+HLT_2mu4_bBmumux_BsmumuPhi_L12MU3VF
+HLT_2mu4_bBmumux_LbPqKm_L12MU3VF
+HLT_2mu4_bDimu_L12MU3VF
+HLT_2mu4_bJpsimumu_L12MU3VF
+HLT_2mu4_bJpsimumu_Lxy0_L12MU3VF
+HLT_2mu4_bJpsimumu_sigmaLxy3_L12MU3VF
+HLT_2mu4_bUpsimumu_L12MU3VF
+HLT_2mu4_bBmumu_L12MU3VF
+HLT_2mu4_bBmumu_Lxy0_L12MU3VF
+HLT_2mu4_bDimu_L12MU3VF
+HLT_2mu4_bDimu2700_sigmaLxy3_L12MU3VF
+ LowestUnprescaled < Atlas < TWiki
+ B-jets (DRAFT) 8
+
+=== PDF PAGE 12 ===
+HLT_mu11_mu6_bUpsimumu_L1MU8VF_2MU5VF
+HLT_mu6_2mu4_bDimu2700_L1MU5VF_3MU3VF
+HLT_mu11_mu6_bDimu2700_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_sigmaLxy3_L1MU8VF_2MU5VF
+HLT_mu6_2mu4_bDimu6000_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bJpsi_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bTau_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bUpsi_L1MU5VF_3MU3VF
+Support
+HLT_mu11_l2io_mu6_l2io_invmDimu_L1MU8VF_2MU5VF
+Dimuon L1Topo
+HLT_2mu6_bJpsimumu_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bJpsimumu_Lxy0_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bBmumu_Lxy0_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bUpsimumu_L1BPH-8M15-0DR22-2MU5VF
+HLT_mu11_mu6_bJpsimumu_L1LFV-MU8VF
+HLT_mu11_mu6_bJpsimumu_sigmaLxy3_L1LFV-MU8VF
+HLT_mu11_mu6_bUpsimumu_L1LFV-MU8VF
+HLT_mu11_mu6_bBmumu_L1LFV-MU8VF
+HLT_mu11_mu6_bDimu_L1LFV-MU8VF
+HLT_mu11_mu6_bDimu2700_L1LFV-MU8VF
+HLT_mu11_mu6_bDimu2700_sigmaLxy3_L1LFV-MU8VF
+HLT_mu11_mu6_bPhi_L1LFV-MU8VF
+HLT_mu11_mu6_bTau_L1LFV-MU8VF
+Support
+HLT_mu11_l2io_mu6_l2io_invmDimu_L1LFV-MU8VF
+3 muons
+HLT_3mu4_b3mu_noos_L13MU3VF
+HLT_3mu4_bJpsi_L13MU3VF
+HLT_3mu4_bPhi_L13MU3VF
+HLT_3mu4_bTau_L13MU3VF
+HLT_3mu4_bUpsi_L13MU3VF
+HLT_3mu6_bJpsi_L13MU5VF
+HLT_3mu6_bUpsi_L13MU5VF
+HLT_3mu6_bDimu_L13MU5VF
+HLT_3mu6_bTau_L13MU5VF
+HLT_2mu6_mu4_bTau_L12MU5VF_3MU3V
+HLT_2mu6_mu4_bUpsi_L12MU5VF_3MU3V
+HLT_mu6_2mu4_bJpsi_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bUpsi_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bTau_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bDimu2700_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bDimu6000_L1MU5VF_3MU3VF
+4 muons
+HLT_4mu4_bDimu6000_L14MU3V
+Multiple-candidate L1 flag
+HLT_mu10_l2mt_mu4_l2mt_bJpsimumu_L1MU10BOM
+HLT_mu10_l2mt_mu4_l2mt_bJpsimumu_L1MU12BOM
+HLT_mu6_mu4_bJpsimumu_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bJpsimumu_Lxy0_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bJpsimumu_sigmaLxy3_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bBmumu_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bBmumu_Lxy0_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bDimu2700_sigmaLxy3_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bUpsimumu_L1MU5VF_2MU3VF
+Support
+HLT_2mu6_bBmumu_Lxy0_L12MU5VF
+HLT_2mu6_bJpsimumu_Lxy0_L12MU5VF
+Dimuon L1Topo
+HLT_2mu6_bBmumu_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bDimu_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bJpsimumu_sigmaLxy3_L1LFV-MU5VF
+HLT_2mu6_bDimu_L1LFV-MU5VF
+HLT_2mu6_bDimu2700_sigmaLxy3_L1LFV-MU5VF
+HLT_2mu6_bPhi_L1LFV-MU5VF
+HLT_mu6_mu4_bBmumu_Lxy0_L1BPH-2M9-0DR15-C-MU5VFMU3V
+HLT_mu6_mu4_bUpsimumu_L1BPH-8M15-0DR22-MU5VFMU3V-BO
+Trigger
+Group
+B-physics muon triggers B-physics muon triggers, End-of-Fill
+ LowestUnprescaled < Atlas < TWiki
+ B-physics (DRAFT) 9
+
+=== PDF PAGE 13 ===
+Bmux
+HLT_mu20_bBmux_BdmuDpX_L1MU14FCH
+HLT_mu20_bBmux_BdmuDstarX_L1MU14FCH
+HLT_mu20_bBmux_BpmuD0X_L1MU14FCH
+HLT_mu20_bBmux_BsmuDsX_L1MU14FCH
+HLT_mu20_bBmux_LbmuLcX_L1MU14FCH
+Trigger
+Group
+B-physics muon triggers B-physics muon triggers, End-of-Fill
+VBF (DRAFT)
+Trigger
+Group
+B-jet + X
+From 75
+bunches
+B-jet + forward jet
+HLT_j50_0eta290_020jvt_bgn270_2j45f_pf_ftf_preselj45XX2f40_L1jJ55p0ETA23_2jJ40p30ETA49
+Photon + jet
+HLT_g25_medium_4j35a_j0_DJMASS1000j35_L1eEM26M
+Photon + b-jet
+HLT_g20_tight_j35_0eta290_020jvt_bgn277_3j35a_j0_DJMASS500j35_pf_ftf_L1eEM22M_jMJJ-300 (since Run 480957)
+HLT_g25_medium_2j35_0eta290_020jvt_bgn277_2j35a_pf_ftf_presel2a20bgtwo90XX2a20_L1eEM26M
+HLT_g25_medium_j35_0eta290_020jvt_bgn277_3j35a_j0_DJMASS700j35_pf_ftf_presela20bgtwo85XX3a20_L1eEM26M
+HLT_g25_tight_2j35_0eta290_020jvt_bgn277_2j35a_pf_ftf_presel2a20bgtwo90XX2a20_L1eEM26M
+HLT_g25_tight_j35_0eta290_020jvt_bgn277_3j35a_j0_DJMASS700j35_pf_ftf_presela20bgtwo85XX3a20_L1eEM26M
+Trigger
+Group
+Dijet mass L1
+From 75
+bunches
+Main stream
+HLT_e10_lhmedium_ivarloose_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_mu10_ivarmedium_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_tau25_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+Delayed stream
+HLT_e5_lhvloose_j70_j50a_j0_DJMASS1000j50_xe50_tcpufit_L1jMJJ-500-NFF
+HLT_mu4_j70_j50a_j0_DJMASS1000j50_xe50_tcpufit_L1jMJJ-500-NFF
+HLT_j70_j50a_j0_DJMASS1000j50dphi240_xe90_tcpufit_xe50_cell_L1jMJJ-500-NFF
+HLT_j70_j50a_j0_DJMASS1000j50dphi200x400deta_L1jMJJ-500-NFF
+HLT_2mu6_2j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_2e5_lhmedium_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_j65a_j45a_2j35a_SHARED_2j35_0eta290_020jvt_bgn270_j0_DJMASS1000j50_pf_ftf_presela60XXa40XX2a25_L1jMJJ-500-NFF
+Unconventional tracking (LLP) (DRAFT)
+Trigger Group Unconventional tracking
+From 75 bunches Hit-based displaced vertex
+HLT_xe80_tcpufit_hitdvjet200_tight_L1jXE100
+HLT_j180_hitdvjet260_tight_L1jJ160 Prescaled until period H1, then unprescaled
+ LowestUnprescaled < Atlas < TWiki
+ VBF (DRAFT) 10
+
+=== PDF PAGE 14 ===
+High dE/dX
+HLT_xe80_tcpufit_dedxtrk50_medium_L1jXE100
+Disappearing track
+HLT_xe80_tcpufit_distrk20_medium_L1jXE100
+HLT_xe80_tcpufit_distrk20_tight_L1jXE100
+Isolated track
+HLT_xe80_tcpufit_isotrk120_medium_iaggrmedium_L1jXE100
+HLT_xe80_tcpufit_isotrk140_medium_iaggrmedium_L1jXE100
+Displaced jet
+HLT_j180_2dispjet50_3d2p_L1jJ160
+HLT_j180_dispjet50_3d2p_dispjet50_1p_L1jJ160
+HLT_j180_dispjet90_x3d1p_L1jJ160
+HLT_j180_dispjet100_x3d1p_L1jJ160
+Trigger Group Unconventional tracking
+Dedicated physics triggers (DRAFT)
+Trigger Group Standard Model
+75 bunches only Low-mass Drell-Yan
+HLT_mu4_ivarloose_mu4_11invmAB60_L1DY-BOX-2MU3VF
+HLT_mu4_ivarloose_mu4_7invmAB9_L1DY-BOX-2MU3VF
+HLT_mu4_ivarloose_mu4_b11invmAB60vtx20_L1DY-BOX-2MU3VF
+HLT_mu4_ivarloose_mu4_b7invmAB9vtx20_L1DY-BOX-2MU3VF
+75, 400 bunches HLT_mu6_ivarloose_mu6_11invmAB24_L1DY-BOX-2MU5VF
+HLT_mu6_ivarloose_mu6_24invmAB60_L1DY-BOX-2MU5VF
+HLT_mu6_ivarloose_mu6_b11invmAB24vtx20_L1DY-BOX-2MU5VF
+HLT_mu6_ivarloose_mu6_b24invmAB60vtx20_L1DY-BOX-2MU5VF
+Trigger Group Higgs
+From 75 bunches Merged electron
+HLT_e25_mergedtight_g35_medium_90invmAB_02dRAB_L12eEM24L
+Photon+meson
+HLT_g35_medium_tau25_dipion3_tracktwoMVA_L1eTAU12_60invmAB_L1eEM26M
+HLT_g25_medium_tau25_singlepion_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_dipion1_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_dipion2_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_dikaonmass_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_kaonpi1_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_kaonpi2_tracktwoMVA_50invmAB_L1eEM26M
+Trigger
+Group
+HIGP
+From 75
+bunches
+HH 4b
+jet-seeded 3b1j, Main stream
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_3j20c_020jvt_bgn282_pf_ftf_presel2c20XX2c20bgtwo85_L1jJ85p0ETA21_3jJ40p0ETA25
+jet-seeded 2b2j
+ LowestUnprescaled < Atlas < TWiki
+ Unconventional tracking (LLP) (DRAFT) 11
+
+=== PDF PAGE 15 ===
+Main stream
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn277_pf_ftf_presel2c20XX2c20bgtwo85_L1jJ85p0ETA21_3jJ40p0ETA25
+VBFDelayed stream before Run 474770, Main stream after Run 474770
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn280_pf_ftf_presel2c20XX2c20bgtwo85_L1jJ85p0ETA21_3jJ40p0ETA25
+muon-seeded 2b2j
+Main stream
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn277_pf_ftf_presel2c20XX2c20bgtwo85_L1MU8F_2jJ40_jJ50
+VBFDelayed stream before Run 474770, Main stream after Run 474770
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn280_pf_ftf_presel2c20XX2c20bgtwo85_L1MU8F_2jJ40_jJ50
+Trigger
+Group
+HIGP
+Trigger
+Group
+Exotics
+From 75
+bunches Non-colliding bunches
+HLT_2g22_tight_L1eEM15_EMPTY
+HLT_2g22_tight_L1eEM9_UNPAIRED_ISO
+HLT_2g50_tight_L1eEM15_EMPTY
+HLT_2g50_tight_L1eEM9_UNPAIRED_ISO
+HLT_g35_medium_g25_medium_L1eEM15_EMPTY
+HLT_g35_medium_g25_medium_L1eEM9_UNPAIRED_ISO
+From 75
+bunches
+Dijet + ISR
+HLT_g85_tight_3j50_L1eEM26M
+Mono-pole
+HLT_g0_hiptrt_L1eEM26M
+LLP, colliding bunches
+HLT_2mu50_msonly_L1MU14FCH
+HLT_g40_loose_L1eEM24L_mu40_msonly_L1MU14FCH
+HLT_g15_loose_L1eEM10L_2mu10_msonly_L12MU8F
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L110DR-MU14FCH-MU5VF
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L1MU14FCH_jJ90
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L1MU14FCH_jXE80
+Non-colliding bunches
+HLT_g15_loose_L1eEM10L_2mu10_msonly_L1MU3V_EMPTY
+HLT_g15_loose_L1eEM10L_2mu10_msonly_L1MU3V_UNPAIRED_ISO
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L110DR-MU14FCH-MU5VF_EMPTY
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L110DR-MU14FCH-MU5VF_UNPAIRED_ISO
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L1MU14FCH_EMPTY
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L1MU14FCH_UNPAIRED_ISO
+Trigger
+Group
+Supersymmetry
+From 75
+bunches
+B-jet + MET (sbottom)
+HLT_j75_0eta290_020jvt_bgn260_pf_ftf_xe60_cell_−L12jJ90_jXE80
+HLT_j95_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe85_pfopufit_L1jXE110
+HLT_j95_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe85_tcpufit_L1jXE110
+HLT_2j45_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe85_pfopufit_L12jJ40_jXE110
+HLT_2j45_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe85_tcpufit_L12jJ40_jXE110
+ LowestUnprescaled < Atlas < TWiki
+ Dedicated physics triggers (DRAFT) 12
+
+=== PDF PAGE 16 ===
+HLT_3j35_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe70_pfopufit_L13jJ40p0ETA25_jXE80
+HLT_3j35_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe70_tcpufit_L13jJ40p0ETA25_jXE80
+Photon + multijet (stealth SUSY)
+HLT_g45_loose_6j45c_L14jJ40p0ETA25
+Trigger
+Group
+Supersymmetry
+Triggers in 2024
+Introduction
+Recommended triggers for 2024 physics analyses can be found below. Known issues are detailed in
+TriggerIssues2024.
+See TriggerNamingRun3 for naming conventions.
+Trigger periods in intensity ramp-up (DRAFT)
+Rulebook branches listed are the final tag used for that period, which contain the most stringent rules applied.
+Intensity step Data periods First run number Rulebook branch
+2 bunches C1 470781 RB-r24p0p28
+8 bunches C2 472056 RB-r24p0p28
+4 bunches D1,D2 472553 RB-r24p0p32
+12 bunches D3,D4 472604 RB-r24p0p32
+75b bunches D5,D6,D7 472662 RB-r24p0p32
+400 bunches D8,D9,D10 472943:472968 RB-r24p0p32
+4 bunches J1 478573 RB-r24p0p47
+75 bunches J2,J3 478583 RB-r24p0p47
+400 bunches J4 478607:478609 RB-r24p0p47
+1200 bunches J5 478634 RB-r24p0p47b
+2400 bunches J6,J7 478653:478663 RB-r24p0p47
+2400 bunches J8 478763 RB-r24p0p47-magnetsOff
+400 bunches L1 480146: 480161 RB-r24p0p53
+2400 bunches P1,P2,P3 486794 RB-r24p0p65
+8:62 bunches Q1 488210:488239 RB-r24p0p66p1
+400 bunches Q2,Q3 488393:488427 RB-r24p0p66p1
+2400 bunches Q4 488474:488589 RB-r24p0p66p1
+2400 bunches O1:O17 484909 RB-r24p0p62
+1800 bunches O18 486384 RB-r24p0p62
+bunches O20,O21,O22 486640 RB-r24p0p62
+2400 bunches N1:N38 482374 RB-r24p0p56
+2400 bunches M1:M33 480188:480277 RB-r24p0p53
+2400 bunches K1:K18 479103 RB-r24p0p49
+For runs in each data periods, see COMA
+ LowestUnprescaled < Atlas < TWiki
+ Triggers in 2024 13
+
+=== PDF PAGE 17 ===
+Egamma
+Trigger
+Group
+Single electron Multi electron
+From 75
+bunches
+HLT_e26_lhtight_ivarloose_L1eEM26M
+HLT_e26_lhtight_ivarloose_L1eEM26T
+HLT_e20_lhtight_ivarloose_L1ZAFB-25DPHI-eEM18M
+HLT_e26_lhtight_ivarmedium_L1eEM26M
+HLT_e26_lhtight_ivartight_L1eEM26M
+HLT_e60_lhmedium_L1eEM26M
+HLT_e140_lhloose_L1eEM26M
+HLT_e140_lhloose_noringer_L1eEM26M
+HLT_e300_etcut_L1eEM26M
+Large-radius tracking
+HLT_e30_lhloose_nopix_lrtmedium_L1eEM26M
+HLT_2e17_lhvloose_L12eEM18M
+HLT_2e24_lhvloose_L12eEM24L
+HLT_e24_lhvloose_2e12_lhvloose_L1eEM24L_3eEM12L
+HLT_e26_lhtight_e14_idperf_tight_probe_50invmAB130_L1eEM26M
+HLT_e26_lhtight_e14_idperf_tight_nogsf_probe_50invmAB130_L1eEM26M
+HLT_e26_lhtight_e14_etcut_probe_50invmAB130_L1eEM26M
+Trigger
+Group
+Single photon Multi photon
+From 75
+bunches
+HLT_g140_loose_L1eEM26M
+HLT_g300_etcut_L1eEM26M
+HLT_2g22_tight_L12eEM18M
+HLT_2g50_loose_L12eEM24L
+HLT_2g20_tight_icaloloose_L12eEM18M
+HLT_g35_medium_g25_medium_L12eEM24L
+HLT_2g25_loose_g15_loose_L12eEM24L
+HLT_2g15_tight_25dphiAA_invmAA80_L1DPHI-M70-2eEM15M
+From
+Run
+476718
+HLT_g45_medium_g20_medium_L1eEM40L_2eEM18L
+Trigger
+Group
+Electron + photon
+From 75
+bunches
+HLT_e24_lhmedium_g25_medium_02dRAB_L12eEM24L
+HLT_e24_lhmedium_g12_loose_g12_loose_02dRAB_02dRAC_02dRBC_L1eEM24L_3eEM12L
+HLT_e25_mergedtight_g35_medium_90invmAB_02dRAB_L12eEM24L
+Muon
+Trigger
+Group
+Single muon Multi muon
+75, 400
+bunches
+only
+N/A N/A
+From
+900
+bunches
+HLT_mu24_ivarmedium_L1MU14FCH
+HLT_mu50_L1MU14FCH
+HLT_mu60_0eta105_msonly_L1MU14FCH
+HLT_mu60_L1MU14FCH
+HLT_mu80_msonly_3layersEC_L1MU14FCH
+HLT_mu3vtx_L12MU8F
+HLT_2mu14_L12MU8F
+HLT_mu20_ivarmedium_mu8noL1_L1MU14FCH
+HLT_mu22_mu8noL1_L1MU14FCH
+HLT_3mu6_L13MU5VF
+HLT_4mu4_L14MU3V
+HLT_2mu10_l2mt_L1MU10BOM
+ LowestUnprescaled < Atlas < TWiki
+ Egamma 14
+
+=== PDF PAGE 18 ===
+Large-radius tracking
+HLT_mu20_LRT_d0loose_L1MU14FCH
+Invariant mass cut
+HLT_mu10_ivarmedium_mu10_10invmAB70_L12MU8F
+HLT_mu20_ivarmedium_mu4noL1_10invmAB70_L1MU14FCH
+Trigger
+Group
+Single muon Multi muon
+Electron/Photon + Muon
+Trigger
+Group
+Electron + Muon Photon + Muon
+From
+400
+bunches
+N/A Photon + 2 muon
+HLT_g35_loose_mu15_mu2noL1_L1eEM28M
+From
+900
+bunches
+Electron + muon
+HLT_e7_lhmedium_L1eEM5_mu24_L1MU14FCH
+HLT_e17_lhloose_mu14_L1eEM18L_MU8F
+HLT_e26_lhmedium_mu8noL1_L1eEM26M
+2 electron + muon
+HLT_2e12_lhloose_mu10_L12eEM10L_MU8F
+Electron + 2muon
+HLT_e9_lhvloose_L1eEM5_mu20_mu8noL1_L1MU14FCH
+HLT_e12_lhloose_L1eEM10L_2mu10_L12MU8F
+Photon + muon
+HLT_g25_medium_L1eEM18L_mu24_L1MU14FCH
+HLT_g25_medium_L1eEM26M_mu24_ivarmedium_L1MU14FCH
+HLT_g35_loose_mu18_L1eEM28M
+HLT_g35_loose_mu15_mu2noL1_L1eEM28M
+HLT_g40_loose_L1eEM24L_mu40_msonly_L1MU14FCH
+2 photon + muon
+HLT_2g10_loose_L1eEM9_mu20_L1MU14FCH
+Tau
+Timeframes are defined in this wikipage: TauTriggerChanges2024
+Timeframe Single tau Multi tau
+2024 HLT_tau160_mediumRNN_tracktwoMVA_L1eTAU140
+Long-lived Particle ID - not scrutinized/validated in
+2024 data
+HLT_tau180_mediumRNN_tracktwoLLP_L1eTAU140
+HLT_tau25_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_03dRAB30_L1cTAU30M_2cTAU20M_DR-eTAU30eTAU20-jJ55
+HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_03dRAB_L1cTAU30M_2cTAU20M_4jJ30p0ETA25
+HLT_tau40_mediumRNN_tracktwoMVA_tau35_mediumRNN_tracktwoMVA_03dRAB_L1cTAU35M_2cTAU30M_2jJ55_3jJ50
+HLT_tau80_mediumRNN_tracktwoMVA_tau35_mediumRNN_tracktwoMVA_03dRAB30_L1eTAU80_2cTAU30M_DR-eTAU30eTAU20
+HLT_tau80_mediumRNN_tracktwoMVA_tau60_mediumRNN_tracktwoMVA_03dRAB_L1eTAU80_2eTAU60
+Written to VBF Delayed Stream
+HLT_tau30_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB_L1cTAU30M_2cTAU20M_4jJ30p0ETA25
+HLT_tau30_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB30_L1cTAU30M_2cTAU20M_DR-eTAU30eTAU20-jJ55
+Long-lived Particle ID - not scrutinized/validated in 2024 data
+HLT_tau80_mediumRNN_tracktwoLLP_tau60_mediumRNN_tracktwoLLP_03dRAB_L1eTAU80_2eTAU60
+ LowestUnprescaled < Atlas < TWiki
+ Muon 15
+
+=== PDF PAGE 19 ===
+Timeframe Single tau Multi tau
+Timeframes
+A to D
+Legacy chain
+HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_03dRAB_L1TAU20IM_2TAU12IM_4J12p0ETA25
+Note that all triggers listed here were run unprescaled in timeframes specified. However, the definition of
+cTAU seeds changed according to timeframes listed in the wikipage TauTriggerChanges2024
+Electron/Muon + Tau
+Timeframes are defined in this wikipage: TauTriggerChanges2024
+Trigger
+Group
+Electron+Tau Muon + Tau
+2024 HLT_e24_lhmedium_ivarloose_tau20_mediumRNN_tracktwoMVA_03dRAB_L1eEM26M HLT_mu20_ivarloose_tau20_mediumRNN_tracktwoMVA_L1eTAU12_03dRAB_L1MU14FCH
+(since Run 480957)
+HLT_mu14_ivarloose_tau35_mediumRNN_tracktwoMVA_03dRAB_L1MU8F_cTAU30M (since
+Run 474770)
+HLT_mu14_ivarloose_tau25_mediumRNN_tracktwoMVA_03dRAB_L1MU8F_cTAU20M_3jJ30
+(since Run 474770)
+Timeframes
+A to C
+HLT_e17_lhmedium_ivarloose_tau25_mediumRNN_tracktwoMVA_03dRAB_L1eEM18M_2eTAU20M_4jJ30
+Timeframes
+D to F
+HLT_e17_lhmedium_ivarloose_tau25_mediumRNN_tracktwoMVA_03dRAB_L1eEM18M_2cTAU20M_4jJ30
+Note that all triggers listed here were run unprescaled in timeframes specified. However, the definition of
+cTAU seeds changed according to timeframes listed in the wikipage TauTriggerChanges2024
+B-Jet + Tau
+Trigger
+Group
+B-Jet+Tau
+2024 with b-jet and tau preselection; VBFDelayed stream before Run 474770, Main stream after Run 474770
+HLT_tau25_mediumRNN_tracktwoMVA_probe_L1eTAU12_j65c_020jvt_j40c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_j20c_020jvt_bgn285_pf_ftf_presel2c20XX1c20bgtwo85XX1c20gntau90_L1jJ85p0ETA21_3jJ40p0ETA25
+HLT_tau25_mediumRNN_tracktwoMVA_probe_L1eTAU12_j65c_020jvt_j40c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_j20c_020jvt_bgn285_pf_ftf_presel3c20XX1c20bgtwo85_L1jJ85p0ETA21_3jJ40p0ETA25
+ LowestUnprescaled < Atlas < TWiki
+ Tau 16
+
+=== PDF PAGE 20 ===
+MET (+ X)
+Trigger
+Group
+Pure MET MET + X
+From 400
+bunches
+HLT_xe65_cell_xe105_nn_L1jXE100
+(recommended)
+HLT_xe65_cell_xe90_pfopufit_L1jXE100
+HLT_xe80_cell_xe115_tcpufit_L1jXE100
+HLT_e70_lhloose_xe70_cell_L1eEM26M
+HLT_g90_loose_xe90_cell_L1eEM26M
+HLT_tau50_mediumRNN_tracktwoMVA_xe80_tcpufit_xe50_cell_L1jXE110
+HLT_tau50_mediumRNN_tracktwoMVA_xe80_pfopufit_xe50_cell_L1jXE110
+Timeframes
+A to C
+HLT_tau60_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1eTAU60_2eTAU20M_jXE80
+HLT_e17_lhmedium_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1eEM18M_2eTAU20M_jXE70
+Timeframes
+B to F
+HLT_mu14_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1MU8F_cTAU20M_jXE70
+Timeframes
+D to F
+HLT_tau60_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1eTAU60_2cTAU20M_jXE80
+HLT_e17_lhmedium_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1eEM18M_2cTAU20M_jXE70
+Note that all triggers listed here were run unprescaled in timeframes specified. These timeframes are defined
+in TauTriggerChanges2024. The definition of cTAU seeds changed also according to timeframes listed in this
+wikipage.
+Jets
+Trigger
+Group
+Single jet Multi jets
+75
+bunches
+only
+HLT_j175f_L1jJ90p30ETA49 N/A
+75, 400
+bunches
+HLT_j420_L1jJ160
+HLT_j420_ftf_preselj225_L1jJ160
+Large-R
+HLT_j360_a10t_lcw_jes_L1jJ160
+HLT_j360_a10t_lcw_jes_L1SC111-CjJ40
+HLT_j420_a10sd_cssk_pf_jes_ftf_preselj225_L1jJ160
+HLT_2j250c_j120c_ftf_presel2j180XXj80_L1jJ160
+HLT_3j200_L1jJ160
+HLT_3j200_ftf_presel3j150_L1jJ160
+HLT_4j115_ftf_presel4j85_L13jJ90
+HLT_5j70c_L14jJ40
+HLT_5j70c_ftf_presel5j50_L14jJ40
+HLT_5j85_L14jJ40
+HLT_5j85_ftf_presel5j50_L14jJ40
+HLT_6j55c_L14jJ40
+HLT_6j55c_ftf_presel6j40_L14jJ40
+HLT_6j70_L14jJ40
+HLT_6j70_ftf_presel6j40_L14jJ40
+HLT_7j45_L14jJ40
+HLT_7j45_ftf_presel7j30_L14jJ40
+HLT_10j40_L14jJ40
+HLT_10j40_ftf_presel7j30_L14jJ40
+From
+400
+bunches
+Small-R
+HLT_j400_pf_ftf_preselj225_L1jJ160
+Small-R
+HLT_2j235c_j115c_pf_ftf_presel2j180XXj80_L1jJ160
+HLT_3j200_L1gJ400p0ETA25
+ LowestUnprescaled < Atlas < TWiki
+ MET (+ X) 17
+
+=== PDF PAGE 21 ===
+HLT_j220f_L1jJ125p30ETA49
+Large-R
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1jJ160
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1SC111-CjJ40 (*)
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1gLJ140p0ETA25 (**)
+HLT_j460_a10t_lcw_jes_L1jJ160
+HLT_j460_a10t_lcw_jes_L1SC111-CjJ40 (*)
+HLT_j460_a10t_lcw_jes_L1gLJ140p0ETA25 (**)
+HLT_j460_a10r_L1jJ160
+HLT_j460_a10r_L1SC111-CjJ40 (*)
+HLT_j460_a10r_L1gLJ140p0ETA25 (**)
+HLT_j460_a10_lcw_subjes_L1jJ160
+HLT_j460_a10_lcw_subjes_L1SC111-CjJ40 (*)
+HLT_j460_a10_lcw_subjes_L1gLJ140p0ETA25 (**)
+Large-R with mass cut
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_preselj225_L1jJ160
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_preselj225_L1SC111-CjJ40
+(*)
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_−preselj225_−
+L1gLJ140p0ETA25 (**)
+HLT_j420_35smcINF_a10t_lcw_jes_L1jJ160
+HLT_j420_35smcINF_a10t_lcw_jes_L1SC111-CjJ40 (*)
+HLT_j420_35smcINF_a10t_lcw_jes_L1gLJ140p0ETA25 (**)
+H_T
+HLT_j0_HT1000_L1HT190-jJ40s5pETA21
+HLT_j0_HT1000_L1jJ160
+HLT_j0_HT1000_L1gJ400p0ETA25
+HLT_j0_HT650XX0eta240_pf_ftf_preselcHT450_L1HT190-jJ40s5pETA21
+HLT_j0_HT940_pf_ftf_preselcHT450_L1HT190-jJ40s5pETA21
+HLT_j0_HT940_pf_ftf_preselj180_L1HT190-jJ40s5pETA21
+HLT_3j200_pf_ftf_presel3j150_L1gJ400p0ETA25
+HLT_4j110_pf_ftf_presel4j85_L13jJ90
+HLT_5j65c_pf_ftf_presel5c50_L14jJ40
+HLT_5j70c_pf_ftf_presel5j50_L14jJ40
+HLT_5j80_pf_ftf_presel5j50_L14jJ40
+HLT_6j35c_020jvt_pf_ftf_presel6c25_L14jJ40
+HLT_6j55c_pf_ftf_presel6j40_L14jJ40
+HLT_6j65_pf_ftf_presel6j40_L14jJ40
+HLT_7j45_pf_ftf_presel7j30_L14jJ40
+HLT_10j35_pf_ftf_presel7j30_L14jJ40
+Large-R with mass cut
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1jJ160
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC111-CjJ40 (*)
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1gLJ140p0ETA25
+(**)
+HLT_2j330_35smcINF_a10t_lcw_jes_L1jJ160
+HLT_2j330_35smcINF_a10t_lcw_jes_L1SC111-CjJ40 (*)
+HLT_2j330_35smcINF_a10t_lcw_jes_L1gLJ140p0ETA25 (**)
+HLT_j360_60smcINF_j360_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC111-CjJ40
+(*)
+HLT_j360_60smcINF_j360_a10t_lcw_jes_L1SC111-CjJ40 (*)
+HLT_j370_35smcINF_j370_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC111-CjJ40
+(*)
+HLT_j370_35smcINF_j370_a10t_lcw_jes_L1SC111-CjJ40 (*)
+Trigger
+Group
+Single jet Multi jets
+* The large-R jet L1 item SC111-CjJ40 were prescaled in a few runs due to high rate. See the
+StableBeamRuns2024 twiki for more details.
+** The large-R jet L1 item gLJ were disabled in a few runs due to low IBL limit. See the
+StableBeamRuns2024 twiki for more details
+B-jets
+Trigger Group Single b-jet
+GN2 HLT_j210_0eta290_020jvt_bgn270_pf_ftf_preselj180_L1jJ160
+HLT_j225_0eta290_020jvt_bgn277_pf_ftf_preselj180_L1jJ160
+HLT_j275_0eta290_020jvt_bgn285_pf_ftf_preselj225_L1jJ160
+ LowestUnprescaled < Atlas < TWiki
+ Jets 18
+
+=== PDF PAGE 22 ===
+Trigger
+Group
+Multi b-jet
+From 75
+bunches
+2b
+HLT_j165_0eta290_020jvt_bgn260_j55_0eta290_020jvt_bgn260_pf_ftf_preselj140bgtwo85XXj45bgtwo85_L1jJ160
+2b + 1j
+HLT_j140_2j50_0eta290_020jvt_bgn270_pf_ftf_preselj80XX2j45bgtwo90_L1jJ140_3jJ60
+3b
+HLT_3j60_0eta290_020jvt_bgn277_pf_ftf_presel3j45bgtwo95_L13jJ70p0ETA23
+1b + 3j
+HLT_j70_0eta290_020jvt_bgn260_3j70_pf_ftf_preselj50bgtwo85XX3j50_L14jJ50
+2b + 2j, legacy HH
+HLT_2j35c_020jvt_bgn260_2j35c_020jvt_pf_ftf_presel2j25XX2j25bgtwo85_L14jJ40p0ETA25
+2b + 2j
+HLT_2j45_0eta290_020jvt_bgn260_2j45_pf_ftf_presel2j25XX2j25bgtwo85_L14jJ40p0ETA25
+2b + HT
+HLT_2j45_0eta290_020jvt_bgn270_j0_HT290_j0_DJMASS700j35_pf_ftf_L1HT150-jJ50s5pETA32_jMJJ-400-CF
+3b + 1j
+HLT_3j35_0eta290_020jvt_bgn270_j35_pf_ftf_presel2j25XX2j25bgtwo85_L14jJ40p0ETA25
+4b
+HLT_2j35_0eta290_020jvt_bgn270_2j35_0eta290_020jvt_bgn285_pf_ftf_presel4j25bgtwo95_L14jJ40p0ETA25
+HLT_4j35_0eta290_020jvt_bgn277_pf_ftf_presel4j25bgtwo95_L14jJ40p0ETA25
+2b + 3j
+HLT_2j35_0eta290_020jvt_bgn260_3j35_pf_ftf_presel3j25XX2j25bgtwo85_L15jJ40p0ETA25
+1b+5j
+HLT_5j35c_020jvt_j25c_020jvt_SHARED_j25c_020jvt_bgn260_pf_ftf_presel5c25XXc25bgtwo85_L14jJ40
+B-physics
+Trigger Group K-star ee Triggers
+From 75, 400 bunches HLT_e5_lhvloose_bBeeM6000_L1BKeePrimary
+HLT_2e5_lhvloose_bBeeM6000_L1BKeePrimary
+HLT_e5_lhvloose_bBeeM6000_L1BKeePrescaled
+HLT_2e5_lhvloose_bBeeM6000_L1BKeePrescaled
+Trigger
+Group
+B-physics muon triggers B-physics muon triggers, End-of-Fill
+From 75
+bunches
+Dimuon
+HLT_2mu10_bJpsimumu_L12MU8F
+HLT_2mu10_bUpsimumu_L12MU8F
+HLT_mu11_mu6_bBmumu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuD0Xloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDploose_L1MU8VF_2MU5VF
+Dimuon
+HLT_2mu6_bBmumu_L12MU5VF
+HLT_2mu6_bDimu_L12MU5VF
+HLT_2mu6_bPhi_L12MU5VF
+HLT_2mu4_bBmumux_BcmumuD0Xloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDploose_L12MU3VF
+ LowestUnprescaled < Atlas < TWiki
+ B-jets 19
+
+=== PDF PAGE 23 ===
+HLT_mu11_mu6_bBmumux_BcmumuDsloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDstarloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuPi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BdmumuKst_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BpmumuKp_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BsmumuPhi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_LbPqKm_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_sigmaLxy3_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bPhi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bTau_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bUpsimumu_L1MU8VF_2MU5VF
+HLT_mu6_2mu4_bDimu2700_L1MU5VF_3MU3VF
+HLT_mu11_mu6_bDimu2700_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_sigmaLxy3_L1MU8VF_2MU5VF
+HLT_mu6_2mu4_bDimu6000_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bJpsi_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bTau_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bUpsi_L1MU5VF_3MU3VF
+Support
+HLT_mu11_l2io_mu6_l2io_invmDimu_L1MU8VF_2MU5VF
+Dimuon L1Topo
+HLT_2mu6_bJpsimumu_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bJpsimumu_Lxy0_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bBmumu_Lxy0_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bUpsimumu_L1BPH-8M15-0DR22-2MU5VF
+HLT_mu11_mu6_bJpsimumu_L1LFV-MU8VF
+HLT_mu11_mu6_bJpsimumu_sigmaLxy3_L1LFV-MU8VF
+HLT_mu11_mu6_bUpsimumu_L1LFV-MU8VF
+HLT_mu11_mu6_bBmumu_L1LFV-MU8VF
+HLT_mu11_mu6_bDimu_L1LFV-MU8VF
+HLT_mu11_mu6_bDimu2700_L1LFV-MU8VF
+HLT_mu11_mu6_bDimu2700_sigmaLxy3_L1LFV-MU8VF
+HLT_mu11_mu6_bPhi_L1LFV-MU8VF
+HLT_mu11_mu6_bTau_L1LFV-MU8VF
+Support
+HLT_mu11_l2io_mu6_l2io_invmDimu_L1LFV-MU8VF
+3 muons
+HLT_3mu4_b3mu_noos_L13MU3VF
+HLT_3mu4_bJpsi_L13MU3VF
+HLT_3mu4_bPhi_L13MU3VF
+HLT_3mu4_bTau_L13MU3VF
+HLT_3mu4_bUpsi_L13MU3VF
+HLT_3mu6_bJpsi_L13MU5VF
+HLT_3mu6_bUpsi_L13MU5VF
+HLT_2mu4_bBmumux_BcmumuDsloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDstarloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuPi_L12MU3VF
+HLT_2mu4_bBmumux_BdmumuKst_L12MU3VF
+HLT_2mu4_bBmumux_BpmumuKp_L12MU3VF
+HLT_2mu4_bBmumux_BsmumuPhi_L12MU3VF
+HLT_2mu4_bBmumux_LbPqKm_L12MU3VF
+HLT_2mu4_bDimu_L12MU3VF
+HLT_2mu4_bJpsimumu_L12MU3VF
+HLT_2mu4_bJpsimumu_Lxy0_L12MU3VF
+HLT_2mu4_bJpsimumu_sigmaLxy3_L12MU3VF
+HLT_2mu4_bUpsimumu_L12MU3VF
+HLT_2mu4_bBmumu_L12MU3VF
+HLT_2mu4_bBmumu_Lxy0_L12MU3VF
+HLT_2mu4_bDimu_L12MU3VF
+HLT_2mu4_bDimu2700_sigmaLxy3_L12MU3VF
+HLT_mu6_mu4_bJpsimumu_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bJpsimumu_Lxy0_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bJpsimumu_sigmaLxy3_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bBmumu_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bBmumu_Lxy0_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bDimu2700_sigmaLxy3_L1MU5VF_2MU3VF
+HLT_mu6_mu4_bUpsimumu_L1MU5VF_2MU3VF
+Support
+HLT_2mu6_bBmumu_Lxy0_L12MU5VF
+HLT_2mu6_bJpsimumu_Lxy0_L12MU5VF
+Dimuon L1Topo
+HLT_2mu6_bBmumu_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bDimu_L1BPH-2M9-2DR15-2MU5VF
+HLT_2mu6_bJpsimumu_sigmaLxy3_L1LFV-MU5VF
+HLT_2mu6_bDimu_L1LFV-MU5VF
+HLT_2mu6_bDimu2700_sigmaLxy3_L1LFV-MU5VF
+HLT_2mu6_bPhi_L1LFV-MU5VF
+HLT_mu6_mu4_bBmumu_Lxy0_L1BPH-2M9-0DR15-C-MU5VFMU3V
+HLT_mu6_mu4_bUpsimumu_L1BPH-8M15-0DR22-MU5VFMU3V-BO
+Trigger
+Group
+B-physics muon triggers B-physics muon triggers, End-of-Fill
+ LowestUnprescaled < Atlas < TWiki
+ B-physics 20
+
+=== PDF PAGE 24 ===
+HLT_3mu6_bDimu_L13MU5VF
+HLT_3mu6_bTau_L13MU5VF
+HLT_2mu6_mu4_bTau_L12MU5VF_3MU3V
+HLT_2mu6_mu4_bUpsi_L12MU5VF_3MU3V
+HLT_mu6_2mu4_bJpsi_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bUpsi_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bTau_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bDimu2700_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bDimu6000_L1MU5VF_3MU3VF
+4 muons
+HLT_4mu4_bDimu6000_L14MU3V
+Multiple-candidate L1 flag
+HLT_mu10_l2mt_mu4_l2mt_bJpsimumu_L1MU10BOM
+HLT_mu10_l2mt_mu4_l2mt_bJpsimumu_L1MU12BOM
+Bmux
+HLT_mu20_bBmux_BdmuDpX_L1MU14FCH
+HLT_mu20_bBmux_BdmuDstarX_L1MU14FCH
+HLT_mu20_bBmux_BpmuD0X_L1MU14FCH
+HLT_mu20_bBmux_BsmuDsX_L1MU14FCH
+HLT_mu20_bBmux_LbmuLcX_L1MU14FCH
+Trigger
+Group
+B-physics muon triggers B-physics muon triggers, End-of-Fill
+VBF
+Trigger
+Group
+B-jet + X
+From 75
+bunches
+B-jet + forward jet
+HLT_j50_0eta290_020jvt_bgn270_2j45f_pf_ftf_preselj45XX2f40_L1jJ55p0ETA23_2jJ40p30ETA49
+Photon + jet
+HLT_g25_medium_4j35a_j0_DJMASS1000j35_L1eEM26M
+Photon + b-jet
+HLT_g20_tight_j35_0eta290_020jvt_bgn277_3j35a_j0_DJMASS500j35_pf_ftf_L1eEM22M_jMJJ-300 (since Run 480957)
+HLT_g25_medium_2j35_0eta290_020jvt_bgn277_2j35a_pf_ftf_presel2a20bgtwo90XX2a20_L1eEM26M
+HLT_g25_medium_j35_0eta290_020jvt_bgn277_3j35a_j0_DJMASS700j35_pf_ftf_presela20bgtwo85XX3a20_L1eEM26M
+HLT_g25_tight_2j35_0eta290_020jvt_bgn277_2j35a_pf_ftf_presel2a20bgtwo90XX2a20_L1eEM26M
+HLT_g25_tight_j35_0eta290_020jvt_bgn277_3j35a_j0_DJMASS700j35_pf_ftf_presela20bgtwo85XX3a20_L1eEM26M
+Trigger
+Group
+Dijet mass L1
+From 75
+bunches
+Main stream
+HLT_e10_lhmedium_ivarloose_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_mu10_ivarmedium_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_tau25_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+Delayed stream
+HLT_e5_lhvloose_j70_j50a_j0_DJMASS1000j50_xe50_tcpufit_L1jMJJ-500-NFF
+ LowestUnprescaled < Atlas < TWiki
+ VBF 21
+
+=== PDF PAGE 25 ===
+HLT_mu4_j70_j50a_j0_DJMASS1000j50_xe50_tcpufit_L1jMJJ-500-NFF
+HLT_j70_j50a_j0_DJMASS1000j50dphi240_xe90_tcpufit_xe50_cell_L1jMJJ-500-NFF
+HLT_j70_j50a_j0_DJMASS1000j50dphi200x400deta_L1jMJJ-500-NFF
+HLT_2mu6_2j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_2e5_lhmedium_j70_j50a_j0_DJMASS900j50_L1jMJJ-500-NFF
+HLT_j65a_j45a_2j35a_SHARED_2j35_0eta290_020jvt_bgn270_j0_DJMASS1000j50_pf_ftf_presela60XXa40XX2a25_L1jMJJ-500-NFF
+Trigger
+Group
+Dijet mass L1
+Unconventional tracking (LLP)
+Trigger Group Unconventional tracking
+From 75 bunches Hit-based displaced vertex
+HLT_xe80_tcpufit_hitdvjet200_tight_L1jXE100
+HLT_j180_hitdvjet260_tight_L1jJ160 Prescaled until period H1, then unprescaled
+High dE/dX
+HLT_xe80_tcpufit_dedxtrk50_medium_L1jXE100
+Disappearing track
+HLT_xe80_tcpufit_distrk20_medium_L1jXE100
+HLT_xe80_tcpufit_distrk20_tight_L1jXE100
+Isolated track
+HLT_xe80_tcpufit_isotrk120_medium_iaggrmedium_L1jXE100
+HLT_xe80_tcpufit_isotrk140_medium_iaggrmedium_L1jXE100
+Displaced jet
+HLT_j180_2dispjet50_3d2p_L1jJ160
+HLT_j180_dispjet50_3d2p_dispjet50_1p_L1jJ160
+HLT_j180_dispjet90_x3d1p_L1jJ160
+HLT_j180_dispjet100_x3d1p_L1jJ160
+Dedicated physics triggers
+Trigger Group Standard Model
+75 bunches only Low-mass Drell-Yan
+HLT_mu4_ivarloose_mu4_11invmAB60_L1DY-BOX-2MU3VF
+HLT_mu4_ivarloose_mu4_7invmAB9_L1DY-BOX-2MU3VF
+HLT_mu4_ivarloose_mu4_b11invmAB60vtx20_L1DY-BOX-2MU3VF
+HLT_mu4_ivarloose_mu4_b7invmAB9vtx20_L1DY-BOX-2MU3VF
+75, 400 bunches HLT_mu6_ivarloose_mu6_11invmAB24_L1DY-BOX-2MU5VF
+HLT_mu6_ivarloose_mu6_24invmAB60_L1DY-BOX-2MU5VF
+HLT_mu6_ivarloose_mu6_b11invmAB24vtx20_L1DY-BOX-2MU5VF
+HLT_mu6_ivarloose_mu6_b24invmAB60vtx20_L1DY-BOX-2MU5VF
+Trigger
+Group
+Higgs
+From 75
+bunches
+Merged electron
+HLT_e25_mergedtight_g35_medium_90invmAB_02dRAB_L12eEM24L
+ LowestUnprescaled < Atlas < TWiki
+ Unconventional tracking (LLP) 22
+
+=== PDF PAGE 26 ===
+Photon+meson
+HLT_g35_medium_tau25_dipion3_tracktwoMVA_60invmAB_L1eEM26M (before Run
+480957)
+HLT_g35_medium_tau25_dipion3_tracktwoMVA_L1eTAU12_60invmAB_L1eEM26M (after
+Run 480957)
+HLT_g25_medium_tau25_singlepion_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_dipion1_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_dipion2_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_dikaonmass_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_kaonpi1_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_kaonpi2_tracktwoMVA_50invmAB_L1eEM26M
+Trigger
+Group
+Higgs
+Trigger
+Group
+HIGP
+From 75
+bunches
+HH 4b
+jet-seeded 3b1j, Main stream
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_3j20c_020jvt_bgn282_pf_ftf_presel2c20XX2c20bgtwo85_L1jJ85p0ETA21_3jJ40p0ETA25
+jet-seeded 2b2j
+Main stream
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn277_pf_ftf_presel2c20XX2c20bgtwo85_L1jJ85p0ETA21_3jJ40p0ETA25
+VBFDelayed stream before Run 474770, Main stream after Run 474770
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn280_pf_ftf_presel2c20XX2c20bgtwo85_L1jJ85p0ETA21_3jJ40p0ETA25
+muon-seeded 2b2j
+Main stream
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn277_pf_ftf_presel2c20XX2c20bgtwo85_L1MU8F_2jJ40_jJ50
+VBFDelayed stream before Run 474770, Main stream after Run 474770
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn280_pf_ftf_presel2c20XX2c20bgtwo85_L1MU8F_2jJ40_jJ50
+Trigger
+Group
+Exotics
+From 75
+bunches Non-colliding bunches
+HLT_2g22_tight_L1eEM15_EMPTY
+HLT_2g22_tight_L1eEM9_UNPAIRED_ISO
+HLT_2g50_tight_L1eEM15_EMPTY
+HLT_2g50_tight_L1eEM9_UNPAIRED_ISO
+HLT_g35_medium_g25_medium_L1eEM15_EMPTY
+HLT_g35_medium_g25_medium_L1eEM9_UNPAIRED_ISO
+From 75
+bunches
+Dijet + ISR
+HLT_g85_tight_3j50_L1eEM26M
+Mono-pole
+HLT_g0_hiptrt_L1eEM26M
+LLP, colliding bunches
+HLT_2mu50_msonly_L1MU14FCH
+HLT_g40_loose_L1eEM24L_mu40_msonly_L1MU14FCH
+HLT_g15_loose_L1eEM10L_2mu10_msonly_L12MU8F
+ LowestUnprescaled < Atlas < TWiki
+ Dedicated physics triggers 23
+
+=== PDF PAGE 27 ===
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L110DR-MU14FCH-MU5VF
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L1MU14FCH_jJ90
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L1MU14FCH_jXE80
+Non-colliding bunches
+HLT_g15_loose_L1eEM10L_2mu10_msonly_L1MU3V_EMPTY
+HLT_g15_loose_L1eEM10L_2mu10_msonly_L1MU3V_UNPAIRED_ISO
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L110DR-MU14FCH-MU5VF_EMPTY
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L110DR-MU14FCH-MU5VF_UNPAIRED_ISO
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L1MU14FCH_EMPTY
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan40_L1MU14FCH_UNPAIRED_ISO
+Trigger
+Group
+Exotics
+Trigger
+Group
+Supersymmetry
+From 75
+bunches
+B-jet + MET (sbottom)
+HLT_j75_0eta290_020jvt_bgn260_pf_ftf_xe60_cell_−L12jJ90_jXE80
+HLT_j95_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe85_pfopufit_L1jXE110
+HLT_j95_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe85_tcpufit_L1jXE110
+HLT_2j45_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe85_pfopufit_L12jJ40_jXE110
+HLT_2j45_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe85_tcpufit_L12jJ40_jXE110
+HLT_3j35_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe70_pfopufit_L13jJ40p0ETA25_jXE80
+HLT_3j35_0eta290_020jvt_bgn260_pf_ftf_xe50_−cell_xe70_tcpufit_L13jJ40p0ETA25_jXE80
+Photon + multijet (stealth SUSY)
+HLT_g45_loose_6j45c_L14jJ40p0ETA25
+Triggers in 2023
+Introduction
+Recommended triggers for 2023 physics analyses can be found below. Known issues are detailed in
+TriggerIssues2023.
+See TriggerNamingRun3 for naming conventions.
+Trigger periods in intensity ramp-up
+Rulebook branches listed are the final tag used for that period, which contain the most stringent rules applied.
+Intensity step Data periods First run number Rulebook branch
+75 bunches E1 450360 2023_75b
+400 bunches E2,E3,F3 450894 2023_400b_hybrid
+900 bunches F1,F2,F4 451094 2023_900b_Physics
+1200 bunches F5 451587 RB2023-23.0.26-1200bv2
+1800 bunches F6,F7 451618 RB2023-23.0.26-1800b-CPUv1
+2400 bunches F8,F9,F10 451896 23.0.29
+Intensity ramp up after LHC RF issues
+ LowestUnprescaled < Atlas < TWiki
+ Triggers in 2023 24
+
+=== PDF PAGE 28 ===
+Intensity step Data periods First run number Rulebook branch
+700 bunches F11 453319 23.0.29
+1200 bunches F12 453353 23.0.29
+1800 bunches F13,F14,F15 453530 23.0.29
+2400 bunches F16,F17,F18 453733 23.0.29 (as of June 13)
+For runs in each data periods, see COMA
+Egamma
+Trigger
+Group
+Single electron Multi electron
+75
+bunches
+only
+HLT_e26_lhtight_ivarloose_L1EM22VHI
+HLT_e60_lhmedium_L1EM22VHI
+HLT_e140_lhloose_L1EM22VHI
+HLT_e300_etcut_L1EM22VHI
+HLT_e140_lhloose_noringer_L1EM22VHI
+HLT_2e24_lhvloose_L12EM20VH
+Large-radius tracking
+HLT_e30_lhloose_nopix_lrtmedium_L1EM22VHI
+HLT_2e17_lhvloose_L12EM15VHI
+HLT_2e24_lhvloose_L12EM20VH
+HLT_e24_lhvloose_2e12_lhvloose_L1EM20VH_3EM10VH
+From
+400
+bunches
+HLT_e26_lhtight_ivarloose_L1eEM26M
+HLT_e60_lhmedium_L1eEM26M
+HLT_e140_lhloose_L1eEM26M
+HLT_e300_etcut_L1eEM26M
+HLT_e140_lhloose_noringer_L1eEM26M
+Large-radius tracking
+HLT_e30_lhloose_nopix_lrtmedium_L1eEM26M
+HLT_2e17_lhvloose_L12eEM18M
+HLT_2e24_lhvloose_L12eEM24L
+HLT_e24_lhvloose_2e12_lhvloose_L1eEM24L_3eEM12L
+Trigger Group Single photon Multi photon
+75 - 900 bunches HLT_g140_loose_L1EM22VHI
+HLT_g300_etcut_L1EM22VHI
+HLT_2g22_tight_L12EM15VHI
+HLT_2g50_loose_L12EM20VH
+HLT_g35_medium_g25_medium_L12EM20VH
+From 1200 bunches HLT_g140_loose_L1eEM26M
+HLT_g300_etcut_L1eEM26M
+HLT_2g20_tight_icaloloose_L12eEM18M
+HLT_2g22_tight_L12eEM18M
+HLT_2g50_loose_L12eEM24L
+HLT_g35_medium_g25_medium_L12eEM24L
+Trigger
+Group
+Electron + photon
+75 - 900
+bunches
+HLT_e24_lhmedium_g25_medium_02dRAB_L12EM20VH
+HLT_e24_lhmedium_g12_loose_g12_loose_02dRAB_02dRAC_02dRBC_L1EM20VH_3EM10VH
+From 75
+bunches
+HLT_e24_lhmedium_g25_medium_02dRAB_L12eEM24L
+HLT_e24_lhmedium_g12_loose_g12_loose_02dRAB_02dRAC_02dRBC_L1eEM24L_3eEM12L
+Muon
+ LowestUnprescaled < Atlas < TWiki
+ Trigger periods in intensity ramp-up 25
+
+=== PDF PAGE 29 ===
+Trigger
+Group
+Single muon Multi muon
+75, 400
+bunches
+only
+N/A N/A
+From
+900
+bunches
+HLT_mu24_ivarmedium_L1MU14FCH
+HLT_mu50_L1MU14FCH
+HLT_mu60_0eta105_msonly_L1MU14FCH
+HLT_mu60_L1MU14FCH
+HLT_mu80_msonly_3layersEC_L1MU14FCH
+Large-radius tracking
+HLT_mu20_LRT_d0loose_L1MU14FCH
+HLT_2mu10_l2mt_L1MU10BOM
+HLT_2mu14_L12MU8F
+HLT_mu20_ivarmedium_mu8noL1_L1MU14FCH
+HLT_mu22_mu8noL1_L1MU14FCH
+HLT_3mu6_L13MU5VF
+HLT_3mu6_msonly_L13MU5VF
+HLT_mu20_2mu4noL1_L1MU14FCH
+HLT_4mu4_L14MU3V
+Invariant mass cut
+HLT_mu10_ivarmedium_mu10_10invmAB70_L12MU8F
+HLT_mu20_ivarmedium_mu4noL1_10invmAB70_L1MU14FCH
+Jpsi
+HLT_mu20_mu2noL1_invmJPsiOS_L1MU14FCH
+Electron/Photon + Muon
+Trigger
+Group
+Electron + Muon Photon + Muon
+From
+400
+bunches
+N/A Photon + 2 muon
+HLT_g35_loose_mu15_mu2noL1_L1eEM28M
+From
+900
+bunches
+Electron + muon
+HLT_e7_lhmedium_L1eEM5_mu24_L1MU14FCH
+HLT_e17_lhloose_mu14_L1eEM18L_MU8F
+HLT_e26_lhmedium_mu8noL1_L1eEM26M
+2 electron + muon
+HLT_2e12_lhloose_mu10_L12eEM10L_MU8F
+Electron + 2muon
+HLT_e9_lhvloose_mu20_mu8noL1_L1MU14FCH
+HLT_e12_lhloose_L1eEM10L_2mu10_L12MU8F
+Photon + muon
+HLT_g25_medium_L1eEM18L_mu24_L1MU14FCH
+HLT_g35_loose_mu18_L1eEM28M
+HLT_g35_loose_mu15_mu2noL1_L1eEM28M
+2 photon + muon
+HLT_2g10_loose_L1eEM9_mu20_L1MU14FCH
+Tau
+Trigger
+Group
+Single tau Multi tau
+75 - 1800
+bunches
+HLT_tau160_mediumRNN_tracktwoMVA_L1TAU100
+Long-lived Particle ID
+ LowestUnprescaled < Atlas < TWiki
+ Muon 26
+
+=== PDF PAGE 30 ===
+HLT_tau180_mediumRNN_tracktwoLLP_L1TAU100
+Trigger
+Group
+Single tau Multi tau
+From 75
+bunches
+N/A HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_03dRAB_L1TAU20IM_2TAU12IM_4J12p0ETA25
+HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_03dRAB30_L1DR-TAU20ITAU12I-J25
+HLT_tau40_mediumRNN_tracktwoMVA_tau35_mediumRNN_tracktwoMVA_03dRAB_L1TAU25IM_2TAU20IM_2J25_3J20
+HLT_tau80_mediumRNN_tracktwoMVA_tau60_mediumRNN_tracktwoMVA_03dRAB_L1TAU60_2TAU40
+HLT_tau80_mediumRNN_tracktwoMVA_tau35_mediumRNN_tracktwoMVA_03dRAB30_L1TAU60_DR-TAU20ITAU12I
+Long-lived Particle ID
+HLT_tau80_mediumRNN_tracktwoLLP_tau60_mediumRNN_tracktwoLLP_03dRAB_L1TAU60_2TAU40
+di-tau + MJJ
+HLT_tau25_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB_j70_j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+From
+400
+bunches
+HLT_tau160_mediumRNN_tracktwoMVA_L1eTAU140
+From
+1200
+bunches
+Long-lived Particle ID
+HLT_tau180_mediumRNN_tracktwoLLP_L1eTAU140
+HLT_tau80_mediumRNN_tracktwoMVA_tau60_mediumRNN_tracktwoMVA_03dRAB_L1eTAU80_2eTAU60
+Long-lived Particle ID
+HLT_tau80_mediumRNN_tracktwoLLP_tau60_mediumRNN_tracktwoLLP_03dRAB_L1eTAU80_2eTAU60
+From
+2400
+bunches
+N/A Written to VBF Delayed Stream
+HLT_tau30_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB30_L1DR-TAU20ITAU12I-J25
+HLT_tau30_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB_L1TAU20IM_2TAU12IM_4J12p0ETA25
+Electron/Muon + Tau
+Trigger
+Group
+Lepton+Tau
+75
+bunches
+only
+Electron + Tau
+HLT_e24_lhmedium_ivarloose_tau20_mediumRNN_tracktwoMVA_03dRAB_L1EM22VHI
+From
+400
+bunches
+Electron + Tau
+HLT_e24_lhmedium_ivarloose_tau20_mediumRNN_tracktwoMVA_03dRAB_L1eEM26M
+Muon + Tau
+HLT_mu20_ivarloose_tau20_mediumRNN_tracktwoMVA_03dRAB_L1MU14FCH
+HLT_mu14_ivarloose_tau35_mediumRNN_tracktwoMVA_03dRAB_L1MU8F_TAU20IM
+HLT_mu14_ivarloose_tau25_mediumRNN_tracktwoMVA_03dRAB_L1MU8F_TAU12IM_3J12
+From 75
+bunches
+Electron + Tau
+HLT_e17_lhmedium_ivarloose_tau25_mediumRNN_tracktwoMVA_03dRAB_L1EM15VHI_2TAU12IM_4J12
+MET (+ X)
+Trigger
+Group
+Pure MET MET + X
+ LowestUnprescaled < Atlas < TWiki
+ Tau 27
+
+=== PDF PAGE 31 ===
+From
+400
+bunches
+HLT_xe65_cell_xe90_pfopufit_L1XE50
+(recommended)
+HLT_xe80_cell_xe115_tcpufit_L1XE50
+HLT_e70_lhloose_xe70_cell_L1eEM26M
+HLT_g90_loose_xe90_cell_L1eEM26M
+HLT_mu14_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1MU8F_TAU12IM_XE35
+HLT_e17_lhmedium_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1EM15VHI_2TAU12IM_XE35
+HLT_tau50_mediumRNN_tracktwoMVA_xe80_tcpufit_xe50_cell_L1XE50
+HLT_tau50_mediumRNN_tracktwoMVA_xe80_pfopufit_xe50_cell_L1XE50
+HLT_tau60_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1TAU40_2TAU12IM_XE40
+Trigger
+Group
+Pure MET MET + X
+Jets
+Trigger
+Group
+Single jet Multi jets
+75
+bunches
+only
+HLT_j175f_L1J50p31ETA49 N/A
+75, 400
+bunches
+HLT_j420_L1J100
+HLT_j420_ftf_preselj225_L1J100
+Large-R
+HLT_j360_a10t_lcw_jes_L1J100
+HLT_j360_a10t_lcw_jes_L1SC111-CJ15
+HLT_j420_a10sd_cssk_pf_jes_ftf_preselj225_L1J100
+HLT_2j250c_j120c_ftf_presel2j180XXj80_L1J100
+HLT_3j200_L1J100
+HLT_3j200_ftf_presel3j150_L1J100
+HLT_4j115_ftf_presel4j85_L13J50
+HLT_5j70c_L14J15
+HLT_5j70c_ftf_presel5j50_L14J15
+HLT_5j85_L14J15
+HLT_5j85_ftf_presel5j50_L14J15
+HLT_6j55c_L14J15
+HLT_6j55c_ftf_presel6j40_L14J15
+HLT_6j70_L14J15
+HLT_6j70_ftf_presel6j40_L14J15
+HLT_7j45_L14J15
+HLT_7j45_ftf_presel7j30_L14J15
+HLT_10j40_L14J15
+HLT_10j40_ftf_presel7j30_L14J15
+From
+400
+bunches
+Small-R
+HLT_j420_pf_ftf_preselj225_L1J100
+From Run 451587: HLT_j400_pf_ftf_preselj225_L1J100
+HLT_j220f_L1J75p31ETA49
+Large-R
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1J100
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1SC111-CJ15
+HLT_j460_a10t_lcw_jes_L1J100
+HLT_j460_a10t_lcw_jes_L1SC111-CJ15
+HLT_j460_a10r_L1J100
+HLT_j460_a10r_L1SC111-CJ15
+HLT_j460_a10_lcw_subjes_L1J100
+HLT_j460_a10_lcw_subjes_L1SC111-CJ15
+Large-R with mass cut
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_preselj225_L1J100
+Small-R
+HLT_2j250c_j120c_pf_ftf_presel2j180XXj80_L1J100
+HLT_3j200_pf_ftf_L1J100
+HLT_4j115_pf_ftf_presel4j85_L13J50
+From Run 451587: HLT_4j110_pf_ftf_presel4j85_L13J50
+HLT_4j120_L13J50
+HLT_5j70c_pf_ftf_presel5c50_L14J15
+From Run 451587: HLT_5j65c_pf_ftf_presel5c55_L14J15
+HLT_5j85_pf_ftf_presel5j50_L14J15
+From Run 451587: HLT_5j80_pf_ftf_presel5j50_L14J15
+From Run 451587: HLT_5j80_pf_ftf_presel5j55_L14J15
+HLT_6j35c_020jvt_pf_ftf_presel6c25_L14J15+
+HLT_6j55c_pf_ftf_presel6j40_L14J15
+HLT_6j70_pf_ftf_presel6j40_L14J15
+ LowestUnprescaled < Atlas < TWiki
+ MET (+ X) 28
+
+=== PDF PAGE 32 ===
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_preselj225_L1SC111-CJ15
+HLT_j420_35smcINF_a10t_lcw_jes_L1J100
+HLT_j420_35smcINF_a10t_lcw_jes_L1SC111-CJ15
+H_T
+HLT_j0_HT1000_L1HT190-J15s5pETA21
+HLT_j0_HT1000_L1J100
+HLT_j0_HT1000_pf_ftf_preselcHT450_L1HT190-J15s5pETA21
+HLT_j0_HT1000_pf_ftf_preselj180_L1HT190-J15s5pETA21
+HLT_j0_HT1000_pf_ftf_preselj180_L1J100
+HLT_7j45_pf_ftf_presel7j30_L14J15
+HLT_10j40_pf_ftf_presel7j30_L14J15
+Large-R with mass cut
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1J100
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC111-CJ15
+HLT_2j330_35smcINF_a10t_lcw_jes_L1J100
+HLT_2j330_35smcINF_a10t_lcw_jes_L1SC111-CJ15
+HLT_j360_60smcINF_j360_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC111-CJ15
+HLT_j360_60smcINF_j360_a10t_lcw_jes_L1SC111-CJ15
+HLT_j370_35smcINF_j370_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC111-CJ15
+HLT_j370_35smcINF_j370_a10t_lcw_jes_L1SC111-CJ15
+Trigger
+Group
+Single jet Multi jets
++ Delayed stream
+B-jets
+Trigger Group Single b-jet
+From 75 bunches GN1
+HLT_j225_0eta290_020jvt_bgn170_pf_ftf_preselj180_L1J100
+HLT_j300_0eta290_020jvt_bgn177_pf_ftf_preselj225_L1J100
+HLT_j360_0eta290_020jvt_bgn185_pf_ftf_preselj225_L1J100
+From 1200 bunches GN1
+HLT_j210_0eta290_020jvt_bgn170_pf_ftf_preselj180_L1J100
+HLT_j280_0eta290_020jvt_bgn177_pf_ftf_preselj225_L1J100
+HLT_j340_0eta290_020jvt_bgn185_pf_ftf_preselj225_L1J100
+Trigger
+Group
+Multi b-jet
+From 75
+bunches
+2b
+HLT_j175_0eta290_020jvt_bgn160_j60_0eta290_020jvt_bgn160_pf_ftf_preselj140b85XXj45b85_L1J100
+2b + 1j
+HLT_j150_2j55_0eta290_020jvt_bgn170_pf_ftf_preselj80XX2j45b90_L1J85_3J30
+From Run 451587: HLT_j140_2j50_0eta290_020jvt_bgn170_pf_ftf_preselj80XX2j45b90_L1J85_3J30
+3b
+HLT_3j65_0eta290_020jvt_bgn177_pf_ftf_presel3j45b95_L13J35p0ETA23
+From Run 451587: HLT_3j60_0eta290_020jvt_bgn177_pf_ftf_presel3j45b95_L13J35p0ETA23
+1b + 3j
+HLT_j75_0eta290_020jvt_bgn160_3j75_pf_ftf_preselj50b85XX3j50_L14J20
+From Run 451587: HLT_j70_0eta290_020jvt_bgn160_3j70_pf_ftf_preselj50b85XX3j50_L14J20
+2b + 2j, legacy HH
+HLT_2j35c_020jvt_bgn160_2j35c_020jvt_pf_ftf_presel2j25XX2j25b85_L14J15p0ETA25
+2b + 2j
+ LowestUnprescaled < Atlas < TWiki
+ Jets 29
+
+=== PDF PAGE 33 ===
+HLT_2j45_0eta290_020jvt_bgn160_2j45_pf_ftf_presel2j25XX2j25b85_L14J15p0ETA25
+2b + HT
+HLT_2j45_0eta290_020jvt_bgn170_j0_HT300_j0_DJMASS700j35_pf_ftf_L1HT150-J20s5pETA31_MJJ-400-CF
+From Run 451587:
+HLT_2j45_0eta290_020jvt_bgn170_j0_HT290_j0_DJMASS700j35_pf_ftf_L1HT150-J20s5pETA31_MJJ-400-CF
+3b + 1j
+HLT_3j35_0eta290_020jvt_bgn170_j35_pf_ftf_presel2j25XX2j25b85_L14J15p0ETA25
+4b
+HLT_2j35_0eta290_020jvt_bgn170_2j35_0eta290_020jvt_bgn185_pf_ftf_presel4j25b95_L14J15p0ETA25
+HLT_4j35_0eta290_020jvt_bgn177_pf_ftf_presel4j25b95_L14J15p0ETA25
+2b + 3j
+HLT_2j35_0eta290_020jvt_bgn160_3j35_pf_ftf_presel3j25XX2j25b85_L15J15p0ETA25
+Delayed stream, 1b+5j
+HLT_5j35c_020jvt_j25c_020jvt_SHARED_j25c_020jvt_bgn160_pf_ftf_presel5c25XXc25b85_L14J15
+Trigger
+Group
+Multi b-jet
+B-physics
+Trigger Group K-star ee Triggers
+From 75, 400
+bunches
+HLT_e5_lhvloose_bBeeM6000_2mu4_l2io_L1BPH-0DR3-EM7J15_2MU3V
+HLT_e5_lhvloose_bBeeM6000_mu6_l2io_L1BPH-0DR3-EM7J15_MU5VF
+HLT_e9_lhvloose_e5_lhvloose_bBeeM6000_mu6_l2io_L1BPH-0M9-EM7-EM5_MU5VF
+HLT_e5_lhvloose_bBeeM6000_L1BKeePrimary
+HLT_2e5_lhvloose_bBeeM6000_L1BKeePrimary
+HLT_e5_lhvloose_bBeeM6000_L1BKeePrescaled
+HLT_2e5_lhvloose_bBeeM6000_L1BKeePrescaled
+HLT_e9_lhvloose_e5_lhvloose_bBeeM6000_2mu4_l2io_L1BPH-0M9-EM7-EM5_2MU3V
+Trigger Group B-physics muon triggers, no L1Topo
+75 bunches only Dimuon
+HLT_2mu4_bBmumux_BcmumuD0Xloose_L12MU3V
+HLT_2mu4_bBmumux_BcmumuDploose_L12MU3V
+HLT_2mu4_bBmumux_BcmumuDsloose_L12MU3V
+HLT_2mu4_bBmumux_BcmumuDstarloose_L12MU3V
+HLT_2mu4_bBmumux_BcmumuPi_L12MU3V
+HLT_2mu4_bBmumux_BdmumuKst_L12MU3V
+HLT_2mu4_bBmumux_BpmumuKp_L12MU3V
+HLT_2mu4_bBmumux_BsmumuPhi_L12MU3V
+HLT_2mu4_bBmumux_LbPqKm_L12MU3V
+HLT_2mu4_bDimu_L12MU3V
+HLT_2mu4_bJpsimumu_L12MU3V
+HLT_2mu4_bUpsimumu_L12MU3V
+HLT_mu6_mu4_bBmumu_L1MU5VF_2MU3V
+HLT_mu6_mu4_bBmumu_Lxy0_L1MU5VF_2MU3V
+HLT_mu6_mu4_bJpsimumu_Lxy0_L1MU5VF_2MU3V
+HLT_2mu6_bPhi_L12MU5VF
+ LowestUnprescaled < Atlas < TWiki
+ B-jets 30
+
+=== PDF PAGE 34 ===
+Trigger Group B-physics muon triggers, no L1Topo
+75, 400 bunches Dimuon
+HLT_2mu4_bBmumux_BcmumuD0Xloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDploose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDsloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDstarloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuPi_L12MU3VF
+HLT_2mu4_bBmumux_BdmumuKst_L12MU3VF
+HLT_2mu4_bBmumux_BpmumuKp_L12MU3VF
+HLT_2mu4_bBmumux_BsmumuPhi_L12MU3VF
+HLT_2mu4_bBmumux_LbPqKm_L12MU3VF
+HLT_2mu4_bDimu_L12MU3VF
+HLT_2mu4_bJpsimumu_L12MU3VF
+HLT_2mu4_bUpsimumu_L12MU3VF
+HLT_2mu6_bBmumu_L12MU5VF
+HLT_2mu6_bBmumu_Lxy0_L12MU5VF
+HLT_2mu6_bJpsimumu_Lxy0_L12MU5VF
+Bmux
+HLT_mu20_bBmux_BdmuDpX_L1MU14FCH
+HLT_mu20_bBmux_BdmuDstarX_L1MU14FCH
+HLT_mu20_bBmux_BpmuD0X_L1MU14FCH
+HLT_mu20_bBmux_BsmuDsX_L1MU14FCH
+HLT_mu20_bBmux_LbmuLcX_L1MU14FCH
+From 75 bunches Dimuon
+HLT_2mu10_bJpsimumu_L12MU8F
+HLT_2mu10_bUpsimumu_L12MU8F
+HLT_mu11_mu6_bBmumu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuD0Xloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDploose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDsloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDstarloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuPi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BdmumuKst_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BpmumuKp_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BsmumuPhi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_LbPqKm_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bPhi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bTau_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bUpsimumu_L1MU8VF_2MU5VF
+HLT_mu6_2mu4_bDimu2700_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bDimu6000_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bJpsi_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bTau_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bUpsi_L1MU5VF_3MU3VF
+Multi-muon
+HLT_3mu4_b3mu_noos_L13MU3VF
+ LowestUnprescaled < Atlas < TWiki
+ B-physics 31
+
+=== PDF PAGE 35 ===
+HLT_3mu4_bJpsi_L13MU3VF
+HLT_3mu4_bPhi_L13MU3VF
+HLT_3mu4_bTau_L13MU3VF
+HLT_4mu4_bDimu6000_L14MU3V
+Multiple-candidate L1 flag
+HLT_mu10_l2mt_mu4_l2mt_bJpsimumu_L1MU10BOM
+HLT_mu10_l2mt_mu4_l2mt_bJpsimumu_L1MU12BOM
+Trigger Group B-physics muon triggers, no L1Topo
+VBF
+Trigger
+Group
+B-jet + X
+From 75
+bunches
+B-jet + forward jet
+HLT_j55_0eta290_020jvt_bgn170_2j45f_pf_ftf_preselj45XX2f40_L1J25p0ETA23_2J15p31ETA49
+HLT_j80_0eta290_020jvt_bgn170_j60_0eta290_020jvt_bgn185_j45f_pf_ftf_preselj60XXj45XXf40_L1J40p0ETA25_2J25_J20p31ETA49
+HLT_j80c_j60_j45f_SHARED_2j45_0eta290_020jvt_bgn160_pf_ftf_preselc60XXj45XXf40_L1J40p0ETA25_2J25_J20p31ETA49
+Photon + (b-)jet
+HLT_g25_medium_4j35a_j0_DJMASS1000j35_L1EM22VHI
+HLT_g20_tight_j35_0eta290_020jvt_bgn177_3j35a_j0_DJMASS500j35_pf_ftf_L1EM18VHI_MJJ-300
+HLT_g25_tight_2j35_0eta290_020jvt_bgn177_−2j35a_pf_ftf_presel2a20b90XX2a20_L1EM22VHI
+HLT_g25_tight_j35_0eta290_020jvt_bgn177_3j35a_j0_−DJMASS700j35_pf_ftf_−presela20b85XX3a20_−L1EM22VHI
+From
+1200
+bunches
+B-jet + forward jet
+HLT_j50_0eta290_020jvt_bgn170_2j45f_pf_ftf_preselj45XX2f40_L1J25p0ETA23_2J15p31ETA49
+HLT_j80_0eta290_020jvt_bgn170_j60_0eta290_020jvt_bgn185_j45f_pf_ftf_preselj60XXj45XXf40_L1J40p0ETA25_2J25_J20p31ETA49
+HLT_j75c_j55_j45f_SHARED_2j45_0eta290_020jvt_bgn160_pf_ftf_preselc60XXj45XXf40_L1J40p0ETA25_2J25_J20p31ETA49
+Photon + (b-)jet
+HLT_g25_medium_4j35a_j0_DJMASS1000j35_L1eEM26M
+HLT_g20_tight_j35_0eta290_020jvt_bgn177_3j35a_j0_DJMASS500j35_pf_ftf_L1EM18VHI_MJJ-300
+HLT_g25_tight_2j35_0eta290_020jvt_bgn177_−2j35a_pf_ftf_presel2a20b90XX2a20_L1eEM26M
+HLT_g25_tight_j35_0eta290_020jvt_bgn177_3j35a_j0_−DJMASS700j35_pf_ftf_−presela20b85XX3a20_−L1eEM26M
+Trigger
+Group
+Dijet mass L1
+From 75
+bunches
+Main stream
+HLT_e10_lhmedium_ivarloose_j70_j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+HLT_mu10_ivarmedium_j70_j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+HLT_tau25_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB_j70_j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+Delayed stream
+HLT_j70_j50a_j0_DJMASS1000j50dphi200x400deta_L1MJJ-500-NFF
+HLT_2e5_lhmedium_j70_j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+HLT_2mu6_2j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+HLT_j70_j50a_j0_DJMASS1000j50dphi240_xe90_tcpufit_xe50_cell_L1MJJ-500-NFF
+HLT_j70a_j50a_2j35a_SHARED_2j35_0eta290_020jvt_bgn170_j0_DJMASS1000j50_pf_ftf_presela60XXa40XX2a25_L1MJJ-500-NFF
+From Run 451587:
+HLT_j65a_j45a_2j35a_SHARED_2j35_0eta290_020jvt_bgn170_j0_DJMASS1000j50_pf_ftf_presela60XXa40XX2a25_L1MJJ-500-NFF
+HLT_mu4_j70_j50a_j0_DJMASS1000j50_xe50_tcpufit_L1MJJ-500-NFF
+ LowestUnprescaled < Atlas < TWiki
+ VBF 32
+
+=== PDF PAGE 36 ===
+Unconventional tracking (LLP)
+Trigger Group Unconventional tracking
+75, 400 bunches Hit-based displaced vertex
+HLT_j180_hitdvjet200_medium_L1XE50
+HLT_j180_hitdvjet260_medium_L1J100
+HLT_xe80_tcpufit_hitdvjet200_medium_L1XE50
+High dE/dX
+HLT_xe80_tcpufit_dedxtrk25_medium_L1XE50
+Disappearing track
+HLT_distrk20_tight_L1XE50
+Isolated track
+HLT_xe80_tcpufit_isotrk100_medium_iaggrmedium_L1XE50
+HLT_xe80_tcpufit_isotrk120_medium_iaggrloose_L1XE50
+From 75 bunches Hit-based displaced vertex
+HLT_j180_hitdvjet260_tight_L1J100
+HLT_xe80_tcpufit_hitdvjet200_tight_L1XE50
+High dE/dX
+HLT_xe80_tcpufit_dedxtrk50_medium_L1XE50
+Disappearing track
+HLT_xe80_tcpufit_distrk20_medium_L1XE50
+HLT_xe80_tcpufit_distrk20_tight_L1XE50
+Isolated track
+HLT_xe80_tcpufit_isotrk120_medium_iaggrmedium_L1XE50
+HLT_xe80_tcpufit_isotrk140_medium_iaggrmedium_L1XE50
+Displaced Jet
+HLT_j180_2dispjet50_3d2p_L1J100
+HLT_j180_dispjet50_3d2p_dispjet50_1p_L1J100
+Dedicated physics triggers
+Trigger Group Standard Model
+75 bunches only Low-mass Drell-Yan
+HLT_mu4_ivarloose_mu4_11invmAB60_L1DY-BOX-2MU3VF
+HLT_mu4_ivarloose_mu4_7invmAB9_L1DY-BOX-2MU3VF
+HLT_mu4_ivarloose_mu4_b11invmAB60vtx20_L1DY-BOX-2MU3VF
+HLT_mu4_ivarloose_mu4_b7invmAB9vtx20_L1DY-BOX-2MU3VF
+75, 400 bunches HLT_mu6_ivarloose_mu6_11invmAB24_L1DY-BOX-2MU5VF
+HLT_mu6_ivarloose_mu6_24invmAB60_L1DY-BOX-2MU5VF
+HLT_mu6_ivarloose_mu6_b11invmAB24vtx20_L1DY-BOX-2MU5VF
+HLT_mu6_ivarloose_mu6_b24invmAB60vtx20_L1DY-BOX-2MU5VF
+Trigger Group Higgs
+75 bunches only Merged electron
+HLT_e25_mergedtight_g35_medium_90invmAB_02dRAB_L12EM20VH
+ LowestUnprescaled < Atlas < TWiki
+ Unconventional tracking (LLP) 33
+
+=== PDF PAGE 37 ===
+Photon+meson
+HLT_g35_medium_tau25_dipion3_tracktwoMVA_L1TAU12_60invmAB_L1EM22VHI
+HLT_g25_medium_tau25_singlepion_tracktwoMVA_50invmAB_L1EM22VHI
+HLT_g25_medium_tau25_dipion1_tracktwoMVA_50invmAB_L1EM22VHI
+HLT_g25_medium_tau25_dipion2_tracktwoMVA_50invmAB_L1EM22VHI
+HLT_g25_medium_tau25_dikaonmass_tracktwoMVA_50invmAB_L1EM22VHI
+HLT_g25_medium_tau25_kaonpi1_tracktwoMVA_50invmAB_L1EM22VHI
+HLT_g25_medium_tau25_kaonpi2_tracktwoMVA_50invmAB_L1EM22VHI
+Trigger Group Higgs
+From 400 bunches Merged electron
+HLT_e25_mergedtight_g35_medium_90invmAB_02dRAB_L12eEM24L
+Photon+meson
+HLT_g35_medium_tau25_dipion3_tracktwoMVA_L1TAU12_60invmAB_L1eEM26M
+HLT_g25_medium_tau25_singlepion_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_dipion1_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_dipion2_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_dikaonmass_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_kaonpi1_tracktwoMVA_50invmAB_L1eEM26M
+HLT_g25_medium_tau25_kaonpi2_tracktwoMVA_50invmAB_L1eEM26M
+Trigger
+Group
+HDBS
+From 75
+bunches
+HH 4b
+Main stream
+HLT_j80c_020jvt_j55c_020jvt_j28c_020jvt_j20c_020jvt_SHARED_3j20c_020jvt_bgn182_pf_ftf_presel2c20XX2c20b85_L1J45p0ETA21_3J15p0ETA25
+Delayed stream, jet-seeded
+HLT_j80c_020jvt_j55c_020jvt_j28c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn177_pf_ftf_presel2c20XX2c20b85_L1J45p0ETA21_3J15p0ETA25
+Delayed stream, muon-seeded
+HLT_j80c_020jvt_j55c_020jvt_j28c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn177_pf_ftf_presel2c20XX2c20b85_L1MU8F_2J15_J20
+From
+1200
+bunches
+HH 4b
+Main stream
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_3j20c_020jvt_bgn182_pf_ftf_presel2c20XX2c20b85_L1J45p0ETA21_3J15p0ETA25
+Delayed stream, jet-seeded
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn177_pf_ftf_presel2c20XX2c20b85_L1J45p0ETA21_3J15p0ETA25
+Delayed stream, muon-seeded
+HLT_j75c_020jvt_j50c_020jvt_j25c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bgn177_pf_ftf_presel2c20XX2c20b85_L1MU8F_2J15_J20
+Trigger Group Exotics
+75 bunches only
+Non-colliding bunches
+HLT_2g22_tight_L1EM7_EMPTY
+HLT_2g22_tight_L1EM7_UNPAIRED_ISO
+HLT_2g50_tight_L1EM7_EMPTY
+HLT_2g50_tight_L1EM7_UNPAIRED_ISO
+HLT_g35_medium_g25_medium_L1EM7_EMPTY
+HLT_g35_medium_g25_medium_L1EM7_UNPAIRED_ISO
+From400 bunches
+Non-colliding bunches
+HLT_2g22_tight_L1eEM9_EMPTY
+HLT_2g22_tight_L1eEM9_UNPAIRED_ISO
+HLT_2g50_tight_L1eEM9_EMPTY
+HLT_2g50_tight_L1eEM9_UNPAIRED_ISO
+HLT_g35_medium_g25_medium_L1eEM9_EMPTY
+ LowestUnprescaled < Atlas < TWiki
+ Dedicated physics triggers 34
+
+=== PDF PAGE 38 ===
+HLT_g35_medium_g25_medium_L1eEM9_UNPAIRED_ISO
+Trigger Group Exotics
+From 75 bunches Dijet + ISR
+HLT_g85_tight_3j50_L1eEM26M
+LLP, colliding bunches
+HLT_2mu50_msonly_L1MU14FCH
+HLT_g40_loose_mu40_msonly_L1MU14FCH
+HLT_g15_loose_2mu10_msonly_L12MU8F
+Non-colliding bunches
+HLT_g15_loose_2mu10_msonly_L1MU3V_EMPTY
+HLT_g15_loose_2mu10_msonly_L1MU3V_UNPAIRED_ISO
+Trigger
+Group
+Supersymmetry
+From 75
+bunches
+B-jet + MET (sbottom)
+HLT_j80_0eta290_020jvt_bgn160_pf_ftf_xe60_cell_L12J50_XE40 +
+From Run 451587: HLT_j75_0eta290_020jvt_bgn160_pf_ftf_xe60_cell_L12J50_XE40 +
+HLT_j100_0eta290_020jvt_bgn160_pf_ftf_xe50_cell_xe85_pfopufit_L1XE55
+From Run 451587:
+HLT_j95_0eta290_020jvt_bgn160_pf_ftf_xe50_cell_xe85_pfopufit_L1XE55
+HLT_j100_0eta290_020jvt_bgn160_pf_ftf_xe50_cell_xe85_tcpufit_L1XE55
+From Run 451587: HLT_j95_0eta290_020jvt_bgn160_pf_ftf_xe50_cell_xe85_tcpufit_L1XE55
+HLT_2j45_0eta290_020jvt_bgn160_pf_ftf_xe50_cell_xe85_pfopufit_L12J15_XE55
+HLT_2j45_0eta290_020jvt_bgn160_pf_ftf_xe50_cell_xe85_tcpufit_L12J15_XE55
+HLT_3j35_0eta290_020jvt_bgn160_pf_ftf_xe50_cell_xe70_pfopufit_L13J15p0ETA25_XE40
+HLT_3j35_0eta290_020jvt_bgn160_pf_ftf_xe50_cell_xe70_tcpufit_L13J15p0ETA25_XE40
+Photon + multijet (stealth SUSY)
+HLT_g45_loose_6j45c_L14J15p0ETA25
+Triggers in 2022
+Introduction
+Recommended triggers for 2022 physics analyses can be found below. Known issues are detailed in
+TriggerIssues2022.
+See TriggerNamingRun3 for naming conventions.
+Trigger periods in intensity ramp-up
+Rulebook branches listed are the final tag used for that period, which contain the most stringent rules applied.
+Intensity step Data periods First run number Rulebook branch
+75 bunches Partway through D1 427882 75b_300b_PhysicsP1
+300 bunches D3,D4 428071 75b_300b_PhysicsP1
+600 bunches E1,E3 428648 600b-AFP
+900 bunches E4,E5 429018 22.0.77-900b-newStartup
+ LowestUnprescaled < Atlas < TWiki
+ Triggers in 2022 35
+
+=== PDF PAGE 39 ===
+Intensity step Data periods First run number Rulebook branch
+1200 bunches E6 429612 22.0.77-900b-newStartup
+1500 bunches E7 429782 22.0.77-900b-newStartup
+1900 bunches E8 430178 22.0.77-2127b
+2100 bunches -- TBD 22.0.77-2127b
+For runs in each data periods, see COMA
+Periods D2 and E2 correspond to low-mu operations, so the corresponding run ranges (427929,
+428700-428770) use different trigger menus.
+Triggers are listed only from the enabling of the HLT at 75 bunches. Prior to that, only L1 streamers were
+active.
+Egamma
+Trigger
+Group
+Single electron Multi electron
+75
+bunches
+only
+HLT_e17_lhvloose_L1EM15VHI
+HLT_e20_lhvloose_L1EM15VH
+HLT_e250_etcut_L1EM22VHI
+N/A
+From 75
+bunches
+HLT_e26_lhtight_ivarloose_L1EM22VHI
+HLT_e60_lhmedium_L1EM22VHI
+HLT_e140_lhloose_L1EM22VHI
+HLT_e300_etcut_L1EM22VHI
+Large-radius tracking
+HLT_e30_lhloose_nopix_lrtmedium_L1EM22VHI
+HLT_2e17_lhvloose_L12EM15VHI
+HLT_2e24_lhvloose_L12EM20VH
+HLT_e24_lhvloose_2e12_lhvloose_L1EM20VH_3EM10VH
+From
+430536
+HLT_e140_lhloose_noringer_L1EM22VHI N/A
+ Note: HLT_e140_lhloose_noringer_L1EM22VHI was affected by multiple prescale bugs. This
+trigger was mostly unprescaled starting from the 75b fills but only reliably unprescaled from run
+430896
+Trigger Group Single photon Multi photon
+75 bunches only HLT_g250_etcut_L1EM22VHI
+From 75 bunches HLT_g140_loose_L1EM22VHI
+HLT_g300_etcut_L1EM22VHI
+HLT_2g20_tight_icaloloose_L12EM15VHI
+HLT_2g22_tight_L12EM15VHI
+HLT_2g50_loose_L12EM20VH
+HLT_g35_medium_g25_medium_L12EM20VH
+Trigger
+Group
+Electron + photon
+From 75
+bunches
+HLT_e24_lhmedium_g25_medium_02dRAB_L12EM20VH
+HLT_e24_lhmedium_g12_loose_g12_loose_02dRAB_02dRAC_02dRBC_L1EM20VH_3EM10VH
+ LowestUnprescaled < Atlas < TWiki
+ Trigger periods in intensity ramp-up 36
+
+=== PDF PAGE 40 ===
+Muon
+Trigger
+Group
+Single muon Multi muon
+75
+bunches
+only
+N/A Jpsi
+HLT_mu20_mu2noL1_invmJPsiOS_L1MU14FCH
+From 75
+bunches
+HLT_mu24_ivarmedium_L1MU14FCH
+HLT_mu50_L1MU14FCH
+HLT_mu60_0eta105_msonly_L1MU14FCH
+HLT_mu60_L1MU14FCH
+HLT_mu80_msonly_3layersEC_L1MU14FCH
+Large-radius tracking
+HLT_mu20_LRT_d0loose_L1MU14FCH
+HLT_2mu10_l2mt_L1MU10BOM
+HLT_2mu14_L12MU8F
+HLT_mu20_ivarmedium_mu8noL1_L1MU14FCH
+HLT_mu22_mu8noL1_L1MU14FCH
+HLT_3mu6_L13MU5VF
+HLT_3mu6_msonly_L13MU5VF
+HLT_mu20_2mu4noL1_L1MU14FCH
+HLT_4mu4_L14MU3V
+Invariant mass cut
+HLT_mu10_ivarmedium_mu10_10invmAB70_L12MU8F
+HLT_mu20_ivarmedium_mu4noL1_10invmAB70_L1MU14FCH
+Electron/Photon + Muon
+Trigger
+Group
+Electron + Muon Photon + Muon
+From 75
+bunches
+Electron + muon
+HLT_e7_lhmedium_mu24_L1MU14FCH
+HLT_e17_lhloose_mu14_L1EM15VH_MU8F
+HLT_e26_lhmedium_mu8noL1_L1EM22VHI
+2 electron + muon
+HLT_2e12_lhloose_mu10_L12EM8VH_MU8F
+Electron + 2muon
+HLT_e9_lhvloose_mu20_mu8noL1_L1MU14FCH
+HLT_e12_lhloose_2mu10_L12MU8F
+Photon + muon
+HLT_g25_medium_mu24_L1MU14FCH
+HLT_g35_loose_mu18_L1EM24VHI 
+2 photon + muon
+HLT_2g10_loose_mu20_L1MU14FCH
+Photon + 2 muon
+HLT_g35_loose_mu15_mu2noL1_L1EM24VHI
+ Photon + 1/2 muon triggers seeded by EM24VHI did not collect the full 2022 luminosity due to high
+load on the LAr ROSes.
+Tau
+Trigger
+Group
+Single tau Multi tau
+From 75
+bunches
+HLT_tau160_mediumRNN_tracktwoMVA_L1TAU100 HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_03dRAB30_L1DR-TAU20ITAU12I-J25
+HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_03dRAB_L1TAU20IM_2TAU12IM_4J12p0ETA25
+ LowestUnprescaled < Atlas < TWiki
+ Muon 37
+
+=== PDF PAGE 41 ===
+Long-lived Particle ID
+HLT_tau180_mediumRNN_tracktwoLLP_L1TAU100
+HLT_tau40_mediumRNN_tracktwoMVA_tau35_mediumRNN_tracktwoMVA_03dRAB_L1TAU25IM_2TAU20IM_2J25_3J20
+HLT_tau80_mediumRNN_tracktwoMVA_tau60_mediumRNN_tracktwoMVA_03dRAB_L1TAU60_2TAU40
+HLT_tau80_mediumRNN_tracktwoMVA_tau35_mediumRNN_tracktwoMVA_03dRAB30_L1TAU60_DR-TAU20ITAU12I
+Long-lived Particle ID
+HLT_tau80_mediumRNN_tracktwoLLP_tau60_mediumRNN_tracktwoLLP_03dRAB_L1TAU60_2TAU40
+Trigger
+Group
+Single tau Multi tau
+Electron/Muon + Tau
+Trigger
+Group
+Lepton+Tau
+From 75
+bunches
+Electron + Tau
+HLT_e24_lhmedium_ivarloose_tau20_mediumRNN_tracktwoMVA_03dRAB_L1EM22VHI
+HLT_e17_lhmedium_ivarloose_tau25_mediumRNN_tracktwoMVA_03dRAB_L1EM15VHI_2TAU12IM_4J12
+Muon + Tau
+HLT_mu20_ivarloose_tau20_mediumRNN_tracktwoMVA_03dRAB_L1MU14FCH
+HLT_mu14_ivarloose_tau35_mediumRNN_tracktwoMVA_03dRAB_L1MU8F_TAU20IM
+HLT_mu14_ivarloose_tau25_mediumRNN_tracktwoMVA_03dRAB_L1MU8F_TAU12IM_3J12
+MET (+ X)
+Trigger
+Group
+Pure MET MET + X
+From 75
+bunches
+HLT_xe65_cell_xe90_pfopufit_L1XE50
+(recommended)
+HLT_xe80_cell_xe115_tcpufit_L1XE50
+HLT_e70_lhloose_xe70_cell_L1EM22VHI
+HLT_g90_loose_xe90_cell_L1EM22VHI
+HLT_mu14_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1MU8F_TAU12IM_XE35
+HLT_e17_lhmedium_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1EM15VHI_2TAU12IM_XE35
+HLT_tau60_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_xe50_cell_03dRAB_L1TAU40_2TAU12IM_XE40
+Jets
+Trigger
+Group
+Single jet Multi jets
+75
+bunches
+only
+HLT_j175f_L1J50p31ETA49 N/A
+75, 300
+bunches
+HLT_j420_L1J100
+HLT_j420_ftf_preselj225_L1J100
+Large-R
+HLT_2j250c_j120c_ftf_presel2j180XXj80_L1J100
+HLT_3j200_L1J100
+HLT_3j200_ftf_presel3j150_L1J100
+HLT_4j115_ftf_presel4j85_L13J50
+ LowestUnprescaled < Atlas < TWiki
+ Tau 38
+
+=== PDF PAGE 42 ===
+HLT_j360_a10t_lcw_jes_L1J100
+HLT_j360_a10t_lcw_jes_L1SC111-CJ15
+HLT_j420_a10sd_cssk_pf_jes_ftf_preselj225_L1J100
+HLT_5j70c_L14J15
+HLT_5j70c_ftf_presel5j50_L14J15
+HLT_5j85_L14J15
+HLT_5j85_ftf_presel5j50_L14J15
+HLT_6j55c_L14J15
+HLT_6j55c_ftf_presel6j40_L14J15
+HLT_6j70_L14J15
+HLT_6j70_ftf_presel6j40_L14J15
+HLT_7j45_L14J15
+HLT_7j45_ftf_presel7j30_L14J15
+HLT_10j40_L14J15
+HLT_10j40_ftf_presel7j30_L14J15
+Trigger
+Group
+Single jet Multi jets
+From 75
+bunches
+Small-R
+HLT_j420_pf_ftf_preselj225_L1J100
+HLT_j220f_L1J75p31ETA49
+Large-R
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1J100
+HLT_j460_a10sd_cssk_pf_jes_ftf_preselj225_L1SC111-CJ15
+HLT_j460_a10t_lcw_jes_L1J100
+HLT_j460_a10t_lcw_jes_L1SC111-CJ15
+HLT_j460_a10r_L1J100
+HLT_j460_a10r_L1SC111-CJ15
+HLT_j460_a10_lcw_subjes_L1J100
+HLT_j460_a10_lcw_subjes_L1SC111-CJ15
+Large-R with mass cut
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_preselj225_L1J100
+HLT_j420_35smcINF_a10sd_cssk_pf_jes_ftf_preselj225_L1SC111-CJ15
+HLT_j420_35smcINF_a10t_lcw_jes_L1J100
+HLT_j420_35smcINF_a10t_lcw_jes_L1SC111-CJ15
+H_T
+HLT_j0_HT1000_L1HT190-J15s5pETA21
+HLT_j0_HT1000_L1J100
+HLT_j0_HT1000_pf_ftf_preselcHT450_L1HT190-J15s5pETA21
+HLT_j0_HT1000_pf_ftf_preselj180_L1HT190-J15s5pETA21
+HLT_j0_HT1000_pf_ftf_preselj180_L1J100
+Small-R
+HLT_2j250c_j120c_pf_ftf_presel2j180XXj80_L1J100
+HLT_3j200_pf_ftf_L1J100
+HLT_4j115_pf_ftf_presel4j85_L13J50
+HLT_4j120_L13J50
+HLT_5j70c_pf_ftf_presel5c50_L14J15
+HLT_5j85_pf_ftf_presel5j50_L14J15
+HLT_6j35c_020jvt_pf_ftf_presel6c25_L14J15+
+HLT_6j55c_pf_ftf_presel6j40_L14J15
+HLT_6j70_pf_ftf_presel6j40_L14J15
+HLT_7j45_pf_ftf_presel7j30_L14J15
+HLT_10j40_pf_ftf_presel7j30_L14J15
+Large-R with mass cut
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1J100
+HLT_2j330_35smcINF_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC111-CJ15
+HLT_2j330_35smcINF_a10t_lcw_jes_L1J100
+HLT_2j330_35smcINF_a10t_lcw_jes_L1SC111-CJ15
+HLT_j360_60smcINF_j360_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC111-CJ15
+HLT_j360_60smcINF_j360_a10t_lcw_jes_L1SC111-CJ15
+HLT_j370_35smcINF_j370_a10sd_cssk_pf_jes_ftf_presel2j225_L1SC111-CJ15
+HLT_j370_35smcINF_j370_a10t_lcw_jes_L1SC111-CJ15
++ Delayed stream
+B-jets
+Trigger Group Single b-jet
+From 75 bunches DL1d
+HLT_j225_0eta290_020jvt_bdl1d70_pf_ftf_preselj180_L1J100
+HLT_j300_0eta290_020jvt_bdl1d77_pf_ftf_preselj225_L1J100
+ LowestUnprescaled < Atlas < TWiki
+ Jets 39
+
+=== PDF PAGE 43 ===
+HLT_j360_0eta290_020jvt_bdl1d85_pf_ftf_preselj225_L1J100
+Trigger Group Single b-jet
+Trigger
+Group
+Multi b-jet
+From 75
+bunches
+2b
+HLT_j175_0eta290_020jvt_bdl1d60_j60_0eta290_020jvt_bdl1d60_pf_ftf_preselj140b85XXj45b85_L1J100
+2b + 1j
+HLT_j150_2j55_0eta290_020jvt_bdl1d70_pf_ftf_preselj80XX2j45b90_L1J85_3J30
+3b
+HLT_3j65_0eta290_020jvt_bdl1d77_pf_ftf_presel3j45b95_L13J35p0ETA23
+1b + 3j
+HLT_j75_0eta290_020jvt_bdl1d60_3j75_pf_ftf_preselj50b85XX3j50_L14J20
+2b + 2j, legacy HH
+HLT_2j35c_020jvt_bdl1d60_2j35c_020jvt_pf_ftf_presel2j25XX2j25b85_L14J15p0ETA25
+2b + 2j
+HLT_2j45_0eta290_020jvt_bdl1d60_2j45_pf_ftf_presel2j25XX2j25b85_L14J15p0ETA25
+2b + HT
+HLT_2j45_0eta290_020jvt_bdl1d70_j0_HT300_j0_DJMASS700j35_pf_ftf_L1HT150-J20s5pETA31_MJJ-400-CF
+3b + 1j
+HLT_3j35_0eta290_020jvt_bdl1d70_j35_pf_ftf_presel2j25XX2j25b85_L14J15p0ETA25
+4b
+HLT_2j35_0eta290_020jvt_bdl1d70_2j35_0eta290_020jvt_bdl1d85_pf_ftf_presel4j25b95_L14J15p0ETA25
+HLT_4j35_0eta290_020jvt_bdl1d77_pf_ftf_presel4j25b95_L14J15p0ETA25
+2b + 3j
+HLT_2j35_0eta290_020jvt_bdl1d60_3j35_pf_ftf_presel3j25XX2j25b85_L15J15p0ETA25
+Delayed stream, 1b+5j
+HLT_5j35c_020jvt_j25c_020jvt_SHARED_j25c_020jvt_bdl1d60_pf_ftf_presel5c25XXc25b85_L14J15
+B-physics
+Trigger
+Group
+K-star ee Triggers
+From 75, 300
+bunches
+HLT_e5_lhvloose_bBeeM6000_2mu4_l2io_L1BPH-0DR3-EM7J15_2MU3V
+HLT_e5_lhvloose_bBeeM6000_mu6_l2io_L1BPH-0DR3-EM7J15_MU5VF
+HLT_e9_lhvloose_e5_lhvloose_bBeeM6000_mu6_l2io_L1BPH-0M9-EM7-EM5_MU5VF
+HLT_e5_lhvloose_bBeeM6000_L1BKeePrimary 
+HLT_2e5_lhvloose_bBeeM6000_L1BKeePrimary 
+HLT_e5_lhvloose_bBeeM6000_L1BKeePrescaled
+HLT_2e5_lhvloose_bBeeM6000_L1BKeePrescaled
+HLT_e9_lhvloose_e5_lhvloose_bBeeM6000_2mu4_l2io_L1BPH-0M9-EM7-EM5_2MU3V
+ LowestUnprescaled < Atlas < TWiki
+ B-jets 40
+
+=== PDF PAGE 44 ===
+ Note: These BKee triggers were prescaled at various points due to high LAr ROS access rates
+limiting the HLT operation. From Run 431241, they were furthermore run only as End-Of-Fill triggers,
+after mu had declined during the run.
+ Note: The HLT item is unprescaled, but it is fed by L1 items that do have prescales applied
+Trigger Group B-physics muon triggers, no L1Topo
+75 bunches only Dimuon
+HLT_2mu4_bBmumux_BcmumuD0Xloose_L12MU3V
+HLT_2mu4_bBmumux_BcmumuDploose_L12MU3V
+HLT_2mu4_bBmumux_BcmumuDsloose_L12MU3V
+HLT_2mu4_bBmumux_BcmumuDstarloose_L12MU3V
+HLT_2mu4_bBmumux_BcmumuPi_L12MU3V
+HLT_2mu4_bBmumux_BdmumuKst_L12MU3V
+HLT_2mu4_bBmumux_BpmumuKp_L12MU3V
+HLT_2mu4_bBmumux_BsmumuPhi_L12MU3V
+HLT_2mu4_bBmumux_LbPqKm_L12MU3V
+HLT_2mu4_bDimu_L12MU3V
+HLT_2mu4_bJpsimumu_L12MU3V
+HLT_2mu4_bUpsimumu_L12MU3V
+HLT_mu6_mu4_bBmumu_L1MU5VF_2MU3V
+HLT_mu6_mu4_bBmumu_Lxy0_L1MU5VF_2MU3V
+HLT_mu6_mu4_bJpsimumu_Lxy0_L1MU5VF_2MU3V
+HLT_2mu6_bPhi_L12MU5VF
+75, 300 bunches Dimuon
+HLT_2mu4_bBmumux_BcmumuD0Xloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDploose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDsloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuDstarloose_L12MU3VF
+HLT_2mu4_bBmumux_BcmumuPi_L12MU3VF
+HLT_2mu4_bBmumux_BdmumuKst_L12MU3VF
+HLT_2mu4_bBmumux_BpmumuKp_L12MU3VF
+HLT_2mu4_bBmumux_BsmumuPhi_L12MU3VF
+HLT_2mu4_bBmumux_LbPqKm_L12MU3VF
+HLT_2mu4_bDimu_L12MU3VF
+HLT_2mu4_bJpsimumu_L12MU3VF
+HLT_2mu4_bUpsimumu_L12MU3VF
+HLT_2mu6_bBmumu_L12MU5VF
+HLT_2mu6_bBmumu_Lxy0_L12MU5VF
+HLT_2mu6_bJpsimumu_Lxy0_L12MU5VF
+Bmux
+HLT_mu20_bBmux_BdmuDpX_L1MU14FCH
+HLT_mu20_bBmux_BdmuDstarX_L1MU14FCH
+HLT_mu20_bBmux_BpmuD0X_L1MU14FCH
+HLT_mu20_bBmux_BsmuDsX_L1MU14FCH
+HLT_mu20_bBmux_LbmuLcX_L1MU14FCH
+From 75 bunches Dimuon
+HLT_2mu10_bJpsimumu_L12MU8F
+HLT_2mu10_bUpsimumu_L12MU8F
+HLT_mu11_mu6_bBmumu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuD0Xloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDploose_L1MU8VF_2MU5VF
+ LowestUnprescaled < Atlas < TWiki
+ B-physics 41
+
+=== PDF PAGE 45 ===
+HLT_mu11_mu6_bBmumux_BcmumuDsloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuDstarloose_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BcmumuPi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BdmumuKst_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BpmumuKp_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_BsmumuPhi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bBmumux_LbPqKm_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu2700_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bDimu_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bJpsimumu_Lxy0_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bPhi_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bTau_L1MU8VF_2MU5VF
+HLT_mu11_mu6_bUpsimumu_L1MU8VF_2MU5VF
+HLT_mu6_2mu4_bDimu2700_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bDimu6000_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bJpsi_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bTau_L1MU5VF_3MU3VF
+HLT_mu6_2mu4_bUpsi_L1MU5VF_3MU3VF
+Multi-muon
+HLT_3mu4_b3mu_noos_L13MU3VF
+HLT_3mu4_bJpsi_L13MU3VF
+HLT_3mu4_bPhi_L13MU3VF
+HLT_3mu4_bTau_L13MU3VF
+HLT_4mu4_bDimu6000_L14MU3V
+Multiple-candidate L1 flag
+HLT_mu10_l2mt_mu4_l2mt_bJpsimumu_L1MU10BOM
+HLT_mu10_l2mt_mu4_l2mt_bJpsimumu_L1MU12BOM
+Trigger Group B-physics muon triggers, no L1Topo
+VBF
+Trigger
+Group
+B-jet + X
+From 75
+bunches
+B-jet + forward jet
+HLT_j55_0eta290_020jvt_bdl1d70_2j45f_pf_ftf_preselj45XX2f40_L1J25p0ETA23_2J15p31ETA49
+HLT_j80_0eta290_020jvt_bdl1d70_j60_0eta290_020jvt_bdl1d85_j45f_pf_ftf_preselj60XXj45XXf40_L1J40p0ETA25_2J25_J20p31ETA49
+HLT_j80c_j60_j45f_SHARED_2j45_0eta290_020jvt_bdl1d60_pf_ftf_preselc60XXj45XXf40_L1J40p0ETA25_2J25_J20p31ETA49
+Photon + (b-)jet
+HLT_g25_medium_4j35a_j0_DJMASS1000j35_L1EM22VHI 
+HLT_g20_tight_icaloloose_j35_0eta290_020jvt_bdl1d77_3j35a_j0_DJMASS500j35_pf_ftf_L1EM18VHI_MJJ-300
+HLT_g25_tight_icaloloose_2j35_0eta290_020jvt_bdl1d77_2j35a_pf_ftf_L1EM22VHI 
+HLT_g25_tight_icaloloose_j35_0eta290_020jvt_bdl1d77_3j35a_j0_DJMASS700j35_pf_ftf_L1EM22VHI 
+HLT_g25_tight_icaloloose_2j35_0eta290_020jvt_bdl1d77_2j35a_pf_ftf_presel2a20b90XX2a20_L1EM22VHI 
+HLT_g25_tight_icaloloose_j35_0eta290_020jvt_bdl1d77_3j35a_j0_DJMASS700j35_pf_ftf_presela20b85XX3a20_L1EM22VHI 
+ Due to limitations from a high ReadOut Server (ROS) rate, the g25 triggers seeded from
+L1_EM22VHI did not collect the full 2022 luminosity
+ LowestUnprescaled < Atlas < TWiki
+ VBF 42
+
+=== PDF PAGE 46 ===
+Trigger
+Group
+Dijet mass L1
+From 75
+bunches
+Main stream
+HLT_e10_lhmedium_ivarloose_j70_j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+HLT_mu10_ivarmedium_j70_j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+HLT_tau25_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_03dRAB_j70_j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+Delayed stream
+HLT_j70_j50a_j0_DJMASS1000j50dphi200x400deta_L1MJJ-500-NFF
+HLT_2e5_lhmedium_j70_j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+HLT_2mu6_2j50a_j0_DJMASS900j50_L1MJJ-500-NFF
+HLT_j70_j50a_j0_DJMASS1000j50dphi240_xe90_tcpufit_xe50_cell_L1MJJ-500-NFF
+HLT_j70a_j50a_2j35a_SHARED_2j35_0eta290_020jvt_bdl1d70_j0_DJMASS1000j50_pf_ftf_presela60XXa40XX2a25_L1MJJ-500-NFF
+HLT_mu4_j70_j50a_j0_DJMASS1000j50_xe50_tcpufit_L1MJJ-500-NFF
+Unconventional tracking (LLP)
+Trigger Group Unconventional tracking
+75, 300 bunches Hit-based displaced vertex
+HLT_hitdvjet200_medium_L1XE50
+HLT_hitdvjet260_medium_L1J100
+HLT_xe80_tcpufit_hitdvjet200_medium_L1XE50
+High dE/dX
+HLT_xe80_tcpufit_dedxtrk25_medium_L1XE50
+Disappearing track
+HLT_distrk20_tight_L1XE50
+Isolated track
+HLT_xe80_tcpufit_isotrk100_medium_iaggrmedium_L1XE50
+HLT_xe80_tcpufit_isotrk120_medium_iaggrloose_L1XE50
+From 75 bunches Hit-based displaced vertex
+HLT_hitdvjet260_tight_L1J100 
+HLT_xe80_tcpufit_hitdvjet200_tight_L1XE50
+High dE/dX
+HLT_xe80_tcpufit_dedxtrk50_medium_L1XE50
+Disappearing track
+HLT_xe80_tcpufit_distrk20_medium_L1XE50
+HLT_xe80_tcpufit_distrk20_tight_L1XE50
+Isolated track
+HLT_xe80_tcpufit_isotrk120_medium_iaggrmedium_L1XE50
+HLT_xe80_tcpufit_isotrk140_medium_iaggrmedium_L1XE50
+ Note: due to high CPU cost HLT_hitdvjet260_tight_L1J100 did not collect the full 2022 luminosity
+Dedicated physics triggers
+Trigger Group Standard Model
+ LowestUnprescaled < Atlas < TWiki
+ Unconventional tracking (LLP) 43
+
+=== PDF PAGE 47 ===
+Trigger Group Standard Model
+75 bunches only Bell Inequality
+HLT_2mu3_L12MU3V
+Low-mass Drell-Yan
+HLT_mu4_ivarloose_mu4_11invmAB60_L12MU3V
+HLT_mu4_ivarloose_mu4_7invmAB9_L12MU3V
+HLT_mu4_ivarloose_mu4_b11invmAB60vtx20_L12MU3V
+HLT_mu4_ivarloose_mu4_b7invmAB9vtx20_L12MU3V
+75, 300 bunches HLT_mu6_ivarloose_mu6_11invmAB24_L12MU5VF
+HLT_mu6_ivarloose_mu6_24invmAB60_L12MU5VF
+HLT_mu6_ivarloose_mu6_b11invmAB24vtx20_L12MU5VF
+HLT_mu6_ivarloose_mu6_b24invmAB60vtx20_L12MU5VF
+Trigger Group Higgs
+From 75 bunches Merged electron
+HLT_e25_mergedtight_g35_medium_90invmAB_02dRAB_L12EM20VH
+Photon+meson
+HLT_g35_medium_tau25_dipion3_tracktwoMVA_60invmAB_L1EM22VHI
+HLT_g25_medium_tau25_singlepion_tracktwoMVA_50invmAB_L1EM22VHI 
+HLT_g25_medium_tau25_dipion1_tracktwoMVA_50invmAB_L1EM22VHI 
+HLT_g25_medium_tau25_dipion2_tracktwoMVA_50invmAB_L1EM22VHI 
+HLT_g25_medium_tau25_dikaonmass_tracktwoMVA_50invmAB_L1EM22VHI 
+HLT_g25_medium_tau25_kaonpi1_tracktwoMVA_50invmAB_L1EM22VHI 
+HLT_g25_medium_tau25_kaonpi2_tracktwoMVA_50invmAB_L1EM22VHI 
+ Due to limitations from a high ReadOut Server (ROS) rate, the g25 triggers seeded from
+L1_EM22VHI did not collect the full 2022 luminosity
+Trigger
+Group
+HDBS
+From 75
+bunches
+HH 4b
+Main stream
+HLT_j80c_020jvt_j55c_020jvt_j28c_020jvt_j20c_020jvt_SHARED_3j20c_020jvt_bdl1d82_pf_ftf_presel2c20XX2c20b85_L1J45p0ETA21_3J15p0ETA25
+Delayed stream, jet-seeded
+HLT_j80c_020jvt_j55c_020jvt_j28c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bdl1d77_pf_ftf_presel2c20XX2c20b85_L1J45p0ETA21_3J15p0ETA25
+Delayed stream, muon-seeded
+HLT_j80c_020jvt_j55c_020jvt_j28c_020jvt_j20c_020jvt_SHARED_2j20c_020jvt_bdl1d77_pf_ftf_presel2c20XX2c20b85_L1MU8F_2J15_J20
+Trigger Group Exotics
+From 75 bunches Dijet + ISR
+HLT_g85_tight_3j50_L1EM22VHI
+LLP, colliding bunches
+HLT_2mu50_msonly_L1MU14FCH
+HLT_g40_loose_mu40_msonly_L1MU14FCH
+HLT_g15_loose_2mu10_msonly_L12MU8F
+Non-colliding bunches
+HLT_g15_loose_2mu10_msonly_L1MU3V_EMPTY
+HLT_g15_loose_2mu10_msonly_L1MU3V_UNPAIRED_ISO
+HLT_2g22_tight_L1EM7_EMPTY
+HLT_2g22_tight_L1EM7_UNPAIRED_ISO
+HLT_2g50_tight_L1EM7_EMPTY
+HLT_2g50_tight_L1EM7_UNPAIRED_ISO
+ LowestUnprescaled < Atlas < TWiki
+ Dedicated physics triggers 44
+
+=== PDF PAGE 48 ===
+HLT_g35_medium_g25_medium_L1EM7_EMPTY
+HLT_g35_medium_g25_medium_L1EM7_UNPAIRED_ISO
+Trigger Group Exotics
+Trigger
+Group
+Supersymmetry
+From 75
+bunches
+B-jet + MET (sbottom)
+HLT_j80_0eta290_020jvt_bdl1d60_pf_ftf_xe60_cell_L12J50_XE40 +
+HLT_j100_0eta290_020jvt_bdl1d60_pf_ftf_xe50_cell_xe85_pfopufit_L1XE55
+HLT_j100_0eta290_020jvt_bdl1d60_pf_ftf_xe50_cell_xe85_tcpufit_L1XE55
+HLT_2j45_0eta290_020jvt_bdl1d60_pf_ftf_xe50_cell_xe85_pfopufit_L12J15_XE55
+HLT_2j45_0eta290_020jvt_bdl1d60_pf_ftf_xe50_cell_xe85_tcpufit_L12J15_XE55
+HLT_3j35_0eta290_020jvt_bdl1d60_pf_ftf_xe50_cell_xe70_pfopufit_L13J15p0ETA25_XE40
+HLT_3j35_0eta290_020jvt_bdl1d60_pf_ftf_xe50_cell_xe70_tcpufit_L13J15p0ETA25_XE40
+Photon + multijet (stealth SUSY)
+HLT_g45_loose_6j45c_L14J15p0ETA25
+ XE50 cut applied during ramp-up period
+Triggers in 2018
+Introduction
+Recommended triggers for 2018 physics analyses can be found below. Known issues are detailed in
+TriggerIssues2018.
+Data Periods
+Some useful COMA ConditionsMetadata links for data18_13TeV are:
+• COMA Periods of data18_13TeV
+• COMA Period Runs in data18_13TeV
+• COMA Period Triggers in data18_13TeV
+• COMA Period Streams in data18_13TeV
+Rulebook tags
+• Tag for AthenaP1,21.1.26 ( ATR-17908 ), Rulebook
+• Tag for AthenaP1,21.1.27 ( ATR-18026 ), Rulebook
+• Tag for AthenaP1,21.1.29 ( ATR-18186 ), Rulebook
+• Tag for AthenaP1,21.1.30 ( ATR-18233 ), Rulebook
+• Tag for AthenaP1,21.1.31 ( ATR-18334 ), Rulebook
+• Tag for AthenaP1,21.1.33 ( ATR-18404 ), Rulebook
+• Tag for AthenaP1,21.1.36 ( ATR-18487 ), Rulebook
+• Tag for AthenaP1,21.1.37 ( ATR-18515 ), Rulebook
+• Tag for AthenaP1,21.1.39 ( ATR-18570 ), Rulebook
+• Tag for AthenaP1,21.1.40 ( ATR-18635 ), Rulebook
+• Tag for AthenaP1,21.1.41 ( ATR-18679 ), Rulebook
+ LowestUnprescaled < Atlas < TWiki
+ Triggers in 2018 45
+
+=== PDF PAGE 49 ===
+• Tag for AthenaP1,21.1.43 ( ATR-18749 ), Rulebook
+• Tag for AthenaP1,21.1.45 ( ATR-18840 ), Rulebook
+• Tag for AthenaP1,21.1.48 ( ATR-18988 ), Rulebook
+• Tag for AthenaP1,21.1.50 ( ATR-19026 ), Rulebook
+Egamma
+Trigger
+Group
+Single electron Multi electron
+period
+B￾HLT_e26_lhtight_nod0_ivarloose
+HLT_e26_lhtight_nod0*
+HLT_e60_lhmedium_nod0
+HLT_e140_lhloose_nod0
+HLT_e300_etcut
+HLT_2e17_lhvloose_nod0_L12EM15VHI
+HLT_2e24_lhvloose_nod0 (L1_2EM20VH)
+HLT_e24_lhvloose_nod0_2e12_lhvloose_nod0_L1EM20VH_3EM10VH
+* Unprescaled since run 349169
+Trigger Group Single photon Multi photon
+period B- HLT_g140_loose
+HLT_g300_etcut
+HLT_2g20_tight_icalovloose_L12EM15VHI
+HLT_2g22_tight_L12EM15VHI
+HLT_2g25_tight_L12EM20VH
+HLT_g35_medium_g25_medium_L12EM20VH
+HLT_2g50_loose_L12EM20VH
+HLT_2g25_loose_g15_loose
+Egamma + MET
+Trigger Group electron+MET photon+MET
+period B- HLT_e70_lhloose_nod0_xe70noL1 HLT_g80_loose_xe80noL1
+Muon
+Trigger Group Single muon Multi muon
+period B- HLT_mu26_ivarmedium
+HLT_mu50
+HLT_mu60_0eta105_msonly
+HLT_2mu14 (L1_2MU10)
+HLT_mu22_mu8noL1 (L1_MU20)
+HLT_mu20_2mu4noL1 (L1_MU20)
+HLT_3mu6 (L1_3MU6)
+Electron + Muon
+e+mu e+2mu 2e+mu
+ LowestUnprescaled < Atlas < TWiki
+ Rulebook tags 46
+
+=== PDF PAGE 50 ===
+Trigger
+Group
+period
+B￾HLT_e17_lhloose_nod0_mu14
+HLT_e26_lhmedium_nod0_mu8noL1
+HLT_e7_lhmedium_nod0_mu24
+HLT_e12_lhloose_nod0_2mu10 HLT_2e12_lhloose_nod0_mu10
+Electron/Muon + Photon
+Trigger
+Group
+electron+photon muon+photon multi-muon+multi-photon
+period
+B￾HLT_e24_lhmedium_nod0_L1EM20VH_g25_medium HLT_g25_medium_mu24 HLT_g35_loose_L1EM24VHI_mu18
+HLT_g35_loose_L1EM24VHI_mu15_mu2noL1
+HLT_g35_tight_icalotight_L1EM24VHI_mu18noL1
+HLT_g35_tight_icalotight_L1EM24VHI_mu15noL1_mu2noL1
+Bphysics
+Trigger Group Bphysics
+period B- HLT_2mu6_bBmumu_Lxy0_L1BPH-2M9-2MU6_BPH-2DR15-2MU6
+HLT_2mu6_bBmumux_BsmumuPhi_L1BPH-2M9-2MU6_BPH-2DR15-2MU6
+Generic
+HLT_mu11_mu6_bDimu_L1LFV-MU11
+HLT_mu11_mu6_bDimu (L1_MU11_2MU6)
+HLT_mu11_mu6_bDimu_Lxy0_L1LFV-MU11
+HLT_mu11_mu6_bDimu_Lxy0 (L1_MU11_2MU6)
+HLT_mu11_mu6_bDimu2700_L1LFV-MU11
+HLT_mu11_mu6_bDimu2700 (L1_MU11_2MU6)
+HLT_mu11_mu6_bDimu2700_Lxy0_L1LFV-MU11
+HLT_mu11_mu6_bDimu2700_Lxy0 (L1_MU11_2MU6)
+B->mumu
+HLT_mu11_mu6_bBmumu_L1LFV-MU11
+HLT_mu11_mu6_bBmumu (L1_MU11_2MU6)
+HLT_mu11_mu6_bBmumuxv2_L1LFV-MU11
+HLT_mu11_mu6_bBmumuxv2 (L1_MU11_2MU6)
+HLT_2mu6_bBmumux_BpmumuKp_L1BPH-2M9-2MU6_BPH-2DR15-2MU6
+HLT_mu11_mu6_bBmumux_BpmumuKp_L1LFV-MU11
+HLT_mu11_mu6_bBmumux_BpmumuKp (L1_MU11_2MU6)
+Jpsi->mumu
+HLT_2mu6_bJpsimumu_L1BPH-2M9-2MU6_BPH-2DR15-2MU6
+HLT_2mu6_bJpsimumu_Lxy0_L1BPH-2M9-2MU6_BPH-2DR15-2MU6
+HLT_mu11_mu6_bJpsimumu_L1LFV-MU11
+HLT_mu11_mu6_bJpsimumu (L1_MU11_2MU6)
+HLT_mu11_mu6_bJpsimumu_Lxy0_L1LFV-MU11
+HLT_mu11_mu6_bJpsimumu_Lxy0 (L1_MU11_2MU6)
+ LowestUnprescaled < Atlas < TWiki
+ Electron + Muon 47
+
+=== PDF PAGE 51 ===
+Upsi->mumu
+HLT_2mu6_bUpsimumu_L1BPH-8M15-2MU6_BPH-0DR22-2MU6*
+HLT_mu11_mu6_bUpsimumu_L1LFV-MU11
+HLT_mu11_mu6_bUpsimumu (L1_MU11_2MU6)
+B->mumuX
+HLT_mu11_mu6_bBmumuxv2_L1LFV-MU11
+HLT_mu11_mu6_bBmumuxv2 (L1_MU11_2MU6)
+Tau->3mu
+HLT_mu11_mu6_bTau_L1LFV-MU11
+HLT_mu11_mu6_bTau (L1_MU11_2MU6)
+HLT_mu11_2mu4noL1_bTau_L1MU11_2MU6
+HLT_mu11_2mu2btrk_bTauTight_L1MU11_2MU6**
+HLT_mu11_2mu4noL1_bNocut_L1MU11_2MU6
+HLT_mu20_mu6noL1_bTau (L1_MU20)
+HLT_mu20_mu6btrk_bTauTight** (L1_MU20)
+HLT_mu20_2mu2btrk_bTauTight** (L1_MU20)
+phi->mumu
+HLT_mu11_mu6_bPhi_L1LFV-MU11
+HLT_mu11_mu6_bPhi (L1_MU11_2MU6)
+HLT_mu11_mu6noL1_bPhi_L1MU11_2MU6
+L1_3MU4
+HLT_3mu4_bJpsi
+HLT_3mu4_bUpsi
+HLT_3mu4_bTau
+HLT_3mu4_bPhi
+L1_MU6_3MU4
+HLT_mu6_2mu4_bDimu2700
+L1_3MU6
+HLT_3mu6_bDimu
+L1_4MU4
+HLT_4mu4
+Trigger Group Bphysics
+* Included in Main and not in BphysLS stream ** Unprescaled since run 350067
+Trigger
+Group
+B->K*ee
+period
+F
+HLT_e9_lhloose_e5_lhloose_bBeexM6000_2mu4_nomucomb_L1BPH-0M9-EM7-EM5_2MU4
+period
+K￾HLT_e9_lhvloose_nod0_e5_lhvloose_nod0_bBeexM6000t_2mu4_nomucomb_L1BPH-0M9-EM7-EM5_2MU4
+Taus
+Trigger
+Group
+taus
+ LowestUnprescaled < Atlas < TWiki
+ Bphysics 48
+
+=== PDF PAGE 52 ===
+Trigger
+Group
+taus
+period
+B￾single tau
+HLT_tau160_medium1_tracktwoEF_L1TAU100
+single tau (backup)
+HLT_tau200_medium1_tracktwoEF_L1TAU100
+di-tau
+HLT_tau80_medium1_tracktwoEF_L1TAU60_tau60_medium1_tracktwoEF_L1TAU40 (L1_TAU60_2TAU40)
+di-tau (L1Topo)
+HLT_tau80_medium1_tracktwoEF_L1TAU60_tau35_medium1_tracktwoEF_L1TAU12IM_L1TAU60_DR-TAU20ITAU12I
+di-tau+1J
+HLT_tau40_medium1_tracktwoEF_tau35_medium1_tracktwoEF (L1_TAU25IM_2TAU20IM_2J25_3J20)
+di-tau+1J (L1Topo)
+HLT_tau35_medium1_tracktwoEF_tau25_medium1_tracktwoEF_L1DR-TAU20ITAU12I-J25
+di-tau+1J (L1Topo) (backup)
+HLT_tau35_medium1_tracktwoEF_tau25_medium1_tracktwoEF_03dR30_L1DR-TAU20ITAU12I-J25
+period
+K￾single tau
+HLT_tau160_mediumRNN_tracktwoMVA_L1TAU100
+single tau (backup)
+HLT_tau200_mediumRNN_tracktwoMVA_L1TAU100
+di-tau
+HLT_tau80_mediumRNN_tracktwoMVA_L1TAU60_tau60_mediumRNN_tracktwoMVA_L1TAU40 (L1_TAU60_2TAU40)
+di-tau (L1Topo)
+HLT_tau80_mediumRNN_tracktwoMVA_L1TAU60_tau35_mediumRNN_tracktwoMVA_L1TAU12IM_L1TAU60_DR-TAU20ITAU12I
+di-tau+1J
+HLT_tau40_mediumRNN_tracktwoMVA_tau35_mediumRNN_tracktwoMVA (L1_TAU25IM_2TAU20IM_2J25_3J20)
+di-tau+1J (L1Topo)
+HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_L1DR-TAU20ITAU12I-J25
+di-tau+1J (L1Topo) (backup)
+HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_03dR30_L1DR-TAU20ITAU12I-J25
+Taus + electron/muon
+Trigger
+Group
+tau+electron tau+muon
+period
+B￾tau+e+1J
+HLT_e17_lhmedium_nod0_ivarloose_tau25_medium1_tracktwoEF (L1_EM15VHI_2TAU12IM_J25_3J12)
+tau+e+1J (backup)
+HLT_e24_lhmedium_nod0_ivarloose_tau35_medium1_tracktwoEF
+(L1_EM20VHI_TAU20IM_2TAU20_J25_3J20)
+tau+mu
+HLT_mu14_ivarloose_tau35_medium1_tracktwoEF (L1_MU10_TAU20IM)
+tau+mu+1J
+HLT_mu14_ivarloose_tau25_medium1_tracktwoEF (L1_MU10_TAU12IM_J25_2J12)
+ LowestUnprescaled < Atlas < TWiki
+ Taus 49
+
+=== PDF PAGE 53 ===
+tau+e+1J (L1Topo)
+HLT_e17_lhmedium_nod0_ivarloose_tau25_medium1_tracktwoEF_L1DR-EM15TAU12I-J25
+tau+e+2J
+HLT_e17_lhmedium_nod0_ivarloose_tau25_medium1_tracktwoEF_L1EM15VHI_2TAU12IM_4J12
+tau+mu+1J (backup)
+HLT_mu14_ivarloose_tau35_medium1_tracktwoEF_L1MU10_TAU20IM_J25_2J20
+tau+mu+1J (L1Topo)
+HLT_mu14_ivarloose_tau25_medium1_tracktwoEF_L1DR-MU10TAU12I_TAU12I-J25
+tau+mu+2J
+HLT_mu14_ivarloose_tau25_medium1_tracktwoEF_L1MU10_TAU12IM_3J12
+Trigger
+Group
+tau+electron tau+muon
+period
+K￾tau+e+1J
+HLT_e17_lhmedium_nod0_ivarloose_tau25_mediumRNN_tracktwoMVA
+(L1_EM15VHI_2TAU12IM_J25_3J12)
+tau+e+1J (backup)
+HLT_e24_lhmedium_nod0_ivarloose_tau35_mediumRNN_tracktwoMVA
+(L1_EM20VHI_TAU20IM_2TAU20_J25_3J20)
+tau+e+1J (L1Topo)
+HLT_e17_lhmedium_nod0_ivarloose_tau25_mediumRNN_tracktwoMVA_L1DR-EM15TAU12I-J25
+tau+e+2J
+HLT_e17_lhmedium_nod0_ivarloose_tau25_mediumRNN_tracktwoMVA_L1EM15VHI_2TAU12IM_4J12
+tau+mu
+HLT_mu14_ivarloose_tau35_mediumRNN_tracktwoMVA (L1_MU10_TAU20IM)
+tau+mu+1J
+HLT_mu14_ivarloose_tau25_mediumRNN_tracktwoMVA (L1_MU10_TAU12IM_J25_2J12)
+tau+mu+1J (backup)
+HLT_mu14_ivarloose_tau35_mediumRNN_tracktwoMVA_L1MU10_TAU20IM_J25_2J20
+tau+mu+1J (L1Topo)
+HLT_mu14_ivarloose_tau25_mediumRNN_tracktwoMVA_L1DR-MU10TAU12I_TAU12I-J25
+tau+mu+2J
+HLT_mu14_ivarloose_tau25_mediumRNN_tracktwoMVA_L1MU10_TAU12IM_3J12
+Taus + MET + electron/muon
+Trigger
+Group
+tau+MET+electron/muon
+period B- tau+xe+1J
+HLT_tau35_medium1_tracktwoEF_xe70_L1XE45 (L1_TAU20IM_2J20_XE45)
+di-tau+xe
+HLT_tau60_medium1_tracktwoEF_tau25_medium1_tracktwoEF_xe50
+(L1_TAU40_2TAU12IM_XE40)
+tau+electron+xe
+HLT_e17_lhmedium_nod0_tau25_medium1_tracktwoEF_xe50
+(L1_EM15VHI_2TAU12IM_XE35)
+tau+electron+xe (backup)
+HLT_e17_lhmedium_nod0_ivarloose_tau25_medium1_tracktwoEF_xe50
+(L1_EM15VHI_2TAU12IM_XE35)
+tau+muon+xe
+HLT_mu14_tau25_medium1_tracktwoEF_xe50 (L1_MU10_TAU12IM_XE35)
+tau+muon+xe (backup)
+HLT_mu14_ivarloose_tau25_medium1_tracktwoEF_xe50 (L1_MU10_TAU12IM_XE35)
+period K- tau+xe+1J
+HLT_tau35_mediumRNN_tracktwoMVA_xe70_L1XE45 (L1_TAU20IM_2J20_XE45)
+di-tau+xe
+ LowestUnprescaled < Atlas < TWiki
+ Taus + electron/muon 50
+
+=== PDF PAGE 54 ===
+HLT_tau60_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_xe50
+(L1_TAU40_2TAU12IM_XE40)
+tau+electron+xe
+HLT_e17_lhmedium_nod0_tau25_mediumRNN_tracktwoMVA_xe50
+(L1_EM15VHI_2TAU12IM_XE35)
+tau+electron+xe (backup)
+HLT_e17_lhmedium_nod0_ivarloose_tau25_mediumRNN_tracktwoMVA_xe50
+(L1_EM15VHI_2TAU12IM_XE35)
+tau+muon+xe
+HLT_mu14_tau25_mediumRNN_tracktwoMVA_xe50 (L1_MU10_TAU12IM_XE35)
+tau+muon+xe (backup)
+HLT_mu14_ivarloose_tau25_mediumRNN_tracktwoMVA_xe50 (L1_MU10_TAU12IM_XE35)
+Trigger
+Group
+tau+MET+electron/muon
+Jets
+Trigger
+Group
+Single jet Multi jets
+period
+B￾small-R
+HLT_j420
+HLT_j225_gsc420_boffperf_split
+HLT_j260_320eta490
+large-R
+HLT_j460_a10r_L1SC111
+HLT_j460_a10r_L1J100
+HLT_j460_a10_lcw_subjes_L1SC111
+HLT_j460_a10_lcw_subjes_L1J100
+HLT_j460_a10t_lcw_jes_L1SC111
+HLT_j460_a10t_lcw_jes_L1J100
+large-R with mass cut
+HLT_j420_a10t_lcw_jes_35smcINF_L1SC111*
+HLT_j420_a10t_lcw_jes_35smcINF_L1J100
+small-R
+HLT_3j200
+HLT_4j120
+HLT_4j85_gsc115_boffperf_split
+HLT_5j50_gsc70_boffperf_split_0eta240_L14J15
+HLT_5j60_gsc85_boffperf_split_L14J15
+HLT_5j70_0eta240_L14J15
+HLT_5j85_L14J15
+HLT_6j45_gsc55_boffperf_split_0eta240_L14J15
+HLT_6j50_gsc70_boffperf_split_L14J15
+HLT_6j55_0eta240_L14J15
+HLT_6j70_L14J15
+HLT_7j35_gsc45_boffperf_split_L14J15
+HLT_7j45_L14J15
+HLT_10j40_L14J15
+large-R with mass cut
+HLT_2j330_a10t_lcw_jes_35smcINF_L1SC111
+HLT_2j330_a10t_lcw_jes_35smcINF_L1J100
+HLT_j360_a10t_lcw_jes_60smcINF_j360_a10t_lcw_jes_L1SC111
+HLT_j370_a10t_lcw_jes_35smcINF_j370_a10t_lcw_jes_L1SC111
+* Included since run 349498
+ LowestUnprescaled < Atlas < TWiki
+ Taus + MET + electron/muon 51
+
+=== PDF PAGE 55 ===
+MET
+Trigger Group MET
+period B HLT_xe110_pufit_xe70_L1XE50
+HLT_xe120_pufit_L1XE50
+period C-J HLT_xe110_pufit_xe65_L1XE50*
+HLT_xe110_pufit_xe70_L1XE50
+HLT_xe120_pufit_L1XE50
+period K- HLT_xe110_pufit_xe65_L1XE50
+HLT_xe110_pufit_xe70_L1XE50
+* Unprescaled since run 350067
+HT
+Trigger Group HT
+period B- HLT_ht1000_L1J100
+Bjet
+Trigger
+Group
+Single bjet Multi bjets
+period
+B￾1b
+HLT_j175_gsc225_bmv2c1040_split
+HLT_j225_gsc275_bmv2c1060_split
+HLT_j225_gsc300_bmv2c1070_split
+HLT_j225_gsc360_bmv2c1077_split
+1b+3j
+HLT_j55_gsc75_bmv2c1040_split_3j55_gsc75_boffperf_split
+HLT_j60_gsc85_bmv2c1050_split_3j60_gsc85_boffperf_split
+2b
+HLT_j150_gsc175_bmv2c1060_split_j45_gsc60_bmv2c1060_split
+2b+1j
+HLT_j110_gsc150_boffperf_split_2j45_gsc55_bmv2c1070_split_L1J85_3J30
+2b+2j
+HLT_2j35_bmv2c1060_split_2j35_L14J15.0ETA25
+HLT_2j35_gsc45_bmv2c1050_split_2j35_gsc45_boffperf_split_L14J15.0ETA25
+HLT_2j45_gsc55_bmv2c1060_split_2j45_gsc55_boffperf_split_L14J15.0ETA25
+2b+3j
+HLT_2j35_bmv2c1060_split_3j35
+HLT_2j35_gsc45_bmv2c1060_split_3j35_gsc45_boffperf_split
+3b
+HLT_3j50_gsc65_bmv2c1077_split_L13J35.0ETA23
+3b+1j
+HLT_3j35_bmv2c1070_split_j35_L14J15.0ETA25
+4b
+HLT_4j35_bmv2c1077_split_L14J15.0ETA25
+HLT_2j35_bmv2c1070_split_2j35_bmv2c1085_split_L14J15.0ETA25
+period
+L￾1b*
+HLT_j225_gsc275_bhmv2c1060_split*
+ LowestUnprescaled < Atlas < TWiki
+ MET 52
+
+=== PDF PAGE 56 ===
+HLT_j225_gsc300_bhmv2c1070_split*
+HLT_j225_gsc360_bhmv2c1077_split
+Trigger
+Group
+Single bjet Multi bjets
+* Unprescaled since run 358541
+Bjet + HT
+Trigger Group Bjet+HT
+period B- 1b+HT
+HLT_j45_gsc55_bmv2c1050_split_ht700_L1HT190-J15s5.ETA21
+2b+HT
+HLT_2j45_gsc55_bmv2c1050_split_ht300_L1HT190-J15s5.ETA21
+VBF
+Trigger
+Group
+VBF
+period
+B￾Non-L1Topo photon+VBF
+HLT_g25_medium_L1EM22VHI_2j35_0eta490_bmv2c1077_split_2j35_0eta490
+HLT_g25_medium_L1EM22VHI_j35_0eta490_bmv2c1077_split_3j35_0eta490_invm700
+HLT_g25_medium_L1EM22VHI_4j35_0eta490_invm1000
+L1Topo photon+VBF
+HLT_g20_tight_icaloloose_j35_bmv2c1077_split_3j35_0eta490_invm500 (L1_EM18VHI_MJJ-300)
+Non-L1Topo b+VBF
+HLT_j55_gsc80_bmv2c1070_split_j45_gsc60_bmv2c1085_split_j45_320eta490
+HLT_j45_gsc55_bmv2c1070_split_2j45_320eta490_L1J25.0ETA23_2J15.31ETA49
+HLT_j80_0eta240_j60_j45_320eta490_AND_2j35_gsc45_bmv2c1070_split
+L1Topo b+VBF
+HLT_ht300_2j40_0eta490_invm700_L1HT150-J20s5.ETA31_MJJ-400-CF_AND_2j35_gsc45_bmv2c1070_split
+period
+K￾VBF inclusive
+HLT_j70_j50_0eta490_invm1100j70_dphi20_deta40_L1MJJ-500-NFF
+H->inv
+HLT_j70_j50_0eta490_invm1000j50_dphi24_xe90_pufit_xe50_L1MJJ-500-NFF
+H->tautau
+HLT_2e5_lhmedium_nod0_j70_j50_0eta490_invm900j50_L1MJJ-500-NFF
+HLT_2mu6_2j50_0eta490_invm900j50_L1MJJ-500-NFF
+HLT_e10_lhmedium_nod0_ivarloose_j70_j50_0eta490_invm900j50_L1MJJ-500-NFF
+HLT_mu10_ivarmedium_j70_j50_0eta490_invm900j50_L1MJJ-500-NFF
+HLT_tau25_mediumRNN_tracktwoMVA_tau20_mediumRNN_tracktwoMVA_j70_j50_0eta490_invm900j50_L1MJJ-500-NFF
+H->bb
+HLT_j70_0eta490_j50_0eta490_2j35_0eta490_invm1000j50_L1MJJ-500-NFF_AND_2j35_bmv2c1070_split
+ LowestUnprescaled < Atlas < TWiki
+ Bjet 53
+
+=== PDF PAGE 57 ===
+EWK VBF SUSY
+HLT_e5_lhvloose_j70_j50_0eta490_invm1000j50_xe50_pufit_L1MJJ-500-NFF
+HLT_e5_lhvloose_nod0_j70_j50_0eta490_invm1000j50_xe50_pufit_L1MJJ-500-NFF*
+HLT_mu4_j70_j50_0eta490_invm1000j50_xe50_pufit_L1MJJ-500-NFF
+VBF+g (HBSM H->aa->ggjj, SM H(->bb)+g, SUSY GMSB VBF+g+MET)
+HLT_g35_medium_j70_j50_0eta490_invm900j50_L1MJJ-500-NFF
+Trigger
+Group
+VBF
+* Since run 358516 (period L)
+Dedicated physics triggers
+Trigger Group Standard Model
+Period B- Wgg
+HLT_e24_lhmedium_nod0_2g12_loose
+HLT_2g10_loose_mu20
+Trigger Group Exotics
+Period B- LLP 3mu
+HLT_3mu6_msonly (L1_3MU6) primary
+HLT_3mu6_msonly_L1MU4_UNPAIRED_ISO support
+LLP photon+2mu
+HLT_g15_loose_2mu10_msonly (L1_2MU10) primary
+HLT_g15_loose_2mu10_msonly_L1MU4_UNPAIRED_ISO support
+LLP cal-ratio
+HLT_j30_jes_cleanLLP_PS_llp_L1TAU100 primary
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1TAU100 primary
+HLT_j30_jes_cleanLLP_PS_llp_L1LLP-RO primary
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1LLP-RO primary
+HLT_j30_jes_cleanLLP_PS_llp_L1LLP-NOMATCH primary
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1LLP-NOMATCH primary
+HLT_j30_jes_cleanLLP_PS_llp_L1TAU30_EMPTY support
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1TAU30_EMPTY support
+HLT_j30_jes_cleanLLP_PS_llp_L1TAU30_UNPAIRED_ISO support
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1TAU30_UNPAIRED_ISO support
+LLP muvtx
+HLT_j30_muvtx (L1_2MU10) primary
+HLT_j30_muvtx_noiso (L1_2MU10) support
+LLP lepton+jets
+HLT_mu6_dRl1_mu20_msonly_iloosems_mu6noL1_dRl1_msonly (L1_MU11_2MU6)
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan05_L1MU20_J40
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan05_L1MU20_XE30
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan05_L1MU4_UNPAIRED_ISO
+Low mass leptophobic Z' in association with an ISR photon
+HLT_g85_tight_L1EM22VHI_3j50noL1
+ LowestUnprescaled < Atlas < TWiki
+ VBF 54
+
+=== PDF PAGE 58 ===
+HNL
+HLT_e9_lhvloose_nod0_mu20_mu8noL1*
+mono-pole
+HLT_g0_hiptrt_L1EM22VHI
+TLA
+HLT_j0_perf_ds1_L1J100
+Z'
+HLT_mu80_msonly_3layersEC
+Late muons
+HLT_mu10_mgonly_L1LATE-MU10_J50
+HLT_mu10_mgonly_L1LATE-MU10_XE40
+Trigger Group Exotics
+* Chain name used since run 350067, HLT_mu20_mu8noL1_e9_lhvloose_nod0 used before
+Trigger
+Group
+Higgs
+Period
+B￾X->HH->tautaubb
+HLT_tau35_medium1_tracktwoEF_tau25_medium1_tracktwoEF_L1TAU20IM_2TAU12IM_4J12.0ETA23
+g+tau for excl Higgs decays
+HLT_g25_medium_L1EM24VHI_tau25_dikaonmass_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_dipion1loose_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_dipion2_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_kaonpi1_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_kaonpi2_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_singlepion_tracktwo_50mVis10000
+HLT_g35_medium_L1EM24VHI_tau25_dipion3_tracktwo_60mVis10000
+e/mu+jets for VH
+HLT_e20_lhtight_nod0_ivarloose_3j20_L1EM18VHI_3J20
+HLT_mu14_ivarloose_3j20_L1MU10_3J20
+HLT_mu20_ivarmedium_L1MU10_2J15_J20
+H->aa->bbmumu
+HLT_mu20_ivarmedium_mu8noL1
+Low-mass diphoton
+HLT_2g6_tight_icalotight_L1J100
+H->eeg
+HLT_e25_mergedtight_g35_medium_Heg
+period
+K￾X->HH->tautaubb
+HLT_tau35_mediumRNN_tracktwoMVA_tau25_mediumRNN_tracktwoMVA_L1TAU20IM_2TAU12IM_4J12.0ETA23*
+g+tau for excl Higgs decays
+HLT_g25_medium_L1EM24VHI_tau25_dikaonmass_tracktwoEF_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_dipion1loose_tracktwoEF_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_dipion2_tracktwoEF_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_kaonpi1_tracktwoEF_50mVis10000
+ LowestUnprescaled < Atlas < TWiki
+ Dedicated physics triggers 55
+
+=== PDF PAGE 59 ===
+HLT_g25_medium_L1EM24VHI_tau25_kaonpi2_tracktwoEF_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_singlepion_tracktwoEF_50mVis10000
+HLT_g35_medium_L1EM24VHI_tau25_dipion3_tracktwoEF_60mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_dikaonmass_tracktwoMVA_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_dipion1loose_tracktwoMVA_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_dipion2_tracktwoMVA_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_kaonpi1_tracktwoMVA_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_kaonpi2_tracktwoMVA_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_singlepion_tracktwoMVA_50mVis10000
+HLT_g35_medium_L1EM24VHI_tau25_dipion3_tracktwoMVA_60mVis10000
+Trigger
+Group
+Higgs
+Trigger
+Group
+SUSY
+Period B- 3b+MET
+HLT_j85_gsc100_bmv2c1050_split_xe85_pufit_xe50_L1XE55
+HLT_2j35_gsc45_bmv2c1070_split_xe85_pufit_xe50_L12J15_XE55
+HLT_3j35_bmv2c1077_split_xe70_pufit_xe50_L13J15.0ETA25_XE40
+Higgsino
+single e
+HLT_e5_lhloose_nod0_j50_xe70_pufit_2dphi10_L1J40_XE50_DPHI-J20s2XE50
+HLT_e5_lhloose_nod0_j40_xe70_pufit_2dphi10_L1XE60 (non-L1Topo backup)
+single mu
+HLT_mu4_j90_xe90_pufit_2dphi10_L1MU4_J50_XE50_DPHI-J20s2XE30
+HLT_mu4_j90_xe90_pufit_2dphi10_L1MU4_XE60 (non-L1Topo backup)
+di-e
+HLT_2e5_lhvloose_nod0_j40_xe70_pufit_2dphi10_L1J40_XE50_DPHI-J20s2XE50
+HLT_2e5_lhvloose_nod0_j40_xe70_pufit_2dphi10_L1XE60 (non-L1Topo backup)
+di-mu
+HLT_2mu4_invm1_j20_xe40_pufit_2dphi10_L12MU4_J20_XE30_DPHI-J20s2XE30
+HLT_2mu4_invm1_j20_xe60_pufit_2dphi10_L12MU4_J40_XE50 (non-L1Topo backup)
+emu
+HLT_e5_lhvloose_nod0_mu4_j30_xe40_pufit_2dphi10_L1MU4_J30_XE40_DPHI-J20s2XE30
+HLT_e5_lhmedium_nod0_mu4_j30_xe65_pufit_2dphi10_L1MU4_XE60 (non-L1Topo backup)
+stopped gluinos
+HLT_j55_0eta240_xe50_L1J30_EMPTY
+HLT_j55_0eta240_xe50_L1J30_FIRSTEMPTY
+photon+multijet
+HLT_g45_loose_6j45_0eta240
+Trigger Group Egamma
+Period B- Z T&P
+HLT_e26_lhtight_nod0_e15_etcut_L1EM7_Zee
+Triggers in 2017
+ LowestUnprescaled < Atlas < TWiki
+ Triggers in 2017 56
+
+=== PDF PAGE 60 ===
+Introduction
+History of menu evolution is documented in Recommendation for analysis groups. Important changes
+are;
+Enabled the HLT full menu from Period B1- (Run325713 with 600b runs on Mon Jun 05
+2017)
+♦ 
+♦ Enabled L1Topo triggers for physics from Period B5-
+♦ Switched to the 1.7e34 primaries from Period B8-
+• 
+ IMPORTANT: Triggers that will become the lowest un-prescaled with the increase of luminosity
+are also included for lower luminosities. To check which will be the lowest un-prescaled as a function
+of luminosity, please refer to this twiki Menu Evolution.
+• 
+ IMPORTANT: as of 2017 November, a python interface to obtain information about the
+lowest-unprescaled triggers for a given signature and a given period is available. See the twiki for the
+instruction.
+• 
+• Known issues are detailed in TriggerIssues2017.
+Data Periods
+Some useful COMA ConditionsMetadata links for data17_13TeV are:
+• COMA Periods of data17_13TeV
+• COMA Period Runs in data17_13TeV
+• COMA Period Triggers in data17_13TeV
+• COMA Period Streams in data17_13TeV
+Rulebook tags
+We tag the rulebook package in order to be able to trace chain rules when a new AthenaP1 release is deployed
+and used online. Please, find below the tags corresponding to different releases and periods together with the
+corresponding JIRAs.
+Tag for AthenaP1, 21.1.3 (period A1) : May Startup up to 12b ( 3b ATR-16365 , 12b
+ATR-16384 )
+• 
+Tag for AthenaP1, 21.1.4 (period A2-B1) : June Startup up to 600b ( 72b magnets-off runs
+ATR-16418 , 300b toroid-off runs ATR-16432 , 600b with HLT enabled ATR-16454 )
+• 
+Tag for AthenaP1, 21.1.5 (period B2-B4) : June afterScrubbing up to 900b ( 9b, 600b, 900b,
+ATR-16500 )
+• 
+Tag for AthenaP1, 21.1.6 (period B4-B8) : June Rampup up to 1900b , 2017June_Rampup up to
+2550b ( 1200b, 1500b, ATR-16530 , 1700b-2550b ATR-16552 )
+• 
+Tag for AthenaP1, 21.1.8 (period C1-C8) : July after TS1 up to 600b ( high-mu up to 600b
+ATR-16683 ), July 600b low-mu ( low-mu 600b ATR-16399 ), July post-TS1 2550b ( post-TS1
+2550b ATR-16695 )
+• 
+Tag for AthenaP1, 21.1.9 (period D2) : July post-MD2 VdM scan ( ATR-16757 ), post-MD2 600b
+high-mu ( ATR-16778 ), post-MD2 600b low-mu mu(ave)~1 ( ATR-16772 )
+• 
+Tag for AthenaP1, 21.1.8 (period D3-D6) : August post-MD2 2550b ( ATR-16787 ), Toroid-off
+2550b disabling L1_MU ( ATR-16808 )
+• 
+• Tag for AthenaP1, 21.1.10- (period X) : August various numbers of bunches ( ATR-16842 )
+Tag for AthenaP1, 21.1.19 : Final RB in 2017 high-mu run on 8b4e ( ATR-17370 ),
+LowMu/5TeV/ALFA runs in Nov ( ATR-17208, 5TeV run , ATR-17253,13TeV mu=2,1 run ,
+ATR-17210, ALFA run )
+• 
+ LowestUnprescaled < Atlas < TWiki
+ Introduction 57
+
+=== PDF PAGE 61 ===
+Egamma
+Trigger
+Group
+Single electron Multi electron
+period
+B￾HLT_e26_lhtight_nod0_ivarloose
+HLT_e60_lhmedium_nod0
+HLT_e140_lhloose_nod0
+HLT_e300_etcut
+HLT_2e17_lhvloose_nod0_L12EM15VHI*
+HLT_2e24_lhvloose_nod0
+HLT_e24_lhvloose_nod0_2e12_lhvloose_nod0_L1EM20VH_3EM10VH
+Trigger Group Single photon Multi photon
+period B- HLT_g140_loose
+HLT_g300_etcut
+HLT_2g20_tight_icalovloose_L12EM15VHI*
+HLT_2g22_tight_L12EM15VHI*
+HLT_2g25_tight_L12EM20VH
+HLT_g35_medium_g25_medium_L12EM20VH
+HLT_2g50_loose_L12EM20VH
+HLT_2g25_loose_g15_loose
+* L1_2EM15VHI was accidentally prescaled in periods B5-B8 (runs 326834-328393 with an effective
+reduction of 0.6 fb-1)
+Egamma + MET/Jets
+Trigger Group electron+MET photon+MET
+period B- HLT_e70_lhloose_nod0_xe70noL1 HLT_g80_loose_xe80noL1
+Trigger Group photon+Jets
+period B- HLT_g85_tight_L1EM22VHI_3j50noL1
+Muon
+Trigger Group Single muon Multi muon
+period B- HLT_mu26_ivarmedium
+HLT_mu50
+HLT_mu60_0eta105_msonly
+HLT_2mu14
+HLT_mu22_mu8noL1
+HLT_mu22_mu8noL1_calotag_0eta010
+HLT_mu20_2mu4noL1
+HLT_3mu6
+HLT_3mu6_msonly
+HLT_4mu4
+Electron + Muon
+Trigger e+mu e+2mu 2e+mu
+ LowestUnprescaled < Atlas < TWiki
+ Egamma 58
+
+=== PDF PAGE 62 ===
+Group
+period
+B￾HLT_e17_lhloose_nod0_mu14
+HLT_e26_lhmedium_nod0_mu8noL1
+HLT_e7_lhmedium_nod0_mu24
+HLT_e12_lhloose_nod0_2mu10 HLT_2e12_lhloose_nod0_mu10
+Electron/Muon + Photon
+Trigger
+Group
+electron+photon muon+photon
+period
+B￾HLT_e24_lhmedium_nod0_L1EM20VH_g25_medium
+HLT_e25_mergedtight_g35_medium_Heg
+HLT_g25_medium_mu24
+HLT_g15_loose_2mu10_msonly
+HLT_g35_loose_L1EM24VHI_mu18
+HLT_g35_loose_L1EM24VHI_mu15_mu2noL1
+HLT_g35_tight_icalotight_L1EM24VHI_mu18noL1
+HLT_g35_tight_icalotight_L1EM24VHI_mu15noL1_mu2noL1
+Bphysics
+Complete table of Bphys triggers including prescaled triggers together with luminosity per trigger per period
+can be found at this link
+Trigger
+Group
+Generic B->mumu Jpsi->mumu Upsi->mumu B->mumuX Tau->3mu, phi->mumu 4mu
+period
+B￾HLT_mu11_mu6_bDimu
+HLT_mu11_mu6_bDimu2700
+HLT_mu11_mu6_bDimu2700_Lxy0
+HLT_mu11_mu6_bBmumu
+HLT_2mu6_bBmumu_Lxy0_L1BPH-2M9-2MU6_BPH-2DR15-2MU6
+HLT_mu11_mu6_bJpsimumu
+HLT_2mu6_bJpsimumu_L1BPH-2M9-2MU6_BPH-2DR15-2MU6
+HLT_mu11_mu6_bUpsimumu
+HLT_2mu6_bUpsimumu_L1BPH-8M15-2MU6_BPH-0DR22-2MU6*
+HLT_mu11_mu6_bBmumuxv2
+HLT_2mu6_bBmumux_BsmumuPhi_L1BPH-2M9-2MU6_BPH-2DR15-2MU6
+HLT_mu11_mu6_bPhi
+HLT_mu11_mu6noL1_bPhi_L1MU11_2MU6
+HLT_mu11_2mu4noL1_bTau_L1MU11_2MU6
+HLT_mu11_mu6noL1_bTau_L1MU11_2MU6
+HLT_mu11_2mu4noL1_bNocut_L1MU11_2MU6
+HLT_mu20_mu6noL1_bTau
+HLT_3mu4_bTau
+HLT_3mu4_bPhi
+HLT_4mu4
+HLT_4mu4_bNocut
+HLT_3mu3_mu3noL1_L13MU4
+HLT_3mu4_mu4noL1
+HLT_3mu4_mu2noL1
+* Included in Main and not in BphysLS stream
+Taus
+Trigger
+Group
+Single tau di-tau+L1 jets di-tau
+period
+B1-B4
+HLT_tau160_medium1_tracktwo HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo HLT_tau80_medium1_tracktwo_L1TAU60_tau50_medium1_tracktwo_L1TAU12
+period
+B5-B7
+HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo_03dR30_L1DR-TAU20ITAU12I-J25
+HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo_L1DR-TAU20ITAU12I-J25
+HLT_tau40_medium1_tracktwo_tau35_medium1_tracktwo
+HLT_tau80_medium1_tracktwo_L1TAU60_tau35_medium1_tracktwo_L1TAU12IM_L1TAU60_DR-TAU20ITAU12I
+HLT_tau80_medium1_tracktwo_L1TAU60_tau50_medium1_tracktwo_L1TAU12
+period
+B8-
+HLT_tau160_medium1_tracktwo_L1TAU100 HLT_tau80_medium1_tracktwo_L1TAU60_tau35_medium1_tracktwo_L1TAU12IM_L1TAU60_DR-TAU20ITAU12I
+HLT_tau80_medium1_tracktwo_L1TAU60_tau60_medium1_tracktwo_L1TAU40
+HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo ran unprescaled all the time when the peak lumi
+of the run was below 1.2e34.
+ LowestUnprescaled < Atlas < TWiki
+ Electron + Muon 59
+
+=== PDF PAGE 63 ===
+Taus + electron/muon
+Trigger
+Group
+tau+electron
+period
+B
+HLT_e17_lhmedium_nod0_ivarloose_tau25_medium1_tracktwo
+(L1_EM15VHI_2TAU12IM_J25_3J12)
+HLT_e17_lhmedium_nod0_ivarloose_tau25_medium1_tracktwo_L1EM15VHI_2TAU12IM_4J12
+HLT_e24_lhmedium_nod0_ivarloose_tau35_medium1_tracktwo
+(L1_EM20VHI_TAU20IM_2TAU20_J25_3J20)
+Trigger Group tau+muon
+period B HLT_mu14_ivarloose_tau25_medium1_tracktwo (L1_MU10_TAU12IM_J25_2J12)
+HLT_mu14_ivarloose_tau35_medium1_tracktwo (L1_MU10_TAU20IM)
+HLT_mu14_ivarloose_tau25_medium1_tracktwo_L1MU10_TAU12IM_3J12
+Taus + MET + electron/muon
+Trigger
+Group
+tau+MET tau+electron+MET tau+muon+MET
+period
+B1-B7
+HLT_tau35_medium1_tracktwo_xe70_L1XE45
+HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo_xe50
+HLT_e17_lhmedium_nod0_tau25_medium1_tracktwo_xe50 HLT_mu14_tau25_medium1_tracktwo_xe50
+period
+B8-
+HLT_tau35_medium1_tracktwo_xe70_L1XE45
+HLT_tau60_medium1_tracktwo_tau25_medium1_tracktwo_xe50
+Jets, MET, HT
+Trigger
+Group
+Single jet Multi jets MET HT
+period
+B (all
+runs
+except
+325789,
+327761,
+328017)
+small-R
+HLT_j380 (+)
+HLT_j400
+HLT_j225_gsc380_boffperf_split (+)
+HLT_j225_gsc400_boffperf_split
+large-R trimmed
+HLT_j420_a10t_lcw_jes_L1J100 (+) (++)
+HLT_j440_a10t_lcw_jes_L1J100 (++)
+HLT_j390_a10t_lcw_jes_30smcINF_L1J100
+(++)
+large-R untrimmed
+HLT_j420_a10_lcw_subjes_L1J100 (+)
+HLT_j440_a10_lcw_subjes_L1J100
+large-R reclustered
+HLT_j420_a10r_L1J100 (+)
+HLT_j440_a10r_L1J100
+small-R
+HLT_3j200
+HLT_4j100 (+)
+4j120
+HLT_4j60_gsc100_boffperf_split (+)
+HLT_4j60_gsc115_boffperf_split
+HLT_5j70_L14J15
+HLT_5j50_gsc70_boffperf_split (L14J20)
+HLT_5j50_gsc70_boffperf_split_L14J150ETA25
+HLT_6j60_L14J15
+HLT_6j45_gsc60_boffperf_split (L14J20)
+HLT_6j45_gsc60_boffperf_split_L14J150ETA25
+HLT_7j45_L14J15
+HLT_7j25_gsc45_boffperf_split_L14J20
+HLT_7j25_gsc45_boffperf_split_L14J150ETA25
+HLT_10j40_L14J15
+small-R central
+HLT_5j65_0eta240_L14J15
+HLT_5j50_gsc65_boffperf_split_0eta240 (L14J20)
+HLT_xe90_pufit_L1XE50
+(*) (**)
+HLT_xe110_pufit_L1XE55
+(***)
+HLT_ht1000_L1J100
+ LowestUnprescaled < Atlas < TWiki
+ Taus + electron/muon 60
+
+=== PDF PAGE 64 ===
+HLT_5j50_gsc65_boffperf_split_0eta240_L14J150ETA25
+HLT_6j45_0eta240 (L14J15) (+)
+HLT_6j45_0eta240_L14J20 ) (++)
+HLT_6j50_0eta240_L14J15
+HLT_6j25_gsc45_boffperf_split_0eta240_L14J20 (+)
+HLT_6j25_gsc45_boffperf_split_0eta240_L14J150ETA25
+(+)
+HLT_6j25_gsc50_boffperf_split_0eta240_L14J20
+HLT_6j25_gsc50_boffperf_split_0eta240_L14J150ETA25
+large-R trimmed
+HLT_2j330_a10t_lcw_jes_30smcINF_L1J100 (++)
+Trigger
+Group
+Single jet Multi jets MET HT
+period
+B (all
+runs
+except
+325789)
+small-R
+HLT_j420
+HLT_j225_gsc420_boffperf_split
+large-R trimmed
+HLT_j460_a10t_lcw_jes_L1J100
+HLT_j420_a10t_lcw_jes_40smcINF_L1J100
+large-R untrimmed
+HLT_j460_a10_lcw_subjes_L1J100
+large-R reclustered
+HLT_j460_a10r_L1J100
+small-R
+HLT_3j200
+HLT_4j120
+HLT_4j60_gsc115_boffperf_split
+HLT_5j85_L14J15
+HLT_5j60_gsc85_boffperf_split (L14J20)
+HLT_5j60_gsc85_boffperf_split_L14J150ETA25
+HLT_6j70_L14J15
+HLT_6j50_gsc70_boffperf_split (L14J20)
+HLT_6j50_gsc70_boffperf_split_L14J150ETA25
+HLT_7j45_L14J15
+HLT_7j25_gsc45_boffperf_split_L14J20
+HLT_7j25_gsc45_boffperf_split_L14J150ETA25
+HLT_10j40_L14J15
+small-R central
+HLT_5j70_0eta240_L14J15
+HLT_5j50_gsc70_boffperf_split_0eta240 (L14J20)
+HLT_5j50_gsc70_boffperf_split_0eta240_L14J150ETA25
+HLT_6j55_0eta240_L14J15
+HLT_6j35_gsc55_boffperf_split_0eta240_L14J20
+HLT_6j35_gsc55_boffperf_split_0eta240_L15J150ETA25
+large-R trimmed
+HLT_2j330_a10t_lcw_jes_30smcINF_L1J100 (++)
+HLT_xe90_pufit_L1XE50
+(*) (**)
+HLT_xe110_pufit_L1XE55
+(***)
+HLT_ht1000_L1J100
+period
+B (all
+runs)
+small-R
+HLT_j450
+HLT_j225_gsc440_boffperf_split
+large-R trimmed
+HLT_j480_a10t_lcw_jes_L1J100
+HLT_j440_a10t_lcw_jes_40smcINF_L1J100
+large-R untrimmed
+HLT_j480_a10_lcw_subjes_L1J100
+large-R reclustered
+HLT_j480_a10r_L1J100
+small-R
+HLT_3j225
+HLT_4j120
+HLT_4j60_gsc115_boffperf_split
+HLT_5j90 (L14J20)
+HLT_5j90_L14J150ETA25
+HLT_5j60_gsc90_boffperf_split (L14J20)
+HLT_5j60_gsc90_boffperf_split_L14J150ETA25
+HLT_6j70 (L14J20)
+HLT_6j50_gsc70_boffperf_split (L14J20)
+HLT_6j50_gsc70_boffperf_split_L14J150ETA25
+HLT_7j45 (L16J15)
+HLT_7j45_L14J150ETA25
+HLT_7j45_L14J20
+HLT_7j25_gsc45_boffperf_split_L14J20
+HLT_xe90_pufit_L1XE50
+(*) (**)
+HLT_xe110_pufit_L1XE55
+(***)
+HLT_ht1000_L1J100
+ LowestUnprescaled < Atlas < TWiki
+ Jets, MET, HT 61
+
+=== PDF PAGE 65 ===
+HLT_7j25_gsc45_boffperf_split_L14J150ETA25
+HLT_10j40_L14J150ETA25
+HLT_10j40_L14J20
+HLT_10j40_L16J15
+small-R central
+HLT_5j75_0eta240
+(L14J20)
+HLT_5j75_0eta240_L14J150ETA25
+HLT_5j55_gsc75_boffperf_split_0eta240 (L14J20)
+HLT_5j55_gsc75_boffperf_split_0eta240_L14J150ETA25
+HLT_6j60_0eta240_L14J20
+HLT_6j60_0eta240_L14J150ETA25
+HLT_6j35_gsc55_boffperf_split_0eta240_L14J20
+HLT_6j35_gsc55_boffperf_split_0eta240_L15J150ETA25
+large-R trimmed
+HLT_2j330_a10t_lcw_jes_40smcINF_L1J100
+Trigger
+Group
+Single jet Multi jets MET HT
+period
+C
+small-R
+HLT_j400 (+++)
+HLT_j420
+HLT_j225_gsc400_boffperf_split (+++)
+HLT_j225_gsc420_boffperf_split
+large-R trimmed
+HLT_j440_a10t_lcw_jes_L1J100 (+++)
+HLT_j460_a10t_lcw_jes_L1J100
+HLT_j390_a10t_lcw_jes_30smcINF_L1J100
+(+++)
+HLT_j420_a10t_lcw_jes_40smcINF_L1J100
+large-R untrimmed
+HLT_j440_a10_lcw_subjes_L1J100 (+++)
+HLT_j460_a10_lcw_subjes_L1J100
+large-R reclustered
+HLT_j440_a10r_L1J100 (+++)
+HLT_j460_a10r_L1J100
+small-R
+HLT_3j200
+HLT_4j120
+HLT_4j60_gsc115_boffperf_split
+HLT_5j70_L14J15 (+++)
+HLT_5j85_L14J15
+HLT_5j50_gsc70_boffperf_split (L14J20) (+++)
+HLT_5j50_gsc70_boffperf_split_L14J150ETA25 (+++)
+HLT_5j60_gsc85_boffperf_split (L14J20)
+HLT_5j60_gsc85_boffperf_split_L14J150ETA25
+HLT_6j60_L14J15 (+++)
+HLT_6j70_L14J15
+HLT_6j45_gsc60_boffperf_split (L14J20) (+++)
+HLT_6j45_gsc60_boffperf_split_L14J150ETA25 (+++)
+HLT_6j50_gsc70_boffperf_split (L14J20)
+HLT_6j50_gsc70_boffperf_split_L14J150ETA25
+HLT_7j45_L14J15
+HLT_7j25_gsc45_boffperf_split_L14J20
+HLT_7j25_gsc45_boffperf_split_L14J150ETA25
+HLT_10j40_L14J15
+small-R central
+HLT_5j65_0eta240_L14J15 (+++)
+HLT_5j70_0eta240_L14J15
+HLT_5j50_gsc65_boffperf_split_0eta240 (L14J20) (+++)
+HLT_5j50_gsc65_boffperf_split_0eta240_L14J150ETA25
+(+++)
+HLT_5j50_gsc70_boffperf_split_0eta240 (L14J20)
+HLT_5j50_gsc70_boffperf_split_0eta240_L14J150ETA25
+HLT_6j50_0eta240_L14J15 (+++)
+HLT_6j55_0eta240_L14J15
+HLT_6j25_gsc50_boffperf_split_0eta240_L14J20 (+++)
+HLT_6j25_gsc50_boffperf_split_0eta240_L14J150ETA25
+(+++)
+HLT_xe100_pufit_L1XE55
+(*)
+HLT_xe100_pufit_L1XE50
+(**)
+HLT_xe110_pufit_L1XE55
+(***)
+HLT_ht1000_L1J100
+ LowestUnprescaled < Atlas < TWiki
+ Jets, MET, HT 62
+
+=== PDF PAGE 66 ===
+HLT_6j35_gsc55_boffperf_split_0eta240_L14J20
+HLT_6j35_gsc55_boffperf_split_0eta240_L14J150ETA25
+(+++)
+HLT_7j25_gsc45_boffperf_split_L14J150ETA25
+large-R trimmed
+HLT_2j330_a10t_lcw_jes_30smcINF_L1J100 (+++)
+HLT_2j330_a10t_lcw_jes_40smcINF_L1J100
+Trigger
+Group
+Single jet Multi jets MET HT
+period
+D1-D5
+small-R
+HLT_j400 (+++)
+HLT_j420
+HLT_j225_gsc400_boffperf_split (+++)
+HLT_j225_gsc420_boffperf_split
+large-R trimmed
+HLT_j440_a10t_lcw_jes_L1J100 (+++)
+HLT_j460_a10t_lcw_jes_L1J100
+HLT_j390_a10t_lcw_jes_30smcINF_L1J100
+(+++)
+HLT_j420_a10t_lcw_jes_40smcINF_L1J100
+large-R untrimmed
+HLT_j440_a10_lcw_subjes_L1J100 (+++)
+HLT_j460_a10_lcw_subjes_L1J100
+large-R reclustered
+HLT_j440_a10r_L1J100 (+++)
+HLT_j460_a10r_L1J100
+small-R
+HLT_3j200
+HLT_4j120
+HLT_4j60_gsc115_boffperf_split
+HLT_5j70_L14J15 (+++)
+HLT_5j85_L14J15
+HLT_5j50_gsc70_boffperf_split (L14J20) (+++)
+HLT_5j50_gsc70_boffperf_split_L14J150ETA25 (+++)
+HLT_5j60_gsc85_boffperf_split (L14J20)
+HLT_5j60_gsc85_boffperf_split_L14J150ETA25
+HLT_6j60_L14J15 (+++)
+HLT_6j70_L14J15
+HLT_6j45_gsc60_boffperf_split (L14J20) (+++)
+HLT_6j45_gsc60_boffperf_split_L14J150ETA25 (+++)
+HLT_6j50_gsc70_boffperf_split (L14J20)
+HLT_6j50_gsc70_boffperf_split_L14J150ETA25
+HLT_7j45_L14J15
+HLT_7j25_gsc45_boffperf_split_L14J20
+HLT_7j25_gsc45_boffperf_split_L14J150ETA25
+HLT_10j40_L14J15
+small-R central
+HLT_5j65_0eta240_L14J15 (+++)
+HLT_5j70_0eta240_L14J15
+HLT_5j50_gsc65_boffperf_split_0eta240 (L14J20) (+++)
+HLT_5j50_gsc65_boffperf_split_0eta240_L14J150ETA25
+(+++)
+HLT_5j50_gsc70_boffperf_split_0eta240 (L14J20)
+HLT_5j50_gsc70_boffperf_split_0eta240_L14J150ETA25
+HLT_6j50_0eta240_L14J15 (+++)
+HLT_6j55_0eta240_L14J15
+HLT_6j25_gsc50_boffperf_split_0eta240_L14J20 (+++)
+HLT_6j25_gsc50_boffperf_split_0eta240_L14J150ETA25
+(+++)
+HLT_6j35_gsc55_boffperf_split_0eta240_L14J20
+HLT_6j35_gsc55_boffperf_split_0eta240_L14J150ETA25
+(+++)
+large-R trimmed
+HLT_2j330_a10t_lcw_jes_30smcINF_L1J100 (+++)
+HLT_2j330_a10t_lcw_jes_40smcINF_L1J100
+HLT_xe110_pufit_L1XE55
+(*)(***)
+HLT_xe110_pufit_L1XE50
+(**)
+HLT_ht1000_L1J100
+period
+D6-K
+HLT_xe110_pufit_L1XE50
+ LowestUnprescaled < Atlas < TWiki
+ Jets, MET, HT 63
+
+=== PDF PAGE 67 ===
+(*) MET trigger option that gives you the best combination of low thresholds & small loss of luminosity
+(~270 pb-1 loss of luminosity w.r.t. option *** )
+(**) MET trigger option that gives you lower thresholds (L1_XE50) but has been prescaled for part of the
+runs (~ 900 pb-1 loss of luminosity w.r.t. option *** )
+(***) MET trigger option that gives you full luminosity at the cost of a higher threshold (recommended if you
+prefer not to combine triggers over different data-taking periods)
+(+) Jet trigger also disabled in runs 327582, 327745, 327860, 328221 and 328374 of period B (~1.2ifb loss)
+(++) Jet trigger slightly different combination of missing runs / part-enabling of trigger for different parts of
+some runs
+(+++) Jet trigger missing small fraction of luminosity from periods C (0.14 from 2.77 ifb) and D1-D5 (0.35
+from 5.90 ifb)
+Important remarks:
+The above quoted luminosity numbers are only indicative. Always assess the luminosity yourself to
+weigh threshold vs. luminosity arguments for your analysis.
+• 
+Further to this, please see JetTriggersToUseIn2017 coupled with the 1.7 and 1.5e34 menus from
+L34TriggerMenu2017 for the jet trigger group's recommendations and the available options.
+• 
+Before run 332655 (the deployment of release 21.1.10) jet GSC triggers were off for a few lumi
+blocks just after the start of the run while the beamspot determination was under way. A special GRL
+is provided for analysers using these triggers, removing 262 of the 88487 lumi blocks, corresponding
+to 73 pb-1 out of the total 40404.4 pb-1 in the
+data17_13TeV.periodAllYear_DetStatus-v97-pro21-13_Unknown_PHYS_StandardGRL_All_Good_25ns.xm
+GRL
+• 
+Analyses using MET triggers should also check events that fire HLT_noalg_L1J400 to see if any of
+these events were not fired by the met trigger in the analysis phase-space.
+• 
+Bjet
+Trigger
+Group
+Single bjet Multi bjets
+period
+B2-B7
+(1b) HLT_j175_gsc225_bmv2c1040_split
+HLT_j225_gsc275_bmv2c1070_split
+HLT_j225_gsc300_bmv2c1077_split
+HLT_j225_gsc360_bmv2c1085_split
+(1b+3j)
+HLT_j50_gsc65_bmv2c1040_split_3j50_gsc65_boffperf_split
+HLT_j60_gsc85_bmv2c1050_split_3j60_gsc85_boffperf_split
+(2b) HLT_j150_gsc175_bmv2c1070_split_j45_gsc60_bmv2c1070_split
+(2b+1j)
+HLT_j110_gsc150_boffperf_split_2j35_gsc55_bmv2c1077_split_L1J85_3J30
+(2b+2j)
+HLT_2j15_gsc35_bmv2c1050_split_2j15_gsc35_boffperf_split_L14J15.0ETA25
+HLT_2j25_gsc45_bmv2c1060_split_2j25_gsc45_boffperf_split_L14J15.0ETA25
+HLT_2j35_gsc55_bmv2c1070_split_2j35_gsc55_boffperf_split_L14J15.0ETA25
+(2b+3j) HLT_2j15_gsc35_bmv2c1060_split_3j15_gsc35_boffperf_split
+HLT_2j25_gsc45_bmv2c1070_split_3j25_gsc45_boffperf_split
+(3b+1j)
+HLT_3j15_gsc35_bmv2c1070_split_j15_gsc35_boffperf_split_L14J15.0ETA25
+(4b) HLT_4j15_gsc35_bmv2c1077_split_L14J15.0ETA25
+HLT_2j15_gsc35_bmv2c1070_split_2j15_gsc35_bmv2c1085_split_L14J15.0ETA25
+(3b) HLT_3j50_gsc65_bmv2c1077_split_L13J35.0ETA23
+period
+B8-
+(1b) HLT_j175_gsc225_bmv2c1040_split
+HLT_j225_gsc275_bmv2c1060_split
+HLT_j225_gsc300_bmv2c1070_split
+HLT_j225_gsc360_bmv2c1077_split
+(1b+3j)
+HLT_j55_gsc75_bmv2c1040_split_3j55_gsc75_boffperf_split
+(2b) HLT_j150_gsc175_bmv2c1060_split_j45_gsc60_bmv2c1060_split
+(2b+1j)
+HLT_j110_gsc150_boffperf_split_2j35_gsc55_bmv2c1070_split_L1J85_3J30
+(2b+2j)
+HLT_2j15_gsc35_bmv2c1040_split_2j15_gsc35_boffperf_split_L14J15.0ETA25
+(2b+3j) HLT_2j15_gsc35_bmv2c1050_split_3j15_gsc35_boffperf_split
+ LowestUnprescaled < Atlas < TWiki
+ Bjet 64
+
+=== PDF PAGE 68 ===
+HLT_j60_gsc85_bmv2c1050_split_3j60_gsc85_boffperf_split HLT_2j25_gsc45_bmv2c1060_split_3j25_gsc45_boffperf_split
+HLT_2j25_gsc45_bmv2c1050_split_2j25_gsc45_boffperf_split_L14J15.0ETA25
+HLT_2j35_gsc55_bmv2c1060_split_2j35_gsc55_boffperf_split_L14J15.0ETA25
+(3b+1j)
+HLT_3j15_gsc35_bmv2c1070_split_j15_gsc35_boffperf_split_L14J15.0ETA25
+(4b) HLT_4j15_gsc35_bmv2c1077_split_L14J15.0ETA25
+HLT_2j15_gsc35_bmv2c1070_split_2j15_gsc35_bmv2c1085_split_L14J15.0ETA25
+(3b) HLT_3j50_gsc65_bmv2c1077_split_L13J35.0ETA23
+Trigger
+Group
+Single bjet Multi bjets
+* Updated the b-jet triggers with MV2c10 from Period B2-
+Bjet + HT/MET
+Trigger
+Group
+Bjet+HT Bjet + MET
+period
+B2-B4
+- HLT_j60_gsc100_bmv2c1050_split_xe80_mht_L1XE60
+HLT_2j25_gsc45_bmv2c1070_split_xe80_mht_L12J15_XE55
+HLT_3j15_gsc35_bmv2c1077_split_xe60_mht_L13J15.0ETA25_XE40
+period
+B5-
+HLT_j35_gsc55_bmv2c1050_split_ht700_L1HT190-J15s5.ETA21
+HLT_2j35_gsc55_bmv2c1050_split_ht300_L1HT190-J15s5.ETA21
+HLT_2j35_gsc55_bmv2c1060_split_ht300_L1HT190-J15s5.ETA21
+(below 1.5e34)
+VBF
+Trigger
+Group
+photon+VBF (non-L1Topo) photon+VBF (L1Topo) b+VBF (non-L1Topo) b+VBF (L1Topo)
+period
+B1-B4
+HLT_g25_medium_L1EM22VHI_2j35_0eta490_bmv2c1077_split_2j35_0eta490
+HLT_g25_medium_L1EM22VHI_j35_0eta490_bmv2c1077_split_3j35_0eta490_invm700
+HLT_g25_medium_L1EM22VHI_4j35_0eta490_invm1000
+- HLT_j55_gsc80_bmv2c1070_split_j45_gsc60_bmv2c1085_split_j45_320eta490
+HLT_j35_gsc55_bmv2c1070_split_2j45_320eta490_L1J25.0ETA23_2J15.31ETA49
+-
+period
+B5-B8
+- HLT_ht300_2j40_0eta490_invm700_L1HT150-J20s5.ETA31_MJJ-400-CF_AND_2j25_gsc45_bmv2c1070_split
+period
+C￾HLT_g20_tight_icaloloose_j15_gsc35_bmv2c1077_split_3j35_0eta490_invm500
+Dedicated physics triggers
+Standard Model
+Trigger Group Wgg
+Period B- HLT_e24_lhmedium_nod0_2g12_loose
+HLT_2g10_loose_mu20
+Exotics
+Trigger
+Group
+LLP cal-ratio (non-L1Topo) LLP cal-ratio (L1Topo) LLP muvtx HNL mono-pole
+Period
+B1-B7
+HLT_j30_jes_cleanLLP_PS_llp_L1TAU60
+HLT_j30_jes_cleanLLP_PS_llp_pufix_L1TAU60
+HLT_j30_jes_cleanLLP_PS_llp_pufix_noiso_L1TAU60
+- HLT_j30_muvtx HLT_mu20_mu8noL1_e9_lhvloose_nod0 HLT_g0_hiptrt_L1EM22VHI
+ LowestUnprescaled < Atlas < TWiki
+ Bjet + HT/MET 65
+
+=== PDF PAGE 69 ===
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1TAU60
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1TAU60
+Trigger
+Group
+LLP cal-ratio (non-L1Topo) LLP cal-ratio (L1Topo) LLP muvtx HNL mono-pole
+Period
+B8-
+HLT_j30_jes_cleanLLP_PS_llp_L1TAU100
+HLT_j30_jes_cleanLLP_PS_llp_pufix_L1TAU100
+HLT_j30_jes_cleanLLP_PS_llp_pufix_noiso_L1TAU100
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1TAU100
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1TAU100
+HLT_j30_jes_cleanLLP_PS_llp_L1LLP-RO
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1LLP-RO
+HLT_j30_jes_cleanLLP_PS_llp_L1LLP-NOMATCH
+HLT_j30_jes_cleanLLP_PS_llp_noiso_L1LLP-NOMATCH
+Trigger
+Group
+lepton+jets Late muons
+Period
+B
+HLT_mu20_msonly_mu15noL1_msonly_nscan05_noComb (below 1.0e34)
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan05_L1MU20_J40
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan05_L1MU20_XE30
+-
+Period
+C￾HLT_mu6_dRl1_mu20_msonly_iloosems_mu6noL1_dRl1_msonly (seed fix
+since 21.1.10)
+HLT_mu20_msonly_mu15noL1_msonly_nscan05_noComb (below 1.0e34)
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan05_L1MU20_J40
+HLT_mu20_msonly_iloosems_mu6noL1_msonly_nscan05_L1MU20_XE30
+HLT_mu10_mgonly_L1LATE-MU10_J50
+HLT_mu10_mgonly_L1LATE-MU10_XE40
+Higgs
+Trigger
+Group
+g+tau for excl Higgs decays e/mu+jets for VH
+Period
+B￾HLT_g25_medium_L1EM24VHI_tau25_dikaonmass_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_dipion1loose_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_dipion2_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_kaonpi1_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_kaonpi2_tracktwo_50mVis10000
+HLT_g25_medium_L1EM24VHI_tau25_singlepion_tracktwo_50mVis10000
+HLT_g35_medium_L1EM24VHI_tau25_dipion3_tracktwo_60mVis10000
+HLT_e20_lhtight_nod0_ivarloose_3j20_L1EM18VHI_3J20
+HLT_mu14_ivarloose_3j20_L1MU10_3J20
+HLT_mu20_ivarmedium_L1MU10_2J15_J20
+SUSY
+Trigger
+Group
+bjets+MET Higgsino stopped gluinos razor
+Period
+B1-B4
+HLT_j60_gsc100_bmv2c1050_split_xe80_mht_L1XE60
+HLT_2j25_gsc45_bmv2c1070_split_xe80_mht_L12J15_XE55
+HLT_3j15_gsc35_bmv2c1077_split_xe60_mht_L13J15.0ETA25_XE40
+HLT_2mu4_invm1_j20_xe60_pufit_2dphi10_L12MU4_J40_XE50
+HLT_mu4_j90_xe90_pufit_2dphi10_L1MU4_XE60
+HLT_e5_lhmedium_nod0_mu4_j30_xe65_pufit_2dphi10_L1MU4_XE60
+HLT_2e5_lhvloose_nod0_j40_xe70_pufit_2dphi10_L1XE60
+HLT_e5_lhloose_nod0_j40_xe70_pufit_2dphi10_L1XE60
+HLT_j55_0eta240_xe50_L1J30_EMPTY HLT_j30_xe60_razor220
+Period
+B5-
+HLT_2mu4_invm1_j20_xe40_pufit_2dphi10_L12MU4_J20_XE30_DPHI-J20s2XE30
+HLT_mu4_j90_xe90_pufit_2dphi10_L1MU4_J50_XE50_DPHI-J20s2XE30
+HLT_e5_lhvloose_nod0_mu4_j30_xe40_pufit_2dphi10_L1MU4_J30_XE40_DPHI-J20s2XE30
+HLT_2e5_lhvloose_nod0_j40_xe70_pufit_2dphi10_L1J40_XE50_DPHI-J20s2XE50
+HLT_e5_lhloose_nod0_j50_xe70_pufit_2dphi10_L1J40_XE50_DPHI-J20s2XE50
+HLT_2mu4_invm1_j20_xe60_pufit_2dphi10_L12MU4_J40_XE50
+HLT_mu4_j90_xe90_pufit_2dphi10_L1MU4_XE60
+HLT_e5_lhmedium_nod0_mu4_j30_xe65_pufit_2dphi10_L1MU4_XE60
+HLT_2e5_lhvloose_nod0_j40_xe70_pufit_2dphi10_L1XE60
+HLT_e5_lhloose_nod0_j40_xe70_pufit_2dphi10_L1XE60
+Egamma
+Trigger Z T&P W T&P
+ LowestUnprescaled < Atlas < TWiki
+ Dedicated physics triggers 66
+
+=== PDF PAGE 70 ===
+Group
+Period
+B￾HLT_e26_lhtight_nod0_e15_etcut_L1EM7_Zee -
+21.1.10- HLT_e60_etcut_trkcut_L1EM24VHIM_j15_perf_xe60_6dphi15_mt35
+HLT_e60_etcut_trkcut_L1EM24VHIM_xs30_j15_perf_xe30_6dphi15_mt35
+Triggers in 2016
+Introduction
+Note: Lowest unprescaled combined and special triggers can be found in the pdf table attached at
+the bottom of the Twiki page on pages 8, 9 & 10 (rather than in the tables below).
+• 
+ IMPORTANT: Triggers that will become the lowest un-prescaled with the increase of luminosity
+are also included for lower luminosities. To check which will be the lowest un-prescaled as a function
+of luminosity, please refer to this twiki Menu Evolution.
+• 
+Data Periods
+Some useful COMA ConditionsMetadata links for data16_13TeV are:
+• COMA Periods of data16_13TeV
+• COMA Period Runs in data16_13TeV
+• COMA Period Triggers in data16_13TeV
+• COMA Period Streams in data16_13TeV
+Some important additional Period-specific notes:
+• 
+Rulebook tags
+We started to tag the rulebook package in order to be able to trace chain rules when a new AtlasP1HLT cache
+is deployed and used online. Please, find below the tags corresponding to different releases and periods
+together with the corresponding JIRAs.
+Tag for AtlasP1HLT, 20.11.0.9 (period A1-A2) : TrigMenuRulebook-00-05-38 ATR-13864
+ATR-13894 ATR-13874
+• 
+• Tag for AtlasP1HLT, 20.11.0.9 (period A3) : TrigMenuRulebook-00-05-44 ATR-13947
+Egamma (+MET)
+Trigger
+Group
+Single electron Multi electron Single photon Multi photon egamma egamma+MET
+period
+A
+HLT_e24_lhtight_nod0_ivarloose*
+HLT_e60_lhmedium_nod0
+HLT_e60_medium
+HLT_e140_lhloose_nod0
+HLT_2e15_lhvloose_nod0_L12EM13VH**
+HLT_e17_lhloose_nod0_2e9_lhloose_nod0
+HLT_g140_loose
+HLT_g300_etcut
+HLT_2g20_tight
+HLT_g35_loose_g25_loose
+HLT_2g20_loose_g15_loose
+HLT_e20_lhmedium_nod0_g35_loose
+HLT_e24_lhmedium_nod0_L1EM15VH_g25_medium
+HLT_e20_lhmedium_nod0_2g10_loose
+HLT_g45_tight_L1EM22VHI_xe45noL1
+HLT_e60_lhloose_nod0_xe60noL1
+HLT_g60_loose_xe60noL1
+ LowestUnprescaled < Atlas < TWiki
+ Triggers in 2016 67
+
+=== PDF PAGE 71 ===
+HLT_e300_etcut
+Trigger
+Group
+Single electron Multi electron Single photon Multi photon egamma egamma+MET
+period
+B-D3
+HLT_e24_lhtight_nod0_ivarloose*
+HLT_e60_lhmedium_nod0
+HLT_e60_medium
+HLT_e140_lhloose_nod0
+HLT_e300_etcut
+HLT_2e15_lhvloose_nod0_L12EM13VH**
+HLT_e17_lhloose_nod0_2e9_lhloose_nod0
+HLT_g140_loose
+HLT_g300_etcut
+HLT_2g20_tight
+HLT_g35_loose_g25_loose
+HLT_2g20_loose_g15_loose
+HLT_e20_lhmedium_nod0_g35_loose
+HLT_e24_lhmedium_nod0_L1EM15VH_g25_medium
+HLT_e20_lhmedium_nod0_2g10_loose
+HLT_e70_lhloose_nod0_xe70noL1
+HLT_g70_loose_xe70noL1
+period
+D4-F
+HLT_e26_lhtight_nod0_ivarloose
+HLT_e60_lhmedium_nod0
+HLT_e60_medium
+HLT_e140_lhloose_nod0
+HLT_e300_etcut
+HLT_2e17_lhvloose_nod0
+HLT_e17_lhloose_nod0_2e9_lhloose_nod0
+HLT_g140_loose
+HLT_g300_etcut
+HLT_2g22_tight
+HLT_g35_loose_g25_loose
+HLT_3g20_loose
+HLT_e20_lhmedium_nod0_g35_loose
+HLT_e24_lhmedium_nod0_L1EM15VH_g25_medium
+HLT_e20_lhmedium_nod0_2g10_loose
+HLT_e70_lhloose_nod0_xe70noL1
+HLT_g70_loose_xe70noL1
+period
+G￾HLT_e26_lhtight_nod0_ivarloose
+HLT_e60_lhmedium_nod0
+HLT_e60_medium
+HLT_e140_lhloose_nod0
+HLT_e300_etcut
+HLT_2e17_lhvloose_nod0
+HLT_e17_lhloose_nod0_2e9_lhloose_nod0***
+HLT_e17_lhloose_nod0_2e10_lhloose_nod0_L1EM15VH_3EM8VH
+HLT_g140_loose
+HLT_g300_etcut
+HLT_2g22_tight
+HLT_g35_loose_g25_loose
+HLT_3g20_loose
+HLT_e20_lhmedium_nod0_g35_loose
+HLT_e24_lhmedium_nod0_L1EM15VH_g25_medium
+HLT_e20_lhmedium_nod0_2g10_loose***
+HLT_e20_lhmedium_nod0_2g10_loose_L1EM15VH_3EM8VH
+HLT_e70_lhloose_nod0_xe70noL1
+HLT_g70_loose_xe70noL1
+* In run 298687 L1_EM20VHI was partially prescaled (due to an autoprescaler problem). To get the full
+statistics for this run an OR of HLT_e24_lhmedium_nod0_L1EM20VH, HLT_e24_lhtight_nod0_ivarloose is
+required.
+** In run 300540 L1_2EM13VH used in HLT_2e15_lhvloose_nod0_L12EM13VH was prescaled to 10 in LB
+210-260 due to high dead-times related to pixel readout. HLT_2e17_lhvloose_nod0 (seeded by
+L1_2EM15VH) can be used instead to avoid any prescales.
+*** Triggers disabled when lumi>1.2e34 could to apply a logical OR between:
+HLT_e17_lhloose_nod0_2e9_lhloose_nod0 ||
+HLT_e17_lhloose_nod0_2e10_lhloose_nod0_L1EM15VH_3EM8VH
+HLT_e20_lhmedium_nod0_2g10_loose || HLT_e20_lhmedium_nod0_2g10_loose_L1EM15VH_3EM8VH to
+recover ~1fb-1 of missing data, BUT we are not able to provide scale-factors for the later triggers.
+Muon
+Trigger
+Group
+Single muon Multi muon
+period
+A
+HLT_mu24_iloose (called
+_L1MU15 in MC15c)
+HLT_mu24_ivarloose (called
+_L1MU15 in MC15c)
+HLT_mu40
+HLT_mu50
+HLT_2mu10
+HLT_2mu10_nomucomb
+HLT_mu20_mu8noL1
+HLT_mu20_2mu4noL1
+HLT_3mu4
+HLT_mu6_2mu4
+HLT_mu20_nomucomb_mu6noL1_nscan03
+HLT_mu11_nomucomb_2mu4noL1_nscan03_L1MU11_2MU6
+HLT_mu20_msonly_mu10noL1_msonly_nscan05_noComb
+HLT_mu11_nomucomb_2mu4noL1_nscan03_L1MU11_2MU6_bTau
+HLT_mu11_nomucomb_mu6noL1_nscan03_L1MU11_2MU6_bTau
+HLT_mu6_nomucomb_2mu4_nomucomb_bTau_L1MU6_3MU4
+HLT_2mu6_nomucomb_mu4_nomucomb_bTau_L12MU6_3MU4
+ LowestUnprescaled < Atlas < TWiki
+ Egamma (+MET) 68
+
+=== PDF PAGE 72 ===
+period
+B-D3
+HLT_mu24_ivarmedium
+HLT_mu24_imedium
+HLT_mu50
+HLT_2mu14
+HLT_2mu14_nomucomb
+HLT_mu20_mu8noL1
+HLT_mu20_2mu4noL1
+HLT_3mu6
+HLT_mu6_2mu4
+HLT_mu20_nomucomb_mu6noL1_nscan03
+HLT_mu11_nomucomb_2mu4noL1_nscan03_L1MU11_2MU6
+HLT_mu20_msonly_mu10noL1_msonly_nscan05_noComb
+HLT_mu11_nomucomb_2mu4noL1_nscan03_L1MU11_2MU6_bTau
+HLT_mu11_nomucomb_mu6noL1_nscan03_L1MU11_2MU6_bTau
+HLT_mu6_nomucomb_2mu4_nomucomb_bTau_L1MU6_3MU4
+HLT_2mu6_nomucomb_mu4_nomucomb_bTau_L12MU6_3MU4
+Trigger
+Group
+Single muon Multi muon
+period
+D4-E
+HLT_mu24_ivarmedium/imedium*
+HLT_mu26_ivarmedium/imedium
+HLT_mu50
+HLT_2mu14
+HLT_mu20_mu8noL1*
+HLT_mu22_mu8noL1
+HLT_mu20_2mu4noL1
+HLT_3mu6_msonly
+period
+F-G2
+HLT_mu26_ivarmedium/imedium
+HLT_mu50
+HLT_2mu14
+HLT_mu22_mu8noL1
+HLT_mu20_2mu4noL1
+HLT_3mu6_msonly
+period
+G3-I3
+HLT_mu26_ivarmedium
+HLT_mu50
+HLT_2mu14
+HLT_mu22_mu8noL1
+HLT_mu20_2mu4noL1
+HLT_3mu6_msonly
+period
+I4-
+HLT_mu26_ivarmedium
+HLT_mu50
+HLT_2mu14
+HLT_mu22_mu8noL1
+HLT_mu20_2mu4noL1
+HLT_3mu6_msonly
+HLT_3mu4
+*Prescaled when lumi>1.0e34
+Electron + Muon
+Trigger Group e+mu
+period A HLT_e17_lhloose_nod0_mu14
+HLT_e24_lhmedium_nod0_L1EM20VHI_mu8noL1
+HLT_e7_lhmedium_nod0_mu24
+HLT_e12_lhloose_nod0_2mu10
+HLT_2e12_lhloose_nod0_mu10
+period B-D3 HLT_e17_lhloose_nod0_mu14
+HLT_e24_lhmedium_nod0_L1EM20VHI_mu8noL1
+HLT_e7_lhmedium_nod0_mu24
+HLT_e12_lhloose_nod0_2mu10
+HLT_2e12_lhloose_nod0_mu10
+period D4- HLT_e17_lhloose_nod0_mu14
+HLT_e26_lhmedium_nod0_L1EM22VHI_mu8noL1
+HLT_e7_lhmedium_nod0_mu24
+ LowestUnprescaled < Atlas < TWiki
+ Muon 69
+
+=== PDF PAGE 73 ===
+HLT_e12_lhloose_nod0_2mu10
+HLT_2e12_lhloose_nod0_mu10
+Trigger Group e+mu
+Muon + Photon
+Trigger Group muon+photon multi-muon+multi-photon
+period A HLT_g25_medium_mu24 HLT_g15_loose_2mu10_msonly
+HLT_2g10_loose_mu20
+HLT_g35_loose_L1EM22VHI_mu15noL1_mu2noL1
+HLT_g35_loose_L1EM22VHI_mu18noL1
+period B-D3 HLT_g25_medium_mu24 HLT_g15_loose_2mu10_msonly
+HLT_2g10_loose_mu20
+HLT_g35_loose_L1EM22VHI_mu15noL1_mu2noL1
+HLT_g35_loose_L1EM22VHI_mu18noL1
+period D4- HLT_g25_medium_mu24 HLT_g15_loose_2mu10_msonly
+HLT_2g10_loose_mu20
+HLT_g35_loose_L1EM22VHI_mu15noL1_mu2noL1
+HLT_g35_loose_L1EM22VHI_mu18noL1
+Bphysics
+Complete table of Bphys triggers including prescaled triggers together with luminosity per trigger per period
+can be found at this link
+Trigger
+Group
+Bmumu Jpsimumu Upsimumu Bmumux bJpsi/bTau/bUpsi
+period
+A
+HLT_mu6_mu4_bBmumu HLT_mu6_mu4_bJpsimumu (Until A10
+299584 (PS: 1--4))
+HLT_2mu6_bUpsimumu HLT_mu6_mu4_bBmumux_BcmumuDsloose,
+BpmumuKp, xv2
+HLT_mu6_2mu4_bJpsi
+HLT_mu6_2mu4_bTau_noL2
+HLT_mu6_2mu4_bUpsi
+period
+B-D3
+HLT_2mu6_bBmumu HLT_mu10_mu6_bJpsimumu HLT_mu10_mu6_bUpsimumu No unprescaled chain HLT_3mu6_bJpsi
+HLT_mu6_2mu4_bTau_noL2
+HLT_mu6_2mu4_bUpsi
+period
+D4-
+HLT_mu10_mu6_bBmumuxv2_noL2
+(MU10_2MU6)
+HLT_2mu10_bJpsimumu_noL2_L12MU10 HLT_3mu6_bJpsi
+HLT_mu6_2mu4_bUpsi
+HLT_mu6_nomucomb_2mu4_nomucomb_bTau_L1MU6_3MU4
+* Introduced BphysDelayed stream from period D
+Taus (+ electron, muon, MET)
+Trigger
+Group
+Single tau di-tau tau+electron tau+muon tau+MET (+X)
+period
+A
+HLT_tau80_medium1_tracktwo_L1TAU60 HLT_tau35_loose1_tracktwo_tau25_loose1_tracktwo (with
+J25)
+HLT_e17_lhmedium_nod0_tau25_medium1_tracktwo HLT_mu14_tau25_medium1_tracktwo HLT_tau35_medium1_tracktwo_xe70_L1XE45
+HLT_tau35_medium1_tracktwo_L1TAU20_tau25_medium1_tracktwo_L1TAU12_xe50
+HLT_e17_lhmedium_tau25_medium1_tracktwo_xe50
+HLT_mu14_iloose_tau25_medium1_tracktwo_xe50
+period
+B-D3
+HLT_tau125_medium1_tracktwo HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo
+(with J25)
+HLT_e17_lhmedium_nod0_i(var)loose_tau25_medium1_tracktwo(J25)
+HLT_e17_lhmedium_nod0_tau80_medium1_tracktwo
+HLT_mu14_i(var)loose_tau25_medium1_tracktwo
+(with J25)
+HLT_mu14_i(var)loose_tau35_medium1_tracktwo
+HLT_tau35_medium1_tracktwo_xe70_L1XE45
+HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo_xe50
+HLT_e17_lhmedium_nod0_tau25_medium1_tracktwo_xe50
+ LowestUnprescaled < Atlas < TWiki
+ Electron + Muon 70
+
+=== PDF PAGE 74 ===
+HLT_mu14_tau25_medium1_tracktwo_xe50
+Trigger
+Group
+Single tau di-tau tau+electron tau+muon tau+MET (+X)
+period
+D4-
+HLT_tau160_medium1_tracktwo
+(tau125 almost unprescaled*)
+HLT_tau80_medium1_TAU60_tau50_medium1_L1TAU12
+HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo
+(TAU20IM _2TAU12IM_J25_2J20_3J12)
+HLT_e17_lhmedium_nod0_ivarloose_tau25_medium1_tracktwo (with
+J25)
+HLT_e17_lhmedium_nod0_tau80_medium1_tracktwo
+HLT_mu14_ivarloose_tau25_medium1_tracktwo
+(with J25)
+HLT_mu14_ivarloose_tau35_medium1_tracktwo
+HLT_tau35_medium1_tracktwo_xe70_L1XE45
+HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo_xe50
+HLT_e17_lhmedium_nod0_tau25_medium1_tracktwo_xe50
+HLT_mu14_tau25_medium1_tracktwo_xe50
+* run lumical with the correct triggers to get the right int lumi!
+Jets, MET, Jet+MET, HT
+Trigger
+Group
+Single jet Multi jets MET HT
+period
+A
+HLT_j340
+HLT_j360_a10r_L1J100
+HLT_j360_a10_lcw_L1J100
+HLT_j260_320eta490
+HLT_3j175
+HLT_4j85
+HLT_5j55
+HLT_6j45
+HLT_7j45
+HLT_10j40_L14J20
+HLT_xe90_mht_L1XE50
+(a)
+HLT_ht850_L1J75
+period
+B-C
+HLT_j380
+HLT_j400_a10r_L1J100
+HLT_j400_a10_lcw_L1J100
+HLT_j260_320eta490
+HLT_3j175
+HLT_4j100
+HLT_5j70_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45
+HLT_10j40_L14J20
+HLT_xe90_mht_L1XE50 HLT_ht1000_L1J100
+period
+D1-D3
+HLT_j380
+HLT_j400_a10r_L1J100
+HLT_j400_a10_lcw_L1J100
+HLT_j260_320eta490
+HLT_3j175
+HLT_4j100
+HLT_5j70_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45
+HLT_10j40_L14J20
+HLT_xe90_mht_L1XE50 HLT_ht1000_L1J100
+period
+D4-E3
+HLT_j380
+HLT_j400_a10_lcw_L1J100
+HLT_j400_a10r_L1J100
+HLT_j260_320eta490
+HLT_3j175
+HLT_4j100
+HLT_5j70_L14J15
+HLT_5j65_0eta240_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45_L14J15
+HLT_10j40_L14J15
+HLT_xe110_mht_L1XE50
+(*)
+HLT_ht1000_L1J100
+period
+F1
+HLT_j380
+HLT_j420_a10_lcw_L1J100
+HLT_j420_a10r_L1J100
+HLT_j260_320eta490
+HLT_3j200
+HLT_4j100
+HLT_5j70_L14J15
+HLT_5j65_0eta240_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45_L14J15
+HLT_10j40_L14J15
+HLT_xe110_mht_L1XE50
+(*)
+HLT_ht1000_L1J100
+period HLT_j380 HLT_3j200 HLT_xe110_mht_L1XE50 HLT_ht1000_L1J100
+ LowestUnprescaled < Atlas < TWiki
+ Taus (+ electron, muon, MET) 71
+
+=== PDF PAGE 75 ===
+F2- HLT_j420_a10_lcw_L1J100
+HLT_j420_a10r_L1J100
+HLT_j260_320eta490
+HLT_4j100
+HLT_5j70_L14J15
+HLT_5j65_0eta240_L14J15
+HLT_6j60
+HLT_6j45_0eta240
+HLT_7j45_L14J15
+HLT_10j40_L14J15
+Trigger
+Group
+Single jet Multi jets MET HT
+(a) Analyses using MET triggers should also check events that fire HLT_noalg_L1J400 to see if any of these
+events were not fired by the met trigger in the analysis phase-space.
+(*) HLT_xe100_mht_L1XE50 ran unprescaled during D4-F1 other than at the start of some high-luminosity
+runs.
+Bjet
+Trigger
+Group
+1 Bjet 2 Bjet Bjet
++
+mu
+Bjet + xe
+period
+A
+HLT_j175_bmv2c2040_split
+HLT_j65_bmv2c2070_split_3j65_L14J15
+HLT_j55_bmv2c2060_split_ht500_L14J15
+HLT_j150_bmv2c2077_split_j50_bmv2c2077_split
+HLT_2j35_bmv2c2070_split_2j35_L14J15
+HLT_2j65_bmv2c2070_split_j65
+HLT_2j55_bmv2c2070_split_ht300_L14J15
+HLT_j100_2j55_bmv2c2077_split
+HLT_j80_bmv2c2060_split_xe60_L12J50_XE40
+period
+B-D3
+HLT_j175_bmv2c2040_split
+HLT_j65_bmv2c2070_split_3j65_L14J15
+HLT_j55_bmv2c2060_split_ht500_L14J15
+HLT_j150_bmv2c2060_split_j50_bmv2c2060_split
+HLT_2j35_bmv2c2060_split_2j35_L14J15.0ETA25
+HLT_2j35_bmv2c2050_split_2j35_L14J15
+HLT_2j70_bmv2c2070_split_j70
+HLT_2j55_bmv2c2060_split_ht300_L14J15
+HLT_j100_2j55_bmv2c2060_split
+HLT_j80_bmv2c2060_split_xe60_L12J50_XE40
+period
+D4-
+HLT_j175_bmv2c2040_split
+HLT_j225_bmv2c2060_split
+HLT_j275_bmv2c2070_split
+HLT_j300_bmv2c2077_split
+HLT_j360_bmv2c2085_split
+HLT_j55_bmv2c2060_split_ht500_L14J15
+HLT_j75_bmv2c2070_split_3j75_L14J15.0ETA25
+HLT_2j35_bmv2c2060_split_2j35_L14J15.0ETA25
+HLT_2j45_bmv2c2077_split_3j45 (1)
+HLT_2j45_bmv2c2077_split_3j45_L14J15.0ETA25
+HLT_2j55_bmv2c2060_split_ht300_L14J15
+HLT_2j70_bmv2c2060_split_j70
+HLT_2j75_bmv2c2070_split_j75
+HLT_j100_2j55_bmv2c2060_split
+HLT_j150_bmv2c2060_split_j50_bmv2c2060_split
+HLT_j175_bmv2c2060_split_j50_bmv2c2050_split
+- Triggers listed from a period D4 were active for a whole year
+(1) Seeded from L15J15
+VBF/VH
+Trigger
+Group
+photon+VBF e/mu+VBF b+VBF
+period
+A
+HLT_g25_medium_L1EM22VHI_4j35_0eta490_invm700
+HLT_g75_tight_3j50noL1_L1EM22VHI
+HLT_e15_lhtight_iloose_3j20_L1EM13VH_3J20
+HLT_mu14_ivarloose_3j20_L1MU10_3J20
+HLT_g25_medium_L1EM22VHI_j35_0eta490_bmv2c2077_split_3j35_0eta490_invm700
+HLT_g25_medium_L1EM22VHI_2j35_0eta490_bmv2c2077_split_2j35_0eta490
+ LowestUnprescaled < Atlas < TWiki
+ Jets, MET, Jet+MET, HT 72
+
+=== PDF PAGE 76 ===
+HLT_mu6_ivarloose_2j40_0eta490_invm1000_L1MU6_J30.0ETA49_2J20.0ETA49
+Trigger
+Group
+photon+VBF e/mu+VBF b+VBF
+period
+B￾HLT_g25_medium_L1EM22VHI_4j35_0eta490_invm700
+HLT_g75_tight_3j50noL1_L1EM22VHI
+HLT_e15_lhtight_iloose_3j20_L1EM13VH_3J20
+HLT_mu14_ivarloose_3j20_L1MU10_3J20
+HLT_mu6_ivarloose_2j40_0eta490_invm1000_L1MU6_J30.0ETA49_2J20.0ETA49
+(prescaled until alternative is found)
+HLT_g25_medium_L1EM22VHI_j35_0eta490_bmv2c2077_split_3j35_0eta490_invm700
+HLT_g25_medium_L1EM22VHI_2j35_0eta490_bmv2c2077_split_2j35_0eta490
+Special physics triggers
+Trigger
+Group
+LLP cal-ratio LLP muvtx razor LFV other
+period
+A
+HLT_j30_jes_PS_llp_L1TAU60
+HLT_j30_jes_PS_llp_noiso_L1TAU60
+HLT_j30_muvtx
+HLT_j30_muvtx_noiso
+HLT_j30_xe10_razor170HLT_g10_loose_L1EM8I_mu10_iloose_taumass HLT_g35_medium_tau25_dikaonmass_tracktwo_L1TAU12
+HLT_g35_medium_tau25_singlepion_tracktwo_L1TAU12
+period
+B￾HLT_j30_jes_PS_llp_L1TAU60
+HLT_j30_jes_PS_llp_noiso_L1TAU60
+HLT_j30_muvtx
+HLT_j30_muvtx_noiso
+HLT_j30_xe10_razor185HLT_g10_loose_L1EM8I_mu10_iloose_taumass HLT_g35_medium_tau25_dikaonmass_tracktwo_L1TAU12
+HLT_g35_medium_tau25_singlepion_tracktwo_L1TAU12
+* Introduced ExoDelayed stream for dijet TLA chains from period D
+Triggers in 2015
+Introduction
+Shown in bold are the triggers that are in the baseline menu and supposed not to be pre-scaled
+throughout 2015.
+• 
+Data Periods
+Some useful COMA ConditionsMetadata links for data15_13TeV are:
+• COMA Periods of data15_13TeV
+• COMA Period Runs in data15_13TeV
+• COMA Period Triggers in data15_13TeV
+• COMA Period Streams in data15_13TeV
+Some important additional Period-specific notes:
+• period C1 (toroid off) - high lumi baseline menu used, to allow lots of rate for muon calibration.
+• period C2 (toroid on) - lumi ~ 3E32 (110 coll. bunches , runs 270949, 270953, 271048)
+• period C3 (toroid on) - lumi ~ 7E32 (254 coll. bunches, runs 271298, 271421)
+• period C4 (toroid on) - lumi ~ 1.5E33 (414 coll. bunches, runs 271516, 271595)
+period D1,D2 toroid off - high lumi menu (3E33) used, focus on muon calibration - lumi 1.5-2 E32 ,
+~74 coll. bunches, run 276161, 276176, 276181, 276183 - lumi ~ 3.6-4.6 E32 , 146 coll. bunches,
+runs 276189, 276212, 276245
+• 
+period D3 toroid on - lumi ~ 4.6E32, 146 coll bunches, run 276262 , lumi ~ 5-6E32, 206 coll
+bunches, run 276329 ,276330, 276336
+• 
+• period D4 toroid on - lumi ~ 7-8E32, 302 coll bunches, run 276416, 276511, 276689
+• period D5 toroid on - lumi ~ 1E33, 254 coll bunches, run 276731
+• period D6 toroid on - lumi ~ 9E32-1E33, 447 coll bunches, run 276778, 276790, 276952
+• period E - lumi up to ~ 3E33 (1176 bunches)
+• period F - lumi up to ~ 3.2E33
+• period G - lumi up to ~ 3.8E33
+ LowestUnprescaled < Atlas < TWiki
+ VBF/VH 73
+
+=== PDF PAGE 77 ===
+• period H - lumi up to ~ 4.6E33
+• period I - lumi up to ~ 1E31 (ALFA)
+• period J - lumi up to ~ 4.5E33
+Note: Due to Pixel/IBL restrictions, L1 output rate is severely limited in period C +D. Therefore a higher
+luminosity point menu wrt the actual peak lumi of a run must be used, to control the rate.
+Rulebook tags
+We started to tag the rulebook package in order to be able to trace chain rules when a new AtlasP1HLT cache
+is deployed and used online. Please, find below the tags corresponding to different releases and periods
+together with the corresponding JIRAs.
+• Tag for AtlasP1HLT, 20.2.1.5 (period C1): TrigMenuRulebook-00-01-42 ATR-9923
+Tag for AtlasP1HLT, 20.2.1.5 (period C2-C4): TrigMenuRulebook-00-01-43 to
+TrigMenuRulebook-00-01-58 ATR-11652
+• 
+Tag for AtlasP1HLT, 20.2.1.7 (period D1-D5) ATR-11983 , rules ATR-11756 ,
+TrigMenuRulebook-00-01-74 to TrigMenuRulebook-00-01-91
+• 
+Tag for AtlasP1HLT, 20.2.1.8 (period D6) ATR-12068 , rules ATR-11756 ,
+TrigMenuRulebook-00-01-98
+• 
+Tag for AtlasP1HLT, 20.2.1.8-20.2.3.2 (period E) ATR-12068 ATR-12193 ATR-12250 ,
+TrigMenuRulebook-00-02-06 to TrigMenuRulebook-00-02-23
+• 
+Tag for AtlasP1HLT, 20.2.3.2 - 20.2.3.3 (period F) ATR-12250 ATR-12383 ,
+TrigMenuRulebook-00-02-23 to TrigMenuRulebook-00-02-31
+• 
+Tag for AtlasP1HLT, 20.2.3.3 - 20.2.3.4 (period G) ATR-12383 ATR-12439 ,
+TrigMenuRulebook-00-02-31 to TrigMenuRulebook-00-02-36
+• 
+Tag for AtlasP1HLT, 20.2.3.4 - 20.2.3.5 (period H) ATR-12439 ATR-12489 ,
+TrigMenuRulebook-00-02-36 to TrigMenuRulebook-00-02-38
+• 
+Tag for AtlasP1HLT, 20.2.3.5 - 20.2.3.6 (period I) ATR-12489 ATR-12549 , Keys were mostly
+tuned by hand based on observed rates during the 90m runs TrigMenuRulebook-00-02-42 to
+TrigMenuRulebook-00-02-30
+• 
+Tag for AtlasP1HLT, 20.2.3.6 - 20.2.3.7 (period J) ATR-12549 , TrigMenuRulebook-00-02-51 to
+TrigMenuRulebook-00-02-64
+• 
+Egamma (+MET)
+Trigger Group Single electron Multi electron Single photon Multi photon egamma egamma+MET
+period
+C2-C4,D3-D6,
+E, F, G, H, J
+HLT_e24_lhmedium_L1EM20VH()
+HLT_e60_lhmedium
+HLT_e120_lhloose
+HLT_2e12_lhvloose_L12EM10VH
+HLT_e17_lhloose_2e9_lhloose
+HLT_g120_loose
+HLT_g200_etcut
+HLT_g35_loose_L1EM15_g25_loose_L1EM15(*)
+HLT_g35_loose_g25_loose
+HLT_2g20_tight
+HLT_3g15_loose
+HLT_e24_lhmedium_L1EM15VH_g25_medium
+HLT_e20_lhmedium_g35_loose
+HLT_e20_lhmedium_2g10_loose
+HLT_g40_tight_xe40noL1
+HLT_e60_lhloose_xe60noL1
+Note:
+- In period C several variants for electron triggers (nod0/nodphires/nodeta, loose/vloose/lhloose, etc...) are
+also present in the menu and unprescaled. Scale factors / efficiency only provided for nominal LH trigger.
+- (*) The lowest unprescaled single electron is e24_lhmedium_L1EM20VH. The previous candidate
+HLT_e24_lhmedium_L1EM18VH is replaced by HLT_e24_lhmedium_iloose_L1EM18VH in period C3-C4.
+In period E, sometimes the lumi key for 4.5E33 is used at the start of runs, which means effectively the first
+ LowestUnprescaled < Atlas < TWiki
+ Data Periods 74
+
+=== PDF PAGE 78 ===
+5-10' of run have L1_EM18VH prescaled, and the unprescaled L1 item is L1_EM20VH.
+- (**) For 2photon item, in period E sometimes lumi key for 4.5E33 is used at start, which means effectively
+first 5-10' of run have L1_2EM15 prescaled. HLT_g35_loose_g25_loose seeded by L1_2EM15VH remained
+unprescaled during the run.
+Muon
+Trigger Group Single muon Multi muon
+period C2-C4, D3-D6, E, F, G, H, J HLT_mu20_iloose_L1MU15
+HLT_mu40
+HLT_mu60_0eta105_msonly
+HLT_2mu10
+HLT_3mu6
+HLT_3mu6_msonly
+HLT_mu18_2mu4noL1
+HLT_mu18_mu8noL1
+Electron + Muon
+Trigger Group e+mu multi-leptons
+period C2-C4, D3-D6 HLT_e17_lhloose_mu14
+HLT_e7_lhmedium_mu24
+HLT_2e12_lhloose_mu10
+HLT_e12_lhloose_2mu10
+Muon + Photon
+Trigger Group muon+multi-photon multi-muon+photon
+period C2-C4, D3-D6 HLT_g25_medium_mu24
+HLT_2g10_loose_mu20
+HLT_g15_loose_2mu10_msonly
+Bphysics
+Trigger
+Group
+Bmumu Jpsimumu Upsimumu Bmumux bJpsi/bTau/bUpsi
+period
+C2-C4,
+D3-D6
+HLT_2mu4_bBmumu HLT_2mu4_bJpsimumu
+HLT_mu18_2mu0noL1_JpsimumuFS(*)
+HLT_2mu4_bUpsimumu HLT_2mu4_bBmumux_BcmumuDsloose
+HLT_2mu4_bBmumux_BpmumuKp
+HLT_2mu4_bBmumuxv2
+HLT_3mu4_bJpsi
+HLT_3mu4_bTau
+HLT_3mu4_bUpsi
+Note:
+- (*) HLT_mu18_2mu0noL1_JpsimumuFS is originally designed for J/Psi T&P.
+- 2MU4 prescaled out for a few lumi blocks at start of run 276952, and some other runs in period D (eg run
+276511). it is off in run 276689.
+- 2MU4 prescaled to 1kHz for lumis higher than 4E33. MU6_2MU4, is next threshold.
+Taus (+ electron, muon, MET)
+Trigger
+Group
+Single tau di-tau tau+electron tau+muon tau+MET (+X)
+period
+C2-C4,
+HLT_tau80_medium1_tracktwo (TAU40) HLT_tau35_loose1_tracktwo_tau25_loose1_tracktwo_L1TAU20IM_2TAU12IM (*) HLT_e17_lhmedium(_nod0)_tau25_medium1_tracktwo
+(w/ L1_J25)
+HLT_mu14_tau25_medium1_tracktwo
+(w/ L1_J25)
+HLT_e17_lhmedium(_nod0)_tau25_medium1_tracktwo_xe50
+HLT_mu14_tau25_medium1_tracktwo_xe50
+ LowestUnprescaled < Atlas < TWiki
+ Egamma (+MET) 75
+
+=== PDF PAGE 79 ===
+D3-D6 HLT_e17_lhmedium(_nod0)_tau80_medium1_tracktwo HLT_mu14_tau35_medium1_tracktwo
+(w/o L1 Jets)
+HLT_tau35_medium1_tracktwo_L1TAU20_tau25_medium1_tracktwo_L1TAU12_xe50
+HLT_tau35_medium1_tracktwo_L1TAU20_xe70_L1XE45 (w/ J20)
+Trigger
+Group
+Single tau di-tau tau+electron tau+muon tau+MET (+X)
+Full
+Year
+HLT_tau80_medium1_tracktwo_L1TAU60 HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo_L1TAU20IM_2TAU12IM HLT_e17_lhmedium(_nod0)_tau25_medium1_tracktwo
+(w/ L1_J25)
+HLT_e17_lhmedium(_nod0)_tau80_medium1_tracktwo
+HLT_mu14_tau25_medium1_tracktwo
+(w/ L1_J25)
+HLT_mu14_tau35_medium1_tracktwo
+(w/o L1 Jets)
+HLT_e17_lhmedium(_nod0)_tau25_medium1_tracktwo_xe50
+HLT_mu14_tau25_medium1_tracktwo_xe50
+HLT_tau35_medium1_tracktwo_L1TAU20_tau25_medium1_tracktwo_L1TAU12_xe50
+HLT_tau35_medium1_tracktwo_xe70_L1XE45 (w/ J20)
+Note:
+- (*) HLT_tau35_loose1_tracktwo_tau25_loose1_tracktwo_L1TAU20IM_2TAU12IM gets PS-1 in run
+271595 (lumi start > 1.5E33), lowest unprescaled is
+HLT_tau35_medium1_tracktwo_tau25_medium1_tracktwo_L1TAU20IM_2TAU12IM or
+HLT_tau35_loose1_tracktwo_tau25_loose1_tracktwo (starts with jets at L1). This happens in several runs in
+period D3-D6, at least at start.
+Jets, MET, Jet+MET, HT
+Trigger
+Group
+Single jet Multi jets MET jet+MET Sum
+Et
+HT
+period
+C2-C4,
+D3-D6,
+E, F, G,
+H, J
+HLT_j260_320eta490
+HLT_j360
+HLT_j360_a10_lcw_sub_L1J100
+(****)
+HLT_j360_a10r_L1J100
+(***)(****)
+HLT_j360_a10_sub_L1J100
+(****)
+HLT_3j175
+HLT_4j85
+HLT_5j60
+HLT_6j45
+HLT_xe70_mht
+(**)
+HLT_j80_xe80 HLT_ht850_L1J75
+(*)
+Note:
+(*) HLT_ht850_L1J100 is the lowest unprescaled for the whole run, in run 271595 (L>1.5E33) and run
+276689; collecting roughly 2% more integrated luminosity.
+(**) HLT_xe70_tc_lcw and HLT_xe70 were also unprescaled. Unprescaled variants of these triggers also
+exist with muon corrections, which may be preferable in certain contexts.
+(***) HLT_j360_a10r_L1J100 had a bug in 2015, and is not recommended for usage
+(****) Large-R jet primaries HLT_j360_a10_lcw_sub_L1J100, HLT_j360_a10r_L1J100 and
+HLT_j360_a10_sub_L1J100 have been removed from MC after a menu slimming. See a full list of removed
+chains in ATR-16556 .
+Analyses using MET triggers should also check events that fire HLT_noalg_L1J400 to see if any of these
+events were not fired by the met trigger in the analysis phase-space.
+Bjet
+Trigger
+Group
+1 Bjet 2 Bjet Bjet + mu
+full
+year
+HLT_j225_bloose
+HLT_j65_btight_3j65_L13J25.0ETA23
+HLT_j70_bmedium_3j70_L13J25.0ETA23
+HLT_2j35_btight_2j35_L13J25.0ETA23
+HLT_2j45_bmedium_2j45_L13J25.0ETA23
+HLT_j100_2j55_bmedium
+HLT_j150_bmedium_j50_bmedium
+HLT_mu4_j40_dr05_3j40_L14J20
+HLT_mu4_4j40_dr05_L1MU4_3J15
+HLT_mu4_3j45_dr05_L1MU4_3J15
+various mu+jet+dr05 (w or w/o bperf)
+ LowestUnprescaled < Atlas < TWiki
+ Taus (+ electron, muon, MET) 76
+
+=== PDF PAGE 80 ===
+HLT_2j65_btight_j65
+HLT_2j70_bmedium_j70
+(*)
+Trigger
+Group
+1 Bjet 2 Bjet Bjet + mu
+period
+C2-C4,
+D3-D6
+HLT_j175_bmedium
+plus above
+see above see above
+Note:
+(*) In period C several variants for mu+Njet+dr05 triggers (starting with L1 Jets only, or L1 muon + jets) are
+present in the menu and unprescaled. Consult with b-jet convenors, or check SMK for a run, to see which one
+best suites your purpose. mu+Njet+dr05 were fully functional only in period C4.
+(*) in period D the mu+jet+dr (w oe w/o bperf) are fixed and better.
+VBF
+Trigger
+Group
+photon+VBF mu+VBF b+VBF
+period
+C2-C4,
+D3-D6
+HLT_g20_loose_L1EM18VH_2j40_0eta490_3j25_0eta490_invm700 HLT_mu6_2j40_0eta490_invm400_L1MU6_J30.0ETA49_2J20.0ETA49
+()
+HLT_2j55_bloose_L14J20.0ETA49
+()
+Note:
+(*) lowest unprescaled in run 271595 (L>1.5E33) and 276689 is
+HLT_mu6_2j40_0eta490_invm600_L1MU6_J30.0ETA49_2J20.0ETA49. lowest unprescaled in run 271595
+(L>1.5E33) is HLT_2j55_bmedium_2j55
+Special physics triggers
+Trigger
+Group
+LLP cal-ratio LLP muvtx mono pole tau 3mu, lepton-jet razor
+period
+C2-C4,
+D3-D6
+HLT_j30_jes_PS_llp_L1TAU30
+(*)
+HLT_j30_muvtx_noiso g0_hiptrt_L1EM18VH HLT_mu11_2mu4noL1_nscan03_L1MU10_2MU6
+(x)
+HLT_mu20_mu6noL1_nscan03 (x)
+HLT_mu20_msonly_mu6noL1_msonly_nscan05
+HLT_j30_xe10_razor170
+Note:
+(*) HLT_j30_jes_PS_llp_L1TAU30, TAU40 get PS=-1 from run 271595 due to CPU constraints. Continues
+in D3-D6. Lowest unprescaled is HLT_j30_jes_PS_llp_L1TAU60
+(x) l2msonly version of these gets PS=-1 from run 271595 due to CPU constraints. Stays off in period D.
+Triggers in Run-1 (2012,2011,2010)
+• Lowest un-prescaled triggers in 2012
+• Lowest un-prescaled triggers in 2011
+• Lowest un-prescaled triggers in 2010
+ LowestUnprescaled < Atlas < TWiki
+ Bjet 77
+
+=== PDF PAGE 81 ===
+ Major updates:
+-- ArantxaRuizMartinez - 3-May-2018 -- ImmaRiu - 1-May-2012 -- OlyaIgonkina - 15-Sep-2011 --
+AnnaSfyrla - 27-Sep-2010
+ Responsible: ArantxaRuizMartinez, JavierMontejo
+ Last reviewed by: Never reviewed
+Menu1E33-1.2E34-Final2016.pdf: Tables containing lowest unprescaled combined and special
+triggers (pages 8-10)
+• 
+This topic: Atlas > LowestUnprescaled
+Topic revision: r341 - 2026-07-23 - StanLai
+Copyright &© 2008-2026 by the contributing authors. All material on this
+collaboration platform is the property of the contributing authors.
+or Ideas, requests, problems regarding TWiki? use Discourse or Send feedback
+ var _paq = window._paq = window._paq || []; /* tracker methods like "setCustomDimension" should be
+called before "trackPageView" */ _paq.push(['trackPageView']); _paq.push(['enableLinkTracking']);
+(function() { var u="https://webanalytics.web.cern.ch/"; _paq.push(['setTrackerUrl', u+'matomo.php']);
+_paq.push(['setSiteId', '5']); var d=document, g=d.createElement('script'),
+s=d.getElementsByTagName('script')[0]; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+})();
+ LowestUnprescaled < Atlas < TWiki
+ Triggers in Run-1 (2012,2011,2010) 78

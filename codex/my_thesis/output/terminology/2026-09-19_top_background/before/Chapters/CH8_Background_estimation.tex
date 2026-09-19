@@ -1,0 +1,350 @@
+\chapter{Background Estimation}
+\label{chapter:background_estimation}
+
+As discussed in the Chapter~\ref{CH7}, $\wjets$ and the top background is the dominant and the subdominant background in this analysis. Since they are all irreducible background, meaning that the \tau lepton are real, the simulation modeling for the background is reliable to some extend. Therefore the background prediction is obtained from the simulation samples, with the $\wjets$ and top background contributions normalised to data in control regions (CRs).
+This chapter describes these constraints, the treatment of the small fake-$\tau$ contribution, and the validation of the prediction in regions outside the SRs.
+The object definitions and SR selections follow Chapters~\ref{chapter:object_reconstruction} and~\ref{chapter:event_selection}.
+
+\section{Strategy overview}
+\label{sec:ch8_strategy}
+
+The CRs provide data samples enriched in the backgrounds to be normalised, with little signal contamination.
+Four CRs are used: $\CRW$-$\Res$ and $\CRW$-$\NonRes$ constrain $\wjets$, while $\CRTop$-$\Res$ and $\CRTop$-$\NonRes$ constrain top-quark production.
+The total event count in each CR is used in a simultaneous fit.
+The fitted normalisation factors, $\lambda_W^{\Res}$, $\lambda_W^{\NonRes}$, $\lambda_t^{\Res}$ and $\lambda_t^{\NonRes}$, multiply the corresponding simulated yields in the CRs, SRs and validation regions (VRs).
+The same top-quark factor is applied to $\ttbar$ and single-top production within each topology.
+Separate factors for the resonant and non-resonant categories allow the normalisation to differ between the high- and low-jet-$\pT$ selections.
+
+The extrapolation from a CR to an SR is supplied by simulation: the fit fixes the background rate in the CR, while the simulated ratio of SR to CR yields determines the rate transferred to the SR.
+The $\wjets$ extrapolation therefore depends on the description of the lepton flavour and jet flavour, and the top-quark extrapolation also depends on the acceptance of the additional lepton and the relaxed CR requirements.
+The relevant uncertainties are described in Chapter~\ref{chapter:systematics_uncertainties}.
+Diboson and $\zjets$ production, together with the other small contributions, retain their simulated nominal yields and are allowed to vary within their assigned uncertainties in the fit.
+The fitted uncertainty parameters are propagated to the SRs and VRs together with the normalisation factors.
+The multijet suppression is already described in Section~\ref{subsec:ch7_multijet} and Appendix~\ref{App:QCD_bkg_study}.
+
+The VRs test these extrapolations without contributing event counts to the background-only fit.
+Their object multiplicities are summarised in Table~\ref{tab:ch8_region_roles}.
+In particular, $\VRb$ tests the change from a $b$-jet veto to one tagged jet, and $\VRTop$ tests the prediction for a hadronic $\tau$ with no selected light lepton.
+The zero-$b$-jet regions containing a $\tau$ are the $\bVetoSR$ regions defined in Section~\ref{sec:ch7_sr0b}.
+The likelihood construction and the final fitted normalisation factors are reserved for Chapter~\ref{chapter:results}.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Roles and object multiplicities of the CRs and nominal VRs. Each row represents separate resonant and non-resonant regions. The supplementary $1\tau0\ell1b$ regions are defined in Section~\ref{subsec:ch8_tau1b_vr}.}
+    \label{tab:ch8_region_roles}
+    \begin{tabular}{lcccl}
+        \toprule
+        Region & $N_\tau$ & $N_\ell$ & $N_b$ & Purpose \\
+        \midrule
+        $\CRW$ & 0 & 1 & 0 & Constrain $\wjets$ normalisation \\
+        $\CRTop$ & 1 & 1 & $\geq1$ & Constrain top-quark normalisation \\
+        $\VRb$ & 0 & 1 & 1 & Test the $0b\to1b$ extrapolation \\
+        $\VRTop$ & 1 & 0 & 2 & Test the top prediction without a light lepton \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section[W+jets estimation]{$\wjets$ estimation}
+\label{sec:ch8_wjets}
+
+\subsection{Control-region definition}
+\label{subsec:ch8_wcr_definition}
+
+The $\CRW$ regions select $\wlnu$ events by replacing the $\tau$ in the corresponding $\bVetoSR$ selection with an electron or muon.
+The $b$-jet veto suppresses top-quark production and provides a larger $\wjets$ sample than a tagged selection.
+Exactly one signal electron or muon and no selected $\tau$ are required.
+The signal-lepton requirements are those in Chapter~\ref{chapter:object_reconstruction}.
+Single-lepton triggers are used, as listed in Section~\ref{sec:analysis_triggers}.
+This choice avoids the different response of the calorimeter-based $\met$ trigger to electrons and muons, since the trigger-level missing momentum does not include the muon momentum.
+
+The lepton replaces the $\tau$ in the transverse mass and angular separation, giving $\mT^\ell$ and $\DphiLepMet$ through the definitions in Section~\ref{subsec:ch7_variables}.
+The leading jet is used for the resonant/non-resonant categorisation and the invariant mass $m_{j\ell}$.
+Table~\ref{tab:ch8_wcr_vrw} gives the selections together with those of $\VRb$.
+The kinematic correspondence to the SRs restricts the extrapolation to similar hard-scattering configurations.
+The neutrino from a hadronic $\tau$ decay changes both the visible $\tau$ momentum and $\mpt$, so the lepton replacement does not imply identical reconstructed distributions.
+These differences are retained in the simulated acceptance ratio.
+The extrapolation is checked in the lower-mass $\wtaunu$ sample described in Section~\ref{subsec:ch8_tau1b_vr}.
+Both CRs have a $\wjets$ purity of approximately $70\%$.
+Diboson production is the largest secondary contribution in $\CRW$-$\Res$.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Selections for $\CRW$ and $\VRb$. Both require $N_\tau=0$, $N_\ell=1$ and a single-lepton trigger. The common event-quality and multijet requirements are retained. The selected jet is the leading jet in $\CRW$ and the tagged jet in $\VRb$. Its momentum is denoted by $\pT^J$.}
+    \label{tab:ch8_wcr_vrw}
+    \begin{tabular}{lcc}
+        \toprule
+        Requirement & Resonant & Non-resonant \\
+        \midrule
+        $N_b$ & \multicolumn{2}{c}{0 in $\CRW$, 1 in $\VRb$} \\
+        $\pT^\ell$ [$\GeV$] & \multicolumn{2}{c}{$>200$} \\
+        $\pT^J$ [$\GeV$] & $>250$ & $50<\pT^J<250$ \\
+        $\met$ [$\GeV$] & $>200$ & $>400$ \\
+        $\mT^\ell$ [$\GeV$] & $>200$ & $>600$ \\
+        $\DphiLepMet$ & No requirement & $>1.2$ \\
+        $m_{j\ell}$ or $m_{b\ell}$ [$\GeV$] & $>800$ & No requirement \\
+        $N_j$ & $\leq4$ & $\leq2$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Pre-fit comparisons}
+\label{subsec:ch8_wcr_prefit}
+
+The pre-fit comparisons in Figures~\ref{fig:ch8_wcr_res} and~\ref{fig:ch8_wcr_nonres} test the simulated distributions before the CR normalisation is fitted.
+The $N-1$ convention is the one introduced in Section~\ref{sec:ch7_sr1b}.
+The electron and muon channels are shown separately to test their consistency before combining them.
+The plotted bands and the uncertainties in Table~\ref{tab:ch8_cr_prefit} are statistical only.
+No clear trend in the data-to-prediction ratio is observed across the displayed kinematic distributions, although their overall normalisations differ.
+The raw data-to-total-MC ratios are diagnostic quantities: they are not the fitted $\wjets$ normalisation factors, since the CRs also contain other backgrounds.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Observed counts and data/total-MC ratios in the CRs before fitting. The uncertainties are statistical.}
+    \label{tab:ch8_cr_prefit}
+    \begin{tabular}{lrrrr}
+        \toprule
+         & \multicolumn{2}{c}{Electron channel} & \multicolumn{2}{c}{Muon channel} \\
+        Region & Data & Data/MC & Data & Data/MC \\
+        \midrule
+        $\CRW$-$\Res$ & 243 & $1.25\pm0.09$ & 219 & $1.08\pm0.08$ \\
+        $\CRW$-$\NonRes$ & 474 & $1.00\pm0.09$ & 398 & $0.80\pm0.08$ \\
+        $\CRTop$-$\Res$ & 30 & $0.73\pm0.13$ & 33 & $0.86\pm0.15$ \\
+        $\CRTop$-$\NonRes$ & 240 & $0.81\pm0.05$ & 228 & $0.83\pm0.06$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\input{Chapters/background_estimation/figures_wcr}
+\clearpage
+\subsection{Electron--muon consistency}
+\label{subsec:ch8_emu}
+
+The electron and muon channels give pre-fit data/MC ratios differing by $1.4\sigma$ in $\CRW$-$\Res$ and $1.7\sigma$ in $\CRW$-$\NonRes$.
+The non-resonant difference is investigated through the corrections applied to simulation, the selection cutflow and the leading-jet $\pT$ distribution.
+The lepton-dependent efficiency corrections, including the trigger scale factors, are checked separately in the two channels, with no incorrect application identified.
+The difference becomes visible after imposing $50<\pT^{j_1}<250~\GeV$.
+
+Figure~\ref{fig:ch8_emu_comparison} compares the electron and muon distributions separately in data and simulation.
+The electron data have an upward fluctuation around $\pT^{j_1}=80$--$100~\GeV$.
+The simulated event-weight distributions reveal a second effect: a small number of events carry weights of order 30.
+Most occur below $50~\GeV$, but one such event enters the selected muon sample above this threshold, with no corresponding event in the electron sample.
+A single simulated event can therefore increase the predicted muon yield by several tens of weighted events and lower its data/MC ratio.
+
+These observations are consistent with statistical fluctuations in the electron data and the weighted muon simulation.
+They do not establish a lepton-dependent correction to the $\wjets$ rate.
+The two channels are therefore combined within each CR, and one $\wjets$ normalisation factor is used for each topology.
+The extrapolation of this combined constraint is checked in the VRs described in Section~\ref{sec:ch8_validation}.
+
+\input{Chapters/background_estimation/figures_emu}
+\clearpage
+\section[Top-quark estimation]{Top-quark estimation}
+\label{sec:ch8_top}
+
+The $\ttbar$ and single-top backgrounds are constrained in the $\CRTop$ regions, which require one $\tau$ and an additional electron or muon.
+The relevant decays include $\ttbar\to b\tau\nu\,\bar b\ell\nu$ and $Wt\to b\tau\nu\,\ell\nu$.
+The additional lepton selects the second leptonic $W$ decay and separates these regions from the lepton-vetoed SRs.
+Requiring at least one tagged $b$ jet further suppresses $\wjets$ production.
+Inclusive $\ttbar$ and single-top samples are used.
+Within the $\ttbar$ and $Wt$ samples, the large-$\met$ selection favours decays in which both $W$ bosons decay leptonically.
+The top-quark purity is approximately $90\%$ after the full CR selections.
+
+The relaxed thresholds in Table~\ref{tab:ch8_top_regions} increase the CR yields.
+Single-lepton triggers permit the lower $\met>100~\GeV$ threshold.
+If more than one $b$ jet is selected, the highest-$\pT$ tagged jet defines the topology and the jet--$\tau$ observables.
+The resonant $m_{b\tau}$ requirement is removed.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Selections for $\CRTop$ and $\VRTop$. All regions require $N_\tau=1$. Single-lepton triggers are used in $\CRTop$ and $\met$ triggers in $\VRTop$. The highest-$\pT$ tagged jet is used when $N_b>1$. Common event-quality and multijet requirements are retained.}
+    \label{tab:ch8_top_regions}
+    \begin{tabular}{lcccc}
+        \toprule
+         & \multicolumn{2}{c}{$\CRTop$} & \multicolumn{2}{c}{$\VRTop$} \\
+        Requirement & Res & NonRes & Res & NonRes \\
+        \midrule
+        $N_\ell$ & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{0} \\
+        $N_b$ & \multicolumn{2}{c}{$\geq1$} & \multicolumn{2}{c}{2} \\
+        $\pT^\ell$ [$\GeV$] & \multicolumn{2}{c}{$>28$} & \multicolumn{2}{c}{---} \\
+        $\pT^\tau$ [$\GeV$] & \multicolumn{4}{c}{$>100$} \\
+        $\pT^b$ [$\GeV$] & $>250$ & $(50,250)$ & $>250$ & $(50,250)$ \\
+        $\met$ [$\GeV$] & $>100$ & $>100$ & $>200$ & $>200$ \\
+        $\mT$ [$\GeV$] & $>100$ & $>100$ & $>100$ & $>200$ \\
+        $m_{b\tau}$ [$\GeV$] & --- & --- & $>400$ & --- \\
+        $\DphiTauMet$ & --- & $>1.2$ & --- & $>1.2$ \\
+        $N_j$ & $\leq4$ & $\leq2$ & $\leq4$ & $\leq2$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The pre-fit distributions in Figures~\ref{fig:ch8_topcr_res} and~\ref{fig:ch8_topcr_nonres} show comparable behaviour in the electron and muon channels.
+The data/MC ratios in Table~\ref{tab:ch8_cr_prefit} are near 0.8, with no clear dependence on $\mT$ or $\met$ resolved within the statistical precision.
+The combined top-quark yield is constrained by the fit, while the relative $\ttbar$ and single-top contributions are predicted separately in each region.
+Their ratio is consistent between the SRs and CRs within MC statistical uncertainties.
+The process-dependent modelling uncertainties are retained, as described in Chapter~\ref{chapter:systematics_uncertainties}.
+
+\input{Chapters/background_estimation/figures_topcr}
+\clearpage
+\section[Fake-tau estimation]{Fake-$\tau$ estimation}
+\label{sec:ch8_fake}
+
+The fake-$\tau$ contribution is small because the selected SM background is dominated by events containing a genuine hadronically decaying $\tau$.
+As discussed in Section~\ref{sec:ch7_sr1b}, its principal source at large $\met$ is $\znunu$+jets, where a jet passes the $\tau$ identification.
+This contribution is at most about $10\%$ of the background in the SRs considered in the fake-rate study and is much smaller in the one-$b$-jet SRs.
+The nominal yield is taken from simulation, and a dedicated $\zll$ study determines an uncertainty for the modelling of jets misidentified as $\tau$ candidates.
+
+\subsection[Validation with Z dilepton events]{Validation with $\zll$ events}
+\label{subsec:ch8_zvr}
+
+The $Z$ validation region (ZVR) selects a visible $Z$ decay together with a $\tau$ candidate to test the simulated fake rate in a sample enriched in $\zjets$.
+Two signal electrons or two signal muons are required, with $75<m_{\ell\ell}<105~\GeV$, together with exactly one $\tau$ candidate and a $b$-jet veto.
+Events are required to satisfy $1\leq N_j\leq3$ and $\pT^\tau>100~\GeV$.
+Both lepton channels are used to increase the statistical precision.
+In the muon channel, events are selected using the $\met$ trigger, whereas a single-electron trigger is used in the electron channel.
+
+The quantity $|\vec p_{\mathrm{T}}^{\,\ell\ell}+\mpt|$ is required to exceed $200~\GeV$.
+Adding the reconstructed dilepton momentum to $\mpt$ treats the visible leptons as unobserved and provides a recoil quantity analogous to the missing momentum in $\znunu$ events.
+An additional $\pT^{\ell\ell}>130~\GeV$ requirement suppresses top-quark contamination.
+A transverse-mass threshold of $100~\GeV$ is also applied in this study.
+The common multijet requirement is retained.
+
+A total of 116 data events pass the ZVR selection, and the simulated $\zjets$ purity is approximately $90\%$.
+Figure~\ref{fig:ch8_zvr_pt} shows the $\pT^\tau$ distribution with its threshold removed.
+The simulation overestimates the yield at high $\pT^\tau$.
+Differences of up to $60\%$ are observed in the overall yields in the validation comparisons.
+This comparison alone is sensitive to both the fake rate and the production kinematics of $\zjets$.
+The RNN-score distributions in Figure~\ref{fig:ch8_zvr_rnn} provide a further check using looser $\tau$ identification and a relaxed transverse-mass requirement.
+They compare samples with $\pT^\tau>20~\GeV$ and $\pT^\tau>100~\GeV$.
+The better agreement at low RNN scores indicates that the discrepancy is mainly connected to the probability for a jet to pass the $\tau$ identification.
+
+The small SR contribution and the precision of this check do not motivate a differential correction of the simulated fake rate.
+The nominal MC prediction for $\znunu$+jets is therefore retained with an additional $100\%$ normalisation uncertainty.
+This uncertainty covers the discrepancy observed in the ZVR.
+Changing the assigned uncertainty from $50\%$ to $100\%$ gives no appreciable change in the tested final results because this background is small.
+This additional uncertainty describes the fake-$\tau$ modelling in this component and is separate from the uncertainties in genuine-$\tau$ reconstruction and identification.
+No independent fake-factor prediction is used for the SR yield.
+
+\input{Chapters/background_estimation/figures_fake}
+\clearpage
+\section{Validation regions}
+\label{sec:ch8_validation}
+
+The VRs test the prediction in selections that isolate the main changes between the CRs and SRs.
+The nominal $\VRb$ and $\VRTop$ definitions are given in Tables~\ref{tab:ch8_wcr_vrw} and~\ref{tab:ch8_top_regions}.
+Their pre-fit distributions are used to inspect the simulation before fitting, while their post-fit yields test the extrapolation of the CR constraints.
+
+\subsection[One b-jet validation with a light lepton]{One-$b$-jet validation with a light lepton}
+\label{subsec:ch8_vrw}
+
+The $\VRb$ regions retain the single-electron or single-muon final state of $\CRW$ and require exactly one tagged $b$ jet.
+The tagged jet replaces the leading untagged jet in the topology and invariant-mass selections.
+This change tests the prediction for the tagged sample, including the simulated heavy-flavour fraction of $\wjets$, before replacing the light lepton with a $\tau$ in the SR.
+The top-quark contribution increases under this selection and is predicted using the constraint from $\CRTop$.
+
+The flavour composition of vector-boson-plus-jets production depends on the kinematics and the simulation, as investigated in ATLAS modelling studies and measurements~\cite{PMGR-2021-01,STDM-2018-43,HIGG-2020-20}.
+A $30\%$ uncertainty is assigned to the ratio of $W$ production with heavy-flavour hadrons, containing $b$ or $c$ quarks, to production with light-flavour hadrons in the tagged regions.
+This uncertainty covers possible differences in the flavour composition when transferring the $b$-vetoed CR constraint to a tagged sample.
+It is treated as uncorrelated between the resonant and non-resonant categories because they select different jet-$\pT$ ranges.
+Its implementation and the remaining modelling uncertainties are described in Chapter~\ref{chapter:systematics_uncertainties}.
+
+The pre-fit $N-1$ comparisons are shown in Figures~\ref{fig:ch8_vrw_res} and~\ref{fig:ch8_vrw_nonres}.
+The electron and muon channels are combined in the plots, and their inclusive yields are listed separately in Table~\ref{tab:ch8_vrw_prefit}.
+The resonant region shows agreement within the statistical precision.
+The non-resonant region contains more data events than predicted in both lepton channels.
+The investigation of this excess and the additional check with a $\tau$ and one $b$ jet are described below.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Pre-fit background predictions and observed yields after the complete $\VRb$ selections. The prediction uncertainties are statistical only.}
+    \label{tab:ch8_vrw_prefit}
+    \begin{tabular}{llrr}
+        \toprule
+        Region & Channel & Predicted background & Data \\
+        \midrule
+        $\VRb$-$\Res$ & $e$ & $17.0\pm0.9$ & 20 \\
+         & $\mu$ & $16.1\pm1.0$ & 17 \\
+        $\VRb$-$\NonRes$ & $e$ & $22.8\pm4.4$ & 33 \\
+         & $\mu$ & $23.8\pm3.6$ & 39 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\input{Chapters/background_estimation/figures_vrw}
+\clearpage
+\subsection[Top-quark validation without a light lepton]{Top-quark validation without a light lepton}
+\label{subsec:ch8_vrtop}
+
+The $\VRTop$ regions require one $\tau$, no electron or muon, and exactly two tagged $b$ jets.
+The lepton veto reproduces the SR requirement, while the second tag increases the top-quark fraction.
+The lower $\pT^\tau$ and mass thresholds in Table~\ref{tab:ch8_top_regions} provide sufficient events for the check, and $\met>200~\GeV$ keeps the selection on the $\met$-trigger plateau.
+The top-quark fractions are approximately $75\%$ and $87\%$ in the resonant and non-resonant regions, respectively.
+
+Figures~\ref{fig:ch8_vrtop_res} and~\ref{fig:ch8_vrtop_nonres} show the pre-fit $N-1$ distributions.
+The data are compatible with the simulated distributions within their statistical precision.
+Single-top production is more prominent in the resonant category, while $\ttbar$ dominates the non-resonant category.
+Together with $\VRb$, these regions test the changes in tagged-jet multiplicity and selected-lepton multiplicity on which the SR prediction depends.
+
+Signal contamination is checked using samples that include both hadronic and leptonic $\tau$ decays.
+The benchmarks are $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.2)$ for the resonant regions and $(2.5~\TeV,1.5,1.0)$ for the non-resonant regions.
+The contamination is about $1.3\%$ and $0.7\%$ in $\VRb$, and $1.2\%$ and $0.6\%$ in $\VRTop$, respectively.
+
+\input{Chapters/background_estimation/figures_vrtop}
+\clearpage
+\subsection[Investigation of VRW-NonRes]{Investigation of $\VRb$-$\NonRes$}
+\label{subsec:ch8_vrw_excess}
+
+The excess in $\VRb$-$\NonRes$ remains a deviation of about $2\sigma$ after the background-only fit and the assigned uncertainties are included.
+Its origin is examined through the cutflow, nearby $\met$ selections and the properties of the selected data events.
+The pre-fit ratio stays close to unity until the $\met>400~\GeV$ requirement is imposed.
+A finer-binned comparison locates much of the excess in $425<\met<450~\GeV$, as shown in Figure~\ref{fig:ch8_vrw_met_study}.
+Changing the $\met$ threshold to $300~\GeV$ or $500~\GeV$ reduces the discrepancy in the statistical-only checks to $1.8\sigma$ and $1.5\sigma$, respectively.
+This behaviour indicates a local excess rather than a persistent offset throughout the high-$\met$ tail.
+
+Within $425<\met<450~\GeV$, the excess is concentrated in the $300<\pT^\ell<400~\GeV$ bin, above the $200~\GeV$ lepton threshold.
+The 12 data events in this interval comprise seven electron and five muon events.
+Their lepton and $b$-jet positions show no concentration in a particular detector region.
+No specific detector problem is identified, and the neighbouring selections give no evidence for a broad failure of the background prediction.
+The observations are consistent with a statistical fluctuation, although these checks alone do not determine the origin of each excess event.
+
+\input{Chapters/background_estimation/figures_vr_study}
+\clearpage
+\subsection[Additional 1tau0l1b validation]{Additional $1\tau0\ell1b$ validation}
+\label{subsec:ch8_tau1b_vr}
+
+The additional $1\tau0\ell1b$ regions test the background with the same object multiplicities as $\bTagSR$ in adjacent mass intervals.
+They provide a direct check of the one-$b$-jet, hadronic-$\tau$ prediction following the excess in the light-lepton validation sample.
+The resonant region requires $400<m_{b\tau}<800~\GeV$, and the non-resonant region requires $500<\mT<600~\GeV$.
+These upper bounds keep the regions separate from the corresponding SRs.
+Further reductions in $\pT^\tau$, $\met$ and $\mT$ increase the event yields, as summarised in Table~\ref{tab:ch8_tau1b_vr}.
+All other requirements follow the corresponding $\bTagSR$ selections.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Selections and yields in the supplementary $1\tau0\ell1b$ validation regions. Both use $\met$ triggers and the remaining $\bTagSR$ requirements. The background-only fit to the CRs is extrapolated to these regions. The quoted prediction uncertainties are those of this validation study, without an additional uncertainty for the changed mass intervals.}
+    \label{tab:ch8_tau1b_vr}
+    \begin{tabular}{lcc}
+        \toprule
+         & Resonant & Non-resonant \\
+        \midrule
+        $\pT^\tau$ [$\GeV$] & $>100$ & $>100$ \\
+        $\met$ [$\GeV$] & $>200$ & $>200$ \\
+        $\mT$ [$\GeV$] & $>100$ & $500<\mT<600$ \\
+        $m_{b\tau}$ [$\GeV$] & $400<m_{b\tau}<800$ & No requirement \\
+        \midrule
+        Signal contamination & $\sim2\%$ & $\sim7\%$ \\
+        Post-fit background & $25.4\pm1.5$ & $8.0\pm1.7$ \\
+        Observed data & 24 & 9 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Signal contamination is evaluated before examining the data, using the same benchmarks as in Section~\ref{subsec:ch8_vrtop}.
+The estimated contributions are about $2\%$ and $7\%$ in the resonant and non-resonant regions, respectively.
+Background yields of $25.4\pm1.5$ and $8.0\pm1.7$ events are predicted after the CR fit, compared with 24 and 9 observed events.
+The agreement supports the transfer of the background normalisation to the $1\tau0\ell1b$ final state in these lower-mass intervals.
+No additional uncertainty for the changed $m_{b\tau}$ or $\mT$ selections is included in this supplementary study, so its agreement is a cross-check rather than a separate determination of the uncertainty in the high-mass SR prediction.

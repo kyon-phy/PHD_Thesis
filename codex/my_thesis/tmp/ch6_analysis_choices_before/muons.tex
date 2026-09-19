@@ -1,0 +1,36 @@
+\section{Muons}
+\label{sec:ch6_muons}
+
+\subsection{Reconstruction}
+
+Muons are reconstructed using tracks in the ID and MS, together with their energy deposits in the calorimeters~\cite{ATLAS2021MuonID}.
+The main reconstruction categories are:
+\begin{itemize}
+    \item \textbf{Combined muons} are reconstructed by matching and fitting ID and MS tracks, including the energy loss between the two tracking systems.
+    \item \textbf{Segment-tagged muons} are reconstructed by matching an ID track to one or more local track segments in the MS when a complete MS track is unavailable.
+    \item \textbf{Calorimeter-tagged muons} are reconstructed by matching an ID track to calorimeter deposits compatible with a minimum-ionising particle. Acceptance is recovered in regions with limited MS coverage.
+    \item \textbf{MS-extrapolated muons} are reconstructed by extrapolating an MS track towards the interaction region without a matched ID track.
+\end{itemize}
+
+Combined muons are used throughly in this analysis.
+
+\subsection{Identification}
+
+Muon identification is based on detector hit variables, fit quality and consistency of the independent ID and MS momentum measurements~\cite{ATLAS2021MuonID}.
+These requirements suppress hadrons decaying in flight and incorrectly matched tracks.
+Additional reconstruction categories are retained by the \texttt{Loose} working point to improve efficiency.
+The \texttt{Medium} working point imposes more restrictive requirements on the reconstruction quality.
+
+\subsection{Isolation}
+
+Muons from heavy-flavour decays are often accompanied by other particles inside a jet.
+They are suppressed using track and calorimeter isolation, defined by the surrounding activity after excluding the muon's own contribution~\cite{ATLAS2021MuonID}.
+The \texttt{Loose\_VarRad} and \texttt{Tight\_VarRad} working points combine track and calorimeter isolation with a track-cone radius that decreases as the muon $\pT$ increases.
+Less surrounding activity is allowed by \texttt{Tight\_VarRad}, giving stronger rejection of muons produced inside jets.
+
+\subsection{Calibration}
+
+The muon momentum scale and resolution are calibrated using resonance decays, particularly $\zmumu$ and $J/\psi\rightarrow\mu\mu$~\cite{ATLAS2023MuonCalibration}.
+The reconstructed mass distributions constrain biases from the magnetic-field description, detector alignment and material modelling.
+The corrections are applied to the combined momentum measurement used in the analysis.
+Reconstruction, identification and isolation scale factors are measured with tag-and-probe samples and applied to simulated event weights for the selected working points~\cite{ATLAS2021MuonID}.

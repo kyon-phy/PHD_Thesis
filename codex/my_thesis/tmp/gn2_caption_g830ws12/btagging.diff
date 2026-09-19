@@ -1,0 +1,11 @@
+--- before/btagging.tex
++++ after/btagging.tex
+@@ -28,7 +28,7 @@
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=\textwidth]{output/ch6/figures/gn2_architecture.png}
+-    \caption[GN2 flavour-tagging architecture]{GN2 flavour-tagging architecture. Jet and track measurements are combined, processed by the transformer, and used for jet-flavour prediction and the auxiliary track-origin and vertex-grouping tasks. The symbols $n_{\mathrm{jf}}$, $n_{\mathrm{tf}}$ and $n_{\mathrm{tracks}}$ denote the numbers of jet features, track features and tracks~\cite{ATLAS2026GN2}.}
++    \caption[GN2 flavour-tagging architecture]{GN2 flavour-tagging architecture. The upper-left sketch shows tracks from the PV and a displaced $b$-hadron decay in the transverse plane. The jet variables are appended to the input vector of each track before processing by the track initialiser and transformer. The resulting track vectors and their weighted combination are passed to the jet-flavour, track-origin and vertex-grouping networks. The symbols $n_{\mathrm{jf}}$, $n_{\mathrm{tf}}$ and $n_{\mathrm{tracks}}$ denote the numbers of jet variables, track variables and tracks, respectively~\cite{ATLAS2026GN2}.}
+     \label{fig:ch6_gn2}
+ \end{figure}
+ 

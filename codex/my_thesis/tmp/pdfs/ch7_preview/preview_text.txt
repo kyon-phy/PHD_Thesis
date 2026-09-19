@@ -1,0 +1,619 @@
+
+PAGE 1
+Chapter 71
+Event Selection2
+The event selection separates the four signal topologies introduced in Section 3.1.5 according to3
+the presence of a b-tagged jet and the kinematics of resonant or non-resonant production. The4
+analysis variables and common preselection are introduced first, followed by the optimisation5
+of the one-b-jet regions and the definition of the zero-b-jet regions.6
+7.1 Preselection and variables definition7
+The analysis variables are constructed from the calibrated objects defined in Chapter 6, after8
+overlap removal. Throughout this chapter, τ denotes the reconstructed visible decay products9
+of the selected hadronically decaying τ-lepton. Its neutrino is not included in the reconstructed10
+τ four-momentum and contributes to ⃗pmiss
+T together with the neutrino produced in the hard11
+scattering.12
+7.1.1 Analysis variables13
+The transverse momenta, angular separations and reconstructed masses characterise the energy14
+scale and geometry of the τν+jets final state. They distinguish the signal from W+jets and15
+top-quark production, and separate the resonant and non-resonant signal contributions.16
+• The τ transverse momentum and Emiss
+T measure the visible and invisible transverse17
+activity in the event. Heavy-leptoquark production can produce an energetic τ-lepton and18
+neutrinos, whereas most SM events populate lower values of these quantities. Requiring19
+large pτ
+T and Emiss
+T therefore selects the high-energy part of the τν spectrum in which a20
+leptoquark contribution can become distinguishable [1]. The two quantities need not be21
+equal because the jets carry transverse momentum and the τ-decay neutrino contributes22
+to⃗pmiss
+T .23
+
+PAGE 2
+7.1 Preselection and variables definition2
+• The azimuthal separation ∆φ(τ,E miss
+T ) is the angle between the visible τ momentum24
+and ⃗pmiss
+T in the transverse plane, with values between zero and π. In non-resonant25
+production with a relatively soft recoiling jet, the τ and the invisible system tend to be26
+back-to-back. A lower requirement on ∆φ(τ,E miss
+T ) favours this geometry and reduces27
+top-quark backgrounds with a more complex final state. Resonant production contains28
+an energetic jet from the leptoquark decay, so a back-to-back requirement on the τ and29
+⃗pmiss
+T can also remove the signal of interest.30
+• The transverse mass mT combines the two transverse momentum scales with their31
+angular separation:32
+mT =
+q
+2p τ
+TEmiss
+T
+
+1−cos∆φ(τ,E miss
+T )
+
+.(7.1)33
+This definition neglects the small visible τ mass. It is useful because the longitudinal34
+momenta of the neutrinos are unmeasured and the full τν invariant mass cannot be35
+reconstructed. For an on-shell W→τν decay with correctly reconstructed momenta and36
+no other source of ⃗pmiss
+T , mT is bounded by the W-boson mass. Off-shell W production,37
+additional neutrinos and detector resolution populate the high-mT tail of the SM back-38
+ground. A heavy virtual leptoquark can enhance this tail, making mT particularly useful39
+for non-resonant production. Equation 7.1 also shows that its selection is correlated with40
+those onp τ
+T,E miss
+T and∆φ(τ,E miss
+T ).41
+• The visible invariant masses mbτ and m jτ are reconstructed from the selected b-jet or42
+leading jet and the visibleτ:43
+m2
+bτ = (p b +p τ )2,m 2
+jτ = (p j1 +p τ )2,(7.2)44
+where pb, p j1 and pτ are four-momenta, and j1 is the jet with the largest pT. In resonant45
+U1 →bτ production, mbτ retains information about the leptoquark mass. The neutrino46
+from the τ decay shifts the visible mass below MU and broadens its distribution, with47
+further smearing from the reconstructed jet and τ energies. A lower mass threshold48
+therefore selects heavy-particle decays without requiring a narrow peak at MU. The49
+analogous variable m jτ is used in the zero- b-jet regions, where the leading jet can50
+originate fromU 1 →sτ.51
+• The selected-jet transverse momentumdistinguishes the two production topologies.52
+The b-jet from a resonantU1 →bτ decay is typically energetic because it shares the decay53
+energy of a heavy particle. A b-jet radiated in non-resonant production is typically softer.54
+
+PAGE 3
+7.1 Preselection and variables definition3
+The b-jet pT is therefore used to divide the one-b-jet sample, while the leading-jet pT is55
+used in the zero-b-jet sample. These reconstructed categories enrich the corresponding56
+production modes without separating them exactly.57
+• The object multiplicitiesspecify the reconstructed final state. The numbers of hadronic58
+τ candidates, electrons, muons, jets and b-tagged jets are denoted by Nτ, Ne, Nµ, N j59
+and Nb, respectively, with Nℓ =N e +N µ. All jets, including b-tagged jets, enter N j, so60
+N j −N b counts jets that are not b-tagged. An upper requirement on this multiplicity61
+suppressest ¯tevents, whose two top-quark decays often produce several jets.62
+7.1.2 Multijet suppression63
+Multijet events can enter the selected sample when a jet is misidentified as a hadronicτand a64
+mismeasured jet produces large Emiss
+T . In particular, an underestimated jet momentum produces65
+a momentum imbalance pointing towards that jet. The minimum azimuthal separation and the66
+corresponding momentum ratio are therefore defined as67
+∆φmin =min
+j
+∆φ(⃗pmiss
+T ,⃗pj
+T),R miss/j = Emiss
+T
+p jmin
+T
+,(7.3)68
+where jmin is the jet with the smallest azimuthal separation from ⃗pmiss
+T . It need not be the69
+leading jet. Mismeasured multijet events tend to have small ∆φmin and a modest Rmiss/j . By70
+contrast, the neutrinos in signal events can produce large Emiss
+T even when a much softer jet71
+happens to lie nearby in azimuth.72
+Events are retained if73
+∆φmin >0.4 orR miss/j >6.(7.4)74
+The second condition retains signal events that would be lost with the angular requirement75
+alone. In the simulated study described in Appendix B, this selection rejects approximately76
+86% of the multijet events while retaining 96.4% of the signal after the loose study selection.77
+These efficiencies describe the cleaning requirement at that stage, before the full SR selections.78
+7.1.3 Common preselection79
+The common preselection selects events with one hadronic τ, missing transverse momentum80
+and at least one jet. The data-quality requirements in Section 5.1 and the primary-vertex81
+requirement in Chapter 6 are applied first. Events must pass the lowest-threshold unprescaled82
+Emiss
+T trigger for the relevant data-taking period and satisfy Emiss
+T >200 GeV , in the trigger-83
+efficiency plateau described in Section 5.4. Exactly one baseline τ candidate is required, and it84
+
+PAGE 4
+7.2 One b-jet signal region (SR1b) optimisation and definition4
+must also pass the Tight identification working point. Events containing a selected electron or85
+muon are vetoed to suppress backgrounds with additional leptonic decays. At least one jet is86
+required to define the jet-based variables, and the multijet suppression in Eq. 7.4 is applied.87
+Table 7.1 summarises these requirements. The common preselection does not fix Nb or the88
+final pτ
+T threshold, so it can be used for both flavour categories and as the starting point for the89
+kinematic optimisation.90
+Table 7.1 Common preselection for the signal-region optimisation. Object definitions and
+overlap removal are given in Chapter 6.
+Requirement Selection
+Data quality Accepted data-taking periods
+Primary vertex At least two selected tracks
+Trigger Lowest-threshold unprescaledE miss
+T trigger
+Missing transverse momentumE miss
+T >200 GeV
+HadronicτmultiplicityN τ =1 at baseline level
+Selectedτidentification Tight
+Electron and muon vetoN ℓ =0
+Jet multiplicityN j ≥1
+Multijet suppression∆φ min >0.4 orR miss/j >6
+7.2 One b-jet signal region (SR1b) optimisation and defini-91
+tion92
+The SR1b regions select exactly one b-tagged jet to target the bτ interaction in the U1 model.93
+The non-resonant selection is motivated by the high-mT τν+b strategy of Ref. [1]: an energetic94
+τ and large Emiss
+T select the hard scattering, the b-tag reduces the inclusive W+jets background,95
+and a restriction on additional jets suppresses top-quark production. The analysis also retains96
+a resonant category to select an on-shell leptoquark decaying into bτ. The sample is divided97
+at pb
+T =250 GeV , with pb
+T >250 GeV defining SR1b-Res and 50<p b
+T <250 GeV defining98
+SR1b-NonRes.99
+7.2.1 Scan variables and optimisation criterion100
+The kinematic thresholds are scanned together because the discriminating variables are corre-101
+lated. For example, increasing Emiss
+T also raises mT at fixed pτ
+T and ∆φ(τ,E miss
+T ), so the effect102
+of an additional mT requirement depends on the other cuts. Lower thresholds on pτ
+T, Emiss
+T103
+
+PAGE 5
+7.2 One b-jet signal region (SR1b) optimisation and definition5
+and mT are scanned in both categories, together with an upper limit on N j −N b. A lower104
+threshold on ∆φ(τ,E miss
+T ) is tested for the non-resonant topology. For the resonant topology,105
+upper thresholds on this angle and a lower threshold on mbτ are tested. The complete scan grid106
+is given in Table 7.2.107
+Table 7.2 Thresholds tested in the SR1b optimisation. Each set lists the trial values for the
+indicated inequality. A zero mass threshold or an angular upper threshold of π represents no
+effective requirement on that variable.
+Variable SR1b-Res SR1b-NonRes
+∆φ(τ,E miss
+T )<{0.3,1.2,2.4,2.6,π}>{0.3,1.2,2.4,2.6}
+mbτ [GeV]>{0,800}Not scanned
+Emiss
+T [GeV]>{200,250,300,350,400,500,600}
+pτ
+T [GeV]>{200,250,300,350,400,500,600}
+mT [GeV]>{100,200,300,400,500,600,700,800,900,1000}
+N j −N b ≤ {1,2,3}
+The mass scan uses only mbτ >0 and 800 GeV. The visible mass distribution is broad108
+because of the unmeasured τ-decay neutrino, while the simulated background has limited109
+statistics in its high-mass tail. These features favour an inclusive mass requirement over a finely110
+scanned mass window. The resonant optimisation targets MU =1.5 TeV , where on-shell pro-111
+duction is important. The non-resonant optimisation uses (MU ,gU ,β 23
+L ) = (2.5 TeV,2.5,1.0) ,112
+where virtual exchange provides the dominant signal contribution.113
+The expected sensitivity of each cut combination is ranked using an approximate counting-114
+experiment significance [2]:115
+Z2 =2
+"
+nln
+ n(b+σ 2
+b )
+b2 +nσ 2
+b
+
+116
+− b2
+σ 2
+b
+ln
+
+1+ σ 2
+b (n−b)
+b(b+σ 2
+b )
+#
+,(7.5)117
+where s and b are the expected signal and background event yields, n=s+b , and σb is the118
+absolute uncertainty in the background expectation. A fractional background uncertainty of119
+30%, corresponding to σb =0.30b , is assumed for this scan. The signal yield contains the pure120
+BSM contribution. Interference with the SM is treated separately in the final statistical analysis.121
+The quantity Z is used to compare selections, while the final confidence limits are obtained122
+with the likelihood analysis in Chapter 10.123
+Cut combinations with b≤2 are discarded to avoid selecting apparently background-free124
+regions caused by limited MC statistics. If a particular simulated background has a negative125
+
+PAGE 6
+7.2 One b-jet signal region (SR1b) optimisation and definition6
+weighted yield after a trial selection, its contribution is set to zero when evaluating the scan126
+criterion. This is a prescription for comparing trial cuts in sparse simulated samples. It does127
+not imply a negative physical event rate.128
+7.2.2 Signal efficiency and selected regions129
+The signal efficiency measures how much signal survives the selection. For the optimisation130
+cutflow, the cumulative efficiency is defined with respect to the one-b-jet baseline, before the131
+additional kinematic cuts:132
+εrel(SR) = Ns(SR)
+Ns(one-b-jet baseline).(7.6)133
+Both yields are weighted predictions for the same signal parameter point. This definition differs134
+from the acceptance times selection efficiency,Aε, whose denominator is the generated signal135
+sample. The acceptance describes the fraction of generated events in the required kinematic136
+and geometric range, and the selection efficiency describes the fraction of those events that are137
+reconstructed and pass the selection. Their product relates the selected yield to the generated138
+signal cross section through Ns =Lσ sAε, using a consistent convention for the generated decay139
+modes and any generator filters.140
+For the resonant benchmark (MU ,gU ,β 23
+L ) = (1.5 TeV,1.5,0.6) , the baseline yield of141
+35.2 events is reduced to 4.2 events, corresponding to εrel ≃11.9% . For the non-resonant142
+optimisation benchmark, the yield changes from 111.0 to 6.6 events, giving εrel ≃5.9% . The143
+corresponding total background prediction decreases from approximately 4027 baseline events144
+to 2.4 and 2.1 events, respectively. These numbers illustrate the trade-off between signal145
+retention and background rejection in the optimisation and are evaluated before the background146
+fit.147
+The selected SR1b-Res requirements are pτ
+T >200 GeV , Emiss
+T >200 GeV , mT >200 GeV148
+and mbτ >800 GeV , with at most three jets that are not b-tagged. No additional ∆φ(τ,E miss
+T )149
+requirement is retained. The visible-mass requirement provides strong rejection of backgrounds150
+without a heavy bτ resonance, while the energetic b-jet selects the two-body decay topology.151
+The region is treated as a single event-counting bin because the available background simulation152
+does not support a finely binned fit to the broadm bτ distribution.153
+The selected SR1b-NonRes requirements are pτ
+T >200 GeV , Emiss
+T >400 GeV , mT >154
+600 GeV and ∆φ(τ,E miss
+T )>1.2 , with at most one jet that is not b-tagged. The tighter Emiss
+T155
+and mT requirements select the high-energy tail, and the smaller allowed jet multiplicity reduces156
+the top-quark background. No mbτ requirement is imposed because the b-jet and τ do not157
+
+PAGE 7
+7.3 b-veto signal region definition (SR0b)7
+reconstruct an on-shell leptoquark in the target topology. This region also contributes a single158
+event count to the fit.159
+Figure 7.1 shows the visible-mass distribution with the mass requirement removed, con-160
+ventionally called an N−1 distribution, and the transverse-mass distribution in the selected161
+high-mT range. The red arrow marks the mbτ >800 GeV threshold, while the mT panel dis-162
+plays events above 600 GeV. The background normalisations in these illustrations have been163
+constrained by the background-only fit to the control regions described in Chapter 10. The164
+optimisation itself uses the simulated expectations described above.165
+200 400 600 800 1000 1200 1400
+ [GeV]
+hadτbm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1−10
+1
+10
+210Events / 100 GeV
+ATLAS
+-1 = 13 TeV, 140 fb s
+Background-only fit
+SR1b-Res
+Data
+ (1.5 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+(a) SR1b-Res:m bτ.
+600 700 800 900 1000 1100 1200 1300 1400 1500
+ [GeV]Tm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1−10
+1
+10
+210Events / 100 GeV
+ATLAS
+-1 = 13 TeV, 140 fb s
+Background-only fit
+SR1b-NonRes
+Data
+ (3.0 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty (b) SR1b-NonRes:m T.
+Fig. 7.1 Distributions of (a) mbτ in SR1b-Res before the mass requirement and (b) mT in
+SR1b-NonRes above 600 GeV. Background normalisations are obtained from the background-
+only fit to the control regions. The dotted red and violet signal curves correspond to
+(MU ,gU ,β 23
+L ) = (1.5 TeV,1.5,0.6) and (3.0 TeV,2.5,1.0) , respectively. The red arrow marks
+the mass threshold, and overflow events enter the last bin. Lower panels show data divided by
+the background prediction. The hatched band includes statistical and systematic uncertainties,
+and upward triangles indicate ratios above the displayed range. The plot label τhad denotes the
+visibleτcandidate.
+7.3 b-veto signal region definition (SR0b)166
+The SR0b regions select signal events with no reconstructed b-tagged jet and extend the167
+sensitivity to largeβ 23
+L . As shown by the flavour current and coupling texture in Eqs. 3.6 and 3.7,168
+β 23
+L controls the sτ interaction and contributes Vcsβ 23
+L to the cντ interaction. The resulting zero-169
+b-jet topologies were introduced in Section 3.1.5. In particular, U1 →sτ produces a resonant170
+signal with a genuine non- b jet, so SR0b retains a physically distinct signal contribution in171
+
+PAGE 8
+7.3 b-veto signal region definition (SR0b)8
+addition to events in which a b-jet is not tagged or reconstructed. A leading jet in this category172
+is not explicitly identified as a strange-quark jet.173
+The two SR0b regions are defined by replacing the one-b-jet requirement with Nb =0 and174
+using the leading jet in the topology-dependent selections. The resonant region requires p j1
+T >175
+250 GeV and m jτ >800 GeV , while the non-resonant region requires 50<p j1
+T <250 GeV .176
+The pτ
+T, Emiss
+T , mT and ∆φ(τ,E miss
+T ) thresholds follow the corresponding one-b-jet regions. The177
+upper limits are imposed on the total jet multiplicity: N j ≤4 for SR0b-Res and N j ≤2 for178
+SR0b-NonRes. These preserve the total jet limits used in SR1b after replacing the tagged jet179
+with an untagged leading jet.180
+The Emiss
+T >200 GeV requirement in SR0b-Res is retained to keep its kinematic selection181
+aligned with SR1b-Res. A supplementary study of tighter Emiss
+T thresholds is presented in182
+Appendix C. The SR0b-NonRes threshold remains Emiss
+T >400 GeV , which also maximises183
+the significance in that study.184
+Signal efficiency in SR0b is evaluated for the pure BSM contribution, with Aε defined as185
+in Section 7.2.2. For illustration, at (MU ,gU ,β 23
+L ) = (1.5 TeV,1.0,0.2) with β 33
+R =0 , Aε is186
+0.30% and 0.13% in SR0b-Res and SR0b-NonRes, compared with 0.64% and 0.069% in the187
+corresponding SR1b regions. These efficiencies depend on the mass and flavour couplings be-188
+cause the relative contributions of the production and decay channels change. The interference189
+contribution can have either sign and is included separately in the predicted event yield rather190
+than interpreted as an efficiency.191
+Figure 7.2 shows the discriminating variables in the two zero-b-jet regions. The high-m jτ192
+requirement selects the visible products of a heavy resonance, while the high-mT requirement193
+selects non-resonant production. Together with the one-b-jet regions, these selections retain194
+sensitivity to bothbτandsτfinal states over the coupling range studied in this thesis.195
+The final requirements for all four mutually exclusive SRs are summarised in Table 7.3.196
+Each region contributes one event count to the simultaneous statistical analysis.197
+
+PAGE 9
+7.3 b-veto signal region definition (SR0b)9
+200 400 600 800 1000 1200 1400
+ [GeV]hadτjm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1−10
+1
+10
+210
+310
+410
+510Events / 100 GeV
+ATLAS
+-1 = 13 TeV, 140 fb s
+Background-only fit
+SR0b-Res
+Data
+ (1.5 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty
+(a) SR0b-Res:m jτ.
+600 700 800 900 1000 1100 1200 1300 1400 1500
+ [GeV]Tm
+0
+0.5
+1
+1.5
+ 
+Data / Bkg.
+1−10
+1
+10
+210
+310
+410
+510Events / 100 GeV
+ATLAS
+-1 = 13 TeV, 140 fb s
+Background-only fit
+SR0b-NonRes
+Data
+ (3.0 TeV)1U W+jets
+Diboson tt tsingle 
+Z+jets Uncertainty (b) SR0b-NonRes:m T.
+Fig. 7.2 Distributions of (a) m jτ in SR0b-Res before the mass requirement and (b) mT in
+SR0b-NonRes above 600 GeV. Background normalisations are obtained from the background-
+only fit to the control regions. The dotted red and violet signal curves correspond to
+(MU ,gU ,β 23
+L ) = (1.5 TeV,1.5,0.6) and (3.0 TeV,2.5,1.0) , respectively. The red arrow marks
+the mass threshold, and overflow events enter the last bin. Lower panels show data divided by
+the background prediction, with the combined statistical and systematic uncertainty shown by
+the hatched band. Upward triangles indicate ratios outside the displayed range.
+Table 7.3 Final signal-region selections, applied in addition to the common preselection in
+Table 7.1. A dash denotes no additional requirement. The jet multiplicity includes b-tagged
+jets.
+Resonant Non-resonant
+Requirement SR1b-Res SR0b-Res SR1b-NonRes SR0b-NonRes
+Nb 1 0 1 0
+pb
+T [GeV]>250 – 50<p b
+T <250 –
+p j1
+T [GeV] –>250 – 50<p j1
+T <250
+pτ
+T [GeV]>200
+Emiss
+T [GeV]>200>400
+mT [GeV]>200>600
+mbτ [GeV]>800 – – –
+m jτ [GeV] –>800 – –
+∆φ(τ,E miss
+T )–>1.2
+N j ≤4≤2
+
+PAGE 10
+Appendix B198
+Multijet background study199
+The multijet suppression used in Section 7.1.2 is studied with simulated dijet and leptoquark200
+events. The purpose is to identify a selection that removes events with instrumental Emiss
+T201
+while retaining the signal with neutrinos. The multijet production cross section is large, so202
+a small probability for a jet to be misidentified as a τ, combined with a large jet-energy203
+mismeasurement, can produce events with the selected final state.204
+B.1 Origin of the discriminating variables205
+Jet-momentum mismeasurement produces a characteristic direction for the apparent missing206
+momentum. For example, if the transverse momentum of one jet is underestimated by δ⃗pj
+T, the207
+reconstructed momentum imbalance receives a contribution in the direction of the missing part208
+of that jet momentum. The resulting ⃗pmiss
+T is therefore approximately aligned with the jet. In a209
+signal event, the neutrinos produce real missing momentum, whose direction is not fixed by a210
+jet-energy mismeasurement.211
+The variables ∆φmin and Rmiss/j defined in Eq. 7.3 test these two features. The first measures212
+the angular alignment, and the second compares the missing momentum with the momentum213
+of the closest jet in azimuth. The combination is useful because a low-pT jet can lie close to214
+the direction of real missing momentum in a signal event. Such an event can have small ∆φmin215
+but largeR miss/j .216
+B.2 Study selection and distributions217
+The study selection is kept loose to retain enough simulated multijet events to examine the218
+relevant distributions. It requires the Emiss
+T trigger, exactly one hadronicτ candidate, no selected219
+
+PAGE 11
+B.2 Study selection and distributions11
+electron or muon, and at least one jet, as listed in Table B.1. The final SR thresholds on Emiss
+T ,220
+pτ
+T, mT and the visible invariant mass are not imposed at this stage. No b-tag multiplicity is221
+required.222
+Table B.1 Loose selection used to study the multijet suppression. This selection defines the
+denominator of the rejection fractions shown below.
+Requirement Selection
+Trigger Lowest-threshold unprescaledE miss
+T trigger
+HadronicτmultiplicityN τ =1
+Electron and muon vetoN ℓ =0
+Jet multiplicityN j ≥1
+Figure B.1 shows the two-dimensional distributions after this selection. The multijet sample223
+is concentrated at small ∆φmin and relatively small Rmiss/j . The signal occupies a broader224
+angular range and extends to larger momentum ratios. Approximately 90% of the multijet225
+events have Rmiss/j <6 , compared with approximately 55% of the signal in the study sample.226
+The ratio requirement alone would therefore reject a substantial fraction of the signal. It is227
+instead combined with the angular requirement so that either a large angle or a large ratio is228
+sufficient to retain an event.229
+(a) Signal.
+ (b) Multijet background.
+Fig. B.1 Correlation between the minimum jet– ⃗pmiss
+T azimuthal separation and the ratio of
+Emiss
+T to the pT of the closest jet in azimuth, for (a) the simulated signal and (b) the simulated
+multijet background after the loose study selection. The concentration of multijet events at
+small values of both variables motivates a combined requirement.
+
+PAGE 12
+B.3 Threshold scan and signal retention12
+B.3 Threshold scan and signal retention230
+The angular threshold is scanned while the momentum-ratio threshold is fixed at six. For an231
+angular thresholdX, the rejected fraction is defined as232
+frej(X) = N
+ 
+∆φmin <XandR miss/j <6
+
+N(loose study selection) .(B.1)233
+The numerator requires both small angular separation and a small momentum ratio. Its234
+complement is the accepted region, defined by the logical OR in Eq. 7.4. The rejected fraction235
+is evaluated separately for signal and multijet events, using each sample’s yield after the loose236
+selection as its denominator.237
+Figure B.2 shows the resulting rejection fractions. At X=0.4 , approximately 86% of the238
+multijet events are rejected, while the signal loss is 3.6%. The corresponding signal efficiency239
+for the cleaning cut is therefore 1−0.036=96.4% . Increasing the angular threshold rejects240
+more multijet events but also removes more signal. The selected threshold provides substantial241
+multijet rejection with a small signal loss in the studied sample.242
+Fig. B.2 Rejected fractions of simulated signal and multijet events as a function of the minimum
+jet–⃗pmiss
+T angular threshold X, with Rmiss/j <6 also required in the rejected sample. The red
+and black curves show signal loss and multijet rejection, respectively. The vertical dotted line
+marks the adopted thresholdX=0.4. The denominator is the loose selection in Table B.1.
+
+PAGE 13
+B.4 Residual multijet contribution13
+B.4 Residual multijet contribution243
+The residual multijet contribution is examined after applying the cleaning cut and the full SR244
+requirements. No simulated multijet events survive those selections in the samples used for the245
+study. This supports neglecting the multijet contribution in the nominal SR prediction, but zero246
+surviving simulated events does not establish an exactly zero physical rate or a quantitative247
+upper bound without the effective sample size.248
+Jets misidentified asτ candidates can still occur in other background processes. In particular,249
+Z→νν production with jets contains genuine missing momentum and can pass the multijet250
+cleaning even when the selected τ candidate is a jet. This contribution is included in the251
+simulated Z+jets background. A supplementary selection requiring Medium τ identification252
+while failing Tight also gives a negligible multijet contribution in the simulated study, supporting253
+the effectiveness of the cleaning beyond the nominal Tight selection.254
+
+PAGE 14
+Appendix C255
+Study of the zero-b-jet signal-region256
+optimisation257
+The Emiss
+T threshold in SR0b is studied to assess whether tighter selections can improve258
+the expected sensitivity at large β 23
+L . Removing the b-tag requirement admits a larger SM259
+background than inSR1b and increases the relevance of interference between the leptoquark and260
+SM amplitudes. A tighter Emiss
+T selection can change the balance between the retained signal,261
+background and interference contributions. The study therefore examines the significance as262
+the lowerE miss
+T threshold is varied.263
+The threshold is scanned from 200 to 1500 GeV in 100 GeV steps. The signal parameter264
+points are(M U ,gU ,β 23
+L ) = (1.5 TeV,0.5,1.8)for SR0b-Res and(3.0 TeV,2.0,1.8)for SR0b-265
+NonRes. The large value of β 23
+L makes these benchmarks relevant to the zero-b-jet categories266
+discussed in Section 7.3. The scan outcomes and adopted thresholds are summarised in267
+Table C.1.268
+Table C.1 Signal benchmarks and preferred thresholds in the supplementary SR0bE miss
+T scan.
+The last column gives the thresholds used in the final analysis.
+Region(M U [TeV],gU ,β 23
+L )Scan maximum AdoptedE miss
+T cut
+SR0b-Res(1.5,0.5,1.8)600 GeV>200 GeV
+SR0b-NonRes(3.0,2.0,1.8)400 GeV>400 GeV
+For SR0b-NonRes, the significance is maximised at Emiss
+T >400 GeV . The scan therefore269
+supports retaining the threshold used in the final region definition. ForSR0b-Res, the maximum270
+occurs at Emiss
+T >600 GeV , giving an improvement of approximately 20% in the significance271
+at the chosen benchmark. The final resonant selection nevertheless retains Emiss
+T >200 GeV to272
+keep its kinematic requirements aligned with SR1b-Res.273
+
+PAGE 15
+15
+The quoted improvement concerns the significance in this threshold scan at one signal274
+parameter point. It is not a demonstrated improvement of the same size in the combined275
+confidence limit over the full parameter space. The final selections used in the statistical276
+analysis are those in Table 7.3.277
+
+PAGE 16
+References278
+[1] Motoi Endo, Syuhei Iguro, Teppei Kitahara, Michihisa Takeuchi, and Ryoutaro Watanabe.279
+Non-resonant new physics search at the lhc for the b→cτν anomalies.JHEP, 02:106,280
+2022. doi: 10.1007/JHEP02(2022)106.281
+[2] ATLAS Collaboration. Formulae for estimating significance. ATL-PHYS-PUB-2020-025,282
+2020. URL https://cds.cern.ch/record/2736148.283

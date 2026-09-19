@@ -1,0 +1,155 @@
+--- before/Chapters/CH8_Background_estimation.tex
++++ after/Chapters/CH8_Background_estimation.tex
+@@ -1,7 +1,7 @@
+ \chapter{Background Estimation}
+ \label{chapter:background_estimation}
+ 
+-As discussed in the Chapter~\ref{CH7}, $\wjets$ and the top background is the dominant and the subdominant background in this analysis. Since they are all irreducible background, meaning that the \tau lepton are real, the simulation modeling for the background is reliable to some extend. Therefore the background prediction is obtained from the simulation samples, with the $\wjets$ and top background contributions normalised to data in control regions (CRs).
++As discussed in the Chapter~\ref{chapter:event_selection}, $\wjets$ and the top-quark background is the dominant and the subdominant background in this analysis. Since they are all irreducible background, meaning that the $\tau$ lepton are real, the simulation modeling for the background is reliable to some extend. Therefore the background prediction is obtained from the simulation samples, with the $\wjets$ and top-quark background contributions normalised to data in control regions (CRs).
+ This chapter describes these constraints, the treatment of the small fake-$\tau$ contribution, and the validation of the prediction in regions outside the SRs.
+ The object definitions and SR selections follow Chapters~\ref{chapter:object_reconstruction} and~\ref{chapter:event_selection}.
+ 
+@@ -9,14 +9,14 @@
+ \label{sec:ch8_strategy}
+ 
+ The CRs provide data samples enriched in the backgrounds to be normalised, with little signal contamination.
+-Four CRs are used: $\CRW$-$\Res$ and $\CRW$-$\NonRes$ constrain $\wjets$, while $\CRTop$-$\Res$ and $\CRTop$-$\NonRes$ constrain top-quark production.
++Four CRs are used: $\CRW$-$\Res$ and $\CRW$-$\NonRes$ constrain $\wjets$, while $\CRTop$-$\Res$ and $\CRTop$-$\NonRes$ constrain the top-quark background.
+ The total event count in each CR is used in a simultaneous fit.
+ The fitted normalisation factors, $\lambda_W^{\Res}$, $\lambda_W^{\NonRes}$, $\lambda_t^{\Res}$ and $\lambda_t^{\NonRes}$, multiply the corresponding simulated yields in the CRs, SRs and validation regions (VRs).
+-The same top-quark factor is applied to $\ttbar$ and single-top production within each topology.
++The same top-quark background normalisation factor is applied to $\ttbar$ and single-top production within each topology.
+ Separate factors for the resonant and non-resonant categories allow the normalisation to differ between the high- and low-jet-$\pT$ selections.
+ 
+ The extrapolation from a CR to an SR is supplied by simulation: the fit fixes the background rate in the CR, while the simulated ratio of SR to CR yields determines the rate transferred to the SR.
+-The $\wjets$ extrapolation therefore depends on the description of the lepton flavour and jet flavour, and the top-quark extrapolation also depends on the acceptance of the additional lepton and the relaxed CR requirements.
++The $\wjets$ extrapolation therefore depends on the description of the lepton flavour and jet flavour, and the top-quark background extrapolation also depends on the acceptance of the additional lepton and the relaxed CR requirements.
+ The relevant uncertainties are described in Chapter~\ref{chapter:systematics_uncertainties}.
+ Diboson and $\zjets$ production, together with the other small contributions, retain their simulated nominal yields and are allowed to vary within their assigned uncertainties in the fit.
+ The fitted uncertainty parameters are propagated to the SRs and VRs together with the normalisation factors.
+@@ -38,9 +38,9 @@
+         Region & $N_\tau$ & $N_\ell$ & $N_b$ & Purpose \\
+         \midrule
+         $\CRW$ & 0 & 1 & 0 & Constrain $\wjets$ normalisation \\
+-        $\CRTop$ & 1 & 1 & $\geq1$ & Constrain top-quark normalisation \\
++        $\CRTop$ & 1 & 1 & $\geq1$ & Constrain top-quark background normalisation \\
+         $\VRb$ & 0 & 1 & 1 & Test the $0b\to1b$ extrapolation \\
+-        $\VRTop$ & 1 & 0 & 2 & Test the top prediction without a light lepton \\
++        $\VRTop$ & 1 & 0 & 2 & Test the top-quark background prediction without a light lepton \\
+         \bottomrule
+     \end{tabular}
+ \end{table}
+@@ -52,7 +52,7 @@
+ \label{subsec:ch8_wcr_definition}
+ 
+ The $\CRW$ regions select $\wlnu$ events by replacing the $\tau$ in the corresponding $\bVetoSR$ selection with an electron or muon.
+-The $b$-jet veto suppresses top-quark production and provides a larger $\wjets$ sample than a tagged selection.
++The $b$-jet veto suppresses the top-quark background and provides a larger $\wjets$ sample than a tagged selection.
+ Exactly one signal electron or muon and no selected $\tau$ are required.
+ The signal-lepton requirements are those in Chapter~\ref{chapter:object_reconstruction}.
+ Single-lepton triggers are used, as listed in Section~\ref{sec:analysis_triggers}.
+@@ -140,7 +140,7 @@
+ 
+ \input{Chapters/background_estimation/figures_emu}
+ \clearpage
+-\section[Top-quark estimation]{Top-quark estimation}
++\section[Top-quark background estimation]{Top-quark background estimation}
+ \label{sec:ch8_top}
+ 
+ The $\ttbar$ and single-top backgrounds are constrained in the $\CRTop$ regions, which require one $\tau$ and an additional electron or muon.
+@@ -149,7 +149,7 @@
+ Requiring at least one tagged $b$ jet further suppresses $\wjets$ production.
+ Inclusive $\ttbar$ and single-top samples are used.
+ Within the $\ttbar$ and $Wt$ samples, the large-$\met$ selection favours decays in which both $W$ bosons decay leptonically.
+-The top-quark purity is approximately $90\%$ after the full CR selections.
++The top-quark background purity is approximately $90\%$ after the full CR selections.
+ 
+ The relaxed thresholds in Table~\ref{tab:ch8_top_regions} increase the CR yields.
+ Single-lepton triggers permit the lower $\met>100~\GeV$ threshold.
+@@ -182,7 +182,7 @@
+ 
+ The pre-fit distributions in Figures~\ref{fig:ch8_topcr_res} and~\ref{fig:ch8_topcr_nonres} show comparable behaviour in the electron and muon channels.
+ The data/MC ratios in Table~\ref{tab:ch8_cr_prefit} are near 0.8, with no clear dependence on $\mT$ or $\met$ resolved within the statistical precision.
+-The combined top-quark yield is constrained by the fit, while the relative $\ttbar$ and single-top contributions are predicted separately in each region.
++The combined top-quark background yield is constrained by the fit, while the relative $\ttbar$ and single-top contributions are predicted separately in each region.
+ Their ratio is consistent between the SRs and CRs within MC statistical uncertainties.
+ The process-dependent modelling uncertainties are retained, as described in Chapter~\ref{chapter:systematics_uncertainties}.
+ 
+@@ -207,7 +207,7 @@
+ 
+ The quantity $|\vec p_{\mathrm{T}}^{\,\ell\ell}+\mpt|$ is required to exceed $200~\GeV$.
+ Adding the reconstructed dilepton momentum to $\mpt$ treats the visible leptons as unobserved and provides a recoil quantity analogous to the missing momentum in $\znunu$ events.
+-An additional $\pT^{\ell\ell}>130~\GeV$ requirement suppresses top-quark contamination.
++An additional $\pT^{\ell\ell}>130~\GeV$ requirement suppresses contamination from the top-quark background.
+ A transverse-mass threshold of $100~\GeV$ is also applied in this study.
+ The common multijet requirement is retained.
+ 
+@@ -242,7 +242,7 @@
+ The $\VRb$ regions retain the single-electron or single-muon final state of $\CRW$ and require exactly one tagged $b$ jet.
+ The tagged jet replaces the leading untagged jet in the topology and invariant-mass selections.
+ This change tests the prediction for the tagged sample, including the simulated heavy-flavour fraction of $\wjets$, before replacing the light lepton with a $\tau$ in the SR.
+-The top-quark contribution increases under this selection and is predicted using the constraint from $\CRTop$.
++The top-quark background contribution increases under this selection and is predicted using the constraint from $\CRTop$.
+ 
+ The flavour composition of vector-boson-plus-jets production depends on the kinematics and the simulation, as investigated in ATLAS modelling studies and measurements~\cite{PMGR-2021-01,STDM-2018-43,HIGG-2020-20}.
+ A $30\%$ uncertainty is assigned to the ratio of $W$ production with heavy-flavour hadrons, containing $b$ or $c$ quarks, to production with light-flavour hadrons in the tagged regions.
+@@ -275,13 +275,13 @@
+ 
+ \input{Chapters/background_estimation/figures_vrw}
+ \clearpage
+-\subsection[Top-quark validation without a light lepton]{Top-quark validation without a light lepton}
++\subsection[Top-quark background validation without a light lepton]{Top-quark background validation without a light lepton}
+ \label{subsec:ch8_vrtop}
+ 
+ The $\VRTop$ regions require one $\tau$, no electron or muon, and exactly two tagged $b$ jets.
+-The lepton veto reproduces the SR requirement, while the second tag increases the top-quark fraction.
++The lepton veto reproduces the SR requirement, while the second tag increases the top-quark background fraction.
+ The lower $\pT^\tau$ and mass thresholds in Table~\ref{tab:ch8_top_regions} provide sufficient events for the check, and $\met>200~\GeV$ keeps the selection on the $\met$-trigger plateau.
+-The top-quark fractions are approximately $75\%$ and $87\%$ in the resonant and non-resonant regions, respectively.
++The top-quark background fractions are approximately $75\%$ and $87\%$ in the resonant and non-resonant regions, respectively.
+ 
+ Figures~\ref{fig:ch8_vrtop_res} and~\ref{fig:ch8_vrtop_nonres} show the pre-fit $N-1$ distributions.
+ The data are compatible with the simulated distributions within their statistical precision.
+--- before/Chapters/CH7_event_selection.tex
++++ after/Chapters/CH7_event_selection.tex
+@@ -79,7 +79,7 @@
+ $\mT$ is used to distinguish non-resonant leptoquark exchange from the SM background.
+ A tighter $\mT$ threshold is therefore expected in $\bTagSR$-$\NonRes$ than in $\bTagSR$-$\Res$.
+ The invariant mass $m_{b\tau}$ is used to probe resonant $U_1\to b\tau$ decays.
+-$\DphiTauMet$ is used to select the back-to-back $\tau$ and $\mpt$ configuration of the non-resonant signal, which helps suppress top-quark backgrounds.
++$\DphiTauMet$ is used to select the back-to-back $\tau$ and $\mpt$ configuration of the non-resonant signal, which helps suppress the top-quark background.
+ On the other hand, in $\bTagSR$-$\Res$, small $\DphiTauMet$ are favoured due to the high $\pt^{b}$ requirement.
+ The jet multiplicity is used to suppress $\ttbar$ events since they tend to have more jets than the signal events.
+ The thresholds used for grid scan are summarised in Table~\ref{tab:ch7_scan_variables}.
+@@ -184,7 +184,7 @@
+ The background is dominated by $W$+jets, principally $W\to\tau\nu$, which contributes approximately $64\%$.
+ The tagged jet can originate from heavy-flavour production or a misidentified light-flavour jet.
+ Approximately $16\%$ is contributed by diboson production, followed by $\ttbar$ ($8\%$) and single-top production ($5\%$), including $Wt$.
+-Top-quark events can pass the selection through $\ttbar\to b\tau\nu\,\bar b\tau\nu$ or $Wt\to b\tau\nu\,\tau\nu$ when only one $\tau$ is selected and the remaining decay products satisfy the jet and lepton requirements.
++Top-quark background events can pass the selection through $\ttbar\to b\tau\nu\,\bar b\tau\nu$ or $Wt\to b\tau\nu\,\tau\nu$ when only one $\tau$ is selected and the remaining decay products satisfy the jet and lepton requirements.
+ Smaller contributions are provided by $Z$+jets.
+ 
+ The loose $N-1$ distributions in Figure~\ref{fig:ch7_sr1b_res_distributions} illustrate the selected kinematics, including the broad $m_{b\tau}$ distribution.
+@@ -368,7 +368,7 @@
+ In the resonant region, diboson production contributes about $10\%$, $Z\to\nu\nu$+jets about $8\%$, and $Z\to\tau\tau$+jets about $5\%$.
+ In the non-resonant region, the corresponding contributions are approximately $3\%$, $6\%$ and $8\%$.
+ The $Z\to\nu\nu$ events contain a jet misidentified as a $\tau$, while $Z\to\tau\tau$ and diboson events can contain genuine $\tau$ leptons and neutrinos.
+-The combined $\ttbar$ and single-top contribution is below $1\%$ in each zero-$b$-jet region.
++The top-quark background contribution is below $1\%$ in each zero-$b$-jet region.
+ 
+ The final requirements for all four mutually exclusive SRs are summarised in Table~\ref{tab:ch7_signal_regions}.
+ Each region contributes one event count to the simultaneous statistical analysis.
+--- before/Chapters/object_definition/object_definition.tex
++++ after/Chapters/object_definition/object_definition.tex
+@@ -51,9 +51,9 @@
+ 
+ Signal objects are selected from the baseline collections with the following additional requirements:
+ \begin{itemize}
+-    \item \textbf{Electrons.} The \texttt{HighPtCaloOnly} isolation requirement is added to the baseline selection. The transverse-momentum threshold is $28~\GeV$ in the top control regions and $200~\GeV$ in the single-lepton regions without a tau candidate.
++    \item \textbf{Electrons.} The \texttt{HighPtCaloOnly} isolation requirement is added to the baseline selection. The transverse-momentum threshold is $28~\GeV$ in the control regions for the top-quark background and $200~\GeV$ in the single-lepton regions without a tau candidate.
+     \item \textbf{Muons.} \texttt{Medium} identification and \texttt{Tight\_VarRad} isolation are required in addition to the baseline selection. The transverse-momentum thresholds are the same as for signal electrons.
+-    \item \textbf{Hadronic taus.} \texttt{Tight} RNN identification is required, and the \texttt{Loose} electron-rejection requirement is retained. The transverse-momentum threshold is $200~\GeV$ in the signal regions and $100~\GeV$ in the top control and validation regions.
++    \item \textbf{Hadronic taus.} \texttt{Tight} RNN identification is required, and the \texttt{Loose} electron-rejection requirement is retained. The transverse-momentum threshold is $200~\GeV$ in the signal regions and $100~\GeV$ in the control and validation regions for the top-quark background.
+     \item \textbf{Jets.} The baseline jet identification is retained. Jets used to define the resonant categories are required to have $\pT>250~\GeV$, while a jet with $50<\pT<250~\GeV$ is required in the non-resonant categories. The $b$-jet subset is selected with the GN2v01 85\% working point introduced in Section~\ref{sec:ch6_btag}.
+ \end{itemize}
+ The choice of jet entering each category, object multiplicities, trigger requirements and the remaining event selections are specified in Chapter~\ref{chapter:event_selection}.

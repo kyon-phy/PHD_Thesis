@@ -1,0 +1,1716 @@
+### PAGE 1
+ 
+𝜏𝜈
++b
+ 
+search in LHC-ATLAS motivated by B anomaly
+:
+Status report
+ 
+Jiaqi Zang
+,
+ 
+Takuya
+ 
+Nobe
+,
+ 
+Tomoya
+ 
+Iizawa
+,
+ 
+Junichi
+ 
+Tanaka
+The
+ 
+University
+ 
+of
+ 
+Tokyo
+21/07/2025
+1
+Based on 
+https://arxiv.org/abs/2111.04748
+ 
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+NOTES: 19
+
+### PAGE 2
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+2
+Signal
+ 
+(non-resonance)
+Event
+ 
+topology
+Target
+ 
+signal
+:
+ 
+𝜏𝜈
+ 
++
+ 
+b
+ 
+jet
+ 
+(hard/soft)
+ 
+*
+high
+ 
+𝑝
+𝑇
+𝜏
+ 
+and
+ 
+high
+ 
+𝐸
+𝑇
+𝑚𝑖𝑠𝑠
+ 
+Final state never explored by ATLAS/CMS.
+Look
+ 
+for
+ 
+the
+ 
+unique
+ 
+parameter
+ 
+space
+ 
+that
+ 
+sensitive
+ 
+to
+ 
+𝑐
+𝜈
+ 
+coupling
+ 
+Soft
+ 
+b
+ 
+jet
+Signal
+ 
+(resonance)
+* 
+Hard
+ 
+b
+ 
+jet
+ 
+(>
+ 
+25
+0
+ 
+GeV)
+Analysis
+ 
+overview
+Agreed to use the Run-2 data only.
+Waiting
+ 
+for
+ 
+the
+ 
+new
+ 
+ntuples
+ 
+production
+ 
+for
+ 
+systematics
+ 
+study.
+1
+st
+ 
+version
+ 
+draft
+ 
+of
+ 
+Internal
+ 
+note
+ 
+is
+ 
+uploaded
+ 
+to
+ 
+CDS
+.
+New
+ 
+signal
+ 
+samples
+ 
+request
+ 
+is
+ 
+done.
+ 
+(
+JIRA
+)
+NOTES: 
+
+### PAGE 3
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+3
+Current status
+Ntuples
+ 
+dedicated
+ 
+to
+ 
+this
+ 
+analysis
+ 
+produced.
+TopCPToolKit
+ 2.17.1
+Due
+ 
+to
+ 
+the
+ 
+time
+ 
+limit,
+ 
+the
+ 
+sample
+ 
+is
+ 
+produced
+ 
+with R21 
+egamma
+ SFs.
+Will
+ 
+compare
+ 
+them
+ 
+with
+ 
+the
+ 
+latest
+ 
+R22
+ 
+recommandation
+.
+Included
+ 
+all
+ 
+CP
+ 
+uncertainties.
+Compared
+ 
+N-1
+ 
+plots
+ 
+in
+ 
+CRs
+ 
+with
+ 
+previous
+ 
+results.
+Nominal-only
+ 
+fit
+ 
+to
+ 
+CRs
+ 
+and
+ 
+checked
+ 
+the
+ 
+results
+ 
+in
+ 
+VRs.
+Theoretical
+ 
+systematic
+ 
+uncertainties
+ 
+estimation
+ 
+is
+ 
+done.
+Will
+ 
+perform
+ 
+the
+ 
+fit
+ 
+with
+ 
+systematics,
+ 
+after
+ 
+the
+ 
+fit
+ 
+machineries
+ 
+are
+ 
+ready
+ 
+with
+ 
+the
+ 
+nominal-only
+ 
+studies.
+Signal
+ 
+reweighting
+ 
+study
+ 
+is
+ 
+performed.
+NOTES: 
+
+### PAGE 4
+N-1
+ 
+distribution
+ 
+comparison
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+4
+NOTES: 
+
+### PAGE 5
+Region
+ 
+definition
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+5
+SR
+ 
+and
+ 
+CR
+ 
+definition:
+SR:
+ 
+1tau
+ 
++
+ 
+mET
+ 
++
+ 
+1b
+WCR:
+ 
+1e/1mu
+ 
++
+ 
+mET
+ 
++
+ 
+bveto
+TopCR
+:
+ 
+1e/1mu
+ 
++
+ 
+1tau
+ 
++
+ 
+bjets
+Validation
+ 
+region
+ 
+selection:
+1e/1mu
+ 
+
+ 
+1tau
+ 
+extrapolation:
+ 
+validated
+ 
+in
+ 
+WVR1tau.
+bveto
+ 
+
+ 
+btag
+ 
+extrapolation:
+ 
+validated
+ 
+in
+ 
+VR0tau.
+ 
+NOTES: 
+
+### PAGE 6
+Comparison
+ 
+of
+ 
+new
+ 
+and
+ 
+old
+ 
+production
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+6
+Resonance
+Non-Resonance
+WCR
+ 
+(1e)
+NOTES: 
+
+### PAGE 7
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+7
+e/mu
+ 
+inconsistency
+ 
+in
+ 
+WCR
+Data yield comparison in 1e/1mu WCR
+Simulation yield comparison in 1e/1mu WCR
+Data/MC
+ 
+(Non-resonance
+ 
+WCR):
+0tau1e0b:
+ 
+1.017±0.095
+0tau1mu0b:
+ 
+0.79±0.07
+ 
+2.6 
+sigma discrepency for 
+data and 0.7 sigma for MC are observed.
+NOTES: 
+
+### PAGE 8
+Event weights in non-resonance WCR
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+8
+1mu non-resonance WCR
+1e non-resonance WCR
+Weight_total = weight_mc * weight_pileup * lumi * xSec / SumWeights
+Difference from MC samples mainly from the specific large weight events (weight~30).
+With
+ 
+looser
+ 
+cuts,
+ 
+agreement
+ 
+improved.
+The
+ 
+difference
+ 
+is
+ 
+coming
+ 
+from
+ 
+statistical
+ 
+fluctuation
+e-
+ 
+and
+ 
+mu-
+ 
+channels
+ 
+are
+ 
+combined
+ 
+for
+ 
+stat.
+Try
+ 
+to
+ 
+perform
+ 
+the
+ 
+fit
+ 
+to
+ 
+CRs
+ 
+and
+ 
+apply
+ 
+the
+ 
+results
+ 
+to
+ 
+1tau
+ 
+VRs
+ 
+to
+ 
+check
+ 
+the
+ 
+validities.
+NOTES: 
+
+### PAGE 9
+B-only
+ 
+fit
+ 
+in
+ 
+CR
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+9
+NOTES: 
+
+### PAGE 10
+N
+ominal-only fit
+ 
+in
+ 
+CR
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+10
+Fit result:
+NOTES: 
+
+### PAGE 11
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+11
+Summary plots:
+N
+ominal-only fit
+ 
+in
+ 
+CR
+Good
+ 
+agreement
+ 
+between
+ 
+data
+ 
+and
+ 
+MC
+ 
+in
+ 
+most
+ 
+of
+ 
+VRs.
+Only
+ 
+in
+ 
+Non-Resonance
+ 
+VR0tau.
+ 
+~
+3
+ 
+sigma
+ 
+discrepancy
+ 
+observed.
+NOTES: 
+
+### PAGE 12
+0tau1l1b
+ 
+v
+alidation region
+ 
+investigation
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+12
+Cut
+flow
+Discrepancy
+ 
+(mainly
+ 
+from
+ 
+Wmunu
+)
+ 
+appeared
+ 
+since
+ 
+met
+ 
+cut,
+ 
+next
+ 
+to
+ 
+check
+ 
+N-1
+ 
+distribution…
+NOTES: 
+
+### PAGE 13
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+13
+0tau1l1b
+ 
+v
+alidation region
+ 
+investigation
+N-1
+ 
+distribution
+Met
+ 
+N
+-
+1
+met
+ 
+N
+-
+1
+ 
+(
+mT
+ 
+>
+ 
+400
+ 
+GeV
+)
+Discrepancy
+ 
+is
+ 
+localized
+ 
+in
+ 
+425
+ 
+<
+ 
+mET
+ 
+<
+ 
+450
+ 
+GeV
+ 
+with
+ 
+overall
+ 
+3.1
+ 
+sigma.
+If
+ 
+we
+ 
+loosen
+ 
+the
+ 
+mET
+ 
+cut
+ 
+>
+ 
+300
+ 
+GeV,
+ 
+data/MC
+ 
+agreement
+ 
+is
+ 
+improved
+ 
+to
+ 
+1.8
+ 
+sigma.
+If
+ 
+we
+ 
+tighten
+ 
+the
+ 
+mET
+ 
+cut
+ 
+>
+ 
+500
+ 
+GeV,
+ 
+data/MC
+ 
+agreement
+ 
+is
+ 
+also
+ 
+improved
+ 
+to
+ 
+1.5
+ 
+sigma.
+ 
+If
+ 
+we
+ 
+loosen
+ 
+the
+ 
+mT
+ 
+cut
+ 
+to
+ 
+>
+ 
+400
+ 
+GeV,
+ 
+agreement
+ 
+is
+ 
+improved
+ 
+to
+ 
+sigma
+ 
+2.1.
+ 
+If
+ 
+we
+ 
+include
+ 
+the
+ 
+jet
+ 
+systematics
+ 
+uncertainties,
+ 
+the
+ 
+agreement
+ 
+is
+ 
+relaxed
+ 
+to
+ 
+sigma
+ 
+2.9
+NOTES: 
+
+### PAGE 14
+0tau1l1b
+ 
+v
+alidation region
+ 
+investigation
+26.07.10 Jiaqi ZANG
+AJ tau meeting
+14
+Cut
+flow
+Met
+ 
+N
+-
+1
+425 < mET< 450 GeV && 300 < lep0 pT < 400 GeV is off.
+e-channel:
+ 
+5
+ 
+events.
+Mu-channel:
+ 
+7
+ 
+events.
+NOTES: 
+
+### PAGE 15
+A
+ 
+closer
+ 
+look
+ 
+at
+ 
+jet/
+ 
+lepton
+ 
+eta/phi
+ 
+in
+ 
+the
+ 
+0tauVR
+ 
+with
+ 
+cut
+ 
+425 < mET< 450 GeV && 300 < lep0 pT < 400 GeV 
+.
+ 
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+15
+0tau1l1b
+ 
+v
+alidation region
+ 
+investigation
+No
+ 
+distinct
+ 
+feature
+ 
+found
+ 
+in
+ 
+specific
+ 
+region/period.
+ 
+Could
+ 
+due
+ 
+to
+ 
+lack
+ 
+of
+ 
+stats.
+NOTES: 
+
+### PAGE 16
+Theory uncertainty estimation
+Theory uncertainty is evaluated in the SR and VRs with transfert factor (TF).
+Most of the uncertainties have the error 
+around 
+5% except for the following items:
+Resonance regions:
+Top PS in SR.
+Top ME in 1tau TopVR.
+Top FSR in 1tau TopVR.
+Wt interference in SR and 1tau TopVR.
+Non-Resonance regions:
+Wjets QCD scale in SR.
+Top ME in SR.
+Top hdamp in SR.
+ttbar PT shape in SR.
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+16
+Non-Resonance
+ 
+regions
+Resonance
+ 
+regions
+NOTES: 
+
+### PAGE 17
+Signal
+ 
+reweighting
+ 
+study
+Junichi
+ 
+has
+ 
+made
+ 
+a
+ 
+presentation
+ 
+on
+ 
+this.
+ 
+(
+indico
+)
+MadGraph
+ 
+ME
+ 
+reweighting
+ 
+for
+ 
+(
+𝑔
+𝑈
+,
+ 
+𝛽
+𝐿
+23
+)
+ 
+scan
+ 
+generally
+ 
+works
+ 
+well.
+Especially
+ 
+at
+ 
+small
+ 
+𝑔
+𝑈
+.
+ 
+Strong
+ 
+coupling
+ 
+is
+ 
+relatively
+ 
+larger
+ 
+than
+ 
+NP
+ 
+coupling,
+ 
+and
+ 
+the
+ 
+reweighting
+ 
+does
+ 
+not
+ 
+work
+ 
+well.
+ 
+Perhaps
+ 
+at
+ 
+that
+ 
+region,
+ 
+the
+ 
+assumption
+ 
+𝑋𝑠𝑒𝑐
+∝
+𝑔
+𝑈
+4
+ 
+is
+ 
+not
+ 
+reliable.
+We
+ 
+will
+ 
+apply
+ 
+additional
+ 
+truth-level
+ 
+reweighting
+ 
+using
+ 
+b-jet
+ 
+pt
+ 
+and
+ 
+M(
+tau,b
+).
+ 
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+17
+NOTES: 
+
+### PAGE 18
+Summary
+ 
+and
+ 
+Plan
+Data/MC comparison in CRs done.
+2.6 sigma discrepancy for data and 0.7 sigma for MC is observed for the e/mu difference.
+Combine e- and mu- channels and check the fit results in 1tau VRs to confirm the validity.
+Nominal only fit in CRs performed and applied 
+normfactors
+ in VRs.
+All VRs look good, except for 0tau1l1b VR (3.1
+ 
+sigma).
+The discrepancy is localized in 400 < 
+mET
+ < 450 GeV.
+If we loosen (or tighten) the cuts, the agreement is improved to ~1.5 sigma.
+Studies
+ 
+for
+ 
+the
+ 
+signal
+ 
+is
+ 
+performed.
+ 
+We
+ 
+will
+ 
+use
+ 
+truth-level
+ 
+info
+ 
+to
+ 
+correct
+ 
+the
+ 
+reweighting
+ 
+Next plan
+Expected limit computation
+Investigate
+ 
+large theoretical uncertainties.
+Fit with full systematic uncertainties
+ 
+and
+ 
+Update the internal note. 
+At last, we would like to discuss again about the requirements for the EB request.
+We agreed with PC to try publication by the end of the year with the condition to use Run-2 data only. 
+ that requires us to form the EB in July.
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+18
+NOTES: 
+
+### PAGE 19
+19
+Backup
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+NOTES: 
+
+### PAGE 20
+Looser VR and CR
+A looser CR and VR is considered due to the stats issue.
+In
+ Non-resonance 
+regions,
+ 
+we
+ 
+have
+ 
+BG
+ 
+estimation:
+2025/07/21 
+Jiaqi
+ ZANG
+LPX weekly meeting
+20
+𝑾
++
+𝒋𝒆𝒕𝒔
+𝒕
+𝒕
+Single
+ 
+Top
+Total
+ 
+BG
+SR
+1.5±0.51
+0.30±0.13
+0.01±0.03
+2.13±0.54
+0tau
+ 
+VR
+30.6±5.1
+10.6±0.7
+3.58±0.24
+45.8±5.3
+Single
+ 
+Top
+Total
+ 
+BG
+SR
+0tau
+ 
+VR
+Following selections is relaxed:
+Non-Resonance WCR, 0tauVR and 1tauWVR: mET > 400 GeV 
+ mET > 300 GeV.
+Resonance 1tauTopVR: 
+𝑀
+𝜏
++
+𝑏
+>400
+ 
+𝐺𝑒𝑉
+ 
+
+ 
+𝑀
+𝜏
++
+𝑏
+>
+2
+00
+ 
+𝐺𝑒𝑉
+ 
+ 
+NOTES: 
+
+### PAGE 21
+Comparison
+ 
+of
+ 
+new
+ 
+and
+ 
+old
+ 
+production
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+21
+Resonance
+Non-Resonance
+WCR
+ 
+(1mu)
+NOTES: 
+
+### PAGE 22
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+22
+Resonance
+Non-Resonance
+Comparison
+ 
+of
+ 
+new
+ 
+and
+ 
+old
+ 
+production
+Top
+CR
+ 
+(1e)
+NOTES: 
+
+### PAGE 23
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+23
+Resonance
+Non-Resonance
+Comparison
+ 
+of
+ 
+new
+ 
+and
+ 
+old
+ 
+production
+Top
+CR
+ 
+(1mu)
+NOTES: 
+
+### PAGE 24
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+24
+Fit result:
+N
+ominal-only fit
+ 
+in
+ 
+CR
+NOTES: 
+
+### PAGE 25
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+25
+Fit result:
+N
+ominal-only fit
+ 
+in
+ 
+CR
+NOTES: 
+
+### PAGE 26
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+26
+Fit result:
+N
+ominal-only fit
+ 
+in
+ 
+CR
+NOTES: 
+
+### PAGE 27
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+27
+Fit result:
+N
+ominal-only fit
+ 
+in
+ 
+CR
+NOTES: 
+
+### PAGE 28
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+28
+0tau1l1b
+ 
+v
+alidation region
+ 
+investigation
+N-1
+ 
+distribution
+L
+ep
+ 
+pT
+bj
+et
+ 
+pT
+More
+ 
+like
+ly
+ 
+a
+ 
+statistical
+ 
+fluctuation.
+NOTES: 
+
+### PAGE 29
+Normalization
+ 
+of
+ 
+signal
+ 
+strength
+ 
+is
+ 
+control
+ 
+by
+ 
+POI
+ 
+linearly.
+ 
+(
+Xsec
+*
+mu)
+In
+ 
+case
+ 
+of
+ 
+getting
+ 
+a
+ 
+limit
+ 
+of
+ 
+gU
+ 
+with
+ 
+different
+ 
+mass
+ 
+points/beta23
+BSM:
+ 
+(
+ 
+g
+𝑈
+4
+∝
+𝜇
+ 
+)
+Interference:
+ 
+(
+g
+𝑈
+2
+∝
+𝜇
+ 
+)
+Which
+ 
+means
+ 
+𝜇
+ 
+should
+ 
+treat
+ 
+differently
+ 
+for
+ 
+BSM
+ 
+and
+ 
+interference?
+Then
+ 
+it
+ 
+can
+ 
+be
+ 
+used
+ 
+for
+ 
+drawing
+ 
+the
+ 
+limit
+ 
+plot.
+ 
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+29
+Expected
+ 
+limit
+ 
+calculation
+NOTES: 
+
+### PAGE 30
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+30
+Signal
+ 
+(non-resonance)
+Event
+ 
+topology
+Target
+ 
+signal
+:
+ 
+𝜏𝜈
+ 
++
+ 
+b
+ 
+jet
+ 
+(hard/soft)
+ 
+*
+high
+ 
+𝑝
+𝑇
+𝜏
+ 
+and
+ 
+high
+ 
+𝐸
+𝑇
+𝑚𝑖𝑠𝑠
+ 
+Final state never explored by ATLAS/CMS.
+Look
+ 
+for
+ 
+the
+ 
+unique
+ 
+parameter
+ 
+space
+ 
+that
+ 
+sensitive
+ 
+to
+ 
+𝑐
+𝜈
+ 
+coupling
+ 
+Soft
+ 
+b
+ 
+jet
+Signal
+ 
+(resonance)
+* 
+Hard
+ 
+b
+ 
+jet
+ 
+(>
+ 
+25
+0
+ 
+GeV)
+Analysis
+ 
+overview
+Agreed to use the Run-2 data only.
+Waiting
+ 
+for
+ 
+the
+ 
+new
+ 
+ntuples
+ 
+production
+ 
+for
+ 
+systematics
+ 
+study.
+1
+st
+ 
+version
+ 
+draft
+ 
+of
+ 
+Internal
+ 
+note
+ 
+is
+ 
+uploaded
+ 
+to
+ 
+CDS
+.
+New
+ 
+signal
+ 
+samples
+ 
+request
+ 
+on-going.
+ 
+(
+JIRA
+)
+NOTES: 
+
+### PAGE 31
+Object
+ 
+definitions
+ 
+and
+ 
+SFs
+2025/07/21 Jiaqi ZANG
+LPX weekly meeting
+31
+Electron
+(signal: 
+TightLH+HighPtCaloOnly
+)
+Muon
+(signal:
+ 
+medium_nonIso
+)
+Tau
+ 
+(
+signal:
+ 
+Tight
+RNN
+)
+NOTES: 

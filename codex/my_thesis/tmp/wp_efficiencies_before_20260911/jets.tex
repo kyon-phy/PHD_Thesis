@@ -1,0 +1,57 @@
+\section{Jets}
+\label{sec:ch6_jets}
+
+\subsection{Reconstruction}
+
+Jets are reconstructed from the collimated hadrons produced through parton showering and hadronisation.
+Particle-flow constituents are used to combine the charged-particle momentum measurements from the ID with calorimeter measurements of the remaining energy~\cite{ATLAS2017ParticleFlow}.
+The main steps are:
+\begin{enumerate}
+    \item Well-measured tracks are matched to calorimeter topological clusters.
+    \item The expected calorimeter energy deposited by the matched charged particles is subtracted from the clusters, avoiding double counting when the track momenta are used.
+    \item The selected tracks and remaining calorimeter contributions are retained as the jet inputs. Vertex association is used to suppress charged-particle contributions from pile-up.
+\end{enumerate}
+Calorimeter deposits from neutral particles and charged particles without a selected track remain in the calorimeter contribution.
+The input clusters are initially measured at the electromagnetic energy scale, and the hadronic response is corrected by the jet calibration.
+
+The constituents are clustered with the anti-$k_t$ algorithm using $R=0.4$~\cite{Cacciari2008AntiKt}.
+At each iteration, pairwise and beam distances are evaluated:
+\begin{align}
+    d_{ij}&=\min\!\left(p_{\mathrm{T},i}^{-2},p_{\mathrm{T},j}^{-2}\right)
+       \frac{\Delta R_{y,ij}^{\,2}}{R^2},
+    &d_{iB}&=p_{\mathrm{T},i}^{-2},
+    \label{eq:ch6_antikt}\\
+    \Delta R_{y,ij}&=\sqrt{(y_i-y_j)^2+(\phi_i-\phi_j)^2},
+    &y&=\frac{1}{2}\ln\frac{E+p_z}{E-p_z}.
+    \label{eq:ch6_rapidity}
+\end{align}
+Here, $y$ is rapidity and $B$ labels the beam distance.
+If the smallest distance is $d_{ij}$, the two constituent four-momenta are combined.
+If it is $d_{iB}$, constituent $i$ is declared a jet and removed from the sequence.
+The procedure is repeated until no constituents remain.
+The inverse-$\pT^2$ weighting favours the clustering of soft radiation around hard constituents, giving isolated jets approximately circular boundaries.
+The algorithm is infrared and collinear safe: the hard-jet configuration is unchanged by an arbitrarily soft emission or a collinear splitting.
+The rapidity distance $\Delta R_y$ differs from the pseudorapidity distance $\Delta R$ defined in Eq.~\eqref{eq:delta_r}.
+The two distances coincide in the massless limit.
+
+\subsection{Identification and pile-up rejection}
+
+Jets in this analysis are required to satisfy \texttt{LooseBad} cleaning and the neural-network jet-vertex tagger (NNJVT) \texttt{FixedEffPt} working point.
+\begin{itemize}
+    \item \textbf{Jet cleaning} uses calorimeter pulse shapes and the distribution of energy among calorimeter layers to reject noise and non-collision backgrounds. For example, a jet with $|\eta|<2$ is rejected if more than 99\% of its energy is deposited in a single calorimeter layer~\cite{ATLAS2015JetCleaning}.
+    \item \textbf{Pile-up rejection} requires the NNJVT score to exceed a threshold that depends on jet $\pT$ and $\eta$~\cite{ATLASNNJVTSelection}. Larger scores favour jets whose tracks originate from the primary vertex and carry a substantial fraction of the jet $\pT$.
+\end{itemize}
+The NNJVT requirement is applied within the kinematic range of its calibration.
+
+\subsection{Calibration}
+
+The reconstructed jet four-momentum is calibrated through the following sequence~\cite{ATLAS2021JetCalibration}:
+\begin{enumerate}
+    \item \textbf{Pile-up subtraction.} The average additional transverse momentum is subtracted using the event transverse-momentum density $\rho$ and jet area $A$, giving a correction proportional to $\rho A$. Residual dependence on the pile-up activity is then corrected.
+    \item \textbf{Simulation-based energy and direction calibration.} Reconstructed jets are compared with particle-level jets in simulation to correct the average energy response and pseudorapidity bias.
+    \item \textbf{Global sequential calibration.} Dependence on the particle composition and shower development is reduced using tracking and calorimeter observables sensitive to variations in the jet response.
+    \item \textbf{Residual in situ calibration.} Remaining differences between data and simulation are measured with momentum balance in $Z$+jet, photon+jet and multijet events. This final correction is applied to collision data.
+\end{enumerate}
+Particle-level jets are built from simulated stable particles, excluding muons and neutrinos, with the corresponding jet algorithm and provide the reference for the response calibration.
+Jet energy-scale and resolution uncertainties are propagated to the analysis selections and to $\met$.
+Scale factors for the pile-up rejection efficiency are applied to simulated event weights.

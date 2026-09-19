@@ -1,0 +1,26 @@
+% CH6 reading draft, 8 September 2026.
+% Structure follows Chapters/CH6_object_definition.tex.
+% Analysis blueprint: ANA_EXOT_2025_06_INT1, 20 April 2026, Section 5.
+% Paper cross-check: arXiv:2606.02067v1, Sections 5 and 7.
+% Source decisions and unresolved production details: CH6_source_notes.md.
+\chapter{Object Reconstruction and Identification}
+\label{chapter:object_reconstruction}
+
+Hadronically decaying $\tau$-leptons, electrons, muons and jets are used in this analysis.
+This chapter describes their reconstruction, identification and calibration, followed by overlap removal and the reconstruction of $\met$.
+
+These objects are reconstructed and identified using detector measurements.
+Tracks are used to determine charged-particle momenta and production vertices, while energy deposits are measured in the calorimeters.
+The reconstructed energies and momenta are calibrated to correct biases in the detector response.
+Simulated event weights are further corrected using efficiency scale factors.
+
+
+\input{output/ch6/sections/01_tracks}
+\input{output/ch6/sections/02_primary_vertex}
+\input{output/ch6/sections/03_electrons}
+\input{output/ch6/sections/04_muons}
+\input{output/ch6/sections/05_hadronic_taus}
+\input{output/ch6/sections/06_jets}
+\input{output/ch6/sections/07_flavour_tagging}
+\input{output/ch6/sections/08_overlap_removal}
+\input{output/ch6/sections/09_missing_momentum}

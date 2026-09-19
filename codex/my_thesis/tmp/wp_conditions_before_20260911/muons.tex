@@ -1,0 +1,46 @@
+\section{Muons}
+\label{sec:ch6_muons}
+
+\subsection{Reconstruction}
+
+Muons are reconstructed using tracks in the ID and MS, together with their energy deposits in the calorimeters~\cite{ATLAS2021MuonID}.
+The main reconstruction categories are:
+\begin{itemize}
+    \item \textbf{Combined muons} are reconstructed by matching and fitting ID and MS tracks, including the energy loss between the two tracking systems.
+    \item \textbf{Segment-tagged muons} are reconstructed by matching an ID track to one or more local track segments in the MS when a complete MS track is unavailable.
+    \item \textbf{Calorimeter-tagged muons} are reconstructed by matching an ID track to calorimeter deposits compatible with a minimum-ionising particle. Acceptance is recovered in regions with limited MS coverage.
+    \item \textbf{MS-extrapolated muons} are reconstructed by extrapolating an MS track towards the interaction region without a matched ID track.
+\end{itemize}
+
+Combined muons are used in this analysis.
+
+\subsection{Identification}
+
+Muon identification tests whether the detector hits and the ID and MS momentum measurements are consistent with a single muon trajectory~\cite{ATLAS2021MuonID}.
+Decays of charged mesons in flight can change the trajectory and momentum, leading to a disagreement between the momentum measurements.
+For muon candidates, this agreement is quantified by the $q/p$ significance,
+\begin{align}
+    S_{q/p}=\frac{\left|(q/p)_{\mathrm{ID}}-(q/p)_{\mathrm{MS}}\right|}
+    {\sqrt{\sigma_{\mathrm{ID}}^2+\sigma_{\mathrm{MS}}^2}},
+    \label{eq:ch6_muon_qp_significance}
+\end{align}
+where $(q/p)_{\mathrm{ID}}$ and $(q/p)_{\mathrm{MS}}$ are the charge-to-momentum ratios determined from the ID and MS tracks, respectively.
+$\sigma_{\mathrm{ID}}$ and $\sigma_{\mathrm{MS}}$ denote the uncertainties.
+Large values indicate poor agreement and help reject incorrectly matched candidates.
+
+In the analysis, baseline muons are required to pass \texttt{Loose} identification while signal muons must additionally satisfy the \texttt{Medium} working point.
+
+\subsection{Isolation}
+
+Muons from heavy-flavour decays are often accompanied by other particles inside a jet.
+They are suppressed using track and calorimeter isolation, defined by the surrounding activity after excluding the muon's own contribution~\cite{ATLAS2021MuonID}.
+The \texttt{Loose\_VarRad} and \texttt{Tight\_VarRad} working points combine track and calorimeter isolation with a track-cone radius that decreases as the muon $\pT$ increases.
+Less surrounding activity is allowed by \texttt{Tight\_VarRad}, giving stronger rejection of muons produced inside jets.
+Baseline muons are required to pass \texttt{Loose\_VarRad} isolation, and signal muons must additionally satisfy \texttt{Tight\_VarRad}.
+
+\subsection{Calibration}
+
+The muon momentum scale and resolution are calibrated using resonance decays, particularly $\zmumu$ and $J/\psi\rightarrow\mu\mu$~\cite{ATLAS2023MuonCalibration}.
+The reconstructed mass distributions constrain biases from the magnetic-field description, detector alignment and material modelling.
+The corrections are applied to the combined momentum measurement used in the analysis.
+Reconstruction, identification and isolation scale factors are measured with tag-and-probe samples and applied to simulated event weights for the selected working points~\cite{ATLAS2021MuonID}.

@@ -1,0 +1,66 @@
+\documentclass[aspectratio=169, 9pt]{beamer}
+\usepackage{../sty/common}
+\usepackage{appendixnumberbeamer}
+\usepackage[most]{tcolorbox}
+
+\setbeamersize{text margin left=5pt, text margin right=5pt}
+
+\definecolor{tabblue}{RGB}{31,119,180}
+\definecolor{taborange}{RGB}{255,127,14}
+\definecolor{tabgreen}{RGB}{44,160,44}
+
+\usetheme{Madrid}
+\usecolortheme[named=tabblue]{structure}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamercolor{page number in head/foot}{fg=tabblue}
+\setbeamerfont{page number in head/foot}{family=\ttfamily, size=\Large}
+
+\setbeamercolor{block title}{bg=tabblue}
+\setbeamercolor{block title alerted}{bg=taborange}
+\setbeamercolor{block title example}{bg=tabgreen}
+
+\setbeamertemplate{navigation symbols}{}
+
+\AtBeginSection[]{
+    \begin{frame}
+        \vfill
+        \centering
+        \begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=true]{title}
+            \usebeamerfont{title}\insertsectionhead\par
+        \end{beamercolorbox}
+        \vfill
+    \end{frame}
+}
+
+\title{Title of Dissertation\\
+    （論文のタイトル） \\
+    {}~{} \\
+    令和X年XX月博士（理学）申請
+    }
+\author{東京大学大学院理学系研究科物理学専攻 \\
+    {}~{} \\
+    東大太郎}
+\date{審査日：20XX/XX/XX}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\section{セクション名}
+
+\begin{frame}{タイトル}
+    内容
+\end{frame}
+
+\appendix
+
+\section{Appendix}
+
+\begin{frame}{タイトル}
+    内容
+\end{frame}
+
+\end{document}

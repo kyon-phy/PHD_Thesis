@@ -1,0 +1,211 @@
+--- before/Chapters/CH2_theoretical_background.tex
++++ after/Chapters/CH2_theoretical_background.tex
+@@ -1086,6 +1086,6 @@
+ 
+ One of the main motivations for SUSY is the hierarchy problem.
+-Loop corrections to the Higgs mass from SM particles can be cancelled by corresponding contributions from their superpartners, reducing the sensitivity of the electroweak scale to very high energy scales~\cite{DimopoulosGeorgi1981,MartinSUSYPrimer}.
+-In models with conserved $R$-parity, supersymmetric particles are produced in pairs and the lightest supersymmetric particle~(LSP) is stable~\cite{FarrarFayet1978,MartinSUSYPrimer}.
++Loop corrections to the Higgs mass from SM particles can be cancelled by corresponding contributions from their superpartners, reducing the sensitivity of the electroweak scale to very high energy scales~\cite{DimopoulosGeorgi1981}.
++In models with conserved $R$-parity, supersymmetric particles are produced in pairs and the lightest supersymmetric particle~(LSP) is stable~\cite{FarrarFayet1978}.
+ If the LSP is electrically neutral and weakly interacting, such as a neutralino in many SUSY scenarios, it can provide a dark matter candidate~\cite{Goldberg1983,EllisOliveSantosoSpanos1984}.
+ SUSY can also improve the unification of gauge couplings at high energy, since the additional superpartners modify the renormalisation-group evolution of the gauge couplings~\cite{DimopoulosRabyWilczek1981,Amaldi1991}.
+--- before/Chapters/CH3_LQ_search.tex
++++ after/Chapters/CH3_LQ_search.tex
+@@ -157,5 +157,5 @@
+ $\kappa_{c}=\kappa_{Y}=0$ corresponds to the Yang--Mills scenario,
+ whereas $\kappa_{c}=\kappa_{Y}=1$ corresponds to the minimal-coupling
+-scenario~\cite{Cornella2019,Baker2019HighPTU1}.
++scenario~\cite{Baker2019HighPTU1}.
+ The Yang--Mills scenario is adopted throughout this thesis.
+ 
+@@ -187,5 +187,5 @@
+ The strength of a given flavour coupling is therefore proportional to $\gU\beta_{L,R}^{i\alpha}$.
+ 
+-The down-quark and charged-lepton mass eigenstate basis is adopted for the $SU(2)$ multiplets~\cite{Cornella2019}:
++The down-quark and charged-lepton mass eigenstate basis is adopted for the $SU(2)$ multiplets:
+ \begin{align}
+     q_{L}^{i}
+@@ -225,5 +225,5 @@
+ One involves an up-type quark together with a neutrino, while the other involves a down-type quark together with a charged lepton.
+ 
+-The simplified $U_{1}$ model allows general flavour couplings to different quark and lepton generations~\cite{Cornella2019}. Meanwhile, we focus on the charged-current $b\rightarrow c\tau\nu$ transition and the signatures containing a $\tau$-lepton and a neutrino. Therefore, the couplings to second-generation leptons in our benchmark are set to zero, which is $\beta_{L}^{22}=\beta_{L}^{32}=0$, and only the couplings involving third-generation leptons are retained. Finally, the flavour-coupling matrices are taken to be
++The simplified $U_{1}$ model allows general flavour couplings to different quark and lepton generations. Meanwhile, we focus on the charged-current $b\rightarrow c\tau\nu$ transition and the signatures containing a $\tau$-lepton and a neutrino. Therefore, the couplings to second-generation leptons in our benchmark are set to zero, which is $\beta_{L}^{22}=\beta_{L}^{32}=0$, and only the couplings involving third-generation leptons are retained. Finally, the flavour-coupling matrices are taken to be
+ \begin{equation}
+     \begin{aligned}
+@@ -438,5 +438,5 @@
+ \label{subsec:u1_low_energy_fit}
+ 
+-The Wilson coefficients $C_{LL}^{c}$ and $C_{LR}^{c}$ introduced above can be constrained using measurements of semileptonic charged-current $B$-meson decays. Ref.~\cite{Aebischer2022} performed a combined fit to low-energy $b\rightarrow c\tau\nu$ observables and determines the preferred region in the $(C_{LL}^{c},C_{LR}^{c})$ plane. The fit result is shown in Fig.~\ref{fig:cll_clr_low_energy_fit}. The Wilson coefficients in this figure are evolved to a common reference scale of $1~\TeV$ to facilitate comparison with high-energy observables. The best-fit point is $(C_{LL}^{c}, C_{LR}^{c})=(0.05,-0.02)$, and the preferred region is compatible with both pure-left-handed ($\beta_{R}^{33}=0$) and sizeable right-handed ($\beta_{R}^{33}=-1$) scenarios~\cite{Aebischer2022}.
++The Wilson coefficients $C_{LL}^{c}$ and $C_{LR}^{c}$ introduced above can be constrained using measurements of semileptonic charged-current $B$-meson decays. Ref.~\cite{Aebischer2022} performed a combined fit to low-energy $b\rightarrow c\tau\nu$ observables and determines the preferred region in the $(C_{LL}^{c},C_{LR}^{c})$ plane. The fit result is shown in Fig.~\ref{fig:cll_clr_low_energy_fit}. The Wilson coefficients in this figure are evolved to a common reference scale of $1~\TeV$ to facilitate comparison with high-energy observables. The best-fit point is $(C_{LL}^{c}, C_{LR}^{c})=(0.05,-0.02)$, and the preferred region is compatible with both pure-left-handed ($\beta_{R}^{33}=0$) and sizeable right-handed ($\beta_{R}^{33}=-1$) scenarios.
+ Although the sign of $\beta_R^{33}$ is relevant to the low-energy relation between $C_{LL}^{c}$ and $C_{LR}^{c}$, the collider predictions used in this thesis are identical for $\beta_R^{33}=+1$ and $-1$. The new-physics amplitudes with different fermion chiralities do not interfere, and the amplitude proportional to a product of left- and right-handed couplings does not interfere with the SM amplitude. The collider interpretation therefore depends only on $|\beta_R^{33}|$.
+ 
+@@ -542,5 +542,5 @@
+ $1.5$--$1.8~\TeV$ as shown in Fig.~\ref{fig:lq_atlas_summary_u1}. The limit also depends on the choice of the $U_{1}$--gluon coupling, such as the Yang--Mills or minimal-coupling scenario, as well as on the decay pattern determined by the assumed fermionic couplings.
+ 
+-For single production, the cross section also depends strongly on the leptoquark--fermion couplings. Searches for singly produced leptoquarks decaying into $b\tau$ have been performed in the $b\tau\tau$ final state, where the leptoquark is produced in association with a $\tau$-lepton as shown in Fig.~\ref{fig:lq_single_production}~\cite{ATLAS2023LQBTau,CMS2024LQBTau}. In addition, virtual $t$-channel $U_1$ exchange can contribute to final states such as $\tau\tau$ or $\tau\nu$, enhancing the event yields in the high-mass region. ATLAS and CMS have therefore searched for non-resonant leptoquark contributions in high-mass $\tau\tau$ production ~\cite{CMS2024LQBTau,ATLAS2025HighMassTauTau,CMS2023TauTauLQ}. These searches can remain sensitive to masses beyond the reach of the direct pair-production searches, particularly for large $\gU$, since the sensitivity is approximately governed by $\gU/\MU$.
++For single production, the cross section also depends strongly on the leptoquark--fermion couplings. Searches for singly produced leptoquarks decaying into $b\tau$ have been performed in the $b\tau\tau$ final state, where the leptoquark is produced in association with a $\tau$-lepton as shown in Fig.~\ref{fig:lq_single_production}~\cite{ATLAS2023LQBTau,CMS2024LQBTau}. In addition, virtual $t$-channel $U_1$ exchange can contribute to final states such as $\tau\tau$ or $\tau\nu$, enhancing the event yields in the high-mass region. ATLAS and CMS have therefore searched for non-resonant leptoquark contributions in high-mass $\tau\tau$ production ~\cite{ATLAS2025HighMassTauTau,CMS2023TauTauLQ}. These searches can remain sensitive to masses beyond the reach of the direct pair-production searches, particularly for large $\gU$, since the sensitivity is approximately governed by $\gU/\MU$.
+ 
+ \begin{figure}[thbp]
+--- before/Chapters/CH4_LHC_ATLAS_experiment.tex
++++ after/Chapters/CH4_LHC_ATLAS_experiment.tex
+@@ -110,5 +110,5 @@
+ \end{figure}
+ 
+-Starting from the beam line and moving outwards, the main detector systems are the Inner Detector~(ID), the calorimeters, and the Muon Spectrometer~(MS)~\cite{ATLASDetector2008}:
++Starting from the beam line and moving outwards, the main detector systems are the Inner Detector~(ID), the calorimeters, and the Muon Spectrometer~(MS):
+ \begin{itemize}
+     \item \textbf{\textit{Inner Detector (ID)}} is immersed in a $2~\mathrm{T}$ axial magnetic field provided by a thin superconducting solenoid and is used to reconstruct charged-particle trajectories close to the interaction point.
+@@ -210,5 +210,5 @@
+     \item \textbf{\textit{Transition Radiation Tracker~(TRT)\quad}}
+ 
+-    The TRT is the outermost tracking subsystem of the ID and provides tracking information at larger radii, covering approximately $|\eta|<2.0$~\cite{ATLASDetector2008}.
++    The TRT is the outermost tracking subsystem of the ID and provides tracking information at larger radii, covering approximately $|\eta|<2.0$.
+     It is based on thin straw-tube drift chambers, which provide a large number of measurements along the trajectory of each charged particle.
+     Although the spatial precision of each TRT hit is lower than that of the silicon detectors, the large number of straw hits and the longer lever arm improve the momentum measurement and help stabilise track reconstruction.
+@@ -230,5 +230,5 @@
+ \label{subsec:atlas_calorimeter}
+ 
+-The ATLAS calorimeter system surrounds the Inner Detector and measures the energies and directions of particles.
++The ATLAS calorimeter system surrounds the Inner Detector and measures the energies and directions of particles~\cite{ATLASDetector2008}.
+ It consists of electromagnetic~(EM) and hadronic calorimeters, as shown in Figure~\ref{fig:atlas_calorimeter}. Specifically, it provides measurements of charged particles, photons and jets, and covers the region up to $|\eta|<4.9$. It also provides the shower information to the Level-1 trigger system.
+ 
+@@ -247,5 +247,5 @@
+ 
+     The EM calorimeter uses liquid argon~(LAr) as the active medium and lead absorbers arranged in an accordion geometry, as shown in Figure~\ref{fig:LAr_module}.
+-    The accordion geometry provides continuous azimuthal coverage and fine segmentation of electromagnetic showers~\cite{ATLASDetector2008}.
++    The accordion geometry provides continuous azimuthal coverage and fine segmentation of electromagnetic showers.
+     The EM calorimeter is divided into a barrel section covering $|\eta|<1.475$ and two end-cap sections covering $1.375<|\eta|<3.2$.
+     It is used to reconstruct and identify electrons and photons and also contributes to the reconstruction of hadronically decaying $\tau$-leptons, particularly through the measurement of electromagnetic energy deposits from neutral-pion decays, which don't leave the charged-particle tracks in the ID.
+@@ -294,5 +294,5 @@
+     In the end-cap and forward regions, liquid-argon calorimeters are used.
+     The hadronic end-cap calorimeter consists of two wheels per end-cap, covers the range $1.5<|\eta|<3.2$, and uses copper absorbers.
+-    The forward calorimeter extends the coverage to $3.1<|\eta|<4.9$ and uses dense absorber materials suitable for the high-radiation environment close to the beam line~\cite{ATLASDetector2008}.
++    The forward calorimeter extends the coverage to $3.1<|\eta|<4.9$ and uses dense absorber materials suitable for the high-radiation environment close to the beam line.
+ \end{itemize}
+ 
+@@ -306,5 +306,5 @@
+ The MS provides precision muon measurements in the range $|\eta|<2.7$, while the dedicated muon trigger chambers cover the region up to approximately $|\eta|<2.4$~\cite{ATLASDetector2008}.
+ 
+-During Run~2, the MS consisted of Monitored Drift Tubes~(MDTs), Cathode Strip Chambers~(CSCs), Resistive Plate Chambers~(RPCs) and Thin Gap Chambers~(TGCs)~\cite{ATLASDetector2008}.
++During Run~2, the MS consisted of Monitored Drift Tubes~(MDTs), Cathode Strip Chambers~(CSCs), Resistive Plate Chambers~(RPCs) and Thin Gap Chambers~(TGCs).
+ A view of these chambers is shown in Figure~\ref{fig:atlas_muon_spectrometer}.
+ 
+@@ -321,10 +321,10 @@
+ 
+     The CSCs are multi-wire proportional chambers used in the innermost forward muon stations, where the particle rates are highest.
+-    They cover approximately $2.0<|\eta|<2.7$ and provide precision measurements in the forward region~\cite{ATLASDetector2008}.
++    They cover approximately $2.0<|\eta|<2.7$ and provide precision measurements in the forward region.
+     Their small drift distance and segmented cathode-strip readout allow them to operate efficiently in the high-rate environment close to the beam line.
+ 
+     \item \textbf{\textit{Resistive Plate Chambers~(RPCs)\quad}}
+ 
+-    The RPCs provide fast muon trigger information in the barrel region, covering approximately $|\eta|<1.05$~\cite{ATLASDetector2008}.
++    The RPCs provide fast muon trigger information in the barrel region, covering approximately $|\eta|<1.05$.
+     They are gaseous parallel-plate detectors operated in avalanche mode.
+     Their fast time response allows the correct bunch crossing to be identified for each muon candidate and provides the Level-1 muon trigger in the barrel.
+@@ -334,5 +334,5 @@
+ 
+     The TGCs are multi-wire proportional chambers designed to provide fast signals for the Level-1 trigger.
+-    They extend to approximately $|\eta|<2.7$ and provide trigger coverage in the end-cap region up to $|\eta|<2.4$~\cite{ATLASDetector2008}.
++    They extend to approximately $|\eta|<2.7$ and provide trigger coverage in the end-cap region up to $|\eta|<2.4$.
+     The TGC system identifies high-$\pT$ muon candidates and assigns them to the correct bunch crossing.
+     It also provides a second coordinate measurement, complementing the precision tracking information from MDTs and CSCs.
+@@ -366,5 +366,5 @@
+ The L1 trigger is the first stage of the ATLAS online event selection.
+ It is implemented in custom hardware and uses reduced-granularity detector information to make a fast decision with a latency of approximately $2.5~\mu\mathrm{s}$.
+-It reduces the input rate from up to $40~\mathrm{MHz}$ to at most $100~\mathrm{kHz}$~\cite{ATLASTriggerRun2}.
++It reduces the input rate from up to $40~\mathrm{MHz}$ to at most $100~\mathrm{kHz}$.
+ The L1 trigger was based on information from the calorimeter and muon trigger systems, together with topological selections applied to L1 trigger objects.
+ A schematic overview of the Run~2 TDAQ system is shown in Figure~\ref{fig:atlas_tdaq}.
+@@ -413,5 +413,5 @@
+ The HLT reconstruction is guided by RoIs identified by the L1 trigger, while full-event reconstruction can also be used for signatures such as jets and missing transverse momentum.
+ The HLT algorithms are designed to provide reconstruction performance close to that of the offline algorithms while remaining sufficiently fast for online operation.
+-As a reuslt, the HLT reduced the L1 output rate to an average recording rate of approximately $1~\mathrm{kHz}$ for permanent storage~\cite{ATLASTriggerRun2}.
++As a reuslt, the HLT reduced the L1 output rate to an average recording rate of approximately $1~\mathrm{kHz}$ for permanent storage.
+ 
+ The trigger menu comprises the active L1 and HLT selections used during data taking with prescale factors, which are applied to selected trigger items to control their rates according to the instantaneous luminosity and available bandwidth.
+--- before/Chapters/CH5_MC_simulation.tex
++++ after/Chapters/CH5_MC_simulation.tex
+@@ -257,5 +257,5 @@
+ The electron labels \texttt{lhloose}, \texttt{lhmedium} and \texttt{lhtight} specify likelihood-based identification requirements, while \texttt{nod0} indicates that transverse-impact-parameter information is omitted.
+ The labels \texttt{iloose}, \texttt{ivarloose} and \texttt{ivarmedium} specify isolation requirements.
+-For $\met$, \texttt{mht} denotes a calculation based on the negative vector sum of jet transverse momenta, whereas \texttt{pufit} denotes a calorimeter-based calculation with a fit-based pile-up correction~\cite{ATLASElectronTriggerRun2,ATLASMuonTriggerRun2,ATLASMETTriggerRun2}.
++For $\met$, \texttt{mht} denotes a calculation based on the negative vector sum of jet transverse momenta, whereas \texttt{pufit} denotes a calorimeter-based calculation with a fit-based pile-up correction~\cite{ATLASMETTriggerRun2}.
+ 
+ Figures~\ref{fig:run2_lepton_trigger_efficiency} and~\ref{fig:run2_met_trigger_efficiency} show representative Run~2 trigger-efficiency measurements.
+--- before/output/ch6/objects/electrons.tex
++++ after/output/ch6/objects/electrons.tex
+@@ -39,9 +39,9 @@
+ \begin{itemize}
+     \item \textbf{Track isolation} is performed using the $\pT$ sum of tracks in the cone. At high electron $\pT$, other decay products can lie close to the electron due to the boost effect, so the cone radius is reduced.
+-    \item \textbf{Calorimeter isolation} follows the same principle as track isolation, but uses cluster $\et$ within a fixed cone of $\Delta R=0.2$. The corrected sum estimates the $\et$ from other particles near the electron~\cite{ATLAS2019ElectronPerformance}.
++    \item \textbf{Calorimeter isolation} follows the same principle as track isolation, but uses cluster $\et$ within a fixed cone of $\Delta R=0.2$. The corrected sum estimates the $\et$ from other particles near the electron.
+ \end{itemize}
+ In the analysis, baseline electrons are required to pass \texttt{Loose\_VarRad} isolation while signal electrons must additionally satisfy \texttt{HighPtCaloOnly}.
+ The \texttt{Loose\_VarRad} working point requires the track and calorimeter isolation sums to be below 15\% and 20\% of the electron $\pT$, respectively.
+-The \texttt{HighPtCaloOnly} working point requires the calorimeter isolation sum to be below $\max(0.015\,\pT,3.5~\GeV)$~\cite{ATLAS2019ElectronPerformance}.
++The \texttt{HighPtCaloOnly} working point requires the calorimeter isolation sum to be below $\max(0.015\,\pT,3.5~\GeV)$.
+ At high $\et$, the prompt-electron efficiencies are about 99\% for \texttt{Loose\_VarRad} and 90--95\% for \texttt{HighPtCaloOnly}~\cite{ATLAS2024ElectronPhotonEfficiencies}.
+ 
+--- before/output/ch6/objects/met.tex
++++ after/output/ch6/objects/met.tex
+@@ -31,7 +31,7 @@
+ Jets are selected separately by the $\met$ reconstruction with the \texttt{Tight} operating point.
+ This requires jet $\pT>20~\GeV$ for $|\eta|<2.5$ and $\pT>30~\GeV$ for $2.5\leq|\eta|<4.5$.
+-The higher forward threshold suppresses pile-up jets beyond the tracking acceptance~\cite{ATLAS2025METPerformance}.
++The higher forward threshold suppresses pile-up jets beyond the tracking acceptance.
+ Their acceptance is distinct from that of the central jets counted in the analysis regions.
+-An association map is used to record shared detector signals and resolve double counting when the object contributions are combined~\cite{ATLAS2025METPerformance}.
++An association map is used to record shared detector signals and resolve double counting when the object contributions are combined.
+ Consequently, $\met$ is not recomputed as a simple sum of the objects passing the final region selections or the geometrical overlap-removal procedure.
+ 
+--- before/output/ch6/objects/muons.tex
++++ after/output/ch6/objects/muons.tex
+@@ -31,6 +31,6 @@
+ In the analysis, baseline muons are required to pass \texttt{Loose} identification while signal muons must additionally satisfy the \texttt{Medium} working point.
+ The \texttt{Medium} working point requires combined candidates within the ID acceptance to satisfy $S_{q/p}<7$ and, outside $|\eta|<0.1$, have at least two MS precision stations with at least three MDT or CSC hits each.
+-The \texttt{Loose} working point applies the same requirements and additionally accepts segment-tagged and calorimeter-tagged candidates in $|\eta|<0.1$, where MS coverage is limited~\cite{ATLAS2021MuonID}.
+-The typical prompt-muon efficiencies are about 99\% for \texttt{Loose} and 97\% for \texttt{Medium}~\cite{ATLAS2021MuonID}.
++The \texttt{Loose} working point applies the same requirements and additionally accepts segment-tagged and calorimeter-tagged candidates in $|\eta|<0.1$, where MS coverage is limited.
++The typical prompt-muon efficiencies are about 99\% for \texttt{Loose} and 97\% for \texttt{Medium}.
+ 
+ \subsection{Isolation}
+@@ -41,5 +41,5 @@
+ Both working points use a track-cone radius that decreases as the muon $\pT$ increases and a fixed calorimeter cone of $\Delta R=0.2$.
+ The track and calorimeter isolation sums must be below 15\% and 30\% of the muon $\pT$ for \texttt{Loose\_VarRad}, respectively.
+-These limits are reduced to 4\% and 15\% for \texttt{Tight\_VarRad}, allowing less activity around the muon and rejecting more muons produced inside jets~\cite{ATLAS2021MuonID}.
++These limits are reduced to 4\% and 15\% for \texttt{Tight\_VarRad}, allowing less activity around the muon and rejecting more muons produced inside jets.
+ The typical prompt-muon isolation efficiencies are about 95\% for \texttt{Loose\_VarRad} and 86\% for \texttt{Tight\_VarRad}~\cite{ATLAS2024MuonIsolation}.
+ 
+--- before/output/ch6/objects/taus.tex
++++ after/output/ch6/objects/taus.tex
+@@ -23,5 +23,5 @@
+ Baseline tau candidates are required to pass \texttt{Loose} RNN identification, and signal candidates must additionally satisfy \texttt{Tight}.
+ The higher RNN-score threshold for \texttt{Tight} rejects more jets at the cost of tau efficiency.
+-For reconstructed one-prong (three-prong) candidates, the target identification efficiencies are 85\% (75\%) for \texttt{Loose} and 60\% (45\%) for \texttt{Tight}~\cite{ATLAS2022TauR22}.
++For reconstructed one-prong (three-prong) candidates, the target identification efficiencies are 85\% (75\%) for \texttt{Loose} and 60\% (45\%) for \texttt{Tight}.
+ 
+ Electrons can be misidentified as hadronic tau candidates because their narrow showers and tracks are similar to the signature of a one-prong tau decay~\cite{ATLAS2022TauR22}.
+@@ -29,5 +29,5 @@
+ This working point requires a minimum score from a separate RNN using shower and track information, including the relation between calorimeter energy and track momentum.
+ The tau efficiencies are approximately 95\% and 98\% for one-prong and three-prong candidates, respectively.
+-The corresponding electron rejection efficiencies are approximately 99.7\% and 98.8\%~\cite{ATLAS2022TauR22}.
++The corresponding electron rejection efficiencies are approximately 99.7\% and 98.8\%.
+ 
+ \subsection{Calibration}
+--- before//Users/zang/.codex/skills/academic-writing-pipeline/SKILL.md
++++ after//Users/zang/.codex/skills/academic-writing-pipeline/SKILL.md
+@@ -111,4 +111,13 @@
+   Record any unresolved need for a public supporting reference
+   in author-facing notes outside the manuscript, without inventing a substitute.
++- **Citation continuity:** When a discussion continues on the same topic, cite
++  a source at the start and omit nearby repetitions of that same citation.
++  A new sentence or paragraph alone does not require another citation. Judge
++  continuity from the argument, not a fixed line distance or a blanket limit of
++  one citation per section. Retain a citation when a topic or source change makes
++  attribution unclear, and preserve independent figure/table attribution and
++  explicit source comparisons. In a citation containing several sources, remove
++  only the repeated key and keep the other sources. When removing an entire
++  `~\cite{...}`, remove its preceding non-breaking space as well.
+ - **Source search and conflict priority:** For this thesis, search the user's
+   INT note and associated analysis paper first, including their relevant passages

@@ -1,0 +1,28 @@
+6.5 Hadronic tau leptons 8
+tau-decay tracks from conversion, unrelated and incorrectly reconstructed tracks. Candidates
+with one or three tau-decay tracks are called one-prong or three-prong candidates.
+6.5.2 Identification
+Hadronic tau candidates are distinguished from quark- and gluon-initiated jets using a separate
+RNN discriminant [12, 10]. Its inputs include track momenta and displacements, calorimeter
+shower properties and, for three-prong candidates, the displacement of the reconstructed decay
+vertex. These variables exploit the narrow shower, low charged multiplicity and displaced
+decay of a tau lepton. Nearby activity is included, without a separate isolation working point.
+Baseline tau candidates are required to pass Loose RNN identification, and signal candidates
+must additionally satisfy Tight. The higher RNN-score threshold for Tight rejects more jets
+at the cost of tau efficiency. For reconstructed one-prong (three-prong) candidates, the target
+identification efficiencies are 85% (75%) for Loose and 60% (45%) for Tight [10].
+Both baseline and signal tau candidates must also pass Loose electron rejection. A separate
+RNN uses shower and track information, including the relation between calorimeter energy
+and track momentum, to reject electron-like candidates. The tau efficiencies are approximately
+95% and 98% for one-prong and three-prong candidates, respectively [10]. Muon rejection
+uses the angular separation from reconstructed muons.
+6.5.3 Calibration
+The tau energy scale is calibrated to the visible decay products [10]. A calorimeter estimate,
+corrected for pile-up and detector response, is combined with an estimate from charged-particle
+tracks and neutral calorimeter deposits, using weights determined by their expected resolutions.
+A boosted regression tree then corrects the combined estimate using shower properties, track
+multiplicity and reconstructed decay structure. This calibration is used for the tau kinematics in
+the analysis.
+Simulated event weights are corrected for differences in tau reconstruction, identification
+and electron-rejection efficiencies between data and simulation. For signal candidates pass￾ing Tight tau identification, the electron-rejection scale factor associated with Medium tau
+identification is used.

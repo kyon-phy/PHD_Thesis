@@ -1,0 +1,18 @@
+% Compile from the thesis root directory.
+\documentclass[a4paper,12pt,times,numbered,oneside,custombib]{Classes/PhDThesisPSnPDF}
+\input{Preamble/preamble}
+\input{thesis-info}
+\hypersetup{pdftitle={Chapter 9: Systematic Uncertainties -- Draft},pdfauthor={Jiaqi Zang}}
+\usepackage{xr-hyper}
+\externaldocument[][nocite]{output/ch9/CH9_external_labels}[../full_build/thesis.pdf]
+\begin{document}
+\mainmatter
+\setcounter{chapter}{8}
+\input{Chapters/CH9_Systematics_uncertainties}
+\clearpage
+\begin{spacing}{0.9}
+\small
+\bibliographystyle{unsrtnat}
+\bibliography{References/references}
+\end{spacing}
+\end{document}

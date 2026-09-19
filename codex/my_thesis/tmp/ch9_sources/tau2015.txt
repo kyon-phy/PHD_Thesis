@@ -1,0 +1,1545 @@
+                                            ATLAS NOTE
+                                      ATL-PHYS-PUB-2015-045
+                                               2nd November 2015
+
+
+
+
+   Reconstruction, Energy Calibration, and Identification of
+Hadronically Decaying Tau Leptons in the ATLAS Experiment for
+                       Run-2 of the LHC
+
+                                          The ATLAS Collaboration
+
+
+
+
+                                                     Abstract
+       The reconstruction algorithm, energy calibration, and identification methods for hadronically
+       decaying tau leptons in ATLAS used at the start of Run-2 of the Large Hadron Collider are
+       described in this note. All algorithms have been optimised for Run-2 conditions. The en-
+       ergy calibration relies on Monte Carlo samples with hadronic tau lepton decays, and applies
+       multiplicative factors based on the pT of the reconstructed tau lepton to the energy meas-
+       urements in the calorimeters. The identification employs boosted decision trees. Systematic
+       uncertainties on the energy scale, reconstruction efficiency and identification efficiency of
+       hadronically decaying tau leptons are determined using Monte Carlo samples that simulate
+       varying conditions.
+
+
+
+
+© 2015 CERN for the benefit of the ATLAS Collaboration.
+Reproduction of this article or parts of it is allowed as specified in the CC-BY-3.0 license.
+1 Introduction
+
+This note describes the updates in the reconstruction, identification and energy calibration of hadronically
+                                                                            √
+decaying tau leptons in ATLAS [1], introduced for the beginning of the s = 13 TeV run of the Large
+Hadron Collider (LHC) [2]. It summarizes the changes with respect to the methods used during the
+√
+  s = 8 TeV run [3] and provides the expected performance based on simulation. Systematic uncertainties
+on the energy scale as well as on the reconstruction and identification efficiency are evaluated based on
+simulation studies and on the experience from previous data-taking periods.
+Performance changes are expected mainly from the addition of a new layer of the pixel detector, the IBL [4],
+which improves the impact parameter and tau decay vertex resolution, as well as from the calorimeter
+readout configuration, updated for operation with 25 ns bunch spacing. Discrimination against electrons
+has been harmonized with the electron identification algorithm, instead of implementing a dedicated veto.
+In addition there were many updates of a technical nature, due to the developments of the ATLAS software
+framework.
+After a description of the ATLAS detector in section 2, the simulated samples used for the optimization,
+determination of performance, and evaluation of the systematic uncertainty are described in section 3.
+Reconstruction of the hadronic component of tau decays (in the following indicated as τhad−vis ) is outlined
+in section 4. The discrimination of hadronic tau decays from the main backgrounds, hadronic jets and
+electrons, is discussed in section 5, while section 6 presents the energy calibration and resolution.
+
+
+2 ATLAS detector
+
+The ATLAS detector [1] consists of an inner tracking system surrounded by a superconducting solenoid,
+electromagnetic (EM) and hadronic (HAD) calorimeters, and a muon spectrometer (MS).
+The inner detector (ID) is immersed in a 2 T axial magnetic field, and consists of pixel and silicon
+microstrip (SCT) detectors inside a transition radiation tracker (TRT), providing charged-particle tracking
+                                   √
+in the region |η| < 2.51. For the s = 13 TeV run, a fourth layer of the pixel detector, the IBL [4], has
+been inserted at an average radius of 33.2 mm, providing an additional position measurement with 8 µm
+resolution in the (x, y) plane and 40 µm along z.
+The EM calorimeter (ECAL) uses lead as the absorber and liquid argon (LAr) as the active material. In
+the central rapidity region, the EM calorimeter is divided into three layers, one of them segmented in
+highly granular η strips for optimal γ/π 0 separation, and completed by a presampler layer for |η| < 1.8.
+Hadron calorimetry is based on different detector technologies, with scintillator tiles (|η| < 1.7) or LAr
+(1.5 < |η| < 4.9) as the active medium, and with steel, copper, or tungsten as the absorber material. The
+calorimeters provide coverage within |η| < 4.9.
+The MS consists of superconducting air-core toroids, a system of trigger chambers covering the range
+|η| < 2.4, and high-precision tracking chambers allowing muon momentum measurements for |η| < 2.7.
+
+1 ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) in the centre of the detector
+  and the z-axis along the beam direction. The x-axis points from the IP to the centre of the LHC ring, and the y-axis points
+  upward. Cylindrical coordinates (r, φ) are used in the transverse (x, y) plane, φ being the azimuthal angle around the beam
+  direction. The pseudorapidity
+                     q          is defined in terms of the polar angle θ as η = − ln tan(θ/2). The distance ∆R in the η − φ space
+  is defined as ∆R =   ∆η 2 + ∆φ2 .
+
+
+
+
+                                                               2
+Physics objects are identified using their specific detector signatures; electrons are reconstructed by
+matching a track from the ID to an energy deposit in the calorimeters [5, 6], while muons are reconstructed
+using tracks from the MS and ID [7]. Jets are reconstructed using the anti-k t algorithm [8] with a distance
+parameter R = 0.4. Three-dimensional clusters of calorimeter cells, termed TopoClusters, calibrated
+using a local hadronic calibration [9], serve as inputs to the jet algorithm.
+
+
+3 Event samples and sources of systematic uncertainties
+
+The τhad−vis reconstruction, identification and calibration are tuned using Z/γ ∗ → ττ events simulated
+using Powheg-Box v2 [10] interfaced to the Pythia 8.186 [11] parton shower model. The CT10 PDF
+set [12] is used in the matrix element. The AZNLO [13] tune is used, with the PDF set CTEQ6L1 [14], for
+the modeling of non-perturbative effects. The EvtGen v1.2.0 program [15] is used for the modelling of the
+bottom and charm hadron decays. Photos++ version 3.52 [16] is used for QED emissions from electroweak
+vertices and charged leptons. Generated events are processed through the ATLAS detector simulation [17]
+based on GEANT4 [18]. The Monte Carlo (MC) simulation samples consist of an inclusive Z/γ ∗ → ττ
+sample, while high-mass Drell-Yan τ + τ − samples cover the high-pT part of the spectrum.
+The identification algorithms are optimized using background samples of di-jet events, simulated using
+Pythia 8.175 [11] with AU2 tune [19] and CT10 PDF [12], and of Z/γ ∗ → ee events with the same
+generator settings as for the inclusive Z/γ ∗ → ττ sample.
+The nominal samples are produced with the expected ATLAS configuration and conditions for the 13 TeV
+operation with 25 ns bunch spacing. The pileup due to multiple pp interactions per bunch crossing
+is simulated by adding event-by-event a number of minimum bias interactions extracted from a Poisson
+distribution with average number of interaction per bunch crossing µ. The value of µ follows a distribution
+covering the range of values expected during the 2015 data-taking, with a mean value about 25. The
+interactions of particles with the detector are simulated by GEANT4 using the FTFP_BERT hadronic
+shower model.
+The following systematic uncertainties on the performance have been evaluated using dedicated Z/γ ∗ →
+ττ samples generated with different configurations:
+    • Uncertainty on the inner detector material, which affects track reconstruction efficiency, photon
+      conversion rate and the amount of energy loss in front of the calorimeter, has been studied by
+      increasing the passive material in the inner detector by 5%. A more precise modeling of the
+                                             √
+      detector material, using early data at s = 13 TeV, has been used in recent publications [20, 21],
+      but it has been checked it doesn’t have a sizeable effect on the uncertainty quoted on this systematic.
+    • Uncertainty in the calorimeter performance and calibration have been estimated by varying the
+      noise thresholds in the reconstruction of TopoClusters. Both upwards and downwards variations
+      have been considered and the absolute value of the maximum deviation is quoted as the systematic
+      uncertainty.
+    • Uncertainty due to underlying event tunes are derived by comparing the nominal sample with a
+      sample simulated using the A14 tune [22].
+    • Events generated with the QGSP_BIC GEANT4 hadronic shower model are used to evaluate
+      uncertainties on the modeling of interaction with the detector.
+
+
+
+
+                                                     3
+In addition, uncertainties due to the pileup mismodeling have been evaluated by dividing the nominal
+sample into four µ bins and taking half of the difference between the uppermost and lowermost bin.
+Systematic uncertainties are evaluated in different |η| regions as a function of the τhad−vis candidate pT ,
+after the calibration described in section 6.
+
+
+4 Reconstruction
+
+The τhad−vis reconstruction algorithm used in the 2012 data-taking has been deployed with minor modific-
+ation for the 13 TeV data-taking. It is described in Ref. [3] and summarized in the following. Jets formed
+using the anti-k t algorithm with a distance parameter R = 0.4 and clusters of calorimeter cells, calibrated
+using a local hadronic calibration (LC) as inputs, are used as seeds of the τhad−vis reconstruction algorithm
+if they satisfy pT > 10 GeV and |η| < 2.5.
+The τhad−vis pT at the LC scale is set to the total energy of TopoClusters within ∆R < 0.2. This is the
+energy scale used in the identification variables of section 5.1. This is also the base value for the final
+energy calibration discussed in section 6.1.
+In τhad−vis reconstruction, the hadronic component (HAD) of the TopoClusters consists of the cells in the
+last layer of the electromagnetic calorimeter and of the hadronic calorimeter, while the electromagnetic
+(EM) component is referred to the energy deposited in the other layers of the ECAL.
+The performance of the efficiencies and calibration in this note are evaluated for τhad−vis candidates with
+|η| < 2.5, outside the transition region 1.37 < |η| < 1.52 between the barrel and forward calorimeters,
+and with a reconstructed pT > 20 GeV, after the calibration described in section 6.
+
+
+4.1 Vertex association
+
+In events with multiple simultaneous interactions, the chosen primary vertex does not always correspond to
+the vertex at which the tau lepton is produced. To reduce the effects of pile-up and increase reconstruction
+efficiency, the tau lepton production vertex is identified, among the previously reconstructed primary
+vertex candidates in the event.
+The tau vertex (TV) association algorithm uses as input all tau candidate tracks in the region ∆R < 0.2
+around the jet seed direction. The pT of these tracks is summed and the primary vertex candidate to which
+the largest fraction of the pT sum is matched is chosen as the TV [23].
+New impact parameters can then be recalculated with respect to the TV and τhad−vis tracks are selected
+using the criteria described in Section 4.2. This vertex is used to determine the τhad−vis direction, to
+associate tracks, and to build the coordinate system in which identification variables presented in section 5
+are calculated.
+In Fig. 1, the TV performance is compared to the general purpose algorithm used in ATLAS, which selects
+the primary vertex that maximize the sum of pT2 of associated tracks. The TV provides a better efficiency
+for the reconstruction of low-pT τhad−vis candidates, especially in a high pile-up environment.
+
+
+
+
+                                                     4
+                   1.05                                                                                          1.05
+
+      Efficiency      1                                                                             Efficiency       1
+
+                   0.95                                                                                          0.95
+
+                    0.9                                                                                           0.9
+
+                   0.85                                                                                          0.85
+                            ATLAS Preliminary                                                                                ATLAS Preliminary
+                    0.8     Simulation mc15                    Default primary vertex                             0.8        Simulation mc15                Default primary vertex
+
+                            1-prong                            Tau Vertex                                                    1-prong                        Tau Vertex
+                   0.75      s = 13 TeV                                                                          0.75         s = 13 TeV
+
+                    0.7                                                                                           0.7
+                       0   10   20   30   40    50            60       70       80    90 100                         0          5           10         15     20          25           30
+                                                                                     pτ [GeV]                                                                                        NVtx
+                                                                                      T
+
+
+                                          (a)                                                                                                    (b)
+
+Figure 1: Efficiency for correct production vertex assignment in 1-prong tau decays for the tau reconstruction
+algorithm and the default choice of the vertex with the highest pT2 , as a function of τhad−vis pT (a) and of the
+                                                               P
+number of reconstructed vertices in the event (b).
+
+
+
+                                                 normalized
+                                                                        ATLAS Preliminary                                    truth 1p
+                                                                   1    Simulation                                           truth 3p
+                                                                         s = 13 TeV
+
+                                                              0.8
+
+
+                                                              0.6
+
+
+                                                              0.4
+
+
+                                                              0.2
+
+
+                                                                   0
+                                                                            0             1     2                3       4              5
+                                                                                                reconstructed number of tracks
+
+
+   Figure 2: Number of reconstructed tracks for τhad−vis candidates from true 1-prong and 3-prong tau decays.
+
+
+4.2 Track selection
+
+Tracks are associated to the τhad−vis candidate following the same criteria used in Run-1. They are
+required to be in the core region ∆R < 0.2 around the τhad−vis direction and to satisfy the following
+criteria: pT > 1 GeV, at least two associated hits in the pixel detector (including the IBL), and at
+least seven hits in total in the pixel and the SCT detectors. Furthermore, requirements are imposed on
+the distance of closest approach of the track to the TV in the transverse plane, |d 0 | < 1.0 mm, and
+longitudinally, |∆z0 sin θ| < 1.5 mm. This selection is optimized to maximize the fraction of 1-prong and
+3-prong tau decays reconstructed with the correct charged particle multiplicity.
+The distribution of the number of tracks associated to τhad−vis candidates, separately for 1-prong and
+3-prong decays, is displayed in Fig. 2. The leading cause of underestimation of the number of prongs
+is tracking inefficiency due to hadronic interactions in the inner detector, while the leading cause for
+overestimation of the number of prongs comes from photon conversion tracks that pass the track selection
+criteria.
+
+
+
+
+                                                                                                5
+4.3 Reconstruction efficiency and systematic uncertainties
+
+The reconstruction efficiency is defined as the fraction of 1-prong (3-prong) hadronic tau decays which
+are reconstructed as 1-track (3-track) τhad−vis candidates.
+The detector is almost fully efficient for finding a jet-seed for a τhad−vis candidate with pT > 20 GeV within
+the pseudorapidity acceptance. Track and vertex selections, described in sections 4.1 and 4.2 therefore
+play the dominant role for the reconstruction efficiency shown in Fig. 3. The reconstruction efficiency
+is relatively constant for 1-prong decays, with a slow drop at high momentum due to two effects. Very
+high-pT tau leptons may decay after the first pixel detector and fail the requirement on the number of
+hits. In addition, the probability to wrongly classify an electron from photon conversions as a charged
+hadron from tau decays also increases with pT and results in an incorrect assignment of the number of
+charged particles in the tau decay. For 3-prong decays there is a reduction in the low-pT bins, due to the
+minimum transverse momentum requirement on the charged decay products, and at high-pT due to the
+increased collimation of the decay products that results in an increased probability to miss a track because
+of overlapping trajectories.
+
+
+
+                                efficiency
+                                             1.4   ATLAS Preliminary              truth 1p
+                                                   Simulation                     truth 3p
+                                                    s = 13 TeV
+                                             1.2
+
+                                               1
+
+                                             0.8
+
+                                             0.6
+
+                                             0.4
+
+                                             0.2
+
+                                              0
+                                                   50   100 150 200 250 300 350 400 450 500
+                                                                           truth pτ had-vis [GeV]
+                                                                                  T
+
+
+
+
+Figure 3: Efficiency for reconstructing the same number of tracks as the number of charged decay products of the
+tau lepton as a function of τhad−vis pT .
+
+The relative systematic uncertainties on the reconstruction efficiency are summarized in Fig. 4. The
+effect of the systematics variations is found to be uniform along η and the sum of all contributions is in
+the range between 2% and 4.5%. The main sources of systematic uncertainties are from pileup and the
+inner detector material. The former affects the efficiency mainly through the TV, where the probability
+to incorrectly identify the τhad−vis candidate production vertex depends on the amount of interactions
+reconstructed in the event, as shown in Fig. 1(b), and is especially relevant for low-pT 1-prong decays.
+The latter impacts directly the track counting, as the number of reconstructed conversion tracks and the
+efficiency to reconstruct pion tracks can both be affected by the amount of detector material.
+
+
+5 Identification
+
+The reconstruction of τhad−vis candidates provides very little rejection against the jet background. Rejection
+against jets is provided in a separate identification step using the discriminating variables described in
+section 5.1, which are based on the tracks and TopoClusters (and cells linked to them) found in the
+
+
+
+
+                                                                       6
+      Fractional Uncertainty                                                                      Fractional Uncertainty
+                               0.14   ATLAS Simulation   Material              Physics list                                0.14   ATLAS Simulation   Material              Physics list
+                                      Preliminary                                                                                 Preliminary
+                                                         Pileup                Threshold                                                             Pileup                Threshold
+                               0.12   |η | < 2.50                                                                          0.12   |η | < 2.50
+                                      1-prong            Underlying event      Total                                              3-prong            Underlying event      Total
+                                0.1                                                                                         0.1
+
+                               0.08                                                                                        0.08
+
+                               0.06                                                                                        0.06
+
+                               0.04                                                                                        0.04
+
+                               0.02                                                                                        0.02
+
+                                 0                                                                                           0
+                                         30   40 50       102          2×102                                                         30   40 50       102          2×102
+                                                                                   p [GeV]                                                                                     p [GeV]
+                                                                                       T                                                                                           T
+
+
+                               (a) 1-prong, contributions to total systematic                                              (b) 3-prong, contributions to total systematic
+
+Figure 4: Relative systematic uncertainties on the efficiency for reconstructing the same number of tracks as the
+number of charged decay products of the tau lepton as a function of τhad−vis pT . The different sources of systematic
+uncertainties are listed in the legend. The individual contributions to the total systematic are shown for true 1-prong
+decays in (a) and for true 3-prong decays in (b).
+
+
+core or isolation region around the τhad−vis candidate direction. The calorimeter measurements provide
+information about the longitudinal and lateral shower shape. The ECAL is sensitive to the π 0 content of
+tau hadronic decays.
+The identification of τhad−vis candidates to discriminate tau lepton decays from hadronic jets follows the
+same general approach used in the 2012 data-taking and is described in Ref. [3]. Separate Boosted
+Decision Trees (BDT) algorithms are trained for 1-track and 3-track τhad-vis decays using the samples
+listed in section 3: Z/γ ∗ → ττ for signal and di-jet events for background.
+One notable difference compared to the 2012 data-taking is that the identification variables and pile up
+correction procedure are now uniform between offline reconstruction and trigger. Part of this harmoniza-
+tion was the replacement of the π 0 reconstruction algorithm described in section 3.1 of Ref. [3] with some
+of its input variables and up to two EM TopoClusters for the π 0 component. This variable choice provides
+an equivalent level of rejection compared to the original algorithm.
+
+
+5.1 Identification variables
+
+The full list of discriminating variables used for tau identification is given below and is summarized in
+Table 1. Most of the variables are the same as those used in the 2012 data-taking [3]:
+Central energy fraction ( fcent ): Fraction of the calorimeter transverse energy deposited in the region
+     ∆R < 0.1 with respect to all energy deposited in the region ∆R < 0.2 around the τhad-vis candidate.
+     It is calculated by summing the energy deposited in all cells belonging to TopoClusters with a
+     barycentre in these regions, calibrated at the EM energy scale.
+Leading track momentum fraction ( f −1            ): The transverse energy sum, calibrated at the EM energy
+                                        leadtrack
+     scale, deposited in all cells belonging to TopoClusters in the core region of the τhad-vis candidate,
+     divided by the transverse momentum of the highest-pT charged particle in the core region.
+
+
+
+
+                                                                                              7
+Track radius (R0.2 ): pT -weighted ∆R distance of the associated tracks to the τhad-vis direction, using
+                track
+     only tracks in the core region.
+Leading track IP significance (|Sleadtrack |): Absolute value of transverse impact parameter of the highest-
+     pT track in the core region, calculated with respect to the TV, divided by its estimated uncertainty.
+                                                  track
+Fraction of tracks pT in the isolation region ( fiso    ): Scalar sum of the pT of tracks associated with
+      the τhad−vis candidate in the region 0.2 < ∆R < 0.4 divided by the sum of the pT of all tracks
+      associated with the τhad−vis candidate..
+Maximum ∆R (∆RMax ): The maximum ∆R between a track associated with the τhad-vis candidate and
+    the τhad-vis direction. Only tracks in the core region are considered.
+                                        flight
+Transverse flight path significance (ST ): The decay length of the secondary vertex (vertex recon-
+     structed from the tracks associated with the core region of the τhad-vis candidate) in the transverse
+     plane, calculated with respect to the TV, divided by its estimated uncertainty. It is defined only for
+     multi-track τhad-vis candidates.
+Track mass (mtrack ): Invariant mass calculated from the sum of the four-momentum of all tracks in the
+     core and isolation regions, assuming a pion mass for each track.
+Fraction of EM energy from charged pions ( f track−HAD ): Fraction of the electromagnetic energy of
+                                                  EM
+      tracks associated with the τhad-vis candidate in the core region. The numerator is defined as
+      difference between the sum of the momentum of tracks in the core region and the sum of cluster
+      energy deposited in the hadronic part of each TopoCluster (including the third layer of the EM
+      calorimeter) associated with the τhad-vis candidate. The denominator is the sum of cluster energy
+      deposited in the electromagnetic part of each TopoCluster (presampler and first two layers of the
+      EM calorimeter) associated with the τhad-vis candidate. All clusters are calibrated at the LC energy
+      scale.
+Ratio of EM energy to track momentum ( f EM ): Ratio of the sum of cluster energy deposited in the
+                                            track
+      electromagnetic part of each TopoCluster associated with the τhad-vis candidate to the sum of the
+      momentum of tracks in the core region. All clusters are calibrated at the LC energy scale.
+Track-plus-EM-system mass (mEM+track ): Invariant mass of the system composed of the tracks and
+     up to two most energetic EM clusters in the core region, where EM cluster energy is the part of
+     TopoCluster energy deposited in the presampler and first two layers of the EM calorimeter, and the
+     four-momentum of an EM cluster is calculated assuming zero mass and using TopoCluster seed
+     direction.
+Ratio of track-plus-EM-system to pT ( p EM+track /pT ): Ratio of the τhad-vis pT , estimated using the vec-
+                                        T
+      tor sum of track momenta and up to two most energetic EM clusters in the core region to the
+      calorimeter-only measurement of τhad-vis pT .
+A correction depending linearly on µ, the average number of pileup interactions per bunch crossing
+computed from the instantaneous luminosity [24], is applied to each discriminating variable. The usage
+of µ, instead of the number of reconstructed interection vertices per event, NPV , provides compatibility
+with the High Level Trigger, that cannot run a full event primary vertex fit.
+Compared to the identification variables used in Run-1, the current set presents the following updates:
+
+
+
+
+                                                    8
+                      track replaces N iso , being more consistent with other relative isolation variables used
+    • The variable f iso              track
+      in ATLAS. The distribution of this variable for signal and background events is shown in Fig. 5.
+    • The track radius cone size was reduced from 0.4 to 0.2 to be more pileup robust.
+    • The leading track IP significance is redefined. The new definition avoids the need by the BDT to
+      apply symmetric cuts and also allows the application of the pileup correction procedure.
+                      −1
+    • The variable f leadtrack is inverse to the f track variable used in the 2012 data-taking, which is motivated
+      by Run-2 event data model (EDM).
+                       EM and f track−HAD are input variables to the π 0 counting algorithm used for 2012
+    • The variables f track      EM
+      data. The mEM+track and pTEM+track /pT approximate the variables m π 0 +track and pTπ +track /pT computed
+                                                                                           0
+
+
+      by this algorithm, using the most energetic EM clusters. This set of variables provides the same
+      discriminating power as the original set. Distribution of these variables for signal and background
+      τhad−vis candidates is shown in Fig. 6.
+                       flight
+The |Sleadtrack | and ST benefit from the improved tracking resolution that results from the installation of
+the IBL [4]. The distributions of these variables for signal and background τhad−vis candidates are shown
+in Fig. 7.
+
+                                            Variable                Offline
+                                                               1-track 3-track
+                                                 f cent            •      •
+                                                −1
+                                             f leadtrack           •      •
+                                                   0.2
+                                               Rtrack              •      •
+                                           |Sleadtrack |           •
+                                                   track
+                                                f iso              •
+                                              ∆RMax                       •
+                                                  flight
+                                               ST                         •
+                                               mtrack                     •
+                                             track−HAD
+                                           f EM                    •      •
+                                                   EM
+                                                f track            •      •
+                                           mEM+track               •      •
+                                           EM+track
+                                          pT             /pT       •      •
+
+
+Table 1: Discriminating variables used as input to the tau identification algorithm at offline reconstruction and at
+trigger level, for 1-track and 3-track candidates. The bullets indicate whether a particular variable is used for a given
+                                  flight
+selection. The |Sleadtrack | and ST variables are calculated with respect to beam line in the trigger.
+
+
+
+5.2 Performance and systematics
+
+The BDT score distributions for signal and background events is displayed in Fig. 8(a) for 1-prong decays
+and in Fig. 8(b) for 3-prong ones. The performance of the tau identification algorithm in terms of the
+inverse background efficiency, 1/ε bkg versus the signal identification efficiency, ε sig is shown in Fig. 9.
+The identification efficiency is defined as the fraction of 1-prong (3-prong) hadronic tau decays that are
+
+
+
+                                                               9
+                                                                                                     Event fraction / 0.05
+                                                                                                                                            ATLAS Simulation                                                      Signal
+                                                                                                                                            Preliminary                                                           Background
+                                                                                                                                            1-prong
+
+
+                                                                                                                             0.4
+
+
+
+
+                                                                                                                             0.2
+
+
+
+
+                                                                                                                               0
+                                                                                                                                       0                                  0.5                                                                  1
+                                                                                                                                                                                                                                           f track
+                                                                                                                                                                                                                                             iso
+
+
+                                 track isolation variable for hadronic tau decays (red circles) and simulated multi-jet
+Figure 5: Distribution of the f iso
+events (black squares).
+
+
+
+
+  Event fraction / 0.1                                                                                                                                                                                                                                        Event fraction / 0.1
+                                                                             Event fraction
+
+
+                                                                                                                                                                              Event fraction / 100 MeV
+                               ATLAS Simulation        Signal                                                            ATLAS Simulation         Signal                                                       ATLAS Simulation           Signal                                           ATLAS Simulation                Signal
+                               Preliminary                                                                               Preliminary
+                                                       Background                                                                                 Background                                       0.15 Preliminary                       Background                                       Preliminary                     Background
+                               1-prong                                                                                   1-prong                                                                               1-prong                                                                     1-prong
+                                                                                                    0.3
+                         0.2
+                                                                                                                                                                                                                                                                                     0.2
+
+                                                                                                                                                                                                         0.1
+                                                                                                    0.2
+
+                         0.1                                                                                                                                                                                                                                                         0.1
+                                                                                                    0.1                                                                                            0.05
+
+
+
+                          0                                                                            0                                                                                                  0                                                                           0
+                          −2           −1          0       1             2                              0                              10         20                30                                     0       500      1000     1500     2000     2500                                0         0.5         1           1.5          2
+                                                               f track-HAD
+                                                                 EM
+                                                                                                                                                               f EM
+                                                                                                                                                                 track
+                                                                                                                                                                                                                                          m EM+track [MeV]                                                                     p EM+track/ p
+                                                                                                                                                                                                                                                                                                                                T              T
+
+
+
+                                             (a)                                                                                        (b)                                                                                 (c)                                                                            (d)
+
+
+
+
+  Event fraction / 0.1                                                       Event fraction / 0.4                                                                                                                                                             Event fraction / 0.1
+
+                                                                                                                                                                              Event fraction / 100 MeV
+                                                                                                                                                                                                                                                                                     0.2 ATLAS Simulation
+                         0.2 ATLAS Simulation          Signal                                                            ATLAS Simulation         Signal                                                       ATLAS Simulation           Signal                                                                           Signal
+                               Preliminary             Background                                   0.4 Preliminary                               Background                                       0.15 Preliminary                       Background                                       Preliminary                     Background
+                               3-prong                                                                                   3-prong                                                                               3-prong                                                                     3-prong
+
+                    0.15                                                                                                                                                                                                                                                        0.15
+                                                                                                    0.3
+                                                                                                                                                                                                         0.1
+                         0.1                                                                                                                                                                                                                                                         0.1
+                                                                                                    0.2
+
+                                                                                                                                                                                                   0.05
+                    0.05                                                                            0.1                                                                                                                                                                         0.05
+
+
+
+                          0                                                                            0                                                                                                  0                                                                           0
+                          −2           −1          0       1             2                              0                          2          4        6             8                                     0         1000          2000       3000                                             0.5         1         1.5        2        2.5
+                                                               f track-HAD
+                                                                 EM
+                                                                                                                                                               f EM
+                                                                                                                                                                 track
+                                                                                                                                                                                                                                          m EM+track [MeV]                                                                     p EM+track/ p
+                                                                                                                                                                                                                                                                                                                                T              T
+
+
+
+                                             (e)                                                                                        (f)                                                                                 (g)                                                                            (h)
+
+Figure 6: Distribution of the new identification variables for tau leptons (red circles) and multi-jet background (black
+squares) for 1-prong (top) and 3-prong (bottom). From left to right: f EM track−HAD , f EM , m               EM+track /p .
+                                                                                       track   EM+track and pT          T
+
+
+
+
+                                                                                                                                                                         10
+                                                                                        Event fraction
+      Event fraction / 0.5
+                                       ATLAS Simulation
+                                                                                                         0.4 ATLAS Simulation
+                                                             Signal                                                                Signal
+                                       Preliminary           Background                                        Preliminary         Background
+                             0.4       1-prong                                                                 3-prong
+                                                                                                         0.3
+
+                             0.3
+
+                                                                                                         0.2
+                             0.2
+
+                                                                                                         0.1
+                             0.1
+
+
+                              0                                                                           0
+                                   0               5          10             15                                   0          10      20              30
+                                                                                                                                                 flight
+                                                                   |S leadtrack|                                                                ST
+
+                                                       (a)                                                                   (b)
+
+Figure 7: Distribution of the lifetime sensitive variables for hadronic τ decays (red circles) and simulated multi-jet
+events (black squares): the impact parameter significance |Sleadtrack | for 1-track candidates (a) and the significance
+                               flight
+of the transverse fligth path ST for 3-track candidates (b).
+
+
+reconstructed as 1-track (3-track) τhad−vis candidates, which also pass the BDT selection criteria. The
+efficiency is the product of the reconstruction efficiency defined in section 4.3 and of the identification
+efficiency.
+Three working points, labelled Tight, Medium and Loose, are provided, corresponding to different tau
+identification efficiency values. For each working point, requirements on the BDT score are determined
+as a function of τhad−vis pT , in order to achieve a constant value for the combined reconstruction and
+identification signal efficiency, where the reconstruction efficiency is defined in section 4.3 and the iden-
+tification efficiency is defined with respect to correctly reconstructed 1-track or 3-track τhad-vis candidates.
+The performance of these working points is superimposed on Fig. 9. They do not exactly overlap the
+1/ε bkg curve because this curve is derived for constant BDT threshold requirement, and not for constant
+efficiency as a function of pT .
+After the tuning of the pT -dependent BDT threshold values and the pileup corrections, the dependence of
+the combined reconstruction and identification efficiency as a function of pT and µ is significantly reduced.
+The residual dependencies are shown in Fig. 10 for pT and Fig. 11 for µ. The 3-prong identification
+efficiency shows a dip between in the 50 − 100 GeV range. This compensates the pT -dependence of
+the reconstruction efficiency (Fig. 3), providing a more uniform combined efficiency. Signal efficiencies
+are, respectively, 0.6, 0.55 and 0.45 for the 1-prong Loose, Medium and Tight working points. The
+corresponding 3-prong working points have efficiencies of 0.5, 0.4 and 0.3.
+Systematic uncertainties on the identification efficiency are evaluated as described in section 3. The
+effects of the variations are uniform in the central |η| < 1.37 and in the forward η| > 1.52 regions. As an
+example, the resulting uncertainties for the Medium working point are illustrated in Fig. 12.
+The largest contribution to the systematics uncertainty for pT < 100 GeV is the calorimeter calibration and
+performance, which causes variation in shapes of calorimeter based and tracking-based input variables.
+
+
+
+                                                                                   11
+      Event fraction / 0.02                                                                                        Event fraction / 0.02
+                                   ATLAS Simulation                                      Signal                                                  ATLAS Simulation        Signal
+                         0.08      Preliminary                                           Background                                   0.08       Preliminary             Background
+                                   1-prong                                                                                                       3-prong
+
+
+                         0.06                                                                                                         0.06
+
+
+                        0.04                                                                                                         0.04
+
+
+                         0.02                                                                                                         0.02
+
+
+                              0                                                                                                             0
+                               0       0.2      0.4                                    0.6        0.8     1                                  0       0.2       0.4    0.6      0.8      1
+                                                  Tau identification score                                                                                       Tau identification score
+
+                                                 (a)                                                                                                            (b)
+
+Figure 8: BDT score for hadronic tau decays (red circles) and simulated multi-jet events (black squares) for 1-track
+(a) and 3-track (b) τhad−vis candidates.
+
+
+
+
+                                                                                       103
+
+
+
+
+                                                       Inverse background efficiency
+                                                                                             p ≥ 20 GeV                                          1-prong
+                                                                                              T
+                                                                                                                                                 3-prong
+
+
+
+                                                                                       102
+
+
+
+
+                                                                                       10
+
+                                                                                             ATLAS Simulation
+                                                                                             Preliminary
+
+                                                                                         1
+                                                                                             0.4          0.6                                0.8            1
+                                                                                                                                           Signal efficiency
+
+
+Figure 9: Inverse of the efficiency for mis-tagging QCD jets as a function of the identification efficiency for τhad−vis
+candidates. The two lines refer to 1-track and 3-track candidates. The Loose, Medium and Tight working points are
+shown on these lines. The working points do not stay exactly on the line because they implement variable cuts to
+achieve a reduced pT -dependentcy of the efficiency.
+
+
+
+
+                                                                                                              12
+      efficiency                                                                                     efficiency
+                   1.4       ATLAS                        Reco+Loose          Loose                               1.4            Reco+Loose         Loose             ATLAS
+                             Preliminary                                                                                                                              Preliminary
+                             Simulation                   Reco+Medium         Medium                                             Reco+Medium        Medium            Simulation
+                   1.2         s = 13 TeV
+                                                                                                                  1.2                                                   s = 13 TeV
+                             truth 1-prong                Reco+Tight          Tight                                              Reco+Tight         Tight             truth 3-prong
+                     1                                                                                              1
+
+                   0.8                                                                                            0.8
+
+                   0.6                                                                                            0.6
+
+                   0.4                                                                                            0.4
+
+                   0.2                                                                                            0.2
+
+                    0                                                                                              0
+                             50    100 150 200 250 300 350 400 450 500                                                      50    100 150 200 250 300 350 400 450 500
+                                                                            τ had-vis
+                                                                    truth p             [GeV]                                                                    truth pτ had-vis [GeV]
+                                                                            T                                                                                            T
+
+
+                                                    (a)                                                                                            (b)
+
+Figure 10: Efficiency for τhad−vis identification (open symbols) and combined reconstruction and identification
+efficiency (full symbols) as a function of the τhad−vis pT , for 1-track (a) and 3-track (b) τhad−vis candidates.
+
+
+
+
+      efficiency                                                                                     efficiency
+                   1.4            Reco+Loose         Loose        ATLAS                                           1.4            Reco+Loose         Loose             ATLAS
+                                                                  Preliminary                                                                                         Preliminary
+                                  Reco+Medium        Medium       Simulation                                                     Reco+Medium        Medium            Simulation
+                   1.2                                              s = 13 TeV
+                                                                                                                  1.2                                                   s = 13 TeV
+                                  Reco+Tight         Tight        truth 1-prong                                                  Reco+Tight         Tight             truth 3-prong
+                     1                                                                                              1
+
+                   0.8                                                                                            0.8
+
+                   0.6                                                                                            0.6
+
+                   0.4                                                                                            0.4
+
+                   0.2                                                                                            0.2
+
+                    0                                                                                              0
+                         0        5    10      15    20      25    30      35      40      45                           0        5    10      15    20      25   30     35     40      45
+                                                                                         <µ>                                                                                          <µ>
+
+                                                    (a)                                                                                            (b)
+
+Figure 11: Efficiency for τhad−vis identification (open symbols) and combined reconstruction and identification
+efficiency (full symbols) as a function of the average number of interactions per event, for 1-track (a) and 3-track
+(b) τhad−vis candidates.
+
+
+
+
+                                                                                                13
+It reaches up to 16% for 3-prong decays in the barrel region. At large pT , however, the pileup uncertainty
+dominates. For 1-prong decays the material uncertainty also plays an important role. This is mainly
+due the effect of the additional material on the impact parameter resolution that affects the |Sleadtrack |
+distribution.
+
+                               0.35                                                                                             0.35
+
+
+
+
+      Fractional Uncertainty                                                                           Fractional Uncertainty
+                                      ATLAS Simulation       Material              Physics list                                        ATLAS Simulation       Material              Physics list
+                                0.3   Preliminary                                                                                0.3   Preliminary
+                                                             Pileup                Threshold                                                                  Pileup                Threshold
+                                      |η | < 1.37                                                                                      |η | < 1.37
+                                      1-prong                Underlying event      Total                                               3-prong                Underlying event      Total
+                               0.25   Medium ID
+                                                                                                                                0.25   Medium ID
+
+                                0.2                                                                                              0.2
+
+                               0.15                                                                                             0.15
+
+                                0.1                                                                                              0.1
+
+                               0.05                                                                                             0.05
+
+                                 0                                                                                                0
+                                         30    40 50             102       2×102                                                          30    40 50             102       2×102
+                                                                                       p [GeV]                                                                                          p [GeV]
+                                                                                           T                                                                                                T
+
+
+                                                           (a)                                                                                              (b)
+
+                               0.35                                                                                             0.35
+
+
+
+
+      Fractional Uncertainty                                                                           Fractional Uncertainty
+                                      ATLAS Simulation       Material              Physics list                                        ATLAS Simulation       Material              Physics list
+                                0.3   Preliminary                                                                                0.3   Preliminary
+                                                             Pileup                Threshold                                                                  Pileup                Threshold
+                                      1.52 ≤ |η | < 2.47                                                                               1.52 ≤ |η | < 2.47
+                                      1-prong                Underlying event      Total                                               3-prong                Underlying event      Total
+                               0.25   Medium ID
+                                                                                                                                0.25   Medium ID
+
+                                0.2                                                                                              0.2
+
+                               0.15                                                                                             0.15
+
+                                0.1                                                                                              0.1
+
+                               0.05                                                                                             0.05
+
+                                 0                                                                                                0
+                                         30    40 50             102       2×102                                                          30    40 50             102       2×102
+                                                                                       p [GeV]                                                                                          p [GeV]
+                                                                                           T                                                                                                T
+
+
+                                                           (c)                                                                                              (d)
+
+Figure 12: Relative systematic uncertainty on the efficiency for the Medium working point of τhad−vis identification
+as a function of the τhad−vis pT , for 1-track (a) and 3-track (b) τhad−vis candidates in the central |η| < 1.37 region,
+and for 1-track (c) and 3-track (d) τhad−vis candidates in the forward |η| > 1.52 region. The different sources of
+systematics uncertainties are listed in the legend, the grey area is the square sum of the individual contribution.
+
+
+
+5.3 Discrimination against electrons
+
+While the BDT classifier discussed in section 5.2 was trained in order to distinguish hadronic tau decays
+from hadronic jets, it provides insufficient discriminating power between electrons and 1-prong hadronic
+tau decays. As charged pions provide one of the major backgrounds to the reconstruction of electrons, a
+powerful Likelihood discriminator between the two has been built in the context of the ATLAS electron
+reconstruction and identification effort [25]. This discriminator is based on both shower shape information
+from the calorimeter measurements as well as on reconstructed hits in the tracking detector, including
+information from transition radiation in the TRT.
+In order to exploit this Likelihood discriminator for the discrimination between hadronic tau decays and
+electrons, a geometrical matching within a cone of ∆R < 0.4 is performed between reconstructed tau
+
+
+
+                                                                                                  14
+candidates and electrons with pT > 5 GeV. Such a matching is necessary because there is no one-to-one
+correspondence between tau candidates and electron candidates. Reconstructed 1-prong tau candidates
+which are matched to an electron candidate of a large Likelihood score value are rejected. The cut values
+on the electron Likelihood score are parametrised as a function of η trk and pT to offer a constant tau
+efficiency of 95% with respect to a sample of tau candidates passing the Loose identification working
+point.
+During electron reconstruction, loose requirements are applied on basic shower shape observables such
+as the hadronic leakage of energy deposits in the electromagnetic into the hadronic calorimeter. Due to
+these requirements, not all reconstructed tau candidates can be matched to electron candidates and are
+assigned an artificial Likelihood value of -4, corresponding to a very tau-like classification.
+Figure 13(a) shows the distribution of the Likelihood score for a sample of true 1-prong hadronic tau
+decays and a sample of true electrons from Z → ττ and Z → ee decays, respectively. Figure 13(b) shows
+the discriminating power of this classification algorithm in terms of the inverse background efficiency as
+a function of signal efficiency in different bins of η trk .
+As the electron Likelihood discriminator was optimised to provide stable performance in differing pileup
+scenarios, this feature is directly inherited to the electron rejection algorithm in the context of hadronic tau
+identification. Figures 14(a) and 14(b) show the signal efficiency as a function of pT and µ, respectively:
+both are within 1% of the working point in high-statistics bins.
+In order to estimate the systematic uncertainty on the signal efficiency of this procedure, the efficiency
+is compared between the different, systematically varied simulated event samples of section 3 and the
+nominal simulation. The effect of the individual variation and the total uncertainty obtained from their
+sum in quadrature are presented in Fig. 15. For pT < 100 GeV, uncertainties are below 2%, but increase
+at higher pT reaching a value of 2.5 − 5% depending on the pseudorapidity.
+
+                           0.3
+
+
+
+
+      fraction of events
+
+
+
+                                                                                                Inverse background efficiency
+                                 ATLAS Simulation                                                                                     ATLAS Simulation
+                                 Preliminary
+                                                                     e Background
+                                                                                                                                103   Preliminary
+                      0.25                                           τhad-vis Signal
+                                  s = 13 TeV                                                                                           s = 13 TeV
+                                 |η | < 2.47
+                                  trk
+
+
+                           0.2   p > 15 GeV
+                                  T
+
+                                                                                                                                102
+                                                                                                                                          |ηtrk | < 0.6
+                      0.15
+                                                                                                                                          0.6 < |ηtrk | < 0.8
+                                                                                                                                          0.8 < |ηtrk | < 1.15
+                           0.1                                                                                                            1.15 < |ηtrk | < 1.37
+                                                                                                                                10        1.37 < |ηtrk | < 1.52
+                                                                                                                                          1.52 < |ηtrk | < 1.81
+                      0.05                                                                                                                1.81 < |ηtrk | < 2.01
+                                                                                                                                          2.01 < |ηtrk | < 2.37
+                                                                                                                                          2.37 < |ηtrk | < 2.47
+                            0                                                                                                     1
+                            -4        -3       -2   -1     0     1       2         3   4                                          0.7            0.8               0.9            1
+                                                               Electron LH score                                                                                  Signal efficiency
+
+                                                     (a)                                                                                               (b)
+
+Figure 13: Electron likelihood score for hadronic tau decays and prompt electrons from Z → ee (a) and inverse of
+electron mis-identification efficiency as a function of the tau identification efficiency for different |η| regions (b).
+The nominal working point corresponds to a tau identification efficiency of 95%.
+
+
+
+
+                                                                                           15
+                          1.1                                                                       1.1
+
+
+
+
+     Signal efficiency                                                         Signal efficiency
+                                 ATLAS Simulation                                                          ATLAS Simulation
+                                 Preliminary                                                               Preliminary
+                         1.05     s = 13 TeV                                                       1.05     s = 13 TeV
+
+                            1                                                                         1
+
+                         0.95                                                                      0.95
+
+                          0.9                                                                       0.9
+
+                         0.85                                                                      0.85
+
+                          0.8                                                                       0.8
+                             0     50   100 150 200 250 300                                            0    5       10 15 20 25 30 35 40
+                                                             p [GeV]
+                                                                T
+                                                                                                                                           µ
+
+                                            (a)                                                                          (b)
+
+Figure 14: Efficiency of the τ–e discrimination as a function of the τhad−vis pT (a) and of the average number of
+pileup interactions (b). The nominal working point corresponds to a tau identification efficiency of 95%.
+
+
+6 Energy calibration
+
+As mentioned in section 4, the tau energy scale calibration developed for the start of Run-2 uses calorimeter
+information only. After the reconstruction step, the energy of tau candidates is calibrated at the LC scale,
+which mostly corrects for the calorimeter non-compensation and for the energy deposited in dead material
+or outside TopoClusters.
+The tau energy scale consists of two additional corrections which calibrate the tau energy back to the
+true visible energy. First, the energy contribution originating from pileup interactions is subtracted. A
+response correction is then applied to account for the following possible effects for the τhad−vis particles:
+decay products not reaching the calorimeter, not depositing enough energy to create TopoClusters, or not
+detected within ∆R = 0.2 of the reconstructed τhad−vis candidate. The τhad−vis momentum is computed
+from the energy assuming zero mass.
+
+
+6.1 Calibration functions
+
+The calibrated tau energy is computed as
+                                                                        ELC − Epileup
+                                                     Ecalib =                                                      ,                         (1)
+                                                                R ELC − Epileup, |η| , n p
+
+where Epile−up is the pile-up offset correction, R is the calibration function also called response in the
+following, and n p refers to 1-prong or multi-prong decays. The LC-calibrated energy ELC is found to
+increase linearly with the number of primary vertices NPV . Thus, the pile-up correction is derived as
+
+                                             Epileup (NPV, |η| , n p ) = A(|η| , n p ) × (NPV − hNPV i).                                       (2)
+
+
+
+
+                                                                          16
+      Fractional Uncertainty                                                                                                         Fractional Uncertainty
+                               0.14   ATLAS Simulation          Material                                   Physics list                                       0.14     ATLAS Simulation          Material              Physics list
+                                      Preliminary                                                                                                                      Preliminary
+                                                                Pileup                                     Threshold                                                                             Pileup                Threshold
+                               0.12   |η      | < 0.80                                                                                                        0.12     0.80 ≤ |η      | < 1.15
+                                         track                                                                                                                                   track
+                                      1-prong                   Underlying event                           Total                                                       1-prong                   Underlying event      Total
+                                0.1                                                                                                                            0.1
+
+                               0.08                                                                                                                           0.08
+
+                               0.06                                                                                                                           0.06
+
+                               0.04                                                                                                                           0.04
+
+                               0.02                                                                                                                           0.02
+
+                                 0                                                                                                                              0
+                                          30     40 50           102                               2×102                                                                   30     40 50           102          2×102
+                                                                                                                p [GeV]                                                                                                    p [GeV]
+                                                                                                                   T                                                                                                           T
+
+
+                                                        (a) |η| < 0.80                                                                                                            (b) 0.80 ≤ |η| < 1.15
+
+
+
+
+      Fractional Uncertainty                                                                                                         Fractional Uncertainty
+                               0.14   ATLAS Simulation          Material                                   Physics list                                       0.14     ATLAS Simulation          Material              Physics list
+                                      Preliminary                                                                                                                      Preliminary
+                                                                Pileup                                     Threshold                                                                             Pileup                Threshold
+                               0.12   1.15 ≤ |η      | < 1.37                                                                                                 0.12     1.52 ≤ |η      | < 2.01
+                                                track                                                                                                                            track
+                                      1-prong                   Underlying event                           Total                                                       1-prong                   Underlying event      Total
+                                0.1                                                                                                                            0.1
+
+                               0.08                                                                                                                           0.08
+
+                               0.06                                                                                                                           0.06
+
+                               0.04                                                                                                                           0.04
+
+                               0.02                                                                                                                           0.02
+
+                                 0                                                                                                                              0
+                                          30     40 50           102                               2×102                                                                   30     40 50           102          2×102
+                                                                                                                p [GeV]                                                                                                    p [GeV]
+                                                                                                                   T                                                                                                           T
+
+
+                                                 (c) 1.15 ≤ |η| < 1.37                                                                                                            (d) 1.52 ≤ |η| < 2.01
+
+
+
+
+                                                                   Fractional Uncertainty
+                                                                                            0.14     ATLAS Simulation           Material                                     Physics list
+                                                                                                     Preliminary
+                                                                                                                                Pileup                                       Threshold
+                                                                                            0.12     2.01 ≤ |η      | < 2.50
+                                                                                                               track
+                                                                                                     1-prong                    Underlying event                             Total
+                                                                                             0.1
+
+                                                                                            0.08
+
+                                                                                            0.06
+
+                                                                                            0.04
+
+                                                                                            0.02
+
+                                                                                              0
+                                                                                                         30     40 50               102                              2×102
+                                                                                                                                                                                  p [GeV]
+                                                                                                                                                                                     T
+
+
+                                                                                                                   (e) 2.01 ≤ |η| < 2.5
+
+Figure 15: Relative systematic uncertainties on the efficiency of the τ–e discrimination for 1-track τhad−vis candidate
+as a function of the candidate pT for different η ranges of the track direction. The different sources of systematic
+uncertainties are listed in the legend, the grey area is the square sum of the individual contribution.
+
+
+
+
+                                                                                                                               17
+The linear coefficient A corresponding to the average contribution per vertex to the tau energy is shown
+                                                  vis , and is then averaged over E vis bins. Following the
+in Fig. 16. It is computed in bins of |η|, n p , Etrue                             true
+Run-1 convention, the pile-up offset vanishes for the average pile-up condition of the MC sample, i.e. for
+NPV = hNPV i ≃ 14.
+
+                                                           0.7
+
+                                                 A [GeV]
+                                                                       ATLAS Preliminary                                  1-prong τ
+                                                           0.6
+                                                                         s = 13 TeV Simulation                            multi-prong τ
+
+                                                           0.5
+
+                                                           0.4
+
+                                                           0.3
+
+                                                           0.2
+
+                                                           0.1
+
+                                                            0     |η| < 0.3   0.3 < |η| < 0.8   0.8 < |η| < 1.3    1.3 < |η| < 1.6    1.6 < |η| < 2.4
+
+                                                                                                                                                   |η|
+
+
+
+                                                      Figure 16: Pileup correction factor A(|η| , n p )
+                                                                                 
+The detector response R is extracted as the Gaussian mean of the ELC − Epileup /Etrue vis distribution. The
+                                                                                       vis and |η| bins. For
+response is computed for 1-prong and multi-prong tau decays separately, for various Etrue
+each pseudorapidity bin, an analytic function is then used to fit the response as a function of the average
+pileup-corrected energy. The result is displayed in Fig. 17. The rapid drop of the response at low energy
+is caused by the increasing relative contribution from pileup (given the convention that was chosen for the
+                                                        vis
+pileup correction). In the low-energy regime where ET,true   . 10 GeV, the response is extrapolated using
+a constant function.
+
+                 1.3                                                                                             1.15
+
+
+     Response                                                                                         Response
+                        ATLAS Preliminary                        |η| < 0.3                                                           ATLAS Preliminary                  |η| < 0.3
+                1.25     s = 13 TeV Simulation                   0.3 < |η| < 0.8                                  1.1                 s = 13 TeV Simulation             0.3 < |η| < 0.8
+                                                                 0.8 < |η| < 1.3                                                                                        0.8 < |η| < 1.3
+                 1.2                                             1.3 < |η| < 1.6                                 1.05                                                   1.3 < |η| < 1.6
+                                                                 1.6 < |η| < 2.4                                                                                        1.6 < |η| < 2.4
+                1.15                                                                                                1
+
+                 1.1                                         1-prong τ                                           0.95
+
+                1.05                                                                                              0.9
+                                                                                                                                                                     multi-prong τ
+                   1                                                                                             0.85
+
+                0.95                                                                                              0.8
+                       20    30 40                102        2×102                                                                   20     30 40              102   2×102
+                                                                   pileup-corr                                                                                             pileup-corr
+                                                                 ELC           [GeV]                                                                                     ELC           [GeV]
+
+                                       (a)                                                                                                               (b)
+
+                       Figure 17: Detector response R for 1-prong (a) and multi-prong (b) tau decays.
+
+
+
+6.2 Resolution and systematics
+
+The resolution on the calibrated energy is computed as the Gaussian width of the Ecalib /Etrue
+                                                                                            vis distribution.
+
+As for the response, the resolution is computed for 1-prong and multi-prong tau decays, for several Etrue vis
+
+and |η| bins. The Gaussian resolutions σ E , shown in Fig. 18 as a function of the calibrated energy, follow
+
+
+
+                                                                                                18
+the usual parameterization
+                                                                    σE    a  b
+                                                                       = √ ⊕ ⊕c,                                                                                  (3)
+                                                                    E      E E
+where a, b, c are the sampling (or stochastic) term, the noise term, and constant term, respectively.
+
+                       35                                                                               35
+
+
+
+      Resolution [%]                                                                   Resolution [%]
+                             ATLAS Preliminary              |η|<0.3                                          ATLAS Preliminary              |η|<0.3
+                       30     s = 13 TeV Simulation         0.3 < |η| < 0.8                             30    s = 13 TeV Simulation         0.3 < |η| < 0.8
+                                                            0.8 < |η| < 1.3                                                                 0.8 < |η| < 1.3
+                             1-prong τ                                                                       multi-prong τ
+                       25                                   1.3 < |η| < 1.6                             25                                  1.3 < |η| < 1.6
+                                                            1.6 < |η| < 2.4                                                                 1.6 < |η| < 2.4
+                       20                                                                               20
+
+                       15                                                                               15
+
+                       10                                                                               10
+
+                       5                                                                                5
+
+                       0                                                                                0
+                        0   100     200      300      400    500       600                               0   100     200      300     400    500        600
+                                                                   Ecalib [GeV]                                                                    Ecalib [GeV]
+
+                                            (a)                                                                              (b)
+
+Figure 18: Resolution on the τhad−vis energy after calibration for reconstructed 1-prong (a) and multi-prong (b) tau
+decays. Fits based on the parameterization from equation 3 are overlaid.
+
+Systematic uncertainties on the tau energy scale calibration are evaluated from simulation, using the
+alternative MC samples listed in section 3. Systematics are computed as the shift in the Gaussian mean
+of the ET,calib /ET,true
+                  vis    distribution of the alternative sample from them of the nominal sample. The non-
+closure of the calibration in the nominal sample, which corresponds to the deviation from unity of that
+same Gaussian mean, is also taken into account. The pileup uncertainty, which accounts for the remaining
+dependence of the calibrated energy on the average number of interactions per bunch crossing µ, is found
+to be less than 1%. The residual dependence with respect to the number of primary vertices NPV is of
+the same order. The underlying event tune has a negligible impact on the calibration. The uncertainty
+on the response is evaluated using the alternative Geant4 hadronic shower model, the alternative material
+modelling and the variation of the calorimeter noise thresholds. The alternative shower model can affect
+the clustering of energetic cells into TopoClusters, as well as the classification of TopoClusters into
+electromagnetic/hadronic categories (which affects the LC-calibrated energy). The amount of material in
+front of the calorimeter affects both the dead-material correction weights (part of the LC calibration) and
+the tau response R. The noise threshold variations estimate the sensitivity of the response to the modelling
+of the calorimeter calibration in the simulation.
+A more refined and exhaustive treatment of systematic uncertainties on the response was performed in
+Run-1 [3]. However, the results of the particle deconvolution method [26] (which takes advantage of
+single-pion response measurements in low-µ data and test beam data) are not yet available for Run-2.
+While the Run-2 MC-based response uncertainty partly covers the components entering the single-particle
+response uncertainty, it does not account for the uncertainty on the EM-scale calibration (π 0 → γγ). As
+the detector has not dramatically changed between Run-1 and Run-2, the Run-1 single-particle response
+uncertainty has been included as an additional systematic uncertainty on the Run-2 tau energy scale,
+inflated by a safety factor of 2. For 1-prong tau decays with |η| < 0.8, the single-particle response
+uncertainty is valid up to pT ≃ 500 GeV. Beyond this, test beam data can no longer be used to constrain
+the charged-pion response.
+
+
+
+                                                                                  19
+The total uncertainty is obtained by symmetrizing each systematic uncertainty and summing them in
+quadrature. The result is displayed in Figs. 19 and 20 as a function of the calibrated transverse energy.
+Uncertainties vary in the 2 − 6% range, depending on pT and |η|. As expected the single particle
+response is always an important component, but at low pT additional contribution from the calorimeter
+calibration becomes relevant. In the most central regions, the GEANT4 hadronic shower model contributes
+significantly to the total systematic uncertainty.
+
+
+
+
+                                                   20
+      Fractional Uncertainty                                                                                                Fractional Uncertainty
+                               0.14   ATLAS Simulation     Closure                                       Material                                    0.14     ATLAS Simulation     Closure                  Material
+                                      Preliminary                                                                                                             Preliminary
+                                                           Physics list                                  Pileup                                                                    Physics list             Pileup
+                               0.12   |η | < 0.30                                                                                                    0.12     0.30 ≤ |η | < 0.80
+                                      1-prong              Single particle resp.                         Threshold                                            1-prong              Single particle resp.    Threshold
+                                0.1                        Underlying event                              Total                                        0.1                          Underlying event         Total
+
+                               0.08                                                                                                                  0.08
+
+                               0.06                                                                                                                  0.06
+
+                               0.04                                                                                                                  0.04
+
+                               0.02                                                                                                                  0.02
+
+                                 0                                                                                                                     0
+                                         30    40 50         102                               2×102                                                             30     40 50        102            2×102
+                                                                                                           p [GeV]                                                                                            p [GeV]
+                                                                                                             T                                                                                                  T
+
+
+                                              (a) 1-prong, |η| < 0.3                                                                                                (b) 1-prong, 0.3 < |η| < 0.8
+
+
+
+
+      Fractional Uncertainty                                                                                                Fractional Uncertainty
+                               0.14   ATLAS Simulation     Closure                                       Material                                    0.14     ATLAS Simulation     Closure                  Material
+                                      Preliminary                                                                                                             Preliminary
+                                                           Physics list                                  Pileup                                                                    Physics list             Pileup
+                               0.12   0.80 ≤ |η | < 1.30                                                                                             0.12     1.30 ≤ |η | < 1.60
+                                      1-prong              Single particle resp.                         Threshold                                            1-prong              Single particle resp.    Threshold
+                                0.1                        Underlying event                              Total                                        0.1                          Underlying event         Total
+
+                               0.08                                                                                                                  0.08
+
+                               0.06                                                                                                                  0.06
+
+                               0.04                                                                                                                  0.04
+
+                               0.02                                                                                                                  0.02
+
+                                 0                                                                                                                     0
+                                         30    40 50         102                               2×102                                                             30     40 50        102            2×102
+                                                                                                           p [GeV]                                                                                            p [GeV]
+                                                                                                             T                                                                                                  T
+
+
+                                          (c) 1-prong, 0.8 < |η| < 1.3                                                                                              (d) 1-prong, 1.3 < |η| < 1.6
+
+
+
+
+                                                               Fractional Uncertainty
+                                                                                        0.14     ATLAS Simulation      Closure                                        Material
+                                                                                                 Preliminary
+                                                                                                                       Physics list                                   Pileup
+                                                                                        0.12     1.60 ≤ |η | < 2.40
+                                                                                                 1-prong               Single particle resp.                          Threshold
+                                                                                         0.1                           Underlying event                               Total
+
+                                                                                        0.08
+
+                                                                                        0.06
+
+                                                                                        0.04
+
+                                                                                        0.02
+
+                                                                                          0
+                                                                                                    30     40 50           102                              2×102
+                                                                                                                                                                        p [GeV]
+                                                                                                                                                                          T
+
+
+                                                                                                       (e) 1-prong, 1.6 < |η| < 2.4
+
+Figure 19: Systematic uncertainties on the τhad−vis transverse energy after calibration for 1-prong tau decays. The
+individual uncertainties as well as their quadratic sum are shown as function of the τhad−vis pT for different |η| ranges.
+
+
+
+
+                                                                                                                      21
+      Fractional Uncertainty                                                                                                Fractional Uncertainty
+                               0.14   ATLAS Simulation     Closure                                       Material                                    0.14     ATLAS Simulation     Closure                  Material
+                                      Preliminary                                                                                                             Preliminary
+                                                           Physics list                                  Pileup                                                                    Physics list             Pileup
+                               0.12   |η | < 0.30                                                                                                    0.12     0.30 ≤ |η | < 0.80
+                                      3-prong              Single particle resp.                         Threshold                                            3-prong              Single particle resp.    Threshold
+                                0.1                        Underlying event                              Total                                        0.1                          Underlying event         Total
+
+                               0.08                                                                                                                  0.08
+
+                               0.06                                                                                                                  0.06
+
+                               0.04                                                                                                                  0.04
+
+                               0.02                                                                                                                  0.02
+
+                                 0                                                                                                                     0
+                                         30    40 50         102                               2×102                                                             30     40 50        102            2×102
+                                                                                                           p [GeV]                                                                                            p [GeV]
+                                                                                                             T                                                                                                  T
+
+
+                                              (a) 3-prong, |η| < 0.3                                                                                                (b) 3-prong, 0.3 < |η| < 0.8
+
+
+
+
+      Fractional Uncertainty                                                                                                Fractional Uncertainty
+                               0.14   ATLAS Simulation     Closure                                       Material                                    0.14     ATLAS Simulation     Closure                  Material
+                                      Preliminary                                                                                                             Preliminary
+                                                           Physics list                                  Pileup                                                                    Physics list             Pileup
+                               0.12   0.80 ≤ |η | < 1.30                                                                                             0.12     1.30 ≤ |η | < 1.60
+                                      3-prong              Single particle resp.                         Threshold                                            3-prong              Single particle resp.    Threshold
+                                0.1                        Underlying event                              Total                                        0.1                          Underlying event         Total
+
+                               0.08                                                                                                                  0.08
+
+                               0.06                                                                                                                  0.06
+
+                               0.04                                                                                                                  0.04
+
+                               0.02                                                                                                                  0.02
+
+                                 0                                                                                                                     0
+                                         30    40 50         102                               2×102                                                             30     40 50        102            2×102
+                                                                                                           p [GeV]                                                                                            p [GeV]
+                                                                                                             T                                                                                                  T
+
+
+                                          (c) 3-prong, 0.8 < |η| < 1.3                                                                                              (d) 3-prong, 1.3 < |η| < 1.6
+
+
+
+
+                                                               Fractional Uncertainty
+                                                                                        0.14     ATLAS Simulation      Closure                                        Material
+                                                                                                 Preliminary
+                                                                                                                       Physics list                                   Pileup
+                                                                                        0.12     1.60 ≤ |η | < 2.40
+                                                                                                 3-prong               Single particle resp.                          Threshold
+                                                                                         0.1                           Underlying event                               Total
+
+                                                                                        0.08
+
+                                                                                        0.06
+
+                                                                                        0.04
+
+                                                                                        0.02
+
+                                                                                          0
+                                                                                                    30     40 50           102                              2×102
+                                                                                                                                                                        p [GeV]
+                                                                                                                                                                          T
+
+
+                                                                                                       (e) 3-prong, 1.6 < |η| < 2.4
+
+Figure 20: Systematic uncertainties on the τhad−vis transverse energy after calibration for 3-prong tau decays. The
+individual uncertainties as well as their quadratic sum are shown as function of the τhad−vis pT for different |η| ranges.
+
+
+
+
+                                                                                                                      22
+7 Conclusion
+
+The reconstruction, identification and energy calibration of hadronically decaying tau leptons has been
+                                                                                √
+updated for the LHC Run-2 data taking conditions with centre-of-mass energy s = 13 TeV and 25 ns
+bunch spacing.
+The algorithms have been tuned on simulated samples and provide three nominal identification operation
+points with increasing background rejection. The combined reconstruction and identification efficiencies
+for these operating points are 0.6 (0.5), 0.55 (0.4) and 0.45 (0.3) for 1-prong (3-prong) tau decays.
+Rejection against electrons is achieved using a special working point of the offline electron identification
+tool, providing 95% efficiency and an inverse background efficiency between 20 and 200, depending on
+the pseudorapidity of the τhad−vis candidate.
+Systematic uncertainties have been evaluated before the start of data-taking using simulated samples
+corresponding to changes to the underlying event tune, the simulation of the hadronic shower in the
+calorimeter, a varied model of the ATLAS geometry and material distribution, and a variation in the
+noise thresholds of the calorimeter clustering procedure. They depend on the |η|, pT and charged particle
+multiplicity of the τhad−vis candidates. They are in the range 2−4.5% for reconstruction efficiency, 5−18%
+for the identification efficiency, 1 − 5% for electron rejection and 3 − 6% for the energy scale.
+
+
+Acknowledgements
+
+We thank CERN for the very successful operation of the LHC, as well as the support staff from our
+institutions without whom ATLAS could not be operated efficiently.
+We acknowledge the support of ANPCyT, Argentina; YerPhI, Armenia; ARC, Australia; BMWFW and
+FWF, Austria; ANAS, Azerbaijan; SSTC, Belarus; CNPq and FAPESP, Brazil; NSERC, NRC and CFI,
+Canada; CERN; CONICYT, Chile; CAS, MOST and NSFC, China; COLCIENCIAS, Colombia; MSMT
+CR, MPO CR and VSC CR, Czech Republic; DNRF, DNSRC and Lundbeck Foundation, Denmark;
+EPLANET, ERC and NSRF, European Union; IN2P3-CNRS, CEA-DSM/IRFU, France; GNSF, Georgia;
+BMBF, DFG, HGF, MPG and AvH Foundation, Germany; GSRT and NSRF, Greece; RGC, Hong Kong
+SAR, China; ISF, MINERVA, GIF, I-CORE and Benoziyo Center, Israel; INFN, Italy; MEXT and JSPS,
+Japan; CNRST, Morocco; FOM and NWO, Netherlands; BRF and RCN, Norway; MNiSW and NCN,
+Poland; GRICES and FCT, Portugal; MNE/IFA, Romania; MES of Russia and ROSATOM, Russian
+Federation; JINR; MSTD, Serbia; MSSR, Slovakia; ARRS and MIZŠ, Slovenia; DST/NRF, South Africa;
+MINECO, Spain; SRC and Wallenberg Foundation, Sweden; SER, SNSF and Cantons of Bern and
+Geneva, Switzerland; NSC, Taiwan; TAEK, Turkey; STFC, the Royal Society and Leverhulme Trust,
+United Kingdom; DOE and NSF, United States of America.
+The crucial computing support from all WLCG partners is acknowledged gratefully, in particular from
+CERN and the ATLAS Tier-1 facilities at TRIUMF (Canada), NDGF (Denmark, Norway, Sweden),
+CC-IN2P3 (France), KIT/GridKA (Germany), INFN-CNAF (Italy), NL-T1 (Netherlands), PIC (Spain),
+ASGC (Taiwan), RAL (UK) and BNL (USA) and in the Tier-2 facilities worldwide.
+
+
+
+
+                                                    23
+References
+
+ [1]   ATLAS Collaboration, The ATLAS Experiment at the CERN Large Hadron Collider,
+       JINST 3 (2008) S08003.
+ [2]   L. Evans and P. Bryant, The Large Hadron Collider, JINST 3 (2008) S08001.
+ [3]   ATLAS Collaboration, Identification and energy calibration of hadronically decaying tau leptons
+                                                    √
+       with the ATLAS experiment in pp collisions at s = 8 TeV, Eur. Phys. J. C75.7 (2015) 303,
+       arXiv: 1412.7086 [hep-ex].
+ [4]   ATLAS Collaboration, ATLAS Insertable B-Layer Technical Design Report,
+       CERN-LHCC-2010-013, ATLAS-TDR-19, 2010,
+       url: http://cdsweb.cern.ch/record/1291633.
+ [5]   ATLAS Collaboration, Electron reconstruction and identification efficiency measurements with
+       the ATLAS detector using the 2011 LHC proton–proton collision data,
+       Eur. Phys. J. C 74 (2014) 2941, arXiv: 1404.2240 [hep-ex].
+ [6]   ATLAS Collaboration,
+       Electron and photon energy calibration with the ATLAS detector using LHC Run 1 data,
+       Eur. Phys. J. C 74 (2014) 3071, arXiv: 1407.5063 [hep-ex].
+ [7]   ATLAS Collaboration, Measurement of the muon reconstruction performance of the ATLAS
+       detector using 2011 and 2012 LHC proton–proton collision data, Eur. Phys. J. C 74 (2014) 3130,
+       arXiv: 1407.3935 [hep-ex].
+ [8]   M. Cacciari, G. P. Salam and G. Soyez, The anti-k t jet clustering algorithm, JHEP 04 (2008) 063,
+       arXiv: 0802.1189 [hep-ph].
+ [9]   ATLAS Collaboration,
+                                                                                    √
+       Jet energy measurement with the ATLAS detector in proton–proton collisions at s = 7 TeV,
+       Eur. Phys. J. C 73 (2013) 2304, arXiv: 1112.6426 [hep-ex].
+[10]   S. Alioli et al., A general framework for implementing NLO calculations in shower Monte Carlo
+       programs: the POWHEG BOX, JHEP 1006 (2010) 043, arXiv: 1002.2581 [hep-ph].
+[11]   T. Sjostrand, S. Mrenna and P. Z. Skands, A Brief Introduction to PYTHIA 8.1,
+       Comput.Phys.Commun. 178 (2008) 852–867, arXiv: 0710.3820 [hep-ph].
+[12]   H.-L. Lai et al., New parton distributions for collider physics, Phys.Rev. D82 (2010) 074024,
+       arXiv: 1007.2241 [hep-ph].
+[13]   ATLAS Collaboration, Measurement of the Z/γ ∗ boson transverse momentum distribution in pp
+                    √
+       collisions at s = 7 TeV with the ATLAS detector, JHEP 1409 (2014) 145,
+       arXiv: 1406.3660 [hep-ex].
+[14]   J. Pumplin et al.,
+       New generation of parton distributions with uncertainties from global QCD analysis,
+       JHEP 07 (2002) 012, arXiv: hep-ph/0201195.
+[15]   D. J. Lange, The EvtGen particle decay simulation package,
+       Nucl. Instrum. Meth. A462 (2001) 152.
+[16]   N. Davidson, T. Przedzinski and Z. Was,
+       PHOTOS Interface in C++: Technical and Physics Documentation (2010),
+       arXiv: 1011.0937 [hep-ph].
+
+
+
+                                                   24
+[17]   ATLAS Collaboration, The ATLAS Simulation Infrastructure, Eur. Phys. J. C 70 (2010) 823,
+       arXiv: 1005.4568 [hep-ex].
+[18]   S. Agostinelli et al., GEANT4: A simulation toolkit, Nucl. Instrum. Meth. A506 (2003) 250–303.
+[19] ATLAS Collaboration, Summary of ATLAS Pythia 8 tunes, ATL-PHYS-PUB-2012-003, 2012,
+     url: http://cds.cern.ch/record/1474107.
+                                                                               √
+[20] ATLAS Collaboration, Observation of long-range elliptic anisotropies in s = 13 and 2.76 TeV
+     pp collisions with the ATLAS detector, Submitted to Phys. Rev. Lett. (2015),
+     arXiv: 1509.04776 [hep-ex].
+                                                             √
+[21] ATLAS Collaboration, Charged-particle distributions in s = 13 TeV pp interactionsmeasured
+     with the ATLAS detector at the LHC, ATLAS-CONF-2015-028, 2015,
+     url: http://cdsweb.cern.ch/record/2037701.
+[22]   ATLAS Collaboration, ATLAS Pythia 8 tunes to 7 TeV data, ATL-PHYS-PUB-2014-021, 2014,
+       url: http://cdsweb.cern.ch/record/1966419.
+[23]   ATLAS Collaboration, Tagging and suppression of pileup jets with the ATLAS detector,
+       ATLAS-CONF-2014-018, 2014, url: http://cdsweb.cern.ch/record/1700870.
+                                                                                  √
+[24]   ATLAS Collaboration, Improved luminosity determination in pp collisions at s = 7 TeV using
+       the ATLAS detector at the LHC, Eur. Phys. J. C 73 (2013) 2518, arXiv: 1302.4393 [hep-ex].
+[25]   ATLAS Collaboration, Electron efficiency measurements with the ATLAS detector using the 2012
+       LHC proton–proton collision data, ATLAS-CONF-2014-032, 2014,
+       url: http://cdsweb.cern.ch/record/1706245.
+[26]   ATLAS Collaboration,
+       Determination of the tau energy scale and the associated systematic uncertainty in proton–proton
+                    √
+       collisions at s = 8 TeV with the ATLAS detector at the LHC in 2012, ATLAS-CONF-2013-044,
+       2013, url: http://cdsweb.cern.ch/record/1544036.
+
+
+
+
+                                                  25
+

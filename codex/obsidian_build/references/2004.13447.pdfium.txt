@@ -1,0 +1,6750 @@
+=== PDF PAGE 1 ===
+EUROPEAN ORGANISATION FOR NUCLEAR RESEARCH (CERN)
+JINST 15 (2020) P09015
+DOI: 10.1088/1748-0221/15/09/p09015
+CERN-EP-2020-031
+12th January 2021
+Performance of the ATLAS muon triggers in Run 2
+The ATLAS Collaboration
+The performance of the ATLAS muon trigger system is evaluated with proton–proton (𝑝 𝑝)
+and heavy-ion (HI) collision data collected in Run 2 during 2015–2018 at the Large Hadron
+Collider. It is primarily evaluated using events containing a pair of muons from the decay of Z
+bosons to cover the intermediate momentum range between 26 GeV and 100 GeV. Overall,
+the efficiency of the single-muon triggers is about 68% in the barrel region and 85% in the
+endcap region. The 𝑝T
+range for efficiency determination is extended by using muons from
+decays of J/𝜓 mesons, W bosons, and top quarks. The performance in HI collision data is
+measured and shows good agreement with the results obtained in 𝑝 𝑝 collisions. The muon
+trigger shows uniform and stable performance in good agreement with the prediction of a
+detailed simulation. Dedicated multi-muon triggers with kinematic selections provide the
+backbone to beauty, quarkonia, and low-mass physics studies. The design, evolution and
+performance of these triggers are discussed in detail.
+© 2021 CERN for the benefit of the ATLAS Collaboration.
+Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+arXiv:2004.13447v2 [physics.ins-det] 8 Jan 2021
+
+=== PDF PAGE 2 ===
+Contents
+1 Introduction 2
+2 The ATLAS detector 3
+3 Data and simulation samples 4
+4 Offline object reconstruction and identification 6
+5 The ATLAS muon trigger 6
+6 Muon trigger menu 11
+7 CPU timing studies 13
+8 Trigger performance measurements 14
+8.1 Resolution studies 14
+8.2 Rate measurements 14
+8.3 Trigger efficiency measurement 15
+9 L1 muon trigger performance 19
+10 Muon trigger efficiency in pp data-taking 21
+10.1 Single-muon trigger efficiency 21
+10.2 Multi-muon trigger efficiency 24
+10.3 High-𝑝T muons in low-pile-up pp collisions 25
+11 Muon trigger efficiency in HI data-taking 26
+12 Muon triggers for B-physics and Light States programme 28
+12.1 BLS L1 topological trigger 29
+12.2 BLS HLT algorithms 30
+12.3 Rates and streaming strategy 32
+12.4 Performance 35
+13 Conclusion 37
+1 Introduction
+The presence of prompt muons in the final state is a distinctive signature for many physics processes studied
+in collisions at the Large Hadron Collider (LHC). These studies include measurements of properties of the
+Higgs boson and Standard Model processes, searches for new phenomena, and a B-physics and Light States
+(BLS) programme. A high-performance muon trigger is crucial for recording a high-quality data set serving
+the various physics analyses. In parallel, a good simulation of the trigger performance is necessary.
+2
+
+=== PDF PAGE 3 ===
+The ATLAS muon trigger system identifies muons produced in proton–proton (pp) or heavy-ion (HI)
+interactions. It is designed to do so with high efficiency and low muon transverse momentum (𝑝T
+)
+thresholds. The system employs a two-level, multi-pronged strategy with
+1. fast custom trigger electronics at Level-1 (L1);
+2. dedicated algorithms to reconstruct muons and estimate their parameters at the High-Level Trigger
+(HLT).
+In order to address a wide variety of physics topologies, ATLAS has developed a suite of triggers designed
+to select muons. A single-muon trigger with a 𝑝T
+threshold of 26 GeV is used by many physics analyses. In
+addition, muon triggers in combination with electrons, 𝜏-leptons, jets and missing transverse momentum,
+as well as multi-muon triggers with lower muon 𝑝T
+thresholds, increase the sensitivity for various physics
+phenomena which benefit from a lower 𝑝T
+threshold. For the BLS programme studying beauty, quarkonia,
+and low-mass physics, various low-𝑝T multi-muon triggers are used with a special configuration that allows
+a high trigger efficiency for non-prompt muons.1
+During the LHC Run 2 (2015–2018), the ATLAS experiment collected pp collision data at a centre-of-mass
+energy of 13 TeV with a maximum instantaneous luminosity of 2.1 × 1034
+cm
+−2
+s
+−1
+. The average number of
+interactions occurring in the same bunch crossing, < 𝜇 >, was 13 on average in 2015 and increased during
+the data-taking period to 25 in 2016, 38 in 2017, and 36 in 2018. Such interactions beyond the interaction
+of interest, as well as interactions from neighbouring bunch crossings, are called pile-up interactions. To
+cope with such harsh conditions, several improvements, on both the hardware side and software side, were
+deployed before the start of Run 2 and during the data-taking campaign. In this paper, the performance of
+the ATLAS muon trigger is evaluated, primarily using samples containing muon pairs from Z boson decays.
+The performance of the low-𝑝T muon triggers (𝑝T . 10 GeV) is evaluated with samples containing a pair
+of muons from the decay of J/𝜓 mesons. The performance of the high-𝑝T muon triggers (𝑝T & 100 GeV)
+is evaluated using events containing top quarks or W bosons, where a W boson decays into a muon and
+neutrino.
+2 The ATLAS detector
+The ATLAS experiment is a multipurpose particle detector with a forward–backward cylindrically
+symmetric geometry and almost 4𝜋 coverage in solid angle,2
+and is composed of four major sub-detectors:
+an inner tracking detector (ID), a calorimetry system subdivided into an electromagnetic calorimeter and a
+hadronic calorimeter, and a muon spectrometer (MS). A detailed description of the ATLAS detector can
+be found in Ref. [1–3]. Muons are measured independently in the ID and in the MS. The ID consists of
+a silicon pixel detector, a silicon microstrip detector and a transition radiation straw tube tracker, and is
+embedded in a solenoid, providing a magnetic field of 2 T. The ID measures charged-particle tracks up to
+|𝜂| = 2.5.
+1 Non-prompt muons are muons which originate from the decay of a secondary particle and are displaced from the primary
+interaction vertex.
+2 ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) in the centre of the detector
+and the 𝑧-axis along the beam pipe. The 𝑥-axis points from the IP to the centre of the LHC ring, and the 𝑦-axis points
+upward. Cylindrical coordinates (𝑟, 𝜙) are used in the transverse plane, 𝜙 being the azimuthal angle around the beam pipe.
+The pseudorapidity is defined in terms of the polar angle 𝜃 as 𝜂 = − ln tan(𝜃/2). Angular distance is measured in units of
+Δ𝑅 ≡
+√︃
+(Δ𝜂)
+2
++ (Δ𝜙)
+2
+.
+3
+
+=== PDF PAGE 4 ===
+2 4 6 8 10 12 14 16 18 12 m 20
+2
+4
+6
+8
+10
+12 m
+0
+0
+y
+z
+TGC
+η=2.7
+η=2.4
+η=1.3
+η=1.0
+RPC
+MDT
+MDT
+CSC
+MDT
+MDT
+TileCal End-cap
+toroid
+TGC-EI
+TGC-FI
+EE
+Figure 1: A schematic picture showing a quarter-section of the muon system in a plane containing the beam axis,
+with monitored drift tube (MDT) and cathode strip (CSC) chambers for momentum determination and resistive plate
+(RPC) and thin gap (TGC) chambers for triggering. The Forward Inner and Endcap Inner TGC chambers are marked
+as TGC-FI and TGC-EI, respectively. The Extended Endcap MDT chambers are referred to as EE.
+The MS is based on three large air-core superconducting toroidal magnet systems (two endcaps and one
+barrel) with eight coils each, providing a field integral between 2.0 Tm and 6.0 Tm across most of the
+detector acceptance. Figure 1 shows a quarter-section of the muon system in a plane containing the beam
+axis. In the central region, the detectors compose a barrel that is arranged in three concentric cylindrical
+shells around the beam axis. In the endcap region, the muon chambers form large wheels, perpendicular to
+the 𝑧-axis. Several detector technologies are utilised to provide both precision tracking and triggering. The
+deflection of the muon trajectory in the magnetic field is detected using hits in three layers of precision
+monitored drift tube (MDT) chambers for |𝜂| < 2. In the region 2.0 < |𝜂| < 2.7, two layers of MDT chambers
+in combination with one layer of cathode strip chambers (CSC) are used. Three layers of resistive plate
+chambers (RPC) in the barrel region (|𝜂| < 1.05), and three layers of thin gap chambers (TGC) in the
+endcap regions (1.05 < |𝜂| < 2.4) provide the L1 muon trigger and the read-out of the coordinate in the 𝑟–𝜙
+projection.
+3 Data and simulation samples
+Several data samples collected by the ATLAS detector are used to measure the muon trigger efficiency. In
+the following, the data samples used in the analysis are summarised. The data used in the measurements
+to derive the pp collisions trigger performance rates and efficiencies were collected during Run 2 in
+2015–2018 with pp collisions at a centre-of-mass energy of 13 TeV, amounting to a total integrated
+luminosity of 139 fb−1
+[4, 5]. Only data recorded with stable beams and with all relevant sub-detector
+systems fully operational are considered and accounted for in the integrated luminosity calculation. The
+trigger performance measured in pp collision data is compared with predictions of Monte Carlo (MC)
+4
+
+=== PDF PAGE 5 ===
+simulation. Generated samples were processed by the detector simulation of the ATLAS experiment based
+on Geant4 [6].
+The intermediate-𝑝T
+(low-𝑝T
+) analysis uses Z → 𝜇𝜇 (J/𝜓 → 𝜇𝜇) samples for the performance measure￾ments. Samples of prompt J/𝜓 → 𝜇𝜇 decays were generated using Pythia 8.186 [7] complemented with
+Photos++ (v3.52) [8, 9] to simulate the effects of final-state radiation. A requirement on the minimum
+transverse momentum of each muon (𝑝T > 4 GeV) was applied at the generator level. The Powheg-Box v1
+MC generator [10–13] was used for the simulation of the hard-scattering processes of 𝑍 boson production
+and decay in the muon channel. It was interfaced to Pythia 8.186 for the modelling of the parton shower,
+hadronisation, and underlying event, with parameter values set according to the AZNLO tune [14]. The
+CT10 parton distribution function (PDF) set [15] was used for the hard-scattering processes, whereas the
+CTEQ6L1 PDF set [16] was used for the parton shower. The effect of quantum electrodynamics final-state
+radiation was simulated with Photos++ (v3.52). The EvtGen v1.2.0 program [17] was used to decay
+bottom and charm hadrons.
+The high-𝑝T
+analysis focuses on two event topologies: events with muons from top-quark pair production
+(tt), and events containing a leptonically decaying W boson and jets (W+ jets). Events from 𝑉+jets
+production (𝑉 = 𝑊 or 𝑍) and diboson processes were simulated with the Sherpa v2.2 [18] generator at next￾to-leading order (NLO) in QCD. Samples were generated using the NNPDF3.0NNLO PDF set [19], along
+with the dedicated set of tuned parton shower parameters developed by the Sherpa authors. The production
+of tt events was modelled using the Powheg-Box v2 [20] generator at NLO in QCD. Background processes
+are also estimated from simulation, using several generation set-ups depending on the process. Single-top
+production in the 𝑠- and 𝑡-channels was simulated with the same set-up using Powheg-Box v2 [21, 22]
+at NLO in QCD. The 𝑊𝑡 process was modelled using the Powheg-Box v2 [10–12, 23] generator at
+NLO in QCD in the five-flavour scheme. The 𝑡𝑍 process was modelled with MadGraph5_aMC@NLO
+at leading order in QCD. The production of 𝑡𝑊 𝑍, 𝑡𝑡𝑊¯ , 𝑡𝑡𝑍¯ and 𝑡𝑡𝑡¯ 𝑡¯ events was modelled using the
+MadGraph5_aMC@NLO v2.3.3 [24] generator at NLO in QCD. All top-quark samples were produced
+with the NNPDF3.0 PDF set and were interfaced with Pythia 8 [25] using the A14 tune [26] and the
+NNPDF2.3LO PDF set [27].
+In addition, the trigger efficiencies are also derived for data from low-pile-up pp collisions with an average
+pile-up of 1.1 at a centre-of-mass energy of 5.02 TeV. This data set was collected in November 2015, and
+amounts to a total integrated luminosity of 25 pb−1
+. The corresponding sample of simulated Z → 𝜇𝜇
+events was produced with a set-up similar to the one described above.
+Trigger efficiency measurements for HI collisions described in this document are based on the data
+collected during Run 2 for Pb+Pb and 𝑝+Pb collisions at centre-of-mass energies of √︁
+𝑠
+NN
+= 5.02 TeV and
+√︁
+𝑠
+NN
+= 8.16 TeV per nucleon pair. The Pb+Pb data were collected in November–December 2015 and at
+the end of Run 2, amounting to total integrated luminosities of 0.49 nb−1
+and 1.42 nb−1
+, respectively. The
+𝑝+Pb data were collected in November–December 2016, amounting to a total integrated luminosity of
+165 nb−1
+.
+The 𝑝+Pb collisions were divided into two periods corresponding to different beam orientations of the
+protons and lead nuclei. The two beam orientations are defined as follows:
+• The ‘𝑝+Pb’ configuration: protons circulate in beam 2 and lead ions circulate in beam 1; protons go
+in the negative-𝜂 direction. The total integrated luminosity amounts to 56.8 nb−1
+.
+• The ‘Pb+𝑝’ configuration: protons circulate in beam 1 and lead ions circulate in beam 2; protons go
+in the positive-𝜂 direction. The total integrated luminosity amounts to 107.8 nb−1
+.
+5
+
+=== PDF PAGE 6 ===
+4 Offline object reconstruction and identification
+Reconstructed muons and jets are used to measure the muon trigger performance. The detailed selections
+of the reconstructed objects differ depending on the measurement and are outlined in Section 8, while this
+section provides an overview of the object reconstruction itself.
+Muons are reconstructed [28] from combined tracks in the MS and the ID. Their transverse momentum is
+calibrated [28], and they are required to fulfil certain identification criteria [28] which may vary between
+different measurements. To be selected as prompt muons, their tracks must point to the primary vertex 3
+(PV), which is ensured by requiring that the track’s transverse impact parameter significance, |𝑑0
+/𝜎(𝑑0
+)|, is
+less than 3, and that the distance of closest approach to the PV along the 𝑧-axis satisfies |𝑧0
+sin(𝜃)| < 0.5 mm.
+In order to suppress background from non-prompt muons, an isolation criterion can be applied. The scalar
+sum of the 𝑝T
+of tracks within a variable-size cone around the muon (excluding its own track) must be
+less than 6% of the muon 𝑝T
+. The track isolation cone size for muons, Δ𝑅, is given by the smaller of
+Δ𝑅 = 10 GeV/𝑝T
+and Δ𝑅 = 0.3.
+Jets are reconstructed from topological clusters of energy deposits in calorimeter cells [29] with the anti-𝑘𝑡
+algorithm [30] with a radius parameter of 0.4. Jets are calibrated to the jet energy scale at particle level [31]
+and are required to be within the fiducial volume |𝜂| < 2.5. For jets with |𝜂| < 2.4 and 𝑝T < 60 GeV,
+pile-up contributions are suppressed by the use of the jet vertex tagger [32]. Jets containing 𝑏-hadrons are
+identified as ‘𝑏-tagged’ using the MV2c10 algorithm, a multivariate discriminant based on the track impact
+parameters and displaced vertices [33]. These 𝑏-tagged jets are reconstructed in the region |𝜂| < 2.5 and
+have 𝑝T > 20 GeV. The 𝑏-tagging working point (WP) with 77% efficiency for jets containing 𝑏-hadrons
+in simulated tt events provides rejection rates of 110 and 4.9 for light-flavour jets and jets containing
+𝑐-hadrons, respectively.
+The missing transverse momentum p
+miss
+T
+, with magnitude 𝐸
+miss
+T
+, is calculated as the negative vectorial sum
+of the transverse momenta of all reconstructed objects and the soft term. The soft term includes all tracks
+associated with the PV but not matched to any reconstructed physics object. Tracks not associated with the
+PV are not considered in the 𝐸
+miss
+T
+calculation, improving the 𝐸
+miss
+T
+resolution by suppressing the effect of
+pile-up [34, 35].
+5 The ATLAS muon trigger
+The muon trigger system is a part of the ATLAS trigger system, allowing event triggering based on muons
+in a wide muon momentum range with high efficiency. The ATLAS trigger, including the muon trigger
+system, conceptually consists of two levels: the hardware-based L1 trigger and the software-based HLT.
+The L1 decision is formed by a Central Trigger Processor [36], based on information received from the
+calorimeters and muon trigger chambers. For select multi-object triggers, the L1 topological trigger
+processor [37, 38], commissioned in 2016, combines information about several objects into topological
+information. After the L1 trigger accepts the event, it is processed by the HLT. If also accepted at the HLT
+level, the event is transferred to local storage and exported to a Tier-0 facility at the CERN computing
+centre for offline reconstruction and finally moved to permanent storage. Recorded events are gathered
+in data streams, depending on their primary use case and their specific offline reconstruction needs. The
+3
+The primary vertex is defined as the reconstructed vertex with the highest sum of the squared transverse momenta of the
+associated tracks.
+6
+
+=== PDF PAGE 7 ===
+event selection in the HLT is referred to as a trigger, and the collection of all L1 and HLT triggers and
+their prescales4
+is called the trigger menu. The trigger menu defines several types of triggers [39], but this
+paper focuses on primary triggers which are used for physics measurements and typically have no prescale
+applied.
+In the L1 processing the degree of deviation from the hit pattern expected for a muon with infinite
+momentum is used to estimate the 𝑝T
+of the muon with six programmable thresholds. The number of
+muon candidates passing each threshold is used in the conditions for the global L1 trigger. Following an L1
+accept decision, the 𝑝T
+thresholds and the corresponding detector regions, called regions of interest (RoIs),
+are sent to the HLT for further consideration [1, 40]. The typical dimensions of the RoIs are 0.1 × 0.1
+(0.03 × 0.03) in Δ𝜂 × Δ𝜙 in the RPCs (TGCs) [1]. The geometric coverage of the L1 trigger is ≈99% in
+the endcap regions and ≈80% in the barrel region. The limited geometric coverage in the barrel region
+is due to gaps around 𝜂 = 0 (to provide space for services of the ID and calorimeters), the feet and rib
+support structures of the ATLAS detector, and two small elevator shafts in the bottom part of the MS. The
+barrel region is equipped with three concentric layers of RPCs. The L1 trigger decision in the barrel region
+is based on the coincidence of hits from three (two) concentric RPC stations [41] for the three high-𝑝T
+(low-𝑝T
+) thresholds. During Run 2, only the high-𝑝T
+triggers were used for single-muon signatures, while
+the low-𝑝T
+triggers were used in coincidence with other trigger objects to select multi-object signatures,
+including muon pairs. During the shutdown of the LHC in 2013–2014, a fourth layer of RPC chambers was
+added to the trigger system in the detector feet region (−2.16 < 𝜙 < −1.77 and −1.37 < 𝜙 < −0.98) to
+cover holes in the geometrical acceptance caused by the ATLAS support structures. These RPC chambers
+were installed during the construction of ATLAS but not equipped with trigger electronics at that time.
+Figure 2 (left) shows the position of these chambers in the outer part of the muon spectrometer. For these
+new RPC chambers a two-layer coincidence is used also for the highest 𝑝T
+thresholds. This resulted in a
+20% increase of acceptance in those 𝜙 regions. These additional ‘feet RPC’ chambers were commissioned
+during the data-taking in 2015 and enabled for physics in 2016. Figure 2 (right) shows the impact of the
+feet RPC chambers on the trigger efficiency in one of the two 𝜙 regions. Additionally, new RPC detectors
+were installed in 2014 in the elevator regions at 𝜙 ' 1.57, |𝜂| ' 0.7. Part of these chambers use small-gap
+RPCs with a 1 mm gas gap, rather than 2 mm as in standard ATLAS RPCs, similar to those that will be
+used for the High Luminosity LHC upgrade.
+The L1 trigger decision in the endcap region (1.05 < |𝜂| < 2.4) is based on the coincidence of hits in the
+TGC stations of the middle layer, called the Big Wheel. Many upgrades were deployed in Run 2 in order to
+reduce the L1 trigger rate while keeping the efficiency high. The main source of trigger background in the
+L1 muon endcap system is low-momentum charged particles emerging from the endcap toroid magnets
+and beam shielding. To suppress these backgrounds, a coincidence requirement between the Big Wheel
+and TGC Forward Inner (TGC-FI) chambers was introduced in 2015. The optimisation of this coincidence
+and a new coincidence between the Big Wheel and TGC Endcap Inner (TGC-EI) chambers was performed
+in 2016. The effect of these coincidence requirements is shown in Figure 3. The asymmetry is due to the
+different acceptance of charged fake muons given the magnetic field configuration of the MS.
+A coincidence between TGC chambers and the tile hadronic calorimeter (TileCal) assists in the rejection of
+fake muon triggers in the region 1.05 < |𝜂| < 1.3. The coincidence mitigates the effect of the limited 𝜙
+coverage (∼50%) of the inner layer of the muon detector due to the toroidal magnets. Figure 4 (left) shows
+the pseudorapidity distribution of the single-muon trigger with 𝑝T
+requirement above 20 GeV (L1_MU20).
+A rate reduction is observed in 1.05 < |𝜂| < 1.3. Figure 4 (right) shows the L1_MU20 trigger rate as a
+4
+The term prescale means that only one out of 𝑁 events passing the trigger decision is accepted.
+7
+
+=== PDF PAGE 8 ===
+-
+RPC1
+Feet Trigger High-pT Trigger
+Interaction
+RPC2
+RPC3
+RPC4
+−1 −0.5 0 0.5 1
+offline muon η
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+L1 muon barrel trigger efficiency
+L1_MU11
+feet trigger
+no feet trigger ATLAS
+Data 2017
+-1 s = 13 TeV, 46.8 fb
+ <-1.77 rad µ
+ > 15 GeV, -2.16 < φ
+µ
+T,offline p
+L1_MU11
+with new feet trigger chambers
+without new feet trigger chambers
+Figure 2: Left: Sketch showing the position of the new RPC chambers (RPC4) in the feet sectors. The muon trajectory
+depicted by the solid line is accepted by a two-layer coincidence (RPC3-RPC4) using the new feet chambers. The
+dashed-line trajectory shows a muon accepted by the standard three-layer (RPC1-RPC2-RPC3) high-𝑝T
+trigger.
+Right: L1 trigger efficiency as a function of the pseudorapidity of offline reconstructed muon candidates in the barrel
+detector region for −2.16 < 𝜙 < −1.77 evaluated for a trigger applying a 3-station coincidence requirement and a 𝑝T
+threshold of 10 GeV (L1_MU11). The efficiency with the newly installed RPC chambers is shown as the solid filled
+histogram, while the efficiency without these chambers is overlaid as the hatched histogram. Muons are required to
+pass Medium quality requirements [28] and have a transverse momentum of at least 15 GeV.
+−2 −1 0 1 2
+RoI η
+0
+20
+40
+60
+80
+100
+120
+140
+160
+180
+200
+220
+3 ×10
+η dN / d
+ATLAS
+Data 2016, s=13 TeV
+L1_MU20
+without EI/FI-coincidence
+with EI/FI-coincidence
+EI/FI-coincidence region
+Figure 3: Pseudorapidity distributions of the L1 muon trigger with a 𝑝T
+threshold of 20 GeV (L1_MU20) and the rate
+reduction due to requiring a coincidence with TGCs consisting of Endcap Inner (EI) and Forward Inner (FI) chambers
+are shown, using events taken by a lower-threshold L1 trigger (L1_MU11) in 2016. The 𝜂
+RoI distribution after the
+inclusion of the EI/FI-coincidence is shown as a solid black line. The 𝜂
+RoI distribution before the inclusion of the
+EI/FI-coincidence is also shown as a reference (blue triangles) to examine the reduction of the L1_MU20 trigger rate
+at 1.05 < |𝜂| < 1.8, which is highlighted by the red rectangles. No coincidence was required for |𝜂| ∼ 1.5 because
+the FI chambers in this region were inactive, which explains the lack of rate reduction. Moreover, the coincidence
+around |𝜂| ∼ 1.2 was intentionally not applied, to allow commissioning of a coincidence with the TileCal.
+8
+
+=== PDF PAGE 9 ===
+function of instantaneous luminosity. A reduction of 6% in the L1_MU20 trigger rate is observed for the
+entire coverage of the MS when requiring the TileCal coincidence, at a cost of at most 2.5% inefficiency.
+This is compatible with the geometrical gaps between TileCal modules. In 2016, the 2-station-strip
+0
+10
+20
+30
+40
+50
+60
+70
+80
+3 ×10
+η dN/d
+ATLAS
+Data 2018, s=13 TeV
+without TileCal coincidence 
+with TileCal coincidence 
+Tile region
+L1_MU20
+−2 −1 0 1 2
+RoI η
+0.5
+1
+Ratio
+0 2 4 6 8 10 12 14 16 18 20
+ ] -1 s -2 cm
+ 33 Instantaneous luminosity [10
+0
+5
+10
+15
+20
+25
+Trigger rate [kHz]
+ATLAS Trigger Operations
+Data 2018, s=13 TeV
+L1_MU20
+without TileCal coincidence
+with TileCal coincidence
+Figure 4: Left: Pseudorapidity distribution of the L1 RoIs (𝜂
+RoI) which fulfil the 20 GeV requirement (L1_MU20)
+after the new TileCal coincidence in the L1 trigger decisions (solid black line). The 𝜂
+RoI distribution before the
+deployment of the TileCal coincidence is also shown as a reference (blue triangles) to examine the reduction of the
+L1_MU20 trigger rate at 1.05 < |𝜂| < 1.3, which is highlighted by the red rectangles. The reference histogram is
+normalised so that the entries out of the acceptance of the TileCal coincidence (1.05 < |𝜂
+RoI| < 1.3) are compatible
+between the two distributions for the comparison. The ratio of after to before deployment of the TileCal coincidence
+is also shown. The error bars show the statistical uncertainties only. Right: L1 trigger rate for the L1_MU20 trigger
+as a function of instantaneous luminosity. The black (red) points correspond to data recorded without (with) the
+TileCal coincidence requirement.
+coincidence in the Big Wheel was changed to a 3-station-strip coincidence for the single-muon trigger with
+𝑝T
+requirement above 4 GeV (L1_MU4). A chamber-by-chamber Coincidence Window (CW) optimisation
+procedure was introduced to take the detector alignment into account by varying the 𝑝T
+depending on
+the bending magnitude. Originally the CWs were extracted from MC simulation with perfect alignment.
+During the 2017 data-taking the CWs were optimised for most triggers based on the data taken in 2015
+and 2016. CW optimisations for lower-𝑝T
+triggers were performed at the beginning of 2018. The rate
+reduction for the L1 trimuon trigger with a 4 GeV threshold is shown in Figure 5.
+The HLT selects events in two stages, executing fast reconstruction algorithms first, followed by muon
+algorithms similar to the ones used for offline muon reconstruction [28]. The RoI identified by the L1 trigger
+enables the fast algorithms to select precisely the region of the detector in which the interesting features
+reside, therefore reducing the amount of data to be transferred and processed. The muon stand-alone (SA)
+algorithm constructs a track using the MDT hits within the RoI, refining the L1 candidate. To achieve
+the needed resolution in sufficiently short time, the 𝑝T
+of the SA muon is reconstructed with simple
+parameterised functions. Several changes were deployed during Run 2 in order to improve the efficiency
+and 𝑝T
+resolution of the SA algorithm. The efficiency is optimised by refining the fitting algorithm such
+that noise hits in the MDTs are removed. Further improvements in the 𝑝T
+resolution are obtained in the
+9
+
+=== PDF PAGE 10 ===
+0 2 4 6 8 10 12 14 16 18 20
+]
+-1 s
+-2 cm 33 Instantaneous luminosity [10
+0
+1
+2
+3
+4
+5
+6
+Trigger rate [kHz]
+)
+-1 Before CW optimisation (480 pb
+)
+-1 After CW optimisation (409 pb
+L1_3MU4
+ATLAS
+s = 13 TeV
+pp data Figure 5: Trigger rate of the trimuon L1 trigger with a 4 GeV threshold as a function of the instantaneous luminosity
+before (open circles) and after (open triangles) the coincidence window optimisation.
+regions 1.05 < |𝜂| < 1.35 and 2.0 < |𝜂| < 2.4 by including additional hit information from the Extended
+Endcap (EE) and CSC chambers respectively. Figure 6 summarises the improvements in the efficiency
+(left) and 𝑝T
+resolution (right) which have been measured with the tag-and-probe method discussed in
+Section 8.3. The raise in efficiency at 𝑝T
+values below the threshold is caused by two effects: the L1
+trigger mis-reconstructs a low-𝑝T muon as a high-𝑝T
+object leading to a wrong reconstruction by the
+fast reconstruction algorithms, and an overestimation of the muon 𝑝T
+if it traverses regions with a weak
+magnetic field, leading to an almost straight trajectory.
+0 10 20 30 40 50 60
+ [GeV] T Muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+before noise hit modification
+after noise hit modification
+ATLAS
+pp data, Z→µµ
+-1 s = 13 TeV, 3.26 fb
+12 GeV threshold
+10 20 30 40 50 60 70 80 90
+ [GeV] T Muon p
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+0.35
+0.4
+0.45
+0.5
+ residual SA
+T Resolution of p
+not using EE chamber
+using EE chamber
+ATLAS
+pp data, Z→µµ, 1.0 < |η| < 1.4
+-1 s = 13 TeV, 3.26 fb
+Figure 6: Improvements of the fast reconstruction algorithms measured in pp collision data taken in 2015 evaluated
+in Z → 𝜇𝜇 events using a tag-and-probe approach outlined in Section 8.3. The error bars show the statistical
+uncertainties only. Left: Efficiency of the fast SA reconstruction before (black circles) and after (red squares)
+the modification of the noise hits requirement for a 𝑝T
+threshold of 12 GeV. Right: 𝑝T
+resolution of the fast SA
+reconstruction obtained by including additional hit information from the EE chambers (red squares) and not including
+(black circles) this information. The resolution is extracted by a Gaussian fit to the distribution of the fractional
+residual of inverse-𝑝T
+,
+
+1/𝑝
+SA
+T − 1/𝑝
+offline
+T
+
+/
+
+1/𝑝
+offline
+T
+
+.
+Following the SA algorithm step, the MS-only muon track is combined with reconstructed tracks in the ID.
+For this the muon track is back-extrapolated to the interaction point using the offline track extrapolator and
+statistically combined with tracks reconstructed in the ID to form a combined muon candidate with refined
+track parameter resolution.
+10
+
+=== PDF PAGE 11 ===
+The final step in the HLT selection is the precision stage, which can be operated in two modes: the
+RoI-based mode and the full-scan (FS) mode. The first mode focuses on RoIs defined by the L1 and fast
+reconstruction steps, while the second searches the full detector without using information from any of the
+previous steps. Using the FS mode allows circumvention of the L1 inefficiencies, but given the high CPU
+demand it cannot be executed for every event.
+In the RoI-based method, muon candidates, called precision stand-alone muons, are first formed by using
+the muon detectors, and are subsequently combined with ID tracks, by means of a fit of the hits from both,
+leading to precision combined muons. If no combined muon is formed, muon candidates are searched for
+by extrapolating ID tracks to the muon detectors. If there are corresponding track segments, combined
+muons are formed. Additionally, the degree of isolation for the combined muon is quantified by summing
+the 𝑝T
+of ID tracks with 𝑝
+trk
+T > 1 GeV found near the combined muon candidate. The ‘near’ criterion is
+defined by a cut requiring Δ𝑧 < 6 mm, with Δ𝑧 being the distance of the track from the primary vertex
+in the 𝑧-direction. This cut was found to be slightly inefficient in events with high pile-up in 2017 and
+thus was tightened to Δ𝑧 < 2 mm, which allowed the loosening of the isolation criterion for data-taking in
+2018. The isolation criterion is defined by a cut on the ratio of the summed transverse momentum of the
+additional nearby tracks to the 𝑝T
+of the muon candidate, Í
+Δ𝑧<6 (2) mm 𝑝
+trk
+T
+/𝑝
+𝜇
+T
+< cut. Several cut values
+are defined, corresponding to different WPs. Commonly, the Medium WP is used with a cut at 7%, while in
+2015 a cut at 6% was applied. A second procedure extends the combined precision algorithm by searching
+for muon candidates in the MS only. This can be used, for example, in searches for long-lived particles
+leaving no signature in the ID.
+The FS mode is used to find additional muons that are not found by the RoI-based method mainly due to
+L1 inefficiencies. In the FS mode, muon candidates are first sought in all muon detectors. Then, RoIs
+are constructed around the found MS tracks and ID tracks are reconstructed within these RoIs. The same
+combination procedure described for the RoI-based method is used to construct combined FS muons.
+Given the high CPU demand of the FS procedure, it is only executed in multi-object triggers with at least
+one of the trigger objects found by an RoI-based algorithm.
+6 Muon trigger menu
+The trigger system is configured via the trigger menu, which defines the set of trigger selection criteria
+used for data-taking or simulation. A sequence of reconstruction and selection steps for specific muon
+objects in the trigger system is specified by a trigger chain which is often referred to simply as a trigger.
+Due to changing LHC conditions and continuous improvements in the trigger algorithms, the menu is
+subject to frequent changes. Details of the menu configuration for each year of data-taking can be found in
+Refs. [39, 42–44]. In the following, the most common selections used by the majority of physics analyses
+are summarised.
+In 2015 and 2016, the six programmable 𝑝T
+thresholds of the L1 trigger were set as L1_MU4, L1_MU6,
+L1_MU10, L1_MU11, L1_MU15 and L1_MU20. The numbers in the L1 trigger names correspond to the
+𝑝T
+threshold (in GeV), except for L1_MU11, which applies a 10 GeV threshold, but contrary to L1_MU10
+a 3-station coincidence is required for the RPCs. After the deployment of the additional RPC chambers
+in the feet region, L1_MU15 was replaced by an L1_MU20 version disabling those chambers to be used
+as backup in case of rate increases at high instantaneous luminosities. The sequence of the single-muon
+trigger chains which ran without any prescale in 2016–2018 are shown in Table 1. In 2015, lower thresholds
+were supported. Details of the trigger menu in 2015 are documented in Ref. [42].
+11
+
+=== PDF PAGE 12 ===
+The single-muon trigger chain HLT_mu26_ivarmedium is designed to select isolated muons with 𝑝T >
+26 GeV by requiring a relatively loose isolation criterion in order to control trigger rates. The isolation
+criterion is chosen such that the efficiency for well-isolated muons from Z boson decays is very close to
+100%, while about half of the muons from heavy-flavour decays are rejected. The HLT_mu50 trigger is
+designed to collect muons with large 𝑝T without efficiency loss due to any isolation requirement. The
+HLT_mu60_0eta105_msonly trigger decision is based only on MS reconstruction, is active only in the
+barrel region, and is inactive in the endcap regions due to the high rate. The HLT_mu26_ivarmedium,
+HLT_mu50, and HLT_mu60_0eta105_msonly chains are called primary single-muon triggers. The
+single-muon triggers cover the needs of many physics analyses. Physics analyses which benefit from
+muon triggers with lower 𝑝T
+thresholds use either dimuon triggers or muon triggers in combination with
+other triggers. The multi-muon triggers are made either by requiring multiple muon candidates, each
+of which independently fires a single-muon trigger, or by finding multiple muons using the FS strategy
+after the leading muon candidate has been confirmed by a single-muon trigger. The sequence of the main
+multi-muon trigger chains which were used unprescaled in 2015–2018 are also summarised in Table 1.
+The HLT_2mu14 chain requires two or more muon candidates, each of which passes a single-muon trigger
+HLT_mu14 chain. The HLT_mu22_mu8noL1 chain requires at least one muon candidate which passes a
+Table 1: Sequence for the muon trigger chains at L1 and HLT for pp collision data. The 𝑝T
+and isolation cuts applied
+at each step of the chain are also shown. The isolation requirement was updated in 2018 by tightening the Δ𝑧 selection
+on additional tracks to reduce inefficiencies observed in high-pile-up conditions during data-taking in 2017. The
+threshold on the tri-muon trigger was increased from 4 GeV to 6 GeV in 2018.
+Trigger chain Level-1 HLT
+Single-muon triggers
+HLT_mu26_ivarmedium L1_MU20 ≥ 1 CB muon with 𝑝T > 26 GeV and ΣΔ𝑧<6 (2) mm 𝑝
+trk
+T /𝑝T < 0.07
+HLT_mu50 L1_MU20 ≥ 1 CB muon with 𝑝T > 50 GeV
+HLT_mu60_0eta105_msonly L1_MU20 ≥ 1 SA muon with 𝑝T > 60 GeV in |𝜂| < 1.05
+Multi-muon triggers
+HLT_2mu14 L1_2MU10 ≥ 2 CB muons with 𝑝T > 14 GeV
+HLT_mu22_mu8noL1 L1_MU20 ≥ 1 CB muon with 𝑝T > 22 GeV (mu22 trigger)
+and ≥ 2 FS muons with 𝑝T > 22 and > 8 GeV
+HLT_3mu4(6) L1_3MU4(6) ≥ 3 CB muons with 𝑝T > 4 (6) GeV
+HLT_3mu6_msonly L1_3MU6 ≥ 3 SA muons with 𝑝T > 6 GeV
+HLT_mu20_2mu4noL1 L1_MU20 ≥ 1 CB muon with 𝑝T > 20 GeV (mu20 trigger)
+and ≥ 1 FS muons with 𝑝T > 20 GeV and ≥ 2 FS muons with 𝑝T > 4 GeV
+single-muon trigger HLT_mu22, and subsequently employs the FS algorithm to find two or more muon
+candidates with 𝑝T > 22 and 8 GeV for leading and subleading muons. The choice of a leading 𝑝T
+cut
+of 22 GeV is driven by computing resource limitations when invoking the FS muon finding at the HLT
+level.
+As mentioned in Section 3, the LHC also provides HI collisions and pp collisions with low pile-up. To
+achieve the optimal data-taking efficiency, the trigger menu is adapted accordingly.
+For the low-pile-up pp collisions at a centre-of-mass energy √
+𝑠 = 5.02 TeV, the thresholds of the muon
+triggers were relaxed due to the lower rates. The lowest unprescaled single-muon trigger was operated at a
+𝑝T
+threshold of 14 GeV. In the 2016 𝑝+Pb run, only five programmable 𝑝T
+thresholds of the L1 trigger
+were used. These are the same as for pp collision data-taking, except for L1_MU11. The primary trigger
+chain HLT_mu15_L1MU6 was designed to select muons with 𝑝T > 15 GeV and was used in the analysis
+12
+
+=== PDF PAGE 13 ===
+to select muons originating from Z or W boson decays. For the Pb+Pb data-taking, the lowest unprescaled
+single-muon trigger was HLT_mu8. The primary dimuon trigger chain in the menu was HLT_2mu4.
+Table 2 summarises the sequences of the muon trigger chains that ran without any prescale during the
+low-pile-up pp and HI data-taking.
+Table 2: Sequence for the muon trigger chains at L1 and HLT for HI and low-pile-up pp collision data. The 𝑝T
+cut
+applied at each step of the chain is also shown.
+Trigger chain Level-1 HLT Data-taking campaign
+Single-muon triggers
+HLT_mu15_L1MU6 L1_MU6 ≥ 1 CB muon with 𝑝T > 15 GeV 𝑝+Pb
+HLT_mu14 L1_MU10 ≥ 1 CB muon with 𝑝T > 14 GeV low-pile-up pp
+HLT_mu8 L1_MU6 ≥ 1 CB muon with 𝑝T > 8 GeV Pb+Pb
+HLT_2mu4 L1_2MU4 ≥ 2 CB muons with 𝑝T > 4 GeV 𝑝+Pb; low-pile-up pp
+HLT_2mu3 L1_2MU4 ≥ 2 CB muons with 𝑝T > 3 GeV Pb+Pb
+7 CPU timing studies
+The total computation time used by triggers is important to monitor, as available resources for running
+online are limited. The times for the fast reconstruction and precision algorithms are evaluated by rerunning
+a representative trigger configuration on a single run using an environment similar to the online HLT
+computing farm set-up and are shown in Figure 7. In general, the fast and precision reconstruction
+algorithms described in Section 5 take up about 30% of the total trigger processing time, while the fast
+algorithms take a very small fraction of the time. The latter did not undergo any particular CPU optimisation,
+but show a strong menu dependence which caused changes during the data-taking campaign. During
+Run 2, several improvements in the software chain were implemented to reduce the needed processing
+time. Notably, the CPU needs are significantly reduced in 2016 relative to 2015 by introducing a caching
+algorithm deployed towards the end of 2015. Furthermore, the design of the most time-consuming chains
+were revisited. In 2016, an additional speed-up was achieved by deploying the Eigen [45] library to perform
+the combined fit, which is more efficient than the previously used MA27 [46] implementation. Before
+data-taking in 2017 started, the call sequence of the algorithms was optimised to avoid running algorithms
+multiple times in a single RoI. After the changes with significant impact on the average processing time,
+the developments during 2017 and 2018 focused on the tail of the time distribution, addressing special
+event topologies requiring a long processing time. Due to several reconfigurations of the reconstruction
+algorithms, such as disabling precision steps not required by the trigger demands, these contributions were
+strongly reduced.
+13
+
+=== PDF PAGE 14 ===
+0 10 20 30 40 50 60 70 80 90 100
+Time per RoI [ms]
+−4 10
+−3 10
+−2 10
+−1 10
+1
+Normalised Entries
+<time>: 4.5 ms
+2018
+ATLAS
+s = 13 TeV
+pp data
+0 200 400 600 800 1000 1200
+Time per RoI [ms]
+−4 10
+−3 10
+−2 10
+−1 10
+1
+Normalised Entries
+<time>: 210.3 ms
+2018
+ATLAS
+s = 13 TeV
+pp data Figure 7: HLT processing time per RoI for the fast (left) and precision (right) algorithms for a representative
+configuration of the muon trigger chains at the end of Run 2.
+8 Trigger performance measurements
+8.1 Resolution studies
+The tag-and-probe method applied to Z → 𝜇𝜇 events, described below, was used to evaluate the quality of
+the 𝑝T
+, 𝜂, and 𝜙 determination for muon tracks at the HLT compared with the offline reconstruction. Online
+algorithms are almost identical to offline reconstruction algorithms, but several simplifications are required
+in order to cope with the limitations of the trigger system. Additionally, offline reconstruction can feature
+updated calibration and alignment corrections not available at the time the data were taken. Therefore, finite
+differences are expected in the resolution. The offline relative momentum resolution is measured to be 2.3%
+(2.9%) in the barrel (endcap) region using Z → 𝜇𝜇 events [28]. The residual of the trigger-reconstructed
+𝑝T
+is defined relative to the offline reconstructed value as 𝛿𝑝T
+= (1/𝑝
+trigger
+T
+− 1/𝑝
+offline
+T
+)/(1/𝑝
+offline
+T
+), where
+𝑝
+trigger
+T
+and 𝑝
+offline
+T
+are the transverse momenta determined by the HLT and offline algorithm, respectively.
+The resolution of the trigger reconstruction with respect to the offline reconstruction is defined as the
+standard deviation of a Gaussian function fitted to the 𝛿𝑝T
+distribution. Figure 8 shows the 𝑝T
+resolution
+as a function of the offline muon 𝑝T
+for CB and SA HLT muons in the barrel and endcap regions. The
+𝑝T
+resolution is about 1% (2%) and 3% (5%) in the barrel (endcap) region for CB and SA muons,
+respectively.
+The resolution with respect to offline reconstruction in the 𝜂 and 𝜙 determination were examined accordingly
+by defining the residual as the absolute value of the difference between the trigger and offline reconstructed
+quantities. Figure 9 summarises the resolution of the 𝜂 and 𝜙 residuals as a function of the offline muon 𝑝T
+.
+The angular residual resolutions are typically below 10−4
+and 10−2
+for CB and SA muons, respectively.
+8.2 Rate measurements
+The ATLAS data-taking conditions are archived with a time interval of about one minute, which defines
+a luminosity block. In order to obtain the rate of a given trigger as a function of the instantaneous
+luminosity [5], individual rate measurements on different luminosity blocks from all data collected in a
+given year are used. Any rate measurement for which the ratio of the trigger rate to instantaneous luminosity
+14
+
+=== PDF PAGE 15 ===
+20 40 60 80 100 120 140
+ [GeV] T Muon p
+−3 10
+−2 10
+−1 10
+ residual
+T Resolution of 1/p
+stand-alone endcap
+stand-alone barrel
+combined endcap
+combined barrel
+ATLAS
+-1 s = 13 TeV, 70.0 fb
+pp data, Z→µµ
+Figure 8: Resolution with respect to offline reconstruction of the inverse-𝑝T
+residual as a function of offline muon 𝑝T
+for CB (red) and SA (black) muons in the barrel (circles) and endcap (triangles) regions.
+20 40 60 80 100 120 140
+ [GeV] T Muon p
+−4 10
+−3 10
+−2 10
+−1 10
+ residual
+η Resolution of 
+stand-alone endcap
+stand-alone barrel
+combined endcap
+combined barrel
+ATLAS
+-1 s = 13 TeV, 70.0 fb
+pp data, Z→µµ
+20 40 60 80 100 120 140
+ [GeV] T Muon p
+−5 10
+−4 10
+−3 10
+−2 10
+−1 10
+1
+ residual
+φ Resolution of 
+stand-alone endcap
+stand-alone barrel
+combined endcap
+combined barrel
+ATLAS
+-1 s = 13 TeV, 70.0 fb
+pp data, Z→µµ
+Figure 9: Resolution with respect to offline reconstruction in the pseudorapidity (left) and azimuthal angle (right)
+determination as a function of offline muon 𝑝T
+for the combined (red) and stand-alone (black) muons in the barrel
+(circles) and endcap (triangles) regions.
+varies by more than 20% from the average is discarded as an estimator of the rate for that trigger. This
+avoids averaging rate measurements that fluctuate because of unpredictable and temporary changes of LHC
+conditions.
+8.3 Trigger efficiency measurement
+The muon trigger efficiency, 𝜖, is measured with respect to muons reconstructed offline using the data set
+collected during 2015–2018, and considering only periods of data-taking with all sub-detectors functioning
+nominally. The measurement is based on a tag-and-probe method which selects muons from known decays
+such as Z → 𝜇𝜇. An unbiased sample of probe muons is selected by a stringent selection of a second tag
+muon. The trigger efficiency is defined as the ratio of the number of probe muons matched to at least one
+trigger object, 𝑁match, to the total number of probe muons, 𝑁probe,
+𝜖 =
+𝑁match
+𝑁probe
+.
+15
+
+=== PDF PAGE 16 ===
+If both muons satisfy the selection criteria of the tag muon, the probe muons are considered as tag
+candidates in turn. The efficiency is measured with respect to a specific offline selection of reconstructed
+muons and may vary between different topologies. The efficiency measurements are performed for a range
+of different topologies; J/𝜓 and 𝑍 boson candidates decaying into a dimuon system are used to measure the
+trigger efficiencies of low-𝑝T
+and moderate-𝑝T muons, respectively. For high-𝑝T muons, two topologies
+targeting semileptonic tt candidates and W+ jets events are employed. Finally, a dedicated measurement is
+performed for HI collisions, again targeting J/𝜓 and 𝑍 decays into dimuon systems. Except where stated
+otherwise, the effects of background are negligible and thus no background subtraction is applied.
+In each analysis, the event quality is checked to remove events which contain noise bursts or coherent noise
+in the calorimeters. Further, at least one reconstructed pp interaction vertex is required for each event, with
+the primary vertex defined as the vertex with the highest sum of track 𝑝
+2
+T
+.
+Trigger efficiencies for low-𝑝T muons (𝑝T . 10 GeV) are evaluated using the tag-and-probe method with
+J/𝜓 → 𝜇
++
+𝜇
+−
+events. Due to varying and non-negligible contributions of the background under the J/𝜓
+signal mass peak across the muon kinematic range, a fit to the dimuon mass distribution is used to extract
+the J/𝜓 yields. Pairs of oppositely charged muons successfully fitted to a common vertex within the
+invariant mass range 2.7 GeV < 𝑚𝜇𝜇 < 3.5 GeV are selected as offline J/𝜓 → 𝜇
++
+𝜇
+−
+candidates. The
+quality of the vertex fit must satisfy 𝜒
+2 < 20 for one degree of freedom.
+Events for which a trigger muon candidate and an HLT ID track have an invariant mass compatible with
+the J/𝜓 mass are accepted; various trigger muon 𝑝T
+thresholds are used. If one of the two muons satisfies
+the Tight quality requirement [28] and has a 𝑝T
+above the tag trigger threshold, it is considered as a tag
+candidate. The other muon is then taken as a probe candidate. The tag candidate is required to be within a
+cone of size Δ𝑅 = 0.01 around an HLT muon object that fired the tag trigger. A probe muon is identified as
+triggered if it lies within a cone of size Δ𝑅 = 0.01 around an object that caused the trigger to fire. In order
+to avoid correlation effects between the tag muons and the probe muons, events with Δ𝑅(𝜇
++
+, 𝜇
+−
+) < 0.2
+are rejected from the study. Additionally, both tag and probe candidates with 𝑝T . 10 GeV must satisfy a
+𝑝T
+-dependent matching to the L1 RoI following the relation Δ𝑅(L1 RoI, 𝜇) < −0.01 ∗ 𝑝
+𝜇
+T
++ 0.18, while
+tag muons with 𝑝T > 10 GeV are required to satisfy Δ𝑅(L1 RoI, 𝜇) < 0.08. To ensure the tag and probe
+HLT triggers have different L1 RoIs, the angular distance between the two offline muons is required to
+be larger than the sum of the angular distances between the L1 RoI and the offline muon that correspond
+to the tag muon and the probe muon: Δ𝑅(𝜇
++
+, 𝜇
+−
+) > Δ𝑅(L1 RoI, 𝜇tag) + Δ𝑅(L1 RoI, 𝜇probe). To extract
+the yield of J/𝜓 candidates for which the probe muon is triggered or not triggered, an extended unbinned
+maximum-likelihood fit to the dimuon invariant mass spectrum is performed. In the fit, the background
+probability density function is described with an exponential function, while the signal is modelled with a
+sum of a Gaussian function and a Crystal Ball function with the parameters of the latter fixed to the values
+obtained from a large sample of simulated events. A simultaneous fit is performed on the candidates with
+the probe muon either triggered or not triggered. Common parameters of the signal and background shapes
+are used in the simultaneous fit of triggered and not triggered muons, while the signal and background
+yields are left to float independently.
+A very clean sample of Z → 𝜇𝜇 events is selected to measure the trigger efficiency for muons in the
+𝑝T
+range from ∼10 to 100 GeV. A pair of oppositely charged muons consistent with the Z boson mass,
+|𝑚𝑍 − 𝑚𝜇𝜇 | < 10 GeV, with 𝑚𝑍 = 91.2 GeV, is selected. The two muons are required to originate from
+the same interaction vertex by imposing impact parameter requirements. If one of the two muons has
+𝑝T > 28 GeV and satisfies the Loose isolation WP requirements [28], it is considered as a tag muon. The
+other muon is then taken as a probe. The tag muon must further have an angular distance of Δ𝑅 < 0.1 from
+16
+
+=== PDF PAGE 17 ===
+an object that has fired the HLT_mu26_ivarmedium trigger.5
+The probe muon must satisfy several impact
+parameter requirements and is subject to selections applied in the offline identification corresponding to
+the identification WP of interest. A probe muon is identified as triggered if it lies a distance Δ𝑅 < 0.1 from
+an object that caused the trigger to fire. The trigger efficiency is measured with respect to several offline
+selection criteria as defined in the identification WPs.
+In order to evaluate trigger efficiencies for high-𝑝T muons, namely muons with 𝑝T & 100 GeV, the
+tag-and-probe method is used with tt and W+ jets event topologies. The tag trigger used in this study is a
+trigger based on selecting events with large missing transverse momentum, 𝐸
+miss
+T
+. In addition to this, events
+need to contain exactly one muon with 𝑝T > 27 GeV and no isolation requirement. Events are rejected if
+they contain an electron, and are required to have 𝐸
+miss
+T > 200 GeV. For W+ jets events, between one and
+four jets with 𝑝T > 25 GeV are required, and events are rejected if they contain any 𝑏-jets. At least four jets
+with 𝑝T > 25 GeV are required for tt events, and at least one among them has to be a 𝑏-jet defined using the
+MV2c10 77% WP. The 𝑏-jet requirement ensures the orthogonality of the W+ jets and tt measurements.
+In the HI analysis a similar selection is applied using J/𝜓 → 𝜇
++
+𝜇
+−
+(Z → 𝜇𝜇) events to evaluate low-𝑝T
+(high-𝑝T
+) muon trigger performance, but adapting for the different conditions. A pair of oppositely charged
+muons with an invariant mass 2.7 < 𝑚𝜇𝜇 < 3.5 GeV (81 < 𝑚𝜇𝜇 < 101 GeV) is required for J/𝜓 (Z)
+events. In addition, both muons must be within the pseudorapidity range |𝜂| < 2.5. In the J/𝜓 → 𝜇
++
+𝜇
+−
+analysis, the same matching criteria as mentioned above are applied to the tag and probe muons. Different
+requirements are applied for the measurement using Z → 𝜇𝜇 events in the 𝑝+Pb (Pb+Pb) analysis: both
+muons must be matched to the appropriate trigger object within Δ𝑅 < 0.01 (Δ𝑅 < 0.1), the tag muon must
+have 𝑝T > 17 GeV (𝑝T > 24 GeV), and the probe muon must have 𝑝T > 4 GeV (𝑝T > 8 GeV).
+In order to improve the accuracy of the modelling of data, ATLAS physics analyses make use of the ratio,
+called the scale factor (SF), of measured and simulated efficiencies to correct simulated samples. Effects
+due to the choice of event selection for the efficiency measurement are assessed by varying the requirements
+in the selection of both the tag and probe muon candidates and are quantified as systematic uncertainties.
+Several sources of systematic uncertainty are considered, which, for the Z → 𝜇𝜇 analysis, are:
+• Pile-up dependence:
+Estimated by splitting the data set into a low- and high-pile-up sample at the approximate peak in
+the number of reconstructed vertices for each year, and computing the trigger efficiency for events
+above and below this cut. The cut was set at 11 reconstructed vertices for 2015 and 2016, and at 19
+reconstructed vertices for 2017 and 2018 except for data-taking periods in 2017 with exceptionally
+high pile-up, for which the cut was set at 25 reconstructed vertices.
+• Correlation between the tag and probe muons:
+Muon pairs from the 𝑍 → 𝜇𝜇 decay tend to be back-to-back in 𝜙. Since the barrel and endcaps have
+16-fold and 12-fold symmetry respectively, this means that if the tag muon traverses a highly efficient
+region of the detector, the probe muon is likely to do so also. To estimate this effect, the trigger
+efficiency is calculated using an extra cut to remove back-to-back muons, Δ𝜙(𝜇tag, 𝜇probe) < 𝜋 − 0.1,
+where Δ𝜙(𝜇tag, 𝜇probe) gives the azimuthal separation of the tag and probe muons.
+• Background contribution:
+Estimated by measuring the efficiency when the Z boson mass window is enlarged by ±5 GeV.
+5
+In 2015, HLT_mu20_iloose_L1MU15 was used as the lowest unprescaled single-muon trigger. See Section 6 for further details.
+17
+
+=== PDF PAGE 18 ===
+• Probe selection criteria:
+The effects of various probe selection cuts on the trigger efficiency were investigated.
+– Charge: Since the charge affects the behaviour of muons in the magnetic field present in the MS,
+it could conceivably affect the muon trigger efficiency. This effect is evaluated by calculating
+the trigger efficiency using only positively or negatively charged probe muons.
+– Impact parameter: Estimated by calculating the efficiency without impact parameter require￾ments.
+– Isolation: Estimated by applying different isolation WP requirements similar to the ones
+described in Ref. [28] to the probe muons and measuring the efficiency. The isolation
+systematic uncertainty is taken as the largest of the resulting deviations from the nominal (no
+isolation) case.
+– 𝑝T
+: Estimated by splitting the probe muons into two groups according to a 𝑝T
+cut. The value of
+the cut depends on the 𝑝T
+threshold of the trigger of interest; for trigger thresholds of 26 GeV,
+the cut is 40 GeV, while for thresholds of 50 GeV, a cut at 70 GeV is used. Trigger efficiency is
+then calculated using only the subset of probe muons with 𝑝T
+above or below that cut.
+Due to the different topology and selection in the W+ jets and tt analysis, a different set of systematic
+uncertainties is considered:
+• Muon quality WP:
+Estimated by changing the muon quality WP from the Medium WP to the high-𝑝T WP.
+• 𝐸
+miss
+T
+reconstruction:
+Estimated by measuring the efficiency while changing the 𝐸
+miss
+T
+event-level selection from 200 GeV
+to 150 GeV.
+• Cut on jet 𝑝T
+:
+Estimated by measuring the efficiency while changing the object-level selection for jets from 25 GeV
+to 30 GeV.
+• Identification of 𝑏-jets:
+Estimated by measuring the trigger efficiency while changing the object-level selection for 𝑏-jets.
+The selection requirement is tightened from the MV2c10 77% WP to the 70% WP for the tt analysis,
+while for the W+ jets analysis the 𝑏-jet veto uses the 85% WP instead of the 77% WP.
+• Muon isolation:
+Estimated by applying different isolation WP requirements to the probe muon and measuring the
+efficiency. The isolation systematic uncertainty is taken as the largest of the resulting deviations
+from the nominal (no isolation) case.
+All contributions are assumed to be independent and are added in quadrature to obtain the total systematic
+uncertainties. The impact of the systematic uncertainties on the muon momentum scale and resolution [28]
+is found to be negligible. For the low-𝑝T
+analysis with J/𝜓 events, only statistical uncertainties are
+considered.
+18
+
+=== PDF PAGE 19 ===
+9 L1 muon trigger performance
+The L1 muon trigger thresholds remained unchanged throughout the data-taking in Run 2, except for the
+replacement of L1_MU15 in 2017 after the new RPC chambers in the feet region were commissioned.
+The typical maximum L1 rate is 90 kHz. Of this rate, the L1 seed of the single-isolated-muon trigger
+HLT_mu26_ivarmedium, which is L1_MU20, is fired at about 15 kHz for an instantaneous luminosity of
+1.7 × 1034
+cm
+−2
+s
+−1
+. Figure 10 shows the rates of the single-muon and dimuon triggers as a function of
+the instantaneous luminosity. A clear linear dependence is visible, with year-to-year slope changes due to
+the improvements discussed above. This indicates a negligible contribution from effects not related to pp
+collisions.
+2 4 6 8 10 12 14 16 18 20 22
+33 ] × 10 -1 s
+-2 Instantaneous Luminosity [cm
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Rate [kHz]
+2015
+2016
+2017
+2018
+ATLAS Trigger Operations
+-1 s = 13 TeV, 139.0 fb
+L1_MU20
+2 4 6 8 10 12 14 16 18 20 22
+33 ] × 10 -1 s
+-2 Instantaneous Luminosity [cm
+0
+0.5
+1
+1.5
+2
+2.5
+Rate [kHz]
+2015
+2016
+2017
+2018
+ATLAS Trigger Operations
+-1 s = 13 TeV, 139.0 fb
+L1_2MU10
+Figure 10: L1 trigger rates as a function of the instantaneous luminosity for the lowest unprescaled single-muon and
+dimuon triggers, L1_MU20 (left) and L1_2MU10 (right), in different years in Run 2.
+The efficiencies for single-muon L1 triggers with different 𝑝T
+thresholds for each year of data-taking
+during Run 2 are measured using the Z → 𝜇𝜇 tag-and-probe method described above. Figures 11 and 12
+summarise the efficiencies as a function of the offline muon 𝑝T
+for the lowest and highest threshold in
+the barrel and endcap regions, respectively. In the barrel region the plateau efficiency is about 75% for
+the low-𝑝T
+trigger and 70% for the high-𝑝T
+trigger, the latter being lower due to the applied 2-/3-station
+requirement. The steeper turn-on behaviour in the barrel region is due to the better 𝑝T
+resolution. In
+2016, the coincidence requirements for the low-𝑝T
+triggers were tightened, leading to an improved turn-on
+behaviour. A slightly increased plateau efficiency in 2016 was achieved by enabling the feet RPC chambers,
+while in 2017 the feet RPC thresholds had to be tightened for rate reduction, causing a slight decrease of
+the plateau efficiency. The increase in the efficiency in 2016 for the high-𝑝T
+triggers is due to the inclusion
+of the feet RPC triggers. Operation of the RPC chambers in 2017 and 2018 suffered from gas leaks in some
+chambers, which could partially be mitigated but cause variations of the efficiency. The efficiencies in the
+endcap are higher as they do not suffer from the reduced geometrical coverage affecting the barrel triggers.
+For L1_MU4, the efficiency reaches 97%, while L1_MU20 reaches 90%, again caused by the different
+requirements applied for low- and high-𝑝T L1 triggers. The additional coincidence requirements deployed
+during Run 2 to mitigate rate increases due to higher luminosities cause a small degradation of the plateau
+efficiency for the low-𝑝T
+triggers in the endcap region. For 2017 and 2018, a clear improvement in the
+turn-on region is observed for high-𝑝T L1 triggers due to the CW optimisation discussed in Section 5. A
+similar CW optimisation for low-𝑝T L1 triggers was implemented in 2018 that reduced the trigger rates but
+had a negligible impact on the turn-on.
+19
+
+=== PDF PAGE 20 ===
+0 5 10 15 20 25 30 35 40
+ [GeV] T Offline muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2015
+2016
+2017
+2018
+ATLAS
+pp data, Z→µµ, |η| < 1.05
+-1 s = 13 TeV, 139.0 fb
+L1_MU4
+0 5 10 15 20 25 30 35 40
+ [GeV] T Offline muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2015
+2016
+2017
+2018
+ATLAS
+pp data, Z→µµ, 1.05 < |η| < 2.4
+-1 s = 13 TeV, 139.0 fb
+L1_MU4
+Figure 11: Trigger efficiencies of L1 single-muon triggers for a threshold of 4 GeV as a function of the transverse
+momentum of the reconstructed muon in the barrel (left) and endcap (right) region in different years in Run 2.
+The efficiency is measured using the tag-and-probe method in Z → 𝜇𝜇 events. The error bars show the statistical
+uncertainties only.
+0 5 10 15 20 25 30 35 40
+ [GeV] T Offline muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2015
+2016
+2017
+2018
+ATLAS
+pp data, Z→µµ, |η| < 1.05
+-1 s = 13 TeV, 139.0 fb
+L1_MU20
+0 5 10 15 20 25 30 35 40
+ [GeV] T Offline muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2015
+2016
+2017
+2018
+ATLAS
+pp data, Z→µµ, 1.05 < |η| < 2.4
+-1 s = 13 TeV, 139.0 fb
+L1_MU20
+Figure 12: Efficiencies of L1 single-muon triggers for a threshold of 20 GeV as a function of the transverse momentum
+of the reconstructed muon in the barrel (left) and endcap (right) region in different years in Run 2. The efficiency is
+measured using the tag-and-probe method in Z → 𝜇𝜇 events. The error bars show the statistical uncertainties only.
+20
+
+=== PDF PAGE 21 ===
+10 Muon trigger efficiency in pp data-taking
+10.1 Single-muon trigger efficiency
+Requiring events to pass either of the lowest unprescaled single-muon triggers, HLT_mu26_ivarmedium
+(HLT_mu20_iloose_L1MU15 in 2015) or HLT_mu50, serves as a general-purpose single-muon trigger for
+many physics analyses. The rate reduction relative to L1 is about two orders of magnitude, leading to a
+typical rate of 180 Hz for an instantaneous luminosity of 1.7 × 1034
+cm
+−2
+s
+−1
+, as shown in Figure 13.
+2 4 6 8 10 12 14 16 18 20 22
+33 ] × 10 -1 s
+-2 Instantaneous Luminosity [cm
+0
+50
+100
+150
+200
+250
+Rate [Hz]
+2015
+2016
+2017
+2018
+ATLAS Trigger Operations
+HLT_mu26_ivarmedium
+-1 s = 13 TeV, 139.0 fb
+2 4 6 8 10 12 14 16 18 20 22
+33 ] × 10 -1 s
+-2 Instantaneous Luminosity [cm
+0
+5
+10
+15
+20
+25
+30
+35
+40
+Rate [Hz]
+2015
+2016
+2017
+2018
+ATLAS Trigger Operations
+HLT_2mu14
+-1 s = 13 TeV, 139.0 fb
+Figure 13: HLT trigger rates as a function of the instantaneous luminosity for the lowest unprescaled single-muon and
+dimuon triggers, HLT_mu26_ivarmedium (left) and HLT_2mu14 (right). The larger rate in 2015 for the single-muon
+trigger is due to HLT_mu20_iloose_L1MU15 being the lowest unprescaled trigger.
+The efficiency of the primary single-muon triggers is evaluated using the Z → 𝜇𝜇 tag-and-probe method.
+The following results are derived for Medium quality muons. Figure 14 shows the efficiency of passing
+either the HLT_mu26_ivarmedium or the HLT_mu50 trigger in the barrel and endcap regions as a function
+of the probe muon 𝑝T
+. The smaller L1 efficiency in the barrel region translates directly to the HLT
+efficiency, while the efficiency relative to L1 is close to unity. The inefficiency observed in the turn-on
+region is due to the fact that no isolation criteria are applied to the offline selected muon. A rise in efficiency
+at 𝑝T ∼ 50 GeV is due to the fact that no isolation criterion is applied in the HLT_mu50 trigger. The
+trigger efficiencies in simulation and data are not in complete agreement, particularly in the barrel due to a
+different RPC efficiency in MC simulation, which is accounted for in analyses by the SFs. Overall, the 𝑝T
+dependence of the SFs is small. The difference in the ratio between data and MC efficiencies is due to a
+constant L1 efficiency used in the simulation.
+Figure 15 displays in the 𝜂–𝜙 plane the ratio of data to MC trigger efficiencies of passing either the
+HLT_mu26_ivarmedium or the HLT_mu50 trigger in the barrel and endcap regions using only 2017 data.
+The variations between the ratios in neighbouring bins in the barrel region are due to the gas leaks in some
+of the RPC chambers discussed above. To ensure that the probe muon lies in the trigger efficiency plateau,
+it must have a 𝑝T
+at least 5% above the 𝑝T
+threshold of the trigger. The binning is chosen to reflect the
+detector segmentation. The statistical uncertainties are consistently at or below 5% in each bin, in both
+regions.
+Figure 16 shows the efficiency of passing the HLT_mu26_ivarmedium trigger in the barrel and endcap
+regions as a function of the average number of interactions per bunch crossing. An improvement in trigger
+21
+
+=== PDF PAGE 22 ===
+20 40 60 80 100 120
+ [GeV] T Muon p
+0.7
+0.8
+0.9
+1
+Data/MC
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z → µµ, |η| < 1.05
+20 40 60 80 100 120
+ [GeV] T Muon p
+0.8
+0.9
+1
+1.1
+Data/MC
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+1.2
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z → µµ, 1.05 < |η| < 2.5
+Figure 14: Efficiency of passing either the HLT_mu26_ivarmedium or the HLT_mu50 trigger in the barrel (left) and
+endcaps (right) as a function of the muon 𝑝T
+, computed using data taken in 2016–2018. The error bars show the
+statistical uncertainties only.
+0.90 0.96 0.90 0.95 0.84 0.96 0.75 0.83 0.92 0.91 0.86 0.86 0.92 0.94
+0.91 0.82 0.62 0.89 0.95 0.97 0.97 0.96 0.95 0.93 0.93 0.58 0.86 0.96
+0.85 0.86 0.80 0.90 0.85 0.96 0.95 0.90 0.90 0.97 0.95 0.86 0.95 0.97
+0.96 0.98 0.85 0.96 0.93 0.93 0.98 0.89 0.93 0.93 0.85 0.32 0.80 0.99
+0.92 0.94 0.89 0.93 0.56 0.82 0.69 0.85 0.75 0.67 0.94 0.75 0.56 0.97
+0.79 0.77 0.80 0.88 0.89 0.87 0.88 0.93 0.86 0.87 0.87 0.84 0.87 0.87
+0.96 0.89 0.60 0.83 0.82 0.69 0.95 0.84 0.92 0.58 0.96 0.73 0.79 1.01
+1.00 1.01 0.76 0.95 0.91 0.79 0.82 0.86 0.86 0.85 0.78 0.86 1.00 0.82
+−1 −0.5 0 0.5 1
+Muon η
+−2
+−1
+0
+1
+2
+3
+φ Muon 
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+Data/MC
+ATLAS , |η| < 1.05 -1
+, s = 13 TeV, 44.3 fb
+0.93
+0.99
+0.99
+0.98
+1.00
+1.01
+0.99
+0.99
+1.00
+1.00
+1.00
+0.98
+0.98
+0.97
+0.94
+0.98
+0.99
+0.96
+0.97
+0.97
+0.87
+0.95
+0.90
+1.00
+1.00
+0.99
+0.98
+0.98
+0.93
+0.98
+0.97
+0.95
+1.00
+0.97
+0.63
+0.96
+0.99
+1.02
+0.98
+0.96
+0.98
+0.99
+0.92
+0.98
+0.99
+0.98
+0.98
+0.98
+0.74
+0.86
+0.94
+1.00
+0.99
+1.00
+0.99
+0.98
+0.91
+0.97
+0.94
+0.98
+1.03
+0.99
+0.92
+0.90
+0.95
+0.99
+0.99
+0.99
+0.98
+1.00
+0.95
+0.99
+0.97
+0.99
+0.98
+1.00
+0.88
+0.99
+1.01
+1.01
+0.96
+0.99
+0.98
+0.99
+0.93
+0.97
+0.99
+1.00
+1.00
+0.99
+0.76
+0.94
+1.00
+1.00
+1.00
+0.99
+0.98
+0.96
+0.93
+0.98
+0.98
+0.99
+1.00
+1.00
+0.84
+1.02
+1.01
+1.00
+1.00
+0.98
+0.92
+0.86
+0.84
+0.90
+0.99
+0.99
+1.01
+1.00
+0.94
+0.82
+1.01
+1.01
+0.96
+0.99
+0.99
+0.98
+0.98
+0.98
+0.99
+0.99
+1.00
+0.99
+0.95
+1.00
+0.99
+1.00
+0.98
+0.96
+0.97
+0.96
+0.95
+0.97
+0.96
+0.91
+0.96
+0.88
+0.87
+0.98
+1.00
+1.00
+0.95
+0.96
+0.96
+0.93
+0.91
+0.94
+0.99
+0.96
+0.99
+1.01
+1.05
+1.01
+1.02
+1.00
+0.99
+0.99
+0.97
+0.96
+−2.5 −2 −1.5 −1 −0.5 0 0.5 1 1.5 2 2.5
+Muon η
+−3
+−2
+−1
+0
+1
+2
+φ Muon 
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+Data/MC
+ATLAS
+-1 s = 13 TeV, 44.3 fb
+1.05 < |η| < 2.5
+Figure 15: Ratio of data to simulation efficiencies of passing either the HLT_mu26_ivarmedium or the HLT_mu50
+trigger in the barrel (left) and endcaps (right) in two-dimensional bins of muon 𝜂 and 𝜙, computed using data taken
+in 2017.
+efficiency for 2018 data is observed at high average numbers of interactions per bunch crossing, which is
+attributed to the modification of the Δ𝑧 selection criterion described in Section 5.
+Since the Z → 𝜇𝜇 tag-and-probe analysis is statistically limited at muon 𝑝T
+above 100 GeV, the same
+measurement is carried out using tt and W+ jets events. Figure 17 shows the efficiency of passing either
+the HLT_mu26_ivarmedium or the HLT_mu50 trigger in the barrel and endcap regions as a function of the
+probe muon 𝑝T
+, for tt and W+ jets events. Only statistical uncertainties are shown. The SFs are derived
+using muons with 𝑝T > 100 GeV.
+Table 3 summarises the single-muon trigger SFs derived from the different tag-and-probe measurements.
+The inclusive SFs derived from the tt and W+ jets selections are in good agreement with the results
+derived for intermediate-𝑝T muons. The largest contribution to the systematic uncertainty in the high-𝑝T
+measurement arises from the 𝐸
+miss
+T
+and muon quality WP variations.
+22
+
+=== PDF PAGE 23 ===
+10 20 30 40 50 60 70
+Average µ
+0.7
+0.8
+0.9
+1
+Data/MC
+0.55
+0.6
+0.65
+0.7
+0.75
+0.8
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z → µµ, |η| < 1.05
+10 20 30 40 50 60 70
+Average µ
+0.8
+0.9
+1
+1.1
+Data/MC
+0.75
+0.8
+0.85
+0.9
+0.95
+1
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z → µµ, 1.05 < |η| < 2.5 Figure 16: Efficiency of passing the HLT_mu26_ivarmedium trigger in the barrel (left) and endcaps (right) as a
+function of the average number of interactions per bunch crossing, computed using data taken in 2016–2018. The
+error bars show the statistical uncertainties only.
+0 100 200 300 400 500 600
+ [GeV] T Muon p
+0.7
+0.8
+0.9
+1
+1.1
+Data/MC
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, tt, |η| < 1.05
+0 100 200 300 400 500 600
+ [GeV] T Muon p
+0.7
+0.8
+0.9
+1
+1.1
+Data/MC
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+1.2
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, tt, 1.05 < |η| < 2.5
+0 100 200 300 400 500 600
+ [GeV] T Muon p
+0.7
+0.8
+0.9
+1
+1.1
+Data/MC
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, W+Jets, |η| < 1.05
+0 100 200 300 400 500 600
+ [GeV] T Muon p
+0.7
+0.8
+0.9
+1
+1.1
+Data/MC
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+1.2
+Trigger efficiency
+Data 2016
+Data 2017
+Data 2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, W+Jets, 1.05 < |η| < 2.5
+Figure 17: Efficiency of passing either the HLT_mu26_ivarmedium or the HLT_mu50 trigger in the barrel (left) and
+endcaps (right) for tt (top) and W+ jets (bottom) events as a function of the muon 𝑝T
+, computed using data taken in
+2016–2018. The error bars show the statistical uncertainties only.
+23
+
+=== PDF PAGE 24 ===
+Table 3: Summary of the high-𝑝T muon trigger SF measurements for muons passing either the HLT_mu50 trigger
+or the HLT_mu26_ivarmedium trigger. The last two columns give the statistical and systematic uncertainties that
+compose the total uncertainty.
+Year Selection Region SF [%] Unc. [%] Stat. [%] Syst. [%]
+2016
+tt Barrel 90.5 1.2 0.9 0.8
+W+ jets Barrel 90.7 1.1 0.8 0.8
+Z + jets Barrel 90.5 0.7 <0.1 0.7
+tt Endcap 96.7 2.6 0.9 2.5
+W+ jets Endcap 98.2 0.9 0.5 0.7
+Z + jets Endcap 98.6 0.3 <0.1 0.3
+2017
+tt Barrel 86.9 1.0 0.8 0.6
+W+ jets Barrel 86.8 0.7 0.6 0.4
+Z + jets Barrel 86.8 0.4 <0.1 0.4
+tt Endcap 96.7 1.1 0.8 0.7
+W+ jets Endcap 96.6 1.1 0.5 1.0
+Z + jets Endcap 98.6 0.5 <0.1 0.5
+2018
+tt Barrel 88.3 1.7 0.7 1.6
+W+ jets Barrel 86.9 1.2 0.5 1.1
+Z + jets Barrel 87.8 0.7 <0.1 0.7
+tt Endcap 95.8 1.7 0.7 1.5
+W+ jets Endcap 95.5 0.8 0.4 0.7
+Z + jets Endcap 96.2 0.3 <0.1 0.3
+10.2 Multi-muon trigger efficiency
+While the primary single-muon triggers serve a wide variety of physics analyses, multi-object triggers
+are important in many cases where lower thresholds benefit the analysis. The efficiency of these triggers
+can be factorised as the product of the single-leg efficiencies. For analyses focusing on low-momentum
+muons, such as in the 𝐵-physics and Light States programme, dimuon and trimuon triggers with thresholds
+down to 4 GeV are frequently applied. The corresponding single-leg efficiency is measured by applying
+the tag-and-probe method to J/𝜓 events. Figure 18 shows the measured efficiency for the barrel and endcap
+regions as a function of the muon 𝑝T
+for Tight quality muons in 2015 and 2016, for the single-muon trigger
+HLT_mu4. These efficiency measurements provide a crucial input for the BLS programme outlined in
+Section 12. As observed for the single-muon triggers, there are differences between the simulated trigger
+efficiency and the trigger efficiency in data, particularly in the barrel, where the efficiency is ∼10% lower
+in data than in simulation. The 𝑝T
+dependence of the SFs in the plateau region is found to be small.
+Measurements of multi-muon trigger efficiencies targeting a higher 𝑝T
+regime than the previous low-𝑝T
+chains are performed by using the Z → 𝜇𝜇 event selection criteria described above to measure the single-leg
+efficiencies. Figure 19 shows the efficiency of HLT_mu14 in the barrel and endcap regions as a function of
+the muon 𝑝T
+for each year of data-taking.
+The efficiency of the FS trigger, HLT_mu8noL1, is also measured using the same technique and presented
+for the barrel and endcap regions in Figure 20. Compared to the RoI-based trigger efficiency above,
+24
+
+=== PDF PAGE 25 ===
+5 10 15 20 25 30 35 40
+ [GeV] T Muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2015
+2016
+MC
+ATLAS
+-1 s = 13 TeV, 36.1 fb
+pp data, J/ψ→µµ, |η| < 1.05
+HLT_mu4
+5 10 15 20 25 30 35 40
+ [GeV] T Muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2015
+2016
+MC
+ATLAS
+-1 s = 13 TeV, 36.1 fb
+pp data, J/ψ→µµ, 1.05 < |η| < 2.5
+HLT_mu4
+Figure 18: Efficiency of the single-muon trigger HLT_mu4 in the barrel (left) and endcap (right) regions as a function
+of the muon 𝑝T
+for Tight quality muons, computed using data taken in 2015 and 2016. The full markers correspond
+to data, while the empty markers represent MC. The error bars show the statistical uncertainties only.
+20 40 60 80 100
+ [GeV] T Muon p
+0.7
+0.8
+0.9
+1
+Data/MC
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2016
+2017
+2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z→µµ, |η| < 1.05
+HLT_mu14
+20 40 60 80 100
+ [GeV] T Muon p
+0.8
+0.9
+1
+1.1
+Data/MC
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2016
+2017
+2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z→µµ, 1.05 < |η| < 2.5
+HLT_mu14
+Figure 19: Efficiency of the single-muon trigger HLT_mu14 in the barrel (left) and endcap (right) regions measured
+in each year of data-taking as a function of the probe muon transverse momentum 𝑝T
+. The error bars show the
+statistical uncertainties only.
+the FS efficiency is almost one in both the barrel and endcap regions, because the L1 inefficiencies are
+circumvented.
+Figure 21 shows that the efficiency of the single-muon trigger HLT_mu14 has almost no pile-up dependence.
+Since no isolation is applied, there is no change in efficiency for events with high pile-up in 2017 and 2018.
+10.3 High- 𝒑T muons in low-pile-up pp collisions
+This section presents the studies of muon trigger efficiencies and SFs for data from low-pile-up pp collisions
+at √
+𝑠 = 5.02 TeV collected in November 2015. The efficiency of the lowest unprescaled single-muon
+trigger in this data set, HLT_mu14, is determined using the tag-and-probe method in Z → 𝜇𝜇 events,
+largely following the procedure described in Section 8.3, but adapting the tag and probe muon selections to
+the looser trigger thresholds. Additionally, the identification criterion of the tag muon is tightened to the
+25
+
+=== PDF PAGE 26 ===
+20 40 60 80 100
+ [GeV] T Muon p
+0.9
+0.95
+1
+1.05
+1.1
+Data/MC
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2016
+2017
+2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z→µµ, |η| < 1.05
+HLT_mu8noL1
+20 40 60 80 100
+ [GeV] T Muon p
+0.9
+0.95
+1
+1.05
+1.1
+Data/MC
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2016
+2017
+2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z→µµ, 1.05 < |η| < 2.5
+HLT_mu8noL1
+Figure 20: Efficiency of the FS single-muon trigger HLT_mu8noL1 in the barrel (left) and endcap (right) regions
+measured in each year of data-taking as a function of the probe muon transverse momentum 𝑝T
+. The error bars show
+the statistical uncertainties only.
+10 20 30 40 50 60
+Average µ
+0.7
+0.8
+0.9
+1
+Data/MC
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2016
+2017
+2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z→µµ, |η| < 1.05
+HLT_mu14
+10 20 30 40 50 60
+Average µ
+0.8
+0.9
+1
+1.1
+Data/MC
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+2016
+2017
+2018
+ATLAS
+-1 s = 13 TeV, 135.7 fb
+pp data, Z→µµ, 1.05 < |η| < 2.5
+HLT_mu14
+Figure 21: Efficiency of the single-muon trigger HLT_mu14 in the barrel (left) and endcap (right) regions measured
+in each year of data-taking as a function of the average pile-up <𝜇>. The error bars show the statistical uncertainties
+only.
+Medium WP. A subset of the systematic uncertainties described in Section 8 are considered and found
+to be either negligible or limited by statistical precision and thus are neglected. The HLT_mu14 trigger
+efficiency for Z → 𝜇𝜇 simulation and measured in data is presented in Figure 22 as a function of probe
+muon 𝑝T
+. The trigger efficiency for muons with 𝑝T
+above 15 GeV is roughly constant, at about 75% in
+the barrel region and at about 90% in the endcap region. In the endcap region, the simulated efficiency
+matches the efficiency measured in data, and SFs are close to unity. However, as discussed above, the
+efficiency measured in the barrel region in data is lower by 5–10% than in simulation.
+11 Muon trigger efficiency in HI data-taking
+This section presents single-muon trigger efficiency studies for Pb+Pb data at √
+𝑠NN = 5.02 TeV taken in
+2015 and 2018. The trigger efficiency is studied using the tag-and-probe method on J/𝜓 and Z → 𝜇𝜇 events
+described above, but adapting the tag and probe muon selections to the looser trigger thresholds. A subset of
+26
+
+=== PDF PAGE 27 ===
+0 20 40 60 80 100
+ [GeV] T Muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+Data
+MC
+ATLAS
+pp data, Z→µµ, |η| < 1.05
+-1 s = 5.02 TeV, 25.0 pb
+HLT_mu14
+0 20 40 60 80 100
+ [GeV] T Muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+Data
+MC
+ATLAS
+pp data, Z→µµ, 1.05 < |η| < 2.5
+-1 s = 5.02 TeV, 25.0 pb
+HLT_mu14
+Figure 22: Efficiency of the HLT_mu14 trigger measured as a function of probe muon 𝑝T
+in the barrel (left) and
+endcap (right) regions in low-pile-up pp data (full black circles) and Z → 𝜇𝜇 simulation (empty red circles). The
+error bars show the statistical uncertainties only.
+the systematic uncertainties as mentioned above are considered and found to be either negligible or limited
+by statistical precision. The performance of the HLT_mu4 trigger is estimated using the tag-and-probe
+method on J/𝜓 events described in Section 8 with minor changes. For this measurement the data taken in
+2018 are analysed. HLT_mu8 is used as the tag trigger, and the probe muons are required to satisfy the
+Tight quality WP. Figure 23 (left) shows the trigger efficiencies for HLT_mu4 in the barrel and endcap
+regions, as a function of the probe muon 𝑝T
+. In the barrel region the efficiencies are about 70% in the
+plateau region. Trigger efficiencies in the endcap are visibly higher, with the plateau at about 90% and with
+a more sharply rising turn-on. No significant difference in the measured efficiencies is observed between
+central and peripheral collisions. The performance of the single-muon HLT_mu8 trigger is analysed
+using high-𝑝T muons, which satisfy the Medium quality WP, from Z → 𝜇𝜇 events collected in 2015.
+The measurement of the HLT_mu8 trigger efficiency as a function of the probe muon 𝑝T
+is presented in
+Figure 23 (right). The trigger efficiency is measured to be around 70% in the barrel region and around 85%
+in the endcap region.
+5 10 15 20 25 30
+ [GeV] T Muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+|η| < 1.05
+1.05 < |η| < 2.5
+ATLAS
+PbPb data, J/ψ→µµ
+-1 = 5.02 TeV, 1.42 nb NN s
+HLT_mu4
+0 10 20 30 40 50 60 70 80
+ [GeV] T Muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+|η| < 1.05
+1.05 < |η| < 2.5
+ATLAS
+PbPb data, Z→µµ
+-1 = 5.02 TeV, 0.49 nb NN s
+HLT_mu8
+Figure 23: Efficiency of the single-muon trigger HLT_mu4 (left) and HLT_mu8 (right) measured as a function of
+muon 𝑝T
+in the barrel region (full black circles) and in the endcap region (empty red circles) in Pb+Pb collision data.
+The error bars show the statistical uncertainties only.
+27
+
+=== PDF PAGE 28 ===
+Trigger efficiency studies of low-𝑝T
+and high-𝑝T muon triggers are performed also for HI collisions in 𝑝+Pb
+data taken during November–December 2016. Both the low- and high-𝑝T
+trigger efficiencies are studied
+using the tag-and-probe method described above. The performance of the low-𝑝T muon trigger, HLT_mu4,
+is analysed using J/𝜓 → 𝜇
++
+𝜇
+−
+samples, while for the high-𝑝T muon trigger, HLT_mu15_L1MU6, a
+Z → 𝜇𝜇 sample is used. Figure 24 (left) shows the efficiency measurements for the HLT_mu4 trigger
+chain as a function of 𝑝T
+for the barrel and endcap regions. The maximum efficiency in the barrel region is
+∼80%, while in the endcaps it increases to 95%. Figure 24 (right) shows the efficiency for the high-𝑝T
+muon trigger as a function of 𝑝T
+for the barrel and endcap regions. Overall, the maximum efficiency in the
+barrel region is ∼76%, while in the endcap regions the efficiency reaches ∼90%.
+2 4 6 8 10 12 14 16 18 20
+ [GeV] T Muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+|η| < 1.05
+1.05 < |η| < 2.5
+ATLAS
+pPb data, J/ψ→µµ
+-1 = 8.16 TeV, 107.8 nb NN s
+HLT_mu4
+0 10 20 30 40 50 60 70 80
+ [GeV] T Muon p
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+Efficiency
+|η| < 1.05
+1.05 < |η| < 2.5
+ATLAS
+pPb data, Z→µµ
+-1 = 8.16 TeV, 107.8 nb NN s
+HLT_mu15_L1MU6
+Figure 24: Low-𝑝T
+(left) and high-𝑝T
+(right) trigger efficiency as a function of the muon 𝑝T
+in the barrel region (full
+black circles) and in the endcap region (empty red circles) in 𝑝+Pb collision data. The error bars show the statistical
+uncertainties only.
+12 Muon triggers for B-physics and Light States programme
+The ATLAS BLS programme relies on samples of low-𝑝T
+leptons, typically muons. Because of the large
+instantaneous luminosities delivered by the LHC, both standard single-muon and dimuon triggers are
+incapable of running with a threshold low enough to provide a sample of data useful for BLS. To record an
+appropriately sized sample of data, a set of multi-muon triggers with invariant mass and vertex requirements
+are used to reduce backgrounds to a level at which trigger rates are low enough to run online.
+The basic flow of a BLS chain is depicted in Figure 25. After fast muon reconstruction, ID tracks are
+reconstructed, and a first vertex reconstruction is performed with the ID tracks. If this vertex passes the
+required 𝜒
+2
+and mass constraints, the precision muon reconstruction proceeds, and combined muons
+are used in a second vertex reconstruction algorithm. The trigger is then passed if at least one vertex
+meets the required 𝜒
+2
+and mass constraints, which are generally tighter than those in the first-stage vertex
+reconstruction.
+28
+
+=== PDF PAGE 29 ===
+Trigger passes
+L1
+Fast SA muon reconstruction
+Test fast SA
+muon
+thresholds
+Fast ID track reconstruction
+Test ID track
+thresholds
+Vertex reconstruction with
+all pairs of fast ID tracks
+Test vertex fit
+and invariant
+mass
+Precision inside-out
+combined muon
+reconstruction
+Test precision
+muon
+thresholds
+Vertex reconstruction with
+all pairs of precision muons
+Test vertex fit
+and invariant
+mass
+Fast reconstruction
+Precision reconstruction
+Figure 25: General construction of a BLS trigger. After both fast muon reconstruction and precision muon
+reconstruction, BLS vertex reconstruction algorithms and hypothesis testing run to see if the muons parameters are
+consistent with a predefined topology.
+12.1 BLS L1 topological trigger
+The backbone of the ATLAS BLS programme is low-𝑝T muons. This is reflected in heavy use of dimuon
+triggers with the lowest possible threshold for both L1 and the HLT. To cope with the conditions of Run 2 and
+to maintain low thresholds, the L1 topological trigger processor (L1Topo) is heavily used. It was installed
+between 2013 and 2014, before the start of Run 2. L1Topo can combine kinematic information from
+multiple calorimeter and muon trigger objects into topological information about the event, leading to a
+reduction in rates while keeping the 𝑝T
+thresholds low. The L1Topo system was successfully commissioned
+during pp collisions in 2016 and has been used to collect data since September 2016.
+The BLS L1Topo triggers make use of a dimuon invariant mass range cut, where the mass is calculated
+as 𝑚
+2
+𝜇𝜇 = 2𝑝T1
+𝑝T2
+(cosh Δ𝜂 − cos Δ𝜙), and a cut on the angular distance Δ𝑅𝜇𝜇 of the two muons. The
+L1Topo items used in BLS chains are:
+• L1_LFV-MU6: requires two muons with 𝑝T > 6 GeV and Δ𝑅𝜇𝜇 < 1.5.
+• L1_LFV-MU11: requires two muons with 𝑝T > 11 (6) GeV for the leading (subleading) muon and
+Δ𝑅𝜇𝜇 < 1.5.
+• L1_BPH-2M9-2MU4_BPH-0DR15-2MU4: requires two muons with 𝑝T > 4 GeV and 2 GeV <
+𝑚𝜇𝜇 < 9 GeV and two muons with 𝑝T > 4 GeV and Δ𝑅𝜇𝜇 < 1.5.
+29
+
+=== PDF PAGE 30 ===
+• L1_BPH-2M9-MU6MU4_BPH-2DR15-MU6MU4: requires two muons with 𝑝T > 6 (4) GeV for
+the leading (subleading) muon and 2 GeV < 𝑚𝜇𝜇 < 9 GeV and two muons with 𝑝T > 6 (4) GeV for
+the leading (subleading) muon and 0.2 < Δ𝑅𝜇𝜇 < 1.5.
+• L1_BPH-2M9-2MU6_BPH-2DR15-2MU6: requires two muons with 𝑝T > 6 GeV and 2 GeV <
+𝑚𝜇𝜇 < 9 GeV and two muons with 𝑝T > 6 GeV and 0.2 < Δ𝑅𝜇𝜇 < 1.5.
+• L1_BPH-8M15-MU6MU4_BPH-0DR22-MU6MU4-BO: requires two muons with 𝑝T > 6 (4) GeV
+for the leading (subleading) muon and 8 GeV < 𝑚𝜇𝜇 < 15 GeV and two barrel-only (BO) muons
+(|𝜂𝜇
+| < 1.05) with 𝑝T > 6 (4) GeV for the leading (subleading) muon with Δ𝑅𝜇𝜇 < 2.2.
+• L1_BPH-8M15-2MU6_BPH-0DR22-2MU6: requires two muons with 𝑝T > 6 GeV and 8 GeV <
+𝑚𝜇𝜇 < 15 GeV and two muons with 𝑝T > 6 GeV and Δ𝑅𝜇𝜇 < 2.2.
+These L1Topo triggers all target dimuon topologies, and for triggers with two requirements, the muon pair
+passing the first requirement is generally the same as the pair that passes the second. The dimuon mass
+windows are optimised by taking into account the available L1 muon 𝑝T
+thresholds.
+The L1 rate reduction achieved by L1Topo is approximately a factor of four, as can be seen in Figure 26,
+where the comparison of 2MU6 with and without the L1Topo requirement is shown. The L1 selection
+requirements result in an approximately 12% HLT efficiency reduction with respect to offline.
+Luminosity block [~60s]
+100 120 140 160 180 200 220 240
+Rate [Hz]
+0
+1000
+2000
+3000
+4000
+5000
+6000
+ > 6 GeV µ
+T
+L1: 2 x p
+∈ [0.2,1.5] µµ
+ > 6 GeV, mµµ ∈ [2, 9] GeV, ∆R
+µ
+T
+L1Topo: 2 x p
+ATLAS Trigger Operations
+Data 2017, s = 13 TeV
+Run taken on Jun 17, 2017
+Figure 26: The rate of L1 triggers selecting two muons, each with transverse momentum above 6 GeV with (blue)
+and without (red) the additional L1Topo requirement. The L1Topo requirement is L1 dimuon invariant mass
+2 GeV < 𝑚𝜇𝜇 < 9 GeV, and an angular separation 0.2 < Δ𝑅 < 1.5 between the muons. The rate is shown as a
+function of luminosity block, which on average correspond to a time interval of 60 s, in a run taken in June 2017 with
+a peak luminosity of 𝐿 = 0.79 × 1034
+cm
+−2
+s
+−1
+and an average pile-up of h𝜇i = 46.4. The overall reduction of the rate
+due to the L1Topo requirement is approximately a factor of four.
+12.2 BLS HLT algorithms
+To further reduce the background and the rate of BLS muon trigger chains, several algorithms and selections
+are applied at the HLT. Most of the chains start with a multi-track vertex reconstruction algorithm in the fast
+30
+
+=== PDF PAGE 31 ===
+reconstruction step, followed by vertex hypothesis testing. The same vertex hypothesis testing algorithm is
+used in the precision reconstruction step for many BLS topologies. The following algorithms are used:
+• Multi-track vertex reconstruction: This algorithm takes two or more high-𝑝T
+tracks produced by
+the fast muon reconstruction and applies cuts on their 𝑝T
+, multiplicity, and sum of charges. A mass
+hypothesis is set according to the selected topology and the tracks are passed to a Kalman vertex
+fitter [47].
+• Vertex hypothesis testing: This algorithm selects vertices passing predefined invariant mass and
+vertex fit 𝜒
+2
+selections (see Table 4).
+A more complicated topological selection happens at the precision step. Muons passing the combined
+muon reconstruction and threshold requirements are used for vertex reconstruction. Additionally, for chains
+that require ID tracks for vertex reconstruction, ID track reconstruction runs in a (Δ𝜂 × Δ𝜙) = (1.5 × 1.5)
+region centred around each reconstructed precision muon that passes the required 𝑝T
+thresholds. The
+following BLS algorithms are used:
+• Dimuon vertex reconstruction and hypothesis testing: These dimuon algorithms are used for
+𝐽/𝜓/Υ/𝐵 → 𝜇𝜇 topologies, as shown in Table 4. The reconstruction algorithm performs vertex fits
+with pairs of oppositely charged muon tracks after the precision reconstruction step. Corresponding
+hypothesis testing requires the reconstructed vertices to meet specified invariant mass and 𝜒
+2
+requirements. Additionally, a subset of triggers place pointing requirements on the dimuon vertex by
+requiring 𝐿𝑥 𝑦 > 0, where 𝐿𝑥 𝑦 = (Δ𝑥®T
+· ®𝑝T
+vertex)/| ®𝑝T
+vertex|, Δ𝑥®T
+is the transverse vector between the
+secondary vertex and the beam spot and 𝑝®T
+vertex is the vector sum of the transverse momenta of the
+muons forming the vertex.
+• Multi-muon + track vertex reconstruction and hypothesis testing: These algorithms are used
+for 𝜇𝜇+𝑋 topologies, e.g., 𝐵
+± → 𝐽/𝜓𝐾±
+(dimuon + one track) or 𝐵
+0
+𝑠 → 𝐽/𝜓𝜙 (dimuon + two
+tracks). The vertex reconstruction algorithm is run in both inclusive modes, e.g. 𝐵
+± → 𝐽/𝜓𝑋, and
+exclusive modes, e.g. only 𝐵
+± → 𝐽/𝜓𝐾±
+. It starts by building a dimuon candidate, which can be a
+non-resonant 𝜇𝜇 pair, that is then fitted using the Kalman vertex fitter. ID tracks are then used to
+make all combinations for desired topologies, defined by number of additional tracks and charge
+requirements. The secondary decay is then fitted by combining the ID tracks with the dimuon system,
+with invariant mass and vertex 𝜒
+2
+cuts applied to both the 𝜇𝜇+𝑋 and intermediate 𝑋 vertices.
+• Multi-muon vertex reconstruction and hypothesis testing: These algorithms fit two to four muons
+to a common vertex and apply invariant mass and vertex 𝜒
+2
+cuts. The algorithm is used for 3- and
+4-muon triggers as well as for dimuon triggers targeting 𝜏 → 3𝜇 final states.
+• Muon+track vertex reconstruction and hypothesis testing: The reconstruction algorithms make
+combinations of one muon and one ID track above a given 𝑝T
+threshold and fit them to a common
+vertex. Hypothesis testing imposes an invariant mass requirement.
+All vertex fits in the precision reconstruction step are performed using a Kalman vertex fitter.
+Multi-track vertex reconstruction and multi-muon hypothesis algorithms are also used in BLS Partial
+Event Building (PEB) triggers. These were developed in 2017 to provide a large sample of low-𝑝T muons
+for offline muon calibration and a minimum-bias sample for quarkonia measurements. The BLS PEB
+triggers selectively record raw detector information in a small region centred on muons reconstructed at the
+precision stage that form 𝐽/𝜓 candidates with an ID track. Selected events are sent to a special BphysPEB
+stream, described in the following section.
+31
+
+=== PDF PAGE 32 ===
+The BLS triggers did not use combined muons at the first fast stage because of efficiency losses for
+closely spaced muons. The fast SA muon reconstruction sometimes reconstructs two almost identical
+muon candidates for two closely spaced L1 RoIs, and therefore the subsequent fast combination step
+cannot resolve them as separate muons. In 2015, in order to avoid this potential inefficiency the fast muon
+reconstruction steps were omitted completely and only the precision algorithms were used. The high CPU
+demand of this strategy made it unsuitable for the higher instantaneous luminosities delivered by the LHC
+from 2016 onwards. Instead of removing the fast reconstruction step, the 𝑝T
+requirements for fast SA
+muons were set to the lowest required threshold per chain and the fast combination step was disabled. The
+multi-track vertex reconstruction, following the fast muon reconstruction, then makes all checks using ID
+tracks only.
+Table 4: BLS topologies selected at the HLT with their fast and precision hypotheses. The muon 𝑝T
+thresholds used
+with each topology depend on the rate of each selection, and varied throughout Run 2. For topologies with only one
+listed cut, the same requirements are applied at both the fast and precision stages.
+Description Fast reco cuts Precision reco cuts
+2 × 𝜇, broad mass 1.5 < 𝑚𝜇𝜇 < 14 GeV, 𝜒
+2
+< 20
+2 × 𝜇, low mass 𝑚𝜇𝜇 < 6 GeV, 𝜒
+2
+< 50 0.1 < 𝑚𝜇𝜇 < 6 GeV, 𝜒
+2
+< 20
+2 × 𝜇, very low mass 𝑚𝜇𝜇 < 2.7 GeV, 𝜒
+2
+< 50 0.1 < 𝑚𝜇𝜇 < 2.7 GeV, 𝜒
+2
+< 20
+𝐽/𝜓 → 𝜇𝜇 2.5 < 𝑚𝜇𝜇 < 4.3 GeV, 𝜒
+2
+< 20
+Υ → 𝜇𝜇 8 < 𝑚𝜇𝜇 < 12 GeV, 𝜒
+2
+< 20
+𝐵 → 𝜇𝜇 4 < 𝑚𝜇𝜇 < 8.5 GeV, 𝜒
+2
+< 60 4 < 𝑚𝜇𝜇 < 8.5 GeV, 𝜒
+2
+< 20
+𝐵 → 𝜇𝜇 + 𝑋 0.1 < 𝑚𝜇𝜇 < 6.5 GeV, 𝜒
+2
+< 20 Depends on channel
+𝜏 → 3𝜇
+2-𝜇 triggers: 𝑚𝜇𝜇 < 2.7 GeV, 𝜒
+2
+< 50
+3-𝜇 triggers: 𝑚𝜇𝜇𝜇 < 2.7 GeV, 𝜒
+2
+< 50
+𝜙 → 𝜇𝜇 0.94 < 𝑚𝜇𝜇 < 1.1 GeV, 𝜒
+2
+< 10
+12.3 Rates and streaming strategy
+Starting in mid-2016, triggers for dedicated measurements were saved to a stream separate from the rest of
+the data for physics analyses. This enabled these raw events to be stored on tape and only reconstructed at a
+later date, thus reducing the pressure on the Tier-0 system responsible for offline reconstruction. The rate of
+this stream as a function of instantaneous luminosity is shown in Figure 27 for a representative set of runs
+from each year. Averages over the full year are not shown, since the composition of the stream changed
+during each year. As the luminosity decreased below predefined thresholds (for 2018, instantaneous
+luminosities of 1.7 × 1034
+cm
+−2
+s
+−1
+, 1.5 × 1034
+cm
+−2
+s
+−1
+, and 1.2 × 1034
+cm
+−2
+s
+−1
+), lower-threshold triggers
+were enabled. These lower-threshold triggers could not be enabled at higher luminosities due to either L1
+rate, HLT CPU usage, or HLT output rate limitations, but were enabled as early as resources allowed.
+An additional PEB stream of events for low-𝑝T muon calibration and efficiency studies was commissioned
+32
+
+=== PDF PAGE 33 ===
+0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2
+]
+-1 s
+-2 cm 34 Instantaneous luminosity [10
+50
+100
+150
+200
+250
+300
+Rate [Hz]
+2018
+2017
+2016
+select pp data 2016-2018, s = 13 TeV
+B-physics stream rates
+ATLAS Trigger Operations
+Figure 27: Rate of the dedicated BLS stream from representative runs during 2016, 2017, and 2018 pp 13 TeV data
+taking. Enabling or lowering the prescale of lower-threshold triggers causes the jumps in the rate at 0.7×1034
+cm
+−2
+s
+−1
+and 0.9 × 1034
+cm
+−2
+s
+−1
+in 2016; 1.0 × 1034
+cm
+−2
+s
+−1
+, 1.2 × 1034
+cm
+−2
+s
+−1
+, and 1.5 × 1034
+cm
+−2
+s
+−1
+in 2017; and
+1.2 × 1034
+cm
+−2
+s
+−1
+, 1.5 × 1034
+cm
+−2
+s
+−1
+, and 1.7 × 1034
+cm
+−2
+s
+−1
+in 2018.
+in late 2017. The events in this stream are selected by triggers requiring a first-stage SA low-𝑝T muon
+and an ID track with a combined invariant mass 2.5 < 𝑚𝜇𝜇 < 4.3 GeV. Since a large fraction of 𝐽/𝜓 are
+boosted, instead of recording the full event data, events in this stream contain only the raw detector hits in
+the (Δ𝜂 × Δ𝜙) = (1.5 × 1.5) region centred on the tag muon without loss of 𝐽/𝜓 candidates. This reduces
+the average event size in the stream by a factor of seven, allowing a high rate of calibration data to be
+recorded without requiring excessive offline storage.
+Table 5 shows the full integrated luminosities and the integrated luminosities collected by triggers only
+enabled below specified instantaneous luminosities, the so-called ‘end-of-fill’ strategy, in 2017 and 2018.
+During 2015, no end-of-fill strategy was needed due to the low peak instantaneous luminosity. During 2016,
+the prescale and streaming strategy changed throughout the year due to the rapidly changing data-taking
+conditions. Therefore, integrated luminosities for a single set of instantaneous luminosity ranges are not
+shown. The low-𝑝T muon calibration stream also used an end-of-fill strategy.
+Figures 28 and 29 show the 2018 rates of dimuon 𝐽/𝜓 and BLS triggers as a function of the instantaneous
+luminosity. The pure dimuon trigger rates are well described by a linear fit with an approximately zero
+intercept. For L1 triggers, there is a clear non-linearity caused by an additional dependence on the number
+of interactions per bunch crossing. The feature at 𝐿 = 0.5 × 1034
+cm
+−2
+s
+−1
+is caused by LHC fills where
+only 600 proton bunches were colliding, but the collisions had a pile-up multiplicity of approximately 60.
+This non-linearity is also present in HLT triggers with additional track requirements. The effect of the
+end-of-fill strategy can be seen in triggers that have sharp changes in their rates.
+33
+
+=== PDF PAGE 34 ===
+Table 5: Integrated luminosity collected in 2017 and 2018 by triggers that were enabled below specified instantaneous
+luminosities.
+Total L [fb−1
+]
+Enabling 𝐿inst 2017 2018
+Full run 49 63
+1.7 × 1034
+cm
+−2
+s
+−1
+- 53
+1.5 × 1034
+cm
+−2
+s
+−1
+38 43
+1.2 × 1034
+cm
+−2
+s
+−1
+30 26
+1.0 × 1034
+cm
+−2
+s
+−1
+20 -
+0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2
+]
+-1 s
+-2 cm 34 Instantaneous luminosity [10
+0
+1
+2
+3
+4
+5
+6
+Rate [kHz]
+> 6 GeV, 0 < ∆ Rµµ < 1.5 µ 1,2
+T p
+> 11, 6 GeV µ 1,2
+T p
+> 11, 6 GeV, 0 < ∆ Rµµ < 1.5 µ 1,2
+T p
+, s = 13 TeV -1 pp data 2018, 58.45 fb
+L1 trigger rates ATLAS Trigger Operations
+0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2
+]
+-1 s
+-2 cm 34 Instantaneous luminosity [10
+0
+2
+4
+6
+8
+10
+12
+Rate [kHz]
+ < 1.5 (J/ψ, B) µµ
+ < 9 GeV, 0 < ∆ R
+µµ > 4 GeV, 2 < m µ 1,2
+T p
+ < 1.5 (J/ψ, B) µµ
+ < 9 GeV, 0 < ∆ R
+µµ > 6, 4 GeV, 2 < m µ 1,2
+T p
+| < 1.0 (Υ) µ
+ < 15 GeV, 0 < ∆ Rµµ
+ < 2.2, |η µµ > 6, 4 GeV, 8 < m µ 1,2
+T p
+ < 1.5 (J/ψ, B) µµ
+ < 9 GeV, 0.2 < ∆ R
+µµ > 6 GeV, 2 < m µ 1,2
+T p
+ < 2.2 (Υ) µµ
+ < 15 GeV, 0 < ∆ R
+µµ > 6 GeV, 8 < m µ 1,2
+T p
+, s = 13 TeV -1 pp data 2018, 58.45 fb
+L1 trigger rates ATLAS Trigger Operations
+Figure 28: L1 trigger rates as a function of the instantaneous luminosity for the unprescaled dimuon triggers used for
+the BLS programme. The left plot shows the lowest unprescaled non-L1Topo L1 trigger, L1_MU11_2MU6 and two
+L1Topo triggers with a Δ𝑅𝜇𝜇 < 1.5 requirement. The right plot shows L1Topo triggers with both the Δ𝑅𝜇𝜇 and 𝑚𝜇𝜇
+requirements, targeting specific final states.
+0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2
+]
+-1 s
+-2 cm 34 Instantaneous luminosity [10
+0
+20
+40
+60
+80
+100
+120
+Rate [Hz]
+ < 20 2
+ < 4.3 GeV, χ
+µµ
+J/ψ selection: 2.5 < m
+ > 0
+xy > 6, 4 GeV, L µ 1,2
+T p
+> 6 GeV µ 1,2
+T p
+ > 0
+xy > 4 GeV, L µ 1,2
+T p
+> 11, 6 GeV µ 1,2
+T p
+, s = 13 TeV -1 pp data 2018, 58.45 fb HLT trigger rates ATLAS Trigger Operations
+0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8 2 2.2
+]
+-1 s
+-2 cm 34 Instantaneous luminosity [10
+0
+5
+10
+15
+20
+25
+30
+35
+40
+Rate [Hz]
+ < 20 2 B selection: 4 < mµµ
+ < 8.5 GeV, χ
+ > 0
+xy > 4 GeV, L µ 1,2
+T p
+ > 0
+xy > 6, 4 GeV, L µ 1,2
+T p
+ > 0
+xy > 6 GeV, L µ 1,2
+T p
+> 11, 6 GeV µ 1,2
+T p
+, s = 13 TeV -1 pp data 2018, 58.45 fb HLT trigger rates ATLAS Trigger Operations
+Figure 29: HLT trigger rates as a function of the instantaneous luminosity for the lowest unprescaled dimuon triggers
+targeting 𝐽/𝜓 (left) and 𝑏-hadron (right) final states.
+34
+
+=== PDF PAGE 35 ===
+12.4 Performance
+Figure 30 shows the dimuon invariant mass spectrum for pairs of muons satisfying Tight offline quality
+criteria [28]. They are fitted to a common vertex, using the ID track parameters, with a 𝜒
+2 < 20 for one
+degree of freedom. Muons are also required to have an absolute pseudorapidity less than 2.3, and have
+a transverse momentum greater than the trigger threshold. The dimuon triggers require two muons at
+L1, passing either the low-𝑝T
+thresholds of 4 or 6 GeV or the high-𝑝T
+threshold of 10 GeV (L1_MU11).
+These thresholds are subsequently confirmed at the HLT. Invariant mass requirements are applied to restrict
+events to the charmonium, 𝑏-hadron and bottomonium mass ranges. The yields of events collected for
+each trigger are cumulative, where overlapping events collected by multiple triggers are retained in the
+lowest-threshold histogram; hence the integral of events from all histograms is the same as the total event
+yield. For certain data-taking periods, trigger prescales were applied, reducing the effective yield of events
+collected by those triggers. The inclusive dimuon trigger, which covers the full mass range of interest and
+is shown as the dashed line in Figure 30, was unprescaled throughout the data-taking period.
+2 4 6 8 10 12
+) [GeV] − µ
++ m(µ
+4 10
+5 10
+6 10
+7 10
+Entries / 10 MeV
+low-m φ J/ψ B ϒ(nS)
+) > 6 GeV
+2
+(µ
+T
+) > 11 GeV, p
+1
+(µ
+T
+p
+) > 6 GeV
+2
+(µ
+T
+) > 6 GeV, p
+1
+(µ
+T
+p
+) > 4 GeV
+2
+(µ
+T
+) > 6 GeV, p
+1
+(µ
+T
+p
+) > 4 GeV
+2
+(µ
+T
+) > 4 GeV, p
+1
+(µ
+T
+p
+) > 6 GeV 2
+(µ
+T
+) > 11 GeV, p
+1
+(µ
+T Dimuon triggers: p
+ATLAS
+Data 2018
+s = 13 TeV
+-1 58.45 fb
+Figure 30: Dimuon invariant mass for events passing a selection of BLS triggers. Triggers select specific invariant
+mass regions at both L1 and the HLT, and, due to vastly differing rates, some thresholds collected a smaller integrated
+luminosity. Smaller invariant mass regions allow lower-threshold triggers to run unprescaled at higher instantaneous
+luminosities, thus more signal events can be recorded than is possible with only inclusive triggers. The dashed line
+represents the events collected by the lowest unprescaled dimuon trigger that is inclusive of the full mass range of
+interest.
+The efficiency of BLS dimuon triggers can be factorised into three terms:
+𝜖dimuon = 𝜖muon (𝑝
+𝜇1
+T
+, 𝑞
+𝜇1
+· 𝜂
+𝜇1
+) × 𝜖muon (𝑝
+𝜇2
+T
+, 𝑞
+𝜇2
+· 𝜂
+𝜇2
+) × 𝐶𝜇𝜇 (Δ𝑅
+𝜇𝜇
+, |𝑦
+𝜇𝜇|),
+where 𝜖muon are the efficiencies of single-muon triggers corresponding to the dimuon trigger legs, 𝐶𝜇𝜇 is a
+correction accounting for the effects of the dimuon selection applied by the trigger and 𝑞
+𝜇
+is the muon
+35
+
+=== PDF PAGE 36 ===
+electric charge. Single-muon trigger efficiencies for low-𝑝T muons are discussed in Section 10.2. The
+dimuon correction can be represented as a product of two components:
+𝐶𝜇𝜇 (Δ𝑅
+𝜇𝜇
+, |𝑦
+𝜇𝜇 |) = 𝑐𝑎
+(|𝑦
+𝜇𝜇 |) × 𝑐Δ𝑅
+(Δ𝑅
+𝜇𝜇
+, |𝑦
+𝜇𝜇|).
+Both terms are measured in three regions of dimuon rapidity: barrel (|𝑦
+𝜇𝜇| ≤ 1.0), barrel–endcap overlap
+(1.0 < |𝑦
+𝜇𝜇| ≤ 1.2), and endcap (1.2 < |𝑦
+𝜇𝜇| ≤ 2.3), to account for the different values of the correction
+in these regions. The invariant mass regions selected by each trigger are wide enough such that offline
+selections are well within the window and there are no residual resolution effects.
+The asymptotic correction, 𝑐𝑎
+, accounts for the effect of dimuon vertex and opposite-charge requirements
+applied by BLS algorithms. The asymptotic correction values are determined using the ratio of J/𝜓 → 𝜇
++
+𝜇
+−
+decay yields in events selected by the standard dimuon trigger to those selected by a similar dimuon trigger
+without applying charge or dimuon vertex requirements. A requirement of Δ𝑅
+𝜇𝜇 > 0.3 is imposed on all
+J/𝜓 → 𝜇
++
+𝜇
+−
+candidates used to determine the asymptotic correction. Apart from that, the selection of
+J/𝜓 → 𝜇
++
+𝜇
+−
+candidates and extraction of the yields follow the same procedure as described in Section 8.3.
+The correction values are found to be 0.983 ± 0.001, 0.984 ± 0.003, and 0.979 ± 0.001 in barrel, overlap,
+and endcap regions, respectively.
+The second component, 𝑐Δ𝑅
+, accounts for the inefficiency in resolving two overlapping muon RoIs by
+L1 dimuon triggers for closely spaced muons and hence is evaluated as a function of dimuon angular
+separation, Δ𝑅
+𝜇𝜇, in the regions of |𝑦
+𝜇𝜇 |. Smaller effects, such as inefficiencies for closely spaced muons
+in the HLT, are also accounted for in this correction. To evaluate this correction, a sample of dimuon
+events collected with the single-muon plus track triggers as in Section 8.3 is used. The 𝑐Δ𝑅
+is measured
+using the fraction, 𝜌Δ𝑅
+, of J/𝜓 → 𝜇
++
+𝜇
+−
+events in this sample that are also selected by dimuon triggers
+requiring each muon to have 𝑝T > 4 GeV. The J/𝜓 candidates are selected as described in Section 8.3
+with an additional requirement for both muons to have 𝑝T > 8 GeV to ensure that single-muon trigger
+efficiencies reach their plateau values. Figure 31 shows values of 𝜌Δ𝑅
+as a function of Δ𝑅
+𝜇𝜇 in three
+regions of dimuon rapidity. The higher efficiencies observed in the 2015 data are due to the absence of fast
+HLT reconstruction algorithms in the trigger sequence, as described in Section 12.2.
+The distributions in Figure 31 are fitted with a function composed of an error function describing the shape of
+Δ𝑅 turn-on and a normalisation parameter. The fitted error function, which approaches unity for Δ𝑅 & 0.3,
+corresponds to the 𝑐Δ𝑅
+(Δ𝑅
+𝜇𝜇) correction in each region. The normalisation may contain contributions
+from 𝑐𝑎
+and from the single-muon trigger efficiencies, and is irrelevant for the 𝑐Δ𝑅 measurement. The
+overall dimuon correction, 𝐶𝜇𝜇 (Δ𝑅
+𝜇𝜇
+, |𝑦
+𝜇𝜇|), in each region of |𝑦
+𝜇𝜇 | is given by a product of the error
+function extracted from the corresponding fit, and the asymptotic correction value, 𝑐𝑎
+(|𝑦
+𝜇𝜇|), measured in
+that region.
+36
+
+=== PDF PAGE 37 ===
+0.05 0.1 0.15 0.2 0.25 0.3 0.35
+∆R(µµ)
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+R
+1.4
+∆
+ρ
+2015
+2016
+Fit 2015
+Fit 2016
+ATLAS
+-1 s = 13 TeV, 36.1 fb
+pp data, J/ψ→µµ, |y(µµ)| < 1.0
+0.05 0.1 0.15 0.2 0.25 0.3 0.35
+∆R(µµ)
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+R
+1.4
+∆
+ρ
+2015
+2016
+Fit 2015
+Fit 2016
+ATLAS
+-1 s = 13 TeV, 36.1 fb
+pp data, J/ψ→µµ, 1.0 < |y(µµ)| < 1.2
+0.05 0.1 0.15 0.2 0.25 0.3 0.35
+∆R(µµ)
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+R
+1.4
+∆
+ρ
+2015
+2016
+Fit 2015
+Fit 2016
+ATLAS
+-1 s = 13 TeV, 36.1 fb
+pp data, J/ψ→µµ, 1.2 < |y(µµ)| < 2.3
+Figure 31: Ratio 𝜌Δ𝑅 of J/𝜓 → 𝜇
++
+𝜇
+−
+yields in events collected by the dimuon triggers and single-muon plus track
+triggers and by single-muon plus track triggers only, as a function of the dimuon angular separation Δ𝑅
+𝜇𝜇, in data
+collected in 2015 and 2016 for (top-left) barrel, (top-right) overlap, and (bottom) endcap regions of dimuon rapidity.
+Fits with an error function are also shown.
+13 Conclusion
+The ATLAS muon trigger has been successfully adapted to the challenging environment at the LHC such
+that stable and highly efficient data-taking was achieved in Run 2. The transverse momentum threshold
+for the single-muon trigger was set at 26 GeV for most of the proton–proton data-taking campaign with
+a well-controlled trigger rate of typically 15 kHz at Level-1 and 180 Hz at the High-Level Trigger for
+instantaneous luminosities of 1.7×1034
+cm
+−2
+s
+−1
+. The processing times of the HLT muon trigger algorithms
+were continuously optimised and are sufficiently short to fit within the computing resource limitations. The
+efficiencies are measured with proton–proton and heavy-ion collision data over a wide 𝑝T
+range (a few GeV
+to several hundred GeV) by using muons from decays of J/𝜓 mesons, Z and W bosons, and top-quark
+pairs, and show highly uniform and stable performance. The single-muon trigger efficiency is evaluated to
+be about 68% and 85% in the barrel and endcap region, respectively, considering a kinematic region of
+26 < 𝑝T < 100 GeV. For lower-threshold multi-muon triggers, increased efficiencies of up to 75% and
+87% in the barrel and encap region, respectively, are observed due to the loosened requirements at Level-1.
+Efficiencies are also measured in heavy-ion collision data and show comparable results. Low-momentum
+muon triggers are further combined with vertex and mass selections, providing the backbone of the
+𝐵-physics and Light States programme. The usage of the topological Level-1 trigger selection is essential
+37
+
+=== PDF PAGE 38 ===
+to provide well-controlled rates to cope with the conditions during Run 2. Efficiency corrections in addition
+to the single-leg efficiencies are derived for signatures with closely spaced muons.
+Acknowledgements
+We thank CERN for the very successful operation of the LHC, as well as the support staff from our
+institutions without whom ATLAS could not be operated efficiently.
+We acknowledge the support of ANPCyT, Argentina; YerPhI, Armenia; ARC, Australia; BMWFW
+and FWF, Austria; ANAS, Azerbaĳan; SSTC, Belarus; CNPq and FAPESP, Brazil; NSERC, NRC and
+CFI, Canada; CERN; CONICYT, Chile; CAS, MOST and NSFC, China; COLCIENCIAS, Colombia;
+MSMT CR, MPO CR and VSC CR, Czech Republic; DNRF and DNSRC, Denmark; IN2P3-CNRS and
+CEA-DRF/IRFU, France; SRNSFG, Georgia; BMBF, HGF and MPG, Germany; GSRT, Greece; RGC and
+Hong Kong SAR, China; ISF and Benoziyo Center, Israel; INFN, Italy; MEXT and JSPS, Japan; CNRST,
+Morocco; NWO, Netherlands; RCN, Norway; MNiSW and NCN, Poland; FCT, Portugal; MNE/IFA,
+Romania; MES of Russia and NRC KI, Russia Federation; JINR; MESTD, Serbia; MSSR, Slovakia; ARRS
+and MIZŠ, Slovenia; DST/NRF, South Africa; MINECO, Spain; SRC and Wallenberg Foundation, Sweden;
+SERI, SNSF and Cantons of Bern and Geneva, Switzerland; MOST, Taiwan; TAEK, Turkey; STFC, United
+Kingdom; DOE and NSF, United States of America. In addition, individual groups and members have
+received support from BCKDF, CANARIE, Compute Canada and CRC, Canada; ERC, ERDF, Horizon
+2020, Marie Skłodowska-Curie Actions and COST, European Union; Investissements d’Avenir Labex,
+Investissements d’Avenir Idex and ANR, France; DFG and AvH Foundation, Germany; Herakleitos, Thales
+and Aristeia programmes co-financed by EU-ESF and the Greek NSRF, Greece; BSF-NSF and GIF, Israel;
+CERCA Programme Generalitat de Catalunya and PROMETEO Programme Generalitat Valenciana, Spain;
+Göran Gustafssons Stiftelse, Sweden; The Royal Society and Leverhulme Trust, United Kingdom.
+The crucial computing support from all WLCG partners is acknowledged gratefully, in particular from
+CERN, the ATLAS Tier-1 facilities at TRIUMF (Canada), NDGF (Denmark, Norway, Sweden), CC-IN2P3
+(France), KIT/GridKA (Germany), INFN-CNAF (Italy), NL-T1 (Netherlands), PIC (Spain), ASGC
+(Taiwan), RAL (UK) and BNL (USA), the Tier-2 facilities worldwide and large non-WLCG resource
+providers. Major contributors of computing resources are listed in Ref. [48].
+38
+
+=== PDF PAGE 39 ===
+References
+[1] ATLAS Collaboration, The ATLAS Experiment at the CERN Large Hadron Collider,
+JINST 3 (2008) S08003.
+[2] ATLAS Collaboration, ATLAS Insertable B-Layer Technical Design Report, ATLAS-TDR-19, 2010,
+url: https://cds.cern.ch/record/1291633,
+Addendum: ATLAS-TDR-19-ADD-1, 2012, url: https://cds.cern.ch/record/1451888.
+[3] B. Abbott et al., Production and integration of the ATLAS Insertable B-Layer,
+JINST 13 (2018) T05008, arXiv: 1803.00844 [physics.ins-det].
+[4] ATLAS Collaboration,
+Luminosity determination in 𝑝 𝑝 collisions at √
+𝑠 = 13 TeV using the ATLAS detector at the LHC,
+ATLAS-CONF-2019-021, 2019, url: https://cds.cern.ch/record/2677054.
+[5] G. Avoni et al., The new LUCID-2 detector for luminosity measurement and monitoring in ATLAS,
+JINST 13 (2018) P07017.
+[6] S. Agostinelli et al., GEANT4 - a simulation toolkit, Nucl. Instrum. Meth. A 506 (2003) 250.
+[7] T. Sjöstrand, S. Mrenna and P. Z. Skands, A brief introduction to PYTHIA 8.1,
+Comput. Phys. Commun. 178 (2008) 852, arXiv: 0710.3820 [hep-ph].
+[8] P. Golonka and Z. Was,
+PHOTOS Monte Carlo: A precision tool for QED corrections in 𝑍 and 𝑊 decays,
+Eur. Phys. J. C 45 (2006) 97, arXiv: hep-ph/0506026.
+[9] N. Davidson, T. Przedzinski and Z. Was,
+PHOTOS interface in C++: Technical and physics documentation,
+Comput. Phys. Commun. 199 (2016) 86, arXiv: 1011.0937 [hep-ph].
+[10] P. Nason, A new method for combining NLO QCD with shower Monte Carlo algorithms,
+JHEP 11 (2004) 040, arXiv: hep-ph/0409146.
+[11] S. Frixione, P. Nason and C. Oleari,
+Matching NLO QCD computations with parton shower simulations: the POWHEG method,
+JHEP 11 (2007) 070, arXiv: 0709.2092 [hep-ph].
+[12] S. Alioli, P. Nason, C. Oleari and E. Re, A general framework for implementing NLO calculations in
+shower Monte Carlo programs: the POWHEG BOX, JHEP 06 (2010) 043,
+arXiv: 1002.2581 [hep-ph].
+[13] S. Alioli, P. Nason, C. Oleari and E. Re,
+NLO vector-boson production matched with shower in POWHEG, JHEP 07 (2008) 060,
+arXiv: 0805.4802 [hep-ph].
+[14] ATLAS Collaboration, Measurement of the 𝑍/𝛾
+∗
+boson transverse momentum distribution in 𝑝 𝑝
+collisions at √
+𝑠 = 7 TeV with the ATLAS detector, JHEP 09 (2014) 145,
+arXiv: 1406.3660 [hep-ex].
+[15] H.-L. Lai et al., New parton distributions for collider physics, Phys. Rev. D 82 (2010) 074024,
+arXiv: 1007.2241 [hep-ph].
+[16] J. Pumplin et al.,
+New Generation of Parton Distributions with Uncertainties from Global QCD Analysis,
+JHEP 07 (2002) 012, arXiv: hep-ph/0201195.
+39
+
+=== PDF PAGE 40 ===
+[17] D. J. Lange, The EvtGen particle decay simulation package,
+Nucl. Instrum. Meth. A 462 (2001) 152.
+[18] E. Bothmann et al., Event generation with Sherpa 2.2, SciPost Phys. 7 (2019) 034,
+arXiv: 1905.09127 [hep-ph].
+[19] R.D. Ball et al., Parton distributions for the LHC Run II, JHEP 04 (2015) 040,
+arXiv: 1410.8849 [hep-ph].
+[20] S. Frixione et al.,
+A positive-weight next-to-leading-order Monte Carlo for heavy flavour hadroproduction,
+JHEP 09 (2007) 126, arXiv: 0707.3088 [hep-ph].
+[21] S. Alioli, P. Nason, C. Oleari and E. Re,
+NLO single-top production matched with shower in POWHEG: s- and t-channel contributions,
+JHEP 09 (2009) 111, [Erratum: JHEP 02 (2010) 011], arXiv: 0907.4076 [hep-ph].
+[22] R. Frederix, E. Re and P. Torrielli,
+Single-top t-channel hadroproduction in the four-flavour scheme with POWHEG and aMC@NLO,
+JHEP 09 (2012) 130, arXiv: 1207.5391 [hep-ph].
+[23] E. Re, Single-top Wt-channel production matched with parton showers using the POWHEG method,
+Eur. Phys. J. C 71 (2011) 1547, arXiv: 1009.2450 [hep-ph].
+[24] J. Alwall et al., The automated computation of tree-level and next-to-leading order differential cross
+sections, and their matching to parton shower simulations, JHEP 07 (2014) 079,
+arXiv: 1405.0301 [hep-ph].
+[25] T. Sjöstrand et al., An introduction to PYTHIA 8.2, Comput. Phys. Commun. 191 (2015) 159,
+arXiv: 1410.3012 [hep-ph].
+[26] ATLAS Collaboration, ATLAS Pythia 8 tunes to 7 TeV data, ATL-PHYS-PUB-2014-021, 2014,
+url: https://cds.cern.ch/record/1966419.
+[27] R. D. Ball et al., Parton distributions with LHC data, Nucl. Phys. B 867 (2013) 244,
+arXiv: 1207.1303 [hep-ph].
+[28] ATLAS Collaboration, Muon reconstruction performance of the ATLAS detector in proton–proton
+collision data at √
+𝑠 = 13 TeV, Eur. Phys. J. C 76 (2016) 292, arXiv: 1603.05598 [hep-ex].
+[29] ATLAS Collaboration,
+Topological cell clustering in the ATLAS calorimeters and its performance in LHC Run 1,
+Eur. Phys. J. C 77 (2017) 490, arXiv: 1603.02934 [hep-ex].
+[30] M. Cacciari, G. P. Salam and G. Soyez, The anti-𝑘𝑡
+jet clustering algorithm, JHEP 04 (2008) 063,
+arXiv: 0802.1189 [hep-ph].
+[31] ATLAS Collaboration, Jet energy scale measurements and their systematic uncertainties in
+proton–proton collisions at √
+𝑠 = 13 TeV with the ATLAS detector, Phys. Rev. D 96 (2017) 072002,
+arXiv: 1703.09665 [hep-ex].
+[32] ATLAS Collaboration, Performance of pile-up mitigation techniques for jets in 𝑝 𝑝 collisions at
+√
+𝑠 = 8 TeV using the ATLAS detector, Eur. Phys. J. C 76 (2016) 581,
+arXiv: 1510.03823 [hep-ex].
+[33] ATLAS Collaboration, ATLAS 𝑏-jet identification performance and efficiency measurement with 𝑡𝑡¯
+events in 𝑝 𝑝 collisions at √
+𝑠 = 13 TeV, Eur. Phys. J. C 79 (2019) 970,
+arXiv: 1907.05120 [hep-ex].
+40
+
+=== PDF PAGE 41 ===
+[34] ATLAS Collaboration, Performance of missing transverse momentum reconstruction with the
+ATLAS detector using proton–proton collisions at √
+𝑠 = 13 TeV, Eur. Phys. J. C 78 (2018) 903,
+arXiv: 1802.08168 [hep-ex].
+[35] ATLAS Collaboration,
+𝐸
+miss
+T
+performance in the ATLAS detector using 2015–2016 LHC 𝑝 𝑝 collisions,
+ATLAS-CONF-2018-023, 2018, url: https://cds.cern.ch/record/2625233.
+[36] S. Ask et al., The ATLAS central level-1 trigger logic and TTC system, JINST 3 (2008) P08002.
+[37] E. Simioni et al.,
+The Topological Processor for the future ATLAS Level-1 Trigger: from design to commissioning,
+(2014), arXiv: 1406.4316 [physics.ins-det].
+[38] S. Artz et al., The ATLAS Level-1 Muon Topological Trigger Information for Run 2 of the LHC,
+JINST 10 (2015) C02027.
+[39] ATLAS Collaboration, Trigger Menu in 2018, ATL-DAQ-PUB-2019-001, 2019,
+url: https://cds.cern.ch/record/2693402.
+[40] ATLAS Collaboration, Performance of the ATLAS trigger system in 2015,
+Eur. Phys. J. C 77 (2017) 317, arXiv: 1611.09661 [hep-ex].
+[41] F. Anulli et al., The Level-1 Trigger Muon Barrel System of the ATLAS experiment at CERN,
+JINST 4 (2009) P04010.
+[42] ATLAS Collaboration, 2015 start-up trigger menu and initial performance assessment of the
+ATLAS trigger using Run-2 data, ATL-DAQ-PUB-2016-001, 2016,
+url: https://cds.cern.ch/record/2136007.
+[43] ATLAS Collaboration, Trigger Menu in 2016, ATL-DAQ-PUB-2017-001, 2017,
+url: https://cds.cern.ch/record/2242069.
+[44] ATLAS Collaboration, Trigger Menu in 2017, ATL-DAQ-PUB-2018-002, 2018,
+url: https://cds.cern.ch/record/2625986.
+[45] G. Guennebaud, B. Jacob et al., Eigen v3, http://eigen.tuxfamily.org, 2010.
+[46] I. S. Duff and J. K. Reid,
+MA27—A Set of Fortran Subroutines for Solving Sparse Symmetric Sets of Linear Equations,
+tech. rep. AERE R10533, 1982.
+[47] V. Kostyukhin, VKalVrt - package for vertex reconstruction in ATLAS.,
+tech. rep. ATL-PHYS-2003-031, revised version number 1 submitted on 2003-09-24 11:10:53:
+CERN, 2003, url: https://cds.cern.ch/record/685551.
+[48] ATLAS Collaboration, ATLAS Computing Acknowledgements, ATL-GEN-PUB-2016-002,
+url: https://cds.cern.ch/record/2202407.
+41
+
+=== PDF PAGE 42 ===
+The ATLAS Collaboration
+G. Aad102
+, B. Abbott128
+, D.C. Abbott103
+, A. Abed Abud36
+, K. Abeling53
+, D.K. Abhayasinghe94
+,
+S.H. Abidi167
+, O.S. AbouZeid40, N.L. Abraham156
+, H. Abramowicz161
+, H. Abreu160
+, Y. Abulaiti6
+,
+B.S. Acharya67a,67b,o
+, B. Achkar53
+, L. Adam100
+, C. Adam Bourdarios5
+, L. Adamczyk84a
+, L. Adamek167
+,
+J. Adelman121, M. Adersberger114
+, A. Adiguzel12c,ag
+, S. Adorni54
+, T. Adye143
+, A.A. Affolder145
+,
+Y. Afik160
+, C. Agapopoulou65
+, M.N. Agaras38
+, A. Aggarwal119
+, C. Agheorghiesei27c
+,
+J.A. Aguilar-Saavedra139f,139a,af
+, A. Ahmad36
+, F. Ahmadov80
+, W.S. Ahmed104
+, X. Ai18
+, G. Aielli74a,74b
+,
+S. Akatsuka86
+, T.P.A. Åkesson97
+, E. Akilli54
+, A.V. Akimov111
+, K. Al Khoury65
+, G.L. Alberghi23b,23a
+,
+J. Albert176
+, M.J. Alconada Verzini161
+, S. Alderweireldt36
+, M. Aleksa36
+, I.N. Aleksandrov80
+, C. Alexa27b
+,
+T. Alexopoulos10
+, A. Alfonsi120
+, F. Alfonsi23b,23a
+, M. Alhroob128
+, B. Ali141
+, S. Ali158
+, M. Aliev166
+,
+G. Alimonti69a
+, C. Allaire36
+, B.M.M. Allbrooke156
+, B.W. Allen131
+, P.P. Allport21
+, A. Aloisio70a,70b
+,
+F. Alonso89
+, C. Alpigiani148, A.A. Alshehri57, E. Alunno Camelia74a,74b
+, M. Alvarez Estevez99
+,
+M.G. Alviggi70a,70b
+, Y. Amaral Coutinho81b
+, A. Ambler104
+, L. Ambroz134, C. Amelung26
+, D. Amidei106
+,
+S.P. Amor Dos Santos139a
+, S. Amoroso46, C.S. Amrouche54
+, F. An79
+, C. Anastopoulos149
+, N. Andari144
+,
+T. Andeen11
+, C.F. Anders61b
+, J.K. Anders20
+, S.Y. Andrean45a,45b
+, A. Andreazza69a,69b, V. Andrei61a
+,
+C.R. Anelli176
+, S. Angelidakis9
+, A. Angerami39
+, A.V. Anisenkov122b,122a
+, A. Annovi72a
+, C. Antel54
+,
+M.T. Anthony149
+, E. Antipov129
+, M. Antonelli51
+, D.J.A. Antrim171
+, F. Anulli73a
+, M. Aoki82
+,
+J.A. Aparisi Pozo174
+, M.A. Aparo156
+, L. Aperio Bella15a
+, V. Araujo Ferraz81b, R. Araujo Pereira81b
+,
+C. Arcangeletti51
+, A.T.H. Arce49, F.A. Arduh89
+, J-F. Arguin110
+, S. Argyropoulos52
+, J.-H. Arling46
+,
+A.J. Armbruster36
+, A. Armstrong171
+, O. Arnaez167
+, H. Arnold120, Z.P. Arrubarrena Tame114
+, G. Artoni134
+,
+S. Artz100
+, S. Asai163, T. Asawatavonvanich165
+, N. Asbah59
+, E.M. Asimakopoulou172
+, L. Asquith156
+,
+J. Assahsah35e, K. Assamagan29
+, R. Astalos28a
+, R.J. Atkin33a, M. Atkinson173
+, N.B. Atlay19, H. Atmani65
+,
+K. Augsten141
+, V.A. Austrup182
+, G. Avolio36
+, M.K. Ayoub15a
+, G. Azuelos110,ao
+, H. Bachacou144
+,
+K. Bachas162
+, M. Backes134
+, F. Backman45a,45b
+, P. Bagnaia73a,73b
+, M. Bahmani85, H. Bahrasemani152
+,
+A.J. Bailey174
+, V.R. Bailey173
+, J.T. Baines143
+, C. Bakalis10
+, O.K. Baker183
+, P.J. Bakker120
+, E. Bakos16
+,
+D. Bakshi Gupta8
+, S. Balaji157
+, E.M. Baldin122b,122a
+, P. Balek180
+, F. Balli144
+, W.K. Balunas134
+, J. Balz100
+,
+E. Banas85
+, M. Bandieramonte138
+, A. Bandyopadhyay24
+, Sw. Banerjee181,j
+, L. Barak161
+, W.M. Barbe38
+,
+E.L. Barberio105
+, D. Barberis55b,55a
+, M. Barbero102, G. Barbour95
+, T. Barillari115
+, M-S. Barisits36
+,
+J. Barkeloo131
+, T. Barklow153, R. Barnea160
+, B.M. Barnett143
+, R.M. Barnett18
+, Z. Barnovska-Blenessy60a
+,
+A. Baroncelli60a
+, G. Barone29
+, A.J. Barr134
+, L. Barranco Navarro45a,45b
+, F. Barreiro99
+,
+J. Barreiro Guimarães da Costa15a
+, U. Barron161
+, S. Barsov137
+, F. Bartels61a
+, R. Bartoldus153
+,
+G. Bartolini102
+, A.E. Barton90
+, P. Bartos28a
+, A. Basalaev46
+, A. Basan100
+, A. Bassalat65,al
+, M.J. Basso167
+,
+R.L. Bates57, S. Batlamous35f
+, J.R. Batley32
+, B. Batool151, M. Battaglia145
+, M. Bauce73a,73b
+, F. Bauer144
+,
+K.T. Bauer171, H.S. Bawa31
+, J.B. Beacham49
+, T. Beau135
+, P.H. Beauchemin170
+, F. Becherer52
+, P. Bechtle24
+,
+H.C. Beck53
+, H.P. Beck20,r
+, K. Becker178
+, C. Becot46, A. Beddall12d
+, A.J. Beddall12a
+, V.A. Bednyakov80
+,
+M. Bedognetti120
+, C.P. Bee155
+, T.A. Beermann182
+, M. Begalli81b
+, M. Begel29
+, A. Behera155
+, J.K. Behr46
+,
+F. Beisiegel24
+, M. Belfkir5
+, A.S. Bell95
+, G. Bella161
+, L. Bellagamba23b
+, A. Bellerive34
+, P. Bellos9
+,
+K. Beloborodov122b,122a
+, K. Belotskiy112
+, N.L. Belyaev112
+, D. Benchekroun35a
+, N. Benekos10
+,
+Y. Benhammou161
+, D.P. Benjamin6
+, M. Benoit54
+, J.R. Bensinger26
+, S. Bentvelsen120
+, L. Beresford134
+,
+M. Beretta51
+, D. Berge19
+, E. Bergeaas Kuutmann172
+, N. Berger5
+, B. Bergmann141
+, L.J. Bergsten26
+,
+J. Beringer18
+, S. Berlendis7
+, G. Bernardi135
+, C. Bernius153
+, F.U. Bernlochner24
+, T. Berry94
+, P. Berta100
+,
+C. Bertella15a
+, A. Berthold48
+, I.A. Bertram90
+, O. Bessidskaia Bylund182
+, N. Besson144
+, A. Bethani101
+,
+S. Bethke115
+, A. Betti42
+, A.J. Bevan93
+, J. Beyer115
+, D.S. Bhattacharya177, P. Bhattarai26, R. Bi138
+,
+R.M. Bianchi138
+, O. Biebel114
+, D. Biedermann19
+, R. Bielski36
+, K. Bierwagen100
+, N.V. Biesuz72a,72b
+,
+M. Biglietti75a
+, T.R.V. Billoud110
+, M. Bindi53
+, A. Bingul12d
+, C. Bini73a,73b
+, S. Biondi23b,23a
+, M. Birman180
+,
+42
+
+=== PDF PAGE 43 ===
+T. Bisanz36
+, J.P. Biswal3
+, D. Biswas181,j
+, A. Bitadze101
+, C. Bittrich48
+, K. Bjørke133
+, T. Blazek28a
+,
+I. Bloch46
+, C. Blocker26
+, A. Blue57
+, U. Blumenschein93
+, G.J. Bobbink120
+, V.S. Bobrovnikov122b,122a
+,
+S.S. Bocchetta97
+, A. Bocci49
+, D. Bogavac14
+, A.G. Bogdanchikov122b,122a, C. Bohm45a
+, V. Boisvert94
+,
+P. Bokan53
+, T. Bold84a
+, A.E. Bolz61b
+, M. Bomben135
+, M. Bona93
+, J.S. Bonilla131
+, M. Boonekamp144
+,
+C.D. Booth94
+, H.M. Borecka-Bielska91, L.S. Borgna95, A. Borisov123
+, G. Borissov90
+, J. Bortfeldt36
+,
+D. Bortoletto134
+, D. Boscherini23b
+, M. Bosman14
+, J.D. Bossio Sola104
+, K. Bouaouda35a
+, J. Boudreau138
+,
+E.V. Bouhova-Thacker90
+, D. Boumediene38
+, S.K. Boutle57
+, A. Boveia127
+, J. Boyd36
+, D. Boye33c
+,
+I.R. Boyko80
+, A.J. Bozson94
+, J. Bracinik21
+, N. Brahimi102
+, G. Brandt182
+, O. Brandt32
+, F. Braren46
+,
+B. Brau103
+, J.E. Brau131, W.D. Breaden Madden57
+, K. Brendlinger46
+, L. Brenner46
+, R. Brenner172
+,
+S. Bressler180
+, B. Brickwedde100
+, D.L. Briglin21
+, D. Britton57
+, D. Britzger115
+, I. Brock24
+, R. Brock107
+,
+G. Brooĳmans39
+, W.K. Brooks146d
+, E. Brost29
+, P.A. Bruckman de Renstrom85
+, B. Brüers46
+, D. Bruncko28b
+,
+A. Bruni23b
+, G. Bruni23b
+, L.S. Bruni120
+, S. Bruno74a,74b
+, M. Bruschi23b
+, N. Bruscino73a,73b
+,
+L. Bryngemark153
+, T. Buanes17
+, Q. Buat36
+, P. Buchholz151
+, A.G. Buckley57
+, I.A. Budagov80
+,
+M.K. Bugge133
+, F. Bührer52
+, O. Bulekov112
+, B.A. Bullard59
+, T.J. Burch121
+, S. Burdin91
+, C.D. Burgard120
+,
+A.M. Burger129
+, B. Burghgrave8
+, J.T.P. Burr46
+, C.D. Burton11
+, J.C. Burzynski103
+, V. Büscher100
+,
+E. Buschmann53
+, P.J. Bussey57
+, J.M. Butler25
+, C.M. Buttar57
+, J.M. Butterworth95, P. Butti36
+,
+W. Buttinger36, C.J. Buxo Vazquez107
+, A. Buzatu158
+, A.R. Buzykaev122b,122a
+, G. Cabras23b,23a
+,
+S. Cabrera Urbán174
+, D. Caforio56
+, H. Cai173
+, V.M.M. Cairo153
+, O. Cakir4a
+, N. Calace36
+, P. Calafiura18
+,
+G. Calderini135
+, P. Calfayan66
+, G. Callea57, L.P. Caloba81b, A. Caltabiano74a,74b
+, S. Calvente Lopez99
+,
+D. Calvet38
+, S. Calvet38
+, T.P. Calvet155
+, M. Calvetti72a,72b
+, R. Camacho Toro135
+, S. Camarda36
+,
+D. Camarero Munoz99
+, P. Camarri74a,74b
+, M.T. Camerlingo75a,75b
+, D. Cameron133
+, C. Camincher36
+,
+S. Campana36
+, M. Campanelli95
+, A. Camplani40
+, A. Campoverde151
+, V. Canale70a,70b
+, A. Canesse104
+,
+M. Cano Bret78
+, J. Cantero129
+, T. Cao161
+, Y. Cao173
+, M.D.M. Capeans Garrido36
+, M. Capua41b,41a
+,
+R. Cardarelli74a
+, F. Cardillo149
+, G. Carducci41b,41a
+, I. Carli142
+, T. Carli36
+, G. Carlino70a
+, B.T. Carlson138
+,
+E.M. Carlson176,168a
+, L. Carminati69a,69b
+, R.M.D. Carney153
+, S. Caron119
+, E. Carquin146d
+, S. Carrá46
+,
+J.W.S. Carter167
+, T.M. Carter50
+, M.P. Casado14,f, A.F. Casha167
+, F.L. Castillo174
+, L. Castillo Garcia14
+,
+V. Castillo Gimenez174
+, N.F. Castro139a,139e
+, A. Catinaccio36
+, J.R. Catmore133, A. Cattai36
+, V. Cavaliere29
+,
+E. Cavallaro14
+, V. Cavasinni72a,72b
+, E. Celebi12b
+, F. Celli134
+, L. Cerda Alberich174
+, K. Cerny130
+,
+A.S. Cerqueira81a
+, A. Cerri156
+, L. Cerrito74a,74b
+, F. Cerutti18
+, A. Cervelli23b,23a
+, S.A. Cetin12b, Z. Chadi35a
+,
+D. Chakraborty121
+, J. Chan181
+, W.S. Chan120
+, W.Y. Chan91
+, J.D. Chapman32
+, B. Chargeishvili159b
+,
+D.G. Charlton21
+, T.P. Charman93
+, C.C. Chau34
+, S. Che127
+, S. Chekanov6
+, S.V. Chekulaev168a
+,
+G.A. Chelkov80,aj
+, B. Chen79, C. Chen60a
+, C.H. Chen79
+, H. Chen29
+, J. Chen60a
+, J. Chen39
+, J. Chen26
+,
+S. Chen136
+, S.J. Chen15c
+, X. Chen15b
+, Y. Chen60a
+, Y-H. Chen46
+, H.C. Cheng63a
+, H.J. Cheng15a
+,
+A. Cheplakov80
+, E. Cheremushkina123
+, R. Cherkaoui El Moursli35f
+, E. Cheu7
+, K. Cheung64
+,
+T.J.A. Chevalérias144
+, L. Chevalier144
+, V. Chiarella51
+, G. Chiarelli72a
+, G. Chiodini68a
+, A.S. Chisholm21
+,
+A. Chitan27b
+, I. Chiu163
+, Y.H. Chiu176
+, M.V. Chizhov80
+, K. Choi11
+, A.R. Chomont73a,73b, S. Chouridou162
+,
+Y.S. Chow120
+, L.D. Christopher33e
+, M.C. Chu63a
+, X. Chu15a,15d
+, J. Chudoba140
+, J.J. Chwastowski85
+,
+L. Chytka130
+, D. Cieri115
+, K.M. Ciesla85
+, D. Cinca47
+, V. Cindro92
+, I.A. Cioară27b
+, A. Ciocio18
+,
+F. Cirotto70a,70b
+, Z.H. Citron180,k
+, M. Citterio69a, D.A. Ciubotaru27b
+, B.M. Ciungu167
+, A. Clark54
+,
+M.R. Clark39
+, P.J. Clark50
+, S.E. Clawson101
+, C. Clement45a,45b
+, Y. Coadou102
+, M. Cobal67a,67c
+,
+A. Coccaro55b, J. Cochran79
+, R. Coelho Lopes De Sa103, H. Cohen161
+, A.E.C. Coimbra36
+, B. Cole39
+,
+A.P. Colĳn120
+, J. Collot58
+, P. Conde Muiño139a,139h
+, S.H. Connell33c
+, I.A. Connelly57
+,
+S. Constantinescu27b
+, F. Conventi70a,ap
+, A.M. Cooper-Sarkar134
+, F. Cormier175, K.J.R. Cormier167
+,
+L.D. Corpe95
+, M. Corradi73a,73b
+, E.E. Corrigan97
+, F. Corriveau104,ad
+, M.J. Costa174
+, F. Costanza5
+,
+D. Costanzo149
+, G. Cowan94
+, J.W. Cowley32
+, J. Crane101
+, K. Cranmer125, S.J. Crawley57
+, R.A. Creager136
+,
+S. Crépé-Renaudin58
+, F. Crescioli135
+, M. Cristinziani24
+, V. Croft170
+, G. Crosetti41b,41a
+, A. Cueto5
+,
+T. Cuhadar Donszelmann171
+, A.R. Cukierman153
+, W.R. Cunningham57
+, S. Czekierda85
+, P. Czodrowski36
+,
+43
+
+=== PDF PAGE 44 ===
+M.M. Czurylo61b
+, M.J. Da Cunha Sargedas De Sousa60b
+, J.V. Da Fonseca Pinto81b
+, C. Da Via101
+,
+W. Dabrowski84a
+, F. Dachs36
+, T. Dado28a
+, S. Dahbi33e
+, T. Dai106
+, C. Dallapiccola103
+, M. Dam40
+,
+G. D’amen29
+, V. D’Amico75a,75b
+, J. Damp100
+, J.R. Dandoy136
+, M.F. Daneri30
+, N.S. Dann101
+,
+M. Danninger152
+, V. Dao36
+, G. Darbo55b, O. Dartsi5
+, A. Dattagupta131, T. Daubney46
+, S. D’Auria69a,69b
+,
+C. David168b
+, T. Davidek142
+, D.R. Davis49
+, I. Dawson149
+, K. De8
+, R. De Asmundis70a
+, M. De Beurs120
+,
+S. De Castro23b,23a
+, S. De Cecco73a,73b
+, N. De Groot119
+, P. de Jong120
+, H. De la Torre107
+, A. De Maria15c
+,
+D. De Pedis73a
+, A. De Salvo73a
+, U. De Sanctis74a,74b
+, M. De Santis74a,74b
+, A. De Santo156
+,
+J.B. De Vivie De Regie65
+, C. Debenedetti145, D.V. Dedovich80
+, A.M. Deiana42
+, J. Del Peso99
+,
+Y. Delabat Diaz46
+, D. Delgove65
+, F. Deliot144,q
+, C.M. Delitzsch7
+, M. Della Pietra70a,70b
+, D. Della Volpe54
+,
+A. Dell’Acqua36
+, L. Dell’Asta74a,74b
+, M. Delmastro5
+, C. Delporte65
+, P.A. Delsart58
+, D.A. DeMarco167
+,
+S. Demers183
+, M. Demichev80, G. Demontigny110
+, S.P. Denisov123
+, L. D’Eramo121
+, D. Derendarz85
+,
+J.E. Derkaoui35e
+, F. Derue135
+, P. Dervan91
+, K. Desch24
+, C. Deterre46
+, K. Dette167
+, C. Deutsch24
+,
+M.R. Devesa30
+, P.O. Deviveiros36
+, F.A. Di Bello73a,73b
+, A. Di Ciaccio74a,74b
+, L. Di Ciaccio5
+,
+W.K. Di Clemente136
+, C. Di Donato70a,70b
+, A. Di Girolamo36
+, G. Di Gregorio72a,72b
+, B. Di Micco75a,75b
+,
+R. Di Nardo75a,75b
+, K.F. Di Petrillo59
+, R. Di Sipio167
+, C. Diaconu102
+, F.A. Dias40
+, T. Dias Do Vale139a
+,
+M.A. Diaz146a
+, F.G. Diaz Capriles24
+, J. Dickinson18
+, E.B. Diehl106
+, J. Dietrich19
+, S. Díez Cornell46
+,
+A. Dimitrievska18
+, W. Ding15b
+, J. Dingfelder24
+, F. Dittus36
+, F. Djama102
+, T. Djobava159b
+, J.I. Djuvsland17
+,
+M.A.B. Do Vale147
+, M. Dobre27b
+, D. Dodsworth26
+, C. Doglioni97
+, J. Dolejsi142
+, Z. Dolezal142
+,
+M. Donadelli81c
+, B. Dong60c
+, J. Donini38
+, A. D’onofrio15c
+, M. D’Onofrio91
+, J. Dopke143
+, A. Doria70a
+,
+M.T. Dova89
+, A.T. Doyle57
+, E. Drechsler152
+, E. Dreyer152
+, T. Dreyer53
+, A.S. Drobac170
+, D. Du60b
+,
+T.A. du Pree120
+, Y. Duan60b
+, F. Dubinin111
+, M. Dubovsky28a
+, A. Dubreuil54
+, E. Duchovni180
+,
+G. Duckeck114
+, O.A. Ducu27b
+, D. Duda115
+, A. Dudarev36
+, A.C. Dudder100, E.M. Duffield18
+, L. Duflot65
+,
+M. Dührssen36
+, C. Dülsen182
+, M. Dumancic180
+, A.E. Dumitriu27b
+, A.K. Duncan57
+, M. Dunford61a
+,
+A. Duperrin102
+, H. Duran Yildiz4a
+, M. Düren56
+, A. Durglishvili159b, D. Duschinger48
+, B. Dutta46
+,
+D. Duvnjak1
+, G.I. Dyckes136
+, M. Dyndal36
+, S. Dysch101
+, B.S. Dziedzic85, K.M. Ecker115
+,
+M.G. Eggleston49
+, T. Eifert8
+, G. Eigen17
+, K. Einsweiler18
+, T. Ekelof172
+, H. El Jarrari35f, R. El Kosseifi102
+,
+V. Ellajosyula172
+, M. Ellert172
+, F. Ellinghaus182
+, A.A. Elliot93
+, N. Ellis36
+, J. Elmsheuser29
+, M. Elsing36
+,
+D. Emeliyanov143
+, A. Emerman39
+, Y. Enari163
+, M.B. Epland49
+, J. Erdmann47
+, A. Ereditato20
+,
+P.A. Erland85
+, M. Errenst36
+, M. Escalier65
+, C. Escobar174
+, O. Estrada Pastor174
+, E. Etzion161
+, H. Evans66
+,
+M.O. Evans156
+, A. Ezhilov137
+, F. Fabbri57
+, L. Fabbri23b,23a
+, V. Fabiani119
+, G. Facini178
+,
+R.M. Faisca Rodrigues Pereira139a, R.M. Fakhrutdinov123
+, S. Falciano73a
+, P.J. Falke24
+, S. Falke36
+,
+J. Faltova142
+, Y. Fang15a
+, Y. Fang15a
+, G. Fanourakis44
+, M. Fanti69a,69b
+, M. Faraj67a,67c,s
+, A. Farbin8
+,
+A. Farilla75a
+, E.M. Farina71a,71b
+, T. Farooque107
+, S.M. Farrington50
+, P. Farthouat36
+, F. Fassi35f
+,
+P. Fassnacht36
+, D. Fassouliotis9
+, M. Faucci Giannelli50
+, W.J. Fawcett32
+, L. Fayard65
+, O.L. Fedin137,p
+,
+W. Fedorko175
+, A. Fehr20
+, M. Feickert173
+, L. Feligioni102
+, A. Fell149
+, C. Feng60b
+, M. Feng49
+,
+M.J. Fenton171, A.B. Fenyuk123
+, S.W. Ferguson43
+, J. Ferrando46, A. Ferrante173
+, A. Ferrari172
+,
+P. Ferrari120
+, R. Ferrari71a
+, D.E. Ferreira de Lima61b
+, A. Ferrer174
+, D. Ferrere54
+, C. Ferretti106
+,
+F. Fiedler100
+, A. Filipčič92
+, F. Filthaut119
+, K.D. Finelli25
+, M.C.N. Fiolhais139a,139c,a
+, L. Fiorini174
+,
+F. Fischer114
+, W.C. Fisher107
+, I. Fleck151
+, P. Fleischmann106
+, T. Flick182
+, B.M. Flierl114
+, L. Flores136
+,
+L.R. Flores Castillo63a
+, F.M. Follega76a,76b
+, N. Fomin17
+, J.H. Foo167
+, G.T. Forcolin76a,76b, B.C. Forland66
+,
+A. Formica144
+, F.A. Förster14
+, A.C. Forti101, E. Fortin102
+, M.G. Foti134
+, D. Fournier65
+, H. Fox90
+,
+P. Francavilla72a,72b
+, S. Francescato73a,73b
+, M. Franchini23b,23a
+, S. Franchino61a, D. Francis36
+, L. Franco5
+,
+L. Franconi20
+, M. Franklin59
+, G. Frattari73a,73b
+, A.N. Fray93, P.M. Freeman21
+, B. Freund110
+,
+W.S. Freund81b
+, E.M. Freundlich47
+, D.C. Frizzell128
+, D. Froidevaux36
+, J.A. Frost134
+, M. Fujimoto126
+,
+C. Fukunaga164
+, E. Fullana Torregrosa174, T. Fusayasu116
+, J. Fuster174
+, A. Gabrielli23b,23a
+, A. Gabrielli18
+,
+S. Gadatsch54
+, P. Gadow115
+, G. Gagliardi55b,55a
+, L.G. Gagnon110
+, B. Galhardo139a
+, G.E. Gallardo134
+,
+E.J. Gallas134
+, B.J. Gallop143, G. Galster40
+, R. Gamboa Goni93
+, K.K. Gan127
+, S. Ganguly180
+, J. Gao60a
+,
+44
+
+=== PDF PAGE 45 ===
+Y. Gao50
+, Y.S. Gao31,m
+, F.M. Garay Walls146a
+, C. García174
+, J.E. García Navarro174
+, J.A. García Pascual15a
+,
+C. Garcia-Argos52
+, M. Garcia-Sciveres18
+, R.W. Gardner37
+, N. Garelli153
+, S. Gargiulo52, C.A. Garner167
+,
+V. Garonne133
+, S.J. Gasiorowski148
+, P. Gaspar81b
+, A. Gaudiello55b,55a
+, G. Gaudio71a
+, I.L. Gavrilenko111
+,
+A. Gavrilyuk124
+, C. Gay175
+, G. Gaycken46
+, E.N. Gazis10
+, A.A. Geanta27b
+, C.M. Gee145
+, C.N.P. Gee143
+,
+J. Geisen97
+, M. Geisen100
+, C. Gemme55b
+, M.H. Genest58, C. Geng106
+, S. Gentile73a,73b
+, S. George94
+,
+T. Geralis44, L.O. Gerlach53
+, P. Gessinger-Befurt100
+, G. Gessner47
+, S. Ghasemi151
+,
+M. Ghasemi Bostanabad176
+, M. Ghneimat151
+, A. Ghosh65
+, A. Ghosh78
+, B. Giacobbe23b
+, S. Giagu73a,73b
+,
+N. Giangiacomi23b,23a
+, P. Giannetti72a
+, A. Giannini70a,70b, G. Giannini14
+, S.M. Gibson94
+, M. Gignac145
+,
+D. Gillberg34
+, G. Gilles182
+, D.M. Gingrich3,ao
+, M.P. Giordani67a,67c
+, P.F. Giraud144
+, G. Giugliarelli67a,67c
+,
+D. Giugni69a
+, F. Giuli74a,74b
+, S. Gkaitatzis162
+, I. Gkialas9,h
+, E.L. Gkougkousis14
+, P. Gkountoumis10
+,
+L.K. Gladilin113
+, C. Glasman99
+, J. Glatzer14
+, P.C.F. Glaysher46, A. Glazov46
+, G.R. Gledhill131
+,
+I. Gnesi41b,b
+, M. Goblirsch-Kolb26, D. Godin110
+, S. Goldfarb105
+, T. Golling54
+, D. Golubkov123
+,
+A. Gomes139a,139b
+, R. Goncalves Gama53
+, R. Gonçalo139a
+, G. Gonella131
+, L. Gonella21
+, A. Gongadze80
+,
+F. Gonnella21
+, J.L. Gonski39
+, S. González de la Hoz174
+, S. Gonzalez Fernandez14
+, C. Gonzalez Renteria18
+,
+R. Gonzalez Suarez172
+, S. Gonzalez-Sevilla54
+, G.R. Gonzalvo Rodriguez174
+, L. Goossens36
+,
+N.A. Gorasia21
+, P.A. Gorbounov124
+, H.A. Gordon29
+, B. Gorini36
+, E. Gorini68a,68b
+, A. Gorišek92
+,
+A.T. Goshaw49
+, M.I. Gostkin80
+, C.A. Gottardo119
+, M. Gouighri35b
+, A.G. Goussiou148
+, N. Govender33c
+,
+C. Goy5
+, E. Gozani160
+, I. Grabowska-Bold84a
+, E.C. Graham91, J. Gramling171
+, E. Gramstad133
+,
+S. Grancagnolo19
+, M. Grandi156, V. Gratchev137
+, P.M. Gravila27f
+, F.G. Gravili68a,68b
+, C. Gray57
+,
+H.M. Gray18
+, C. Grefe24
+, K. Gregersen97
+, I.M. Gregor46
+, P. Grenier153
+, K. Grevtsov46
+, C. Grieco14
+,
+N.A. Grieser128, A.A. Grillo145
+, K. Grimm31,l
+, S. Grinstein14,y
+, J.-F. Grivaz65
+, S. Groh100
+, E. Gross180
+,
+J. Grosse-Knetter53
+, Z.J. Grout95, C. Grud106
+, A. Grummer118
+, J.C. Grundy134
+, L. Guan106
+, W. Guan181
+,
+C. Gubbels175
+, J. Guenther36
+, A. Guerguichon65
+, J.G.R. Guerrero Rojas174
+, F. Guescini115
+, D. Guest171
+,
+R. Gugel52
+, T. Guillemin5
+, S. Guindon36, U. Gul57
+, J. Guo60c
+, W. Guo106
+, Y. Guo60a
+, Z. Guo102
+,
+R. Gupta46
+, S. Gurbuz12c
+, G. Gustavino128
+, M. Guth52
+, P. Gutierrez128
+, C. Gutschow95
+, C. Guyot144
+,
+C. Gwenlan134
+, C.B. Gwilliam91
+, E.S. Haaland133
+, A. Haas125
+, C. Haber18
+, H.K. Hadavand8
+, A. Hadef60a
+,
+M. Haleem177
+, J. Haley129
+, J.J. Hall149
+, G. Halladjian107
+, G.D. Hallewell102, K. Hamacher182
+, P. Hamal130
+,
+K. Hamano176
+, H. Hamdaoui35f
+, M. Hamer24
+, G.N. Hamity50
+, K. Han60a,x
+, L. Han60a
+, S. Han18
+,
+Y.F. Han167
+, K. Hanagaki82,v
+, M. Hance145
+, D.M. Handl114
+, B. Haney136
+, M.D. Hank37
+, R. Hankache135
+,
+E. Hansen97
+, J.B. Hansen40
+, J.D. Hansen40
+, M.C. Hansen24
+, P.H. Hansen40
+, E.C. Hanson101
+, K. Hara169
+,
+T. Harenberg182
+, S. Harkusha108, P.F. Harrison178
+, N.M. Hartman153
+, N.M. Hartmann114
+, Y. Hasegawa150
+,
+A. Hasib50
+, S. Hassani144
+, S. Haug20
+, R. Hauser107
+, L.B. Havener39
+, M. Havranek141
+, C.M. Hawkes21
+,
+R.J. Hawkings36
+, S. Hayashida117
+, D. Hayden107
+, C. Hayes106
+, R.L. Hayes175
+, C.P. Hays134
+, J.M. Hays93
+,
+H.S. Hayward91
+, S.J. Haywood143
+, F. He60a
+, M.P. Heath50
+, V. Hedberg97
+, S. Heer24
+, A.L. Heggelund133
+,
+K.K. Heidegger52
+, W.D. Heidorn79
+, J. Heilman34
+, S. Heim46
+, T. Heim18
+, B. Heinemann46,am
+,
+J.G. Heinlein136
+, J.J. Heinrich131
+, L. Heinrich36
+, J. Hejbal140
+, L. Helary61b
+, A. Held125
+, S. Hellesund133
+,
+C.M. Helling145
+, S. Hellman45a,45b
+, C. Helsens36, R.C.W. Henderson90, Y. Heng181
+, L. Henkelmann32
+,
+A.M. Henriques Correia36
+, H. Herde26
+, Y. Hernández Jiménez33e, H. Herr100
+, M.G. Herrmann114
+,
+T. Herrmann48
+, G. Herten52
+, R. Hertenberger114
+, L. Hervas36
+, T.C. Herwig136
+, G.G. Hesketh95
+,
+N.P. Hessey168a
+, H. Hibi83, A. Higashida163
+, S. Higashino82
+, E. Higón-Rodriguez174, K. Hildebrand37
+,
+J.C. Hill32
+, K.K. Hill29, K.H. Hiller46
+, S.J. Hillier21
+, M. Hils48
+, I. Hinchliffe18
+, F. Hinterkeuser24
+,
+M. Hirose132
+, S. Hirose52
+, D. Hirschbuehl182
+, B. Hiti92, O. Hladik140
+, D.R. Hlaluku33e
+, J. Hobbs155
+,
+N. Hod180
+, M.C. Hodgkinson149
+, A. Hoecker36
+, D. Hohn52, D. Hohov65
+, T. Holm24
+, T.R. Holmes37
+,
+M. Holzbock114
+, L.B.A.H. Hommels32
+, T.M. Hong138
+, J.C. Honig52
+, A. Hönle115
+, B.H. Hooberman173
+,
+W.H. Hopkins6
+, Y. Horii117
+, P. Horn48
+, L.A. Horyn37
+, S. Hou158, A. Hoummada35a
+, J. Howarth57
+,
+J. Hoya89
+, M. Hrabovsky130, J. Hrdinka77
+, I. Hristova19, J. Hrivnac65
+, A. Hrynevich109
+, T. Hryn’ova5
+,
+P.J. Hsu64
+, S.-C. Hsu148
+, Q. Hu29
+, S. Hu60c
+, Y.F. Hu15a,15d
+, D.P. Huang95
+, Y. Huang60a
+, Y. Huang15a
+,
+45
+
+=== PDF PAGE 46 ===
+Z. Hubacek141
+, F. Hubaut102
+, M. Huebner24
+, F. Huegging24
+, T.B. Huffman134
+, M. Huhtinen36
+,
+R.F.H. Hunter34, P. Huo155
+, N. Huseynov80,ae
+, J. Huston107
+, J. Huth59
+, R. Hyneman106
+, S. Hyrych28a
+,
+G. Iacobucci54
+, G. Iakovidis29
+, I. Ibragimov151
+, L. Iconomidou-Fayard65
+, P. Iengo36, R. Ignazzi40
+,
+O. Igonkina120,aa,*
+, R. Iguchi163
+, T. Iizawa54
+, Y. Ikegami82
+, M. Ikeno82
+, D. Iliadis162, N. Ilic119,167,ad
+,
+F. Iltzsche48
+, H. Imam35a
+, G. Introzzi71a,71b
+, M. Iodice75a
+, K. Iordanidou168a
+, V. Ippolito73a,73b
+,
+M.F. Isacson172
+, M. Ishino163
+, W. Islam129
+, C. Issever19,46
+, S. Istin160, F. Ito169
+, J.M. Iturbe Ponce63a
+,
+R. Iuppa76a,76b
+, A. Ivina180
+, H. Iwasaki82
+, J.M. Izen43
+, V. Izzo70a
+, P. Jacka140
+, P. Jackson1
+, R.M. Jacobs46
+,
+B.P. Jaeger152
+, V. Jain2
+, G. Jäkel182, K.B. Jakobi100
+, K. Jakobs52
+, T. Jakoubek180
+, J. Jamieson57
+,
+K.W. Janas84a
+, R. Jansky54
+, M. Janus53
+, P.A. Janus84a
+, G. Jarlskog97
+, A.E. Jaspan91, N. Javadov80,ae
+,
+T. Javůrek36
+, M. Javurkova103
+, F. Jeanneau144
+, L. Jeanty131
+, J. Jejelava159a
+, A. Jelinskas178
+, P. Jenni52,c
+,
+N. Jeong46
+, S. Jézéquel5
+, H. Ji181
+, J. Jia155, H. Jiang79, Y. Jiang60a, Z. Jiang153
+, S. Jiggins52
+,
+F.A. Jimenez Morales38
+, J. Jimenez Pena115
+, S. Jin15c
+, A. Jinaru27b
+, O. Jinnouchi165
+, H. Jivan33e
+,
+P. Johansson149
+, K.A. Johns7
+, C.A. Johnson66
+, R.W.L. Jones90
+, S.D. Jones156
+, S. Jones7
+, T.J. Jones91
+,
+J. Jongmanns61a, P.M. Jorge139a
+, J. Jovicevic36
+, X. Ju18
+, J.J. Junggeburth115
+, A. Juste Rozas14,y
+,
+A. Kaczmarska85, M. Kado73a,73b
+, H. Kagan127
+, M. Kagan153, A. Kahn39
+, C. Kahra100
+, T. Kaji179
+,
+E. Kajomovitz160
+, C.W. Kalderon29, A. Kaluza100
+, A. Kamenshchikov123
+, M. Kaneda163
+, N.J. Kang145
+,
+S. Kang79
+, Y. Kano117, J. Kanzaki82
+, L.S. Kaplan181
+, D. Kar33e
+, K. Karava134
+, M.J. Kareem168b
+,
+I. Karkanias162
+, S.N. Karpov80
+, Z.M. Karpova80
+, V. Kartvelishvili90
+, A.N. Karyukhin123
+,
+A. Kastanas45a,45b
+, C. Kato60d,60c
+, J. Katzy46
+, K. Kawade150
+, K. Kawagoe88
+, T. Kawaguchi117
+,
+T. Kawamoto144, G. Kawamura53
+, E.F. Kay176
+, S. Kazakos14
+, V.F. Kazanin122b,122a
+, R. Keeler176
+,
+R. Kehoe42
+, J.S. Keller34, E. Kellermann97
+, D. Kelsey156
+, J.J. Kempster21
+, J. Kendrick21
+, K.E. Kennedy39
+,
+O. Kepka140
+, S. Kersten182
+, B.P. Kerševan92
+, S. Ketabchi Haghighat167
+, M. Khader173, F. Khalil-Zada13
+,
+M. Khandoga144
+, A. Khanov129
+, A.G. Kharlamov122b,122a
+, T. Kharlamova122b,122a
+, E.E. Khoda175
+,
+A. Khodinov166
+, T.J. Khoo54
+, G. Khoriauli177
+, E. Khramov80
+, J. Khubua159b
+, S. Kido83
+, M. Kiehn54
+,
+C.R. Kilby94
+, E. Kim165
+, Y.K. Kim37
+, N. Kimura95
+, O.M. Kind19, B.T. King91,*
+, D. Kirchmeier48
+,
+J. Kirk143
+, A.E. Kiryunin115
+, T. Kishimoto163, D.P. Kisliuk167
+, V. Kitali46
+, C. Kitsaki10
+, O. Kivernyk24
+,
+T. Klapdor-Kleingrothaus52
+, M. Klassen61a
+, C. Klein34
+, M.H. Klein106
+, M. Klein91
+, U. Klein91
+,
+K. Kleinknecht100
+, P. Klimek121
+, A. Klimentov29
+, T. Klingl24
+, T. Klioutchnikova36
+, F.F. Klitzner114
+,
+P. Kluit120
+, S. Kluth115
+, E. Kneringer77
+, E.B.F.G. Knoops102
+, A. Knue52, D. Kobayashi88, T. Kobayashi163
+,
+M. Kobel48
+, M. Kocian153, T. Kodama163
+, P. Kodys142
+, D.M. Koeck156
+, P.T. Koenig24
+, T. Koffas34
+,
+N.M. Köhler36
+, M. Kolb144
+, I. Koletsou5
+, T. Komarek130, T. Kondo82
+, K. Köneke52
+, A.X.Y. Kong1
+,
+A.C. König119
+, T. Kono126, V. Konstantinides95
+, N. Konstantinidis95
+, B. Konya97
+, R. Kopeliansky66
+,
+S. Koperny84a
+, K. Korcyl85
+, K. Kordas162, G. Koren161
+, A. Korn95
+, I. Korolkov14, E.V. Korolkova149
+,
+N. Korotkova113
+, O. Kortner115
+, S. Kortner115
+, V.V. Kostyukhin149,166
+, A. Kotsokechagia65
+, A. Kotwal49
+,
+A. Koulouris10
+, A. Kourkoumeli-Charalampidi71a,71b
+, C. Kourkoumelis9
+, E. Kourlitis6
+, V. Kouskoura29
+,
+A.B. Kowalewska85
+, R. Kowalewski176
+, W. Kozanecki101
+, A.S. Kozhin123
+, V.A. Kramarenko113
+,
+G. Kramberger92
+, D. Krasnopevtsev60a
+, M.W. Krasny135
+, A. Krasznahorkay36
+, D. Krauss115
+,
+J.A. Kremer100
+, J. Kretzschmar91
+, P. Krieger167
+, F. Krieter114
+, A. Krishnan61b
+, K. Krizka18
+,
+K. Kroeninger47
+, H. Kroha115
+, J. Kroll140
+, J. Kroll136
+, K.S. Krowpman107
+, U. Kruchonak80
+, H. Krüger24
+,
+N. Krumnack79
+, M.C. Kruse49
+, J.A. Krzysiak85
+, T. Kubota105
+, O. Kuchinskaia166
+, S. Kuday4b
+,
+D. Kuechler46
+, J.T. Kuechler46
+, S. Kuehn36
+, A. Kugel61a
+, T. Kuhl46
+, V. Kukhtin80
+, Y. Kulchitsky108,ah
+,
+S. Kuleshov146b, Y.P. Kulinich173
+, M. Kuna58
+, T. Kunigo86
+, A. Kupco140, T. Kupfer47
+, O. Kuprash52
+,
+H. Kurashige83
+, L.L. Kurchaninov168a
+, Y.A. Kurochkin108
+, A. Kurova112, M.G. Kurth15a,15d
+,
+E.S. Kuwertz36
+, M. Kuze165
+, A.K. Kvam148
+, J. Kvita130
+, T. Kwan104
+, F. La Ruffa41b,41a
+, C. Lacasta174
+,
+F. Lacava73a,73b
+, D.P.J. Lack101
+, H. Lacker19
+, D. Lacour135
+, E. Ladygin80
+, R. Lafaye5
+, B. Laforge135
+,
+T. Lagouri146b
+, S. Lai53
+, I.K. Lakomiec84a
+, J.E. Lambert128, S. Lammers66
+, W. Lampl7
+, C. Lampoudis162
+,
+E. Lançon29
+, U. Landgraf52
+, M.P.J. Landon93
+, M.C. Lanfermann54
+, V.S. Lang52
+, J.C. Lange53
+,
+46
+
+=== PDF PAGE 47 ===
+R.J. Langenberg103
+, A.J. Lankford171
+, F. Lanni29
+, K. Lantzsch24
+, A. Lanza71a
+, A. Lapertosa55b,55a
+,
+S. Laplace135
+, J.F. Laporte144
+, T. Lari69a
+, F. Lasagni Manghi23b,23a
+, M. Lassnig36
+, T.S. Lau63a
+,
+A. Laudrain65
+, A. Laurier34
+, M. Lavorgna70a,70b
+, S.D. Lawlor94
+, M. Lazzaroni69a,69b, B. Le101
+,
+E. Le Guirriec102
+, A. Lebedev79
+, M. LeBlanc7
+, T. LeCompte6
+, F. Ledroit-Guillon58, A.C.A. Lee95
+,
+C.A. Lee29
+, G.R. Lee17
+, L. Lee59
+, S.C. Lee158
+, S. Lee79
+, B. Lefebvre168a
+, H.P. Lefebvre94
+, M. Lefebvre176
+,
+C. Leggett18
+, K. Lehmann152
+, N. Lehmann20
+, G. Lehmann Miotto36
+, W.A. Leight46
+, A. Leisos162,w
+,
+M.A.L. Leite81c
+, C.E. Leitgeb114
+, R. Leitner142
+, D. Lellouch180,*
+, K.J.C. Leney42
+, T. Lenz24
+, R. Leone7
+,
+S. Leone72a
+, C. Leonidopoulos50
+, A. Leopold135
+, C. Leroy110
+, R. Les167
+, C.G. Lester32
+, M. Levchenko137
+,
+J. Levêque5
+, D. Levin106
+, L.J. Levinson180
+, D.J. Lewis21
+, B. Li15b
+, B. Li106
+, C-Q. Li60a, F. Li60c
+, H. Li60a
+,
+H. Li60b
+, J. Li60c
+, K. Li148
+, L. Li60c
+, M. Li15a,15d, Q. Li15a,15d
+, Q.Y. Li60a
+, S. Li60d,60c
+, X. Li46
+, Y. Li46
+,
+Z. Li60b
+, Z. Li134
+, Z. Li104
+, Z. Liang15a
+, M. Liberatore46
+, B. Liberti74a
+, A. Liblong167
+, K. Lie63c, S. Lim29
+,
+C.Y. Lin32
+, K. Lin107
+, T.H. Lin100
+, R.A. Linck66, R.E. Lindley7
+, J.H. Lindon21
+, A. Linss46
+, A.L. Lionti54
+,
+E. Lipeles136
+, A. Lipniacka17
+, T.M. Liss173,an
+, A. Lister175
+, J.D. Little8
+, B. Liu79
+, B.X. Liu6
+, H.B. Liu29
+,
+H. Liu106
+, J.B. Liu60a
+, J.K.K. Liu37
+, K. Liu60d,60c
+, M. Liu60a
+, P. Liu15a
+, Y. Liu46
+, Y. Liu15a,15d
+, Y.L. Liu106
+,
+Y.W. Liu60a
+, M. Livan71a,71b
+, A. Lleres58
+, J. Llorente Merino152
+, S.L. Lloyd93
+, C.Y. Lo63b
+,
+E.M. Lobodzinska46
+, P. Loch7
+, S. Loffredo74a,74b
+, T. Lohse19
+, K. Lohwasser149
+, M. Lokajicek140
+,
+J.D. Long173
+, R.E. Long90
+, L. Longo36
+, K.A. Looper127, I. Lopez Paz101
+, A. Lopez Solis149
+, J. Lorenz114
+,
+N. Lorenzo Martinez5
+, A.M. Lory114, P.J. Lösel114
+, A. Lösle52
+, X. Lou46
+, X. Lou15a
+, A. Lounis65
+, J. Love6
+,
+P.A. Love90
+, J.J. Lozano Bahilo174
+, M. Lu60a
+, Y.J. Lu64
+, H.J. Lubatti148
+, C. Luci73a,73b
+, A. Lucotte58
+,
+C. Luedtke52
+, F. Luehring66
+, I. Luise135, L. Luminari73a
+, B. Lund-Jensen154
+, M.S. Lutz161
+, D. Lynn29
+,
+H. Lyons91
+, R. Lysak140
+, E. Lytken97
+, F. Lyu15a
+, V. Lyubushkin80
+, T. Lyubushkina80
+, H. Ma29
+, L.L. Ma60b
+,
+Y. Ma95
+, G. Maccarrone51
+, A. Macchiolo115
+, C.M. Macdonald149
+, J.C. MacDonald149
+,
+J. Machado Miguens136
+, D. Madaffari174
+, R. Madar38
+, W.F. Mader48
+, M. Madugoda Ralalage Don129
+,
+N. Madysa48
+, J. Maeda83
+, T. Maeno29
+, M. Maerker48
+, V. Magerl52, N. Magini79
+, J. Magro67a,67c,s
+,
+D.J. Mahon39
+, C. Maidantchik81b, T. Maier114
+, A. Maio139a,139b,139d
+, K. Maj84a
+, O. Majersky28a
+,
+S. Majewski131, Y. Makida82
+, N. Makovec65
+, B. Malaescu135
+, Pa. Malecki85
+, V.P. Maleev137
+, F. Malek58
+,
+U. Mallik78
+, D. Malon6
+, C. Malone32, S. Maltezos10, S. Malyukov80
+, J. Mamuzic174
+, G. Mancini51
+,
+I. Mandić92
+, L. Manhaes de Andrade Filho81a
+, I.M. Maniatis162
+, J. Manjarres Ramos48
+, K.H. Mankinen97
+,
+A. Mann114
+, A. Manousos77
+, B. Mansoulie144
+, I. Manthos162
+, S. Manzoni120
+, A. Marantis162
+,
+G. Marceca30
+, L. Marchese134
+, G. Marchiori135
+, M. Marcisovsky140
+, L. Marcoccia74a,74b
+, C. Marcon97
+,
+C.A. Marin Tobon36
+, M. Marjanovic128
+, Z. Marshall18
+, M.U.F. Martensson172
+, S. Marti-Garcia174
+,
+C.B. Martin127
+, T.A. Martin178
+, V.J. Martin50
+, B. Martin dit Latour17
+, L. Martinelli75a,75b
+, M. Martinez14,y
+,
+P. Martinez Agullo174
+, V.I. Martinez Outschoorn103
+, S. Martin-Haugh143
+, V.S. Martoiu27b
+,
+A.C. Martyniuk95
+, A. Marzin36
+, S.R. Maschek115
+, L. Masetti100
+, T. Mashimo163
+, R. Mashinistov111
+,
+J. Masik101
+, A.L. Maslennikov122b,122a
+, L. Massa23b,23a
+, P. Massarotti70a,70b
+, P. Mastrandrea72a,72b
+,
+A. Mastroberardino41b,41a
+, T. Masubuchi163, D. Matakias29
+, A. Matic114, N. Matsuzawa163
+, P. Mättig24
+,
+J. Maurer27b
+, B. Maček92
+, D.A. Maximov122b,122a
+, R. Mazini158
+, I. Maznas162
+, S.M. Mazza145
+,
+J.P. Mc Gowan104
+, S.P. Mc Kee106
+, T.G. McCarthy115
+, W.P. McCormack18
+, E.F. McDonald105
+,
+J.A. Mcfayden36
+, G. Mchedlidze159b, M.A. McKay42
+, K.D. McLean176
+, S.J. McMahon143
+,
+P.C. McNamara105
+, C.J. McNicol178
+, R.A. McPherson176,ad
+, J.E. Mdhluli33e
+, Z.A. Meadows103
+,
+S. Meehan36
+, T. Megy38
+, S. Mehlhase114
+, A. Mehta91
+, B. Meirose43
+, D. Melini160
+, B.R. Mellado Garcia33e
+,
+J.D. Mellenthin53
+, M. Melo28a
+, F. Meloni46
+, A. Melzer24
+, S.B. Menary101
+, E.D. Mendes Gouveia139a,139e
+,
+L. Meng36
+, X.T. Meng106
+, S. Menke115
+, E. Meoni41b,41a, S. Mergelmeyer19, S.A.M. Merkt138
+,
+C. Merlassino134
+, P. Mermod54
+, L. Merola70a,70b
+, C. Meroni69a, G. Merz106
+, O. Meshkov113,111
+,
+J.K.R. Meshreki151
+, A. Messina73a,73b
+, J. Metcalfe6
+, A.S. Mete6
+, C. Meyer66
+, J-P. Meyer144
+,
+H. Meyer Zu Theenhausen61a
+, F. Miano156
+, M. Michetti19
+, R.P. Middleton143
+, L. Mĳović50
+,
+G. Mikenberg180
+, M. Mikestikova140
+, M. Mikuž92
+, H. Mildner149
+, M. Milesi105
+, A. Milic167
+, C.D. Milke42
+,
+47
+
+=== PDF PAGE 48 ===
+D.W. Miller37
+, A. Milov180, D.A. Milstead45a,45b
+, R.A. Mina153
+, A.A. Minaenko123
+, M. Miñano Moya174
+,
+I.A. Minashvili159b
+, A.I. Mincer125
+, B. Mindur84a
+, M. Mineev80, Y. Minegishi163
+, L.M. Mir14
+,
+M. Mironova134
+, A. Mirto68a,68b
+, K.P. Mistry136
+, T. Mitani179, J. Mitrevski114
+, V.A. Mitsou174
+,
+M. Mittal60c
+, O. Miu167
+, A. Miucci20
+, P.S. Miyagawa149
+, A. Mizukami82
+, J.U. Mjörnmark97
+,
+T. Mkrtchyan61a
+, M. Mlynarikova142
+, T. Moa45a,45b
+, S. Mobius53
+, K. Mochizuki110
+, P. Mogg114
+,
+S. Mohapatra39
+, R. Moles-Valls24, M.C. Mondragon107
+, K. Mönig46
+, E. Monnier102
+, A. Montalbano152
+,
+J. Montejo Berlingen36
+, M. Montella95
+, F. Monticelli89
+, S. Monzani69a
+, N. Morange65
+, D. Moreno22a
+,
+M. Moreno Llácer174
+, C. Moreno Martinez14
+, P. Morettini55b
+, M. Morgenstern160
+, S. Morgenstern48
+,
+D. Mori152
+, M. Morii59
+, M. Morinaga179
+, V. Morisbak133
+, A.K. Morley36
+, G. Mornacchi36
+, A.P. Morris95
+,
+L. Morvaj155
+, P. Moschovakos36
+, B. Moser120, M. Mosidze159b
+, T. Moskalets144
+, H.J. Moss149
+, J. Moss31,n
+,
+E.J.W. Moyse103
+, S. Muanza102
+, J. Mueller138, R.S.P. Mueller114
+, D. Muenstermann90
+, G.A. Mullier97
+,
+D.P. Mungo69a,69b
+, J.L. Munoz Martinez14
+, F.J. Munoz Sanchez101
+, P. Murin28b
+, W.J. Murray178,143
+,
+A. Murrone69a,69b
+, J.M. Muse128
+, M. Muškinja18
+, C. Mwewa33a
+, A.G. Myagkov123,aj, A.A. Myers138
+,
+J. Myers131
+, M. Myska141
+, B.P. Nachman18
+, O. Nackenhorst47
+, A.Nag Nag48
+, K. Nagai134
+, K. Nagano82
+,
+Y. Nagasaka62
+, J.L. Nagle29
+, E. Nagy102
+, A.M. Nairz36
+, Y. Nakahama117
+, K. Nakamura82
+, T. Nakamura163
+,
+H. Nanjo132
+, F. Napolitano61a
+, R.F. Naranjo Garcia46
+, R. Narayan42
+, I. Naryshkin137
+, T. Naumann46
+,
+G. Navarro22a
+, P.Y. Nechaeva111
+, F. Nechansky46
+, T.J. Neep21
+, A. Negri71a,71b
+, M. Negrini23b
+, C. Nellist119
+,
+M.E. Nelson45a,45b
+, S. Nemecek140
+, M. Nessi36,e
+, M.S. Neubauer173
+, F. Neuhaus100, M. Neumann182
+,
+R. Newhouse175
+, P.R. Newman21
+, C.W. Ng138, Y.S. Ng19
+, Y.W.Y. Ng171
+, B. Ngair35f
+, H.D.N. Nguyen102
+,
+T. Nguyen Manh110
+, E. Nibigira38
+, R.B. Nickerson134
+, R. Nicolaidou144
+, D.S. Nielsen40
+, J. Nielsen145
+,
+N. Nikiforou11
+, V. Nikolaenko123,aj
+, I. Nikolic-Audit135
+, K. Nikolopoulos21
+, P. Nilsson29
+, H.R. Nindhito54
+,
+Y. Ninomiya82
+, A. Nisati73a
+, N. Nishu60c
+, R. Nisius115, I. Nitsche47
+, T. Nitta179
+, T. Nobe163
+, D.L. Noel32
+,
+Y. Noguchi86
+, I. Nomidis135, M.A. Nomura29, M. Nordberg36
+, J. Novak92
+, T. Novak92
+, O. Novgorodova48
+,
+R. Novotny141, L. Nozka130
+, K. Ntekas171, E. Nurse95
+, F.G. Oakham34,ao, H. Oberlack115
+, J. Ocariz135
+,
+A. Ochi83
+, I. Ochoa39
+, J.P. Ochoa-Ricoux146a
+, K. O’Connor26
+, S. Oda88
+, S. Odaka82
+, S. Oerdek53
+,
+A. Ogrodnik84a
+, A. Oh101
+, S.H. Oh49
+, C.C. Ohm154
+, H. Oide165
+, M.L. Ojeda167
+, H. Okawa169
+,
+Y. Okazaki86, M.W. O’Keefe91
+, Y. Okumura163, T. Okuyama82, A. Olariu27b
+, L.F. Oleiro Seabra139a
+,
+S.A. Olivares Pino146a
+, D. Oliveira Damazio29
+, D. Oliveira Goncalves81a
+, J.L. Oliver1
+, M.J.R. Olsson171
+,
+A. Olszewski85
+, J. Olszowska85
+, D.C. O’Neil152
+, A.P. O’neill134
+, A. Onofre139a,139e
+, P.U.E. Onyisi11
+,
+H. Oppen133, R.G. Oreamuno Madriz121
+, M.J. Oreglia37
+, G.E. Orellana89
+, D. Orestano75a,75b
+,
+N. Orlando14
+, R.S. Orr167
+, V. O’Shea57
+, R. Ospanov60a
+, G. Otero y Garzon30
+, H. Otono88
+, P.S. Ott61a
+,
+G.J. Ottino18
+, M. Ouchrif35e
+, J. Ouellette29
+, F. Ould-Saada133
+, A. Ouraou144,*
+, Q. Ouyang15a
+, M. Owen57
+,
+R.E. Owen21
+, V.E. Ozcan12c
+, N. Ozturk8
+, J. Pacalt130
+, H.A. Pacey32
+, K. Pachal49
+, A. Pacheco Pages14
+,
+C. Padilla Aranda14
+, S. Pagan Griso18
+, M. Paganini183, G. Palacino66
+, S. Palazzo50
+, S. Palestini36
+,
+M. Palka84b
+, D. Pallin38
+, P. Palni84a, I. Panagoulias10
+, C.E. Pandini36
+, J.G. Panduro Vazquez94
+, P. Pani46
+,
+G. Panizzo67a,67c
+, L. Paolozzi54
+, C. Papadatos110, K. Papageorgiou9,h
+, S. Parajuli42
+, A. Paramonov6
+,
+C. Paraskevopoulos10
+, D. Paredes Hernandez63b
+, S.R. Paredes Saenz134
+, B. Parida180
+, T.H. Park167
+,
+A.J. Parker31
+, M.A. Parker32
+, F. Parodi55b,55a
+, E.W. Parrish121
+, J.A. Parsons39
+, U. Parzefall52
+,
+L. Pascual Dominguez135
+, V.R. Pascuzzi18
+, J.M.P. Pasner145
+, F. Pasquali120
+, E. Pasqualucci73a
+,
+S. Passaggio55b
+, F. Pastore94
+, P. Pasuwan45a,45b
+, S. Pataraia100
+, J.R. Pater101
+, A. Pathak181,j, J. Patton91
+,
+T. Pauly36
+, J. Pearkes153
+, B. Pearson115
+, M. Pedersen133
+, L. Pedraza Diaz119
+, R. Pedro139a
+, T. Peiffer53
+,
+S.V. Peleganchuk122b,122a
+, O. Penc140
+, H. Peng60a
+, B.S. Peralva81a
+, M.M. Perego65
+,
+A.P. Pereira Peixoto139a
+, L. Pereira Sanchez45a,45b
+, D.V. Perepelitsa29
+, F. Peri19
+, L. Perini69a,69b
+,
+H. Pernegger36
+, S. Perrella139a
+, A. Perrevoort120
+, K. Peters46
+, R.F.Y. Peters101
+, B.A. Petersen36
+,
+T.C. Petersen40
+, E. Petit102
+, A. Petridis1
+, C. Petridou162
+, F. Petrucci75a,75b
+, M. Pettee183
+, N.E. Pettersson103
+,
+K. Petukhova142
+, A. Peyaud144
+, R. Pezoa146d
+, L. Pezzotti71a,71b
+, T. Pham105
+, F.H. Phillips107
+,
+P.W. Phillips143
+, M.W. Phipps173
+, G. Piacquadio155
+, E. Pianori18
+, A. Picazio103, R.H. Pickles101
+,
+48
+
+=== PDF PAGE 49 ===
+R. Piegaia30, D. Pietreanu27b
+, J.E. Pilcher37
+, A.D. Pilkington101
+, M. Pinamonti67a,67c
+, J.L. Pinfold3
+,
+C. Pitman Donaldson95
+, M. Pitt161
+, L. Pizzimento74a,74b
+, M.-A. Pleier29
+, V. Pleskot142, E. Plotnikova80
+,
+P. Podberezko122b,122a
+, R. Poettgen97
+, R. Poggi54
+, L. Poggioli135
+, I. Pogrebnyak107
+, D. Pohl24
+,
+I. Pokharel53
+, G. Polesello71a
+, A. Poley18
+, A. Policicchio73a,73b
+, R. Polifka142
+, A. Polini23b
+, C.S. Pollard46
+,
+V. Polychronakos29
+, D. Ponomarenko112
+, L. Pontecorvo36
+, S. Popa27a
+, G.A. Popeneciu27d
+, L. Portales5
+,
+D.M. Portillo Quintero58
+, S. Pospisil141
+, K. Potamianos46
+, I.N. Potrap80
+, C.J. Potter32
+, H. Potti11
+,
+T. Poulsen97
+, J. Poveda174
+, T.D. Powell149
+, G. Pownall46
+, M.E. Pozo Astigarraga36
+, P. Pralavorio102
+,
+S. Prell79
+, D. Price101
+, M. Primavera68a
+, M.L. Proffitt148
+, N. Proklova112
+, K. Prokofiev63c
+, F. Prokoshin80
+,
+S. Protopopescu29
+, J. Proudfoot6
+, M. Przybycien84a
+, D. Pudzha137
+, A. Puri173, P. Puzo65
+, J. Qian106
+,
+Y. Qin101
+, A. Quadt53
+, M. Queitsch-Maitland36, A. Qureshi1
+, M. Racko28a
+, F. Ragusa69a,69b
+, G. Rahal98
+,
+J.A. Raine54
+, S. Rajagopalan29, A. Ramirez Morales93
+, K. Ran15a,15d
+, T. Rashid65
+, D.M. Rauch46
+,
+F. Rauscher114
+, S. Rave100
+, B. Ravina149
+, I. Ravinovich180
+, J.H. Rawling101
+, M. Raymond36
+, A.L. Read133
+,
+N.P. Readioff58
+, M. Reale68a,68b
+, D.M. Rebuzzi71a,71b
+, G. Redlinger29
+, K. Reeves43
+, L. Rehnisch19
+,
+J. Reichert136
+, D. Reikher161, A. Reiss100
+, A. Rej151
+, C. Rembser36
+, A. Renardi46
+, M. Renda27b
+,
+M. Rescigno73a
+, S. Resconi69a
+, E.D. Resseguie18
+, S. Rettie95, B. Reynolds127
+, E. Reynolds21
+,
+O.L. Rezanova122b,122a
+, P. Reznicek142
+, E. Ricci76a,76b
+, R. Richter115
+, S. Richter46
+, E. Richter-Was84b
+,
+O. Ricken24
+, M. Ridel135
+, P. Rieck115
+, O. Rifki46, M. Rĳssenbeek155
+, A. Rimoldi71a,71b
+, M. Rimoldi46
+,
+L. Rinaldi23b
+, G. Ripellino154
+, I. Riu14
+, P. Rivadeneira46
+, J.C. Rivera Vergara176
+, F. Rizatdinova129
+,
+E. Rizvi93
+, C. Rizzi36
+, R.T. Roberts101
+, S.H. Robertson104,ad
+, M. Robin46
+, D. Robinson32
+,
+C.M. Robles Gajardo146d
+, M. Robles Manzano100
+, A. Robson57
+, A. Rocchi74a,74b
+, E. Rocco100
+,
+C. Roda72a,72b
+, S. Rodriguez Bosca174, D. Rodriguez Rodriguez174
+, A.M. Rodríguez Vera168b, S. Roe36
+,
+O. Røhne133
+, R. Röhrig115
+, R.A. Rojas146d
+, B. Roland52
+, C.P.A. Roland66
+, J. Roloff29
+, A. Romaniouk112
+,
+M. Romano23b,23a
+, N. Rompotis91
+, M. Ronzani125
+, L. Roos135
+, S. Rosati73a, G. Rosin103
+, B.J. Rosser136
+,
+E. Rossi46
+, E. Rossi75a,75b
+, E. Rossi70a,70b
+, L.P. Rossi55b
+, L. Rossini69a,69b
+, R. Rosten14
+, M. Rotaru27b
+,
+B. Rottler52
+, D. Rousseau65
+, G. Rovelli71a,71b
+, A. Roy11
+, D. Roy33e
+, A. Rozanov102
+, Y. Rozen160
+,
+X. Ruan33e
+, F. Rühr52
+, A. Ruiz-Martinez174
+, A. Rummler36
+, Z. Rurikova52
+, N.A. Rusakovich80
+,
+H.L. Russell104
+, L. Rustige38,47
+, J.P. Rutherfoord7
+, E.M. Rüttinger149, M. Rybar39
+, G. Rybkin65
+,
+E.B. Rye133
+, A. Ryzhov123
+, J.A. Sabater Iglesias46
+, P. Sabatini53
+, S. Sacerdoti65
+, H.F-W. Sadrozinski145
+,
+R. Sadykov80
+, F. Safai Tehrani73a
+, B. Safarzadeh Samani156
+, M. Safdari153
+, P. Saha121
+, S. Saha104
+,
+M. Sahinsoy61a
+, A. Sahu182
+, M. Saimpert36
+, M. Saito163
+, T. Saito163
+, H. Sakamoto163, D. Salamani54
+,
+G. Salamanna75a,75b
+, A. Salnikov153
+, J. Salt174
+, A. Salvador Salas14
+, D. Salvatore41b,41a
+, F. Salvatore156
+,
+A. Salvucci63a,63b,63c
+, A. Salzburger36, J. Samarati36
+, D. Sammel52
+, D. Sampsonidis162
+,
+D. Sampsonidou162
+, J. Sánchez174
+, A. Sanchez Pineda67a,36,67c
+, H. Sandaker133
+, C.O. Sander46
+,
+I.G. Sanderswood90
+, M. Sandhoff182
+, C. Sandoval22a
+, D.P.C. Sankey143
+, M. Sannino55b,55a
+, Y. Sano117
+,
+A. Sansoni51
+, C. Santoni38
+, H. Santos139a,139b
+, S.N. Santpur18
+, A. Santra174
+, A. Sapronov80
+,
+J.G. Saraiva139a,139d
+, O. Sasaki82
+, K. Sato169
+, F. Sauerburger52
+, E. Sauvan5
+, P. Savard167,ao
+, R. Sawada163
+,
+C. Sawyer143
+, L. Sawyer96,ai, I. Sayago Galvan174
+, C. Sbarra23b
+, A. Sbrizzi23a
+, T. Scanlon95
+,
+J. Schaarschmidt148
+, P. Schacht115
+, B.M. Schachtner114
+, D. Schaefer37
+, L. Schaefer136
+, J. Schaeffer100
+,
+S. Schaepe36
+, U. Schäfer100
+, A.C. Schaffer65
+, D. Schaile114
+, R.D. Schamberger155
+, E. Schanet114
+,
+N. Scharmberg101
+, V.A. Schegelsky137
+, D. Scheirich142
+, F. Schenck19
+, M. Schernau171
+, C. Schiavi55b,55a
+,
+L.K. Schildgen24
+, Z.M. Schillaci26
+, E.J. Schioppa68a,68b
+, M. Schioppa41b,41a
+, K.E. Schleicher52
+,
+S. Schlenker36
+, K.R. Schmidt-Sommerfeld115
+, K. Schmieden36
+, C. Schmitt100
+, S. Schmitt46
+,
+J.C. Schmoeckel46
+, L. Schoeffel144
+, A. Schoening61b
+, P.G. Scholer52
+, E. Schopf134
+, M. Schott100
+,
+J.F.P. Schouwenberg119
+, J. Schovancova36
+, S. Schramm54
+, F. Schroeder182
+, A. Schulte100
+,
+H-C. Schultz-Coulon61a
+, M. Schumacher52
+, B.A. Schumm145
+, Ph. Schune144
+, A. Schwartzman153
+,
+T.A. Schwarz106
+, Ph. Schwemling144
+, R. Schwienhorst107
+, A. Sciandra145
+, G. Sciolla26, M. Scodeggio46
+,
+M. Scornajenghi41b,41a
+, F. Scuri72a, F. Scutti105
+, L.M. Scyboz115
+, C.D. Sebastiani73a,73b
+, P. Seema19
+,
+49
+
+=== PDF PAGE 50 ===
+S.C. Seidel118
+, A. Seiden145
+, B.D. Seidlitz29
+, T. Seiss37
+, C. Seitz46
+, J.M. Seixas81b
+, G. Sekhniaidze70a
+,
+S.J. Sekula42
+, N. Semprini-Cesari23b,23a
+, S. Sen49
+, C. Serfon29
+, L. Serin65
+, L. Serkin67a,67b
+, M. Sessa60a
+,
+H. Severini128
+, S. Sevova153
+, F. Sforza55b,55a
+, A. Sfyrla54
+, E. Shabalina53
+, J.D. Shahinian145
+,
+N.W. Shaikh45a,45b
+, D. Shaked Renous180
+, L.Y. Shan15a
+, M. Shapiro18
+, A. Sharma134
+, A.S. Sharma1
+,
+P.B. Shatalov124
+, K. Shaw156
+, S.M. Shaw101, M. Shehade180, Y. Shen128, A.D. Sherman25
+, P. Sherwood95
+,
+L. Shi95
+, S. Shimizu82
+, C.O. Shimmin183, Y. Shimogama179
+, M. Shimojima116
+, I.P.J. Shipsey134
+,
+S. Shirabe165
+, M. Shiyakova80,ab
+, J. Shlomi180, A. Shmeleva111
+, M.J. Shochet37
+, J. Shojaii105
+,
+D.R. Shope128
+, S. Shrestha127
+, E.M. Shrif33e
+, E. Shulga180
+, P. Sicho140
+, A.M. Sickles173
+,
+E. Sideras Haddad33e
+, O. Sidiropoulou36
+, A. Sidoti23b,23a
+, F. Siegert48, Dj. Sĳacki16
+, M.Jr. Silva181
+,
+M.V. Silva Oliveira81a
+, S.B. Silverstein45a, S. Simion65
+, R. Simoniello100, C.J. Simpson-allsop21
+,
+S. Simsek12b
+, P. Sinervo167
+, V. Sinetckii113
+, S. Singh152
+, M. Sioli23b,23a
+, I. Siral131
+, S.Yu. Sivoklokov113
+,
+J. Sjölin45a,45b
+, A. Skaf53, E. Skorda97
+, P. Skubic128
+, M. Slawinska85
+, K. Sliwa170
+, R. Slovak142
+,
+V. Smakhtin180
+, B.H. Smart143
+, J. Smiesko28b
+, N. Smirnov112
+, S.Yu. Smirnov112
+, Y. Smirnov112
+,
+L.N. Smirnova113,t
+, O. Smirnova97
+, J.W. Smith53
+, M. Smizanska90
+, K. Smolek141
+, A. Smykiewicz85
+,
+A.A. Snesarev111
+, H.L. Snoek120
+, I.M. Snyder131
+, S. Snyder29
+, R. Sobie176,ad
+, A. Soffer161
+, A. Søgaard50
+,
+F. Sohns53
+, C.A. Solans Sanchez36
+, E.Yu. Soldatov112
+, U. Soldevila174
+, A.A. Solodkov123
+,
+A. Soloshenko80
+, O.V. Solovyanov123
+, V. Solovyev137
+, P. Sommer149
+, H. Son170
+, W. Song143
+,
+W.Y. Song168b
+, A. Sopczak141, A.L. Sopio95
+, F. Sopkova28b
+, C.L. Sotiropoulou72a,72b
+,
+S. Sottocornola71a,71b
+, R. Soualah67a,67c,g
+, A.M. Soukharev122b,122a
+, D. South46
+, S. Spagnolo68a,68b
+,
+M. Spalla115
+, M. Spangenberg178
+, F. Spanò94
+, D. Sperlich52
+, T.M. Spieker61a
+, G. Spigo36
+, M. Spina156
+,
+D.P. Spiteri57
+, M. Spousta142
+, A. Stabile69a,69b
+, B.L. Stamas121
+, R. Stamen61a
+, M. Stamenkovic120
+,
+E. Stanecka85
+, B. Stanislaus134
+, M.M. Stanitzki46
+, M. Stankaityte134
+, B. Stapf120
+, E.A. Starchenko123
+,
+G.H. Stark145
+, J. Stark58
+, P. Staroba140
+, P. Starovoitov61a
+, S. Stärz104
+, R. Staszewski85
+, G. Stavropoulos44
+,
+M. Stegler46
+, P. Steinberg29
+, A.L. Steinhebel131
+, B. Stelzer152
+, H.J. Stelzer138
+, O. Stelzer-Chilton168a
+,
+H. Stenzel56
+, T.J. Stevenson156
+, G.A. Stewart36
+, M.C. Stockton36
+, G. Stoicea27b
+, M. Stolarski139a
+,
+S. Stonjek115
+, A. Straessner48
+, J. Strandberg154
+, S. Strandberg45a,45b
+, M. Strauss128
+, T. Strebler102
+,
+P. Strizenec28b
+, R. Ströhmer177
+, D.M. Strom131
+, R. Stroynowski42
+, A. Strubig50
+, S.A. Stucci29
+, B. Stugu17
+,
+J. Stupak128
+, N.A. Styles46
+, D. Su153
+, W. Su60c,148
+, S. Suchek61a
+, V.V. Sulin111
+, M.J. Sullivan91
+,
+D.M.S. Sultan54
+, S. Sultansoy4c
+, T. Sumida86
+, S. Sun106
+, X. Sun101
+, K. Suruliz156
+, C.J.E. Suster157
+,
+M.R. Sutton156
+, S. Suzuki82
+, M. Svatos140
+, M. Swiatlowski168a, S.P. Swift2
+, T. Swirski177
+,
+A. Sydorenko100
+, I. Sykora28a
+, M. Sykora142
+, T. Sykora142
+, D. Ta100
+, K. Tackmann46,z, J. Taenzer161
+,
+A. Taffard171
+, R. Tafirout168a
+, H. Takai29, R. Takashima87
+, K. Takeda83
+, T. Takeshita150
+, E.P. Takeva50
+,
+Y. Takubo82
+, M. Talby102
+, A.A. Talyshev122b,122a, K.C. Tam63b, N.M. Tamir161
+, J. Tanaka163
+, R. Tanaka65
+,
+S. Tapia Araya173
+, S. Tapprogge100
+, A. Tarek Abouelfadl Mohamed107
+, S. Tarem160
+, K. Tariq60b
+,
+G. Tarna27b,d
+, G.F. Tartarelli69a
+, P. Tas142
+, M. Tasevsky140, T. Tashiro86
+, E. Tassi41b,41a
+,
+A. Tavares Delgado139a
+, Y. Tayalati35f
+, A.J. Taylor50
+, G.N. Taylor105
+, W. Taylor168b, H. Teagle91
+,
+A.S. Tee90
+, R. Teixeira De Lima153
+, P. Teixeira-Dias94, H. Ten Kate36
+, J.J. Teoh120, S. Terada82
+,
+K. Terashi163
+, J. Terron99
+, S. Terzo14
+, M. Testa51
+, R.J. Teuscher167,ad
+, S.J. Thais183
+, N. Themistokleous50
+,
+T. Theveneaux-Pelzer46
+, F. Thiele40, D.W. Thomas94, J.O. Thomas42
+, J.P. Thomas21
+, E.A. Thompson46
+,
+P.D. Thompson21
+, E. Thomson136
+, E.J. Thorpe93
+, R.E. Ticse Torres53
+, V.O. Tikhomirov111,ak
+,
+Yu.A. Tikhonov122b,122a, S. Timoshenko112
+, P. Tipton183
+, S. Tisserant102
+, K. Todome23b,23a
+,
+S. Todorova-Nova142, S. Todt48
+, J. Tojo88
+, S. Tokár28a
+, K. Tokushuku82
+, E. Tolley127
+, R. Tombs32
+,
+K.G. Tomiwa33e
+, M. Tomoto117
+, L. Tompkins153
+, P. Tornambe103
+, E. Torrence131
+, H. Torres48
+,
+E. Torró Pastor148
+, C. Tosciri134
+, J. Toth102,ac
+, D.R. Tovey149, A. Traeet17
+, C.J. Treado125
+, T. Trefzger177
+,
+F. Tresoldi156
+, A. Tricoli29
+, I.M. Trigger168a
+, S. Trincaz-Duvoid135
+, D.A. Trischuk175, W. Trischuk167
+,
+B. Trocmé58
+, A. Trofymov65
+, C. Troncon69a
+, F. Trovato156
+, L. Truong33c
+, M. Trzebinski85
+, A. Trzupek85
+,
+F. Tsai46
+, J.C-L. Tseng134, P.V. Tsiareshka108,ah
+, A. Tsirigotis162,w
+, V. Tsiskaridze155, E.G. Tskhadadze159a
+,
+50
+
+=== PDF PAGE 51 ===
+M. Tsopoulou162
+, I.I. Tsukerman124
+, V. Tsulaia18
+, S. Tsuno82
+, D. Tsybychev155
+, Y. Tu63b
+, A. Tudorache27b
+,
+V. Tudorache27b, T.T. Tulbure27a
+, A.N. Tuna59
+, S. Turchikhin80
+, D. Turgeman180, I. Turk Cakir4b,u
+,
+R.J. Turner21
+, R. Turra69a
+, P.M. Tuts39, S. Tzamarias162
+, E. Tzovara100
+, G. Ucchielli47, K. Uchida163
+,
+F. Ukegawa169
+, G. Unal36
+, A. Undrus29
+, G. Unel171
+, F.C. Ungaro105
+, Y. Unno82
+, K. Uno163
+, J. Urban28b
+,
+P. Urquĳo105
+, G. Usai8
+, Z. Uysal12d
+, V. Vacek141
+, B. Vachon104
+, K.O.H. Vadla133
+, A. Vaidya95
+,
+C. Valderanis114
+, E. Valdes Santurio45a,45b
+, M. Valente54
+, S. Valentinetti23b,23a
+, A. Valero174
+, L. Valéry46
+,
+R.A. Vallance21
+, A. Vallier36, J.A. Valls Ferrer174
+, T.R. Van Daalen14
+, P. Van Gemmeren6
+,
+I. Van Vulpen120
+, M. Vanadia74a,74b
+, W. Vandelli36
+, M. Vandenbroucke144
+, E.R. Vandewall129
+,
+A. Vaniachine166
+, D. Vannicola73a,73b
+, R. Vari73a
+, E.W. Varnes7
+, C. Varni55b,55a
+, T. Varol158
+,
+D. Varouchas65
+, K.E. Varvell157
+, M.E. Vasile27b
+, G.A. Vasquez176
+, F. Vazeille38
+, D. Vazquez Furelos14
+,
+T. Vazquez Schroeder36
+, J. Veatch53
+, V. Vecchio101
+, M.J. Veen120
+, L.M. Veloce167
+, F. Veloso139a,139c
+,
+S. Veneziano73a
+, A. Ventura68a,68b, N. Venturi36
+, A. Verbytskyi115
+, V. Vercesi71a
+, M. Verducci72a,72b
+,
+C.M. Vergel Infante79
+, C. Vergis24
+, W. Verkerke120
+, A.T. Vermeulen120
+, J.C. Vermeulen120
+, C. Vernieri153
+,
+M.C. Vetterli152,ao
+, N. Viaux Maira146d
+, T. Vickey149
+, O.E. Vickey Boeriu149
+, G.H.A. Viehhauser134
+,
+L. Vigani61b
+, M. Villa23b,23a
+, M. Villaplana Perez3
+, E.M. Villhauer50
+, E. Vilucchi51
+, M.G. Vincter34
+,
+G.S. Virdee21
+, A. Vishwakarma50
+, C. Vittori23b,23a
+, I. Vivarelli156
+, M. Vogel182
+, P. Vokac141
+,
+S.E. von Buddenbrock33e
+, E. Von Toerne24
+, V. Vorobel142
+, K. Vorobev112
+, M. Vos174
+, J.H. Vossebeld91
+,
+M. Vozak101
+, N. Vranjes16
+, M. Vranjes Milosavljevic16, V. Vrba141
+, M. Vreeswĳk120
+, R. Vuillermet36
+,
+I. Vukotic37
+, S. Wada169
+, P. Wagner24
+, W. Wagner182
+, J. Wagner-Kuhr114
+, S. Wahdan182
+, H. Wahlberg89
+,
+R. Wakasa169
+, V.M. Walbrecht115
+, J. Walder90
+, R. Walker114, S.D. Walker94
+, W. Walkowiak151
+,
+V. Wallangen45a,45b
+, A.M. Wang59
+, A.Z. Wang181
+, C. Wang60c, F. Wang181
+, H. Wang18
+, H. Wang3
+,
+J. Wang63a
+, J. Wang61b
+, P. Wang42, Q. Wang128
+, R.-J. Wang100
+, R. Wang60a
+, R. Wang6
+, S.M. Wang158
+,
+W.T. Wang60a
+, W. Wang15c
+, W.X. Wang60a
+, Y. Wang60a
+, Z. Wang60c
+, C. Wanotayaroj46
+, A. Warburton104
+,
+C.P. Ward32
+, D.R. Wardrope95
+, N. Warrack57, A. Washbrook50
+, A.T. Watson21
+, M.F. Watson21
+,
+G. Watts148
+, B.M. Waugh95
+, A.F. Webb11
+, C. Weber29
+, M.S. Weber20
+, S.A. Weber34
+, S.M. Weber61a
+,
+A.R. Weidberg134
+, J. Weingarten47
+, M. Weirich100
+, C. Weiser52
+, P.S. Wells36
+, T. Wenaus29
+, T. Wengler36
+,
+S. Wenig36
+, N. Wermes24
+, M.D. Werner79
+, M. Wessels61a, T.D. Weston20
+, K. Whalen131, N.L. Whallon148
+,
+A.M. Wharton90
+, A.S. White106
+, A. White8
+, M.J. White1
+, D. Whiteson171
+, B.W. Whitmore90
+,
+W. Wiedenmann181
+, C. Wiel48
+, M. Wielers143, N. Wieseotte100
+, C. Wiglesworth40
+, L.A.M. Wiik-Fuchs52
+,
+H.G. Wilkens36
+, L.J. Wilkins94, H.H. Williams136
+, S. Williams32, C. Willis107
+, S. Willocq103
+,
+P.J. Windischhofer134
+, I. Wingerter-Seez5
+, E. Winkels156
+, F. Winklmeier131
+, B.T. Winter52, M. Wittgen153
+,
+M. Wobisch96
+, A. Wolf100
+, T.M.H. Wolf120
+, R. Wölker134, J. Wollrath52
+, M.W. Wolter85
+,
+H. Wolters139a,139c
+, V.W.S. Wong175
+, N.L. Woods145
+, S.D. Worm46
+, B.K. Wosiek85
+, K.W. Woźniak85
+,
+K. Wraight57
+, S.L. Wu181
+, X. Wu54
+, Y. Wu60a
+, J. Wuerzinger134
+, T.R. Wyatt101
+, B.M. Wynne50
+, S. Xella40
+,
+Z. Xi106
+, L. Xia178, J. Xiang63c
+, X. Xiao106
+, X. Xie60a, I. Xiotidis156
+, D. Xu15a, H. Xu60a
+, H. Xu60a
+,
+L. Xu29
+, T. Xu144
+, W. Xu106
+, Z. Xu60b
+, Z. Xu153
+, B. Yabsley157
+, S. Yacoob33a, K. Yajima132
+, D.P. Yallup95
+,
+N. Yamaguchi88
+, Y. Yamaguchi165
+, A. Yamamoto82, M. Yamatani163
+, T. Yamazaki163
+, Y. Yamazaki83
+,
+J. Yan60c
+, Z. Yan25
+, H.J. Yang60c,60d
+, H.T. Yang18
+, S. Yang60a
+, T. Yang63c
+, X. Yang60b,58
+, Y. Yang163
+,
+Z. Yang60a
+, W-M. Yao18
+, Y.C. Yap46
+, Y. Yasu82
+, E. Yatsenko60c,60d
+, H. Ye15c
+, J. Ye42
+, S. Ye29
+,
+I. Yeletskikh80
+, M.R. Yexley90
+, E. Yigitbasi25
+, P. Yin39
+, K. Yorita179
+, K. Yoshihara79
+, C.J.S. Young36
+,
+C. Young153
+, J. Yu79
+, R. Yuan60b,i
+, X. Yue61a
+, M. Zaazoua35f
+, B. Zabinski85
+, G. Zacharis10
+, E. Zaffaroni54
+,
+J. Zahreddine135
+, A.M. Zaitsev123,aj
+, T. Zakareishvili159b
+, N. Zakharchuk34
+, S. Zambito59
+, D. Zanzi36
+,
+D.R. Zaripovas57
+, S.V. Zeißner47
+, C. Zeitnitz182
+, G. Zemaityte134
+, J.C. Zeng173
+, O. Zenin123
+, T. Ženiš28a
+,
+D. Zerwas65
+, M. Zgubič134
+, B. Zhang15c
+, D.F. Zhang15b
+, G. Zhang15b
+, J. Zhang6
+, K. Zhang15a
+,
+L. Zhang15c
+, L. Zhang60a
+, M. Zhang173
+, R. Zhang181, S. Zhang106
+, X. Zhang60c
+, X. Zhang60b
+,
+Y. Zhang15a,15d, Z. Zhang63a
+, Z. Zhang65
+, P. Zhao49, Z. Zhao60a
+, A. Zhemchugov80
+, Z. Zheng106
+,
+D. Zhong173, B. Zhou106
+, C. Zhou181
+, H. Zhou7
+, M.S. Zhou15a,15d
+, M. Zhou155
+, N. Zhou60c, Y. Zhou7
+,
+51
+
+=== PDF PAGE 52 ===
+C.G. Zhu60b
+, C. Zhu15a,15d
+, H.L. Zhu60a
+, H. Zhu15a
+, J. Zhu106
+, Y. Zhu60a
+, X. Zhuang15a
+, K. Zhukov111
+,
+V. Zhulanov122b,122a
+, D. Zieminska66
+, N.I. Zimine80
+, S. Zimmermann52,*, Z. Zinonos115, M. Ziolkowski151
+,
+L. Živković16
+, G. Zobernig181
+, A. Zoccoli23b,23a
+, K. Zoch53
+, T.G. Zorbas149
+, R. Zou37
+, L. Zwalinski36
+.
+1Department of Physics, University of Adelaide, Adelaide; Australia.
+2
+Physics Department, SUNY Albany, Albany NY; United States of America.
+3Department of Physics, University of Alberta, Edmonton AB; Canada.
+4 (𝑎)Department of Physics, Ankara University, Ankara;(𝑏)
+Istanbul Aydin University, Application and
+Research Center for Advanced Studies, Istanbul;(𝑐)Division of Physics, TOBB University of Economics
+and Technology, Ankara; Turkey.
+5
+LAPP, Université Grenoble Alpes, Université Savoie Mont Blanc, CNRS/IN2P3, Annecy; France.
+6High Energy Physics Division, Argonne National Laboratory, Argonne IL; United States of America.
+7Department of Physics, University of Arizona, Tucson AZ; United States of America.
+8Department of Physics, University of Texas at Arlington, Arlington TX; United States of America.
+9
+Physics Department, National and Kapodistrian University of Athens, Athens; Greece.
+10Physics Department, National Technical University of Athens, Zografou; Greece.
+11Department of Physics, University of Texas at Austin, Austin TX; United States of America.
+12 (𝑎)Bahcesehir University, Faculty of Engineering and Natural Sciences, Istanbul;(𝑏)
+Istanbul Bilgi
+University, Faculty of Engineering and Natural Sciences, Istanbul;(𝑐)Department of Physics, Bogazici
+University, Istanbul;(𝑑)Department of Physics Engineering, Gaziantep University, Gaziantep; Turkey.
+13Institute of Physics, Azerbaĳan Academy of Sciences, Baku; Azerbaĳan.
+14Institut de Física d’Altes Energies (IFAE), Barcelona Institute of Science and Technology, Barcelona;
+Spain.
+15 (𝑎)
+Institute of High Energy Physics, Chinese Academy of Sciences, Beĳing;(𝑏)
+Physics Department,
+Tsinghua University, Beĳing;(𝑐)Department of Physics, Nanjing University, Nanjing;(𝑑)University of
+Chinese Academy of Science (UCAS), Beĳing; China.
+16Institute of Physics, University of Belgrade, Belgrade; Serbia.
+17Department for Physics and Technology, University of Bergen, Bergen; Norway.
+18Physics Division, Lawrence Berkeley National Laboratory and University of California, Berkeley CA;
+United States of America.
+19Institut für Physik, Humboldt Universität zu Berlin, Berlin; Germany.
+20Albert Einstein Center for Fundamental Physics and Laboratory for High Energy Physics, University of
+Bern, Bern; Switzerland.
+21School of Physics and Astronomy, University of Birmingham, Birmingham; United Kingdom.
+22 (𝑎)
+Facultad de Ciencias y Centro de Investigaciónes, Universidad Antonio Nariño,
+Bogotá;(𝑏)Departamento de Física, Universidad Nacional de Colombia, Bogotá, Colombia; Colombia.
+23 (𝑎)
+INFN Bologna and Universita’ di Bologna, Dipartimento di Fisica;(𝑏)
+INFN Sezione di Bologna; Italy.
+24Physikalisches Institut, Universität Bonn, Bonn; Germany.
+25Department of Physics, Boston University, Boston MA; United States of America.
+26Department of Physics, Brandeis University, Waltham MA; United States of America.
+27 (𝑎)
+Transilvania University of Brasov, Brasov;(𝑏)Horia Hulubei National Institute of Physics and Nuclear
+Engineering, Bucharest;(𝑐)Department of Physics, Alexandru Ioan Cuza University of Iasi,
+Iasi;(𝑑)National Institute for Research and Development of Isotopic and Molecular Technologies, Physics
+Department, Cluj-Napoca;(𝑒)University Politehnica Bucharest, Bucharest;( 𝑓 )West University in Timisoara,
+Timisoara; Romania.
+28 (𝑎)
+Faculty of Mathematics, Physics and Informatics, Comenius University, Bratislava;(𝑏)Department of
+Subnuclear Physics, Institute of Experimental Physics of the Slovak Academy of Sciences, Kosice; Slovak
+52
+
+=== PDF PAGE 53 ===
+Republic.
+29Physics Department, Brookhaven National Laboratory, Upton NY; United States of America.
+30Departamento de Física, Universidad de Buenos Aires, Buenos Aires; Argentina.
+31California State University, CA; United States of America.
+32Cavendish Laboratory, University of Cambridge, Cambridge; United Kingdom.
+33 (𝑎)Department of Physics, University of Cape Town, Cape Town;(𝑏)
+iThemba Labs, Western
+Cape;(𝑐)Department of Mechanical Engineering Science, University of Johannesburg,
+Johannesburg;(𝑑)University of South Africa, Department of Physics, Pretoria;(𝑒)
+School of Physics,
+University of the Witwatersrand, Johannesburg; South Africa.
+34Department of Physics, Carleton University, Ottawa ON; Canada.
+35 (𝑎)
+Faculté des Sciences Ain Chock, Réseau Universitaire de Physique des Hautes Energies - Université
+Hassan II, Casablanca;(𝑏)
+Faculté des Sciences, Université Ibn-Tofail, Kénitra;(𝑐)
+Faculté des Sciences
+Semlalia, Université Cadi Ayyad, LPHEA-Marrakech;(𝑑)Moroccan Foundation for Advanced Science
+Innovation and Research (MAScIR), Rabat;(𝑒)
+Faculté des Sciences, Université Mohamed Premier and
+LPTPM, Oujda;( 𝑓 )
+Faculté des sciences, Université Mohammed V, Rabat; Morocco.
+36CERN, Geneva; Switzerland.
+37Enrico Fermi Institute, University of Chicago, Chicago IL; United States of America.
+38LPC, Université Clermont Auvergne, CNRS/IN2P3, Clermont-Ferrand; France.
+39Nevis Laboratory, Columbia University, Irvington NY; United States of America.
+40Niels Bohr Institute, University of Copenhagen, Copenhagen; Denmark.
+41 (𝑎)Dipartimento di Fisica, Università della Calabria, Rende;(𝑏)
+INFN Gruppo Collegato di Cosenza,
+Laboratori Nazionali di Frascati; Italy.
+42Physics Department, Southern Methodist University, Dallas TX; United States of America.
+43Physics Department, University of Texas at Dallas, Richardson TX; United States of America.
+44National Centre for Scientific Research "Demokritos", Agia Paraskevi; Greece.
+45 (𝑎)Department of Physics, Stockholm University;(𝑏)Oskar Klein Centre, Stockholm; Sweden.
+46Deutsches Elektronen-Synchrotron DESY, Hamburg and Zeuthen; Germany.
+47Lehrstuhl für Experimentelle Physik IV, Technische Universität Dortmund, Dortmund; Germany.
+48Institut für Kern- und Teilchenphysik, Technische Universität Dresden, Dresden; Germany.
+49Department of Physics, Duke University, Durham NC; United States of America.
+50SUPA - School of Physics and Astronomy, University of Edinburgh, Edinburgh; United Kingdom.
+51INFN e Laboratori Nazionali di Frascati, Frascati; Italy.
+52Physikalisches Institut, Albert-Ludwigs-Universität Freiburg, Freiburg; Germany.
+53II. Physikalisches Institut, Georg-August-Universität Göttingen, Göttingen; Germany.
+54Département de Physique Nucléaire et Corpusculaire, Université de Genève, Genève; Switzerland.
+55 (𝑎)Dipartimento di Fisica, Università di Genova, Genova;(𝑏)
+INFN Sezione di Genova; Italy.
+56II. Physikalisches Institut, Justus-Liebig-Universität Giessen, Giessen; Germany.
+57SUPA - School of Physics and Astronomy, University of Glasgow, Glasgow; United Kingdom.
+58LPSC, Université Grenoble Alpes, CNRS/IN2P3, Grenoble INP, Grenoble; France.
+59Laboratory for Particle Physics and Cosmology, Harvard University, Cambridge MA; United States of
+America.
+60 (𝑎)Department of Modern Physics and State Key Laboratory of Particle Detection and Electronics,
+University of Science and Technology of China, Hefei;(𝑏)
+Institute of Frontier and Interdisciplinary Science
+and Key Laboratory of Particle Physics and Particle Irradiation (MOE), Shandong University,
+Qingdao;(𝑐)
+School of Physics and Astronomy, Shanghai Jiao Tong University, KLPPAC-MoE, SKLPPC,
+Shanghai;(𝑑)
+Tsung-Dao Lee Institute, Shanghai; China.
+61 (𝑎)Kirchhoff-Institut für Physik, Ruprecht-Karls-Universität Heidelberg, Heidelberg;(𝑏)
+Physikalisches
+53
+
+=== PDF PAGE 54 ===
+Institut, Ruprecht-Karls-Universität Heidelberg, Heidelberg; Germany.
+62Faculty of Applied Information Science, Hiroshima Institute of Technology, Hiroshima; Japan.
+63 (𝑎)Department of Physics, Chinese University of Hong Kong, Shatin, N.T., Hong Kong;(𝑏)Department
+of Physics, University of Hong Kong, Hong Kong;(𝑐)Department of Physics and Institute for Advanced
+Study, Hong Kong University of Science and Technology, Clear Water Bay, Kowloon, Hong Kong; China.
+64Department of Physics, National Tsing Hua University, Hsinchu; Taiwan.
+65ĲCLab, Université Paris-Saclay, CNRS/IN2P3, 91405, Orsay; France.
+66Department of Physics, Indiana University, Bloomington IN; United States of America.
+67 (𝑎)
+INFN Gruppo Collegato di Udine, Sezione di Trieste, Udine;(𝑏)
+ICTP, Trieste;(𝑐)Dipartimento
+Politecnico di Ingegneria e Architettura, Università di Udine, Udine; Italy.
+68 (𝑎)
+INFN Sezione di Lecce;(𝑏)Dipartimento di Matematica e Fisica, Università del Salento, Lecce; Italy.
+69 (𝑎)
+INFN Sezione di Milano;(𝑏)Dipartimento di Fisica, Università di Milano, Milano; Italy.
+70 (𝑎)
+INFN Sezione di Napoli;(𝑏)Dipartimento di Fisica, Università di Napoli, Napoli; Italy.
+71 (𝑎)
+INFN Sezione di Pavia;(𝑏)Dipartimento di Fisica, Università di Pavia, Pavia; Italy.
+72 (𝑎)
+INFN Sezione di Pisa;(𝑏)Dipartimento di Fisica E. Fermi, Università di Pisa, Pisa; Italy.
+73 (𝑎)
+INFN Sezione di Roma;(𝑏)Dipartimento di Fisica, Sapienza Università di Roma, Roma; Italy.
+74 (𝑎)
+INFN Sezione di Roma Tor Vergata;(𝑏)Dipartimento di Fisica, Università di Roma Tor Vergata,
+Roma; Italy.
+75 (𝑎)
+INFN Sezione di Roma Tre;(𝑏)Dipartimento di Matematica e Fisica, Università Roma Tre, Roma;
+Italy.
+76 (𝑎)
+INFN-TIFPA;(𝑏)Università degli Studi di Trento, Trento; Italy.
+77Institut für Astro- und Teilchenphysik, Leopold-Franzens-Universität, Innsbruck; Austria.
+78University of Iowa, Iowa City IA; United States of America.
+79Department of Physics and Astronomy, Iowa State University, Ames IA; United States of America.
+80Joint Institute for Nuclear Research, Dubna; Russia.
+81 (𝑎)Departamento de Engenharia Elétrica, Universidade Federal de Juiz de Fora (UFJF), Juiz de
+Fora;(𝑏)Universidade Federal do Rio De Janeiro COPPE/EE/IF, Rio de Janeiro;(𝑐)
+Instituto de Física,
+Universidade de São Paulo, São Paulo; Brazil.
+82KEK, High Energy Accelerator Research Organization, Tsukuba; Japan.
+83Graduate School of Science, Kobe University, Kobe; Japan.
+84 (𝑎)AGH University of Science and Technology, Faculty of Physics and Applied Computer Science,
+Krakow;(𝑏)Marian Smoluchowski Institute of Physics, Jagiellonian University, Krakow; Poland.
+85Institute of Nuclear Physics Polish Academy of Sciences, Krakow; Poland.
+86Faculty of Science, Kyoto University, Kyoto; Japan.
+87Kyoto University of Education, Kyoto; Japan.
+88Research Center for Advanced Particle Physics and Department of Physics, Kyushu University, Fukuoka ;
+Japan.
+89Instituto de Física La Plata, Universidad Nacional de La Plata and CONICET, La Plata; Argentina.
+90Physics Department, Lancaster University, Lancaster; United Kingdom.
+91Oliver Lodge Laboratory, University of Liverpool, Liverpool; United Kingdom.
+92Department of Experimental Particle Physics, Jožef Stefan Institute and Department of Physics,
+University of Ljubljana, Ljubljana; Slovenia.
+93School of Physics and Astronomy, Queen Mary University of London, London; United Kingdom.
+94Department of Physics, Royal Holloway University of London, Egham; United Kingdom.
+95Department of Physics and Astronomy, University College London, London; United Kingdom.
+96Louisiana Tech University, Ruston LA; United States of America.
+97Fysiska institutionen, Lunds universitet, Lund; Sweden.
+54
+
+=== PDF PAGE 55 ===
+98Centre de Calcul de l’Institut National de Physique Nucléaire et de Physique des Particules (IN2P3),
+Villeurbanne; France.
+99Departamento de Física Teorica C-15 and CIAFF, Universidad Autónoma de Madrid, Madrid; Spain.
+100Institut für Physik, Universität Mainz, Mainz; Germany.
+101School of Physics and Astronomy, University of Manchester, Manchester; United Kingdom.
+102CPPM, Aix-Marseille Université, CNRS/IN2P3, Marseille; France.
+103Department of Physics, University of Massachusetts, Amherst MA; United States of America.
+104Department of Physics, McGill University, Montreal QC; Canada.
+105School of Physics, University of Melbourne, Victoria; Australia.
+106Department of Physics, University of Michigan, Ann Arbor MI; United States of America.
+107Department of Physics and Astronomy, Michigan State University, East Lansing MI; United States of
+America.
+108B.I. Stepanov Institute of Physics, National Academy of Sciences of Belarus, Minsk; Belarus.
+109Research Institute for Nuclear Problems of Byelorussian State University, Minsk; Belarus.
+110Group of Particle Physics, University of Montreal, Montreal QC; Canada.
+111P.N. Lebedev Physical Institute of the Russian Academy of Sciences, Moscow; Russia.
+112National Research Nuclear University MEPhI, Moscow; Russia.
+113D.V. Skobeltsyn Institute of Nuclear Physics, M.V. Lomonosov Moscow State University, Moscow;
+Russia.
+114Fakultät für Physik, Ludwig-Maximilians-Universität München, München; Germany.
+115Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München; Germany.
+116Nagasaki Institute of Applied Science, Nagasaki; Japan.
+117Graduate School of Science and Kobayashi-Maskawa Institute, Nagoya University, Nagoya; Japan.
+118Department of Physics and Astronomy, University of New Mexico, Albuquerque NM; United States of
+America.
+119Institute for Mathematics, Astrophysics and Particle Physics, Radboud University/Nikhef, Nĳmegen;
+Netherlands.
+120Nikhef National Institute for Subatomic Physics and University of Amsterdam, Amsterdam;
+Netherlands.
+121Department of Physics, Northern Illinois University, DeKalb IL; United States of America.
+122 (𝑎)Budker Institute of Nuclear Physics and NSU, SB RAS, Novosibirsk;(𝑏)Novosibirsk State University
+Novosibirsk; Russia.
+123Institute for High Energy Physics of the National Research Centre Kurchatov Institute, Protvino; Russia.
+124Institute for Theoretical and Experimental Physics named by A.I. Alikhanov of National Research
+Centre "Kurchatov Institute", Moscow; Russia.
+125Department of Physics, New York University, New York NY; United States of America.
+126Ochanomizu University, Otsuka, Bunkyo-ku, Tokyo; Japan.
+127Ohio State University, Columbus OH; United States of America.
+128Homer L. Dodge Department of Physics and Astronomy, University of Oklahoma, Norman OK; United
+States of America.
+129Department of Physics, Oklahoma State University, Stillwater OK; United States of America.
+130Palacký University, RCPTM, Joint Laboratory of Optics, Olomouc; Czech Republic.
+131Institute for Fundamental Science, University of Oregon, Eugene, OR; United States of America.
+132Graduate School of Science, Osaka University, Osaka; Japan.
+133Department of Physics, University of Oslo, Oslo; Norway.
+134Department of Physics, Oxford University, Oxford; United Kingdom.
+135LPNHE, Sorbonne Université, Université de Paris, CNRS/IN2P3, Paris; France.
+55
+
+=== PDF PAGE 56 ===
+136Department of Physics, University of Pennsylvania, Philadelphia PA; United States of America.
+137Konstantinov Nuclear Physics Institute of National Research Centre "Kurchatov Institute", PNPI, St.
+Petersburg; Russia.
+138Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh PA; United States of
+America.
+139 (𝑎)
+Laboratório de Instrumentação e Física Experimental de Partículas - LIP, Lisboa;(𝑏)Departamento de
+Física, Faculdade de Ciências, Universidade de Lisboa, Lisboa;(𝑐)Departamento de Física, Universidade
+de Coimbra, Coimbra;(𝑑)Centro de Física Nuclear da Universidade de Lisboa, Lisboa;(𝑒)Departamento de
+Física, Universidade do Minho, Braga;( 𝑓 )Departamento de Física Teórica y del Cosmos, Universidad de
+Granada, Granada (Spain);(𝑔)Dep Física and CEFITEC of Faculdade de Ciências e Tecnologia,
+Universidade Nova de Lisboa, Caparica;(ℎ)
+Instituto Superior Técnico, Universidade de Lisboa, Lisboa;
+Portugal.
+140Institute of Physics of the Czech Academy of Sciences, Prague; Czech Republic.
+141Czech Technical University in Prague, Prague; Czech Republic.
+142Charles University, Faculty of Mathematics and Physics, Prague; Czech Republic.
+143Particle Physics Department, Rutherford Appleton Laboratory, Didcot; United Kingdom.
+144IRFU, CEA, Université Paris-Saclay, Gif-sur-Yvette; France.
+145Santa Cruz Institute for Particle Physics, University of California Santa Cruz, Santa Cruz CA; United
+States of America.
+146 (𝑎)Departamento de Física, Pontificia Universidad Católica de Chile, Santiago;(𝑏)Universidad Andres
+Bello, Department of Physics, Santiago;(𝑐)
+Instituto de Alta Investigación, Universidad de
+Tarapacá;(𝑑)Departamento de Física, Universidad Técnica Federico Santa María, Valparaíso; Chile.
+147Universidade Federal de São João del Rei (UFSJ), São João del Rei; Brazil.
+148Department of Physics, University of Washington, Seattle WA; United States of America.
+149Department of Physics and Astronomy, University of Sheffield, Sheffield; United Kingdom.
+150Department of Physics, Shinshu University, Nagano; Japan.
+151Department Physik, Universität Siegen, Siegen; Germany.
+152Department of Physics, Simon Fraser University, Burnaby BC; Canada.
+153SLAC National Accelerator Laboratory, Stanford CA; United States of America.
+154Physics Department, Royal Institute of Technology, Stockholm; Sweden.
+155Departments of Physics and Astronomy, Stony Brook University, Stony Brook NY; United States of
+America.
+156Department of Physics and Astronomy, University of Sussex, Brighton; United Kingdom.
+157School of Physics, University of Sydney, Sydney; Australia.
+158Institute of Physics, Academia Sinica, Taipei; Taiwan.
+159 (𝑎)
+E. Andronikashvili Institute of Physics, Iv. Javakhishvili Tbilisi State University, Tbilisi;(𝑏)High
+Energy Physics Institute, Tbilisi State University, Tbilisi; Georgia.
+160Department of Physics, Technion, Israel Institute of Technology, Haifa; Israel.
+161Raymond and Beverly Sackler School of Physics and Astronomy, Tel Aviv University, Tel Aviv; Israel.
+162Department of Physics, Aristotle University of Thessaloniki, Thessaloniki; Greece.
+163International Center for Elementary Particle Physics and Department of Physics, University of Tokyo,
+Tokyo; Japan.
+164Graduate School of Science and Technology, Tokyo Metropolitan University, Tokyo; Japan.
+165Department of Physics, Tokyo Institute of Technology, Tokyo; Japan.
+166Tomsk State University, Tomsk; Russia.
+167Department of Physics, University of Toronto, Toronto ON; Canada.
+168 (𝑎)
+TRIUMF, Vancouver BC;(𝑏)Department of Physics and Astronomy, York University, Toronto ON;
+56
+
+=== PDF PAGE 57 ===
+Canada.
+169Division of Physics and Tomonaga Center for the History of the Universe, Faculty of Pure and Applied
+Sciences, University of Tsukuba, Tsukuba; Japan.
+170Department of Physics and Astronomy, Tufts University, Medford MA; United States of America.
+171Department of Physics and Astronomy, University of California Irvine, Irvine CA; United States of
+America.
+172Department of Physics and Astronomy, University of Uppsala, Uppsala; Sweden.
+173Department of Physics, University of Illinois, Urbana IL; United States of America.
+174Instituto de Física Corpuscular (IFIC), Centro Mixto Universidad de Valencia - CSIC, Valencia; Spain.
+175Department of Physics, University of British Columbia, Vancouver BC; Canada.
+176Department of Physics and Astronomy, University of Victoria, Victoria BC; Canada.
+177Fakultät für Physik und Astronomie, Julius-Maximilians-Universität Würzburg, Würzburg; Germany.
+178Department of Physics, University of Warwick, Coventry; United Kingdom.
+179Waseda University, Tokyo; Japan.
+180Department of Particle Physics and Astrophysics, Weizmann Institute of Science, Rehovot; Israel.
+181Department of Physics, University of Wisconsin, Madison WI; United States of America.
+182Fakultät für Mathematik und Naturwissenschaften, Fachgruppe Physik, Bergische Universität
+Wuppertal, Wuppertal; Germany.
+183Department of Physics, Yale University, New Haven CT; United States of America.
+𝑎 Also at Borough of Manhattan Community College, City University of New York, New York NY; United
+States of America.
+𝑏 Also at Centro Studi e Ricerche Enrico Fermi; Italy.
+𝑐 Also at CERN, Geneva; Switzerland.
+𝑑 Also at CPPM, Aix-Marseille Université, CNRS/IN2P3, Marseille; France.
+𝑒 Also at Département de Physique Nucléaire et Corpusculaire, Université de Genève, Genève;
+Switzerland.
+𝑓 Also at Departament de Fisica de la Universitat Autonoma de Barcelona, Barcelona; Spain.
+𝑔 Also at Department of Applied Physics and Astronomy, University of Sharjah, Sharjah; United Arab
+Emirates.
+ℎ Also at Department of Financial and Management Engineering, University of the Aegean, Chios; Greece.
+𝑖 Also at Department of Physics and Astronomy, Michigan State University, East Lansing MI; United
+States of America.
+𝑗 Also at Department of Physics and Astronomy, University of Louisville, Louisville, KY; United States of
+America.
+𝑘 Also at Department of Physics, Ben Gurion University of the Negev, Beer Sheva; Israel.
+𝑙 Also at Department of Physics, California State University, East Bay; United States of America.
+𝑚 Also at Department of Physics, California State University, Fresno; United States of America.
+𝑛 Also at Department of Physics, California State University, Sacramento; United States of America.
+𝑜 Also at Department of Physics, King’s College London, London; United Kingdom.
+𝑝 Also at Department of Physics, St. Petersburg State Polytechnical University, St. Petersburg; Russia.
+𝑞 Also at Department of Physics, University of Adelaide, Adelaide; Australia.
+𝑟 Also at Department of Physics, University of Fribourg, Fribourg; Switzerland.
+𝑠 Also at Dipartimento di Matematica, Informatica e Fisica, Università di Udine, Udine; Italy.
+𝑡 Also at Faculty of Physics, M.V. Lomonosov Moscow State University, Moscow; Russia.
+𝑢 Also at Giresun University, Faculty of Engineering, Giresun; Turkey.
+𝑣 Also at Graduate School of Science, Osaka University, Osaka; Japan.
+𝑤 Also at Hellenic Open University, Patras; Greece.
+57
+
+=== PDF PAGE 58 ===
+𝑥 Also at ĲCLab, Université Paris-Saclay, CNRS/IN2P3, 91405, Orsay; France.
+𝑦 Also at Institucio Catalana de Recerca i Estudis Avancats, ICREA, Barcelona; Spain.
+𝑧 Also at Institut für Experimentalphysik, Universität Hamburg, Hamburg; Germany.
+𝑎𝑎 Also at Institute for Mathematics, Astrophysics and Particle Physics, Radboud University/Nikhef,
+Nĳmegen; Netherlands.
+𝑎𝑏 Also at Institute for Nuclear Research and Nuclear Energy (INRNE) of the Bulgarian Academy of
+Sciences, Sofia; Bulgaria.
+𝑎𝑐 Also at Institute for Particle and Nuclear Physics, Wigner Research Centre for Physics, Budapest;
+Hungary.
+𝑎𝑑 Also at Institute of Particle Physics (IPP); Canada.
+𝑎𝑒 Also at Institute of Physics, Azerbaĳan Academy of Sciences, Baku; Azerbaĳan.
+𝑎 𝑓 Also at Instituto de Fisica Teorica, IFT-UAM/CSIC, Madrid; Spain.
+𝑎𝑔 Also at Istanbul University, Dept. of Physics, Istanbul; Turkey.
+𝑎ℎ Also at Joint Institute for Nuclear Research, Dubna; Russia.
+𝑎𝑖 Also at Louisiana Tech University, Ruston LA; United States of America.
+𝑎 𝑗 Also at Moscow Institute of Physics and Technology State University, Dolgoprudny; Russia.
+𝑎𝑘 Also at National Research Nuclear University MEPhI, Moscow; Russia.
+𝑎𝑙 Also at Physics Department, An-Najah National University, Nablus; Palestine.
+𝑎𝑚 Also at Physikalisches Institut, Albert-Ludwigs-Universität Freiburg, Freiburg; Germany.
+𝑎𝑛 Also at The City College of New York, New York NY; United States of America.
+𝑎𝑜 Also at TRIUMF, Vancouver BC; Canada.
+𝑎 𝑝 Also at Universita di Napoli Parthenope, Napoli; Italy.
+∗ Deceased
+58

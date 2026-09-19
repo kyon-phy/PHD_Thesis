@@ -1,0 +1,56 @@
+### PAGE 1
+Tau+xinformal technical meeting:Introduction to xTAUframeworkJiaqi ZangThe University of Tokyo29/11/2022
+1
+NOTES: 
+
+### PAGE 2
+2
+Introduction•What is xTAUframework?ØGit: https://gitlab.cern.ch/ATauLeptonAnalysiS/xTauFrameworkØIt process DxAOD data into flat ntuples used for individual analysis channel.•Why xTAUframework?ØThecalibrationandcorrectionareperformedaccording to CP recommendations.ØThe TAU CP group also contributesto the framework. (e.g.,CP tool maintenance)ØCutand systematicscanbemodifiedeasilybyjoboptions. à(see example here.)ØUserscanaddtheirownvariablesandchannelswithoutinterferingwiththemainprogram.ØAlreadysupportrelease22.ØSupportGRIDjobsubmission.•How to run?1)Gitclone.2)Compile.3)Preparejoboptionsandfilelist.4)Runthejobssubmissionscript.
+NOTES: 
+
+### PAGE 3
+3
+Runexample(R22)ØDownloadfromhere
+ØCompile
+SelectthefunctionalitiesyouneedinthisstepAlsocheckouttoyouranalysisbranch
+Generatejoboption
+ØLocaltestcdrunRunxMain–lsd<inputfilefolder>-jo<generatedjoboption>-d<outputfolder>–me1000ØSubmittoGRIDpython aux/SubmitScripts/submit_taucp_measurement.py-s grid -v 01 -r 0 -git test_01_bctaunu_MC20_sys.txt -chwtaunu-sys w
+Localrun
+NOTES: 
+
+### PAGE 4
+4
+GRIDsubmissions•Readtheinputdatasetfromtextfile
+•Submitjoblikepython aux/SubmitScripts/submit_taucp_measurement.py-s grid -v 01 -r 0 -git test_01_bctaunu_MC20_sys.txt -chwtaunu-sys w
+•Usecommandlinearguments.
+•Checkatpandamonitor(pbookàshow()togettaskid)
+
+NOTES: 
+
+### PAGE 5
+5
+Programstructure
+NOTES: 
+
+### PAGE 6
+6
+Addingchannels•SetvariablegroupsatxVariables
+•DefinethecustomfillfunctionforyourchannelinFillBranches()atxChannel
+•InstantiateyourchannelinxMain::initialize()
+AcallablefuncitionusedinxMain::excute()•AddyourchanneltothechannelmenuxChannelSvc.cxx
+.h.cxx
+.cxx
+•FilltreewitheventinformationatxMain::execute()
+
+NOTES: 
+
+### PAGE 7
+7
+Backup
+NOTES: 
+
+### PAGE 8
+8
+Programstructure
+Reference
+NOTES: 

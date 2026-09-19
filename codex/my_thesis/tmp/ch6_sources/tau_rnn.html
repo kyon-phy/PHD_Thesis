@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Identification of hadronic tau lepton decays using neural networks in the ATLAS experiment
+            </title>
+        <link rel="icon" type="image/png" href="https://atlaspo.cern.ch/public/support/images/favicon.ico">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://atlaspo.cern.ch/public/support/figurepages.css">
+        <link rel="stylesheet" href="https://atlaspo.cern.ch/public/support/mathjax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+        <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}};</script>
+
+        <!-- Navbar -->
+        <div class="w3-top header_menu" id="header_menu">
+            <nav class="navigation_header">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">ATLAS Web Sites <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href=" https://atlas.cern/" class="twikiLink">ATLAS Public Site</a>
+                            <a href="https://cern.ch/atlas-collaboration" class="twikiLink">ATLAS Collaboration Site <i class="fa-solid fa-lock"></i></a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">Physics Results <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/BPhysPublicResults" class="twikiLink">B Physics and Light States</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/StandardModelPublicResults" class="twikiLink">Standard Model Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/TopPublicResults" class="twikiLink">Top Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/viewauth/AtlasPublic/HiggsAndDiHiggsPublicResults" class="twikiLink">Higgs and Di-Higgs Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/SearchesPublicResults" class="twikiLink">Searches</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/HeavyIonsPublicResults" class="twikiLink">Heavy Ions Physics</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/MCPublicResults" class="twikiLink">Physics Modelling</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/UpgradePhysicsStudies" class="twikiLink">Upgrade Physics Studies</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">Performance Results <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/InDetTrackingPerformanceApprovedPlots" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Tracking</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/ElectronGammaPublicCollisionResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Electron and Photon</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/MuonPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Muon</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/TauPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Tau</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/JetEtmissPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Jets and Etmiss</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/FlavourTaggingPublicResultsCollisionData" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Flavour Tagging</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/SimulationPublicResults" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Simulation</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="twikiLink">Detector <i class="fa-solid fa-circle-arrow-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/WebHome#Detector" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Detector Systems, Trigger, Luminosity, Data Taking</a>
+                            <a href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/WebHome#Upgrade_Projects_and_Physics_Pro" class="twikiLink twikiCurrentWebHomeLink twikiAnchorLink">Upgrade</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Sidebar -->
+        <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar" style="z-index: 1;">
+            <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-blue w3-hide-large" title="Close Menu">
+                <i class="fa fa-remove"></i>
+            </a>
+            <h4 class="w3-bar-item"><img class="sidebar_image" src="https://atlaspo.cern.ch/public/support/images/ATLAS-logo-transparent.png"></h4>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic">
+                <i class="fa-solid fa-book"></i>
+                Public Results<br>
+                <span style="font-size: small;">(including search fields)</span>
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/Publications">
+                <i class="fa-solid fa-book"></i>
+                Papers
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/CONFnotes">
+                <i class="fa-solid fa-book"></i>
+                CONF Notes
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/PUBnotes">
+                <i class="fa-solid fa-book"></i>
+                PUB Notes
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://atlaspo.cern.ch/public/event_display/">
+                <i class="fa-solid fa-book"></i>
+                Event Displays
+            </a>
+            <a class="w3-bar-item w3-button w3-hover-blue side_bar_link" href="https://twiki.cern.ch/twiki/bin/view/AtlasPublic/WebHome#Papers_Conference_notes_Public_n" target="_blank">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+            </a>
+        </nav>
+
+        <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+        <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+        <div class="w3-main main_page_content">
+
+
+            <div id="top" class="w3-row">
+                <div class="w3-container title_section">
+
+                
+                    <!-- TITLE -->
+                    <h2 class="w3-text-teal title_h2">
+                        
+                            Identification of hadronic tau lepton decays using neural networks in the ATLAS experiment
+                        
+                    </h2>
+                </div>
+                <!-- ABSTRACT -->
+                <div class="w3-container abstract_section" style="width: 100%;">
+                    <p style="font-size: math;">
+                        
+                            This note describes a novel algorithm to identify the visible decay products of hadronic tau decays ($\tau_\text{had-vis}$) used by the ATLAS experiment for Run 2 of the LHC. The algorithm is based on recurrent neural networks (RNN) employing information from reconstructed charged-particle tracks and clusters of energy in the calorimeter associated to $\tau_\text{had-vis}$ candidates as well as high-level discriminating variables. The expected performance of this algorithm is evaluated in simulated proton-proton collisions at $\sqrt{s} = 13 \, \text{TeV}$ and compared to a BDT-based approach.
+                        
+                    </p>
+                </div>
+                
+                <p class="centered_text">
+                    20 August 2019
+                </p>
+                                
+            </div>
+            <!-- LINKS SECTION -->
+
+
+            
+
+            
+
+
+            <div class="w3-row links_section">
+                <!-- 1st ROW -->
+                <p class="centered_text">
+                    
+                        <a target="_blank" href="http://cds.cern.ch/record/2688062"><b>ATL-PHYS-PUB-2019-033</b> - </a>
+                        <a target="_blank" href="http://cds.cern.ch/record/2688062/files/ATL-PHYS-PUB-2019-033.pdf"><b>pdf from CDS</b> - </a>
+                    
+                    
+                    <span style="font-size: small;">
+                        <a target="_blank" href="https://atlas-glance.cern.ch/atlas/analysis/pubnotes/details.php?ref_code=PUB-TAUP-2019-01">internal</a>
+                    </span>
+                    
+                </p>
+                <!-- 4th ROW (anchors) -->
+                <p class="centered_text"> 
+                    <a href="#figures_header">Figures</a>  |   
+                    <a href="#tables_header">Tables</a>  
+                    
+                    
+                </p>
+            </div>
+            
+
+            <!-- FIGURES -->
+            <div class="section_div" id="figures_div">
+                <!-- FIGURES HEADER -->
+                <div class="w3-row">
+                    <div class="w3-container section_title">
+                        <p id="figures_header" class="left_text material_header" onclick="hide_show('figures');"><b>Figures</b> <i class="fa-solid fa-circle-up show_hide_arrows"></i></p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01a</b></p>
+                            <br>
+                            Distribution of the TopoCluster E<sub>T</sub> (top) and track |&Delta;&eta;| (bottom) for true (red) and misidentified (blue) $\tau_\text{had-vis}$ candidates for the leading three clusters and tracks. Samples of true and misidentified $\tau_\text{had-vis}$ candidates with matching p<sub>T</sub> distributions are used.
+
+                            <br>
+                            <br>
+                            <a href="fig_01a.png">png (63kB)</a>&nbsp;
+                            <a href="fig_01a.pdf">pdf (12kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01a.png">
+                                <img src=".thumb_fig_01a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01b</b></p>
+                            <br>
+                            Distribution of the TopoCluster E<sub>T</sub> (top) and track |&Delta;&eta;| (bottom) for true (red) and misidentified (blue) $\tau_\text{had-vis}$ candidates for the leading three clusters and tracks. Samples of true and misidentified $\tau_\text{had-vis}$ candidates with matching p<sub>T</sub> distributions are used.
+
+                            <br>
+                            <br>
+                            <a href="fig_01b.png">png (61kB)</a>&nbsp;
+                            <a href="fig_01b.pdf">pdf (12kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01b.png">
+                                <img src=".thumb_fig_01b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01c</b></p>
+                            <br>
+                            Distribution of the TopoCluster E<sub>T</sub> (top) and track |&Delta;&eta;| (bottom) for true (red) and misidentified (blue) $\tau_\text{had-vis}$ candidates for the leading three clusters and tracks. Samples of true and misidentified $\tau_\text{had-vis}$ candidates with matching p<sub>T</sub> distributions are used.
+
+                            <br>
+                            <br>
+                            <a href="fig_01c.png">png (59kB)</a>&nbsp;
+                            <a href="fig_01c.pdf">pdf (11kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01c.png">
+                                <img src=".thumb_fig_01c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01d</b></p>
+                            <br>
+                            Distribution of the TopoCluster E<sub>T</sub> (top) and track |&Delta;&eta;| (bottom) for true (red) and misidentified (blue) $\tau_\text{had-vis}$ candidates for the leading three clusters and tracks. Samples of true and misidentified $\tau_\text{had-vis}$ candidates with matching p<sub>T</sub> distributions are used.
+
+                            <br>
+                            <br>
+                            <a href="fig_01d.png">png (56kB)</a>&nbsp;
+                            <a href="fig_01d.pdf">pdf (11kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01d.png">
+                                <img src=".thumb_fig_01d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01e</b></p>
+                            <br>
+                            Distribution of the TopoCluster E<sub>T</sub> (top) and track |&Delta;&eta;| (bottom) for true (red) and misidentified (blue) $\tau_\text{had-vis}$ candidates for the leading three clusters and tracks. Samples of true and misidentified $\tau_\text{had-vis}$ candidates with matching p<sub>T</sub> distributions are used.
+
+                            <br>
+                            <br>
+                            <a href="fig_01e.png">png (57kB)</a>&nbsp;
+                            <a href="fig_01e.pdf">pdf (11kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01e.png">
+                                <img src=".thumb_fig_01e.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 01f</b></p>
+                            <br>
+                            Distribution of the TopoCluster E<sub>T</sub> (top) and track |&Delta;&eta;| (bottom) for true (red) and misidentified (blue) $\tau_\text{had-vis}$ candidates for the leading three clusters and tracks. Samples of true and misidentified $\tau_\text{had-vis}$ candidates with matching p<sub>T</sub> distributions are used.
+
+                            <br>
+                            <br>
+                            <a href="fig_01f.png">png (57kB)</a>&nbsp;
+                            <a href="fig_01f.pdf">pdf (11kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_01f.png">
+                                <img src=".thumb_fig_01f.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 02</b></p>
+                            <br>
+                            Schematic view of the network architecture used for tau identification. Layers marked as dense are fully connected to adjacent layers.
+                            <br>
+                            <br>
+                            <a href="fig_02.png">png (16kB)</a>&nbsp;
+                            <a href="fig_02.pdf">pdf (34kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_02.png">
+                                <img src=".thumb_fig_02.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 03a</b></p>
+                            <br>
+                            Distribution of the reconstructed transverse momentum p<sub>T</sub> in simulated $\gamma^{*}\to\tau\tau$ (a) and dijet (b) events for reconstructed 1-prong (red) and 3-prong (blue) $\tau_\text{had-vis}$ candidates. The reconstruction efficiency for true 3-prong $\tau_\text{had-vis}$ decreases with increasing $\tau_\text{had-vis}$ p<sub>T</sub> and changes the fractional composition of 1- and 3-prong $\tau_\text{had-vis}$ (a). In contrast, the charged track multiplicity in jets increases with jet p<sub>T</sub> making 3-prong $\tau_\text{had-vis}$ more abundant at high $\tau_\text{had-vis}$ p<sub>T</sub> (b).
+
+                            <br>
+                            <br>
+                            <a href="fig_03a.png">png (89kB)</a>&nbsp;
+                            <a href="fig_03a.pdf">pdf (14kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_03a.png">
+                                <img src=".thumb_fig_03a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 03b</b></p>
+                            <br>
+                            Distribution of the reconstructed transverse momentum p<sub>T</sub> in simulated $\gamma^{*}\to\tau\tau$ (a) and dijet (b) events for reconstructed 1-prong (red) and 3-prong (blue) $\tau_\text{had-vis}$ candidates. The reconstruction efficiency for true 3-prong $\tau_\text{had-vis}$ decreases with increasing $\tau_\text{had-vis}$ p<sub>T</sub> and changes the fractional composition of 1- and 3-prong $\tau_\text{had-vis}$ (a). In contrast, the charged track multiplicity in jets increases with jet p<sub>T</sub> making 3-prong $\tau_\text{had-vis}$ more abundant at high $\tau_\text{had-vis}$ p<sub>T</sub> (b).
+
+                            <br>
+                            <br>
+                            <a href="fig_03b.png">png (49kB)</a>&nbsp;
+                            <a href="fig_03b.pdf">pdf (15kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_03b.png">
+                                <img src=".thumb_fig_03b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 04</b></p>
+                            <br>
+                            Rejection power for quark and gluon jets misidentified as $\tau_\text{had-vis}$ (fake $\tau_\text{had-vis}$) depending on the true $\tau_\text{had-vis}$ efficiency. Shown are the curves for 1-prong (red) and 3-prong (blue) $\tau_\text{had-vis}$ candidates using the RNN-based (full line) and the BDT-based (dashed line) identification algorithms. The markers indicate the four defined working points Tight, Medium, Loose and Very loose with increasing signal selection efficiencies.
+
+                            <br>
+                            <br>
+                            <a href="fig_04.png">png (157kB)</a>&nbsp;
+                            <a href="fig_04.pdf">pdf (13kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_04.png">
+                                <img src=".thumb_fig_04.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 05a</b></p>
+                            <br>
+                            Distribution of the RNN score for true (red) and misidentified (blue) $\tau_\text{had-vis}$ candidates for 1-prong (a) and 3-prong (b) cases. The RNN score has been flattened such that it corresponds to the fraction of rejected true $\tau_\text{had-vis}$.
+
+                            <br>
+                            <br>
+                            <a href="fig_05a.png">png (39kB)</a>&nbsp;
+                            <a href="fig_05a.pdf">pdf (11kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_05a.png">
+                                <img src=".thumb_fig_05a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 05b</b></p>
+                            <br>
+                            Distribution of the RNN score for true (red) and misidentified (blue) $\tau_\text{had-vis}$ candidates for 1-prong (a) and 3-prong (b) cases. The RNN score has been flattened such that it corresponds to the fraction of rejected true $\tau_\text{had-vis}$.
+
+                            <br>
+                            <br>
+                            <a href="fig_05b.png">png (40kB)</a>&nbsp;
+                            <a href="fig_05b.pdf">pdf (11kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_05b.png">
+                                <img src=".thumb_fig_05b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 06a</b></p>
+                            <br>
+                            Selection efficiency for true 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The efficiencies are shown for the four defined working points of the RNN.
+
+                            <br>
+                            <br>
+                            <a href="fig_06a.png">png (118kB)</a>&nbsp;
+                            <a href="fig_06a.pdf">pdf (22kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_06a.png">
+                                <img src=".thumb_fig_06a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 06b</b></p>
+                            <br>
+                            Selection efficiency for true 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The efficiencies are shown for the four defined working points of the RNN.
+
+                            <br>
+                            <br>
+                            <a href="fig_06b.png">png (120kB)</a>&nbsp;
+                            <a href="fig_06b.pdf">pdf (22kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_06b.png">
+                                <img src=".thumb_fig_06b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 06c</b></p>
+                            <br>
+                            Selection efficiency for true 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The efficiencies are shown for the four defined working points of the RNN.
+
+                            <br>
+                            <br>
+                            <a href="fig_06c.png">png (51kB)</a>&nbsp;
+                            <a href="fig_06c.pdf">pdf (18kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_06c.png">
+                                <img src=".thumb_fig_06c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 06d</b></p>
+                            <br>
+                            Selection efficiency for true 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The efficiencies are shown for the four defined working points of the RNN.
+
+                            <br>
+                            <br>
+                            <a href="fig_06d.png">png (51kB)</a>&nbsp;
+                            <a href="fig_06d.pdf">pdf (18kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_06d.png">
+                                <img src=".thumb_fig_06d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 06e</b></p>
+                            <br>
+                            Selection efficiency for true 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The efficiencies are shown for the four defined working points of the RNN.
+
+                            <br>
+                            <br>
+                            <a href="fig_06e.png">png (55kB)</a>&nbsp;
+                            <a href="fig_06e.pdf">pdf (20kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_06e.png">
+                                <img src=".thumb_fig_06e.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 06f</b></p>
+                            <br>
+                            Selection efficiency for true 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The efficiencies are shown for the four defined working points of the RNN.
+
+                            <br>
+                            <br>
+                            <a href="fig_06f.png">png (56kB)</a>&nbsp;
+                            <a href="fig_06f.pdf">pdf (20kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_06f.png">
+                                <img src=".thumb_fig_06f.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07a</b></p>
+                            <br>
+                            Rejection power for quark and gluon jets misidentified as $\tau_\text{had-vis}$ for 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates using the Medium working point depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The rejection power is shown for the RNN-based (red) and BDT-based (blue) classifiers.
+
+                            <br>
+                            <br>
+                            <a href="fig_07a.png">png (44kB)</a>&nbsp;
+                            <a href="fig_07a.pdf">pdf (13kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07a.png">
+                                <img src=".thumb_fig_07a.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07b</b></p>
+                            <br>
+                            Rejection power for quark and gluon jets misidentified as $\tau_\text{had-vis}$ for 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates using the Medium working point depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The rejection power is shown for the RNN-based (red) and BDT-based (blue) classifiers.
+
+                            <br>
+                            <br>
+                            <a href="fig_07b.png">png (45kB)</a>&nbsp;
+                            <a href="fig_07b.pdf">pdf (13kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07b.png">
+                                <img src=".thumb_fig_07b.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07c</b></p>
+                            <br>
+                            Rejection power for quark and gluon jets misidentified as $\tau_\text{had-vis}$ for 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates using the Medium working point depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The rejection power is shown for the RNN-based (red) and BDT-based (blue) classifiers.
+
+                            <br>
+                            <br>
+                            <a href="fig_07c.png">png (42kB)</a>&nbsp;
+                            <a href="fig_07c.pdf">pdf (14kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07c.png">
+                                <img src=".thumb_fig_07c.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07d</b></p>
+                            <br>
+                            Rejection power for quark and gluon jets misidentified as $\tau_\text{had-vis}$ for 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates using the Medium working point depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The rejection power is shown for the RNN-based (red) and BDT-based (blue) classifiers.
+
+                            <br>
+                            <br>
+                            <a href="fig_07d.png">png (43kB)</a>&nbsp;
+                            <a href="fig_07d.pdf">pdf (14kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07d.png">
+                                <img src=".thumb_fig_07d.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07e</b></p>
+                            <br>
+                            Rejection power for quark and gluon jets misidentified as $\tau_\text{had-vis}$ for 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates using the Medium working point depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The rejection power is shown for the RNN-based (red) and BDT-based (blue) classifiers.
+
+                            <br>
+                            <br>
+                            <a href="fig_07e.png">png (42kB)</a>&nbsp;
+                            <a href="fig_07e.pdf">pdf (13kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07e.png">
+                                <img src=".thumb_fig_07e.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    <!-- FIGURE ROW -->
+                <div class="w3-row figures_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Figure 07f</b></p>
+                            <br>
+                            Rejection power for quark and gluon jets misidentified as $\tau_\text{had-vis}$ for 1-prong (left) and 3-prong (right) $\tau_\text{had-vis}$ candidates using the Medium working point depending on the transverse momentum p<sub>T</sub> (top), the absolute pseudorapidity |&eta;| (middle) and the average number of interactions per bunch crossing &mu; (bottom). The rejection power is shown for the RNN-based (red) and BDT-based (blue) classifiers.
+
+                            <br>
+                            <br>
+                            <a href="fig_07f.png">png (42kB)</a>&nbsp;
+                            <a href="fig_07f.pdf">pdf (13kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="fig_07f.png">
+                                <img src=".thumb_fig_07f.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+
+            </div>
+
+
+
+
+
+
+            <!-- TABLES -->
+            <div class="section_div" id="tables_div">
+                <!-- TABLES HEADER -->
+                <div class="w3-row">
+                    <div class="w3-container section_title">
+                        <p id="tables_header" class="left_text material_header" onclick="hide_show('tables');"><b>Tables</b> <i class="fa-solid fa-circle-up show_hide_arrows"></i></p>
+                    </div>
+                </div>
+
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 01</b></p>
+                            <br>
+                            List of observables used as inputs in the different parts of the RNN. The markers indicate which observables are used to identify 1-prong and 3-prong $\tau_\text{had-vis}$. See Section 5.1 for the definitions of the observables.
+
+                            <br>
+                            <br>
+                            <a href="tab_01.png">png (24kB)</a>&nbsp;
+                            <a href="tab_01.pdf">pdf (54kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_01.png">
+                                <img src=".thumb_tab_01.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+                <div class="w3-row tables_section section_row">
+                    <div class="w3-threequarter w3-container">
+                        <p class="left_text">
+                            <p class="image_title"><b>Table 02</b></p>
+                            <br>
+                            List of defined working points with fixed true $\tau_\text{had-vis}$ selection efficiencies and the corresponding background rejection factors for misidentified $\tau_\text{had-vis}$ in dijet events for the BDT and RNN classifiers.
+
+                            <br>
+                            <br>
+                            <a href="tab_02.png">png (14kB)</a>&nbsp;
+                            <a href="tab_02.pdf">pdf (20kB)</a>&nbsp;
+                            </p>
+                    </div>
+                    <div class="w3-quarter w3-container">
+                        <p class="thumb_section">
+                            <a href="tab_02.png">
+                                <img src=".thumb_tab_02.png" class="thumb_image">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+    
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <!-- FOOTER -->
+            <footer id="myFooter">
+                <div class="w3-container w3-theme-l2 footer">
+                    <p>
+                        © 2019 CERN for the benefit of the ATLAS Collaboration.
+                        <br>
+                        <span class="footer_subsection">
+                            Reproduction of the article, figures and tables on this page is allowed as specified in the <a href="https://creativecommons.org/licenses/by/4.0/legalcode">CC-BY-4.0</a> license.
+                            <br><br>
+                            2026-09-08 00:11:36
+                        </span>
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            // Get the Sidebar
+            var mySidebar = document.getElementById("mySidebar");
+            // Get the DIV with overlay effect
+            var overlayBg = document.getElementById("myOverlay");
+            // Toggle between showing and hiding the sidebar, and add overlay effect
+            function w3_open() {
+                if (mySidebar.style.display === 'block') {
+                    mySidebar.style.display = 'none';
+                    overlayBg.style.display = "none";
+                } else {
+                    mySidebar.style.display = 'block';
+                    overlayBg.style.display = "block";
+                }
+            }
+            // Close the sidebar with the close button
+            function w3_close() {
+                mySidebar.style.display = "none";
+                overlayBg.style.display = "none";
+            }
+
+            function hide_show(section){
+                var header = document.getElementById(section+"_header");
+                var elements = document.getElementsByClassName(section+"_section");
+                var show = false;
+                var text = "Tables";
+                if (section == 'figures'){
+                    text = "Figures";
+                } else if (section == 'auxiliary'){
+                    text = "Auxiliary material";
+                } else if (section == 'animated'){
+                    text = "Animated plots";
+                }
+                var w = window.innerWidth;
+                for (var i=0; i<elements.length; i++){
+                    if (elements[i].style.display == "flex" || elements[i].style.display == "" || elements[i].style.display == "block"){
+                        elements[i].style.display = "none";
+                        show = false
+                    }else{
+                        if (w <= 800){
+                            elements[i].style.display = "block";
+                        }else{
+                            elements[i].style.display = "flex";
+                        }
+                        show = true;
+                    }
+                }
+                if (show){
+                    header.innerHTML = '<b>'+text+'</b> <i class="fa-solid fa-circle-up show_hide_arrows"></i>'
+                }else{
+                    header.innerHTML = '<b>'+text+'</b> <i class="fa-solid fa-circle-down show_hide_arrows"></i>'
+                }
+            }
+
+            /*
+            // Get the button
+            let mybutton = document.getElementById("myBtn");
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }*/
+
+            function toggleDropdown(id) {
+                var dropdown = document.getElementById(id);
+                if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                    dropdown.style.display = "block";
+                } else {
+                    dropdown.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>

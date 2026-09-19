@@ -1,0 +1,19 @@
+--- before
++++ after
+@@ -69,13 +69,13 @@
+ \section[$\bTagSR$ optimisation and definition]{$\bTagSR$ optimisation and definition}
+ \label{sec:ch7_sr1b}
+ 
+-$\bTagSR$ is optimised using the grid scan for variables may help the signal and background seperation. $\bTagSR$-$\Res$ and $\bTagSR$-$\NonRes$ are optimised seperatedly. %需要优化下英语表达
++$\bTagSR$ is optimised using a grid scan of thresholds on variables that help separate signal from background. $\bTagSR$-$\Res$ and $\bTagSR$-$\NonRes$ are optimised separately.
+ 
+ \subsection{Scan variables and optimisation criterion}
+ \label{subsec:ch7_scan}
+ 
+-$\pT^\tau$ and $\met$ are selected in the first place as the signiture tend to have energetic $\tau$ leptons and neutrinos.
+-$b$-jet $\pT$ is also selected, with the consider of $\Res$ and $\NonRes$ targeting energetic and soft $b$-jet, respectively. % 优化下表达和解释
++$\pT^\tau$ and $\met$ are considered first, since energetic $\tau$ leptons and neutrinos are expected in the signal.
++The $b$-jet $\pT$ is also used, since an energetic $b$-jet from the leptoquark decay is expected in the resonant topology, whereas the associated $b$-jet is typically softer in the non-resonant topology.
+ 
+ High values of $\mT$ are selected to distinguish non-resonant leptoquark exchange from the falling SM background.
+ A tighter $\mT$ threshold is therefore imposed in $\bTagSR$-$\NonRes$ than in $\bTagSR$-$\Res$, where the $b\tau$ mass is also used.

@@ -1,0 +1,76 @@
+--- Chapters/CH7_event_selection.tex (before)
++++ Chapters/CH7_event_selection.tex (after)
+@@ -59,7 +59,28 @@
+ \label{subsec:ch7_multijet}
+ 
+-Multijet events can enter the selected sample when a jet is misidentified as a $\tau$ and a mismeasured jet produces large $\met$.
+-In particular, an underestimated jet momentum produces a momentum imbalance pointing towards that jet.
+-The minimum azimuthal separation and the corresponding momentum ratio are therefore defined as
++Multijet events can enter the selected sample when a jet is misidentified as a $\tau$ and a jet-energy mismeasurement produces large $\met$.
++A high $\met$ threshold rejects most of these events, but their large production cross section makes additional suppression necessary.
++In the simulated dijet events that survive the kinematic requirements, the apparent missing momentum arises from the mismeasurement of an energetic jet.
++If its momentum is underestimated, the reconstructed momentum imbalance points approximately towards that jet.
++This instrumental contribution is referred to as fake $\met$.
++In signal events, the neutrinos produce genuine missing momentum with no corresponding tendency to align with a jet.
++Figure~\ref{fig:ch7_fake_met} illustrates this difference.
++
++\begin{figure}[htbp]
++    \centering
++    \begin{subfigure}{0.34\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/QCD/fake_met_signal.pdf}
++        \caption{Signal.}
++    \end{subfigure}\hspace{0.08\linewidth}
++    \begin{subfigure}{0.34\linewidth}
++        \includegraphics[width=\linewidth]{Figs/CH7/QCD/fake_met_multijets.pdf}
++        \caption{Multijet background.}
++    \end{subfigure}
++    \caption[Missing momentum in signal and multijet events]{Schematic transverse-plane configurations illustrating (a) genuine missing momentum from neutrinos in signal events and (b) fake missing momentum from a jet-energy mismeasurement in multijet events. Underestimating a jet momentum produces an imbalance approximately aligned with that jet, giving a small minimum jet--$\mpt$ azimuthal separation.}
++    \label{fig:ch7_fake_met}
++\end{figure}
++
++The minimum jet--$\mpt$ azimuthal separation tests this alignment.
++The ratio of $\met$ to the $\pT$ of the closest jet in azimuth provides a second discriminating variable:
+ \begin{align}
+     \Delta\phi_{\min} &= \min_j\Delta\phi(\mpt,\vec p_{\mathrm{T}}^{\,j}),
+@@ -80,6 +101,5 @@
+ \end{equation}
+ The second condition retains signal events that would be lost with the angular requirement alone.
+-In the simulated study described in Appendix~\ref{App:QCD_bkg_study}, this selection rejects approximately $86\%$ of the multijet events while retaining $96.4\%$ of the signal after the loose study selection.
+-These efficiencies describe the cleaning requirement at that stage, before the full SR selections.
++The distributions, threshold scan, signal retention and residual multijet contribution are studied in Appendix~\ref{App:QCD_bkg_study}.
+ 
+ \subsection{Preselection}
+--- Chapters/Appendix/Appendix2.tex (before)
++++ Chapters/Appendix/Appendix2.tex (after)
+@@ -3,19 +3,5 @@
+ 
+ The multijet suppression used in Section~\ref{subsec:ch7_multijet} is studied with simulated dijet and leptoquark events.
+-The purpose is to identify a selection that removes events with instrumental $\met$ while retaining the signal with neutrinos.
+-The multijet production cross section is large, so a small probability for a jet to be misidentified as a $\tau$, combined with a large jet-energy mismeasurement, can produce events with the selected final state.
+-
+-\section{Origin of the discriminating variables}
+-\label{sec:app_qcd_variables}
+-
+-Jet-momentum mismeasurement produces a characteristic direction for the apparent missing momentum.
+-For example, if the transverse momentum of one jet is underestimated by $\delta\vec p_{\mathrm{T}}^{\,j}$, the reconstructed momentum imbalance receives a contribution in the direction of the missing part of that jet momentum.
+-The resulting $\mpt$ is therefore approximately aligned with the jet.
+-In a signal event, the neutrinos produce real missing momentum, whose direction is not fixed by a jet-energy mismeasurement.
+-
+-The variables $\Delta\phi_{\min}$ and $R_{\mathrm{miss}/j}$ defined in Eq.~\ref{eq:ch7_qcd_variables} test these two features.
+-The first measures the angular alignment, and the second compares the missing momentum with the momentum of the closest jet in azimuth.
+-The combination is useful because a low-$\pT$ jet can lie close to the direction of real missing momentum in a signal event.
+-Such an event can have small $\Delta\phi_{\min}$ but large $R_{\mathrm{miss}/j}$.
++The motivation and discriminating variables are introduced there; this appendix presents the study selection, threshold scan and residual-background checks.
+ 
+ \section{Study selection and distributions}
+--- output/ch7/CH7_source_notes.md (before)
++++ output/ch7/CH7_source_notes.md (after)
+@@ -33,5 +33,7 @@
+ The SR0b NonRes mT file displays 600–1500 GeV even though its name contains N_minus_1. The caption describes this displayed range without claiming a below-threshold distribution.
+ 
+-QCD PDFs contain JPEG images. scripts/ch7/restyle_qcd_pdf.py uses PDF clipping to move existing label pixels and preserves image bytes. A render comparison gives zero changed pixels outside the declared label rectangles. See qcd_figure_manifest.json.
++The three QCD distribution/scan PDFs contain JPEG images. scripts/ch7/restyle_qcd_pdf.py uses PDF clipping to move existing label pixels and preserves image bytes. A render comparison gives zero changed pixels outside the declared label rectangles. See qcd_figure_manifest.json.
++
++The fake-MET schematic from INT Figure C.1 is included in the main multijet-suppression subsection. Its two original panels, figures/appendix/QCDCleaningCut/signal.pdf and multiJets.pdf, are copied byte-for-byte to Figs/CH7/QCD/fake_met_signal.pdf and fake_met_multijets.pdf. They contain no data points, stacked histograms or ATLAS label and require no restyling. The fake-MET mechanism and combined angular/ratio requirement are explained in the main text; the loose selection, two-dimensional distributions, scan, efficiencies and residual-background checks remain in the appendix. The cut was cross-checked against paper sections/object.tex: reject events with both minimum angle below 0.4 and momentum ratio below 6.
+ 
+ ## Source discrepancies retained for the author

@@ -1,0 +1,18 @@
+--- .agents/skills/atlas-u1-thesis-writing/SKILL.md.before
++++ .agents/skills/atlas-u1-thesis-writing/SKILL.md
+@@ -65,6 +65,15 @@
+   After introducing missing transverse momentum, use `\mpt` for its vector and
+   `\met` for its magnitude in subsequent prose and equations.
+   Preserve the distinction between M_U and M_LQ; do not redefine existing aliases.
++- For QCD cleaning, use `\min\Delta\phi(\met,\pt^{\mathrm{jet}})>0.4`
++  rather than the former `\min\Delta\phi(j,\met)>0.4` notation.
++  Use the Preamble aliases `\minDphiJetMet` for the minimum angle and
++  `\metOverMinDphiJetPt` for the ratio `\met/\minDphiJetPt`.
++  Write the thresholds after the aliases and keep the accepted-region condition
++  `\minDphiJetMet>0.4` OR `\metOverMinDphiJetPt>6`.
++  `\DphiJetMet` denotes the angle for a jet, while `\minDphiJetPt` denotes
++  the transverse momentum of the jet with the smallest angle. Keep the MET-first
++  argument order and upright `\mathrm{jet}` notation in new or revised writing.
+ 
+ ## Two independent readers (explicit opt-in only)
+ 

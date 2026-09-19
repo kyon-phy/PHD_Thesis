@@ -1,0 +1,379 @@
+--- before/Chapters/CH9_Systematics_uncertainties.tex
++++ Chapters/CH9_Systematics_uncertainties.tex
+@@ -1,7 +1,373 @@
+-\chapter{Systematics Uncertainties}
++% Draft source decisions and unresolved implementation details:
++% output/ch9/CH9_source_notes.md
++\chapter{Systematic Uncertainties}
+ \label{chapter:systematics_uncertainties}
+ 
++Systematic uncertainties quantify the limited knowledge of the detector response and of the physics processes used to predict the signal and background yields.
++They are evaluated by varying calibration corrections, efficiency scale factors and simulation parameters, or by comparing the nominal prediction with an alternative calculation.
++These variations can change both the total event rate and the kinematic distributions, and therefore the fraction of events passing each region selection.
++For the single-bin regions used in this analysis, their effects enter the fit through the resulting changes in the selected yields.
++
++Experimental uncertainties are discussed first, followed by uncertainties in the theoretical modelling of the backgrounds and signal.
++The nominal MC configurations and object calibrations are given in Chapters~\ref{chapter:MC_simulation} and~\ref{chapter:object_reconstruction}; the discussion here concentrates on their uncertainties and propagation.
++In particular, the normalisations of $\wjets$ and top-quark backgrounds are constrained by the CRs introduced in Chapter~\ref{chapter:background_estimation}, so their modelling uncertainties must describe the extrapolation from those CRs to the SRs and VRs.
++Each independent source is represented in the fit by a nuisance parameter, which allows the prediction to vary within the uncertainty assigned to that source.
++The likelihood and the constraints on these parameters are described in Chapter~\ref{chapter:results}.
++
+ \section{Experimental uncertainties}
+-% TODO（来自 CH5 精修）：在这里说明 pile-up reweighting（使模拟的 mu 分布与数据一致）
+-% 及其相关系统不确定性；具体实现和变分须核对分析来源，不在 MC samples 配置节展开。
++\label{sec:ch9_experimental}
++
++Experimental uncertainties include the luminosity measurement, the pile-up distribution and the calibration and selection efficiencies of reconstructed objects.
++An efficiency uncertainty is propagated by varying the corresponding scale factor in the simulated event weight.
++An energy or momentum uncertainty instead changes the object kinematics, after which the event variables and selections are reevaluated.
++The latter can move events across a selection threshold or between regions.
++For example, a jet-energy variation can change both the leading-jet $\pT$ used to separate the resonant and non-resonant selections and the reconstructed $\met$.
++Variations from the same calibration source are propagated coherently wherever that source applies, retaining its prescribed dependence on object kinematics and type.
++
++\subsection{Luminosity and pile-up reweighting}
++\label{subsec:ch9_lumi_pileup}
++
++The $0.83\%$ luminosity uncertainty quoted in Section~\ref{sec:dataset_selection} is propagated as a common normalisation uncertainty for predictions normalised using the integrated luminosity~\cite{ATLASLumiRun2}.
++For $\wjets$ and top-quark backgrounds, a common change in their simulated normalisation can be absorbed by the freely fitted normalisation factors.
++The luminosity uncertainty therefore acts directly on the signal and on background contributions whose normalisations are taken from simulation.
++
++Pile-up reweighting corrects the simulated distribution of the mean number of interactions per bunch crossing, $\mu$, to reproduce that in data.
++The data-derived $\mu$ profile used to calculate these weights is rescaled to improve the agreement in the reconstructed vertex multiplicity.
++The nominal rescaling factor is $1/1.03$; alternative factors of $1/1.07$ and $1/0.99$ are used to derive the downward and upward variations.
++The resulting event weights are propagated through the analysis selections.
++This uncertainty concerns the frequency of pile-up interactions, whereas the residual effect of pile-up on calibrated jets is included separately in the jet uncertainties below.
++
++\subsection{Tau energy scale and efficiency calibration}
++\label{subsec:ch9_tau}
++
++The TES calibration in Section~\ref{sec:ch6_tau} sets the nominal visible tau momentum.
++Its uncertainty is constrained by in situ measurements with $\ztautau$ events, supplemented by detector-response studies using simulation and test-beam information at high $\pT$~\cite{ATL-PHYS-PUB-2015-045,ATLAS-CONF-2017-029,ATLAS2022TauR22}.
++The in situ correction to the simulated tau energy is typically below $1\%$, with an uncertainty in the energy scale below $1.5\%$.
++These percentages refer to the energy calibration; the change in a selected event yield depends on the spectrum near the analysis thresholds.
++
++Five TES components are propagated separately.
++Two describe the experimental uncertainties and fit uncertainty of the in situ determination.
++The remaining components describe detector modelling, the choice of hadronic-interaction model in the detector simulation, and calibration non-closure.
++Here, non-closure is the residual difference between the calibrated response and its reference value when the calibration is tested on simulation.
++The detector and hadronic-interaction components retain sensitivity to the response at tau momenta beyond the main in situ calibration range.
++Each TES variation changes the tau four-momentum and is propagated to $\mpt$, $\mT$ and the jet--tau invariant mass before the region requirements are applied.
++
++Separate uncertainties are included for tau reconstruction, RNN identification and electron rejection.
++The reconstruction and identification efficiencies are checked in $\ttbar$ data, and the corresponding scale factors depend on tau $\pT$ and prong multiplicity.
++For the \texttt{Tight} identification working point, the scale factors are close to unity, with uncertainties of $5$--$8\%$ for one-prong candidates and $6$--$11\%$ for three-prong candidates.
++The identification uncertainties are represented by independent components for the two prong multiplicities and for the calibration $\pT$ bins, rather than by one common uncertainty for all tau candidates.
++The bins have boundaries at $20$, $25$, $30$, $40$, $60$, $80$ and $120~\GeV$, with the last bin extending above $120~\GeV$.
++
++Electron-rejection uncertainties distinguish the efficiency for a hadronically decaying tau from the probability for an electron to pass the tau selection.
++The former has its own efficiency uncertainty, while statistical and systematic components are provided for the latter.
++The scale-factor convention used for the electron veto is stated in Section~\ref{sec:ch6_tau}.
++Uncertainties in jets misidentified as tau candidates are treated separately in Section~\ref{subsec:ch9_zfake}.
++
++\subsection{Jets and missing transverse momentum}
++\label{subsec:ch9_jets_met}
++
++The JES and JER uncertainties are derived from the calibration and balance measurements outlined in Section~\ref{sec:ch6_jets}~\cite{ATLAS2021JetCalibration}.
++They depend on jet $\pT$ and $\eta$, and include both the precision of the measurements and differences between the measured and simulated responses.
++The JES uncertainty is organised into components with different physical origins:
++\begin{itemize}
++    \item \textbf{In situ calibration uncertainties} include the statistical precision of the balance measurements, the calibration of the reference objects and the modelling of additional radiation and event selections.
++    The $\eta$ intercalibration also includes the uncertainty in transferring the central-jet calibration to other detector regions.
++    \item \textbf{Pile-up uncertainties} describe residual response changes with $\mu$, the number of reconstructed vertices, jet $\pT$ and the event topology used to estimate the pile-up energy density.
++    \item \textbf{Flavour uncertainties} include the different responses to quark- and gluon-initiated jets and the uncertainty in their fractions in a sample.
++    A dedicated component describes the response to $b$-jets.
++    \item \textbf{High-energy response uncertainties} include the single-particle response used beyond the reach of the balance measurements and the modelling of jets whose showers extend into the muon system.
++\end{itemize}
++The \texttt{CategoryReduction} scheme combines calibration components while approximately preserving their correlations across jet kinematics.
++The conservative default flavour-response and flavour-composition uncertainties are used, without a sample-specific reduction.
++
++The Run~2 samples are reconstructed with Release~22, while parts of the in situ jet calibration originate from Release~21 measurements.
++Additional uncertainties cover changes in calorimeter noise thresholds and vertex reconstruction, together with residual non-closure when the earlier in situ calibration is applied to the reprocessed samples.
++For the \textsc{AtlFast3} signal samples, further JES and JER components cover response and resolution differences from the full detector simulation used for the backgrounds.
++Their effect on the selected signal yield is approximately $1\%$.
++
++The JER uncertainty changes the width of the jet-response distribution and is propagated through momentum smearing.
++The \texttt{FullJER} prescription is used to retain the correlations of the resolution uncertainties.
++It combines variations obtained by smearing simulation and pseudo-data, so that a component that changes sign across jet kinematics retains the corresponding anticorrelation.
++The two sets of smearing variations are ingredients of a common JER variation, rather than independent uncertainty sources.
++The efficiency scale factor for NNJVT has a separate uncertainty, which changes the probability for a hard-scattering jet to pass the pile-up rejection requirement.
++
++All hard-object momentum variations are propagated to $\mpt$ using its definition in Eq.~\eqref{eq:ch6_met_vector}.
++The track soft term has three additional components: a scale uncertainty along the hard-term momentum and resolution uncertainties parallel and perpendicular to it~\cite{ATLAS2025METPerformance}.
++They are obtained from the balance between the hard and soft terms in $\zee$ events, where little missing momentum is expected from the hard process.
++Differences between data and simulation in the mean parallel projection determine the scale uncertainty, while differences in the widths of the two projections determine the resolution uncertainties.
++The soft-term variations are evaluated independently of the hard-object variations, and both enter the uncertainty model for $\met$ and the variables constructed from it.
++
++\subsection{Jet flavour-tagging efficiency}
++\label{subsec:ch9_ftag}
++
++The flavour-dependent scale factors in Section~\ref{sec:ch6_btag} correct the probabilities for jets to pass or fail the tagging requirement.
++Their uncertainties include the statistical precision of the calibration samples and systematic effects from background subtraction, object calibration and process modelling~\cite{FTAG-2018-01,FTAG-2020-08,FTAG-2019-02}.
++Uncertainties are evaluated separately for the $b$-jet tagging efficiency and for the $c$-jet and light-jet mistagging efficiencies.
++They affect both $\bTagSR$ and $\bVetoSR$, since uncertainties in the probabilities to tag or veto a jet change the predicted yields in both regions.
++
++Correlations between the calibration bins are represented using an eigenvector decomposition of their covariance matrix.
++Each retained eigenvector gives a coherent variation of the scale factors across the bins, while different eigenvectors are treated as independent nuisance parameters.
++The \texttt{Medium} reduction scheme is used for the GN2v01 calibration.
++This calibration uncertainty describes the detector's ability to identify a given jet flavour.
++The uncertainty in the amount of heavy-flavour production in $\wjets$ events is evaluated separately in Section~\ref{subsec:ch9_wjets}.
++
++\subsection{Electrons and muons}
++\label{subsec:ch9_leptons}
++
++Electron energy-scale and resolution uncertainties are propagated by varying the calibration described in Section~\ref{sec:ch6_electrons}~\cite{ATLAS2019ElectronPerformance}.
++The efficiency corrections have separate reconstruction, identification, isolation and trigger uncertainties~\cite{ATLAS2024ElectronPhotonEfficiencies,ATLASElectronTriggerRun2}.
++They are evaluated for the working points used in the analysis and propagated through the simulated event weights.
++
++Muon momentum uncertainties include the overall scale and resolution and residual charge-dependent curvature biases from detector alignment~\cite{ATLAS2023MuonCalibration}.
++The latter are commonly expressed as sagitta uncertainties, where the sagitta measures the bending of a track in the magnetic field.
++Their components include the statistical precision of the calibration, residual calibration bias and extrapolation to high $\pT$.
++Muon efficiency uncertainties cover reconstruction, isolation, the track-to-vertex requirements, trigger selection and the rejection of poorly measured muons~\cite{ATLAS2021MuonID,ATLASMuonTriggerRun2}.
++Statistical and systematic components are retained separately where supplied by the calibration.
++
++These uncertainties act mainly in CRs and VRs containing a selected electron or muon and are smaller than the tau uncertainties in this analysis.
++They can nevertheless change the background normalisations inferred from the CRs and hence the predictions in the SRs.
++The trigger choices and their efficiency corrections are described in Section~\ref{sec:analysis_triggers}.
++
+ \section{Theoretical uncertainties}
++\label{sec:ch9_theory}
++
++Theoretical modelling uncertainties arise from the finite perturbative accuracy of the hard-scattering calculation, the proton PDFs and the treatment of radiation and hadronisation.
++The nominal generators and PDF sets are given in Sections~\ref{sec:signal_samples} and~\ref{sec:background_samples}.
++Here, each variation is used to determine how the selected prediction changes when one part of that modelling is altered.
++
++\subsection{Uncertainties in the transfer from control regions}
++\label{subsec:ch9_transfer}
++
++For a background $b$ constrained in a CR, the simulated transfer factor to a target region $R$ is defined as
++\begin{align}
++    T_b^R &= \frac{N_b^{R,\mathrm{nom}}}{N_b^{\mathrm{CR},\mathrm{nom}}},
++    \label{eq:ch9_transfer}
++\end{align}
++where $R$ denotes an SR or VR, and $N_b^{R,\mathrm{nom}}$ is the nominal simulated yield after the corresponding selection.
++The appropriate CR is $\CRW$ for $\wjets$ and $\CRTop$ for the combined $\ttbar$ and single-top background, within the same resonant or non-resonant selection.
++As described in Section~\ref{sec:ch8_strategy}, the fitted factor $\lambda_b$ scales the nominal prediction in both regions.
++The predicted target yield can therefore be written as either $\lambda_b N_b^{R,\mathrm{nom}}$ or $T_b^R\lambda_b N_b^{\mathrm{CR},\mathrm{nom}}$.
++The fitted CR contribution includes the treatment of other processes in that region; it is not identified with the raw observed CR count.
++
++A modelling variation must be evaluated in both the target region and its CR.
++Its fractional effect on the transfer factor is
++\begin{align}
++    \delta_b^R
++    &\equiv \frac{T_b^{R,\mathrm{var}}}{T_b^{R,\mathrm{nom}}}-1 \notag\\
++    &=\frac{N_b^{R,\mathrm{var}}/N_b^{R,\mathrm{nom}}}
++    {N_b^{\mathrm{CR},\mathrm{var}}/N_b^{\mathrm{CR},\mathrm{nom}}}-1.
++    \label{eq:ch9_transfer_variation}
++\end{align}
++The double ratio removes changes common to the CR and target region.
++For example, a variation that multiplies both yields by the same factor changes the inclusive normalisation but leaves the transfer factor unchanged.
++A residual uncertainty remains when the variation changes the acceptance differently in the two regions.
++This is why the theoretical uncertainty in the inclusive cross-section is not applied as an additional independent normalisation constraint on these freely normalised backgrounds.
++
++For one uncertainty source, its effect can be represented by a dimensionless modifier $\kappa_b^R(\theta)$, with $\kappa_b^R(0)=1$, such that
++\begin{align}
++    N_b^{R,\mathrm{pred}}(\theta)
++    &=\lambda_b N_b^{R,\mathrm{nom}}\kappa_b^R(\theta),
++    &N_b^{\mathrm{CR},\mathrm{pred}}
++    &=\lambda_b N_b^{\mathrm{CR},\mathrm{nom}}.
++    \label{eq:ch9_transfer_modifier}
++\end{align}
++At the evaluated variation, $\kappa_b^R=1+\delta_b^R$.
++Equation~\eqref{eq:ch9_transfer_modifier} isolates the theoretical transfer uncertainty; the experimental and MC statistical uncertainties are included separately.
++The theoretical transfer variations for the dominant backgrounds are applied to their SR and VR predictions, while their overall rates remain constrained by the CR data.
++The small cross-contamination of top events in $\CRW$ and $\wjets$ events in $\CRTop$ is not assigned a separate transfer uncertainty of this type.
++
++\subsection{\texorpdfstring{$W$}{W}+jets modelling}
++\label{subsec:ch9_wjets}
++
++\subsubtitle{QCD scales}
++The renormalisation scale $\mu_R$ specifies the scale at which the strong coupling is evaluated, while the factorisation scale $\mu_F$ separates the long-distance proton structure included in the PDFs from the hard-scattering calculation.
++An all-orders prediction would not depend on these arbitrary choices, but a calculation truncated at fixed order retains a residual dependence.
++Scale variations are therefore used to estimate the effect of missing higher-order QCD contributions.
++
++The internal event weights in the \textsc{Sherpa} samples provide seven combinations of scale multipliers,
++\begin{align}
++    (\mu_R/\mu_R^0,\mu_F/\mu_F^0)\in
++    \bigl\{&(1,1),(1/2,1/2),(1/2,1),(1,1/2),\notag\\
++    &(2,2),(2,1),(1,2)\bigr\},
++    \label{eq:ch9_scale_variations}
++\end{align}
++where the superscript $0$ denotes the nominal scale choice.
++The two combinations in which one scale is doubled and the other halved are excluded.
++Coherent variations of the matrix-element and parton-shower scales are used~\cite{PMGR-2021-01}.
++For each combination, the target-to-CR double ratio is calculated before taking the envelope around the nominal transfer factor.
++This preserves the cancellation between regions for the same physical variation.
++
++\subsubtitle{PDFs and the strong coupling}
++PDF uncertainties describe the limited knowledge of the parton momentum distributions inferred from experimental data~\cite{Ball2015NNPDF30,Ball:2022oua}.
++They are propagated using the NNPDF3.0nnlo Hessian variations provided with the samples.
++In this representation, independent variations along the fitted PDF error directions are combined using the corresponding Hessian prescription.
++The central predictions of the MMHT2014nnlo and CT14nnlo sets are also compared with the nominal prediction, and dedicated NNPDF variations probe the uncertainty in $\alpha_s$.
++All comparisons use the same variation in the CR and target region when constructing Eq.~\eqref{eq:ch9_transfer_variation}.
++
++\subsubtitle{Electroweak corrections}
++The \textsc{Sherpa} samples provide event weights for approximate NLO electroweak corrections~\cite{PMGR-2021-01}.
++These corrections become more significant at high momentum and can change the extrapolation into the selected tails.
++Their effect on the transfer factor is included as an additional uncertainty by comparing the electroweak-reweighted and nominal predictions.
++The resulting variations are approximately $4\%$ and $1\%$ for the resonant and non-resonant $\bTagSR$ selections, respectively.
++
++\subsubtitle{Heavy-flavour fraction}
++The $b$-vetoed $\CRW$ constrains a different flavour mixture from the tagged SRs and VRs.
++Measurements and modelling studies of vector-boson production with heavy-flavour jets show that the simulated flavour fractions and normalisations can differ from data by tens of percent, with a dependence on the selected phase space~\cite{ATL-PHYS-PUB-2017-006,PMGR-2021-01,STDM-2018-43,HIGG-2020-20}.
++Following the validation discussed in Section~\ref{subsec:ch8_vrw}, an additional $30\%$ uncertainty is assigned to the transfer from $W$ production with light-flavour hadrons to production with heavy-flavour hadrons.
++It is implemented as an overall variation of the $\wjets$ yield in regions with one or two tagged jets.
++Independent nuisance parameters are used for the resonant and non-resonant selections, while the tagged regions within each selection share the corresponding parameter.
++This additional uncertainty is not applied directly to $\bVetoSR$ or the $b$-vetoed $\CRW$.
++It expresses uncertainty in the flavour composition used for the extrapolation; it does not vary the tagging efficiency of individual jets.
++
++\subsection{Top-quark modelling}
++\label{subsec:ch9_top}
++
++The top-quark prediction combines $\ttbar$ and single-top production with the common normalisation described in Section~\ref{sec:ch8_top}.
++The following variations probe the modelling of this combined prediction~\cite{ATL-PHYS-PUB-2020-023}:
++\begin{itemize}
++    \item \textbf{NLO matching} is tested by comparing the nominal \textsc{Powheg}+\textsc{Pythia} prediction with an alternative sample using \texttt{pthard=1} in \textsc{Pythia}.
++    This setting changes the definition of the shower-emission veto used to match the parton shower to the radiation generated by \textsc{Powheg}.
++    The comparison therefore probes the matching prescription while retaining the same hard-process generator.
++    \item \textbf{Parton shower and hadronisation} are varied by replacing \textsc{Pythia} with \textsc{Herwig} in samples generated with \textsc{Powheg}.
++    Changes in the additional radiation and jet structure can alter both the jet-multiplicity acceptance and the high-momentum tails.
++    \item \textbf{Renormalisation and factorisation scales} are varied using the internal event weights.
++    Their effects are evaluated on the transfer factors, with separate variations retained for $\mu_R$ and $\mu_F$.
++    \item \textbf{Initial-state radiation} is varied using the A14 \texttt{Var3c} weights, which change the strength of the initial-state shower radiation.
++    \textbf{Final-state radiation} is varied through the shower renormalisation scale, using factors of two and one half.
++    These variations probe the amount and kinematics of additional radiation and therefore the efficiency of the jet selections.
++    \item \textbf{PDF and $\alpha_s$ uncertainties} are propagated through the available generator weights using the same target-to-CR comparison as for $\wjets$.
++    \item \textbf{The $h_{\mathrm{damp}}$ parameter} controls the damping of hard real-emission contributions that are resummed by \textsc{Powheg}.
++    An alternative sample with $h_{\mathrm{damp}}=3m_t$ is compared with the nominal $h_{\mathrm{damp}}=1.5m_t$ setting, where $m_t$ is the top-quark mass.
++\end{itemize}
++
++Three further variations address specific features of the $\ttbar$ and $Wt$ components.
++First, the nominal NLO $\ttbar$ sample is reweighted to the NNLO prediction for the top-quark $\pT$ distribution~\cite{Czakon:2017wor}.
++The difference is used as a modelling uncertainty in the shape of that distribution and its effect on the selected yields.
++It is distinct from the inclusive NNLO+NNLL normalisation already specified in Section~\ref{sec:background_samples}.
++Second, an alternative shower recoil prescription is used for $\ttbar$, in which the recoil from radiation in the top decay is assigned to the top quark rather than according to the nominal colour-based prescription.
++This tests how momentum conservation in the shower changes the reconstructed top-decay kinematics.
++
++Third, $Wt$ production overlaps with $\ttbar$ production beyond LO because some real-emission diagrams contain a second resonant top quark~\cite{Frixione:2008yi}.
++The nominal diagram-removal prescription omits these doubly resonant diagrams from the $Wt$ calculation.
++The alternative diagram-subtraction prescription subtracts a local approximation to the resonant $\ttbar$ contribution at the cross-section level, retaining interference terms.
++Their difference estimates the uncertainty in separating the two contributions.
++This variation is evaluated using the $Wt$ samples and then propagated to the combined top-quark transfer factor.
++Likewise, the NNLO reweighting and recoil variations act on the $\ttbar$ component before the change in the total top prediction is evaluated.
++
++\subsection{\texorpdfstring{$Z\rightarrow\nu\nu$}{Z to neutrinos} with a jet misidentified as a tau}
++\label{subsec:ch9_zfake}
++
++The $\znunu$+jets background with a jet passing the tau identification has a dedicated $100\%$ normalisation uncertainty.
++Its origin is the $\zll$ validation study in Section~\ref{subsec:ch8_zvr}, where differences of up to $60\%$ are observed in the total event yield while the kinematic shapes are generally described by simulation.
++These differences include both the modelling of $\zjets$ production and the probability for a jet to pass the tau selection.
++The conservative uncertainty is propagated to the simulated fake-tau contribution, whose small yield limits its effect on the total SR background.
++
++\subsection{Other background components}
++\label{subsec:ch9_other}
++
++Diboson production and the remaining $\zjets$ backgrounds retain their nominal simulated yields.
++Conservative $30\%$ normalisation uncertainties are assigned to these contributions in the SRs and VRs.
++These are analysis uncertainties for the selected event yields, rather than measurements of the precision of the inclusive production cross-sections.
++The dedicated fake-tau uncertainty in Section~\ref{subsec:ch9_zfake} is retained for the corresponding misidentified-tau contribution.
++
++\subsection{Signal modelling}
++\label{subsec:ch9_signal}
++
++The signal prediction is varied through the renormalisation and factorisation scales and the NNPDF3.0nlo PDF uncertainties.
++The variations are evaluated for the generated mass and coupling configurations described in Section~\ref{sec:signal_samples}.
++Unlike the dominant backgrounds, the signal is not normalised using a CR measurement, so changes in both its production rate and selection acceptance contribute to its uncertainty.
++The resulting theory uncertainty is typically of order $10$--$20\%$, with a dependence on the signal parameters and the selected region.
++The signal weights used for this evaluation do not provide a separate pair of $\alpha_s$ variations for the baseline PDF set, so no independent signal $\alpha_s$ uncertainty is derived from them.
++The interference contribution defined in Eq.~\eqref{eq:signal_interference} remains a separate signed prediction; it is not part of the background transfer-factor construction.
++
++\subsection{Evaluation in regions with limited MC statistics}
++\label{subsec:ch9_smoothing}
++
++The high-$m_{b\tau}$ and high-$\met$ requirements leave few top-quark events in some of the alternative samples.
++A direct comparison after the complete selection can then be dominated by fluctuations in the simulated event weights, rather than by the modelling change being tested.
++For these sources, the uncertainty is evaluated using distributions before the final threshold and, where necessary, a relaxed selection.
++
++The alternative sample is first normalised to the nominal yield in its dedicated CR.
++An $N-1$ distribution is then formed by retaining the region selection except for the threshold on the variable being studied: $m_{b\tau}$ for the resonant $\bTagSR$ or $\met$ for the non-resonant $\bTagSR$.
++For bin $i$ of that distribution, the ratio after CR normalisation is
++\begin{align}
++    r_i
++    &=\frac{N_i^{\mathrm{var}}}{N_i^{\mathrm{nom}}}
++    \frac{N^{\mathrm{CR},\mathrm{nom}}}{N^{\mathrm{CR},\mathrm{var}}}.
++    \label{eq:ch9_smoothing_ratio}
++\end{align}
++The ratio is smoothed with the \texttt{353QH twice} algorithm implemented in \textsc{ROOT}~\cite{Friedman:1974vj,ROOTTH1Smooth}.
++The smoothed ratio $\widetilde r_i$ is applied to the nominal distribution, and the bins passing the final selection are summed:
++\begin{align}
++    1+\delta_b^R
++    &=\frac{\sum_{i\in R}\widetilde r_i N_i^{\mathrm{nom}}}
++    {\sum_{i\in R}N_i^{\mathrm{nom}}}.
++    \label{eq:ch9_smoothed_transfer}
++\end{align}
++This gives a change in the selected transfer factor while reducing the influence of isolated fluctuations in the alternative sample.
++
++When the available statistics are insufficient even before smoothing, the jet-multiplicity requirement is removed and $N_b=1$ is replaced by $N_b\geq1$ for the SR uncertainty evaluation.
++The resulting relative modelling variation is then transferred to the nominal SR selection.
++This requires the relative variation to be sufficiently stable under the relaxed requirements.
++Smoothing is applied only when the relaxed comparison still requires it; the two procedures are not automatically used together.
++
++For the resonant selections, smoothing is used for the top parton-shower uncertainty in $\bTagSR$ and for the matching and $Wt$ interference uncertainties in $\VRTop$.
++Relaxed selections without smoothing are used for the downward top FSR variation, $h_{\mathrm{damp}}$ and $\ttbar$ recoil in $\bTagSR$.
++For the non-resonant selection, the matching, $h_{\mathrm{damp}}$ and recoil variations use both a relaxed selection and smoothing.
++The $\wjets$ QCD-scale, top parton-shower and $Wt$ interference variations use the relaxed selection without smoothing.
++
++The dependence on the relaxed selection is checked using variations with sufficient statistics for a direct comparison.
++For the resonant top ISR variation, removing the jet-multiplicity requirement changes the transfer-factor ratio from $0.96$ to $0.92$, compared with an MC statistical uncertainty of $0.29$ in that study.
++The smoothing procedure is also checked for the top matching variation in a relaxed resonant $\VRTop$, using $N_b\geq2$ and removing the jet-multiplicity requirement.
++The fractional changes before and after smoothing are $0.27\pm0.10$ and $0.15\pm0.12$, respectively, which are consistent within their MC statistical uncertainties.
++These checks support the procedures in the tested regions, without establishing exact independence from every relaxed selection.
++
++\subsection{Summary and treatment of the variations}
++\label{subsec:ch9_summary}
++
++Table~\ref{tab:ch9_theory_transfer} summarises the evaluated theory variations for the $\bTagSR$ transfer factors.
++The entries are changes in the relevant background component, before symmetrisation, and are not uncertainties in the total fitted background.
++In particular, a large fractional variation of the top-quark component need not produce an equally large change in the total background, which is dominated by $\wjets$.
++
++\clearpage
++\begin{table}[!htbp]
++    \centering
++    \begin{spacing}{1}
++    \small
++    \caption[Theory variations of the SR1b transfer factors]{Fractional changes $\delta_b^R$ in the CR-to-$\bTagSR$ transfer factors, expressed as percentages, after the smoothing or relaxed-selection treatment where used and before symmetrisation. For paired variations, the upward-parameter result is followed by the downward-parameter result in parentheses; their signs need not be opposite. A single entry denotes the signed change for an alternative prediction. The $30\%$ heavy-flavour uncertainty and the uncertainties in minor-background normalisations are separate from these entries.}
++    \label{tab:ch9_theory_transfer}
++    \begin{tabular}{lrr}
++        \toprule
++        Source & $\bTagSR$-$\Res$ & $\bTagSR$-$\NonRes$ \\
++        \midrule
++        $\wjets$ QCD scales & $+10\;(-17)$ & $+14\;(-16)$ \\
++        $\wjets$ PDF & $<0.1$ in magnitude & $-0.3$ \\
++        $\wjets$ PDF $\alpha_s$ & $-2\;(-0.1)$ & $+3\;(-3)$ \\
++        $\wjets$ electroweak correction & $+4$ & $+1$ \\
++        \midrule
++        Top NLO matching & $-6$ & $-15$ \\
++        Top parton shower & $+16$ & $-1$ \\
++        Top factorisation scale & $+12\;(-9)$ & $-5\;(+5)$ \\
++        Top renormalisation scale & $+15\;(-19)$ & $-1\;(+2)$ \\
++        Top ISR & $-4\;(-1)$ & $+16\;(-13)$ \\
++        Top FSR & $+19\;(-24)$ & $+1\;(-25)$ \\
++        Top PDF & $-5.1$ & $-2.5$ \\
++        Top PDF $\alpha_s$ & $+1\;(-1)$ & $-1\;(+0.2)$ \\
++        Top $h_{\mathrm{damp}}$ & $+9$ & $-7$ \\
++        $\ttbar$ NNLO reweighting & $-5$ & $-0.3$ \\
++        $\ttbar$ shower recoil & $-8$ & $-13$ \\
++        $Wt$ diagram removal/subtraction & $-10$ & $+3$ \\
++        \bottomrule
++    \end{tabular}
++    \end{spacing}
++\end{table}
++
++Most paired variations are symmetrised to reduce sensitivity to MC fluctuations in sparsely populated regions.
++Depending on the source, the symmetric size is obtained from half the difference between the upward and downward shifts, or from the average of their absolute magnitudes.
++JER, soft-term and $\ttbar$ NNLO variations retain their dedicated treatment rather than being subjected to this general prescription.
++The raw values in Table~\ref{tab:ch9_theory_transfer} should therefore be distinguished from the nuisance-parameter variations used by the fit.
++
++Finite MC sample sizes introduce a further statistical uncertainty in the predicted yields, separate from the modelling uncertainties above.
++It remains present after smoothing a modelling variation, since smoothing does not increase the number of simulated events in the nominal prediction.
++The fit includes dedicated parameters for the MC statistical uncertainty in each bin, as described in Chapter~\ref{chapter:results}.
++The final impact of each uncertainty depends on the fitted background normalisations and correlations; it is assessed together with the statistical results in that chapter.

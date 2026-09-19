@@ -1,0 +1,74 @@
+Variable Description
+nPV Number of primary vertices in the event.
+µ Average number of interactions per bunch crossing.
+hλcentre
+i Mean distance of the cluster shower centre from the calorimeter
+front face measured along the shower axis
+D
+λ
+2
+E
+Mean distance of a cell
+from the shower centre along the shower axis
+D
+ρ
+1
+E
+Mean of the first moment in the cluster energy density,
+ρ = E
+cluster
+/V
+cluster
+, where E
+cluster
+and V
+cluster
+represent
+the energy and volume of the cluster, respectively
+fpresampler Mean fraction of cluster energy deposited in
+the barrel and endcap presamplers
+PEM Classification probability of the cluster to be EM-like,
+as described in Ref. [45]
+ntrack Number of tracks associated with the τhad-vis
+n
+π
+0 Number of reconstructed neutral pions associated with the τhad-vis
+γπ Relative difference of the total charged pion energy,
+Echarged, and the total neutral pion energy, Eneutral
+:
+γπ = (Echarged − Eneutral
+)/(Echarged + Eneutral
+)
+ηcalo Calorimeter-based (baseline) pseudorapidity
+p
+Comb
+T Transverse momentum interpolated from calorimetric
+corrections to energy measurement and TPF reconstruction
+p
+EM
+T /p
+LC
+T Ratio of the calorimetric energy at the EM scale
+to the local hadron calibration transverse momentum p
+LC
+T
+p
+LC
+T /p
+Comb
+T Ratio of the local hadron calibration transverse
+momentum to p
+Comb
+T
+p
+TPF
+T /p
+Comb
+T Ratio of the TPF reconstruction transverse momentum,
+p
+TPF
+T , to p
+Comb
+T
+TPF BDT Values BDT values of the TPF algorithm for 1p0n vs 1p1n, 1p1n vs 1pXn,
+and 3p0n vs 3pXn discrimination

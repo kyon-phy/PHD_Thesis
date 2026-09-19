@@ -1,0 +1,15 @@
+\chapter{Correction of the signal internal event weights}
+\label{app:signal_weight_correction}
+
+For the right-handed interpretation, the dependence of the signal prediction on $\gU$ and $\beta_L^{23}$ is obtained by reweighting the baseline sample generated at each $\MU$ value.
+The \textsc{MadGraph5\_aMC@NLO} internal event weights encode the change in the matrix element when these coupling parameters are varied.
+Their performance is evaluated by comparing the reweighted predictions with samples generated independently at selected parameter points.
+
+The internal event weights alone do not fully reproduce the reference predictions in regions where the relative contributions of resonant and non-resonant production change.
+The overall normalisation is therefore adjusted to that of the corresponding reference prediction.
+A bin-by-bin two-dimensional correction in the leading-jet $\pT$ and $m_{b\tau}$ is then applied to account for the remaining shape differences.
+These observables provide sensitivity to the resonant and non-resonant components and allow both contributions to be corrected within the same sample.
+
+The corrected predictions are validated using truth-level selections that reproduce the main signal-region requirements.
+At each stage of the selection, the corrected and independently generated event yields agree within $10\%$ for both the resonant and non-resonant signal regions.
+This difference is smaller than the theoretical uncertainties assigned to the signal prediction.

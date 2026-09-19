@@ -1,0 +1,1374 @@
+=== PDF PAGE 1 ===
+ZU-TH 47/22
+Confronting the vector leptoquark hypothesis with new low- and high-energy data
+Jason Aebischer,1 Gino Isidori, 1 Marko Pesut,1 Ben A. Stefanek, 1 and Felix Wilsch 1
+1Physik-Institut, Universit¨ at Z¨ urich, CH-8057 Z¨ urich, Switzerland
+In light of new data we present an updated phenomenological analysis of the simplified U1-
+leptoquark model addressing charged-current B-meson anomalies. The analysis shows a good com-
+patibility of low-energy data (dominated by the lepton flavor universality ratios RD and RD∗) with
+the high-energy constraints posed by pp → τ ¯τ Drell-Yan data. We also show that present data are
+well compatible with a framework where the leptoquark couples with similar strength to both left-
+and right-handed third-generation fermions, a scenario that is well-motivated from a model building
+perspective. We find that the high-energy implications of this setup will be probed at the 95%
+confidence level in the high-luminosity phase of the LHC.
+I. INTRODUCTION
+The hypothesis of a vector leptoquark field (U1), trans-
+forming as ( 3, 1, 2/3) under the Standard Model (SM)
+gauge symmetry, with a mass in the TeV range has at-
+tracted intense interest in the last few years. At first,
+this interest arose from a purely phenomenological per-
+spective, when it was realized that this field could offer a
+combined explanation of both the charged- and neutral-
+current B-meson anomalies [1–4]. In fact, it was soon re-
+alized that the U1 hypothesis is the only single-mediator
+explanation of the two sets of anomalies, while remain-
+ing well compatible with all available data [5–7]. After
+these phenomenological analyses, a purely theoretical in-
+terest also began to grow with the realization that the U1
+hypothesis naturally points to an underlying SU (4) Pati-
+Salam like [8] symmetry unifying quarks and leptons [3].
+In addition, the flavor structure of the U1 couplings sug-
+gested by data hinted towards new dynamics potentially
+connected to the origin of the Yukawa hierarchies [3, 5].
+These observations motivated an intense theoretical
+effort to build more complete models hosting a TeV-
+scale U1 field. Among them, a particularly compelling
+class is that of so-called “4321” gauge models [9–14]. In
+these models, the SM gauge symmetry is extended to
+SU (4)h × SU (3)l × SU (2)L × U(1)X [9], allowing the SM
+fermions to have flavor non-universal gauge charges [10],
+such that the U1 is coupled mainly to the heavy third-
+generation fermions. It has also been proposed that
+the 4321 structure at the TeV scale, whose phenomenol-
+ogy has been analysed in detail in [15, 16], could be
+the first layer of a more ambitious multi-scale construc-
+tion [10, 17–19]. This class of models are able to explain
+both the origin of the Yukawa hierarchies as well as sta-
+bilize the SM Higgs sector, as in [20–22]. Alternative
+approaches to embed the U1 in extended gauge groups
+and/or describe it in the context of composite models
+have been proposed in [23–30], while additional recent
+phenomenological studies about the U1 have been pre-
+sented in [31–34].
+Since the latest phenomenological studies, two sets
+of experimental data providing additional information
+about the leading U1 couplings to third-generation
+fermions have appeared. On the low energy side, LHCb
+has reported an updated measurement of the Lepton Fla-
+vor Universality (LFU) ratio RD∗ and the first measure-
+ment of RD at a hadron collider [35], with the ratios
+defined as
+RH = Γ(B → Hτ ¯ν)/Γ(B → Hµ ¯ν) . (1)
+On the high-energy side, new bounds on non-standard
+contributions to σ(pp → τ ¯τ) have been reported by
+CMS [36, 37]. As pointed out first in [38], the pp → τ ¯τ
+process via t-channel U1 exchange is a very sensitive
+probe of the U1 couplings to third-generation fermions,
+even for relatively high U1 masses. Interestingly enough,
+CMS data currently indicates a 3 σ excess of events in
+pp → τ ¯τ, well compatible with a possible U1 contribu-
+tion [37]. However, no excess in pp → τ ¯τ is observed
+by ATLAS [39] (although this analysis is not optimized
+for non-resonant U1 contributions), making drawing any
+conclusions about this excess premature. Still, these new
+data motivate a closer investigation about the compati-
+bility of low- and high-energy observables under the U1
+hypothesis, which is the main goal of this paper. We
+will pursue this goal in a general, bottom-up perspective
+by focusing only on the leading U1 couplings to third-
+generation leptons while avoiding details that depend on
+the specific ultraviolet (UV) completions of the model as
+much as possible.
+The paper is organized as follows: in Sec. II we in-
+troduce the simplified model employed to analyze both
+low- and high-energy data. Particular attention is de-
+voted to determine the (quark) flavor structure of the U1
+couplings, which is essential to relate the different am-
+plitudes we are interested in ( b → cτ ¯ν and b → uτ ¯ν
+at low energies, b¯b → τ ¯τ at high energy). In Sec. III,
+we perform a χ2-fit in our simplified model to determine
+the parameter space preferred by low-energy data. We
+then investigate the compatibility of the preferred low-
+energy parameter space with high- pT constraints from
+pp → τ ¯τ. The conclusions are summarised in Sec. IV.
+The Appendix A contains a summary of the preferred
+parameter-space region in view of future searches.
+arXiv:2210.13422v3  [hep-ph]  12 Jun 2023
+
+=== PDF PAGE 2 ===
+2
+II. MODEL
+The starting point of our analysis is the hypothesis of a
+massive U1 field, coupled dominantly to third-generation
+fermions. Focusing on third-generation leptons, and
+assuming no leptoquark (LQ) couplings to light right-
+handed fields (which are severely constrained by data,
+see e.g. [15, 40]), we restrict our attention to the follow-
+ing terms in the LQ current:
+J µ
+U = gU√
+2
+
+q3
+Lγµℓ3
+L + βR d
+3
+Rγµe3
+R +
+X
+k=1,2
+ϵqk qk
+Lγµℓ3
+L
+
+ .
+(2)
+Here the right-handed fields and the lepton doublet are
+understood to be in the corresponding mass-eigenstate
+basis, while the basis for the left-handed quarks is left
+generic and will be discussed in detail later on.
+Integrating out the LQ field at the tree level leads to
+the effective interactions
+LLQ
+EFT = − 2
+v2
+h
+C ijαβ
+LL Oijαβ
+LL + C ijαβ
+RR Oijαβ
+RR
++
+
+C ijαβ
+LR Oijαβ
+LR + h.c.
+i
+, (3)
+where
+Oijαβ
+LL = (¯q i
+Lγµℓα
+L)(¯ℓβ
+Lγµq j
+L) ,
+Oijαβ
+LR = (¯q i
+Lγµℓα
+L)(¯eβ
+Rγµd j
+R) ,
+Oijαβ
+RR = ( ¯d i
+Rγµeα
+R)(¯eβ
+Rγµd j
+R) .
+The normalization factor in the effective Lagrangian is
+v = (
+√
+2 GF )−1/2 ≈ 246 GeV. We also introduce the
+effective scale ΛU =
+√
+2MU /gU, such that
+C33τ τ
+LL = v2
+2Λ2
+U
+. (4)
+If we were interested only in b → cτ ¯ν transitions, we
+would have restricted our attention to the coefficients
+C cbτ τ
+LL(LR).1 However, in order to also address the inter-
+play with b → uτ ¯ν transitions and, most importantly,
+high-energy constraints, we need to analyze the relation
+among the C cbτ τ
+LL(LR) and coefficients involving different
+quark flavors.
+A. Quark flavor structure
+The flavor basis defined by J µ
+U can be considered the
+interaction basis for the LQ field. To address its relation
+to the mass-eigenstate basis of up (or down) quarks we
+1 Here and in the rest of this section the up- or down-type flavor
+indices referred to qi
+L indicate the corresponding SU (2)L doublet
+in a given (up- or down-type) mass eigenstate.
+need to write down and diagonalize the Yukawa couplings
+in this basis.
+As in [3], we work under the assumption of an approx-
+imate U(2)3
+f = U(2)Q × U(2)U × U(2)D symmetry acting
+on the light quark generations. In the limit of unbroken
+symmetry, the parameters ϵqk in (2) should vanish and
+only third-generation quarks have non-zero Yukawa cou-
+plings. To describe a realistic spectrum, we proceed by
+introducing two sets of U(2)3
+f breaking terms:
+eq , Vu , Vd ∼ 2Q , (5)
+∆u , ∆d ∼ ¯2U(D) × 2Q , (6)
+where eq denotes the vector eT
+q = (ϵq1 , ϵq2). The leading
+2Q terms control the heavy → light mixing in the left-
+handed sector, whereas the subleading ¯2U(D) ×2Q terms
+are responsible for the light Yukawa couplings.
+The hypothesis of minimal U(2)3
+f breaking, proposed
+in [41, 42] and employed in previous phenomenologi-
+cal analysis (see e.g. [3, 5, 40]), corresponds to the as-
+sumption of a single 2Q spurion, or the alignment of
+the three terms in (5) in U(2)Q space. Motivated by
+model-building considerations [22, 43] and recent data,
+we do not enforce this assumption in what follows. In
+addition to the minimal case, we will consider also the
+possibility of a (small) misalignment of the three lead-
+ing U(2)Q-breaking terms. We thus use the approximate
+U(2)3
+f symmetry more as an organising principle to clas-
+sify the flavor-violating couplings in the theory, rather
+than a strict ansatz on the underlying flavor structure.
+Under these assumptions, the 3 × 3 Yukawa couplings
+can be written as ( f = u, d):
+Yf = yf3
+ ∆f Vf
+0 1
+
+. (7)
+Without loss of generality, the residual flavor symmetry
+allows us to choose a basis where both ∆u and ∆d are
+real. In this basis, the latter are diagonalised by a real
+orthogonal matrix,
+∆f = Of ×diag
+ yf1
+yf3
+, yf2
+yf3
+
+, O f =
+
+cf sf
+−sf cf
+
+, (8)
+where sf = sin θf and cf = cos θf, and Vf are in general
+two complex vectors, VT
+f = (Vf1 , Vf2).
+The natural size of the different mixing terms can
+be deduced by the perturbative diagonalisation of Yu
+and Yd. Introducing unitary matrices Lf, defined by
+Lf Yf Y †
+f L†
+f = diag(yf1 , yf2 , yf3) , (9)
+it follows that
+Lf ≈
+ OT
+f 0
+0 1
+ 1 −Vf
+V†
+f 1
+
+. (10)
+Since the elements of the Cabibbo, Kobayashi, Maskawa
+(CKM) matrix are given by Vij = (LuL†
+d)ij, we deduce
+Vu2,d2 = O(λ2) , V u1,d1 = O(λ3) , (11)
+
+=== PDF PAGE 3 ===
+3
+where λ = |Vus| ≈ 0.22, and
+sd − su = λ + O(λ3) . (12)
+Assuming a common origin of the leading U(2)Q-
+breaking terms, consistently with (11) it is natural to
+assume
+ϵq2 = O(λ2) ≫ ϵq1 . (13)
+Everything discussed so far follows from the initial
+choice of symmetry breaking terms, as well as the require-
+ment of reproducing the observed pattern of the quark
+Yukawa couplings. As we shall see, the non-observation
+of large deviations from the SM in ∆ F = 2 transitions
+will impose further general constraints. This will allow
+us to pin down the precise relation between the Yukawa
+couplings and the LQ interaction basis.
+Down-alignment of heavy → light mixing.
+In any realistic UV completion of the effective model
+considered here, there are also currents J µ
+q = q3
+Lγµq3
+L,
+associated to neutral mediators close in mass to the U1
+LQ. As discussed in [44], this is an unavoidable conse-
+quence of the closure of the algebra associated to J µ
+U. In
+particular, this conclusion holds no matter if the U1 is
+realized as a gauge boson or as a composite state. This
+fact implies that we also expect the effective interaction
+∆L4q = O(1) × 1
+Λ2
+U
+(q3
+Lγµq3
+L)2 . (14)
+The latter can spoil the tight bounds on Bs(d)– ¯Bs(d) mix-
+ing unless the Vdi that control the off-diagonal entries of
+Ld are about one order of magnitude smaller with respect
+to their natural size in Eq. (11). 2 The smallness of these
+parameters makes them irrelevant for any other observ-
+able, so in the following we simply set Vd = 0. Under
+this assumption, the rotation matrices take the form
+Ld ≈
+
+
+cd −sd 0
+sd cd 0
+0 0 1
+
+ , L u = V × Ld , (15)
+and the only remaining free parameter in the Yukawa
+coupling is su (or sd), which control the orientation ofVu
+in U(2)Q space relative to the CKM vector ( Vub, Vcb):3
+Vu1
+Vu2
+= su + Vub
+Vcb
++ O(λ3) (16)
+2 Precise bounds in 4321 gauge models have been discussed in [16].
+3 Note that without loss of generality we can change the (overall)
+phase of the fields such that Vu2 is real and set the CKM matrix
+to its standard phase convention.
+At this point it is convenient to re-write JU in the
+down-quark mass eigenstate basis by introducing the ef-
+fective couplings βij
+L as in [15, 16]:
+J µ
+U = gU√
+2
+
+ X
+q=b,s,d
+βqτ
+L qLγµτL + βR d
+3
+Rγµe3
+R
+
+ . (17)
+Using the expression of Ld in Eq. (15) we get βbτ
+L = 1
+and
+βsτ
+L = cdϵq2 + sdϵq1 = O(λ2) , (18)
+βdτ
+L = cdϵq1 − sdϵq2 = O(λ3) . (19)
+Under the assumption of minimal U(2)3
+f breaking, i.e. as-
+suming the two 2Q spurions eq and Vu are aligned in
+U(2)Q space, it is easy to check that
+βdτ
+L
+βsτ
+L
+
+minimal U(2)3
+f
+= V ∗
+td
+V ∗
+ts
+. (20)
+Therefore in the minimal case the value of the free pa-
+rameter su is irrelevant: it is absorbed into the definition
+of βsτ
+L .
+Non-minimal U(2)Q breaking with light-quark up alignment.
+An interesting case worth considering from a model-
+building perspective is the limit ϵq1 → 0, or the limit
+where the LQ field does not couple to the first genera-
+tion (in a generic basis where the light-family mixing is
+real). This limit necessarily implies a non-minimal U(2)Q
+breaking, or a misalignment between eq and Vu, as can
+be deduced by Eq. (16). 4 As we discuss below, in this
+limit we are phenomenologically led to assume a real ϵq2
+as well as approximate up alignment in the light-quark
+sector (i.e. su ≈ 0), in order to evade the tight constraints
+from K– ¯K and D– ¯D mixing.
+The ∆F = 2 constraints on the light-quark sector are
+more model dependent than those derived from ∆ B = 2
+transitions, since they depend on how the U(2)Q break-
+ing is transferred from the LQ current to the neutral cur-
+rents. If the latter preserve a U(2)Q invariant structure,
+then there is no constraint coming from the light-quark
+sector. However, it is not obvious how to justify this from
+a model-building point of view.
+In the most realistic scenarios, U(2)Q is broken also
+in the neutral-current sector by terms proportional to
+4 Setting ϵq1 = 0 in a basis where the light-family mixing is real
+is equivalent to the statement that there is no non-trivial CP-
+violating phase between eq and ∆u,d. This prevents reproducing
+the physical phase in the CKM matrix using only these spurions.
+Indeed the (complex) relation (16) implies that the two compo-
+nents in Vu have a different phase in the basis where ∆u,d are
+real.
+
+=== PDF PAGE 4 ===
+4
+appropriate insertions of eq. In this case, and assuming
+Vd = 0, the severe constraint from CP-violation in ¯K–
+K mixing can be satisfied assuming a real eq. However,
+this is not enough to simultaneously protect CP-violation
+in ¯D–D mixing. As pointed out recently in [43] (see
+also [33]), the latter forces us to choose su ≲ 0.1 λ, i.e. an
+approximate up alignment in the light-quark sector.
+In the phenomenological limit su = 0 and Vd = 0, the
+light-quark fields in the interaction basis can be identified
+as
+ q1
+L
+q2
+L
+
+=
+ Vud Vus
+Vcd Vcs
+ dL
+sL
+
+≈
+ uL
+cL
+
+, (21)
+while q3
+L ≡ bL. The βiτ
+L become approximately diagonal
+in the up-quark mass basis and, setting ϵq1 → 0, we get
+βcτ
+L = ϵq2 . β uτ
+L = 0 . (22)
+In the following we will investigate the relation between
+b → c and b → u transitions either assuming the minimal-
+breaking relation (20), or employing the ansatz (22).
+B. Charged currents in the mass-eigenstate basis
+Following the notation of [16], we re-write the part of
+LLQ
+EFT relevant to b → cτ ¯ν transitions as
+Lb→c = −4GF√
+2 Vcb
+
+1 + Cc
+LL
+
+(¯cLγµbL)(¯τLγµνL)
+− 2 Cc
+LR (¯cLbR)(¯τR νL)
+
+, (23)
+and similarly for b → uτ ¯ν. The effective coefficients
+Cc,u
+LL(LR) defined above are related to the coefficients in
+(3) by
+Cc
+LL(LR) =
+C cbτ τ
+LL(LR)
+Vcb
+, Cu
+LL(LR) =
+C ubτ τ
+LL(LR)
+Vub
+. (24)
+Using the βij
+L introduced in (17), we get
+Cc
+LL = C33τ τ
+LL
+
+1 +
+X
+i=s,d
+Vci
+Vcb
+βiτ
+L
+
+≡ C33τ τ
+LL
+
+1 + ϵq
+|Vcb|
+
+,
+Cc
+LR = β∗
+R Cc
+LL , (25)
+where we defined the effective parameter ϵq to simplify
+the notation. Concerning the b → u coefficients, assum-
+ing the minimal-breaking relation (20) we get
+Cu
+LL(LR) = Cc
+LL(LR) , (26)
+whereas the non-minimal ansatz (22) leads to
+Cu
+LL(LR) =
+Cc
+LL(LR)
+1 + ϵq/|Vcb| . (27)
+III. OBSERVABLES
+A. Low-energy
+The values of the effective couplings Cc
+LL and Cc
+LR can
+be fit at low energies using the experimental information
+on the LFU ratios RD, RD∗, and RΛc. We have explicitly
+checked that other poorly measured observables, such as
+polarisation asymmetries in b → cτ ¯ν transitions or the
+loose bound on B(B−
+c → τ ¯ν) [45], do not currently pro-
+vide additional constraints.5
+The LHCb collaboration recently reported a com-
+bined measurement of RD and RD∗ based on the τ →
+µνν decay of RD = 0 .441 ± 0.060stat ± 0.066syst and
+RD∗ = 0 .281 ± 0.018stat ± 0.024syst with correlation
+ρ = −0.43 [46] , as well as an RD∗ only measure-
+ment based on hadronic τ-decays with the value RD∗ =
+0.257 ± 0.012stat ± 0.018syst [47]. Together, these mea-
+surements shift the world average of these ratios to [48]
+Rexp
+D∗ = 0 .284 ± 0.013total , (28)
+Rexp
+D = 0 .356 ± 0.029total , (29)
+with correlation ρ = −0.37. We fit these results within
+our model using the approximate numerical formulae re-
+ported in [16]:
+RD
+RSM
+D
+= |1 + Cc
+LL|2 − 3.00 Re [(1 +Cc
+LL) Cc ∗
+LR]
++ 4.12|Cc
+LR|2 , (30)
+RD∗
+RSM
+D∗
+= |1 + Cc
+LL|2 − 0.24 Re [(1 +Cc
+LL) Cc ∗
+LR]
++ 0.16|Cc
+LR|2 , (31)
+where the Wilson coefficients are understood to be reno-
+malized at the scale µ = mb. As reference values for the
+SM predictions we use the HFLAV averages [48]: 6
+RSM
+D = 0.298(4) , R SM
+D∗ = 0.254(5) . (32)
+Concerning RΛc, we use the approximate formula pro-
+vided in [55], that in our notation reads
+RΛc
+RSM
+Λc
+= |1 + Cc
+LL|2 − 1.01 Re [Cc
+LR + Cc
+LLCc ∗
+LR]
++ 1.34|Cc
+LR|2 . (33)
+As inputs we use the recent LHCb result, Rexp
+Λc = 0.242 ±
+0.076 [56], and the SM value RSM
+Λc = 0.333(13) [55].
+5 Using the bound B(B−
+c → τ ¯ν) ≤ 0.3, derived in [45], we deduce
+|Cc
+LR| ≤ 0.33, which has no influence on the fit.
+6 More details about the SM predictions of RD and RD∗ and their
+uncertainties can be found in [49–54]
+
+=== PDF PAGE 5 ===
+5
+-0.10 -0.05 0.00 0.05 0.10 0.15 0.20
+-0.15
+-0.10
+-0.05
+0.00
+0.05
+0.10
+FIG. 1. Determination of Cc
+LL and Cc
+LR from a χ2-fit to low-
+energy observables. The Wilson coefficients, assumed to be
+real, are renormalized at the reference scale Λ UV = 1 TeV.
+The blue ellipses denote the 1, 2, and 3 σ contours fitting only
+b → c observables. The black dot indicates the best fit point
+of (0.05, −0.02). The dotted lines are obtained including also
+B
+ 
+B−
+u → τ ¯ν
+
+in the limit of up alignment. The ∆ χ2 = 1
+regions preferred by each observable are also indicated, except
+in the case of RΛc where we give the 90% CL region (due to
+the large error).
+In the case of b → uτ ν transitions, the only relevant
+constraint at present is provided by B(B−
+u → τ ¯ν). Here
+the numerical expression reads [40] :
+B (B−
+u → τ ¯ν)
+B
+ 
+B−u → τ ¯ν
+SM = |1 + Cu
+LL − 2χu Cu
+LR|2 , (34)
+where χu = m2
+B+ / [mτ (mb + mu)] ≈ 3.75. The data
+we use are B (B−
+u → τ ¯ν)exp = 1 .09(24) × 10−4 [57] and
+B (B−
+u → τ ¯ν)SM = 0.812(54) × 10−4 [58].
+In Fig. 1 we report the best values of Cc
+LL and Cc
+LR as
+obtained from a χ2-fit to the low-energy observables. 7
+The values reported in Fig. 1 correspond to the Wil-
+son coefficients renormalized at a reference high-scale
+ΛUV = 1 TeV, which is the most appropriate scale
+to compare low- and high-energy observables. Taking
+into account only the QCD-induced running, we set
+Cc
+LL(mb) = Cc
+LL(ΛUV) and
+Cc
+LR(mb) = ηS Cc
+LR(ΛUV) , η S ≈ 1.6 . (35)
+7 As can be seen from Eqs. (30-33), what matters for the low-
+energy fit in case of small Wilson coefficients is Re( Cc
+LR), so in
+the fit we take Cc
+LR to be real for simplicity.
+The first point to notice is that the SM point ( Cc
+LL =
+Cc
+LR = 0) is excluded at the 3 σ level. The b → c observ-
+ables favor a region compatible with both a pure left-
+handed interaction ( Cc
+LR = 0) as well as the case with
+equal magnitude right-handed currents Cc
+LL = −Cc
+LR. In
+both cases, the pull of the U1 LQ hypothesis with re-
+spect to the SM is ∆ χ2 = χ2
+SM − χ2
+NP ≈ 11, which
+is at the 3 σ level. As first pointed out in [10], the
+case where Cc
+LL = −Cc
+LR is a natural benchmark for a
+flavor non-universal gauge model, where both left- and
+right-handed third-family quarks and leptons are uni-
+fied in fundamental representations of SU (4). As indi-
+cated by the dashed blue lines, the preferred region is
+essentially unchanged if B(B− → τ ¯ν) is added under
+the hypothesis of non-minimal U(2)Q breaking and up-
+alignment. In either case, we find a best fit point of
+Cc
+LL = 0 .05 and Cc
+LR = −0.02. On the other hand, the
+inclusion of B(B− → τ ¯ν) under the hypothesis of mini-
+mal U(2)Q breaking (dark green band) disfavors sizable
+right-handed currents.
+Loop-induced contribution to b → sℓ¯ℓ
+This analysis is focused on the leading couplings of the
+U1 field to third-generation leptons. Hence, we do not
+discuss b → sℓℓ transitions (ℓ = e, µ) in detail here. How-
+ever, we recall that the operator Osbτ τ
+LL mixes via QED
+running [59] into operators with light leptons ( τ ¯τ → ℓ¯ℓ
+loop). This results into a lepton-universal contribution
+to the b → sℓ¯ℓ Wilson coefficient C9 [60], defined accord-
+ing to standard conventions (see e.g. [61, 62]). We will
+estimate the size of this effect using the results of the fit
+in Fig. 1.
+To this purpose, we note that besides the leading-log
+running from the high-energy matching scale (i.e. MU)
+down to mb, we should also include long distance (LD)
+contributions resulting from the one-loop matrix element
+of the semi-leptonic operator Osbτ τ
+LL [63]. Such contribu-
+tions are analogous to the LD contributions from four-
+quark operators to the b → sℓ¯ℓ decay amplitude, which
+are present in the SM (see e.g. [64]). The only difference
+is that the charm loop is replaced by a tau-lepton loop.
+In full analogy to the factorizable part of the charm-loop
+contribution [64], also the (fully perturbative) LD tau-
+lepton contribution can be taken into account defining
+a q2-dependent Ceff
+9 (q2), where q2 = m2
+ℓℓ. Considering
+also this effect, we find the following expression for the
+correction to Ceff
+9 induced by the U1:
+∆Ceff
+9 (q2 = 0) = C sbτ τ
+LL
+V ∗
+tsVtb
+2
+3
+
+log
+ M2
+U
+m2τ
+
+− 1
+
+,
+= − Cc
+LL
+1 + |Vts|/ϵq
+2
+3
+
+log
+ M2
+U
+m2τ
+
+− 1
+
+. (36)
+The last expression follows from the relation between
+C sbτ τ
+LL and Cc
+LL, which can be deduced from Sect. II A.
+For Cc
+LL = 0.05 (best fit point in Fig. 1), MU = 3 TeV,
+
+=== PDF PAGE 6 ===
+6
+and ϵq = 2 |Vts|, we get ∆ Ceff
+9 (0) ≈ − 0.3. While not
+solving all b → sℓ¯ℓ anomalies, such a correction leads to
+a significant improvement in the description of b → sℓ¯ℓ
+data [16, 61, 62].
+B. High-energy
+Collider observables are known to provide rich informa-
+tion on the parameter space of vector leptoquark mod-
+els [31, 38, 44] explaining the B-meson anomalies, that is
+complementary to low-energy data [16, 65]. A variety of
+different underlying processes can be relevant at hadron
+colliders such as the LHC. The most important channels
+involving the U1 leptoquark are:
+• Pair production pp → U ∗
+1 U1,
+• Quark-gluon scattering qg → U1ℓ,
+• Quark-lepton fusion qℓ → U1,
+• Drell-Yan pp → ℓ¯ℓ.
+The main decay channels in models where the leptoquark
+predominantly couples to third generation fermions are
+U1 → bτ + and U1 → t¯ντ. In the case of interest where
+gU ≳ gs, the Drell-Yan production channel due to t-
+channel LQ exchange provides the most stringent con-
+straints on the parameter space. Nevertheless, the other
+channels can still yield relevant information. For exam-
+ple, the searches for LQ pair production [66–68] set a
+lower bound on the U1 mass of MU ≳ 1.7 TeV [69, 70],
+which however only covers a small region of parameter
+space relevant for the explanation of the charged-current
+B-meson anomalies [16]. On the other hand, quark-gluon
+scattering [68, 71–73] and resonant production through
+quark-lepton fusion [74–78] will be important in case of a
+discovery, but they are not competitive at the moment.
+Therefore, in the present analysis, we focus only on the
+non-resonant contributions of the U1 vector LQ to Drell-
+Yan production. In particular, we are interested in the
+process pp → τ ¯τ, with the main contribution due to b¯b →
+τ ¯τ, since we assume that theU1 is predominantly coupled
+to third generation fermions. In such a scenario, the final
+state events are expected to contain an associated b-jet,
+due to gluon splitting g → b¯b in the initial proton. We
+consider the CMS [36] and ATLAS [39] searches for the
+di-tau final state, based on the full LHC Run-II data sets.
+These searches provide results both in a b-tag channel,
+where an associated b-tagged jet is required in the final
+state, and in a b-veto channel, where the absence of any
+b-tagged jet is compulsory.
+The contributions of the U1 vector-leptoquark to Drell-
+Yan processes have recently been studied in Ref. [34] at
+next-to-leading order (NLO) in QCD. Notice that in any
+UV completion the U1 leptoquark is expected to be ac-
+commodated by further degrees of freedom with masses
+in the ballpark of theU1 mass, that will lead to additional
+collider signatures [9, 11, 16, 44]. These are, however,
+ATLAS [b-tag]
+ATLAS [b-veto]
+CMS [b-tag]
+CMS [b-veto]
+0 0.2 0.4 0.6 0.8 1.0
+1.0
+1.5
+2.0
+2.5
+95% CL excluded
+FIG. 2. High- pT constraints on the U1 model parameters βR
+and ΛU derived from the pp → τ ¯τ searches by CMS [36] (gray)
+and ATLAS [39] (green) in theb-tag and b-veto channels. The
+functional dependence is extracted using the HighPT pack-
+age [65, 79] and rescaled to the results presented in Ref. [34].
+The shaded regions correspond to the excluded parameter
+space at 95 % CL. The solid lines correspond to the constraints
+obtained using LHC run-II ( ∼ 140 fb−1) data, whereas the
+dashed line displays the projections for LHC’s high luminos-
+ity phase (∼ 3 ab−1) for the ATLAS b-tag search.
+model dependent and thus not considered in the analy-
+sis at hand. Previous work investigating the connection
+of high-pT data with the low-energy observables for the
+B-meson anomalies can be found in Refs. [16, 65]. We
+extend these works by analysing the recent CMS di-tau
+search [36] in addition to the already previously investi-
+gated ATLAS search [39] for the same final state. More-
+over, we use the results of Ref. [34] to extend the analysis
+incorporating NLO effects and to exploit the more con-
+straining searches for di-tau final states in association
+with a b-jet.
+For our present study we use the HighPT package [65,
+79] to compute the χ2 likelihood of the EFT Lagrangian
+in Eq. (3) for the b-veto channel of the ATLAS di-tau
+search [39]. We then rescale this result to match the NLO
+predictions derived in Ref. [34] for the U1 leptoquark for
+the ATLAS [39] and CMS [36] searches in both b-tag and
+b-veto channels.8
+Minimizing the rescaled χ2 likelihoods with respect to
+8 Ref. [34] also provides results for the CMS search [37] for di-
+tau final states using angular observables. However, since such
+observables are currently not implemented in HighPT, we refrain
+from rescaling our likelihood obtained for the total-transverse
+mass mτ ¯τ to this search.
+
+=== PDF PAGE 7 ===
+7
+-0.10 -0.05 0.00 0.05 0.10 0.15 0.20
+-0.15
+-0.10
+-0.05
+0.00
+0.05
+0.10
+FIG. 3. High- pT constraints superimposed on the low-energy
+fit. The red and blue bands represent the ∆ χ2 = 1 regions
+preferred by RD and RD∗. The blue lines correspond to the
+1σ, 2 σ, and 3 σ contours of the combined low-energy fit in-
+cluding all b → c observables (dot = best fit point). The
+high-pT exclusion limits derived from the b-tag channel of the
+CMS [36] (ATLAS [39]) search are given by regions outside of
+the gray (green) lines. On the other hand, the region inside
+the innermost dotted curve is our projection for the allowed
+parameter space from high-pT searches (in absence of a signal)
+with a luminosity of 3 ab −1. Finally, the region to the right
+of the red line is excluded by τ-LFU tests assuming leading
+log running of C33τ τ
+LL . See text for more details.
+the right-handed coupling βR and the effective scale Λ U,
+we find the 95 % CL exclusion regions 9 shown in Fig. 2.
+The ATLAS di-tau search [39], shown in green, provides
+stronger exclusion limits than the corresponding CMS
+search [36], displayed in gray. This can be understood
+by noticing that a slight excess of events is observed in
+the high-pT tail in the latter search, weakening the con-
+straints derived from it. For both collaborations, the
+b-tag channels (dark green/light gray) yield more strin-
+gent constraints than the corresponding b-veto channels
+(light green/dark gray), as anticipated. As previously
+mentioned, this is because the signal comes dominantly
+from the process b¯b → τ ¯τ, where at least one bottom
+quark is likely to come from gluon splitting ( g → b¯b)
+allowing to require an associated b-jet, which signifi-
+cantly reduces the background and thus yields stronger
+constraints. Furthermore, it is evident that the scenar-
+ios with large right-handed currents βR are tightly con-
+strained by high-pT data.
+9 The constraints presented in Fig. 2 are obtained assuming ϵq =
+2|Vts|, but only exhibit a very mild dependence on ϵqi.
+Next, we compare these high- pT results to the low-
+energy constraints derived in the previous section, by
+minimizing both likelihoods with respect to the Wilson
+coefficients Cc
+LL and Cc
+LR, again evaluated at the refer-
+ence high-scale Λ UV = 1 TeV. The resulting fit is shown
+in Fig. 3, where the red and blue bands represent the
+preferred ∆ χ2 = 1 regions for the measurements of RD
+and RD∗. The blue lines correspond to the 1 σ, 2 σ, and
+3σ contours of the combined low-energy fit including all
+b → c observables, whereas the gray (green) lines indicate
+the 95 % CL exclusion contours for the CMS (ATLAS)
+di-tau search using the b-tag channel. 10 The solid and
+dashed lines correspond to the constraints obtained as-
+suming ϵq = 3|Vts| and ϵq = 2|Vts|, respectively.
+As can be seen, the high-energy constraints are already
+very close to the parameter region favored by low-energy
+data. To this purpose, it should be noted that scenarios
+with smaller ϵq are more constrained by high- pT as they
+require a lower scale Λ U to explain the charged-current
+anomalies (see Eq. (25)). On the other hand, values of
+ϵq larger than 3 |Vts| are both unnatural and highly dis-
+favoured by ∆F = 2 constraints in UV complete models
+in the absence of fine-tuning.
+Due to the excess of events currently observed by CMS,
+the corresponding limits are significantly weaker than
+those of ATLAS. If interpreted as a signal, the CMS ex-
+cess (which is further supported by a dedicated t-channel
+analysis [37]) would favour the parameter region close to
+the CMS exclusion bounds in Fig. 3. Given the low-
+energy constraints, this would in turn prefer a scenario
+with sizable right-handed couplings. On the other hand,
+ATLAS data are more compatible with low-energy data
+in the region of a pure left-handed coupling (though right-
+handed couplings remain viable).
+Overall, the plot in Fig. 3 shows that low- and high-
+energy data yield complementary constraints, and that
+a U1 explanation of RD(∗) is compatible with present
+pp → τ ¯τ data. This plot also shows that future high-
+energy data will play an essential role in testing the U1
+explanation of charged-current B anomalies. To illus-
+trate this point, we indicate the projection for an inte-
+grated luminosity of 3 ab −1 by the shaded green central
+region in Fig. 3, which shows the potential of the high-
+luminosity phase of LHC assuming ϵq = 2|Vts|. The pro-
+jection was derived using the ATLASb-tag search assum-
+ing that background uncertainties scale as the square-
+root of the luminosity. This projection shows that a large
+part of the relevant parameter space will be probed with
+the data sets expected from Run-III and the LHC high-
+luminosity phase.
+For completeness, in Fig. 3 we also indicate the region
+disfavoured by LFU tests in τ decays [80]: the region
+to the right of the red line is excluded by the experi-
+mental determination of ( gW
+τ /gW
+µ,e)ℓ,π,K [48], using the
+10 Notice that the high-pT constraints are pinched at Cc
+LL = 0 since
+this point corresponds to the limit βR → ∞ [see Eq. (25)].
+
+=== PDF PAGE 8 ===
+8
+leading-log (LL) running of C33τ τ
+LL (1 TeV) [80], and set-
+ting ϵq = 3|Vts| (most conservative choice). Due to their
+purely left-handed nature, τ-LFU tests provide a strong
+constraint on the left-handed only hypothesis, potentially
+favouring scenarios with right-handed currents. However,
+this point comes with the caveat that additional contribu-
+tions from new states in UV complete models can soften
+these bounds [81].
+IV. CONCLUSIONS
+In this paper we have analyzed the compatibility of
+the U1 LQ explanation of the charged-current B-meson
+anomalies in light of new low- and high-energy data. To
+this purpose, we have first re-analysed in a bottom-up
+and, to large extent, model-independent approach the as-
+sumptions necessary to relate the U1 couplings appearing
+in b → cτ ¯ν, b → uτ ¯ν, and b¯b → τ ¯τ transitions.
+Updating the fit to the low-energy data, we find that
+the region preferred by b → c observables is equally
+compatible with a purely left-handed interaction, as well
+as with a scenario with right-handed currents of equal
+magnitude. The latter option is quite interesting, given
+sizable right-handed currents are a distinctive signature
+of models where the U1 is embedded in a flavor non-
+universal gauge group [10]. In both cases, the pull of the
+U1 hypothesis is at the 3 σ level. The present low-energy
+fit already highlights the role of Bu → τ ¯ν in pinning
+down the residual uncertainty on the flavor structure of
+the U1 couplings. Indeed, this observable is expected to
+play an even more important role in the near future with
+the help of new data coming from Belle-II [82].
+Next, we examined collider constraints on the model,
+focusing on the pp → τ ¯τ Drell-Yan production chan-
+nel mediated by t-channel U1 exchange that provides
+the most stringent bounds. By superimposing these lim-
+its on the parameter space preferred by the low-energy
+fit, we conclude that constraints coming from the high-
+energy pp → τ ¯τ process are already closing in on the low-
+energy parameter space preferred by the charged-current
+B-meson anomalies.
+While low- and high-energy data are currently well
+compatible, a large fraction of the viable parameter space
+will be probed by the high-luminosity phase of the LHC.
+This is especially true in the case of equal magnitude left-
+and right-handed currents ( Cc
+LL = −Cc
+LR), which has be-
+come more viable with the updated low-energy data and
+will be probed at the 95% confidence level by the LHC.
+This will provide an exciting test of the well-motivated
+class of UV completions for theU1 based on non-universal
+gauge groups, featuring quark-lepton unification for the
+third family at the TeV scale [10, 11, 20, 22].
+NOTE ADDED
+While this project was under completion, an indepen-
+dent phenomenological analysis of charged-current B-
+meson anomalies, including different leptoquark interpre-
+tations, has appeared [83]. Our results in Sect. III (low-
+energy fit) are compatible with those presented in [83].
+ACKNOWLEDGEMENTS
+This project has received funding from the Euro-
+pean Research Council (ERC) under the European
+Union’s Horizon 2020 research and innovation pro-
+gramme under grant agreement 833280 (FLAY), and by
+the Swiss National Science Foundation (SNF) under con-
+tract 200020 204428.
+Appendix A: Preferred regions for U1 couplings
+In view of future searches of U1 signals in channels
+involving τ leptons, both at high and at low energies, we
+provide here a summary of the preferred parameter-space
+region resulting from the low-energy fit performed in this
+paper. We also report predictions for B(Bs → τ +τ −)
+and B(B+ → K+τ +τ −), which can be considered the
+low-energy counterparts of pp → τ ¯τ.
+The effective interaction between the U1 field and
+fermion currents involving the τ lepton is Lint = UµJ µ
+U,
+with J µ
+U defined as in (17). By convention, we set
+βbτ
+L = 1. The parameter βR, which characterises dif-
+ferent UV completions of the effective interaction with
+right-handed fermions, should be treated as a free param-
+eter. In order to define precise benchmarks, we consider
+two reference cases for βR:
+1. |βR| = 0 (Purely left-handed case)
+Values preferred by low-energy data at 90% CL:
+MU /gU ∈ [0.69 TeV, 1.71 TeV] , (A1)
+2. |βR| = 1 (Pati-Salam-like LQ)
+Values preferred by low-energy data at 90% CL:
+MU /gU ∈ [0.92 TeV, 2.19 TeV] . (A2)
+In Fig. 4 we show the present and future exclu-
+sion bounds in the gU vs. MU plane from high-energy
+searches, as well as the region preferred by the low-energy
+fit corresponding to (A1) and (A2).
+As discussed in the main text, low-energy data on
+charged currents alone are not able to provide a stringent
+constraint on βsτ. However, the latter is constrained by
+∆MBs under general assumptions about the UV comple-
+tion. The range we consider motivated in view of future
+experimental searches is
+βsτ ∈ [0.06, 0.16] , (A3)
+
+=== PDF PAGE 9 ===
+9
+1000 2000 3000 4000 5000
+0
+1
+2
+3
+4
+1000 2000 3000 4000 5000
+0
+1
+2
+3
+4
+FIG. 4. Preferred region at 90% CL from low-energy charged-
+current data for mass (MU) and leading fermion coupling (gU)
+of the U1 LQ. Top: Purely left-handed case ( βR = 0). Bot-
+tom: Pati-Salam-like case ( |βR| = 1). The gray region and
+solid lines indicate constraints of present high-energy searches
+at 95% CL, while the dotted line gives the projected sensitiv-
+ity at the HL-LHC with a luminosity of 3 ab −1.
+The gU /MU ranges reported in (A1) and (A2) are ob-
+tained under this assumption, and setting βdτ = 0.
+The theoretical expression for B+ → K+τ +τ −
+reads [16]
+109B(B+ → K+τ +τ −) = 2.2|Csτ
+9 |2 + 6.0|Csτ
+10 |2 + 8.3|Csτ
+S |2
++ 8.9|Csτ
+P |2 + 4.8Re (Csτ
+S Csτ ∗
+9 ) + 5.9Re (Csτ
+P Csτ ∗
+10 ) , (A4)
+where Csτ
+9 = C9,SM + Csτ
+9,NP and Csτ
+10 = C10,SM + Csτ
+10,NP,
+with C9,SM = 4.1 and C10,SM = −4.2.
+0.05 0.10 0.15 0.20 0.25
+10-6
+10-5
+10-4
+10-3
+10-2
+0.05 0.10 0.15 0.20 0.25
+10-7
+10-6
+10-5
+10-4
+10-3
+FIG. 5. Predicted ranges for B(Bs → τ+τ −) and B(B+ →
+K+τ+τ −) as a function of δRD∗ = RD∗ /RSM
+D∗ − 1. The
+filled orange and purple colored regions correspond to the 90%
+CL preferred regions from the low-energy charged-current fit.
+The blue vertical bands denote the present 1 σ and 2σ exper-
+imental ranges for δRD∗.
+In terms of the Wilson coefficients of LLQ
+EFT, the coeffi-
+cients appearing in (A4) read
+Csτ
+9,NP = −Csτ
+10,NP = − 2π
+αV ∗
+tsVtb
+Csbτ τ
+LL , (A5)
+Csτ
+S = −Csτ
+P = 4π
+αV ∗
+tsVtb
+Csbτ τ
+LR . (A6)
+As far as Bs → τ +τ − is concerned, the branching frac-
+
+=== PDF PAGE 10 ===
+10
+tion can be decomposed as
+B(Bs → τ +τ −)
+B(Bs → τ +τ −)SM
+=
+1 +
+Csτ
+10,NP
+C10,SM
++ χsτ Csτ
+P
+C10,SM
+
+2
++
+
+1 − 4m2
+τ
+m2
+Bs
+
+χsτ Csτ
+S
+C10,SM
+
+2
+, (A7)
+where we have defined the chiral enhancement factor
+χsτ = m2
+Bs
+2mτ(mb + ms) . (A8)
+The model predictions for B(Bs → τ +τ −) and
+B(B+ → K+τ +τ −) corresponding to the two ranges in
+(A1) and (A2), as well as the flat range on βsτ in (A3),
+are shown in Fig. 5.
+[1] R. Alonso, B. Grinstein, and J. Martin Camalich, JHEP
+10, 184 (2015), arXiv:1505.05164 [hep-ph].
+[2] L. Calibbi, A. Crivellin, and T. Ota, Phys. Rev. Lett.
+115, 181801 (2015), arXiv:1506.02661 [hep-ph].
+[3] R. Barbieri, G. Isidori, A. Pattori, and F. Senia, Eur.
+Phys. J. C 76, 67 (2016), arXiv:1512.01560 [hep-ph].
+[4] B. Bhattacharya, A. Datta, J.-P. Gu´ evin, D. Lon-
+don, and R. Watanabe, JHEP 01, 015 (2017),
+arXiv:1609.09078 [hep-ph].
+[5] D. Buttazzo, A. Greljo, G. Isidori, and D. Marzocca,
+JHEP 11, 044 (2017), arXiv:1706.07808 [hep-ph].
+[6] J. Kumar, D. London, and R. Watanabe, Phys. Rev. D
+99, 015007 (2019), arXiv:1806.07403 [hep-ph].
+[7] A. Angelescu, D. Beˇ cirevi´ c, D. A. Faroughy, and
+O. Sumensari, JHEP 10, 183 (2018), arXiv:1808.08179
+[hep-ph].
+[8] J. C. Pati and A. Salam, Phys. Rev. D 10, 275 (1974),
+[Erratum: Phys.Rev.D 11, 703–703 (1975)].
+[9] L. Di Luzio, A. Greljo, and M. Nardecchia, Phys. Rev.
+D 96, 115011 (2017), arXiv:1708.08450 [hep-ph].
+[10] M. Bordone, C. Cornella, J. Fuentes-Martin,
+and G. Isidori, Phys. Lett. B 779, 317 (2018),
+arXiv:1712.01368 [hep-ph].
+[11] A. Greljo and B. A. Stefanek, Phys. Lett. B 782, 131
+(2018), arXiv:1802.04274 [hep-ph].
+[12] L. Di Luzio, J. Fuentes-Martin, A. Greljo, M. Nardecchia,
+and S. Renner, JHEP 11, 081 (2018), arXiv:1808.00942
+[hep-ph].
+[13] J. Fuentes-Mart´ ın, G. Isidori, M. K¨ onig, and
+N. Selimovi´ c, Phys. Rev. D 101, 035024 (2020),
+arXiv:1910.13474 [hep-ph].
+[14] J. Fuentes-Mart´ ın, G. Isidori, M. K¨ onig, and
+N. Selimovi´ c, Phys. Rev. D 102, 115015 (2020),
+arXiv:2009.11296 [hep-ph].
+[15] C. Cornella, J. Fuentes-Martin, and G. Isidori, JHEP
+07, 168 (2019), arXiv:1903.11517 [hep-ph].
+[16] C. Cornella, D. A. Faroughy, J. Fuentes-Martin,
+G. Isidori, and M. Neubert, JHEP 08, 050 (2021),
+arXiv:2103.16558 [hep-ph].
+[17] G. Panico and A. Pomarol, JHEP 07, 097 (2016),
+arXiv:1603.06609 [hep-ph].
+[18] L. Allwicher, G. Isidori, and A. E. Thomsen, JHEP 01,
+191 (2021), arXiv:2011.01946 [hep-ph].
+[19] R. Barbieri, Acta Phys. Polon. B 52, 789 (2021),
+arXiv:2103.15635 [hep-ph].
+[20] J. Fuentes-Mart´ ın and P. Stangl, Phys. Lett. B 811,
+135953 (2020), arXiv:2004.11376 [hep-ph].
+[21] J. Fuentes-Martin, G. Isidori, J. Pag` es, and
+B. A. Stefanek, Phys. Lett. B 820, 136484 (2021),
+arXiv:2012.10492 [hep-ph].
+[22] J. Fuentes-Martin, G. Isidori, J. M. Lizana, N. Selimovic,
+and B. A. Stefanek, Phys. Lett. B 834, 137382 (2022),
+arXiv:2203.01952 [hep-ph].
+[23] N. Assad, B. Fornal, and B. Grinstein, Phys. Lett. B
+777, 324 (2018), arXiv:1708.06350 [hep-ph].
+[24] L. Calibbi, A. Crivellin, and T. Li, Phys. Rev. D 98,
+115002 (2018), arXiv:1709.00692 [hep-ph].
+[25] R. Barbieri and A. Tesi, Eur. Phys. J. C 78, 193 (2018),
+arXiv:1712.06844 [hep-ph].
+[26] M. Blanke and A. Crivellin, Phys. Rev. Lett.121, 011801
+(2018), arXiv:1801.07256 [hep-ph].
+[27] S. Balaji, R. Foot, and M. A. Schmidt, Phys. Rev. D 99,
+015029 (2019), arXiv:1809.07562 [hep-ph].
+[28] M. J. Dolan, T. P. Dutka, and R. R. Volkas, JHEP 05,
+199 (2021), arXiv:2012.05976 [hep-ph].
+[29] S. F. King, JHEP 11, 161 (2021), arXiv:2106.03876 [hep-
+ph].
+[30] M. Fern´ andez Navarro and S. F. King, (2022),
+arXiv:2209.00276 [hep-ph].
+[31] A. Angelescu, D. Beˇ cirevi´ c, D. A. Faroughy, F. Jaffredo,
+and O. Sumensari, Phys. Rev. D 104, 055017 (2021),
+arXiv:2103.12504 [hep-ph].
+[32] A. Bhaskar, D. Das, T. Mandal, S. Mitra, and C. Neeraj,
+Phys. Rev. D104, 035016 (2021), arXiv:2101.12069 [hep-
+ph].
+[33] R. Barbieri, C. Cornella, and G. Isidori, (2022),
+arXiv:2207.14248 [hep-ph].
+[34] U. Haisch, L. Schnell, and S. Schulte, (2022),
+arXiv:2209.12780 [hep-ph].
+[35] G. M. Ciezarek (LHCb), CERN Seminar,
+https://indico.cern.ch/event/1187939/.
+[36] The CMS Collaboration (CMS), (2022),
+arXiv:2208.02717 [hep-ex].
+[37] The CMS Collaboration (CMS), CMS-PAS-EXO-19-016
+(2022).
+[38] D. A. Faroughy, A. Greljo, and J. F. Kamenik, Phys.
+Lett. B 764, 126 (2017), arXiv:1609.07138 [hep-ph].
+[39] G. Aad et al. (ATLAS), Phys. Rev. Lett. 125, 051801
+(2020), arXiv:2002.12223 [hep-ex].
+[40] J. Fuentes-Mart´ ın, G. Isidori, J. Pag` es, and
+K. Yamamoto, Phys. Lett. B 800, 135080 (2020),
+arXiv:1909.02519 [hep-ph].
+[41] R. Barbieri, G. Isidori, J. Jones-Perez, P. Lodone,
+and D. M. Straub, Eur. Phys. J. C 71, 1725 (2011),
+
+=== PDF PAGE 11 ===
+11
+arXiv:1105.2296 [hep-ph].
+[42] R. Barbieri, D. Buttazzo, F. Sala, and D. M. Straub,
+JHEP 07, 181 (2012), arXiv:1203.4218 [hep-ph].
+[43] O. L. Crosas, G. Isidori, J. M. Lizana, N. Selimovic, and
+B. A. Stefanek, (2022), arXiv:2207.00018 [hep-ph].
+[44] M. J. Baker, J. Fuentes-Mart´ ın, G. Isidori, and
+M. K¨ onig, Eur. Phys. J. C 79, 334 (2019),
+arXiv:1901.10480 [hep-ph].
+[45] R. Alonso, B. Grinstein, and J. Martin Camalich, Phys.
+Rev. Lett. 118, 081802 (2017), arXiv:1611.06676 [hep-
+ph].
+[46] R. Aaij et al. (LHCb), (2023), arXiv:2302.02886 [hep-ex].
+[47] R. Aaij et al. (LHCb),
+https://indico.cern.ch/event/1231797 (2023).
+[48] Y. S. Amhis et al. (HFLAV [https://hflav.web.cern.ch]),
+Eur. Phys. J. C 81, 226 (2021), arXiv:1909.12524 [hep-
+ex].
+[49] J. A. Bailey et al. (MILC), Phys. Rev. D 92, 034506
+(2015), arXiv:1503.07237 [hep-lat].
+[50] H. Na, C. M. Bouchard, G. P. Lepage, C. Mona-
+han, and J. Shigemitsu (HPQCD), Phys. Rev. D
+92, 054510 (2015), [Erratum: Phys.Rev.D 93, 119906
+(2016)], arXiv:1505.03925 [hep-lat].
+[51] F. U. Bernlochner, Z. Ligeti, M. Papucci, and D. J.
+Robinson, Phys. Rev. D 95, 115008 (2017), [Erratum:
+Phys.Rev.D 97, 059902 (2018)], arXiv:1703.05330 [hep-
+ph].
+[52] P. Gambino, M. Jung, and S. Schacht, Phys. Lett. B
+795, 386 (2019), arXiv:1905.08209 [hep-ph].
+[53] M. Bordone, M. Jung, and D. van Dyk, Eur. Phys. J. C
+80, 74 (2020), arXiv:1908.09398 [hep-ph].
+[54] G. Martinelli, S. Simula, and L. Vittorio, Phys. Rev. D
+105, 034503 (2022), arXiv:2105.08674 [hep-ph].
+[55] D. Beˇ cirevi´ c and F. Jaffredo, (2022), arXiv:2209.13409
+[hep-ph].
+[56] R. Aaij et al. (LHCb), Phys. Rev. Lett. 128, 191803
+(2022), arXiv:2201.03497 [hep-ex].
+[57] R. L. Workman et al. (Particle Data Group), PTEP
+2022, 083C01 (2022).
+[58] M. Bona et al. (UTfit [http://www.utfit.org/UTfit/]),
+PoS EPS-HEP2021, 500 (2022).
+[59] J. Aebischer, M. Fael, C. Greub, and J. Virto, JHEP 09,
+158 (2017), arXiv:1704.06639 [hep-ph].
+[60] A. Crivellin, C. Greub, D. M¨ uller, and F. Saturnino,
+Phys. Rev. Lett. 122, 011805 (2019), arXiv:1807.02068
+[hep-ph].
+[61] D. London and J. Matias, Ann. Rev. Nucl. Part. Sci. 72,
+37 (2022), arXiv:2110.13270 [hep-ph].
+[62] W. Altmannshofer and P. Stangl, Eur. Phys. J. C 81,
+952 (2021), arXiv:2103.13370 [hep-ph].
+[63] C. Cornella, G. Isidori, M. K¨ onig, S. Liechti, P. Owen,
+and N. Serra, Eur. Phys. J. C 80, 1095 (2020),
+arXiv:2001.04470 [hep-ph].
+[64] A. Khodjamirian, T. Mannel, and Y. M. Wang, JHEP
+02, 010 (2013), arXiv:1211.0234 [hep-ph].
+[65] L. Allwicher, D. A. Faroughy, F. Jaffredo, O. Sumensari,
+and F. Wilsch, (2022), arXiv:2207.10714 [hep-ph].
+[66] B. Diaz, M. Schmaltz, and Y.-M. Zhong, JHEP 10, 097
+(2017), arXiv:1706.05033 [hep-ph].
+[67] J. Blumlein, E. Boos, and A. Kryukov, Z. Phys. C 76,
+137 (1997), arXiv:hep-ph/9610408.
+[68] I. Dorˇ sner and A. Greljo, JHEP 05, 126 (2018),
+arXiv:1801.07641 [hep-ph].
+[69] G. Aad et al. (ATLAS), Phys. Rev. D104, 112005 (2021),
+arXiv:2108.07665 [hep-ex].
+[70] A. M. Sirunyan et al. (CMS), Phys. Lett. B 819, 136446
+(2021), arXiv:2012.04178 [hep-ex].
+[71] J. B. Hammett and D. A. Ross, JHEP 07, 148 (2015),
+arXiv:1501.06719 [hep-ph].
+[72] T. Mandal, S. Mitra, and S. Seth, JHEP 07, 028 (2015),
+arXiv:1503.04689 [hep-ph].
+[73] A. Alves, O. Eboli, and T. Plehn, Phys. Lett. B 558,
+165 (2003), arXiv:hep-ph/0211441.
+[74] U. Haisch and G. Polesello, JHEP 05, 057 (2021),
+arXiv:2012.11474 [hep-ph].
+[75] L. Buonocore, U. Haisch, P. Nason, F. Tramontano, and
+G. Zanderighi, Phys. Rev. Lett. 125, 231804 (2020),
+arXiv:2005.06475 [hep-ph].
+[76] A. Greljo and N. Selimovic, JHEP 03, 279 (2021),
+arXiv:2012.02092 [hep-ph].
+[77] L. Buonocore, P. Nason, F. Tramontano, and G. Zan-
+derighi, JHEP 08, 019 (2020), arXiv:2005.06477 [hep-ph].
+[78] L. Buonocore, A. Greljo, P. Krack, P. Nason, N. Se-
+limovic, F. Tramontano, and G. Zanderighi, (2022),
+arXiv:2209.02599 [hep-ph].
+[79] L. Allwicher, D. A. Faroughy, F. Jaffredo, O. Sumensari,
+and F. Wilsch, (2022), arXiv:2207.10756 [hep-ph].
+[80] F. Feruglio, P. Paradisi, and A. Pattori, JHEP 09, 061
+(2017), arXiv:1705.00929 [hep-ph].
+[81] L. Allwicher, G. Isidori, and N. Selimovic, Phys. Lett. B
+826, 136903 (2022), arXiv:2109.03833 [hep-ph].
+[82] W. Altmannshofer et al. (Belle-II), PTEP 2019,
+123C01 (2019), [Erratum: PTEP 2020, 029201 (2020)],
+arXiv:1808.10567 [hep-ex].
+[83] S. Iguro, T. Kitahara, and R. Watanabe, (2022),
+arXiv:2210.10751 [hep-ph].

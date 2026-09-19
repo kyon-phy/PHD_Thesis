@@ -1,0 +1,23 @@
+\section{Primary vertex}
+\label{sec:ch6_primary_vertex}
+
+\subsection{Reconstruction}
+
+Collision vertices are reconstructed from tracks compatible with a common origin~\cite{ATLAS2015Vertex}.
+Candidate positions are first identified from the longitudinal distribution of tracks near the beam line.
+The vertex positions are then fitted using the track parameters and their uncertainties, with reduced weights assigned to incompatible tracks.
+Tracks that are not assigned to a fitted vertex are considered when searching for further vertices.
+Several collision vertices can therefore be reconstructed in an event containing pile-up.
+
+\subsection{Primary-vertex selection}
+
+The primary vertex associated with the hard scattering is selected from vertices with at least two tracks satisfying $\pT>500~\MeV$~\cite{ATLAS2026LQTauNu}.
+The vertex with the largest sum of squared track transverse momenta is chosen:
+\begin{align}
+    v_{\mathrm{PV}}=\operatorname*{arg\,max}_{v}
+    \sum_{i\in v}p_{\mathrm{T},i}^{\,2}.
+    \label{eq:ch6_primary_vertex}
+\end{align}
+Energetic tracks are given greater weight by this criterion, favouring the hard scattering over additional soft collisions.
+Events without a qualifying vertex are rejected.
+The selected vertex is used as the reference for prompt-lepton selection, isolation, pile-up jet rejection and the track contribution to $\met$.

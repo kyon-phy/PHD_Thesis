@@ -1,0 +1,159 @@
+--- before
++++ after
+@@ -130,7 +130,7 @@
+ % \begin{figure}[htbp]
+ %     \centering
+ %     \includegraphics[width=\linewidth]{Figs/CH7/significance/SR1b_met_significance_scan.pdf}
+-%     \caption[SR1b significance scan in missing transverse momentum]{Approximate significance as a function of the $\met$ threshold for $\bTagSR$-$\Res$ (left) and $\bTagSR$-$\NonRes$ (right), using the pure BSM benchmarks $(\MU~[\TeV],\gU,\beta_L^{23})=(1.5,1.5,0.6)$ and $(2.5,2.5,1.0)$, respectively. The pre-fit $N-1$ distributions are integrated above each threshold and Eq.~\ref{eq:ch7_optimisation_significance} is evaluated with $\sigma_b=0.30b$. Open markers and dashed segments indicate points with $b\leq2$, which are excluded from the cut choice. The selected thresholds are marked by squares and vertical dotted lines.}
++%     \caption[SR1b significance scan in missing transverse momentum]{Approximate significance as a function of the $\met$ threshold for $\bTagSR$-$\Res$ (left) and $\bTagSR$-$\NonRes$ (right), using the pure BSM benchmarks $(\MU~[\TeV],\gU,\beta_L^{23})=(1.5,1.5,0.6)$ and $(2.5,2.5,1.0)$, respectively. The $N-1$ distributions are integrated above each threshold and Eq.~\ref{eq:ch7_optimisation_significance} is evaluated with $\sigma_b=0.30b$. Open markers and dashed segments indicate points with $b\leq2$, which are excluded from the cut choice. The selected thresholds are marked by squares and vertical dotted lines.}
+ %     \label{fig:ch7_met_significance_scan}
+ % \end{figure}
+ 
+@@ -144,7 +144,7 @@
+         \includegraphics[width=\linewidth]{Figs/CH7/significance/SR1b_NonRes_met_with_significance.pdf}
+         \caption{$\bTagSR$-$\NonRes$.}
+     \end{subfigure}
+-    \caption[SR1b missing transverse momentum with significance $Z$]{Pre-fit $N-1$ $\met$ distributions and the corresponding significance $Z$. $Z$ is calculated from the signal and background yields above each threshold, with $\sigma_b=0.30b$. Dashed segments of the $Z$ curves indicate regions where $b\leq2$.}
++    \caption[SR1b missing transverse momentum with significance $Z$]{$N-1$ $\met$ distributions and the corresponding significance $Z$. $Z$ is calculated from the signal and background yields above each threshold, with $\sigma_b=0.30b$. Dashed segments of the $Z$ curves indicate regions where $b\leq2$.}
+     \label{fig:ch7_met_with_significance}
+ \end{figure}
+ 
+@@ -152,38 +152,43 @@
+ \subsection[SR1b-Res definition]{$\bTagSR$-$\Res$ definition}
+ \label{subsec:ch7_sr1b_res}
+ 
+-SR1b-Res is defined as shown in Table~\ref{Table_cutflow}.
+-The pre-fit background is dominated by $W$+jets, principally $W\to\tau\nu$, which contributes approximately $64\%$.
++The cumulative cutflow for $\bTagSR$-$\Res$ is shown in Table~\ref{tab:ch7_cutflow_res}, using the resonant optimisation benchmark introduced above.
++The signal and background yields are listed after each successive requirement, together with their MC statistical uncertainties.
++
++\begin{table}[htbp]
++    \centering
++    \small
++    \caption{Cumulative signal and background cutflow for $\bTagSR$-$\Res$. The pure BSM signal is evaluated at $(\MU~[\TeV],\gU,\beta_L^{23})=(1.5,1.5,0.6)$. Each entry gives the expected yield and its MC statistical uncertainty.}
++    \label{tab:ch7_cutflow_res}
++    \setlength{\tabcolsep}{3pt}
++    \resizebox{\linewidth}{!}{%
++    \begin{tabular}{lrrrrrrr}
++        \toprule
++        Requirement & Signal & $\ttbar$ & Single top & $W$+jets & $Z$+jets & Diboson & Total background \\
++        \midrule
++        Baseline & $35.2\pm0.4$ & $1043.0\pm6.9$ & $283.8\pm3.4$ & $2156.9\pm16.1$ & $369.2\pm7.7$ & $173.9\pm2.7$ & $4027.3\pm19.7$ \\
++        $\pT^\tau>200~\GeV$ & $19.9\pm0.3$ & $32.3\pm1.3$ & $11.8\pm0.5$ & $108.9\pm9.4$ & $30.4\pm4.7$ & $9.7\pm0.6$ & $193.1\pm10.6$ \\
++        $\met>200~\GeV$ & $19.9\pm0.3$ & $32.3\pm1.3$ & $11.8\pm0.5$ & $108.9\pm9.4$ & $30.4\pm4.7$ & $9.7\pm0.6$ & $193.1\pm10.6$ \\
++        $\mT>200~\GeV$ & $19.4\pm0.3$ & $25.1\pm1.1$ & $9.2\pm0.4$ & $79.2\pm9.4$ & $24.2\pm4.7$ & $6.9\pm0.5$ & $143.6\pm10.6$ \\
++        $m_{b\tau}>800~\GeV$ & $4.9\pm0.1$ & $0.4\pm0.2$ & $0.4\pm0.1$ & $2.8\pm0.4$ & $1.1\pm0.2$ & $0.5\pm0.1$ & $5.2\pm0.5$ \\
++        $N_j-N_b\leq3$ & $4.7\pm0.1$ & $0.3\pm0.1$ & $0.2\pm0.1$ & $2.5\pm0.4$ & $0.9\pm0.2$ & $0.4\pm0.1$ & $4.3\pm0.5$ \\
++        $\pT^b>250~\GeV$ & $4.2\pm0.1$ & $0.2\pm0.1$ & $0.1\pm0.1$ & $1.5\pm0.2$ & $0.2\pm0.1$ & $0.4\pm0.1$ & $2.4\pm0.3$ \\
++        \bottomrule
++    \end{tabular}
++    }
++\end{table}
++
++After the full selection, the expected signal and background yields are 4.262 and 2.439 events, respectively, giving $Z=1.95$.
++Approximately $12\%$ of the signal events passing the one-$b$-jet baseline are retained.
++This signal efficiency is evaluated for the pure BSM contribution, with the baseline sample as its denominator.
++The acceptance times selection efficiency, $A\epsilon$, instead uses the total generated signal as its reference and includes the kinematic acceptance and reconstruction and selection losses.
++
++The background is dominated by $W$+jets, principally $W\to\tau\nu$, which contributes approximately $64\%$.
+ The tagged jet can originate from heavy-flavour production or a misidentified light-flavour jet.
+ Approximately $16\%$ is contributed by diboson production, followed by $\ttbar$ ($8\%$) and single-top production ($5\%$), including $Wt$.
+ Top-quark events can pass the selection through $\ttbar\to b\tau\nu\,\bar b\tau\nu$ or $Wt\to b\tau\nu\,\tau\nu$ when only one $\tau$ is selected and the remaining decay products satisfy the jet and lepton requirements.
+ Smaller contributions are provided by $Z$+jets.
+ 
+-For the optimisation benchmark $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, the expected pre-fit signal and background yields are 4.262 and 2.439 events, respectively, giving $Z=1.95$.
+-Approximately $12\%$ of the signal events passing the one-$b$-jet baseline are retained, as shown by the cumulative cutflow in Table~\ref{tab:ch7_cutflow_res}.
+-This signal efficiency is evaluated for the pure BSM contribution, with the baseline sample as its denominator.
+-The acceptance times selection efficiency, $A\epsilon$, instead uses the total generated signal as its reference and includes the kinematic acceptance and reconstruction and selection losses.
+-
+-\begin{table}[htbp]
+-    \centering
+-    \small
+-    \caption{Cumulative pure BSM signal ($S$) and background ($B$) yields in the $\bTagSR$-$\Res$ optimisation for $(\MU~[\TeV],\gU,\beta_L^{23})=(1.5,1.5,0.6)$. These are simulated expectations before the background fit.}
+-    \label{tab:ch7_cutflow_res}
+-    \begin{tabular}{lrr}
+-        \toprule
+-        Cumulative requirement & $S$ & $B$ \\
+-        \midrule
+-        Baseline & 35.2 & 4027.3 \\
+-        $\pT^\tau>200~\GeV$ & 19.9 & 193.1 \\
+-        $\met>200~\GeV$ & 19.9 & 193.1 \\
+-        $\mT>200~\GeV$ & 19.4 & 143.6 \\
+-        $m_{b\tau}>800~\GeV$ & 4.9 & 5.2 \\
+-        $N_j-N_b\leq3$ & 4.7 & 4.3 \\
+-        $\pT^b>250~\GeV$ & 4.2 & 2.4 \\
+-        \bottomrule
+-    \end{tabular}
+-\end{table}
+-
+ The loose $N-1$ distributions in Figure~\ref{fig:ch7_sr1b_res_distributions} illustrate the selected kinematics, including the broad $m_{b\tau}$ distribution.
+ To make the shapes visible with the available simulation, the $\mT$ and $\pT^\tau$ thresholds are lowered to $100~\GeV$, while the trigger-plateau requirement $\met>200~\GeV$ is retained.
+ These distributions therefore illustrate a larger phase space than the final SR.
+@@ -214,7 +219,7 @@
+         \includegraphics[width=\linewidth]{Figs/CH7/SR1b_Res_dphi.pdf}
+         \caption{$\DphiTauMet$.}
+     \end{subfigure}\par\medskip
+-    \caption[Loose N-1 distributions in SR1b-Res]{Distributions of the six scan variables in the loose resonant one-$b$-jet region. The $\mT$ and $\pT^\tau$ thresholds are reduced to $100~\GeV$, and the requirement on each plotted variable is removed, retaining the baseline $\met>200~\GeV$. The stacked backgrounds are shown before the fit. The dotted signal curve is the pure BSM prediction at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$. The hatched band represents the background uncertainty.}
++    \caption[Loose N-1 distributions in SR1b-Res]{Distributions of the six scan variables in the loose resonant one-$b$-jet region. The $\mT$ and $\pT^\tau$ thresholds are reduced to $100~\GeV$, and the requirement on each plotted variable is removed, retaining the baseline $\met>200~\GeV$. The dotted signal curve is the pure BSM prediction at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$. The hatched band represents the background uncertainty.}
+     \label{fig:ch7_sr1b_res_distributions}
+ \end{figure}
+ 
+@@ -226,19 +231,19 @@
+ No $m_{b\tau}$ requirement is applied because the $b$-jet and $\tau$ do not reconstruct an on-shell leptoquark in the target topology.
+ This region also contributes a single event count to the fit.
+ 
+-The pre-fit background is dominated by $W$+jets, principally $W\to\tau\nu$, which contributes approximately $69\%$.
++The background is dominated by $W$+jets, principally $W\to\tau\nu$, which contributes approximately $69\%$.
+ The next-largest contribution is from $\ttbar$ ($16\%$), followed by $Z\to\tau\tau$+jets ($8\%$) and diboson production ($5\%$).
+ The $Z\to\tau\tau$ contribution requires only one selected $\tau$, with neutrinos from the decays producing $\met$.
+ In both $\bTagSR$ regions, $Z\to\nu\nu$+jets is the main source of events with a jet misidentified as a $\tau$, because the invisible $Z$ decay supplies the missing momentum.
+ Multijet production is negligible after the cleaning and full SR requirements.
+ 
+-For the optimisation benchmark $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, the expected pre-fit signal and background yields are 6.583 and 2.097 events, respectively, giving $Z=2.94$.
++For the optimisation benchmark $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, the expected signal and background yields are 6.583 and 2.097 events, respectively, giving $Z=2.94$.
+ Approximately $6\%$ of the pure BSM signal events passing the one-$b$-jet baseline are retained, as shown in Table~\ref{tab:ch7_cutflow_nonres}.
+ 
+ \begin{table}[htbp]
+     \centering
+     \small
+-    \caption{Cumulative pure BSM signal ($S$) and background ($B$) yields in the $\bTagSR$-$\NonRes$ optimisation for $(\MU~[\TeV],\gU,\beta_L^{23})=(2.5,2.5,1.0)$. These are simulated expectations before the background fit.}
++    \caption{Cumulative pure BSM signal ($S$) and background ($B$) yields in the $\bTagSR$-$\NonRes$ optimisation for $(\MU~[\TeV],\gU,\beta_L^{23})=(2.5,2.5,1.0)$.}
+     \label{tab:ch7_cutflow_nonres}
+     \begin{tabular}{lrr}
+         \toprule
+@@ -255,14 +260,14 @@
+     \end{tabular}
+ \end{table}
+ 
+-The pre-fit yields and significances for both regions are summarised in Table~\ref{tab:ch7_prefit_yields}.
++The yields and significances for both regions are summarised in Table~\ref{tab:ch7_prefit_yields}.
+ The yields agree with the rounded endpoints of the optimisation cutflows to within $2\%$.
+-The cutflows describe the optimisation study before the background fit, while the final selections are chosen with the statistical uncertainty in the background prediction kept below $30\%$.
++The cutflows describe the optimisation study, while the final selections are chosen with the statistical uncertainty in the background prediction kept below $30\%$.
+ 
+ \begin{table}[htbp]
+     \centering
+     \small
+-    \caption{Pre-fit pure BSM signal and background yields for the two optimisation benchmarks in the final $\bTagSR$ selections. The approximate significance is evaluated with $\sigma_b=0.30b$.}
++    \caption{Pure BSM signal and background yields for the two optimisation benchmarks in the final $\bTagSR$ selections. The approximate significance is evaluated with $\sigma_b=0.30b$.}
+     \label{tab:ch7_prefit_yields}
+     \begin{tabular}{lcrrr}
+         \toprule
+@@ -304,7 +309,7 @@
+         \includegraphics[width=\linewidth]{Figs/CH7/SR1b_NonRes_dphi.pdf}
+         \caption{$\DphiTauMet$.}
+     \end{subfigure}\par\medskip
+-    \caption[Loose N-1 distributions in SR1b-NonRes]{Distributions of the six scan variables in the loose non-resonant one-$b$-jet region. Before removing the plotted requirement, the thresholds are lowered to $\mT>500~\GeV$, $\met>300~\GeV$ and $\pT^\tau>100~\GeV$. The baseline $\met>200~\GeV$ is retained. The stacked backgrounds are shown before the fit, and the hatched band represents their uncertainty. The dotted signal curve is the pure BSM prediction at $(\MU,\gU,\beta_L^{23})=(3.0~\TeV,2.5,1.0)$.}
++    \caption[Loose N-1 distributions in SR1b-NonRes]{Distributions of the six scan variables in the loose non-resonant one-$b$-jet region. Before removing the plotted requirement, the thresholds are lowered to $\mT>500~\GeV$, $\met>300~\GeV$ and $\pT^\tau>100~\GeV$. The baseline $\met>200~\GeV$ is retained. The hatched band represents the background uncertainty. The dotted signal curve is the pure BSM prediction at $(\MU,\gU,\beta_L^{23})=(3.0~\TeV,2.5,1.0)$.}
+     \label{fig:ch7_sr1b_nonres_distributions}
+ \end{figure}
+ 
+@@ -356,7 +361,7 @@
+         \includegraphics[width=\linewidth]{Figs/CH7/SR0b_NonRes_mT.pdf}
+         \caption{$\bVetoSR$-$\NonRes$: $\mT$.}
+     \end{subfigure}
+-    \caption[Discriminating-variable distributions in SR0b]{Distributions of (a) $m_{j\tau}$ in $\bVetoSR$-$\Res$ with the mass requirement removed and (b) $\mT$ in $\bVetoSR$-$\NonRes$ above $600~\GeV$. The other SR requirements are retained. The backgrounds are shown before the fit, and the hatched band represents their uncertainty. The dotted curves show pure BSM signals at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ in (a) and $(3.0~\TeV,2.5,1.0)$ in (b).}
++    \caption[Discriminating-variable distributions in SR0b]{Distributions of (a) $m_{j\tau}$ in $\bVetoSR$-$\Res$ with the mass requirement removed and (b) $\mT$ in $\bVetoSR$-$\NonRes$ above $600~\GeV$. The other SR requirements are retained. The hatched band represents the background uncertainty. The dotted curves show pure BSM signals at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ in (a) and $(3.0~\TeV,2.5,1.0)$ in (b).}
+     \label{fig:ch7_sr0b_distributions}
+ \end{figure}
+ 

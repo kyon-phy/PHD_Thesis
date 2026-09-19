@@ -1,0 +1,59 @@
+\section{Object definition in the analysis}
+\label{sec:ch6_object_definition}
+
+Two levels of object selection are used in the analysis.
+Baseline objects are used for object counting and lepton vetoes.
+Signal objects satisfy additional identification, isolation or kinematic requirements and are used to construct the observables defining the signal, control and validation regions.
+The requirements below are applied to calibrated objects, and candidates rejected by the overlap removal in Section~\ref{sec:ch6_overlap} are excluded from the event selection.
+
+\subsection{Baseline objects}
+
+The baseline definitions for electrons, muons, hadronic tau candidates and jets are summarised in Table~\ref{tab:ch6_baseline_objects}.
+The working points are introduced in Sections~\ref{sec:ch6_electrons}--\ref{sec:ch6_btag}.
+
+The impact-parameter quantities are defined in Section~\ref{sec:ch6_tracks}.
+The low-$\pT$ muon rejection used for tau candidates is separate from overlap removal with the baseline muon collection.
+
+\medskip
+\noindent\begin{minipage}{\textwidth}
+    \begin{spacing}{1}
+    \centering
+    \small
+    \captionof{table}[Baseline object definitions]{Baseline object definitions used for event counting and vetoes in the analysis.}
+    \label{tab:ch6_baseline_objects}
+    \begin{tabular}{@{}p{0.15\textwidth}p{0.80\textwidth}@{}}
+        \toprule
+        Object & Requirements \\
+        \midrule
+        Electron & $\pT>10~\GeV$ and $|\eta|<2.47$, excluding $1.37<|\eta|<1.52$.\newline
+        \texttt{TightLH} identification and \texttt{Loose\_VarRad} isolation.\newline
+        $|d_0|/\sigma_{d_0}<5$ and $|\Delta z_0\sin\theta|<0.5~\mm$.\newline
+        Calorimeter object-quality requirements, including rejection of clusters in the affected end-cap high-voltage regions in 2016. \\
+        \addlinespace[0.6em]
+        Muon & $\pT>10~\GeV$ and $|\eta|<2.5$.\newline
+        \texttt{Loose} identification and \texttt{Loose\_VarRad} isolation.\newline
+        $|d_0|/\sigma_{d_0}<3$ and $|\Delta z_0\sin\theta|<0.5~\mm$. \\
+        \addlinespace[0.6em]
+        Hadronic tau & $\pT>20~\GeV$ and $|\eta|<2.5$, excluding $1.37<|\eta|<1.52$.\newline
+        One or three tau-decay tracks with total charge $\pm1$.\newline
+        \texttt{Loose} RNN tau identification and \texttt{Loose} RNN electron rejection.\newline
+        Rejection of candidates within $\Delta R<0.2$ of a muon with $\pT>2~\GeV$, excluding calorimeter-tagged muons from this test. \\
+        \addlinespace[0.6em]
+        Jet & Particle-flow anti-$k_t$ jets with $R=0.4$, $\pT>20~\GeV$ and $|\eta|<2.5$.\newline
+        \texttt{LooseBad} cleaning and NNJVT \texttt{FixedEffPt} within its calibrated kinematic range.\newline
+        No forward jet-vertex requirement. \\
+        \bottomrule
+    \end{tabular}
+    \end{spacing}
+\end{minipage}
+
+\subsection{Signal objects}
+
+Signal objects are selected from the baseline collections with the following additional requirements:
+\begin{itemize}
+    \item \textbf{Electrons.} The \texttt{HighPtCaloOnly} isolation requirement is added to the baseline selection. The transverse-momentum threshold is $28~\GeV$ in the control regions for the top-quark background and $200~\GeV$ in the single-lepton regions without a tau candidate.
+    \item \textbf{Muons.} \texttt{Medium} identification and \texttt{Tight\_VarRad} isolation are required in addition to the baseline selection. The transverse-momentum thresholds are the same as for signal electrons.
+    \item \textbf{Hadronic taus.} \texttt{Tight} RNN identification is required, and the \texttt{Loose} electron-rejection requirement is retained. The transverse-momentum threshold is $200~\GeV$ in the signal regions and $100~\GeV$ in the control and validation regions for the top-quark background.
+    \item \textbf{Jets.} The baseline jet identification is retained. Jets used to define the resonant categories are required to have $\pT>250~\GeV$, while a jet with $50<\pT<250~\GeV$ is required in the non-resonant categories. The $b$-jet subset is selected with the GN2v01 85\% working point introduced in Section~\ref{sec:ch6_btag}.
+\end{itemize}
+The choice of jet entering each category, object multiplicities, trigger requirements and the remaining event selections are specified in Chapter~\ref{chapter:event_selection}.

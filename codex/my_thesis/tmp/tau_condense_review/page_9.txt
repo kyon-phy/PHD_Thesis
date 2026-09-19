@@ -1,0 +1,55 @@
+6.6 Jets 9
+6.6 Jets
+6.6.1 Reconstruction
+Jets are reconstructed from the collimated hadrons produced through parton showering and
+hadronisation. Particle-flow constituents are used to combine the charged-particle momentum
+measurements from the ID with calorimeter measurements of the remaining energy [13]. The
+main steps are:
+1. Well-measured tracks are matched to calorimeter topological clusters.
+2. The expected calorimeter energy deposited by the matched charged particles is subtracted
+from the clusters, avoiding double counting when the track momenta are used.
+3. The selected tracks and remaining calorimeter contributions are retained as the jet inputs.
+Vertex association is used to suppress charged-particle contributions from pile-up.
+Calorimeter deposits from neutral particles and charged particles without a selected track remain
+in the calorimeter contribution. The input clusters are initially measured at the electromagnetic
+energy scale, and the hadronic response is corrected by the jet calibration.
+The constituents are clustered with the anti-kt algorithm using R = 0.4 [14]. At each
+iteration, pairwise and beam distances are evaluated:
+di j = min
+p
+−2
+T,i
+, p
+−2
+T, j
+ ∆R
+2
+y,i j
+R2
+, diB = p
+−2
+T,i
+, (6.3)
+∆Ry,i j =
+q
+(yi −y j)
+2 + (φi −φj)
+2
+, y =
+1
+2
+ln E + pz
+E − pz
+. (6.4)
+Here, y is rapidity and B labels the beam distance. If the smallest distance is di j, the two
+constituent four-momenta are combined. If it is diB, constituent i is declared a jet and removed
+from the sequence. The procedure is repeated until no constituents remain. The inverse-p
+2
+T
+weighting favours the clustering of soft radiation around hard constituents, giving isolated
+jets approximately circular boundaries. The algorithm is infrared and collinear safe: the hard￾jet configuration is unchanged by an arbitrarily soft emission or a collinear splitting. The
+rapidity distance ∆Ry differs from the pseudorapidity distance ∆R defined in Eq. (4.5). The two
+distances coincide in the massless limit.
+6.6.2 Identification and pile-up rejection
+Jets in this analysis are required to satisfy LooseBad cleaning and the neural-network jet-vertex
+tagger (NNJVT) FixedEffPt working point.
