@@ -1,0 +1,54 @@
+[
+  {
+    "region": "Res",
+    "point": "MU1500_gU1_5_23L0_6",
+    "cutflow": 4.2,
+    "files": {
+      "BSM": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+      "inf": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU1500_gU1_5_23L0_6_noWeights_inf.root"
+    },
+    "root_object": "NOSYS/met_SR_1tau0l1b_Res",
+    "yield_full_sr": {
+      "BSM": 4.208596307844683,
+      "inf": -0.11655677414498652,
+      "combined": 4.092039533699697
+    },
+    "mc_stat": {
+      "BSM": 0.11137853086315201,
+      "inf": 0.05544561905427256,
+      "combined": 0.12441621200448766
+    },
+    "combined_method": "existing comb verified as BSM+inf",
+    "percent_difference": {
+      "BSM": 0.20467399630197392,
+      "combined": -2.570487292864365
+    },
+    "closer": "BSM"
+  },
+  {
+    "region": "NonRes",
+    "point": "MU2500_gU2_5_23L1_0",
+    "cutflow": 6.6,
+    "files": {
+      "BSM": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU2500_gU2_5_23L1_0_noWeights_BSM.root",
+      "inf": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU2500_gU2_5_23L1_0_noWeights_inf.root"
+    },
+    "root_object": "NOSYS/met_SR_1tau0l1b_NonRes",
+    "yield_full_sr": {
+      "BSM": 7.167700054640739,
+      "inf": -1.5483531955704288,
+      "combined": 5.61934685907031
+    },
+    "mc_stat": {
+      "BSM": 0.4716185948909424,
+      "inf": 0.3136764998643642,
+      "combined": 0.566407137679307
+    },
+    "combined_method": "sum of BSM and inf; no MU2500 combined file in this source directory",
+    "percent_difference": {
+      "BSM": 8.60151597940515,
+      "combined": -14.858380923177117
+    },
+    "closer": "BSM"
+  }
+]

@@ -1,0 +1,260 @@
+{
+  "date": "2026-09-20",
+  "method": "Integrate existing BSM bin yields on accepted side of plotted final cut, including existing overflow treatment. Independently sum full-SR histogram including flows; compare four tight N-1 integrals.",
+  "configuration": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/obsidian/LQ taunub search/10_\u6765\u6e90\u4e0e\u7ef4\u62a4/\u4ee3\u7801\u5feb\u7167/2026-09-07/taunub/config_taunub/config_taunub_plot_sys_1l_w_beamspot_v04_N_minus_1_fullRegion.yml",
+  "configuration_sha256": "ba7d279ad43bda6e6187d171460da502fc12fcbc4fce1aeaca8682b8e5b8ec65",
+  "panels": [
+    {
+      "panel": "SR1b_Res_InvM",
+      "cut": 800,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 4.937685944046407,
+      "mc_stat": 0.12029678759705492,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "sha256": "4429c7877359275c70ac7f1203b09f23faba967ca4e5ed5fe0b00119e49baa99",
+        "bytes": 4740855
+      },
+      "histogram": "NOSYS/InvM_SR_1tau0l1b_loose_Res_InvM_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && Jets_NOSYS.size() <= 4 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    },
+    {
+      "panel": "SR1b_Res_met",
+      "cut": 200,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 4.9376859440464065,
+      "mc_stat": 0.12029678759705494,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "sha256": "4429c7877359275c70ac7f1203b09f23faba967ca4e5ed5fe0b00119e49baa99",
+        "bytes": 4740855
+      },
+      "histogram": "NOSYS/met_SR_1tau0l1b_loose_Res_met_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS.size() <= 4 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    },
+    {
+      "panel": "SR1b_Res_mT",
+      "cut": 200,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 4.486820411644347,
+      "mc_stat": 0.11440635152565537,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "sha256": "4429c7877359275c70ac7f1203b09f23faba967ca4e5ed5fe0b00119e49baa99",
+        "bytes": 4740855
+      },
+      "histogram": "NOSYS/mT_SR_1tau0l1b_loose_Res_mT_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS.size() <= 4 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    },
+    {
+      "panel": "SR1b_Res_tau_pT",
+      "cut": 200,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 4.557274360253705,
+      "mc_stat": 0.11631598338049405,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "sha256": "4429c7877359275c70ac7f1203b09f23faba967ca4e5ed5fe0b00119e49baa99",
+        "bytes": 4740855
+      },
+      "histogram": "NOSYS/tau_pT_SR_1tau0l1b_loose_Res_tau_pT_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS.size() <= 4 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    },
+    {
+      "panel": "SR1b_Res_nlightjets",
+      "cut": 4,
+      "accepted_direction": "upper",
+      "yield_after_plotted_cut": 5.460362063425498,
+      "mc_stat": 0.12891444543672792,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "sha256": "4429c7877359275c70ac7f1203b09f23faba967ca4e5ed5fe0b00119e49baa99",
+        "bytes": 4740855
+      },
+      "histogram": "NOSYS/nLightJets_SR_1tau0l1b_loose_Res_nlightjets_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 800"
+    },
+    {
+      "panel": "SR1b_Res_dphi",
+      "cut": null,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 5.460362063425498,
+      "mc_stat": 0.12891444543672792,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+        "sha256": "4429c7877359275c70ac7f1203b09f23faba967ca4e5ed5fe0b00119e49baa99",
+        "bytes": 4740855
+      },
+      "histogram": "NOSYS/dphi_taumet_SR_1tau0l1b_loose_Res_dphi_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 100 && Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS.size() <= 4"
+    },
+    {
+      "panel": "SR1b_NonRes_InvM",
+      "cut": null,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 7.105476603244736,
+      "mc_stat": 0.33041501051383204,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "sha256": "71c12d3e49725ff6fbff9edea338725cf26fb09a284b53d50f72e3bd52e9e4b4",
+        "bytes": 4641667
+      },
+      "histogram": "NOSYS/InvM_SR_1tau0l1b_loose_NonRes_InvM_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 300 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 500 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS.size() <= 2 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50"
+    },
+    {
+      "panel": "SR1b_NonRes_met",
+      "cut": 400,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 3.960956128969799,
+      "mc_stat": 0.2566154932603413,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "sha256": "71c12d3e49725ff6fbff9edea338725cf26fb09a284b53d50f72e3bd52e9e4b4",
+        "bytes": 4641667
+      },
+      "histogram": "NOSYS/met_SR_1tau0l1b_loose_NonRes_met_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 500 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS.size() <= 2 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50"
+    },
+    {
+      "panel": "SR1b_NonRes_mT",
+      "cut": 600,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 5.961108346842511,
+      "mc_stat": 0.308176812204852,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "sha256": "71c12d3e49725ff6fbff9edea338725cf26fb09a284b53d50f72e3bd52e9e4b4",
+        "bytes": 4641667
+      },
+      "histogram": "NOSYS/mT_SR_1tau0l1b_loose_NonRes_mT_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 300 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS.size() <= 2 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50"
+    },
+    {
+      "panel": "SR1b_NonRes_tau_pT",
+      "cut": 200,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 6.856364668697486,
+      "mc_stat": 0.3256118015356719,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "sha256": "71c12d3e49725ff6fbff9edea338725cf26fb09a284b53d50f72e3bd52e9e4b4",
+        "bytes": 4641667
+      },
+      "histogram": "NOSYS/tau_pT_SR_1tau0l1b_loose_NonRes_tau_pT_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 300 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 500 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS.size() <= 2 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50"
+    },
+    {
+      "panel": "SR1b_NonRes_nlightjets",
+      "cut": 2,
+      "accepted_direction": "upper",
+      "yield_after_plotted_cut": 14.07824357095885,
+      "mc_stat": 0.47385972255543524,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "sha256": "71c12d3e49725ff6fbff9edea338725cf26fb09a284b53d50f72e3bd52e9e4b4",
+        "bytes": 4641667
+      },
+      "histogram": "NOSYS/nLightJets_SR_1tau0l1b_loose_NonRes_nlightjets_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 300 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 500 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2"
+    },
+    {
+      "panel": "SR1b_NonRes_dphi",
+      "cut": 1.2,
+      "accepted_direction": "lower",
+      "yield_after_plotted_cut": 14.07824357095885,
+      "mc_stat": 0.4738597225554353,
+      "source": {
+        "local_path": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "source_host": "codex_lxatut (zang@lxatut3.cern.ch)",
+        "remote_path": "/afs/cern.ch/work/z/zang/LQanalysis/taux_fastframes/run/output_plots/taunub_sys_1l_allVR_with_beamspot_v04_N_minus_1_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+        "sha256": "71c12d3e49725ff6fbff9edea338725cf26fb09a284b53d50f72e3bd52e9e4b4",
+        "bytes": 4641667
+      },
+      "histogram": "NOSYS/dphi_taumet_SR_1tau0l1b_loose_NonRes_dphi_N_minus_1",
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 300 && Taus_NOSYS[0].Pt() * 1e-3 > 100 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 500 && Jets_NOSYS.size() <= 2"
+    }
+  ],
+  "full_sr": [
+    {
+      "sample": "MU1500_gU1_5_23L0_6_noWeights_BSM",
+      "region": "Res",
+      "root_file": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU1500_gU1_5_23L0_6_noWeights_BSM.root",
+      "object": "NOSYS/met_SR_1tau0l1b_Res",
+      "yield_full_sr": 4.208596307844683,
+      "mc_stat": 0.11137853086315201,
+      "cutflow_endpoint": 4.2,
+      "cutflow_mc_stat_from_int_note": 0.1,
+      "tight_N_minus_1_checks": {
+        "NOSYS/met_SR_1tau0l1b_Res_met_N_minus_1": 4.208596307844682,
+        "NOSYS/mT_SR_1tau0l1b_Res_mT_N_minus_1": 4.208596307844682,
+        "NOSYS/InvM_SR_1tau0l1b_Res_InvM_N_minus_1": 4.208596307844683,
+        "NOSYS/tau_pT_SR_1tau0l1b_Res_tau_pT_N_minus_1": 4.208596307844682
+      },
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 200 && Taus_NOSYS[0].Pt() * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 200 && Taus_NOSYS[0].InvM(bJets85_NOSYS[0]) * 0.001 > 800 && Jets_NOSYS.size() <= 4 && bJets85_pt_0_NOSYS * 1e-3 > 250"
+    },
+    {
+      "sample": "MU3000_gU2_5_23L1_0_noWeights_BSM",
+      "region": "NonRes",
+      "root_file": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU3000_gU2_5_23L1_0_noWeights_BSM.root",
+      "object": "NOSYS/met_SR_1tau0l1b_NonRes",
+      "yield_full_sr": 3.8038194914884733,
+      "mc_stat": 0.25305348852191745,
+      "cutflow_endpoint": null,
+      "cutflow_mc_stat_from_int_note": null,
+      "tight_N_minus_1_checks": {
+        "NOSYS/met_SR_1tau0l1b_NonRes_met_N_minus_1": 3.803819491488474,
+        "NOSYS/mT_SR_1tau0l1b_NonRes_mT_N_minus_1": 3.803819491488474,
+        "NOSYS/InvM_SR_1tau0l1b_NonRes_InvM_N_minus_1": 3.8038194914884738,
+        "NOSYS/tau_pT_SR_1tau0l1b_NonRes_tau_pT_N_minus_1": 3.8038194914884738
+      },
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Taus_NOSYS[0].Pt() * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS.size() <= 2 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50"
+    },
+    {
+      "sample": "MU2500_gU2_5_23L1_0_noWeights_BSM",
+      "region": "NonRes",
+      "root_file": "/Users/zang/Desktop/ICEPP/\u535a\u58eb\u8bfe\u9898/leptoquark/Thesis/codex/my_thesis/data/ch7/signal_noWeights_v3/MU2500_gU2_5_23L1_0_noWeights_BSM.root",
+      "object": "NOSYS/met_SR_1tau0l1b_NonRes",
+      "yield_full_sr": 7.167700054640739,
+      "mc_stat": 0.4716185948909424,
+      "cutflow_endpoint": 6.6,
+      "cutflow_mc_stat_from_int_note": 0.7,
+      "tight_N_minus_1_checks": {
+        "NOSYS/met_SR_1tau0l1b_NonRes_met_N_minus_1": 7.16770005464074,
+        "NOSYS/mT_SR_1tau0l1b_NonRes_mT_N_minus_1": 7.167700054640738,
+        "NOSYS/InvM_SR_1tau0l1b_NonRes_InvM_N_minus_1": 7.167700054640738,
+        "NOSYS/tau_pT_SR_1tau0l1b_NonRes_tau_pT_N_minus_1": 7.167700054640739
+      },
+      "selection_from_config": "flag_MET_decision_NOSYS && Taus_NOSYS.size() == 1 && Taus_NOSYS[0].select_TightRNN_NOSYS() == 1 && Leptons_NOSYS.size() == 0 && nbJets85_NOSYS == 1 && flag_minDPhi_NOSYS && MET_wpSet0_met_NOSYS * 1e-3 > 400 && Taus_NOSYS[0].Pt() * 1e-3 > 200 && Taus_NOSYS[0].mT(MET_NOSYS) * 0.001 > 600 && abs(Taus_NOSYS[0].DeltaPhi(MET_NOSYS)) > 1.2 && Jets_NOSYS.size() <= 2 && bJets85_pt_0_NOSYS * 1e-3 < 250 && bJets85_pt_0_NOSYS * 1e-3 > 50"
+    }
+  ],
+  "findings": [
+    "Loose N-1 integrals do not impose all full SR cuts.",
+    "Both nlightjets and dphi plotting selections additionally omit the b-jet pT requirement, not currently stated in the captions.",
+    "Fig7.4 uses MU3000; NonRes cutflow uses MU2500.",
+    "Same-benchmark Res full-SR yield rounds to cutflow 4.2. New MU2500 full-SR yield is 7.1677 versus historical cutflow 6.6; difference is within their MC statistical errors, not exact equality."
+  ],
+  "manuscript_and_figures_modified": false
+}

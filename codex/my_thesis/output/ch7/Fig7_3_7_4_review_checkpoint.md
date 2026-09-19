@@ -1,6 +1,12 @@
 # Fig. 7.3 / 7.4 review checkpoint
 
-Status: paused at the user's explicit quota condition. The account usage tool reported 99% used in the 10080-minute weekly window (approximately 1% remaining). No plot, plotting script, or caption was modified in this turn. Only file discovery and a read of the latest chapter have been performed. Numerical agreement and uncertainty definitions have NOT yet been verified.
+Status (2026-09-20): completed. Both Res and NonRes now use noWeights_BSM and the same benchmark parameters as their cutflows: (1.5 TeV, 1.5, 0.6) and (2.5 TeV, 2.5, 1.0). Fig. 7.4 was updated from 3.0 to 2.5 TeV in all six signal curves, legend labels and its caption. Res EPS/PDF files are byte-identical to the previous version; all NonRes EPS content except signal path and mass label is byte-identical. Backgrounds, uncertainties and paper L-shaped arrows are preserved. CH7 compiled to 22 pages; Fig. 7.4 is on page 10.
+
+The user asked which component gives yields closer to the historical cutflow, with one component used consistently in both regions. At full SR selection, Res BSM=4.208596 and combined=4.092040 versus cutflow 4.2; NonRes BSM=7.167700 and combined=5.619347 versus cutflow 6.6. BSM is closer in both regions and matches the BSM-only definition of the original cutflow. The MU2500 combined value is explicitly calculated from BSM + inf; this exact production directory has no MU2500 combined ROOT file. The MU1500 saved comb file was verified against that sum. Details: `figure_audit/bsm_vs_combined_cutflow.json`.
+
+Current signal bin provenance: `figure_audit/bsm_signal_bins.json`. Current full/loose SR integrals: `figure_audit/cutflow_comparison.json`. Previous 3.0 TeV version is backed up under `figure_audit/before_nonres_2500/`. Known remaining issue from the verification: the nlightjets and dphi loose configurations also remove the b-jet pT cut, which the current captions do not mention. Their selection has not been changed. Eight raster INT-note panels still lack exact historical numerical-source provenance.
+
+Historical pause: the account usage tool had reported 99% used in the weekly window. No figure edits had been made at that checkpoint. On resumption the allowance had reset; no reset credit was consumed.
 
 ## User's requested work
 
@@ -19,7 +25,7 @@ Status: paused at the user's explicit quota condition. The account usage tool re
 - No ATLAS Internal line; retain sqrt(s) and region labels at the established spacing/positions.
 - Default figure placement is [htpb]. Use existing aliases for quantities and units.
 - Caption pattern: `The red dashed line represents the signal at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$.` Respect the user's chosen style. No repeated N-1 definition. Use `N-1 distributions in the loose SR1b-Res/NonRes region` with the existing macros.
-- Preserve the user's concurrent edits: reload the current TeX/scripts before each targeted change. This checkout is not Git. Do not edit references, INT note or paper source files.
+- Preserve the user's concurrent edits: reload the current TeX/scripts before each targeted change. This directory is now inside the Git repository rooted at `Thesis`; the earlier non-Git description is obsolete. Do not edit references, INT note or paper source files.
 - Pause and save another checkpoint if the user-requested quota condition is reached again. Do not consume reset credits without an explicit user request.
 
 ## Files already located
@@ -62,7 +68,7 @@ Paper figures:
 
 The output format being PDF does not establish whether the upstream data were ROOT, YAML or EPS. Read the production script and provenance before drawing that conclusion.
 
-## Recommended next steps
+## Historical resumption plan (completed)
 
 1. Check usage and resume only when authorised and sufficient quota is available.
 2. Read restyle_eps.py and CH7_completion_notes.md, then locate exact input EPS/PDF, any associated ROOT/YAML and uncertainty configuration.
