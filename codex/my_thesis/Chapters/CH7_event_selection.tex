@@ -225,42 +225,44 @@ The mass distribution is also broadened by the missing neutrino momentum and poo
 \clearpage
 \subsection[SR1b-NonRes definition]{$\bTagSR$-$\NonRes$ definition}
 \label{subsec:ch7_sr1b_nonres}
-% 这个section结构模仿上个Section修改
-$\bTagSR$-$\NonRes$ is defined by requiring $50<\pT^b<250~\GeV$, $\pT^\tau>200~\GeV$, $\met>400~\GeV$, $\mT>600~\GeV$ and $\DphiTauMet>1.2$, with at most one jet that is not $b$-tagged.
+
+The definition and cutflow for $\bTagSR$-$\NonRes$ are summarised in Table~\ref{tab:ch7_cutflow_nonres}, using the non-resonant optimisation benchmark $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$.
 No $m_{b\tau}$ requirement is applied because the $b$-jet and $\tau$ do not reconstruct an on-shell leptoquark in the target topology.
-This region also contributes a single event count to the fit.
-
-The background is dominated by $W$+jets, principally $W\to\tau\nu$, which contributes approximately $69\%$.
-The next-largest contribution is from $\ttbar$ ($16\%$), followed by $Z\to\tau\tau$+jets ($8\%$) and diboson production ($5\%$).
-The $Z\to\tau\tau$ contribution requires only one selected $\tau$, with neutrinos from the decays producing $\met$.
-In both $\bTagSR$ regions, $Z\to\nu\nu$+jets is the main source of events with a jet misidentified as a $\tau$, because the invisible $Z$ decay supplies the missing momentum.
-Multijet production is negligible after the cleaning and full SR requirements.
-
-For the optimisation benchmark $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, the expected signal and background yields are 6.583 and 2.097 events, respectively, giving $Z=2.94$.
+A single event count is also used in this region.
 
 \begin{table}[htbp]
     \centering
     \small
-    \caption{Signal ($S$) and background ($B$) cutflow in the $\bTagSR$-$\NonRes$ optimisation for $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$.}
+    \caption{Signal and background cutflow for $\bTagSR$-$\NonRes$. The signal is evaluated at $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$. The uncertainties are from MC statistics only.}
     \label{tab:ch7_cutflow_nonres}
-    \begin{tabular}{lrr}
+    \setlength{\tabcolsep}{3pt}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{lrrrrrrr}
         \toprule
-        Cumulative requirement & $S$ & $B$ \\
+        Requirement & Signal & $\ttbar$ & Single top & $W$+jets & $Z$+jets & Diboson & Total background \\
         \midrule
-        Baseline & 111.0 & 4027.3 \\
-        $\pT^\tau>200~\GeV$ & 70.5 & 193.1 \\
-        $\met>400~\GeV$ & 26.4 & 15.1 \\
-        $\mT>600~\GeV$ & 24.0 & 6.4 \\
-        $\DphiTauMet>1.2$ & 23.8 & 6.4 \\
-        $N_j-N_b\leq1$ & 17.2 & 2.8 \\
-        $50<\pT^b<250~\GeV$ & 6.6 & 2.1 \\
+        Baseline & $111.0\pm4.2$ & $1043.0\pm6.9$ & $283.8\pm3.4$ & $2156.9\pm16.1$ & $369.2\pm7.7$ & $173.9\pm2.7$ & $4027.3\pm19.7$ \\
+        $\pT^\tau>200~\GeV$ & $70.5\pm3.8$ & $32.3\pm1.3$ & $11.8\pm0.5$ & $108.9\pm9.4$ & $30.4\pm4.7$ & $9.7\pm0.6$ & $193.1\pm10.7$ \\
+        $\met>400~\GeV$ & $26.4\pm2.3$ & $2.1\pm0.3$ & $0.8\pm0.1$ & $9.0\pm1.5$ & $1.4\pm0.3$ & $1.8\pm0.2$ & $15.1\pm1.6$ \\
+        $\mT>600~\GeV$ & $24.0\pm2.2$ & $0.7\pm0.2$ & $0.3\pm0.1$ & $3.9\pm1.5$ & $0.8\pm0.2$ & $0.7\pm0.2$ & $6.4\pm1.6$ \\
+        $\DphiTauMet>1.2$ & $23.8\pm2.2$ & $0.7\pm0.2$ & $0.3\pm0.1$ & $3.8\pm1.5$ & $0.8\pm0.2$ & $0.7\pm0.2$ & $6.4\pm1.6$ \\
+        $N_j-N_b\leq1$ & $17.2\pm2.1$ & $0.3\pm0.1$ & $0.1\pm0.1$ & $1.6\pm1.4$ & $0.4\pm0.1$ & $0.4\pm0.2$ & $2.8\pm1.4$ \\
+        $50<\pT^b<250~\GeV$ & $6.6\pm0.7$ & $0.3\pm0.1$ & $0.0\pm0.1$ & $1.6\pm0.5$ & $0.2\pm0.1$ & $0.1\pm0.1$ & $2.1\pm0.5$ \\
         \bottomrule
     \end{tabular}
+    }
 \end{table}
+
+As a result, the expected signal and background yields are 6.6 and 2.1 events, respectively, giving $Z=2.94$.
+
+The background is dominated by $W(\to\tau\nu)$+jets, which contributes approximately $69\%$.
+Approximately $16\%$ is contributed by $\ttbar$, followed by $Z(\to\tau\tau)$+jets ($8\%$) and diboson production ($5\%$).
+The $Z(\to\tau\tau)$+jets events pass the selection when only one $\tau$ is selected, with neutrinos from the decays producing $\met$.
+In both $\bTagSR$ regions, $Z(\to\nu\nu)$+jets is the main source of events with a jet misidentified as a $\tau$, because the invisible $Z$ decay supplies the missing momentum.
+Multijet production is negligible after the cleaning and full SR requirements.
 
 The yields and significances for both regions are summarised in Table~\ref{tab:ch7_prefit_yields}.
 The yields agree with the rounded endpoints of the optimisation cutflows to within $2\%$.
-The cutflows describe the optimisation study, while the final selections are chosen with the statistical uncertainty in the background prediction kept below $30\%$.
 
 \begin{table}[htbp]
     \centering
@@ -277,9 +279,9 @@ The cutflows describe the optimisation study, while the final selections are cho
     \end{tabular}
 \end{table}
 
-The loose $N-1$ distributions in Figure~\ref{fig:ch7_sr1b_nonres_distributions} illustrate the high-$\mT$ and high-$\met$ tails of the non-resonant signal.
-The $\mT$, $\met$ and $\pT^\tau$ thresholds are each lowered by $100~\GeV$ before the plotted requirement is removed.
-The trigger-plateau requirement $\met>200~\GeV$ is retained.
+The $N-1$ distributions in $\bTagSR$-$\NonRes$ with relaxed kinematic requirements are shown in Figure~\ref{fig:ch7_sr1b_nonres_distributions}.
+To reduce statistical fluctuations, the $\mT$, $\met$ and $\pT^\tau$ thresholds are each lowered by $100~\GeV$, while the baseline requirement $\met>200~\GeV$ is retained.
+The high-$\mT$ and high-$\met$ tails of the non-resonant signal are illustrated by these distributions.
 
 \begin{figure}[htpb]
     \centering
