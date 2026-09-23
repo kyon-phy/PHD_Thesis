@@ -11,9 +11,13 @@ Tracks are used to determine charged-particle momenta and production vertices, w
 The reconstructed energies and momenta are calibrated to correct biases in the detector response.
 Simulated event weights are further corrected using efficiency scale factors.
 
+Two levels of object selection, referred to as baseline and signal, are used in this analysis.
+Baseline objects satisfy a looser set of requirements and are used for overlap removal and $\met$ reconstruction.
+Signal objects are selected from the baseline objects by applying tighter requirements and are used in the final event selection.
 
-\input{Chapters/object_definition/tracks}
+
 \input{Chapters/object_definition/primary_vertex}
+\input{Chapters/object_definition/tracks}
 \input{Chapters/object_definition/electrons}
 \input{Chapters/object_definition/muons}
 \input{Chapters/object_definition/jets}

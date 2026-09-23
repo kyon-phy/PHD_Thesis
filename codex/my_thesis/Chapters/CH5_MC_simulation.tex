@@ -1,12 +1,12 @@
 \chapter{Data and Monte Carlo Simulations}
 \label{chapter:MC_simulation}
 
-Monte Carlo (MC) simulation is used to model the signal and Standard Model background processes and to predict their event yields and kinematic distributions in this search.
+Monte Carlo (MC) simulation is used to model the signal and Standard Model background processes and to predict their event yields and kinematic distributions.
 Event generation begins by sampling the incoming partons and their momentum fractions from proton PDFs and evaluating the matrix element for the hard-scattering process.
 The outgoing partons are then evolved through the parton shower and hadronisation, followed by the decays of unstable particles.
 Finally, pile-up interactions and the ATLAS detector response are simulated, after which the events are reconstructed with the same algorithms used for collision data.
 
-This chapter describes the collision data and simulated event samples used in the search.
+This chapter describes the collision data and simulation samples used in this thesis.
 The Run~2 dataset is presented first, followed by the simulated signal and Standard Model background samples.
 The trigger selections are summarised at the end of the chapter.
 
@@ -23,7 +23,7 @@ The integrated luminosity recorded in each year is summarised in Table~\ref{tab:
 
 \begin{table}[htbp]
     \centering
-    \caption{Integrated luminosity of the Run~2 proton--proton collision data used in this analysis.}
+    \caption{Integrated luminosity of the Run~2 proton--proton collision data.}
     \label{tab:run2_luminosity}
     \begin{tabular}{cc}
         \hline
@@ -103,8 +103,8 @@ The total matrix element can be expressed as
 The first term represents the SM contribution, the second represents the pure $U_{1}$ contribution, corresponding to the BSM-only component, and the third represents their interference.
 Unlike the BSM-only component, the interference term can be negative and can reduce the predicted yield relative to the SM-only expectation in some regions of phase space.
 
-To separate the BSM-only and interference terms in Eq.~\eqref{eq:signal_interference}, the two contributions are generated independently with \textsc{MadGraph5\_aMC@NLO} using the configuration described above.
-The BSM-only component is selected by requiring exactly two new-physics couplings at the amplitude level, denoted by \texttt{NP==2}, whereas the interference component is isolated at the squared-matrix-element level by requiring $\mathrm{NP}^{2}=2$.
+To separate the BSM-only and interference terms in Eq.~\eqref{eq:signal_interference}, the two contributions are generated independently.
+The BSM-only component is selected by requiring exactly two new-physics couplings at the amplitude level, denoted by \texttt{NP==2}, whereas the interference component is isolated at the squared-matrix-element level by requiring \texttt{NP\^{}2==2}.
 The interference sample therefore contains only the third term in Eq.~\eqref{eq:signal_interference}.
 
 All $\tau$-lepton decay modes are retained in the signal simulation.
@@ -119,7 +119,7 @@ All signal samples used in this thesis are processed with the ATLAS fast detecto
 
 The simulated SM backgrounds considered in this analysis are $\wjets$, $\zjets$, $\ttbar$, single-top and diboson production.
 The dominant contribution is $\wtaunu+\mathrm{jets}$ production.
-The QCD multijet background is negligible after event cleaning and is therefore neglected, as discussed in Appendix~\ref{App:QCD_bkg_study}.
+The QCD multijet background is negligible after event cleaning and is therefore neglected, as discussed in Section~\ref{subsec:ch7_multijet} and Appendix~\ref{App:QCD_bkg_study}.
 
 The $\wzjets$ samples are generated with \textsc{Sherpa}~2.2.11~\cite{Bothmann2019Sherpa22}, except for $\ztautau$, which uses version~2.2.14.
 Matrix elements include up to two additional partons at next-to-leading order~(NLO) in QCD and up to five at LO.
@@ -138,32 +138,21 @@ Their respective generator-level requirements are
 \end{align}
 
 Top-quark pair and single-top production are generated at NLO accuracy in QCD using \textsc{Powheg Box}~v2~\cite{Frixione2007PowhegHF,Nason2004Powheg,Frixione2007Powheg,Alioli2010PowhegBox}, interfaced to \textsc{Pythia}~8.230~\cite{Sjostrand2015Pythia82} for parton showering and hadronisation.
-The single-top samples include $s$-channel, $t$-channel and associated $Wt$ production. 
+The single-top samples include $s$-channel, $t$-channel and $Wt$ production. 
 The predicted $\ttbar$ yield is normalised to the inclusive production cross-section calculated at next-to-next-to-leading order~(NNLO) in QCD with next-to-next-to-leading-logarithmic~(NNLL) soft-gluon resummation~\cite{CzakonMitov2014TopPP}.
 A dilepton filter is applied to the $\ttbar$ sample, requiring both $W$ bosons to decay leptonically.
-
-Diboson production is also modelled with \textsc{Sherpa}.
-
-% Source reconciliation required before submission: Table 4.1 of
-% ANA-EXOT-2025-06-INT1 lists Sherpa 2.2.11/2.2.12 QCD samples and Sherpa
-% 2.2.12 electroweak samples, including some semileptonic modes. Section 4
-% of ATL-COM-PHYS-2026-015 instead states Sherpa 2.2.2 and only fully
-% leptonic modes. Confirm the final DSIDs and production configuration.
+Diboson production is modelled with \textsc{Sherpa}~2.2.11 and~2.2.12.
 
 The hard-scattering calculations use the NNPDF3.0nnlo PDF set for $\wzjets$ and NNPDF3.0nlo for $\ttbar$ and single-top production~\cite{Ball2015NNPDF30}.
 The underlying event is modelled using the A14 tune for \textsc{Pythia} and the default tune for \textsc{Sherpa}.
 For samples not generated with \textsc{Sherpa}, the decays of bottom- and charm-hadrons are modelled with \textsc{EvtGen}~\cite{Lange2001EvtGen}.
 The full ATLAS detector simulation based on \textsc{Geant4}~\cite{ATLAS2010Simulation,Agostinelli2003Geant4} is used for all background samples.
-
-The principal MC generator configurations are summarised in Table~\ref{tab:mc_generator_summary}.
+The MC generator configurations are summarised in Table~\ref{tab:mc_generator_summary}.
 
 \begin{table}[htbp]
     \centering
     \caption{
-        Summary of the principal MC generator configurations used for the signal and SM background processes.
-        The quoted perturbative order refers to the hard-scattering matrix-element calculation.
-        For the $\wzjets$ samples, matrix elements with up to two additional partons are calculated at NLO and those with up to five additional partons at LO.
-        The symbol $\ell$ denotes an electron or muon.
+        Summary of the MC generator configurations used for the signal and SM background processes.
     }
     \label{tab:mc_generator_summary}
     \resizebox{\textwidth}{!}{
@@ -173,7 +162,7 @@ The principal MC generator configurations are summarised in Table~\ref{tab:mc_ge
         & Generator
         & ME order
         & Parton shower
-        & ME PDF set
+        & PDF set
         & Tune \\
         \midrule
 
@@ -185,33 +174,26 @@ The principal MC generator configurations are summarised in Table~\ref{tab:mc_ge
         & A14 \\
         \midrule
 
-        $\wlnu+\mathrm{jets}$
+        $W(\rightarrow e\nu/\mu\nu/\tau\nu)+\mathrm{jets}$
         & \textsc{Sherpa} 2.2.11
         & NLO
         & \textsc{Sherpa}
         & NNPDF3.0nnlo
-        & \textsc{Sherpa} default \\
+        & \textsc{Sherpa} \\
 
-        $\wtaunu+\mathrm{jets}$
+        $Z(\rightarrow ee/\mu\mu/\nu\nu)+\mathrm{jets}$
         & \textsc{Sherpa} 2.2.11
         & NLO
         & \textsc{Sherpa}
         & NNPDF3.0nnlo
-        & \textsc{Sherpa} default \\
+        & \textsc{Sherpa} \\
 
-        $Z\rightarrow ee/\mu\mu/\nu\nu+\mathrm{jets}$
-        & \textsc{Sherpa} 2.2.11
-        & NLO
-        & \textsc{Sherpa}
-        & NNPDF3.0nnlo
-        & \textsc{Sherpa} default \\
-
-        $\ztautau+\mathrm{jets}$
+        $Z(\rightarrow \tau\tau)+\mathrm{jets}$
         & \textsc{Sherpa} 2.2.14
         & NLO
         & \textsc{Sherpa}
         & NNPDF3.0nnlo
-        & \textsc{Sherpa} default \\
+        & \textsc{Sherpa} \\
 
         $\ttbar$
         & \textsc{Powheg Box} v2
@@ -228,11 +210,12 @@ The principal MC generator configurations are summarised in Table~\ref{tab:mc_ge
         & A14 \\
 
         Diboson
+        & \textsc{Sherpa} 2.2.11/2.2.12
+        & NLO/LO
         & \textsc{Sherpa}
-        & \textit{NLO}
-        & \textsc{Sherpa}
-        & \textit{NNPDF3}
-        & \textsc{Sherpa} default \\
+        & NNPDF3.0nnlo
+        & \textsc{Sherpa} \\
+
         \bottomrule
     \end{tabular}
     }
@@ -242,17 +225,15 @@ The principal MC generator configurations are summarised in Table~\ref{tab:mc_ge
 \label{sec:analysis_triggers}
 
 The ATLAS Run~2 trigger architecture was described in Chapter~\ref{chapter:LHC_ATLAS_experiment}.
-This analysis uses only single-electron, single-muon and $\met$ triggers.
+Single-electron, single-muon and $\met$ triggers are used in this analysis.
 
-The signal-region event selection uses the lowest-threshold unprescaled $\met$ trigger, which is fully efficient for at least offline $\met>200~\GeV$ applied in signal regions and the corresponding validation regions.
-
+The signal region event selection uses the lowest-threshold unprescaled $\met$ trigger, which is fully efficient for the offline requirement $\met>200~\GeV$ applied in the signal regions and the corresponding validation regions.
 Single-electron and single-muon triggers are used in regions containing an electron or muon.
 The lowest online thresholds range from $20$ to $26~\GeV$~\cite{ATLASElectronTriggerRun2,ATLASMuonTriggerRun2}.
 
-Table~\ref{tab:run2_trigger_chains} lists the single-electron, single-muon and $\met$ trigger chains used in this analysis.
-
+Table~\ref{tab:run2_trigger_chains} lists the trigger chains used in this analysis.
 In an HLT chain name, \texttt{e}, \texttt{mu} and \texttt{xe} represent an electron, a muon and $\met$, respectively. The following number gives the online threshold in \GeV.
-An explicit \texttt{L1} suffix identifies the first-level trigger that seeds the chain.
+The \texttt{L1} suffix indicates the first-level trigger that seeds the chain.
 The electron labels \texttt{lhloose}, \texttt{lhmedium} and \texttt{lhtight} specify likelihood-based identification requirements, while \texttt{nod0} indicates that transverse-impact-parameter information is omitted.
 The labels \texttt{iloose}, \texttt{ivarloose} and \texttt{ivarmedium} specify isolation requirements.
 For $\met$, \texttt{mht} denotes a calculation based on the negative vector sum of jet transverse momenta, whereas \texttt{pufit} denotes a calorimeter-based calculation with a fit-based pile-up correction~\cite{ATLASMETTriggerRun2}.
@@ -270,7 +251,6 @@ Differences in trigger efficiency between collision data and simulation are corr
     \caption[Run~2 single-lepton and missing-transverse-momentum trigger chains]{
         Single-electron, single-muon and $\met$ trigger chains used in the Run~2 analysis.
         Single-lepton chains listed for the same flavour and year are combined with a logical OR, while the $\met$ chain is selected according to the data-taking period.
-        The extra \texttt{xe70} or \texttt{xe65} in the 2018 names denotes an additional calorimeter-cell $\met$ requirement of 70 or $65~\GeV$.
     }
     \label{tab:run2_trigger_chains}
     \begingroup
@@ -328,8 +308,7 @@ Differences in trigger efficiency between collision data and simulation are corr
     \caption[Run~2 single-lepton trigger efficiencies]{
         Single-lepton trigger efficiencies measured in Run~2 $\zll$ events.
         (a) Electron efficiency versus offline $\et$ for electrons with Tight identification and FCTight isolation~\cite{ATLASElectronTriggerRun2}.
-        (b,c) Muon efficiency versus offline $\pT$ in the barrel and end-cap, respectively~\cite{ATLASMuonTriggerRun2}.
-        Lower panels give data-to-simulation efficiency ratios.
+        (b,c) Muon efficiency versus offline $\pT$ in the barrel and end-cap regions, respectively~\cite{ATLASMuonTriggerRun2}.
         Electron uncertainties include statistical and systematic contributions, while muon uncertainties are statistical only.
     }
     \label{fig:run2_lepton_trigger_efficiency}
