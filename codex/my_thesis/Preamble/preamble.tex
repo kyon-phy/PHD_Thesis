@@ -62,6 +62,10 @@
 
 % Captions: This makes captions of figures use a boldfaced small font.
 %\RequirePackage[small,bf]{caption}
+\hypersetup{
+  colorlinks=true,
+  allcolors=blue
+}
 
 \RequirePackage[labelsep=space,tableposition=top]{caption}
 \renewcommand{\figurename}{Fig.} %to support older versions of captions.sty
@@ -218,6 +222,8 @@
 \newcommand*{\met}{\ensuremath{E_{\mathrm{T}}^{\mathrm{miss}}}\xspace}
 \newcommand*{\mT}{\ensuremath{m_{\mathrm{T}}}\xspace}
 \newcommand*{\pT}{\ensuremath{p_{\mathrm{T}}}\xspace}
+% Reconstructed hadronically decaying tau; keep truth-level tau as \tau.
+\newcommand*{\hadtau}{\ensuremath{\tau_{\mathrm{had}}}\xspace}
 \newcommand*{\gU}{\ensuremath{g_U}\xspace}
 \newcommand*{\MU}{\ensuremath{M_U}\xspace}
 \newcommand*{\MLQ}{\ensuremath{M_{\mathrm{LQ}}}\xspace}
@@ -240,7 +246,7 @@
 \newcommand*{\mt}{\mT}
 \newcommand*{\pt}{\pT}
 \newcommand*{\RD}{\ensuremath{R(D^{(*)})}}
-\newcommand{\DphiTauMet}{\ensuremath{\Delta\phi(\tau, \met)}\xspace}
+\newcommand{\DphiTauMet}{\ensuremath{\Delta\phi(\hadtau, \met)}\xspace}
 \newcommand{\DphiLepMet}{\ensuremath{\Delta\phi(\ell, \met)}\xspace}
 \newcommand{\DphiJetMet}{\ensuremath{\Delta\phi(\met,\pt^{\mathrm{jet}})}\xspace}
 \newcommand{\minDphiJetPt}{\ensuremath{\pt^{\mathrm{jet}(\min{\Delta\phi)}}}\xspace}
@@ -272,8 +278,7 @@
 \newcommand{\bVetoSR}{\ensuremath{\mathrm{SR0b}}\xspace}
 \newcommand{\CRW}{\ensuremath{\mathrm{CRW}}\xspace}
 \newcommand{\CRTop}{\ensuremath{\mathrm{CRTop}}\xspace}
-\newcommand{\VRb}{\ensuremath{\mathrm{VRW}}\xspace}
-\newcommand{\VRW}{\ensuremath{\mathrm{SR0b}}\xspace}
+\newcommand{\VRW}{\ensuremath{\mathrm{VRW}}\xspace}
 \newcommand{\VRTop}{\ensuremath{\mathrm{VRTop}}\xspace}
 
 \newcommand{\Res}{\ensuremath{\mathrm{Res}}\xspace}

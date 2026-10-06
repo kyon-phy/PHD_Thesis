@@ -16,8 +16,9 @@ Combined muons are used in this analysis.
 
 \subsection{Identification}
 
-Muon identification tests whether the detector hits and the ID and MS momentum measurements are consistent with a single muon trajectory~\cite{ATLAS2021MuonID}.
-Decays of charged mesons in flight can change the trajectory and momentum, leading to a disagreement between the momentum measurements.
+Muon identification tests whether the detector hits and the ID and MS momentum measurements are consistent with a single muon trajectory.
+It's important since muon candidates can also be produced by in-flight decays of charged mesons, such as pions and kaons.
+These decays can change the trajectory and momentum, leading to a disagreement between the momentum measurements.
 For muon candidates, this agreement is quantified by the $q/p$ significance,
 \begin{align}
     S_{q/p}=\frac{\left|(q/p)_{\mathrm{ID}}-(q/p)_{\mathrm{MS}}\right|}
@@ -28,15 +29,15 @@ where $(q/p)_{\mathrm{ID}}$ and $(q/p)_{\mathrm{MS}}$ are the charge-to-momentum
 $\sigma_{\mathrm{ID}}$ and $\sigma_{\mathrm{MS}}$ denote the uncertainties.
 Large values indicate poor agreement and help reject incorrectly matched candidates.
 
-In the analysis, baseline muons are required to pass \texttt{Loose} identification while signal muons must additionally satisfy the \texttt{Medium} working point.
-The \texttt{Medium} working point requires combined candidates within the ID acceptance to satisfy $S_{q/p}<7$ and, outside $|\eta|<0.1$, have at least two MS precision stations with at least three MDT or CSC hits each.
+In this analysis, baseline muons are required to pass \texttt{Loose} identification while signal muons must additionally satisfy the \texttt{Medium}.
+The \texttt{Medium} working point requires combined muons within the ID acceptance to satisfy $S_{q/p}<7$ and, outside $|\eta|<0.1$, to have at least two MS precision stations with at least three MDT or CSC hits each.
 The \texttt{Loose} working point applies the same requirements and additionally accepts segment-tagged and calorimeter-tagged candidates in $|\eta|<0.1$, where MS coverage is limited.
 The typical prompt-muon efficiencies are about 99\% for \texttt{Loose} and 97\% for \texttt{Medium}.
 
 \subsection{Isolation}
 
 Muons from heavy-flavour decays are often accompanied by other particles inside a jet.
-They are suppressed using track and calorimeter isolation, defined by the surrounding activity after excluding the muon's own contribution~\cite{ATLAS2021MuonID}.
+They are suppressed using track and calorimeter isolation, calculated similarly to electron isolation, with the muon's own contribution excluded.
 Baseline muons are required to pass \texttt{Loose\_VarRad} isolation, and signal muons must additionally satisfy \texttt{Tight\_VarRad}.
 Both working points use a track-cone radius that decreases as the muon $\pT$ increases and a fixed calorimeter cone of $\Delta R=0.2$.
 The track and calorimeter isolation sums must be below 15\% and 30\% of the muon $\pT$ for \texttt{Loose\_VarRad}, respectively.
@@ -47,4 +48,4 @@ The typical prompt-muon isolation efficiencies are about 95\% for \texttt{Loose\
 
 The muon momentum scale and resolution are calibrated using resonance decays, e.g., $\zmumu$ and $J/\psi\rightarrow\mu\mu$~\cite{ATLAS2023MuonCalibration}.
 The reconstructed mass distributions constrain biases in the muon momentum measurement.
-The efficiency scale factors are measured with tag-and-probe samples as for electrons and applied to simulated event weights for the selected working points~\cite{ATLAS2021MuonID}.
+The efficiency scale factors are measured with tag-and-probe samples as for electrons and applied to simulated event weights for the selected working points.

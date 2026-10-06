@@ -1,20 +1,23 @@
-\begin{figure}[!htbp]
+% Source: ANA_EXOT_2025_06_INT1/figures/appendix/ZVR/, Appendix D, Figures D.1--D.2.
+% Thesis PDFs: scripts/ch8/prepare_fake_tau_appendix.py removes the ATLAS Internal label visually.
+% Verification: output/ch8/fake_appendix_20260925/figure_label_verification.json.
+\begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.80\linewidth]{Figs/CH8/ZVR_pTtau.pdf}
-    \caption[Pre-fit tau momentum distribution in the ZVR]{Pre-fit $N-1$ distribution of $\pT^\tau$ in the ZVR. The red arrow indicates the $100~\GeV$ threshold. The lower panel compares data with the total simulation.}
+    \includegraphics[width=0.80\linewidth]{Figs/CH8/fake_tau_appendix/ZVR_pTtau.pdf}
+    \caption[Tau momentum distribution in the ZVR]{$N-1$ kinematic plot of $\pT^{\hadtau}$ in the ZVR. The mismodelling of fake $\hadtau$ in the tail region is observed.}
     \label{fig:ch8_zvr_pt}
 \end{figure}
 
-\begin{figure}[!htbp]
+\begin{figure}[htpb]
     \centering
-    \begin{subfigure}{0.47\linewidth}
-        \includegraphics[width=\linewidth]{Figs/CH8/ZVR_1tau20GeV_score.pdf}
-        \caption[]{$\pT^\tau>20~\GeV$}
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Figs/CH8/fake_tau_appendix/ZVR_1tau20GeV_score.pdf}
+        \caption[]{$\pT^{\hadtau}>20~\GeV$}
     \end{subfigure}\hfill
-    \begin{subfigure}{0.47\linewidth}
-        \includegraphics[width=\linewidth]{Figs/CH8/ZVR_1tau100GeV_score.pdf}
-        \caption[]{$\pT^\tau>100~\GeV$}
-    \end{subfigure}\par\medskip
-    \caption[Tau-identification RNN distributions in the ZVR]{The $\tau$-identification RNN score in $\zjets$-enriched samples with (a) $\pT^\tau>20~\GeV$ and (b) $\pT^\tau>100~\GeV$. Looser $\tau$ identification and a relaxed transverse-mass requirement are used to compare the low- and high-score regions. These selections differ from the nominal ZVR.}
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Figs/CH8/fake_tau_appendix/ZVR_1tau100GeV_score.pdf}
+        \caption[]{$\pT^{\hadtau}>100~\GeV$}
+    \end{subfigure}
+    \caption[Tau-identification RNN distributions in the ZVR]{$\hadtau$-id RNN score in the regions of $\pT^{\hadtau}>20~\GeV$ (left) and $\pT^{\hadtau}>100~\GeV$ (right). Both figures use a loose $\hadtau$-id selection and a lower $\mT$ selection to observe the difference between high RNN score and low RNN score regions.}
     \label{fig:ch8_zvr_rnn}
 \end{figure}

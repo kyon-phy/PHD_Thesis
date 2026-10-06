@@ -23,7 +23,7 @@ The integrated luminosity recorded in each year is summarised in Table~\ref{tab:
 
 \begin{table}[htbp]
     \centering
-    \caption{Integrated luminosity of the Run~2 proton--proton collision data.}
+    \caption[Integrated luminosity of the Run~2 data]{Integrated luminosity of the Run~2 proton--proton collision data~\cite{ATLASLumiRun2}.}
     \label{tab:run2_luminosity}
     \begin{tabular}{cc}
         \hline
@@ -81,7 +81,7 @@ The primary mass scan is therefore restricted to $\MU\leq3~\TeV$.
 For the right-handed interpretation with $|\beta_R^{33}|=1$, one baseline sample is generated at each of the six mass points $\MU\in\{1.5,2.0,2.5,3.0,4.0,5.0\}~\TeV$ with $\gU=1$ and $\beta_L^{23}=0.2$.
 Predictions at other values of $\gU$ and $\beta_L^{23}$ are obtained from these baseline samples using corrected \textsc{MadGraph5\_aMC@NLO} internal event weights, rather than from separately generated samples at every parameter point.
 The correction includes an adjustment of the normalisation and a two-dimensional truth-level shape correction based on the leading-jet $\pT$ and $m_{b\tau}$.
-Details of the correction and its validation are given in Appendix~\ref{app:signal_weight_correction}.
+% Details of the correction and its validation are given in Appendix~\ref{app:signal_weight_correction}.
 This strategy avoids repeating event generation and detector simulation for every coupling configuration, thereby reducing the required computing resources.
 
 The $U_{1}$ amplitude can interfere with the SM amplitude for production of the same $\tau\nu_{\tau}+\mathrm{jets}$ final state.
@@ -108,7 +108,7 @@ The BSM-only component is selected by requiring exactly two new-physics coupling
 The interference sample therefore contains only the third term in Eq.~\eqref{eq:signal_interference}.
 
 All $\tau$-lepton decay modes are retained in the signal simulation.
-Although the signal regions target hadronically decaying $\tau$-leptons, leptonic decays can contribute to regions containing electrons or muons.
+Although the signal regions target $\hadtau$ candidates, leptonic decays can contribute to regions containing electrons or muons.
 The inclusive decay configuration allows this signal contamination to be evaluated.
 
 The decays of bottom- and charm-hadrons are simulated with \textsc{EvtGen}~\cite{Lange2001EvtGen}.
@@ -151,7 +151,7 @@ The MC generator configurations are summarised in Table~\ref{tab:mc_generator_su
 
 \begin{table}[htbp]
     \centering
-    \caption{
+    \caption[MC generator configurations for signal and background samples]{
         Summary of the MC generator configurations used for the signal and SM background processes.
     }
     \label{tab:mc_generator_summary}

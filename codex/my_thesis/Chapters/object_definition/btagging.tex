@@ -1,15 +1,15 @@
 \section{Jet flavour tagging}
 \label{sec:ch6_btag}
 
-Jet flavour tagging is used to distinguish $b$-quark originating jets ($b$-jets) from other jet flavours.
+Jet flavour tagging is used to distinguish jets originating from $b$-quarks ($b$-jets) from other jet flavours.
 
-$b$-jets are identified through displaced $b$-hadron decays, which have a lifetime of about $1.5~\ps$. Therefore a boosted $b$-hadron can travel several millimetres before decaying.
+$b$-jets are identified through the displaced decays of $b$-hadrons, which have a lifetime of about $1.5~\ps$. A boosted $b$-hadron can therefore travel several millimetres before decaying.
 The decay tracks therefore typically have large impact parameters and originate from a secondary vertex displaced from the PV.
 Charm hadrons produced in the $b$-hadron decay can further decay at an additional displaced vertex.
 These features are used for jet flavour tagging.
 
 The tagger uses the GN2v01 algorithm, which is based on a transformer neural network trained on simulated events~\cite{ATLAS2026GN2}.
-Its inputs include jet and track kinematics, track impact parameters, and hit variables.
+Its inputs include jet and track kinematics, impact parameters, and hit variables.
 These variables are first encoded as a numerical vector for each track.
 Within the transformer, each vector is updated through self-attention, using information from the other tracks.
 Correlations between tracks can thereby be used to recognise a common displaced origin without requiring explicitly reconstructed secondary vertices as separate inputs.
@@ -34,7 +34,7 @@ The GN2v01 85\% working point is used in this analysis, corresponding to a nomin
 
 \subsection{Calibration}
 
-The $b$-jet tagging efficiency is measured in dileptonic $\ttbar$ events with an oppositely charged electron--muon pair and two jets~\cite{ATLAS2026GN2}.
+The $b$-jet tagging efficiency is measured in dileptonic $\ttbar$ events with an oppositely charged electron--muon pair and two jets.
 The $c$-jet mistagging efficiency, the probability for a $c$-jet to pass the $b$-tagging requirement, is measured in semileptonic $\ttbar$ events using charm jets from hadronic $W$ decays.
 The corresponding light-jet mistagging efficiency is measured in $Z$+jets events with $\zee$ or $\zmumu$ decays.
 

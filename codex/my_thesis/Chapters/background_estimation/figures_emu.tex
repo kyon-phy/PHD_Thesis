@@ -1,21 +1,27 @@
-\begin{figure}[p]
+\begin{figure}[htpb]
     \centering
-    \begin{subfigure}{0.47\linewidth}
-        \includegraphics[width=\linewidth]{Figs/CH8/WCR_emuRatio_Data.pdf}
-        \caption[]{Leading-jet $\pT$ in data}
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Figs/CH8/studies/WCR_emuRatio_Data.pdf}
+        \caption[]{Data.}
     \end{subfigure}\hfill
-    \begin{subfigure}{0.47\linewidth}
-        \includegraphics[width=\linewidth]{Figs/CH8/WCR_emuRatio_MC.pdf}
-        \caption[]{Leading-jet $\pT$ in simulation}
-    \end{subfigure}\par\medskip
-    \begin{subfigure}{0.47\linewidth}
-        \includegraphics[width=\linewidth]{Figs/CH8/WCR_evenweight_e.pdf}
-        \caption[]{Event weights in the electron simulation}
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Figs/CH8/studies/WCR_emuRatio_MC.pdf}
+        \caption[]{Simulation.}
+    \end{subfigure}
+    \caption[Electron and muon leading-jet momentum comparison]{Electron and muon channel comparison of leading jet $\pT$ in $\CRW$-$\NonRes$ for data (left) and MC (right). The red line shows the leading jet $\pT$ for the electron channel and the blue line shows the one for the muon channel. $2.6\sigma$ and $0.7\sigma$ discrepancies are observed for data and MC samples, respectively.}
+    \label{fig:app_ch8_emu_ratio}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Figs/CH8/studies/WCR_evenweight_e.pdf}
+        \caption[]{Electron channel.}
     \end{subfigure}\hfill
-    \begin{subfigure}{0.47\linewidth}
-        \includegraphics[width=\linewidth]{Figs/CH8/WCR_evenweight_mu.pdf}
-        \caption[]{Event weights in the muon simulation}
-    \end{subfigure}\par\medskip
-    \caption[Electron--muon comparison in CRW-NonRes]{Electron--muon consistency checks in $\CRW$-$\NonRes$. In (a) and (b), red and blue denote the electron and muon channels, and the lower panels show their ratio. Panels (c) and (d) show the simulated event weights against leading-jet $\pT$. The marked high-weight muon event illustrates the statistical effect discussed in the text.}
-    \label{fig:ch8_emu_comparison}
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Figs/CH8/studies/WCR_evenweight_mu.pdf}
+        \caption[]{Muon channel.}
+    \end{subfigure}
+    \caption[Simulated event weights in CRW-NonRes]{Event weight distribution as a function of leading jet $\pT$ in $\CRW$-$\NonRes$ for the electron (left) and muon (right) channels. Events that are marked with red rectangles correspond to the deviated bins marked in the simulation $e/\mu$ ratio distribution in Figure~\ref{fig:app_ch8_emu_ratio}.}
+    \label{fig:app_ch8_emu_weights}
 \end{figure}
