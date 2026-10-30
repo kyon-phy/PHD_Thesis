@@ -7,21 +7,20 @@
 \subsection{General properties of leptoquarks}
 \label{subsec:lq_general}
 
-Leptoquarks~(LQs) are hypothetical colour-charged bosons that couple directly to a quark and a lepton and therefore mediate interactions connecting the quark and lepton sectors.
+Leptoquarks~(LQs), introduced in Section~\ref{subsec:leptoquarks_motivation}, are bosons that couple a quark directly to a lepton and therefore mediate interactions connecting the quark and lepton sectors.
 Depending on their spin, leptoquarks can be classified as scalar leptoquarks with spin zero or vector leptoquarks with spin one. 
-They appear in several theoretical frameworks, including grand unified theories such as $SU(5)$ and $SO(10)$, quark--lepton unification models such as the Pati--Salam model, composite models, and models motivated by flavour anomalies~\cite{GeorgiGlashow1974SU5,PatiSalam1974,Dorsner2016}.
+They appear in several theoretical frameworks, including grand unified theories such as $SU(5)$ and $SO(10)$, quark--lepton unification models such as the Pati--Salam model, composite models, and models motivated by flavour anomalies~\cite{PatiSalam1974,GeorgiGlashow1974SU5,Dorsner2016}.
 
 
 Leptoquarks are particularly interesting in the context of semileptonic flavour physics. 
 Their tree-level exchange can generate effective four-fermion interactions involving two quark fields and two lepton fields. 
 Such interactions can modify flavour observables in processes such as $b\rightarrow c\tau\nu$ and $b\rightarrow s\ell^{+}\ell^{-}$. 
-In addition, the flavour structure of LQ couplings is model dependent and can be arranged to favour interactions with third-generation fermions. 
-This feature is motivated by the distinctive role of the top quark, bottom quark, and $\tau$-lepton in many flavour-motivated scenarios.
+The flavour structure of the LQ couplings is model dependent. 
+As noted in Section~\ref{subsec:leptoquarks_motivation}, precision flavour measurements strongly constrain the couplings to the first two generations, so LQ models motivated by the $b\rightarrow c\tau\nu$ anomalies favour interactions with the top quark, bottom quark and $\tau$ lepton~\cite{Cornella2019}.
 
-At the LHC, leptoquarks can be searched for directly. 
-Since they carry colour charge, they can be pair-produced through QCD interactions. 
-Additional production modes, such as single production or non-resonant exchange, are also possible, depending on the LQ coupling to SM quarks and leptons. 
-Therefore, the LQ searches in ATLAS provide information complementary to low-energy flavour measurements: flavour observables probe virtual effects through precision measurements, while the search at $pp$ collider probes direct LQ production or high-energy virtual exchange.
+Since they carry colour charge, LQs can be pair-produced through QCD interactions, and their couplings to quarks and leptons allow single production and non-resonant exchange. 
+Collider searches therefore complement low-energy flavour measurements. 
+Flavour observables probe virtual LQ effects at low momentum transfer, while $pp$ collisions probe direct LQ production and high-energy virtual exchange.
 
 % \subsection{Nomenclature and Classification}
 % \label{subsec:lq_classification}
@@ -80,10 +79,10 @@ Therefore, the LQ searches in ATLAS provide information complementary to low-ene
 \subsection{The simplified $U_{1}$ leptoquark model}
 \label{subsec:u1_simplified_model}
 
-Several leptoquark representations have been studied in connection with semileptonic $B$-meson anomalies, including the scalar singlet $S_{1}$ and the scalar doublet $R_{2}$. 
+Several leptoquark representations have been studied in connection with semileptonic $B$-meson anomalies, including the scalar singlet $S_{1}$ and the scalar doublet $R_{2}$~\cite{Sakaki2013LQ}. 
 In this thesis, however, the benchmark interpretation is based on the vector singlet leptoquark $U_{1}$. 
-The $U_{1}$ benchmark is well motivated because its left-handed coupling to quark and lepton doublets can generate the SM-like vector operator for $b\rightarrow c\tau\nu$. 
-In addition, flavour structures with enhanced couplings to third-generation fermions naturally lead to final states involving $\tau$-leptons, neutrinos, and jets.
+The $U_{1}$ benchmark is chosen because its left-handed coupling to quark and lepton doublets generates the SM-like vector operator for $b\rightarrow c\tau\nu$. 
+Its enhanced couplings to third-generation fermions also lead to final states with $\tau$ leptons, neutrinos and jets.
 
 The $U_{1}$ leptoquark transforms as
 $U_{1}^{\mu}\sim(3,1,2/3)$
@@ -105,13 +104,13 @@ A commonly used simplified-model Lagrangian~\cite{Cornella2019} for $U_{1}$ is
     U_{1}^{\mu}
     \nonumber\\
     &
-    -ig_{c}(1-\kappa_{c})
+    -ig_s(1-\kappa_{c})
     U_{1\mu}^{\dagger}
     T^{a}
     U_{1\nu}
     G^{a\mu\nu}
     -
-    i\frac{2}{3}g_{Y}(1-\kappa_{Y})
+    i\frac{2}{3}g'(1-\kappa_{Y})
     U_{1\mu}^{\dagger}
     U_{1\nu}
     B^{\mu\nu}
@@ -122,42 +121,37 @@ A commonly used simplified-model Lagrangian~\cite{Cornella2019} for $U_{1}$ is
         U_{1}^{\mu}J_{\mu}
         +
         \mathrm{h.c.}
-    \right).
+    \right),
     \label{eq:u1_full_lagrangian}
 \end{align}
-Here $U_{1}^{\mu}$ is the vector leptoquark field and $\MU$ is the leptoquark mass. 
+where $U_{1}^{\mu}$ is the vector leptoquark field and $\MU$ is the leptoquark mass. 
 The first term is the kinetic term, while the second term is the mass term. 
 The field-strength tensor of $U_{1}$ is defined as
-\begin{align}
+\begin{align*}
     U_{1\mu\nu}
     =
     D_{\mu}U_{1\nu}
     -
     D_{\nu}U_{1\mu},
-    \label{eq:u1_field_strength}
-\end{align}
+\end{align*}
 with the covariant derivative
-\begin{align}
+\begin{align*}
     D_{\mu}
     =
     \partial_{\mu}
     -
-    ig_{c}G_{\mu}^{a}T^{a}
+    ig_sG_{\mu}^{a}T^{a}
     -
-    i\frac{2}{3}g_{Y}B_{\mu}.
-    \label{eq:u1_covariant_derivative}
-\end{align}
-Here $g_{c}$ and $g_{Y}$ are the colour and hypercharge gauge couplings. 
-The fields $G_{\mu}^{a}$ and $B_{\mu}$ are the gluon and hypercharge gauge fields, and $G^{a\mu\nu}$ and $B^{\mu\nu}$ are their corresponding field-strength tensors. 
-The matrices $T^{a}$ are the generators of $SU(3)$. 
-For a colour-triplet field, they are given by $T^{a}=\lambda^{a}/2$, where $\lambda^{a}$ are the Gell-Mann matrices and $a=1,\ldots,8$.
+    i\frac{2}{3}g'B_{\mu},
+\end{align*}
+where $G_{\mu}^{a}$, $B_{\mu}$, $g_s$ and $g'$ are the SM gauge fields and couplings of Eq.~\eqref{eq:sm_covariant_derivative}, and $T^{a}=\lambda^{a}/2$ are the $SU(3)_{C}$ generators. 
 
 The parameters $\kappa_{c}$ and $\kappa_{Y}$ control the interactions
 of the vector leptoquark with the SM gauge fields.
 $\kappa_{c}=\kappa_{Y}=0$ corresponds to the Yang--Mills scenario,
 whereas $\kappa_{c}=\kappa_{Y}=1$ corresponds to the minimal-coupling
 scenario~\cite{Baker2019HighPTU1}.
-The Yang--Mills scenario is adopted throughout this thesis.
+The Yang--Mills scenario is the one obtained when $U_{1}$ is a gauge boson of a spontaneously broken extended symmetry, as in the 4321 model, and is adopted throughout this thesis.
 
 The last term in Eq.~\eqref{eq:u1_full_lagrangian} describes the interaction of $U_{1}$ with SM fermions through the current $J_{\mu}$. It is given by
 \begin{align}
@@ -178,16 +172,16 @@ The last term in Eq.~\eqref{eq:u1_full_lagrangian} describes the interaction of 
             \gamma_{\mu}
             e_{R}^{\alpha}
         \right)
-    \right].
+    \right],
     \label{eq:u1_fermion_current}
 \end{align}
-Here $i=1,2,3$ labels the quark generation and $\alpha=1,2,3$ labels the lepton generation. $q_{L}^{i}$ and $\ell_{L}^{\alpha}$ are left-handed quark and lepton doublets, while $d_{R}^{i}$ and $e_{R}^{\alpha}$ are right-handed down-type quark and charged-lepton singlets. 
+where $i=1,2,3$ labels the quark generation and $\alpha=1,2,3$ labels the lepton generation. $q_{L}^{i}$ and $\ell_{L}^{\alpha}$ are left-handed quark and lepton doublets, while $d_{R}^{i}$ and $e_{R}^{\alpha}$ are right-handed down-type quark and charged-lepton singlets. 
 The parameter $\gU$ denotes the overall strength of the $U_{1}$ coupling to fermions. 
 The matrices $\beta_{L}^{i\alpha}$ and $\beta_{R}^{i\alpha}$ are complex $3\times3$ flavour-coupling matrices for the left- and right-handed interactions, respectively. 
 The strength of a given flavour coupling is therefore proportional to $\gU\beta_{L,R}^{i\alpha}$.
 
 The down-quark and charged-lepton mass eigenstate basis is adopted for the $SU(2)$ multiplets:
-\begin{align}
+\begin{align*}
     q_{L}^{i}
     =
     \begin{pmatrix}
@@ -201,11 +195,10 @@ The down-quark and charged-lepton mass eigenstate basis is adopted for the $SU(2
         \nu_{L}^{\alpha}\\
         e_{L}^{\alpha}
     \end{pmatrix},
-    \label{eq:u1_flavour_basis}
-\end{align}
+\end{align*}
 where $V$ is the CKM matrix. 
 
-Expanding the left-handed current from Eq.~\ref{eq:u1_fermion_current} gives
+Expanding the left-handed current from Eq.~\eqref{eq:u1_fermion_current} gives
 \begin{align}
     \bar{q}_{L}^{i}
     \gamma_{\mu}
@@ -224,8 +217,8 @@ Expanding the left-handed current from Eq.~\ref{eq:u1_fermion_current} gives
 This expression shows that a single left-handed flavour coupling $\beta_{L}^{i\alpha}$ gives two related interactions. 
 One involves an up-type quark together with a neutrino, while the other involves a down-type quark together with a charged lepton.
 
-The simplified $U_{1}$ model allows general flavour couplings to different quark and lepton generations. Meanwhile, we focus on the charged-current $b\rightarrow c\tau\nu$ transition and the signatures containing a $\tau$-lepton and a neutrino. Therefore, the couplings to second-generation leptons in our benchmark are set to zero, which is $\beta_{L}^{22}=\beta_{L}^{32}=0$, and only the couplings involving third-generation leptons are retained. Finally, the flavour-coupling matrices are taken to be
-\begin{equation}
+The simplified $U_{1}$ model allows general flavour couplings to the three quark and lepton generations~\cite{Baker2019HighPTU1}. This thesis focuses on the charged-current $b\rightarrow c\tau\nu$ transition and on signatures containing a $\tau$ lepton and a neutrino. The couplings to leptons of the first two generations are therefore set to zero, and only the couplings to third-generation leptons are retained. The flavour-coupling matrices are taken to be
+\begin{equation*}
     \begin{aligned}
         \beta_{L} &=
         \begin{pmatrix}
@@ -241,11 +234,10 @@ The simplified $U_{1}$ model allows general flavour couplings to different quark
             0 & 0 & \beta_{R}^{33}
         \end{pmatrix}.
     \end{aligned}
-    \label{eq:u1_beta_texture}
-\end{equation}
-The third-generation coupling is normalised to $\beta_{L}^{33}=1$, while $\gU$ remains a free parameter controlling the overall fermionic coupling strength.
+\end{equation*}
+The third-generation coupling is normalised to $\beta_{L}^{33}=1$, while $\gU$ remains a free parameter controlling the overall fermionic coupling strength. Under the assumption that the LQ couplings to the first two quark generations follow the CKM mixing pattern, $\beta_L^{13}=(V_{td}^{*}/V_{ts}^{*})\beta_L^{23}$, giving $|\beta_L^{13}|\simeq0.2|\beta_L^{23}|$~\cite{Aebischer2022}.
 
-Within this benchmark, $\beta_{L}^{23}$ controls the $s\tau$ and $c\nu_\tau$ coupling through the CKM factor $V_{cs}$, while $\beta_L^{33}$ controls the $b\tau$ coupling and contributes $c\nu_\tau$ coupling as $V_{cb}\beta_L^{33}$.
+Within this benchmark, Eq.~\eqref{eq:u1_current_expanded} shows that $\beta_{L}^{23}$ controls the $s\tau$ coupling directly and the $c\nu_\tau$ coupling through $V_{cs}\beta_L^{23}$, while $\beta_L^{33}$ controls the $b\tau$ coupling directly and contributes $V_{cb}\beta_L^{33}$ to the $c\nu_\tau$ coupling.
 
 
 The heavy $U_{1}$ field can be integrated out at the matching scale $\mu\sim \MU$.
@@ -272,7 +264,7 @@ C_{LR}^{ij\alpha\beta}
 \end{align}
 
 The four-fermion operators are defined as
-\begin{align}
+\begin{align*}
 \mathcal{O}_{LL}^{ij\alpha\beta}
 &=
 \left(
@@ -299,10 +291,10 @@ The four-fermion operators are defined as
 \left(
 \bar{e}_{R}^{\beta}\gamma^{\mu}d_{R}^{j}
 \right).
-\end{align}
+\end{align*}
 
 The Wilson coefficients are
-\begin{align}
+\begin{align*}
 C_{LL}^{ij\alpha\beta}
 &=
 C_{U}\beta_{L}^{i\alpha}
@@ -323,20 +315,19 @@ C_{U}\beta_{L}^{i\alpha}
 \left(
 \beta_{R}^{j\beta}
 \right)^{*}.
-\end{align}
+\end{align*}
 
 The overall coefficient is defined as
-\begin{align}
+\begin{align*}
 C_{U}
 &=
 \frac{\gU^{2}v^{2}}{4\MU^{2}},
-\label{eq:cu_definition}
-\end{align}
+\end{align*}
 where $v\simeq246~\GeV$ is the Higgs vacuum expectation value.
 The coefficient $C_{U}$ sets the overall strength of the effective interaction and scales as $\gU^{2}/\MU^{2}$, while the flavour dependence is encoded in the coupling matrices $\beta_{L}$ and $\beta_{R}$.
 
-The effective Lagrangian for the $b\to c\tau\nu$ transition can be written as:
-\begin{align}
+From Eq.~\eqref{eq:u1_low_energy_effective_lagrangian}, the effective Lagrangian for the $b\to c\tau\nu$ transition can be written as:
+\begin{align*}
     \mathcal{L}_{\mathrm{eff}}^{b\rightarrow c\tau\nu}
     =
     -\frac{4G_{F}}{\sqrt{2}}V_{cb}
@@ -362,9 +353,8 @@ The effective Lagrangian for the $b\to c\tau\nu$ transition can be written as:
             \bar{\tau}_{R}\nu_{\tau L}
         \right)
     \bigg],
-    \label{eq:bctaunu_effective_lagrangian}
-\end{align}
-where $G_{F}$ is the Fermi constant.
+\end{align*}
+where $G_{F}=1/(\sqrt{2}v^{2})$ is the Fermi constant.
 The coefficient $C_{LL}^{c}$ modifies the SM-like left-handed vector
 interaction, while $C_{LR}^{c}$ is associated with the scalar operator
 arising from the combination of left- and right-handed fermion couplings
@@ -372,7 +362,7 @@ of the $U_{1}$ leptoquark.
 
 For the flavour structure introduced above, the corresponding coefficients
 are
-\begin{align}
+\begin{align*}
     C_{LL}^{c}
     &=
     C_{U}
@@ -388,7 +378,6 @@ are
         +
         V_{cb}\beta_{L}^{33}
     \right),
-    \label{eq:cll_c}
     \\
     C_{LR}^{c}
     &=
@@ -404,12 +393,11 @@ are
         V_{cs}\beta_{L}^{23}
         +
         V_{cb}\beta_{L}^{33}
-    \right),
-    \label{eq:clr_c}
-\end{align}
+    \right).
+\end{align*}
 
 Using the normalisation $\beta_{L}^{33}=1$ and neglecting the small
-first-generation coupling $\beta_{L}^{13}$, the coefficients reduce to\footnote{The small first-generation coupling $\beta_L^{13}=(V_{td}^{*}/V_{ts}^{*})\beta_L^{23}\sim0.2\beta_L^{23}$.}
+first-generation coupling $\beta_{L}^{13}$, the coefficients reduce to
 \begin{align}
     C_{LL}^{c}
     &\simeq
@@ -437,36 +425,40 @@ first-generation coupling $\beta_{L}^{13}$, the coefficients reduce to\footnote{
 \subsection{Low-energy fit and benchmark scenarios}
 \label{subsec:u1_low_energy_fit}
 
-The Wilson coefficients $C_{LL}^{c}$ and $C_{LR}^{c}$ introduced above can be constrained using measurements of semileptonic charged-current $B$-meson decays. Ref.~\cite{Aebischer2022} performed a combined fit to low-energy $b\rightarrow c\tau\nu$ observables and determines the preferred region in the $(C_{LL}^{c},C_{LR}^{c})$ plane. The fit result is shown in Fig.~\ref{fig:cll_clr_low_energy_fit}. The Wilson coefficients in this figure are evolved to a common reference scale of $1~\TeV$ to facilitate comparison with high-energy observables. The best-fit point is $(C_{LL}^{c}, C_{LR}^{c})=(0.05,-0.02)$, and the preferred region is compatible with both pure-left-handed ($\beta_{R}^{33}=0$) and sizeable right-handed ($\beta_{R}^{33}=-1$) scenarios.
-Although the sign of $\beta_R^{33}$ affects the low-energy relation between $C_{LL}^{c}$ and $C_{LR}^{c}$, the collider predictions used in this thesis are identical for $\beta_R^{33}=+1$ and $-1$. The new-physics amplitudes with different fermion chiralities do not interfere, and the amplitude proportional to a product of left- and right-handed couplings does not interfere with the SM amplitude. The collider interpretation therefore depends only on $|\beta_R^{33}|$.
+The Wilson coefficients $C_{LL}^{c}$ and $C_{LR}^{c}$ introduced above can be constrained using measurements of semileptonic charged-current $B$-meson decays. Ref.~\cite{Aebischer2022} performed a combined fit to low-energy $b\rightarrow c\tau\nu$ observables (e.g., $R(D^{(*)})$ and $R(\Lambda_c)$) and determined the preferred region in the $(C_{LL}^{c},C_{LR}^{c})$ plane. 
+The fit result is shown in Figure~\ref{fig:cll_clr_low_energy_fit}. The Wilson coefficients in this figure are evolved to a common reference scale of $1~\TeV$ to facilitate comparison with high-energy observables. The best-fit point is $(C_{LL}^{c}, C_{LR}^{c})=(0.05,-0.02)$, and the preferred region is compatible with both pure-left-handed ($\beta_{R}^{33}=0$) and sizeable right-handed ($\beta_{R}^{33}=-1$) scenarios.
+The same study also found that LFU tests in $\tau$ decays can strongly constrain the pure-left-handed explanation of $R(D^{(*)})$.
+However, additional particles in UV completions may weaken these constraints.
+This analysis therefore retains both benchmark scenarios without applying these model-dependent constraints.
+In addition, although the sign of $\beta_R^{33}$ affects the low-energy relation between $C_{LL}^{c}$ and $C_{LR}^{c}$, the collider predictions used in this thesis are identical for $\beta_R^{33}=+1$ and $-1$. At collider energies, interference terms sensitive to the sign of $\beta_R^{33}$ are negligible. The collider interpretation therefore depends only on $|\beta_R^{33}|$.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.74\textwidth]{Figs/CH3/CLL_CLR_lowPT_HFLAV2023.pdf}
-    \caption[Fit results in ($C_{LL}^{c}, C_{LR}^{c}$) plane using low-energy observables]{The result in $(C_{LL}^{c},C_{LR}^{c})$ plane obtained from the fit to low-energy $b\rightarrow c\tau\nu$ observables. The blue solid ellipses correspond to the 1, 2 and 3$\sigma$ contours. The blue dotted lines are obtained including also the constraint from $\mathcal{B}(B^{-}_{u}\to \tau\bar{\nu})$. The black point indicates the best-fit point of the fit, $(C_{LL}^{c},C_{LR}^{c})=(0.05,-0.02)$. The coloured bands show the $\Delta\chi^{2}=1$ regions preferred by the individual observables. The pure-left-handed scenario ($\beta_{R}^{33}=0$) and the equal magnitude right-handed scenario ($\beta_{R}^{33}=-1$) are given by the black solid lines~\cite{Aebischer2022}.}
+    \caption[Fit results in ($C_{LL}^{c}, C_{LR}^{c}$) plane using low-energy observables]{The result in the $(C_{LL}^{c},C_{LR}^{c})$ plane obtained from the fit to low-energy $b\rightarrow c\tau\nu$ observables~\cite{Aebischer2022}. The blue solid ellipses correspond to the 1, 2 and 3$\sigma$ contours. The blue dotted lines are obtained including also the constraint from $\mathcal{B}(B^{-}_{u}\to \tau\bar{\nu})$. The black point indicates the best-fit point of the fit, $(C_{LL}^{c},C_{LR}^{c})=(0.05,-0.02)$. The coloured bands show the $\Delta\chi^{2}=1$ regions preferred by the individual observables. The pure-left-handed scenario ($\beta_{R}^{33}=0$) and the equal magnitude right-handed scenario ($\beta_{R}^{33}=-1$) are given by the black solid lines.}
     \label{fig:cll_clr_low_energy_fit}
 \end{figure}
 
 \paragraph{Pure-left-handed scenario.}
-For $\beta_{R}^{33}=0$, Eq.~\ref{eq:clr_c_approx} gives $C_{LR}^{c}=0$.  Therefore, the $U_{1}$ leptoquark contribution to $b\rightarrow c\tau\nu$ is described only by the left-handed vector operator, as given by Eq.~\ref{eq:cll_c_approx}. This is the primary benchmark scenario considered in this thesis. The corresponding $B$-anomaly-favoured region can be obtained from the intersection of the low-energy fit with the line $C_{LR}^{c}=0$ in Fig.~\ref{fig:cll_clr_low_energy_fit}.
+For $\beta_{R}^{33}=0$, Eq.~\eqref{eq:clr_c_approx} gives $C_{LR}^{c}=0$.  Therefore, the $U_{1}$ leptoquark contribution to $b\rightarrow c\tau\nu$ is described only by the left-handed vector operator, as given by Eq.~\eqref{eq:cll_c_approx}. This is the primary benchmark scenario considered in this thesis. The corresponding $B$-anomaly-favoured region can be obtained from the intersection of the low-energy fit with the line $C_{LR}^{c}=0$ in Figure~\ref{fig:cll_clr_low_energy_fit}.
 
 \paragraph{Right-handed scenario.}
 The second benchmark is obtained by allowing a sizeable right-handed third-generation coupling. For $\beta_{R}^{33}=-1$, the relation between the Wilson coefficients becomes
-\begin{align}
+\begin{align*}
     C_{LR}^{c}=-C_{LL}^{c}.
-\end{align}
-This benchmark therefore corresponds to the diagonal line in Fig.~\ref{fig:cll_clr_low_energy_fit}, where the right-handed third-generation coupling has the same magnitude as the left-handed coupling.
+\end{align*}
+This benchmark therefore corresponds to the diagonal line in Figure~\ref{fig:cll_clr_low_energy_fit}, where the right-handed third-generation coupling has the same magnitude as the left-handed coupling.
 
-The two scenarios are described by the parameter space $(\MU,\gU,\beta_L^{23})$ with different fixed values of $\beta_R^{33}$. Particular emphasis is placed on $\beta_L^{23}$, since charged-current low-energy data alone do not provide a stringent constraint on this coupling. For fixed $\MU$ and $\gU$, $\beta_L^{23}$ has a strong impact on $C_{LL}^{c}$ because its contribution is enhanced by the CKM ratio $V_{cs}/V_{cb}$.
+Both scenarios are parametrised by $(\MU,\gU,\beta_L^{23})$, with $\beta_R^{33}$ fixed to $0$ or $-1$. The low-energy $b\rightarrow c\tau\nu$ data constrain only the combination $C_{U}(1+V_{cs}\beta_L^{23}/V_{cb})$ in Eq.~\eqref{eq:cll_c_approx}, where $C_{U}\propto\gU^{2}/\MU^{2}$. A measured value of $C_{LL}^{c}$ therefore defines a curve in the $(\gU/\MU,\beta_L^{23})$ plane rather than a point, and low-energy data alone do not determine $\beta_L^{23}$. Along this curve a larger $\beta_L^{23}$ is compensated by a smaller $\gU/\MU$, with the CKM ratio of $V_{cs}/V_{cb}\approx24$.
 
-Indeed, one can constrain the size of $\beta_L^{23}$ by considering possible ultraviolet (UV) completions of the simplified $U_{1}$ model. While the simplified model parametrises the relevant interactions directly in terms of the couplings $\beta_{L}^{ij}$, the UV completion provides a more fundamental description of their origin. One example is the ``4321'' model, which is based on the extended gauge group $\mathcal{G}_{4321}=SU(4)\times SU(3)'\times SU(2)_L \times U(1)'$. In the flavour structure considered in this model, the $U_1$ couplings are non-universal, with $|\beta_{L}^{23}|<|\beta_{L}^{33}|$~\cite{Cornella2019}.
+Theoretical constraints on $\beta_L^{23}$ arise instead from possible UV completions of the simplified $U_{1}$ model, such as the 4321 model introduced in Section~\ref{subsec:leptoquarks_motivation}. In the flavour structure considered in this model, the $U_1$ couplings are non-universal, with $|\beta_{L}^{23}|<|\beta_{L}^{33}|$~\cite{Cornella2019}.
 
 Additional constraints can be introduced when considering $\Delta F=2$ observables. These are processes in which a quark-flavour quantum number changes by two units, including neutral-meson mixing such as $B_s$--$\bar{B}_s$, $K$--$\bar{K}$, and $D$--$\bar{D}$ mixing. In a given UV completion, the flavour-symmetry breaking that generates non-universal $U_{1}$ couplings may also be transmitted to the neutral-current sector, inducing flavour-changing neutral currents (FCNC) and consequently additional contributions to $\Delta F=2$ processes. The strong experimental constraints on neutral-meson mixing therefore restrict the allowed flavour-violating structure of the UV model and indirectly constrain $\beta_{L}^{23}$.
 
 Combining such considerations of the UV flavour structure with constraints from $\Delta F=2$ observables, Ref.~\cite{Aebischer2022} identifies
-\begin{align}
+\begin{align*}
 \beta_{L}^{23}\in[0.06,0.16]
-\end{align} as a theoretically motivated range for experimental searches. \textbf{However, this constraint should not be interpreted as a model-independent experimental bound on $\beta_{L}^{23}$.} Additional particles, flavour symmetries, or cancellation mechanisms may suppress flavour-changing transitions and thereby allow larger values of $\beta_{L}^{23}$. Therefore, large values of $\beta_{L}^{23}$ remain a possibility within the $U_{1}$ model, and it is important to test this complementary region directly.
+\end{align*} as a theoretically motivated range for experimental searches. However, this constraint should not be interpreted as a model-independent experimental bound on $\beta_{L}^{23}$. Additional particles, flavour symmetries, or cancellation mechanisms may suppress flavour-changing transitions and thereby allow larger values of $\beta_{L}^{23}$. Therefore, large values of $\beta_{L}^{23}$ remain a possibility within the $U_{1}$ model, and it is important to test this complementary region experimentally.
 
 % this section is not really important for the discussion, can be added later if necessary.
 % \subsection{Ultraviolet completion and the 4321 model}
@@ -529,29 +521,26 @@ Combining such considerations of the UV flavour structure with constraints from 
 % $\beta_{L}^{23}$ as a free parameter and tests values beyond those
 % typically considered in the 4321 benchmarks.
 
-\subsection{Leptoquark searches at the LHC}
+\section{Leptoquark Searches at the LHC}
+\label{sec:lq_searches_lhc}
+
+\subsection{Production modes and existing searches}
 \label{subsec:lq_searches_lhc}
 
-Leptoquarks can be searched for at the LHC through several production modes, including pair production, resonant single production, and non-resonant $t$-channel exchange. Pair production is dominated by QCD interactions. For a fixed $\kappa$ choice, its cross section depends strongly on $\MU$ but weakly on the couplings $\gU$ and $\beta^{i\alpha}$. Pair-production searches therefore provide relatively robust constraints on the leptoquark mass.
+Leptoquarks can be searched for at the LHC through several production modes, including pair production, resonant single production, and non-resonant $t$-channel exchange, as shown in Figure~\ref{fig:lq_production_modes}. Pair production is dominated by QCD interactions. For a fixed choice of $\kappa_c$, as defined in Eq.~\eqref{eq:u1_full_lagrangian}, its cross-section depends strongly on $\MU$ but weakly on the couplings $\gU$ and $\beta^{i\alpha}$. Pair-production searches therefore provide relatively robust constraints on the leptoquark mass.
 
 ATLAS and CMS have performed searches for pair-produced leptoquarks coupling
-to third-generation fermions in final states containing $\tau$-leptons,
-$b$-jets, and, depending on the decay mode, missing transverse momentum
-~\cite{ATLAS2023LQBTau,CMS2021LQThirdGen}.
+to third-generation fermions in final states containing $\tau$ leptons,
+$b$-jets, and, depending on the decay mode, missing transverse momentum~\cite{ATLAS2023LQBTau,CMS2021LQThirdGen}.
 For the vector $U_{1}$, the mass limit extends to approximately
-$1.5$--$1.8~\TeV$ as shown in Fig.~\ref{fig:lq_atlas_summary_u1}. The limit also depends on the choice of the $U_{1}$--gluon coupling, such as the Yang--Mills or minimal-coupling scenario, as well as on the decay pattern determined by the assumed fermionic couplings.
+$1.5$--$1.8~\TeV$ as shown in Figure~\ref{fig:lq_atlas_summary_u1}. The limit also depends on the modelling choice of the $U_{1}$--gluon coupling, Yang--Mills or minimal coupling, as well as on the decay pattern determined by the assumed fermionic couplings.
 
-For single production, the cross section also depends strongly on the leptoquark--fermion couplings. Searches for singly produced leptoquarks decaying into $b\tau$ have been performed in the $b\tau\tau$ final state, where the leptoquark is produced in association with a $\tau$-lepton as shown in Fig.~\ref{fig:lq_single_production}~\cite{ATLAS2023LQBTau,CMS2024LQBTau}. In addition, virtual $t$-channel $U_1$ exchange can contribute to final states such as $\tau\tau$ or $\tau\nu$, enhancing the event yields in the high-mass region. ATLAS and CMS have therefore searched for non-resonant leptoquark contributions in high-mass $\tau\tau$ production ~\cite{ATLAS2025HighMassTauTau,CMS2023TauTauLQ}. These searches can remain sensitive to masses beyond the reach of the direct pair-production searches, particularly for large $\gU$, since the sensitivity is approximately governed by $\gU/\MU$.
+For single production, the cross-section also depends strongly on the leptoquark--fermion couplings. Searches for singly produced leptoquarks decaying into $b\tau$ have been performed in the $b\tau\tau$ final state, where the leptoquark is produced in association with a $\tau$ lepton as shown in Figure~\ref{fig:lq_single_production}~\cite{CMS2024LQBTau}.
+
+In addition, virtual $t$-channel $U_1$ exchange can contribute to final states such as $\tau\tau$ or $\tau\nu$, enhancing the event yields in the high-mass region. ATLAS and CMS have therefore searched for non-resonant leptoquark contributions in high-mass $\tau\tau$ production~\cite{ATLAS2025HighMassTauTau,CMS2023TauTauLQ}. These searches can remain sensitive to masses beyond the reach of the direct pair-production searches, particularly for large $\gU$, since the sensitivity is approximately governed by $\gU/\MU$.
 
 \begin{figure}[thbp]
     \centering
-    \begin{subfigure}[b]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{Figs/CH3/LQ_single_production.png}
-        \caption{Single production}
-        \label{fig:lq_single_production}
-    \end{subfigure}
-    \hfill
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Figs/CH3/LQ_pair_production.png}
@@ -561,42 +550,69 @@ For single production, the cross section also depends strongly on the leptoquark
     \hfill
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
+        \includegraphics[width=\linewidth]{Figs/CH3/LQ_single_production.png}
+        \caption{Single production}
+        \label{fig:lq_single_production}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
         \includegraphics[width=\linewidth]{Figs/CH3/LQ_tchannel_production.png}
         \caption{Non-resonant $t$-channel}
         \label{fig:lq_tchannel_exchange}
     \end{subfigure}
 
-    \caption[LQ production and exchange in $\tau\tau(+b)$ searches]{Example Feynman diagrams of LQ production and exchange process for $\tau\tau(+b)$ searches.}
+    \caption[LQ production and exchange in $\tau\tau(+b)$ searches]{Example Feynman diagrams of LQ production and exchange processes for $\tau\tau(+b)$ searches.}
     \label{fig:lq_production_modes}
 \end{figure}
 
 \begin{figure}[tbp]
     \centering
     \includegraphics[width=0.72\textwidth]{Figs/CH3/atlas_LQ_summary_u1_ym.pdf}
-    \caption[ATLAS constraints on the $U_{1}$ leptoquark]{ Summary of the observed and expected $95\%$ CL constraints on the $U_{1}$ vector-leptoquark coupling $\lambda_{b\tau}$ as a function of the leptoquark mass in the Yang--Mills coupling scenario, with $\beta_R^{33}=0$. Pair-production searches dominate the direct mass constraint at lower masses, while single-production and $\tau\tau$ searches provide coupling-dependent sensitivity at larger masses. Here $\lambda_{b\tau}=\gU/\sqrt{2}$ for $\beta_{L}^{33}=1$~\cite{ATLAS2025LQSummary}.}
+    \caption[ATLAS constraints on the $U_{1}$ leptoquark]{ Summary of the observed and expected $95\%$ CL limits on the $U_{1}$ vector-leptoquark coupling $\lambda_{b\tau}$ in the Yang--Mills coupling scenario, with $\beta_R^{33}=0$~\cite{ATLAS2025LQSummary}. $\lambda_{b\tau}$ is the $b\tau$ coupling constant, given by $\lambda_{b\tau}=\gU/\sqrt{2}$ for $\beta_L^{33}=1$ in the convention used in this thesis. Pair-production searches provide a mass constraint with weak dependence on $\lambda_{b\tau}$, while single-production and $\tau\tau$ searches can probe higher masses for sufficiently large $\lambda_{b\tau}$. Both single-production and pair-production assume $\mathcal{B}(U_1\to b\tau)=0.5$. The shaded b-anomaly-favoured region, shown for reference, is obtained with $0.06\leq\beta_L^{23}\leq0.16$~\cite{Aebischer2022}.}
     \label{fig:lq_atlas_summary_u1}
 \end{figure}
 
-On the other hand, the existing $\tau\tau(+b)$ searches generally assume $\beta_{L}^{23}$ to be small or neglect its contribution, motivated by the flavour assumptions discussed in Sec.~\ref{subsec:u1_low_energy_fit}. Consequently, scenarios with a sizeable $c\nu_{\tau}$ coupling, and in particular the large-$\beta_{L}^{23}$ region, have not been systematically explored at the LHC.
+In the non-resonant $\tau\tau$ process shown in Figure~\ref{fig:lq_tchannel_exchange}, both leptoquark vertices involve a $b$ quark and a $\tau$ lepton and the coupling strength is scaled by $\gU\beta_L^{33}$ with fixed $\beta_L^{33}=1$ and $\beta_L^{23}=0.19$~\cite{CMS2023TauTauLQ}.
+Consequently, the $c\nu_{\tau}$ coupling, and in particular the large-$\beta_L^{23}$ region, has not been systematically explored at the LHC.
 
-The $\tau\nu$ final state provides a complementary probe of the $b\tau$ and $c\nu_\tau$ coupling. CMS has performed an inclusive search for events with a $\hadtau$ and large missing transverse momentum, including an interpretation in terms of leptoquark exchange~\cite{CMS2023TauNu}, but without an explicit $b$-jet requirement. This thesis presents a dedicated search in the $\tau\nu(+b)$ final state. Prior to the analysis, no dedicated ATLAS or CMS leptoquark search had targeted this topology. The $\tau\nu(+b)$ search presented here is therefore complementary to the existing $\tau\tau(+b)$ searches: it probes both the $b\tau$ and $c\nu_{\tau}$ couplings and extends the collider interpretation to large values of $\beta_{L}^{23}$. The corresponding benchmark and target signatures are introduced in the following subsection.
+However, as discussed in Section~\ref{subsec:u1_low_energy_fit}, experimental constraints still allow scenarios with large values of $\beta_L^{23}$.
+This motivates a search in the $\tau\nu(+b)$ final state, which can be produced through non-resonant $t$-channel LQ exchange involving both the $b\tau$ and $c\nu_\tau$ couplings. 
+CMS has performed an inclusive search for events with a $\hadtau$ and large missing transverse momentum, including an interpretation in terms of leptoquark exchange, but without an explicit $b$-jet requirement~\cite{CMS2023TauNu}, and no dedicated ATLAS or CMS leptoquark search had targeted the $\tau\nu(+b)$ topology before this analysis. The dedicated $\tau\nu(+b)$ search presented in this thesis is therefore complementary to the existing $\tau\tau(+b)$ and $\tau\nu$ searches, since it probes both the $b\tau$ and $c\nu_{\tau}$ couplings and extends the collider interpretation to large values of $\beta_{L}^{23}$. The corresponding benchmark and target signatures are introduced in the following subsection.
 
 \subsection{Signal model and target signatures}
 \label{subsec:lq_collider_benchmark}
 
-In this thesis, we focus on the simplified $U_{1}$ model introduced in Sec.~\ref{subsec:u1_simplified_model} in the Yang--Mills scenario, corresponding to $\kappa_c=\kappa_Y=0$ in Eq.~\ref{eq:u1_full_lagrangian}. The third-generation coupling is normalised to $\beta_{L}^{33}=1$, while the primary interpretation assumes a pure-left-handed scenario ($\beta_{R}^{33}=0$). An additional interpretation including a right-handed coupling is presented with the final results. Therefore, the signal is characterised by $(\MU,\gU,\beta_L^{23})$.
+The signal model is the simplified $U_{1}$ model of Section~\ref{subsec:u1_simplified_model} in the Yang--Mills scenario with $\beta_{L}^{33}=1$, in the two benchmark scenarios of Section~\ref{subsec:u1_low_energy_fit}. The pure-left-handed scenario ($\beta_{R}^{33}=0$) is the primary interpretation, and the right-handed scenario ($\beta_{R}^{33}=-1$) is presented with the final results. The signal is therefore characterised by $(\MU,\gU,\beta_L^{23})$ for each fixed value of $\beta_R^{33}$.
+For the pure-left-handed interpretation, $\beta_L^{23}$ is scanned over $0\leq\beta_L^{23}\leq2.2$, as described in Section~\ref{sec:signal_samples}.
 
-Figure~\ref{fig:u1_taunu_target_topologies} shows representative $U_{1}$ signal diagrams targeted by the analysis. Both resonant single production and non-resonant $t$-channel exchange are considered, and each is divided according to the presence or absence of a $b$-tagged jet. This results in four target signatures: resonant $\tau\nu+b$, non-resonant $\tau\nu+b$, resonant $\tau\nu+0b$, and non-resonant $\tau\nu+0b$.
+Figure~\ref{fig:u1_taunu_target_topologies} shows representative $U_{1}$ signal diagrams targeted by the analysis. Both non-resonant $t$-channel exchange and resonant single production are considered, and each is divided according to the presence or absence of a $b$-jet. This results in four target signatures: non-resonant $\tau\nu+b$, non-resonant $\tau\nu+0b$, resonant $\tau\nu+b$, and resonant $\tau\nu+0b$.
 
 \begin{figure}[thbp]
     \centering
-    \includegraphics[width=0.43\textwidth]{Figs/CH3/Diagram1.pdf}
-    \includegraphics[width=0.43\textwidth]{Figs/CH3/Diagram2.pdf}
+    \begin{subfigure}[b]{0.27\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figs/CH3/Diagram1.pdf}
+        \caption{}
+        \label{fig:u1_taunu_nonresonant}
+    \end{subfigure}\hfill
+    \begin{subfigure}[b]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figs/CH3/Diagram2.pdf}
+        \caption{}
+        \label{fig:u1_taunu_resonant_bstau}
+    \end{subfigure}\hfill
+    \begin{subfigure}[b]{0.33\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figs/CH7/truth_flavour/SR0b_Res_cnu_diagram.pdf}
+        \caption{}
+        \label{fig:u1_taunu_resonant_cnu}
+    \end{subfigure}
     \caption[Signal topologies in the $\tau\nu(+b)$ final state]
-    {Signal diagrams targeted in this analysis: non-resonant $t$-channel exchange (left) and resonant single production (right). The final-state jet can originate from a $b$- or $s$-quark.}
+    {Signal diagrams targeted in this analysis: non-resonant $t$-channel exchange (a) and resonant single production (b, c). The final-state jet can originate from a $b$- or $s$-quark in (a, b), or from a $c$-quark in (c), where the LQ decays into $c\bar{\nu}_\tau$. The charge-conjugate processes are also included in the analysis.}
     \label{fig:u1_taunu_target_topologies}
 \end{figure}
 
-The $b$-jet requirement provides strong discrimination against the dominant SM $\tau\nu+\mathrm{jets}$ background, since genuine SM production of a $\tau\nu$ system in association with a $b$-quark is CKM suppressed ~\cite{Endo2022NonResonant}. The $\tau\nu+b$ categories are therefore particularly sensitive to the combination of the $b\tau$ and $c\nu_{\tau}$ interactions.
+The $b$-jet requirement provides strong discrimination against the dominant SM $\tau\nu+\mathrm{jets}$ background, since SM production of a $\tau\nu$ system in association with a $b$-quark is CKM suppressed~\cite{Endo2022NonResonant}. The $\tau\nu+b$ categories therefore have a small SM background and probe the product of the $b\tau$ and $c\nu_{\tau}$ couplings.
 
-The zero-$b$ categories extend the sensitivity to the large $\beta_{L}^{23}$ region explored in this thesis. As $\beta_{L}^{23}$ increases, the $s\tau$ interaction also becomes sizeable, producing signal events without a final-state $b$-quark. This contribution is particularly relevant for resonant production, where an on-shell $U_{1}$ can decay into $s\tau$. The four categories therefore provide complementary sensitivity to the different flavour and production configurations of the $U_{1}$ signal.
+The zero-$b$ categories extend the sensitivity to the large $\beta_{L}^{23}$ region explored in this thesis. As $\beta_{L}^{23}$ increases, the $s\tau$ and $c\nu_{\tau}$ interactions also become sizeable, producing signal events without a final-state $b$-quark. This contribution is particularly relevant for resonant production, where an on-shell $U_{1}$ can decay into $s\tau$ or $c\nu_{\tau}$. The four categories therefore provide complementary sensitivity to the different flavour and production configurations of the $U_{1}$ signal.

@@ -1,21 +1,14 @@
 % ************************ Thesis Information & Meta-data **********************
 %% The title of the thesis
 %\title{Writing your PhD thesis in \texorpdfstring{\\ \LaTeX2e}{LaTeX2e}}
-\title{\fontsize{25pt}{\baselineskip}\selectfont Search for high-mass leptoquark with tau-lepton and missing transverse momentum using $140~\fb$ of $pp$ collision data at $\sqrt{s} = 13~\TeV$ in the LHC-ATLAS experiment\\\begin{CJK}{UTF8}{ipxm} (\fontsize{22pt}{\baselineskip}\selectfont LHC-ATLAS実験における重心系エネルギー13~\TeVの140~\fbの陽子陽子衝突データを用いたタウレプトンおよび消失横運動量を使った高質量レプトクォーク探索)\end{CJK}}
+\title{Search for a high-mass leptoquark with a tau-lepton and missing transverse momentum using \texorpdfstring{$140~\mathrm{fb}^{-1}$}{140 fb-1} of pp collision data at \texorpdfstring{$\sqrt{s}=13~\mathrm{TeV}$}{sqrt(s) = 13 TeV} in the LHC-ATLAS experiment}
 
 %\texorpdfstring is used for PDF metadata. Usage:
 %\texorpdfstring{LaTeX_Version}{PDF Version (non-latex)} eg.,
 %\texorpdfstring{$sigma$}{sigma}
 
-%% Subtitle (Optional)
-% \subtitle{\begin{CJK}{UTF8}{min}
-% \textsf{(\text{LHC-ATLAS} Run3実験に向けた液体アルゴンカロリメータの新型トリガー読み出しシステムのコミッショニング
-% )}
-% \end{CJK}}
-
-
 %% The full name of the author
-\author{Jiaqi Zang\\\begin{CJK}{UTF8}{ipxm}藏~~~~嘉琦\end{CJK}}
+\author{Jiaqi Zang}
 
 
 %% Department (eg. Department of Engineering, Maths, Physics)
@@ -79,8 +72,65 @@
 
 %% Submission date
 % Default is set as {\monthname[\the\month]\space\the\year}
-\degreedate{August 2026} 
+\degreedate{October 2026} 
 
 %% Meta information
 \subject{LaTeX} \keywords{{LaTeX} {PhD Thesis} {Physics} {University of
 Tokyo}}
+
+% *********************** Submission Title Page *******************************
+% Edit font sizes and spacing here. thesis.tex calls this through \maketitle.
+% The original metadata and template are saved in backups/titlepage_before_submission_20261029_232412/.
+% Keep the thesis font packages unchanged: only the cover layout is overridden.
+\renewcommand{\maketitle}{%
+  \newgeometry{left=27mm,right=27mm,top=25mm,bottom=25mm,bindingoffset=0mm}
+  \begingroup
+  \nolinenumbers
+  \thispagestyle{empty}
+  \setstretch{1}
+  \setlength{\parindent}{0pt}
+  \begin{CJK}{UTF8}{ipxm}
+  \begin{center}
+  \vspace*{5mm}
+  {\fontsize{24}{28}\selectfont Doctoral Dissertation\\
+  博士論文\par}
+
+  \vspace{20mm}
+  {\fontsize{22}{24}\selectfont\bfseries
+  Search for a high-mass leptoquark with\\
+  a tau-lepton and missing transverse momentum\\
+  using $\pmb{140~\mathrm{fb}^{-1}}$ of $\bm{pp}$ collision data\\
+  at $\pmb{\sqrt{s}=13~\mathrm{TeV}}$ in the LHC-ATLAS experiment\par}
+
+  \vspace{7mm}
+  {\fontsize{14.5}{19}\selectfont
+  \(\left(
+  \begin{minipage}{0.92\textwidth}
+  \centering
+  LHC-ATLAS実験における重心系エネルギー$13~\mathrm{TeV}$の$140~\mathrm{fb}^{-1}$の陽子陽子衝突データを用いたタウレプトンおよび消失横運動量を使った高質量レプトクォーク探索\par
+  \end{minipage}
+  \right)\)\par}
+
+  \vfill
+  {\fontsize{16}{18}\selectfont
+  A Dissertation Submitted for the Degree of Doctor of Philosophy\\[1mm]
+  October 2026\\[2mm]
+  令和8年10月博士（理学）申請\par}
+
+  \vspace{18mm}
+  {\fontsize{16}{18}\selectfont
+  Department of Physics, Graduate School of Science,\\
+  The University of Tokyo\\[2mm]
+  東京大学大学院理学系研究科物理学専攻\par}
+
+  \vspace{16mm}
+  {\fontsize{16}{21}\selectfont
+  Jiaqi Zang\\[1mm]
+  藏 嘉琦\par}
+  \vspace*{7mm}
+  \end{center}
+  \end{CJK}
+  \clearpage
+  \endgroup
+  \restoregeometry
+}

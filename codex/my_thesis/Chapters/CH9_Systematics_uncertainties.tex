@@ -3,7 +3,7 @@
 \chapter{Systematic Uncertainties}
 \label{chapter:systematics_uncertainties}
 
-Systematic uncertainties in this analysis includes the experimental and theoretical modelling uncertainties.
+Systematic uncertainties in this analysis include the experimental and theoretical uncertainties.
 Their sources and evaluation are discussed in this chapter.
 
 \section{Experimental uncertainties}
@@ -11,29 +11,36 @@ Their sources and evaluation are discussed in this chapter.
 
 Experimental uncertainties originate from the detector response and object calibrations. They are propagated through the event weights or reconstructed objects.
 The evaluation and treatment of these uncertainties are summarised below.
+The values quoted below are the largest changes in the total background yield for each variation direction, taken over individual uncertainty sources and all SRs, CRs and VRs before the fit.
 
 \subsubtitle{Luminosity and pile-up}
 \label{subsec:ch9_lumi_pileup}
 The 2015-2018 integrated luminosity has an uncertainty of $0.83\%$, as discussed in Section~\ref{sec:dataset_selection}.
-It is applied to the signal and backgrounds normalisation.
-The pile-up uncertainty is evaluated by varying the data-derived $\mu$ profile used to calculate the pile-up correction weights for simulated events. Its nominal rescaling factor, $1/1.03$, is changed to $1/1.07$ and $1/0.99$.
+It is applied to the signal and background normalisation.
+The pile-up uncertainty is evaluated by varying the data-derived $\mu$ profile used to calculate the pile-up correction weights for simulated events.
 
 \subsubtitle{Hadronic tau energy scale and efficiencies}
 \label{subsec:ch9_tau}
-The TES uncertainty in the low-$\pT$ region is measured using $\ztautau$ events, while the uncertainty in the high-$\pT$ region is evaluated using test-beam data and MC comparisons~\cite{ATLAS-CONF-2017-029,ATL-PHYS-PUB-2015-045}.
+The TES uncertainty in the low-$\pT$ region is measured using $\ztautau$ events, while the uncertainty in the high-$\pT$ region is evaluated using test-beam data and MC comparisons~\cite{Hubner2018TauPerformance,ATL-PHYS-PUB-2015-045}.
+In this analysis, the TES uncertainties change the total background yield by approximately $\pm21\%$ for $\pm1\sigma$ variations.
 Efficiency uncertainties are evaluated for $\hadtau$ reconstruction and RNN identification using $\ttbar$ events, as well as for electron rejection.
-For the \texttt{Tight} ID working point, the scale-factor uncertainties are $5$--$11\%$.
+For the \texttt{Tight} ID working point, the RNN identification uncertainties change the total background yield by approximately $\pm6.1\%$ for $\pm1\sigma$ variations.
 
 \subsubtitle{Jets and missing transverse momentum}
 \label{subsec:ch9_jets_met}
-The JES and JER uncertainties are evaluated using the calibration methods described in Section~\ref{sec:ch6_jets}.
+The JES and JER uncertainties are evaluated using the calibration methods described in Section~\ref{sec:ch6_jets}~\cite{ATLAS2021JetCalibration}.
+The JES uncertainties change the total background yield by approximately $\mp4.3\%$ for $\pm1\sigma$ variations.
+The JER uncertainties change the total background yield by approximately $\pm9.1\%$ for $\pm1\sigma$ variations.
 The $\mpt$ uncertainty is evaluated by recalculating the $\mpt$ for each uncertainty from the hard-object momenta and the soft term.
-The soft-term uncertainties are derived from measurements in $\zee$ events~\cite{ATLAS2025METPerformance}.
+The soft-term uncertainty is derived from measurements in $\zee$ events~\cite{ATLAS2025METPerformance}.
+It changes the total background yield by approximately $\mp1.1\%$ for $\pm1\sigma$ variations.
+The effects of hard-object variations on $\mpt$ are included in the corresponding object uncertainties.
 
 \subsubtitle{Jet flavour tagging}
 \label{subsec:ch9_ftag}
 The flavour-tagging uncertainties are evaluated separately for the $b$-jet tagging efficiency and the $c$-jet and light-jet mistagging efficiencies.
-They include calibration sample statistics, background contamination and modelling uncertainties in the efficiency measurements described in Section~\ref{sec:ch6_btag}.
+They include calibration sample statistics, background contamination and modelling uncertainties in the efficiency measurements described in Section~\ref{sec:ch6_btag}~\cite{ATLAS2026GN2}.
+For the GN2 $85\%$ working point, the $\pm1\sigma$ variations in the $b$-jet tagging, $c$-jet mistagging and light-jet mistagging uncertainties change the total background yield by approximately $\pm2.3\%$, $\pm2.9\%$ and $\pm8.2\%$, respectively.
 % An eigenvector decomposition of the calibration covariance matrix provides independent variations that preserve correlations between bins.
 % The \texttt{Medium} reduction scheme is used.
 % The resulting scale-factor variations affect both $\bTagSR$ and $\bVetoSR$ through the probabilities for jets to pass or fail the tagging requirement.
@@ -41,60 +48,63 @@ They include calibration sample statistics, background contamination and modelli
 \subsubtitle{Electrons and muons}
 \label{subsec:ch9_leptons}
 Electron efficiency uncertainties are evaluated using $\zee$ and $J/\psi\to ee$ events, while energy-scale and resolution uncertainties are obtained by comparing the measured and simulated calorimeter response~\cite{ATLAS2019ElectronPerformance}.
+The $\pm1\sigma$ variations in the electron energy-scale and resolution uncertainties change the total background yield by approximately $\pm1.0\%$ and $\mp0.21\%$, respectively.
 The muon efficiency, momentum-scale and resolution uncertainties are determined using $\zmumu$ and $J/\psi\to\mu\mu$ events~\cite{ATLAS2021MuonID,ATLAS2023MuonCalibration}.
-In particular, the resolution uncertainty has a sizeable effect on the high-$\pT$ muons in this analysis. 
+The $\pm1\sigma$ variations in the muon momentum-scale and resolution uncertainties change the total background yield by approximately $\pm0.15\%$ and $\pm3.7\%$, respectively.
+In particular, the resolution uncertainty has a sizeable effect on the high-$\pT$ muons in this analysis.
 
 
 
 \section{Theoretical uncertainties}
 \label{sec:ch9_theory}
 
-Considering that the background fit uses the total event yield in each region, the transfer-factor (TF) method is introduced to evaluate the modelling uncertainties in the $\wjets$ and top-quark backgrounds.
-Given that the $\wjets$ (top-quark background) contamination in $\CRTop$ ($\CRW$) is below $5\%$ ($2\%$), the modelling uncertainties on these small contributions are neglected.
-The uncertainties types for the $\wjets$ and top-quark backgrounds are then introduced.
-
-\subsection{Transfer-factor method}
-\label{subsec:ch9_transfer}
-
-The background yield in an SR or VR is estimated as
+Theoretical uncertainties describe changes in the predicted yields caused by modelling uncertainties in the hard-scattering calculation, parton shower and hadronisation.
+Specifically, for the $\wjets$ and top-quark backgrounds, these uncertainties are evaluated through their effects on the extrapolation from the CRs, which is expressed by the transfer factor (TF) as defined in Eq.~(\ref{eq:ch9_transfer}).
 \begin{align}
-    N_{bg}^{SR(VR),data}
-    &=\lambda\times N_{bg}^{SR(VR),MC}
-    =TF\times N_{bg}^{CR,data}.
-    \label{eq:ch9_transfer_prediction}
-\end{align}
-The NF $\lambda$ is introduced as a free-floating parameter as described in Equation~\ref{eq:ch8_lambda}. $TF$ is defined by
-\begin{align}
-    TF=\frac{N_{bg}^{SR(VR),MC}}{N_{bg}^{CR,MC}}.
+    TF=\frac{N_{bg}^{SR(VR),MC}}{N_{bg}^{CR,MC}},
     \label{eq:ch9_transfer}
 \end{align}
+where the numerator and denominator are the expected background yields in the SR(VR) and its CR, respectively.
 
-Suppose a theory uncertainty changes the background yield by $\Delta N_{bg}=N_{bg}^{sysMC}-N_{bg}^{nomMC}$, where $nomMC$ and $sysMC$ denote the nominal and alternative MC predictions, respectively.
-Propagating this change to $TF$ gives
-\begin{align}
-    TF+\Delta TF
-    &=\frac{N_{bg}^{SR(VR),MC}+\Delta N_{bg}^{SR(VR),MC}}
-    {N_{bg}^{CR,MC}+\Delta N_{bg}^{CR,MC}}\nonumber\\
-    &=TF\times\frac{N_{bg}^{SR(VR),sysMC}}{N_{bg}^{SR(VR),nomMC}}
-    \bigg/\frac{N_{bg}^{CR,sysMC}}{N_{bg}^{CR,nomMC}}.
-    \label{eq:ch9_transfer_variation}
-\end{align}
-If an uncertainty produces the same fractional change in both regions, it cancels in the double ratio, giving $\Delta TF=0$.
-The remaining relative uncertainty is applied only to the SR or VR yield through the factor $1\pm\Delta TF/TF$.
-% For alternative samples with low statistics, smoothing and relaxed jet-multiplicity requirements are used where necessary to stabilise the uncertainty estimates.
+Suppose a theoretical uncertainty changes the background yield by $\Delta N_{bg}=N_{bg}^{sysMC}-N_{bg}^{nomMC}$, where $nomMC$ and $sysMC$ denote the nominal and alternative background predictions, respectively.
+For each theoretical variation, the change of TF is calculated as
+\begin{align*}
+    \frac{TF+\Delta TF}{TF}
+    &=
+    \frac{N_{bg}^{SR(VR),sysMC}/N_{bg}^{SR(VR),nomMC}}
+         {N_{bg}^{CR,sysMC}/N_{bg}^{CR,nomMC}}.
+\end{align*}
+A variation that changes the background yields by the same fraction in the SR and its corresponding CR gives a double ratio of unity, so that $\Delta TF/TF=0$. The extrapolation uncertainty of such a background variation in the SRs is therefore cancelled.
+In case the variation is not cancelled, the remaining uncertainty $\Delta TF/TF$ is evaluated and used as a relative theoretical uncertainty applied only to the background yield in the SR. The values of the relative uncertainties are summarised in Tables~\ref{tab:ch9_theory_res} and~\ref{tab:ch9_theory_nonres} for the resonant and non-resonant regions, respectively.
+
+Note that no theoretical uncertainties are assigned to $\wjets$ and top-quark contributions in the $\CRTop$ and $\CRW$ CRs, which contribute less than $5\%$ and $2\%$ of the total background yield, respectively.
+
 
 \subsection{$\wjets$}
 \label{subsec:ch9_wjets}
+The $\wjets$ theoretical uncertainties are evaluated by considering several items.
+QCD scale variations refer to variations of the renormalisation and factorisation scales.
+PDF uncertainties include variations of the PDF sets and $\alpha_s$ used for the hard process calculation.
+Electroweak corrections include the loop contributions from photons and weak bosons. And an additional normalisation uncertainty introduced by requiring one or more heavy-flavour-tagged jets is considered in this analysis.
 \begin{itemize}[nosep,leftmargin=*]
-    \item \textbf{QCD scales:} the uncertainty is evaluted from the envelope of seven-point predictions obtained by varying the matrix-element and parton-shower renormalisation and factorisation scales~\cite{PMGR-2021-01}.
+    \item \textbf{QCD scales:} the uncertainty is evaluated from the envelope of seven-point predictions obtained by varying the matrix-element and parton-shower renormalisation and factorisation scales~\cite{PMGR-2021-01}.
     \item \textbf{PDF:} the uncertainty is evaluated using the Hessian NNPDF3.0 NNLO uncertainty scheme, including alternative PDF sets and two alternative $\alpha_s$ values.
-    % \item \textbf{Electroweak corrections:} the uncertainty is given by the approximate NLO electroweak virtual corrections.
-    \item \textbf{$W+\mathrm{HF}/W+\mathrm{LF}$ ratio:} an uncertainty is assigned to heavy-to-light-flavour ratio when extrapolating from the $b$-vetoed $\CRW$ to regions with $b$ jets.
+    \item \textbf{Electroweak corrections:} the uncertainty is evaluated from the change in the prediction when approximate NLO electroweak corrections are applied.
+    \item \textbf{$W+\mathrm{HF}/W+\mathrm{LF}$ ratio:} an uncertainty is assigned to the heavy-to-light-flavour ratio when extrapolating from the $b$-vetoed $\CRW$ to regions with $b$-jets.
     A value of $30\%$ is adopted, motivated by flavour-dependent normalisation differences observed in an earlier ATLAS measurement~\cite{HIGG-2020-20}.
 \end{itemize}
 
 \subsection{Top-quark background}
 \label{subsec:ch9_top}
+The top-quark background theoretical uncertainties are evaluated by considering several items.
+QCD scale and PDF variations follow the definitions in Section~\ref{subsec:ch9_wjets}.
+The NLO matching variation changes the shower veto definition used to avoid overlap between radiation generated by \textsc{Powheg} and \textsc{Pythia}.
+Parton shower and hadronisation variations compare different models for radiation and the formation of hadrons.
+ISR and final-state radiation variations change the shower $\alpha_s$ value and its renormalisation scale, respectively.
+The $h_{\mathrm{damp}}$ variation changes the modelling of the first hard emission.
+The $\ttbar$ NNLO variation changes the predicted shape of the top quark $\pT$ distribution.
+The shower recoil variation changes which particle absorbs recoil from gluon emissions in top quark decays.
+The interference variation replaces the nominal diagram removal (DR) method with diagram subtraction (DS) for the overlapping contributions in the simulations of $\ttbar$ and $Wt$ processes.
 \begin{itemize}[nosep,leftmargin=*]
     \item \textbf{QCD scales, PDF and PDF $\alpha_s$:} the uncertainties are evaluated by reweighting the nominal samples, as for $\wjets$.
     \item \textbf{Matrix element (NLO matching):} the uncertainty is evaluated by changing the definition of the region in which \textsc{Pythia} shower emissions are vetoed to avoid overlap with radiation generated by \textsc{Powheg}.
@@ -108,11 +118,10 @@ The remaining relative uncertainty is applied only to the SR or VR yield through
 
 \subsection{Other backgrounds and signal}
 \label{subsec:ch9_signal}
-The $\znunu$ background with a jet misidentified as a $\hadtau$ is assigned with a $100\%$ normalisation uncertainty, while diboson and the remaining $\ztautau$ backgrounds are assigned with a conservative $30\%$ normalisation uncertainty.
+The $\znunu$ background with a jet misidentified as a $\hadtau$ is assigned a $100\%$ normalisation uncertainty, while diboson and the remaining $\ztautau$ backgrounds are assigned a conservative $30\%$ normalisation uncertainty.
 Signal uncertainties are evaluated using QCD scale and PDF variations, resulting in a $10$--$20\%$ uncertainty.
-The background theory uncertainties are summarised in Tables~\ref{tab:ch9_theory_res} and~\ref{tab:ch9_theory_nonres} for the resonant and non-resonant regions, respectively.
 
-\clearpage
+% \clearpage
 % The two numerical tables are inserted below from the checked INT source.
 \begin{table}[!htbp]
     \centering
@@ -121,7 +130,7 @@ The background theory uncertainties are summarised in Tables~\ref{tab:ch9_theory
     \setlength{\tabcolsep}{3pt}
     \renewcommand{\arraystretch}{0.95}
     \fontsize{9}{10.5}\selectfont
-    \caption[Theory uncertainties in the resonant regions]{Theory uncertainties considered in the resonant regions. The last four sources are applied to the overall normalisation rather than the TF.}
+    \caption[Theory uncertainties in the resonant regions]{Theory uncertainties considered in the resonant regions. The last four sources are applied to the overall normalisation rather than the TF. Values outside and inside parentheses correspond to the Up and Down variations of the corresponding background yield in the SRs, respectively.}
     \label{tab:ch9_theory_res}
     \label{tab:ch9_theory_transfer}
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccc@{}}
@@ -153,8 +162,8 @@ The background theory uncertainties are summarised in Tables~\ref{tab:ch9_theory
         $\wjets$ heavy flavour\textsuperscript{*} & $0.3$ & $0.3$ & $0.3$ \\
         \bottomrule
     \end{tabular*}
-    \vspace{1.6em}
-    \caption[Theory uncertainties in the non-resonant regions]{Theory uncertainties considered in the non-resonant regions. The last four sources are applied to the overall normalisation rather than the TF.}
+    \vspace{0.6em}
+    \caption[Theory uncertainties in the non-resonant regions]{Theory uncertainties considered in the non-resonant regions. The last four sources are applied to the overall normalisation rather than the TF. Values outside and inside parentheses correspond to the Up and Down variations of the corresponding background yield in the SRs, respectively.}
     \label{tab:ch9_theory_nonres}
     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccc@{}}
         \toprule

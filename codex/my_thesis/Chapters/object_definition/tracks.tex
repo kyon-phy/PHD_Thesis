@@ -4,12 +4,13 @@
 \subsection{Reconstruction}
 
 A track is reconstructed by fitting the trajectory of a charged particle to hits in the ID.
-Its momentum and charge are determined from the curvature in the magnetic field, while its position near the beam line is used to assign it to a production vertex.
+Its momentum and charge are determined from the curvature in the magnetic field. The track position with respect to the PV is used to identify a prompt object.
 Track reconstruction is performed in the following stages~\cite{ATLAS2017DenseTracking}:
 \begin{enumerate}
     \item \textbf{Space-point formation.} Signals in neighbouring channels of a silicon sensor are grouped into clusters. The coordinates provided by Pixel clusters and SCT clusters are converted into three-dimensional space points.
-    \item \textbf{Seeding and track finding.} Combinations of space points are used to form track seeds. These seeds are extended through the silicon layers with a combinatorial Kalman filter, which is used to refine the track parameters.
-    \item \textbf{Ambiguity resolution.} Track candidates are ranked using their fit quality, momentum and hit variables. Meanwhile, candidates that share the same clusters are marked as ``shared hits''. Candidates failing the track-quality requirements are then rejected to suppress duplicate and fake tracks.
+    \item \textbf{Seeding and track finding.} Combinations of space points from the pixel detector and the SCT are used to form track seeds. Starting from each seed, tracks are found by adding hits consistent with the predicted trajectory. After each hit is added, the track parameters are updated through a weighted fit.
+    \item \textbf{Ambiguity resolution.} Track candidates are ranked using their fit quality, momentum and hit variables. The ranking determines the order in which candidates are used for the following steps. Candidates failing the track-quality requirements are then rejected to suppress duplicate and fake tracks. Meanwhile, candidates that share the same clusters are marked as ``shared hits''.
+    \item \textbf{Track fitting.} Track candidates passing the quality requirements are refitted to obtain more precise track parameters.
     \item \textbf{TRT extension.} Tracks are extended with additional TRT hits. The extended track is retained if its quality score is higher than that of the original track reconstructed using only pixel and SCT hits.
 \end{enumerate}
 
@@ -23,15 +24,15 @@ The fitted trajectory is described by five parameters, as illustrated in Figure~
     \item $q/p$: the electric charge divided by the momentum magnitude.
 \end{itemize}
 
-Two quantities are used to test whether a track is originating from the primary vertex:
+The following two quantities are used to test whether a track originates from the primary vertex:
 \begin{itemize}
     \item \textbf{Transverse impact-parameter significance}, $d_0/\sigma_{d_0}$:  the transverse distance from the beam line in units of its uncertainty $\sigma_{d_0}$.
     \item \textbf{Projected longitudinal distance}, $\Delta z_0\sin\theta=(z_0-z_{\mathrm{PV}})\sin\theta$: the longitudinal distance between the track perigee and the primary vertex. Here, $z_{\mathrm{PV}}$ is the $z$ coordinate of the primary vertex.
 \end{itemize}
 
-Small absolute values of both quantities suggest that the track can originate from the primary vertex.
-A large longitudinal distance can also indicate a track originating from another $pp$ collision.
-Prompt electron and muon candidates are therefore selected by requiring small values of both quantities. And candidates with large values can originate from a displaced vertex, for example from a $b$- or $c$-hadron decay.
+Small absolute values of both quantities suggest that the track originates from the primary vertex.
+A large longitudinal distance indicates a track originating from another $pp$ collision.
+Prompt electron and muon candidates are therefore selected by requiring small values of both quantities, while candidates originating from a displaced vertex, for example from a $b$- or $c$-hadron decay, are selected by requiring large values of both quantities.
 
 \begin{figure}[htbp]
     \centering

@@ -3,9 +3,8 @@
 
 The incoming partons at the LHC carry little transverse momentum, so the vector sum of the transverse momenta of all the particles is expected to be approximately zero.
 An imbalance in the visible transverse momentum can therefore indicate undetected particles, such as neutrinos or weakly interacting BSM particles.
-In this analysis, the neutrino produced in the LQ process and the tau-decay neutrino can together give rise to sizeable missing transverse momentum ($\mpt$).
-$\mpt$ is reconstructed as the negative vector sum of the calibrated visible contributions, with its magnitude denoted by $\met$~\cite{ATLAS2025METPerformance}:
-\begin{align}
+In this analysis, the neutrino produced in the LQ process and the tau-decay neutrino can together give rise to sizeable missing transverse momentum ($\mpt$). The same $\mpt$ is used for the baseline and signal selections. And it is reconstructed as the negative vector sum of the calibrated visible contributions, with its magnitude denoted by $\met$~\cite{ATLAS2025METPerformance}. 
+\begin{align*}
     \mpt
     &=-\left(
     \sum_e\vec p_{\mathrm{T}}^{\,e}
@@ -14,22 +13,21 @@ $\mpt$ is reconstructed as the negative vector sum of the calibrated visible con
     +\sum_j\vec p_{\mathrm{T}}^{\,j}
     +\vec p_{\mathrm{T}}^{\,\mathrm{soft}}
     \right),
-    \label{eq:ch6_met_vector}\\
+    \\
     \met&=\left|\mpt\right|.
-    \label{eq:ch6_met_magnitude}
-\end{align}
+\end{align*}
 Two types of contribution are included in the reconstruction:
 \begin{itemize}
     \item \textbf{hard term}: The electron, muon, $\hadtau$ and jet contributions selected for $\mpt$ reconstruction.
     The jet contribution is selected using the \texttt{Tight} $\mpt$ working point to suppress pile-up jets.
-    This requires jet $\pT>20~\GeV$ for $|\eta|<2.5$ and $\pT>30~\GeV$ for $2.5\leq|\eta|<4.5$.
+    This requires jet $\pT>20~\GeV$ for $|\eta|<2.5$ and $\pT>30~\GeV$ for $2.5\leq|\eta|<4.5$ in addition to the NNJVT requirement.
     \item \textbf{track soft term}: The vector sum of transverse momenta of selected PV tracks not used in the hard term.
 \end{itemize}
 
 \section{Object definitions in the analysis}
 \label{sec:ch6_analysis_objects}
 
-As shown in Table~\ref{tab:ch6_analysis_objects}, the object definitions in the analysis are summarised.
+Table~\ref{tab:ch6_analysis_objects} summarises the baseline object requirements and the additional signal requirements. Baseline objects are used for overlap removal and $\mpt$ reconstruction. Signal objects satisfy the additional requirements used in the analysis regions.
 
 \begin{table}[!htbp]
     \begin{spacing}{1}
@@ -54,6 +52,7 @@ As shown in Table~\ref{tab:ch6_analysis_objects}, the object definitions in the 
         & $|\eta|$ & \multicolumn{2}{c@{}}{$<2.5$} \\
         & $|d_0|/\sigma_{d_0}$ & \multicolumn{2}{c@{}}{$<3$} \\
         & $|\Delta z_0\sin\theta|$ & \multicolumn{2}{c@{}}{$<0.5~\mm$} \\
+        & Reconstruction & \multicolumn{2}{c@{}}{CB muon} \\
         & Identification & \texttt{Loose} & \texttt{Medium} \\
         & Isolation & \texttt{Loose\_VarRad} & \texttt{Tight\_VarRad} \\
         \midrule

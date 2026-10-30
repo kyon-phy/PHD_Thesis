@@ -5,10 +5,10 @@
 \label{sec:lhc}
 
 The European Organisation for Nuclear Research (CERN) is an international particle-physics laboratory located near Geneva on the border between France and Switzerland.
-Since its foundation in 1954, CERN has developed and operated a chain of accelerators and experimental facilities to study the fundamental constituents of matter and their interactions~\cite{CERNAbout}.
-The Large Hadron Collider~(LHC) is the largest and highest-energy particle collider in the CERN accelerator complex.
-It is installed in the former Large Electron--Positron Collider~(LEP) tunnel, which has a circumference of about $27~\km$ and lies between approximately $45~\metre$ and $170~\metre$ below the surface~\cite{Evans2008LHC,CERNLHC}.
-A schematic overview of the LHC ring and its interaction points is shown in Fig.~\ref{fig:lhc_layout}.
+Since its foundation in 1954, CERN has developed and operated a chain of accelerators and experimental facilities to study the fundamental constituents of matter and their interactions.
+The Large Hadron Collider~(LHC) is the largest and highest-energy particle collider in the world.
+It is installed in the former Large Electron--Positron Collider~(LEP) tunnel, which has a circumference of about $27~\km$ and lies between approximately $45~\metre$ and $170~\metre$ below the surface~\cite{Evans2008LHC}.
+A schematic overview of the LHC ring and its interaction points is shown in Figure~\ref{fig:lhc_layout}.
 
 \begin{figure}[htbp]
     \centering
@@ -21,7 +21,7 @@ A schematic overview of the LHC ring and its interaction points is shown in Fig.
 
 The LHC was proposed as the next major collider after LEP.
 The first circulating beams were achieved in 2008, and the first physics run began in 2010.
-The discovery of a new boson compatible with the Standard Model~(SM) Higgs boson by the ATLAS and CMS experiments in 2012 marked one of the central achievements of the LHC physics programme~\cite{ATLAS2012Higgs,CMS2012Higgs}.
+The discovery of a new boson compatible with the SM Higgs boson by the ATLAS and CMS experiments in 2012 marked one of the central achievements of the LHC physics programme~\cite{ATLAS2012Higgs,CMS2012Higgs}.
 Beyond Higgs-boson measurements and precision studies of SM processes, a major purpose of the LHC is to search for new particles and interactions beyond the SM.
 
 The LHC collides protons at high centre-of-mass energies in order to extend the kinematic reach for the production of heavy particles.
@@ -30,33 +30,37 @@ However, the hard-scattering process in a proton--proton~($pp$) collision occurs
 The partonic centre-of-mass energy therefore varies from event to event and is generally lower than the nominal $pp$ collision energy.
 Increasing $\sqrt{s}$ consequently extends the accessible mass range for new heavy particles.
 
-Another key machine parameter is the luminosity, which quantifies the collision rate per unit cross section.
-For a process with cross section $\sigma$, the production rate is
-\begin{align}
+Another key machine parameter is the luminosity, which quantifies the collision rate per unit cross-section.
+For a process with cross-section $\sigma$, the production rate is
+\begin{align*}
     R = \mathcal{L}\sigma,
-    \label{eq:lhc_event_rate}
-\end{align}
+\end{align*}
 where $\mathcal{L}$ is the instantaneous luminosity.
-For two Gaussian bunches colliding with frequency $f_{\mathrm{coll}}$, the luminosity can be expressed as~\cite{Herr2006Luminosity}
-\begin{align}
+For two Gaussian bunches colliding with frequency $f_{\mathrm{coll}}$, the luminosity can be expressed as~\cite{Evans2008LHC}
+\begin{align*}
     \mathcal{L}
     =
     f_{\mathrm{coll}}
     \frac{n_{1}n_{2}}
     {4\pi\sigma^{*}_{x}\sigma^{*}_{y}}
     \mathcal{F},
-    \label{eq:lhc_luminosity_formula}
-\end{align}
+\end{align*}
 where $n_{1}$ and $n_{2}$ are the numbers of particles in the two colliding bunches, $\sigma^{*}_{x}$ and $\sigma^{*}_{y}$ are the RMS transverse beam sizes in the horizontal and vertical directions at the interaction point, and $\mathcal{F}$ is a geometrical reduction factor accounting for effects such as the crossing angle.
+
+The parameters for the nominal LHC design are $n_1=n_2=1.15\times10^{11}$, $\sigma_x^*=\sigma_y^*\simeq16.7~\um$, and $\mathcal{F}\simeq0.836$.
+The average collision frequency is $f_{\mathrm{coll}}\simeq31.6~\MHz$. The instantaneous luminosity is therefore $\mathcal{L}\simeq1.0\times10^{34}~\mathrm{cm}^{-2}\mathrm{s}^{-1}$~\cite{Matis2017BRAN}. 
+The peak instantaneous luminosity further reached $2.1\times10^{34}~\mathrm{cm}^{-2}\mathrm{s}^{-1}$ during Run~2~\cite{Steerenberg2019LHCRun2}.
+In addition, the RMS longitudinal bunch length in the LHC is $\sigma_z=7.55~\cm$, so the primary vertices of different events are distributed over several centimetres along the $z$ direction.
+The primary-vertex coordinate $z_{\mathrm{PV}}$ must therefore be subtracted from the track parameter $z_0$ while identifying the track origin, as described in Section~\ref{sec:ch6_tracks}.
+
 The integrated luminosity,
-\begin{align}
+\begin{align*}
     \mathcal{L}_{\mathrm{int}}
     =
     \int \mathcal{L}\,dt,
-    \label{eq:lhc_integrated_luminosity}
-\end{align}
+\end{align*}
 determines the total expected number of produced events by $N=\sigma\mathcal{L}_{\mathrm{int}}$.
-High instantaneous luminosity increases the event rate, while high integrated luminosity improves the sensitivity to rare processes with small production cross sections.
+High instantaneous luminosity increases the event rate, while high integrated luminosity improves the sensitivity to rare processes with small production cross-sections.
 
 Four major experiments are installed around the LHC ring.
 ATLAS, located at Point~1, and CMS, located at Point~5, are general-purpose detectors designed for a broad physics programme including Higgs-boson measurements, precision SM studies, and searches for new particles.
@@ -68,7 +72,7 @@ The LHC physics programme is organised into run periods.
 Run~1 took place from 2010 to 2012, with $pp$ collision data recorded at $\sqrt{s}=7~\TeV$ and $\sqrt{s}=8~\TeV$.
 Run~2 took place from 2015 to 2018 at $\sqrt{s}=13~\TeV$.
 After standard data-quality selections, the full ATLAS Run~2 $pp$ dataset corresponds to an integrated luminosity of $140.1\pm1.2~\ifb$, with a relative uncertainty of $0.83\%$~\cite{ATLASLumiRun2}.
-Run~3 began in 2022 after the second long shutdown and operated at the higher centre-of-mass energy of $\sqrt{s}=13.6~\TeV$~\cite{ATLASRun3Starts}.
+Run~3 began in 2022 after the second long shutdown and operated at the higher centre-of-mass energy of $\sqrt{s}=13.6~\TeV$~\cite{ATLASRun3Detector}.
 The Run~2 dataset is used for the leptoquark search presented in this thesis.
 
 An important consequence of high-luminosity operation at the LHC is pile-up.
@@ -79,11 +83,21 @@ Detector signals may also originate from interactions in neighbouring bunch cros
 
 The mean number of inelastic $pp$ collisions per bunch crossing is commonly denoted by $\mu$.
 During Run~2, the nominal bunch spacing was $25~\ns$, corresponding to a maximum bunch-crossing frequency of $40~\MHz$.
-The luminosity-weighted mean value over the full Run~2 dataset was $\langle\mu\rangle=33.7$, corresponding to approximately 34 interactions per bunch crossing~\cite{ATLASDataQualityRun2}.
+The luminosity-weighted distribution of $\mu$ in Run~2 is shown in Figure~\ref{fig:run2_pileup}, with a mean of $\langle\mu\rangle\simeq34$~\cite{ATLASDataQualityRun2}.
 
 Pile-up has an important impact on event reconstruction.
 It produces extra charged-particle tracks, calorimeter energy deposits, and reconstructed jets.
 These contributions can affect the reconstruction of the primary vertex, jet energies, $\hadtau$ candidates, flavour-tagged jets, and missing transverse momentum. Pile-up effects must therefore be modelled in simulated samples and mitigated through dedicated reconstruction and calibration procedures.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figs/CH4/Run2_pileup_mu.pdf}
+    \caption[Run~2 pile-up distribution]{
+    Run~2 pile-up distribution in $pp$ collisions at $\sqrt{s}=13~\TeV$, weighted by the recorded luminosity.
+    The individual years and their sum are shown for all data recorded during stable beams~\cite{ATLASDataQualityRun2}.
+    }
+    \label{fig:run2_pileup}
+\end{figure}
 
 
 \section{ATLAS experiment}
@@ -111,44 +125,43 @@ A schematic view of the detector is shown in Figure~\ref{fig:ATLAS_view}.
 
 Starting from the beam line and moving outwards, the main detector systems are the Inner Detector~(ID), the calorimeters, and the Muon Spectrometer~(MS):
 \begin{itemize}
-    \item \textbf{\textit{Inner Detector (ID)}} is immersed in a $2~\tesla$ axial magnetic field provided by a thin superconducting solenoid and is used to reconstruct charged-particle trajectories close to the interaction point.
-    \item \textbf{\textit{Calorimeters}} surround the ID and measure the energies of electrons, photons, hadrons, $\hadtau$ candidates, and jets.
-    \item \textbf{\textit{Muon Spectrometer (MS)}} forms the outermost major detector system and measures muons in the magnetic field generated by large superconducting toroids.
+    \item The \textbf{\textit{Inner Detector (ID)}} is immersed in a $2~\tesla$ axial magnetic field provided by a thin superconducting solenoid and is used to reconstruct charged-particle trajectories close to the interaction point.
+    \item \textbf{\textit{Calorimeters}} surround the ID and the superconducting solenoid and measure the energies of electrons, photons, hadrons, $\hadtau$ candidates, and jets.
+    \item The \textbf{\textit{Muon Spectrometer (MS)}} forms the outermost major detector system and measures muons in the magnetic field generated by large superconducting toroids.
 \end{itemize}
 The magnetic fields provided by the solenoid and toroids allow the momentum and charge of charged particles to be determined from the curvature of their trajectories.
 The trigger and data acquisition system selects potentially interesting events from the high LHC bunch-crossing rate for permanent storage and offline reconstruction.
 
 The detector configuration described in this chapter corresponds primarily to Run~2.
-Several detector and trigger upgrades were installed for Run~3 to cope with higher luminosity conditions, but these upgrades are not used in the analysis presented in this thesis~\cite{ATLASRun3Detector}.
+Several detector and trigger upgrades were installed for Run~3 to cope with higher luminosity conditions~\cite{ATLASRun3Detector}, but these upgrades are not used in the analysis presented in this thesis.
 
 
 \subsection{Coordinate system}
 \label{subsec:atlas_coordinate_system}
 
 ATLAS uses a right-handed coordinate system centred at the nominal interaction point.
-The $z$-axis is defined along the beam direction, the $x$-axis points from the interaction point towards the centre of the LHC ring, and the $y$-axis points upwards~\cite{ATLASDetector2008}.
+The $z$-axis is defined along the beam direction, the $x$-axis points from the interaction point towards the centre of the LHC ring, and the $y$-axis points upwards.
 Cylindrical coordinates $(r,\phi)$ are used in the plane transverse to the beam, where $r$ is the distance from the beam axis and $\phi$ is the azimuthal angle around the $z$-axis.
 
 The polar angle $\theta$ is measured with respect to the positive $z$-axis.
 The pseudorapidity $\eta$ is defined as
-\begin{align}
+\begin{align*}
     \eta
     =
     -\ln \tan \left( \frac{\theta}{2} \right).
-    \label{eq:pseudorapidity}
-\end{align}
+\end{align*}
 The transverse momentum is defined as $\pT=p\sin\theta$, and the transverse energy is defined similarly.
 The angular separation between two reconstructed objects is commonly expressed as
-\begin{align}
+\begin{align*}
     \Delta R
     =
     \sqrt{
         \left(\Delta \eta \right)^{2}
         +
         \left(\Delta \phi \right)^{2}
-    }.
-    \label{eq:delta_r}
-\end{align}
+    },
+\end{align*}
+where $\Delta\eta$ and $\Delta\phi$ are the differences between the two objects in the $\eta$ and $\phi$ directions.
 These quantities are used throughout this thesis to describe object kinematics, angular separations, overlap removal, and event selections.
 Figure~\ref{fig:coordinate_system} illustrates the coordinate system used in ATLAS.
 
@@ -156,7 +169,7 @@ Figure~\ref{fig:coordinate_system} illustrates the coordinate system used in ATL
     \centering
     \includegraphics[width=0.7\linewidth]{Figs/CH4/coordinate system.pdf}
     \caption[The coordinate system used in ATLAS]{
-    The coordinate system used in ATLAS~\cite{kuger2017signal}.
+    The coordinate system used in ATLAS.
     }
     \label{fig:coordinate_system}
 \end{figure}
@@ -190,7 +203,7 @@ The combination of the solenoid and toroid systems allows charged-particle momen
 
 The Inner Detector~(ID) is the innermost tracking system of ATLAS and provides tracking for charged particles within $|\eta|<2.5$~\cite{ATLASDetector2008}.
 It is immersed in the $2~\tesla$ magnetic field of the central solenoid and records local position measurements, called hits, along their trajectories.
-During Run~2, it consisted of the pixel detector, the Semiconductor Tracker~(SCT), and the Transition Radiation Tracker~(TRT). The Insertable B-Layer~(IBL) is installed before Run~2 as the innermost pixel layer~\cite{ATLASIBL2018}.
+During Run~2, it consisted of the pixel detector, the Semiconductor Tracker~(SCT), and the Transition Radiation Tracker~(TRT). The Insertable B-Layer~(IBL) was installed before Run~2 as the innermost pixel layer~\cite{ATLASIBL2018}.
 Figure~\ref{fig:atlas_inner_detector} shows a transverse view of the Inner Detector.
 
 \begin{itemize}
@@ -210,7 +223,7 @@ Figure~\ref{fig:atlas_inner_detector} shows a transverse view of the Inner Detec
     \item \textbf{\textit{Transition Radiation Tracker~(TRT)\quad}}
 
     The TRT is the outermost tracking subsystem of the ID and provides tracking information at larger radii, covering approximately $|\eta|<2.0$.
-    It is based on thin straw-tube drift chambers, which provide a large number of measurements along the trajectory of each charged particle.
+    It is based on thin straw-tube drift chambers filled with a gas mixture containing mainly xenon. Materials with different dielectric properties are used between the straws to produce transition radiation when relativistic charged particles pass through the straws. The tracks of charged particles are determined by measuring the drift times of ionisation electrons in the straws, and electrons are identified by measuring the larger signals produced by the absorption of transition radiation photons.
     Although the spatial precision of each TRT hit is lower than that of the silicon detectors, the large number of straw hits and the longer lever arm improve the momentum measurement and help stabilise track reconstruction.
 \end{itemize}
 
@@ -220,7 +233,7 @@ Together, these subsystems provide the tracking information needed in ATLAS.
     \centering
     \includegraphics[width=0.65\textwidth]{Figs/CH4/ATLAS_IBL.pdf}
     \caption[ATLAS Inner Detector]{
-    Transverse view of the ATLAS Inner Detector, showing the IBL, pixel detector, SCT, and TRT subsystems~\cite{ATLASIBL2018}.
+    Transverse view of the ATLAS Inner Detector, showing the IBL, pixel detector, SCT, and TRT subsystems~\cite{ATLASRun3Detector}.
     }
     \label{fig:atlas_inner_detector}
 \end{figure}
@@ -248,7 +261,7 @@ It consists of electromagnetic~(EM) and hadronic calorimeters, as shown in Figur
     The EM calorimeter uses liquid argon~(LAr) as the active medium and lead absorbers arranged in an accordion geometry, as shown in Figure~\ref{fig:LAr_module}.
     The accordion geometry provides continuous azimuthal coverage and fine segmentation of electromagnetic showers.
     The EM calorimeter is divided into a barrel section covering $|\eta|<1.475$ and two end-cap sections covering $1.375<|\eta|<3.2$.
-    It is used to reconstruct and identify electrons and photons and also contributes to the reconstruction of $\hadtau$ candidates, particularly through the measurement of electromagnetic energy deposits from neutral-pion decays, which don't leave the charged-particle tracks in the ID.
+    It is used to reconstruct and identify electrons and photons and also contributes to the reconstruction of $\hadtau$ candidates, particularly through the measurement of electromagnetic energy deposits from neutral-pion decays, which leave no charged-particle tracks in the ID.
 
     The EM calorimeter consists of a presampler followed by three longitudinal sampling layers, each segmented into readout cells, as illustrated in Figure~\ref{fig:LAr_cells}.
     The presampler is installed for $|\eta|<1.8$ and is used to correct for energy lost in material upstream of the calorimeter.
@@ -256,15 +269,15 @@ It consists of electromagnetic~(EM) and hadronic calorimeters, as shown in Figur
     The back layer provides an additional measurement of the longitudinal shower development.
 
     The energy resolution of the electromagnetic calorimeter can be parameterised as
-    \begin{align}
+    \begin{align*}
         \frac{\sigma_E}{E}
         =
         \frac{a}{\sqrt{E}}
-        \oplus b
-        \oplus \frac{c}{E},
-        \label{eq:resolution}
-    \end{align}
-    where $a$ is the intrinsic sampling term, $b$ is the constant term, and $c$ represents the contribution from electronic and pile-up noise~\cite{readout}.
+        \oplus \frac{b}{E}
+        \oplus c,
+    \end{align*}
+    where $a$ is the intrinsic sampling term, $b$ accounts for electronic and pile-up noise, and $c$ represents the constant contribution, e.g. from a nonuniform calorimeter response.
+    In ATLAS, $a$ is $(10\text{--}11)\%\sqrt{\GeV}$, $b$ is typically 350--400~\MeV in transverse energy under the Run~2 pile-up conditions, and $c$ is $1\text{--}2\%$~\cite{readout,ATLASegammaCalibration2015_2016}.
 
 \begin{figure}[htbp]
     \centering
@@ -288,12 +301,12 @@ It consists of electromagnetic~(EM) and hadronic calorimeters, as shown in Figur
 
     \item \textbf{\textit{Hadronic calorimeter\quad}}
 
-    The hadronic calorimeter uses different structure for different $\eta$ regions.
+    The hadronic calorimeter uses different structures for different $\eta$ regions.
     In the region of $|\eta|<1.7$, the Tile Calorimeter uses steel absorbers and scintillating tiles as the active medium.
     It measures the energies of hadrons and jets.
     In the end-cap and forward regions, liquid-argon calorimeters are used.
     The hadronic end-cap calorimeter consists of two wheels per end-cap, covers the range $1.5<|\eta|<3.2$, and uses copper absorbers.
-    The forward calorimeter extends the coverage to $3.1<|\eta|<4.9$ and uses dense absorber materials suitable for the high-radiation environment close to the beam line.
+    The forward calorimeter extends the coverage to $3.1<|\eta|<4.9$ with dense absorbers suited to the high-radiation environment close to the beam line, using copper for electromagnetic measurements and tungsten for hadronic measurements.
 \end{itemize}
 
 
@@ -313,7 +326,6 @@ A view of these chambers is shown in Figure~\ref{fig:atlas_muon_spectrometer}.
 
     The MDT chambers provide precision tracking over most of the MS acceptance.
     They consist of aluminium drift tubes with a diameter of about $30~\mm$, each containing a central sense wire.
-    A muon crossing a tube ionises the gas, and the drift time of the electrons to the wire is measured to determine the track position.
     Several tube layers are grouped into chamber stations, providing precise measurements in the bending plane of the toroidal magnetic field.
     MDT chambers are used over most of the region $|\eta|<2.7$, except for the innermost forward stations at $2.0<|\eta|<2.7$, where CSCs are used.
 
@@ -342,7 +354,7 @@ A view of these chambers is shown in Figure~\ref{fig:atlas_muon_spectrometer}.
     \centering
     \includegraphics[width=0.85\textwidth]{Figs/CH4/ATLAS_MS.pdf}
     \caption[ATLAS Muon Spectrometer]{
-    Cross-section of the ATLAS Muon Spectrometer, showing the barrel and end-cap muon chambers.
+    Cross section of the ATLAS Muon Spectrometer, showing the barrel and end-cap muon chambers.
     The green and cyan chambers represent the MDT system, while the dashed lines indicate infinite-momentum muon trajectories~\cite{ATLASDetector2008}.
     }
     \label{fig:atlas_muon_spectrometer}
@@ -360,6 +372,7 @@ At the LHC, proton bunches can cross at a rate of up to $40~\MHz$ for a bunch sp
 This rate is far above the available detector readout and permanent-storage bandwidth.
 The ATLAS trigger and data acquisition~(TDAQ) system is therefore designed to select potentially interesting events online and reduce the event rate to a manageable level.
 ATLAS uses a two-level trigger system consisting of a hardware-based Level-1~(L1) trigger and a software-based High-Level Trigger~(HLT)~\cite{ATLASTriggerRun2}.
+A schematic overview of the Run~2 TDAQ system is shown in Figure~\ref{fig:atlas_tdaq}.
 
 \subsubsection*{Level-1 (L1) trigger}
 
@@ -367,7 +380,6 @@ The L1 trigger is the first stage of the ATLAS online event selection.
 It is implemented in custom hardware and uses reduced-granularity detector information to make a fast decision with a latency of approximately $2.5~\us$.
 It reduces the input rate from up to $40~\MHz$ to at most $100~\kHz$.
 The L1 trigger was based on information from the calorimeter and muon trigger systems, together with topological selections applied to L1 trigger objects.
-A schematic overview of the Run~2 TDAQ system is shown in Figure~\ref{fig:atlas_tdaq}.
 
 \begin{figure}[htbp]
     \centering
@@ -395,7 +407,7 @@ A schematic overview of the Run~2 TDAQ system is shown in Figure~\ref{fig:atlas_
 
     L1Topo receives compact trigger-object information reconstructed by L1Calo and L1Muon, including their transverse momentum or energy and $(\eta,\phi)$ positions.
     Dedicated FPGA hardware combines these objects and calculates event-level topological quantities.
-    And these quantities are compared with predefined selection requirements.
+    These quantities are compared with predefined selection requirements.
 \end{itemize}
 
 The trigger decisions from L1Calo, L1Muon, and L1Topo are then sent to the Central Trigger Processor~(CTP), which combines them according to the predefined L1 trigger menu.
@@ -409,9 +421,113 @@ These RoIs provide seed information for the HLT and allow detailed reconstructio
 \subsubsection*{High-Level Trigger}
 
 The HLT is the second stage of the ATLAS trigger system.
-It is implemented in a large computing farm and runs software algorithms using detector information with substantially finer granularity than is available at L1.
+It is implemented in a large computing farm and runs software algorithms using detector information with substantially finer granularity than that available at L1.
 The HLT reconstruction is guided by RoIs identified by the L1 trigger, while full-event reconstruction can also be used for signatures such as jets and missing transverse momentum.
 The HLT algorithms are designed to provide reconstruction performance close to that of the offline algorithms while remaining sufficiently fast for online operation.
-As a reuslt, the HLT reduced the L1 output rate to an average recording rate of approximately $1~\kHz$ for permanent storage.
+As a result, the HLT reduced the L1 output rate to an average recording rate of approximately $1~\kHz$ for permanent storage.
 
 The trigger menu comprises the active L1 and HLT selections used during data taking with prescale factors, which are applied to selected trigger items to control their rates according to the instantaneous luminosity and available bandwidth.
+
+
+\subsubsection*{Triggers used in this analysis}
+
+In this analysis, single-electron, single-muon and $\met$ triggers are used.
+The signal region event selection uses the lowest-threshold unprescaled $\met$ trigger, which is fully efficient for the offline requirement $\met>200~\GeV$ applied in the signal regions and the corresponding validation regions.
+Single-electron and single-muon triggers are used in regions containing an electron or muon.
+The lowest online thresholds range from $20$ to $26~\GeV$~\cite{ATLASElectronTriggerRun2,ATLASMuonTriggerRun2}.
+
+Table~\ref{tab:run2_trigger_chains} lists the trigger chains used in this analysis.
+In an HLT chain name, \texttt{e}, \texttt{mu} and \texttt{xe} represent an electron, a muon and $\met$, respectively. The following number gives the online threshold in \GeV.
+The \texttt{L1} suffix indicates the first-level trigger that seeds the chain.
+The electron labels \texttt{lhloose}, \texttt{lhmedium} and \texttt{lhtight} specify likelihood-based identification requirements, while \texttt{nod0} indicates that transverse-impact-parameter information is omitted.
+The labels \texttt{iloose}, \texttt{ivarloose} and \texttt{ivarmedium} specify isolation requirements.
+For $\met$, \texttt{mht} denotes a calculation based on the negative vector sum of jet transverse momenta, whereas \texttt{pufit} denotes a calorimeter-based calculation with a fit-based pile-up correction~\cite{ATLASMETTriggerRun2}.
+
+Figures~\ref{fig:run2_lepton_trigger_efficiency} and~\ref{fig:run2_met_trigger_efficiency} show representative Run~2 trigger-efficiency measurements. 
+The objects are defined in Chapter~\ref{chapter:object_reconstruction}.
+Differences in trigger efficiency between collision data and simulation are corrected using data-to-simulation efficiency scale factors.
+
+
+% Source: TauX_Gnt1makerAlg/python/TriggerList.py, Obsidian snapshot 2026-09-08.
+% Run-2 entries of trig_singleEle, trig_singleMuon and trig_met.
+% Single-lepton OR and MET period selection checked in
+% TauXFastFrame/Root/TauXHelpers.cc: getSLTflag and getMETflag.
+\begin{table}[htbp]
+    \centering
+    \caption[Run~2 single-lepton and missing-transverse-momentum trigger chains]{
+        Single-electron, single-muon and $\met$ trigger chains used in the Run~2 analysis.
+        Single-lepton chains listed for the same flavour and year are combined with a logical OR, while the $\met$ chain is selected according to the data-taking period.
+    }
+    \label{tab:run2_trigger_chains}
+    \begingroup
+    \small
+    \setlength{\tabcolsep}{4pt}
+    \renewcommand{\arraystretch}{1.08}
+    \begin{tabular}{lll}
+        \toprule
+        Trigger & Year & HLT chain \\
+        \midrule
+        Single-electron & 2015 & \texttt{\detokenize{HLT_e24_lhmedium_L1EM20VH}} \\
+        & & \texttt{\detokenize{HLT_e60_lhmedium}} \\
+        & & \texttt{\detokenize{HLT_e120_lhloose}} \\
+        & 2016--2018 & \texttt{\detokenize{HLT_e26_lhtight_nod0_ivarloose}} \\
+        & & \texttt{\detokenize{HLT_e60_lhmedium_nod0}} \\
+        & & \texttt{\detokenize{HLT_e140_lhloose_nod0}} \\
+        \midrule
+        Single-muon & 2015 & \texttt{\detokenize{HLT_mu20_iloose_L1MU15}} \\
+        & & \texttt{\detokenize{HLT_mu40}} \\
+        & 2016--2018 & \texttt{\detokenize{HLT_mu26_ivarmedium}} \\
+        & & \texttt{\detokenize{HLT_mu50}} \\
+        \midrule
+        $\met$ & 2015 & \texttt{\detokenize{HLT_xe70_mht}} \\
+        & 2016 & \texttt{\detokenize{HLT_xe90_mht_L1XE50}} \\
+        & & \texttt{\detokenize{HLT_xe100_mht_L1XE50}} \\
+        & & \texttt{\detokenize{HLT_xe110_mht_L1XE50}} \\
+        & 2017 & \texttt{\detokenize{HLT_xe110_pufit_L1XE55}} \\
+        & & \texttt{\detokenize{HLT_xe110_pufit_L1XE50}} \\
+        & 2018 & \texttt{\detokenize{HLT_xe110_pufit_xe70_L1XE50}} \\
+        & & \texttt{\detokenize{HLT_xe110_pufit_xe65_L1XE50}} \\
+        \bottomrule
+    \end{tabular}
+    \endgroup
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.62\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figs/CH5/trigger_electron_efficiency.pdf}
+        \caption{Single-electron trigger combination.}
+    \end{subfigure}
+    \par\medskip
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figs/CH5/trigger_muon_efficiency_barrel.pdf}
+        \caption{Single-muon triggers, barrel.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figs/CH5/trigger_muon_efficiency_endcap.pdf}
+        \caption{Single-muon triggers, end-cap.}
+    \end{subfigure}
+    \caption[Run~2 single-lepton trigger efficiencies]{
+        Single-lepton trigger efficiencies measured in Run~2 $\zll$ events.
+        (a) Electron efficiency versus offline $\et$ for electrons with Tight identification and FCTight isolation~\cite{ATLASElectronTriggerRun2}.
+        (b,c) Muon efficiency versus offline $\pT$ in the barrel and end-cap regions, respectively~\cite{ATLASMuonTriggerRun2}.
+        Electron uncertainties include statistical and systematic contributions, while muon uncertainties are statistical only.
+        The electron trigger efficiency decreased from 2015 to 2016 as the online selections were tightened to control the trigger rate at higher instantaneous luminosity, and improved in 2017--2018 following algorithm updates.
+    }
+    \label{fig:run2_lepton_trigger_efficiency}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figs/CH5/trigger_met_efficiency.pdf}
+    \caption[Run~2 missing-transverse-momentum trigger efficiencies]{
+        Combined L1 and HLT $\met$ trigger efficiencies in $\zmumu$ events for 2015--2018~\cite{ATLASMETTriggerRun2}.
+        The lowest unprescaled trigger for each year is used. Error bars show statistical uncertainties.
+        Since muons are treated as invisible by calorimeter-based triggers, the dimuon transverse momentum $\pt(\mu\mu)$ provides a reference for $\met$ measured by the trigger. 
+    }
+    \label{fig:run2_met_trigger_efficiency}
+\end{figure}

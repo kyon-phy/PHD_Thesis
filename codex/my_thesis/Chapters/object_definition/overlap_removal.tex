@@ -2,6 +2,7 @@
 \label{sec:ch6_overlap}
 
 Different reconstructed objects can share the same detector measurements. The $\Delta R$ between two objects is used for the separation.
+Overlap removal is applied once to the baseline objects. The remaining objects are then tested against the additional signal requirements. The procedure is therefore not repeated independently for the signal objects.
 An ordered overlap-removal procedure is therefore applied to resolve these ambiguities before event selection as follows:
 \begin{enumerate}
     \item \textbf{Electron--electron}: the lower-$\pT$ electron is removed if two electrons share an ID track, so that a single track is not counted as two electrons.

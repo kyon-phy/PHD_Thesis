@@ -1,7 +1,18 @@
 % ******************************* PhD Thesis Template **************************
 % Please have a look at the README.md file for info on how to use the template
 
+% Link each reference back to the pages on which it is cited.
+\PassOptionsToPackage{pagebackref}{hyperref}
 \documentclass[a4paper,12pt,times,numbered,print,index,custombib]{Classes/PhDThesisPSnPDF}
+\renewcommand*{\backrefalt}[4]{%
+  \ifcase#1\relax
+  \or (cited on page~#2)%
+  \else (cited on pages~#2)%
+  \fi
+}
+\renewcommand*{\backrefsep}{, }
+\renewcommand*{\backreftwosep}{, }
+\renewcommand*{\backreflastsep}{, }
 
 % ******************************************************************************
 % ******************************* Class Options ********************************
@@ -82,6 +93,16 @@
 % Preamble: Contains packages and user-defined commands and settings
 \input{Preamble/preamble}
 
+% Record every source in compressed citations such as [1--3].
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\NAT@citexnum}
+  {\NAT@parse{\@citeb}}
+  {\NAT@parse{\@citeb}\Hy@backout{\@citeb\@extra@b@citeb}}
+  {}
+  {\PackageError{thesis}{Cannot enable backlinks for compressed citations}{}}
+\makeatother
+
 % ************************ Thesis Information & Meta-data **********************
 % Thesis title and author information, refernce file for biblatex
 \input{thesis-info}
@@ -160,7 +181,7 @@
 
 % \bibliographystyle{apalike}
 % \bibliographystyle{ieeetr}
-\bibliographystyle{unsrtnat} % Use for unsorted references
+\bibliographystyle{References/thesis-unsrtnat} % Local reference formatting; citation-order numbering
 % \bibliographystyle{plainnat} % use this to have URLs listed in References
 \cleardoublepage
 \bibliography{References/references} % Path to your References.bib file
@@ -184,9 +205,10 @@
 % \include{Chapters/Appendix/Appendix_signal_efficiency_and_interference}
 \include{Chapters/Appendix/Appendix_sr0b_optimisation}
 \include{Chapters/Appendix/Appendix_fake_tau_estimation}
-\include{Chapters/Appendix/Appendix_vrw_nonres_study}
 \include{Chapters/Appendix/Appendix_cr_lepton_consistency}
 \include{Chapters/Appendix/Appendix_topcr_bjet_comparison}
+\include{Chapters/Appendix/Appendix_vrw_nonres_study}
+\include{Chapters/Appendix/Appendix_tautau_contamination}
 % \include{Chapters/Appendix/Appendix_signal_weight_correction}
 
 \end{appendices}

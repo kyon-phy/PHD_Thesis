@@ -1,45 +1,50 @@
-\section{Hadronic tau leptons}
+\section{Hadronic \texorpdfstring{$\tau$}{tau} leptons}
 \label{sec:ch6_tau}
 
 \subsection{Reconstruction}
 
-$\tau$ leptons can decay both leptonically and hadronically.
-Approximately 65\% of $\tau$ decays are hadronic, with the major modes containing charged and possibly neutral pions.
-In this analysis, only hadronically decaying tau leptons ($\hadtau$) are reconstructed as tau candidates. The $\tau$-neutrino is excluded from the reconstruction; the $\hadtau$ momentum therefore refers to the visible decay products.
+$\tau$ leptons decay both leptonically and hadronically and approximately 65\% of $\tau$ decays are hadronic. Hadronic $\tau$ decays commonly contain one or three charged hadrons and are referred to as one-prong or three-prong decays. For reconstructed $\hadtau$ candidates, the prong multiplicity is determined from the number of tracks classified as tau-decay tracks.
+In this analysis, only hadronically decaying $\tau$ leptons ($\hadtau$) are reconstructed as tau candidates. The $\tau$-neutrino is not taken into account in the $\hadtau$ reconstruction. The $\hadtau$ momentum therefore refers to the visible decay products.
 
-$\hadtau$ candidates are first seeded by anti-$k_t$ jets with $R=0.4$.
-The production vertex is then chosen as the vertex with the largest fraction of the $\pT$ sum of tracks within $\Delta R<0.2$ of the seed axis.
+$\hadtau$ candidates are first seeded by anti-$k_t$ LCTopo jets with $R=0.4$ instead of PFlow jets~\cite{ATLAS2022TauR22}.
+LCTopo jets are reconstructed using calorimeter topological clusters with local hadronic calibration.
+The production vertex is then chosen as the vertex with the largest fraction of the $\pT$ sum of tracks within $\Delta R<0.2$ of the seed axis rather than simply choosing the primary vertex.
 This vertex provides the reference for track association and impact parameter calculations.
-The tracks are then classified by a recurrent neural network (RNN) to select tau-decay tracks~\cite{ATLAS2022TauR22}.
-The number of selected tau-decay tracks defines the prong multiplicity: candidates with one or three tracks are called one-prong or three-prong candidates, respectively.
+The tracks are then classified by a recurrent neural network (RNN) to select one-prong or three-prong tau candidates.
 
 \subsection{Identification}
 
-Hadronic tau decays are identified using an RNN discriminant to distinguish them from quark- and gluon-initiated jets.
+Hadronic tau decays are identified using a separate RNN discriminant to distinguish them from quark- and gluon-initiated jets.
+This RNN is trained separately for one-prong and three-prong candidates.
 Track momenta and calorimeter shower properties are used as inputs, since tau decays typically have narrower showers and lower charged multiplicity than those jets.
 Track displacements and, for three-prong candidates, the significance of the reconstructed decay-vertex displacement are also included as inputs.
 Nearby activity is also included in the RNN inputs, so isolation information is used as part of the identification.
 
-Baseline $\hadtau$ candidates are required to pass \texttt{Loose} RNN identification, and signal candidates must additionally satisfy \texttt{Tight}.
-The higher RNN-score threshold for \texttt{Tight} rejects more jets at the cost of $\hadtau$ efficiency.
-For reconstructed one-prong (three-prong) candidates, the target identification efficiencies are 85\% (75\%) for \texttt{Loose} and 60\% (45\%) for \texttt{Tight}~\cite{ATLAS2019TauRNN}.
+The RNN score is used to distinguish $\hadtau$ candidates from jets. And the working points are defined by the thresholds of the RNN score.
+For reconstructed one-prong (three-prong) candidates, the working points are defined as follows~\cite{ATLAS2019TauRNN}:
+\begin{itemize}
+    \item \texttt{Loose}: the RNN-score threshold corresponds to a target $\hadtau$ identification efficiency of 85\% (75\%).
+    \item \texttt{Tight}: a higher RNN-score threshold corresponds to a target $\hadtau$ identification efficiency of 60\% (45\%), rejecting more jets at the cost of $\hadtau$ efficiency.
+\end{itemize}
+The corresponding representative rejection rates against jets in the simulated multijet background are about 93\% (99\%) for \texttt{Loose} and 98\% (99.8\%) for \texttt{Tight}~\cite{ATLAS2022TauR22}.
+In this analysis, baseline $\hadtau$ candidates are required to pass \texttt{Loose} RNN identification, and signal candidates must additionally satisfy \texttt{Tight}.
 
 Electrons can be misidentified as $\hadtau$ candidates because their narrow showers and tracks are similar to the signature of a one-prong tau decay.
+They can also be misidentified as a three-prong $\hadtau$ candidate when additional tracks are incorrectly classified as tau-decay tracks in the same candidate, for example, from the conversion of a bremsstrahlung photon into an electron--positron pair.
 To suppress this background, both baseline and signal $\hadtau$ candidates are required to pass \texttt{Loose} electron rejection.
-This working point requires a minimum score from a separate RNN using shower and track information, including the relation between calorimeter energy and track momentum.
+This working point requires a minimum score from another RNN using shower and track information, including the relation between calorimeter energy and track momentum. This RNN is trained to distinguish $\hadtau$ candidates from electrons.
 The $\hadtau$ efficiencies are approximately 95\% and 98\% for one-prong and three-prong candidates, respectively.
 The corresponding electron rejection efficiencies are approximately 99.7\% and 98.8\%.
 
 \subsection{Calibration}
 
-The $\hadtau$ energy scale (TES) calibration is derived from MC samples.
+The tau energy scale (TES) calibration is derived from MC samples.
 In these samples, the generated visible tau $\pT$ is used as the reference for correcting the reconstructed $\pT$.
-The visible $\pT$ is reconstructed in two ways: from calorimeter energy deposits and shower directions, and from a combination of tracking and calorimeter measurements.
-In the latter, charged-hadron momenta are measured from track curvature in the magnetic field, while neutral particles, which leave no tracks, are measured through their calorimeter deposits.
-The calorimeter deposits associated with charged hadrons are subtracted to avoid double counting.
-These two measurements are combined in a weighted average.
+The visible $\pT^{\hadtau}$ is estimated using either calorimeter measurements alone or track momenta for charged hadrons combined with calorimeter measurements for neutral particles.
+The $\pT^{\hadtau}$ estimates from these two methods are averaged with weights determined from their resolutions in simulation, giving more weight to the estimate with better resolution~\cite{ATLAS2022TauR22}.
 The averaged $\pT$ is then corrected using a boosted regression tree (BRT) trained on these MC samples.
+The inputs of the BRT include variables such as $\eta$ of $\hadtau$ candidates, track multiplicities, calorimeter information and pile-up information.
 
-In addition to the momentum calibration, differences in $\hadtau$ reconstruction, identification and electron-rejection efficiencies between data and simulation must be corrected.
-For this purpose, data-to-simulation scale factors are applied to simulated event weights.
-In this analysis, for signal candidates passing \texttt{Tight} $\hadtau$ identification, the electron-veto scale factors for \texttt{Medium} $\hadtau$ identification are used because no corresponding factors were available for \texttt{Tight}.
+In addition to the momentum calibration, differences in $\hadtau$ reconstruction, identification and electron-rejection efficiencies between data and simulation are corrected using scale factors applied to simulated event weights.
+At high $\pT$, the reconstruction and identification efficiencies are measured using $\ttbar$ events.
+In this analysis, for signal candidates passing \texttt{Tight} $\hadtau$ identification, the \texttt{Loose} electron-veto scale factors measured for \texttt{Medium} $\hadtau$ identification are used because no corresponding factors were available for \texttt{Tight} $\hadtau$ identification.

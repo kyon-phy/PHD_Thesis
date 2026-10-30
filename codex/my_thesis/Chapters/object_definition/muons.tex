@@ -4,48 +4,60 @@
 \subsection{Reconstruction}
 
 Muons are reconstructed using tracks in the ID and MS, together with their energy deposits in the calorimeters~\cite{ATLAS2021MuonID}.
-The main reconstruction categories are:
+The reconstructed muon types are:
 \begin{itemize}
-    \item \textbf{Combined muons} are reconstructed by matching and fitting ID and MS tracks, including the energy loss between the two tracking systems.
-    \item \textbf{Segment-tagged muons} are reconstructed by matching an ID track to one or more local track segments in the MS when a complete MS track is unavailable.
-    \item \textbf{Calorimeter-tagged muons} are reconstructed by matching an ID track to calorimeter deposits compatible with a minimum-ionising particle. Acceptance is recovered in regions with limited MS coverage.
+    \item \textbf{Combined (CB) muons} are reconstructed by matching and fitting ID and MS tracks, including the energy loss between the two tracking systems. An alternative method called the inside-out method is also used to increase the acceptance of low $\pT$ muons. In this method, MS hits are fitted together with the extrapolated ID track, without requiring an independently reconstructed MS track.    
+    \item \textbf{Segment-tagged (ST) muons} are reconstructed by matching an ID track to one or more local track segments in the MS when a complete MS track is unavailable.
+    \item \textbf{Calorimeter-tagged (CT) muons} are reconstructed by matching an ID track to calorimeter deposits compatible with a minimum-ionising particle. The muon acceptance is recovered in the central region $|\eta|<0.1$, where MS coverage is limited.
     \item \textbf{MS-extrapolated muons} are reconstructed by extrapolating an MS track towards the interaction region without a matched ID track.
 \end{itemize}
 
-Combined muons are used in this analysis.
+\noindent CB muons are used as signal muons in this analysis, while ST and CT muons are additionally used as baseline muons.
 
 \subsection{Identification}
 
 Muon identification tests whether the detector hits and the ID and MS momentum measurements are consistent with a single muon trajectory.
-It's important since muon candidates can also be produced by in-flight decays of charged mesons, such as pions and kaons.
+This step is important because muon candidates can also be produced by in-flight decays of charged mesons, such as pions and kaons.
 These decays can change the trajectory and momentum, leading to a disagreement between the momentum measurements.
 For muon candidates, this agreement is quantified by the $q/p$ significance,
-\begin{align}
+\begin{align*}
     S_{q/p}=\frac{\left|(q/p)_{\mathrm{ID}}-(q/p)_{\mathrm{MS}}\right|}
     {\sqrt{\sigma_{\mathrm{ID}}^2+\sigma_{\mathrm{MS}}^2}},
-    \label{eq:ch6_muon_qp_significance}
-\end{align}
+\end{align*}
 where $(q/p)_{\mathrm{ID}}$ and $(q/p)_{\mathrm{MS}}$ are the charge-to-momentum ratios determined from the ID and MS tracks, respectively.
 $\sigma_{\mathrm{ID}}$ and $\sigma_{\mathrm{MS}}$ denote the uncertainties.
 Large values indicate poor agreement and help reject incorrectly matched candidates.
 
-In this analysis, baseline muons are required to pass \texttt{Loose} identification while signal muons must additionally satisfy the \texttt{Medium}.
-The \texttt{Medium} working point requires combined muons within the ID acceptance to satisfy $S_{q/p}<7$ and, outside $|\eta|<0.1$, to have at least two MS precision stations with at least three MDT or CSC hits each.
-The \texttt{Loose} working point applies the same requirements and additionally accepts segment-tagged and calorimeter-tagged candidates in $|\eta|<0.1$, where MS coverage is limited.
-The typical prompt-muon efficiencies are about 99\% for \texttt{Loose} and 97\% for \texttt{Medium}.
+Muon identification provides \texttt{Loose}, \texttt{Medium} and \texttt{Tight} working points.
+In this analysis, baseline muons are required to pass \texttt{Loose} identification while signal muons must additionally satisfy the \texttt{Medium} working point. The two working points are defined as follows:
+\begin{itemize}
+    \item \texttt{Medium}: CB muons within the ID acceptance must satisfy $S_{q/p}<7$. Outside $|\eta|<0.1$, they must also have at least two MS precision stations with at least three MDT or CSC hits each.
+    \item \texttt{Loose}: the same requirements as \texttt{Medium}, with additional acceptance for ST and CT muons in $|\eta|<0.1$, where MS coverage is limited.
+    It also accepts additional inside-out CB muons with $\pT<7~\GeV$.
+\end{itemize}
+The typical prompt-muon reconstruction and identification efficiencies are about 99\% for \texttt{Loose} and 97\% for \texttt{Medium}.
+The corresponding representative rejection rates against light hadrons are about 99.75\% and 99.83\%, respectively~\cite{ATLAS2021MuonID}.
 
 \subsection{Isolation}
 
 Muons from heavy-flavour decays are often accompanied by other particles inside a jet.
 They are suppressed using track and calorimeter isolation, calculated similarly to electron isolation, with the muon's own contribution excluded.
 Baseline muons are required to pass \texttt{Loose\_VarRad} isolation, and signal muons must additionally satisfy \texttt{Tight\_VarRad}.
-Both working points use a track-cone radius that decreases as the muon $\pT$ increases and a fixed calorimeter cone of $\Delta R=0.2$.
-The track and calorimeter isolation sums must be below 15\% and 30\% of the muon $\pT$ for \texttt{Loose\_VarRad}, respectively.
-These limits are reduced to 4\% and 15\% for \texttt{Tight\_VarRad}, allowing less activity around the muon and rejecting more muons produced inside jets.
-The typical prompt-muon isolation efficiencies are about 95\% for \texttt{Loose\_VarRad} and 86\% for \texttt{Tight\_VarRad}~\cite{ATLAS2024MuonIsolation}.
+Both working points use a $\pT$-dependent cone radius for the track isolation sum and a fixed cone of $\Delta R=0.2$ for the calorimeter isolation sum. The specific cut thresholds are defined as follows:
+\begin{itemize}
+    \item \texttt{Loose\_VarRad}: the track and calorimeter isolation sums must be below 15\% and 30\% of the muon $\pT$, respectively.
+    \item \texttt{Tight\_VarRad}: the track and calorimeter isolation sums must be below 4\% and 15\% of the muon $\pT$, respectively.
+\end{itemize}
+The typical prompt-muon isolation efficiencies are about 95\% for \texttt{Loose\_VarRad} and 86\% for \texttt{Tight\_VarRad}.
+The corresponding representative rejection rates against non-prompt muons are about 95\% and 98\%, respectively~\cite{Maricic2025MuonIsolation}.
 
 \subsection{Calibration}
 
-The muon momentum scale and resolution are calibrated using resonance decays, e.g., $\zmumu$ and $J/\psi\rightarrow\mu\mu$~\cite{ATLAS2023MuonCalibration}.
-The reconstructed mass distributions constrain biases in the muon momentum measurement.
-The efficiency scale factors are measured with tag-and-probe samples as for electrons and applied to simulated event weights for the selected working points.
+The calibration for muons follows a procedure similar to that for electrons and consists of a momentum calibration and an efficiency calibration.
+
+For the momentum calibration, momentum biases in the track reconstruction caused by detector misalignment are first corrected in data.
+The momentum scale and resolution are then corrected for simulated events using the $m_{\mu\mu}$ distributions in $\zmumu$ and $J/\psi\rightarrow\mu\mu$ events~\cite{ATLAS2023MuonCalibration}.
+
+For the efficiency calibration, the reconstruction, identification and isolation efficiencies are measured with the tag-and-probe method using $\zmumu$ events.
+$J/\psi\rightarrow\mu\mu$ events are also used to measure the reconstruction and identification efficiencies at low $\pT$~\cite{ATLAS2021MuonID}.
+The scale factors defined in Eq.~\eqref{eq:ch6_efficiency_sf} are then applied to simulated event weights for the muon working points used in this analysis to correct the muon selection efficiencies.

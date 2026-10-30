@@ -1,0 +1,40 @@
+\chapter{\texorpdfstring{$\tau\tau$}{tau tau} signal contamination}
+\label{app:tautau_contamination}
+
+The signal contamination from $\tau\tau$ production is evaluated in this appendix. Example diagrams for $\tau\tau$ production are shown in Figure~\ref{fig:lq_production_modes}.
+Although two $\tau$ leptons are produced in the final state, an event can satisfy the single-$\hadtau$ requirement when only one is reconstructed and selected. Neutrinos from the $\tau$ decays produce missing momentum.
+
+\begingroup
+\setlength{\emergencystretch}{2em}
+The study uses simulated $\tau\tau$ samples at $(\MU,\gU,\beta_L^{23})=(1.8~\TeV,2.8,0)$ and $(3.0~\TeV,2.8,0)$, with $\beta_L^{33}=1$ and $\beta_R^{33}=0$. Their yields are compared with those of the available $\tau\nu+b$ samples at $(1.8~\TeV,3.0,0.6)$ and $(3.0~\TeV,3.0,1.4)$, respectively.
+For the two $\tau\nu+b$ benchmarks, the larger approximate significance among the two $\bTagSR$ regions is $Z=6.4$ in $\bTagSR$-$\Res$ and $Z=6.3$ in $\bTagSR$-$\NonRes$, respectively.
+These values are calculated using Eq.~\eqref{eq:ch7_optimisation_significance}, with the signal yields in Table~\ref{tab:ch7_tautau_contamination}, the background yields in Tables~\ref{tab:ch7_cutflow_res} and~\ref{tab:ch7_cutflow_nonres} and $\sigma=0.30b$.
+Both benchmarks have approximate significances above the conventional $5\sigma$ discovery threshold, corresponding to $Z=5$.
+\par\endgroup
+
+Since the $\tau\tau$ samples are generated at $\beta_L^{23}=0$, a fair comparison with the $\tau\nu+b$ samples at the same $\beta_L^{23}$ is not directly possible. To estimate the contribution at the corresponding $\beta_L^{23}$ values, the yields are scaled using cross-section ratios calculated with \textsc{MadGraph5\_aMC@NLO}. Specifically, the cross-section ratios are $\sigma_{\beta_L^{23}=0.6}/\sigma_{\beta_L^{23}=0}=2.7$ and $\sigma_{\beta_L^{23}=1.4}/\sigma_{\beta_L^{23}=0}=30$.
+
+The $\tau\nu$ yields and estimated $\tau\tau$ contributions are summarised in Table~\ref{tab:ch7_tautau_contamination}.
+The estimated contamination from $\tau\tau$ production is approximately $16$--$32\%$ of the nominal $\tau\nu$ yield in $\bTagSR$, and $1.5$--$8\%$ in $\bVetoSR$.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \setlength{\tabcolsep}{3pt}
+    \caption[Signal yields from $\tau\nu$ and $\tau\tau$ production in the SRs]{Signal yields from $\tau\nu$ and $\tau\tau$ production in the four SRs. The parameter values $(\MU,\gU,\beta_L^{23})$ are given for each sample. The $\tau\tau$ yields are shown at $\beta_L^{23}=0$, with the yields scaled to $\beta_L^{23}=0.6$ and $1.4$, respectively, given in parentheses.}
+    \label{tab:ch7_tautau_contamination}
+    \begin{tabular}{lcccc}
+        \toprule
+        Region & $\tau\nu$ & $\tau\nu$ & $\tau\tau$ & $\tau\tau$ \\
+        & $(1.8~\TeV,3.0,0.6)$ & $(3.0~\TeV,3.0,1.4)$ & $(1.8~\TeV,2.8,0)$ & $(3.0~\TeV,2.8,0)$ \\
+        \midrule
+        $\bTagSR$-$\Res$ & 21.0 & 19.4 & 2.5 (6.8) & 0.103 (3.10) \\
+        $\bTagSR$-$\NonRes$ & 11.8 & 18.8 & 1.3 (3.5) & 0.182 (5.47) \\
+        $\bVetoSR$-$\Res$ & 28.9 & 75.9 & 0.8 (2.2) & 0.0367 (1.10) \\
+        $\bVetoSR$-$\NonRes$ & 43.5 & 158.8 & 1.3 (3.5) & 0.158 (4.73) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The effect of the estimated $\tau\tau$ contribution on the expected limit is evaluated by increasing the nominal $\tau\nu+\mathrm{jets}$ signal yields by fixed factors of 1.37, 1.33, 1.05 and 1.07 in $\bTagSR$-$\Res$, $\bTagSR$-$\NonRes$, $\bVetoSR$-$\Res$ and $\bVetoSR$-$\NonRes$, respectively, and repeating the exclusion fit. The corresponding improvement in the expected limit on $\gU$ is about $5\%$ at $\MU=1.8~\TeV$ and $2\%$ at $\MU=3.0~\TeV$.
+This study indicates that omitting the $\tau\tau$ contribution slightly underestimates the sensitivity. The improvement in the coupling limit is mostly covered by the theory uncertainties in the $\tau\nu+\mathrm{jets}$ signal prediction described in Section~\ref{subsec:ch9_signal}.
