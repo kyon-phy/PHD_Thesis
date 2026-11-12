@@ -1,10 +1,12 @@
 \chapter{Theoretical Background}
 \label{chapter:theoretical_background}
 
-This chapter introduces the theoretical background that motivates the search presented in this thesis. 
-The discussion begins with the SM, which successfully describes a wide range of experimental observations of elementary particles and their interactions. 
-The limitations of the SM are then summarised, followed by a discussion of several possible extensions beyond the SM. 
-Leptoquark models are then discussed in more detail, since they connect the quark and lepton sectors directly and motivate the search presented in this thesis.
+This chapter introduces the theoretical background that motivates the search presented in this thesis.
+The discussion begins with the SM, which successfully describes a wide range of experimental observations of elementary particles and their interactions.
+The limitations of the SM are then summarised, including the anomalies observed in semileptonic $B$-meson decays.
+Finally, several possible extensions of the SM are introduced.
+Among them, quark--lepton unification predicts leptoquarks, which connect the quark and lepton sectors directly and can explain these anomalies.
+The leptoquark models are discussed in detail in Chapter~\ref{chapter:LQ_search}.
 
 \section{The Standard Model}
 \label{sec:sm}
@@ -95,10 +97,7 @@ For gauge bosons, the table lists their spins and electric charges.
 \begin{table}[htbp]
     \centering
     \caption[Standard Model particle content]{
-    Particle content of the SM and the corresponding spin and electroweak
-    quantum numbers.
-    For gauge bosons, only the electric charges of the physical states after
-    electroweak symmetry breaking are shown.
+    Particle content of the SM and the corresponding spin and electroweak quantum numbers.
     }
     \label{tab:sm_particles}
     \scriptsize
@@ -221,8 +220,8 @@ For gauge bosons, the table lists their spins and electric charges.
 \subsection{Local gauge invariance and the gauge interactions}
 \label{subsec:local_gauge_invariance}
 
-The guiding principle in constructing the SM is local gauge invariance. 
-For a field $\psi(x)$ transforming under a gauge group with generators $T^{A}$, a generic local transformation is
+The interactions of the SM follow from invariance under local gauge transformations.
+A field $\psi(x)$ in a representation with generators $T^{A}$ transforms as
 \begin{align*}
     \psi(x)
     \rightarrow
@@ -309,15 +308,14 @@ The gauge kinetic terms are built from the field-strength tensors
     -
     \partial_{\nu}B_{\mu},
 \end{align*}
-where $f^{abc}$ are the structure constants of $SU(3)$. 
-The terms quadratic in the gauge fields arise because the generators of the non-Abelian groups $SU(3)_{C}$ and $SU(2)_{L}$ do not commute, and they lead to self-interactions among gluons and among weak gauge bosons. 
-The Abelian $B_{\mu\nu}$ contains no such term. 
+where $f^{abc}$ and $\epsilon^{IJK}$ are the structure constants of $SU(3)_{C}$ and $SU(2)_{L}$.
+The terms quadratic in the gauge fields arise because the generators of these non-Abelian groups do not commute.
+When the field-strength tensors are squared in the gauge kinetic terms, they produce self-interactions among the gluons and among the $SU(2)_{L}$ gauge fields.
 
 \subsection{The Standard Model Lagrangian}
 \label{subsec:sm_lagrangian}
 
 Using the field content, covariant derivative and field-strength tensors introduced above, the SM Lagrangian can be written as the sum of gauge-boson kinetic terms, fermion kinetic terms, the Higgs-sector terms, and Yukawa interactions. 
-Ignoring gauge-fixing terms, ghost terms, and the QCD $\theta$-term, it is written schematically as
 \begin{align}
     \mathcal{L}_{\mathrm{SM}}
     =
@@ -332,7 +330,7 @@ Ignoring gauge-fixing terms, ghost terms, and the QCD $\theta$-term, it is writt
 \end{align}
 The four terms in Eq.~\eqref{eq:sm_lagrangian_decomposition} are fixed by Lorentz invariance, local gauge invariance, and renormalisability, once the SM field content is specified~\cite{PDG2024}.
 
-The gauge-boson kinetic terms are
+The gauge-boson kinetic term is
 \begin{align}
     \mathcal{L}_{\mathrm{gauge}}
     =
@@ -347,9 +345,7 @@ The gauge-boson kinetic terms are
     B_{\mu\nu}B^{\mu\nu}.
     \label{eq:sm_gauge_lagrangian}
 \end{align}
-Repeated Lorentz and gauge indices are summed over, and the factor $-1/4$ gives the canonical normalisation of the kinetic terms. 
-The quadratic parts of Eq.~\eqref{eq:sm_gauge_lagrangian} describe the free propagation of the gauge fields, while the non-Abelian parts of $G_{\mu\nu}^{a}$ and $W_{\mu\nu}^{I}$ generate the self-interactions among the gauge bosons noted above.
-
+The derivative terms of the field-strength tensors describe the free propagation of the gauge fields, and the terms $g_{s}f^{abc}G_{\mu}^{b}G_{\nu}^{c}$ and $g\epsilon^{IJK}W_{\mu}^{J}W_{\nu}^{K}$ give the self-interactions noted above.
 
 The fermion kinetic terms are
 \begin{align}
@@ -357,20 +353,22 @@ The fermion kinetic terms are
     =
     \sum_{i=1}^{3}
     \bigg[
+        &
         \bar{Q}_{L}^{i} i\gamma^{\mu}D_{\mu}Q_{L}^{i}
         +
         \bar{u}_{R}^{i} i\gamma^{\mu}D_{\mu}u_{R}^{i}
         +
         \bar{d}_{R}^{i} i\gamma^{\mu}D_{\mu}d_{R}^{i}
-        +
+    \nonumber\\
+        &+
         \bar{L}_{L}^{i} i\gamma^{\mu}D_{\mu}L_{L}^{i}
         +
         \bar{e}_{R}^{i} i\gamma^{\mu}D_{\mu}e_{R}^{i}
-    \bigg].
+    \bigg],
     \label{eq:sm_fermion_lagrangian}
 \end{align}
-The Dirac adjoint is defined as $\bar{\psi}=\psi^{\dagger}\gamma^{0}$, and $\gamma^{\mu}$ are the Dirac gamma matrices. 
-The covariant derivative $D_{\mu}$ contains the gauge fields and couplings appropriate to the gauge quantum numbers of each fermion field. 
+where $\bar{Q}_{L}^{i}=(Q_{L}^{i})^{\dagger}\gamma^{0}$ is the Dirac adjoint of $Q_{L}^{i}$, and the same definition applies to the other fermion fields.
+The covariant derivative is given by Eq.~\eqref{eq:sm_covariant_derivative}. 
 Therefore, Eq.~\eqref{eq:sm_fermion_lagrangian} describes both the free propagation of fermions and their gauge interactions.
 
 The Higgs-sector terms are
@@ -391,8 +389,8 @@ The Higgs-sector terms are
 \end{align}
 The first term is the kinetic term of the Higgs doublet and also contains the gauge interactions of the Higgs field through the covariant derivative. 
 The function $V(\Phi)$ is the Higgs potential. 
-With the convention used here, $\mu^{2}>0$ and $\lambda>0$. 
-The condition $\lambda>0$ ensures that the potential is bounded from below, while the negative quadratic term causes the minimum of the potential to occur at a non-zero value of $\Phi^{\dagger}\Phi$. 
+$\mu^{2}$ is the mass parameter of the Higgs field and $\lambda$ is the Higgs self-coupling, with $\mu^{2}>0$ and $\lambda>0$.
+$\lambda>0$ makes $V(\Phi)$ rise at large $\Phi^{\dagger}\Phi$, while $\mu^{2}>0$ places the minimum at a non-zero value of $\Phi^{\dagger}\Phi$. 
 This leads to electroweak symmetry breaking through the Brout--Englert--Higgs mechanism~\cite{Englert1964,Higgs1964,Guralnik1964}.
 
 The Yukawa interactions are
@@ -423,7 +421,7 @@ The field $\tilde{\Phi}$ transforms as an $SU(2)_{L}$ doublet with hypercharge o
 
 For the Higgs potential in Eq.~\eqref{eq:sm_higgs_lagrangian}, the minimum satisfies $\Phi^{\dagger}\Phi=v^{2}/2$, where $v=\sqrt{\mu^{2}/\lambda}$ is the Higgs vacuum expectation value and sets the electroweak scale. 
 A convenient choice of vacuum expectation value is
-\begin{align*}
+\begin{align}
     \langle\Phi\rangle
     =
     \frac{1}{\sqrt{2}}
@@ -431,7 +429,8 @@ A convenient choice of vacuum expectation value is
         0 \\
         v
     \end{pmatrix}.
-\end{align*}
+    \label{eq:higgs_vev}
+\end{align}
 The value of $v$ is related to the Fermi constant by~\cite{PDG2024}
 \begin{align*}
     v=(\sqrt{2}G_{F})^{-1/2}\simeq 246~\GeV.
@@ -476,17 +475,13 @@ where the physical Higgs-boson mass is
     =
     2\mu^{2}.
 \end{align*}
-Unlike the $W$ and $Z$ boson masses, which are fixed at tree level by the electroweak gauge couplings and the vacuum expectation value, the Higgs-boson mass depends on the quartic coupling $\lambda$. 
+Unlike the $W$ and $Z$ boson masses, which are fixed at tree level by the electroweak gauge couplings and the vacuum expectation value, the Higgs-boson mass depends on the Higgs self-coupling $\lambda$. 
 Therefore, the SM does not predict the numerical value of $m_{h}$ before $\lambda$ is fixed experimentally. 
 The Higgs boson was observed by the ATLAS and CMS experiments in 2012~\cite{ATLAS2012Higgs,CMS2012Higgs}. 
 The observed Higgs-boson mass is approximately $125~\GeV$, corresponding to $\lambda\simeq m_{h}^{2}/(2v^{2})\simeq0.13$~\cite{ATLASCMSHiggsMass2015}.
 
-The masses of the electroweak gauge bosons arise from the Higgs kinetic term,
-\begin{align*}
-    (D_{\mu}\Phi)^{\dagger}(D^{\mu}\Phi),
-\end{align*}
-after substituting the Higgs vacuum expectation value. 
-It is useful to define the charged weak fields as
+The masses of the electroweak gauge bosons arise from the kinetic term $(D_{\mu}\Phi)^{\dagger}(D^{\mu}\Phi)$ after substituting the Higgs vacuum expectation value. 
+The charged weak fields are
 \begin{align*}
     W_{\mu}^{\pm}
     =
@@ -497,7 +492,7 @@ It is useful to define the charged weak fields as
         iW_{\mu}^{2}
     \right).
 \end{align*}
-The terms quadratic in the electroweak gauge fields are then
+Substituting the vacuum expectation value from Eq.~\eqref{eq:higgs_vev} into the kinetic term of Eq.~\eqref{eq:sm_higgs_lagrangian} gives
 \begin{align*}
     (D_{\mu}\langle\Phi\rangle)^{\dagger}
     (D^{\mu}\langle\Phi\rangle)
@@ -511,7 +506,7 @@ The terms quadratic in the electroweak gauge fields are then
         g'B_{\mu}
     \right)^{2}.
 \end{align*}
-The first term is the mass term of the charged weak bosons. 
+The first term is the mass term of the $W^{\pm}$ bosons. 
 The second term shows that the neutral gauge fields $W_{\mu}^{3}$ and $B_{\mu}$ mix and must be diagonalised.
 
 The weak mixing angle is defined by
@@ -524,7 +519,7 @@ The weak mixing angle is defined by
     =
     \frac{g'}{\sqrt{g^{2}+g'^{2}}}.
 \end{align*}
-The corresponding neutral mass eigenstates are
+The corresponding neutral mass eigenstates are the fields of the photon and the $Z$ boson,
 \begin{align*}
     A_{\mu}
     &=
@@ -538,9 +533,7 @@ The corresponding neutral mass eigenstates are
     B_{\mu}\sin\theta_{W}
     +
     W_{\mu}^{3}\cos\theta_{W}.
-\end{align*}
-The field $A_{\mu}$ is identified with the photon, while $Z_{\mu}$ is the neutral weak boson. 
-The photon remains massless because it is associated with the unbroken gauge symmetry $U(1)_{\mathrm{em}}$.
+\end{align*} 
 
 The resulting gauge-boson masses are
 \begin{align*}
@@ -558,7 +551,7 @@ The resulting gauge-boson masses are
 \end{align*}
 Thus, the SM predicts the relation $m_{W}=m_{Z}\cos\theta_{W}$, and inserting $v \simeq 246~\GeV$ and the electroweak couplings gives $m_{W}\simeq80~\GeV$ and $m_{Z}\simeq91~\GeV$.
 
-The electromagnetic interactions of charged fermions are described by quantum electrodynamics~(QED), the gauge theory of the unbroken $U(1)_{\mathrm{em}}$ with the photon field $A_{\mu}$. 
+The massless photon field $A_{\mu}$ is the gauge field of the unbroken $U(1)_{\mathrm{em}}$, and its interactions with charged fermions are described by quantum electrodynamics~(QED). 
 For a charged fermion field $\psi$ with electric charge $Q$, the QED Lagrangian can be written as
 \begin{align*}
     \mathcal{L}_{\mathrm{QED}}
@@ -589,7 +582,7 @@ where
     -
     \partial_{\nu}A_{\mu},
 \end{align*}
-where $e$ is the electromagnetic coupling constant, $Q$ is the electric charge of the fermion in units of $e$, and $F_{\mu\nu}$ is the electromagnetic field-strength tensor.
+where $e$ is the electromagnetic coupling and the elementary charge, $Q$ is the electric charge of the fermion in units of $e$, and $F_{\mu\nu}$ is the electromagnetic field-strength tensor.
 
 
 \subsection{Fermion masses and flavour mixing}
@@ -775,7 +768,7 @@ However, measurements of $R(D)$ and $R(D^{*})$ continue to show tensions with SM
 The preliminary HFLAV ICHEP 2026 average gives a combined discrepancy of about $3.7\sigma$ with respect to the SM prediction~\cite{HFLAV2026RDstar} as shown in Figure~\ref{fig:HFLAV2026}.\footnote{This analysis was initiated in 2022, and the HFLAV average showed a combined discrepancy of about $3.3\sigma$ at the time~\cite{HFLAV2021Averages}.}
 These observables remain important motivations for models that couple differently to different lepton generations.
 
-\begin{figure} [!b]
+\begin{figure} [htbp]
     \centering
     \includegraphics[width=0.75\linewidth]{Figs/CH2/rdrds_ichep_2026_prelim.pdf}
     \caption[Average of $R(D^{*})$ and $R(D)$]{Preliminary average of $R(D^{*})$ and $R(D)$ for ICHEP 2026~\cite{HFLAV2026RDstar} measured by the BaBar~\cite{BaBar:2012obs, BaBar:2013mob}, Belle~\cite{Belle:2015qfa, Belle:2016dyj, Belle:2017ilt, Belle:2019rba}, Belle-II~\cite{Belle-II:2026nmn, Belle-II:2025yjp, Shi:2026pau}, and LHCb~\cite{LHCb:2023zxo, LHCb:2023uiv, LHCb:2024jll} experiments.}
@@ -827,8 +820,8 @@ Since couplings to the first two generations are tightly constrained by flavour 
 
 The ``4321'' model realises this flavour structure by placing only the third family in $SU(4)$ multiplets of the extended gauge group $\mathcal{G}_{4321}=SU(4)\times SU(3)'\times SU(2)_L \times U(1)'$.
 After spontaneous symmetry breaking to the SM gauge group, the vector singlet leptoquark $U_{1}$ appears as a massive gauge boson coupled mainly to third-generation fermions.
-For phenomenological studies, the $U_1$ leptoquark can be described by a simplified model in which its mass and couplings to SM particles are input parameters.
+For phenomenological studies, the $U_1$ leptoquark can be described by a simplified model parametrised by the leptoquark mass and its couplings to SM particles.
 The 4321 model is therefore an example of an ultraviolet (UV) completion of the simplified model~\cite{Cornella2019}.
 
 The $U_1$ interactions that contribute to $b\rightarrow c\tau\nu$ can also be probed in collider searches for final states containing hadronically decaying $\tau$ leptons.
-The following chapter introduces the simplified $U_1$ model used in this thesis and reviews existing leptoquark searches at the LHC.
+Further discussion is given in Chapter~\ref{chapter:LQ_search}.

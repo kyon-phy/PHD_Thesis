@@ -9,7 +9,7 @@ Track reconstruction is performed in the following stages~\cite{ATLAS2017DenseTr
 \begin{enumerate}
     \item \textbf{Space-point formation.} Signals in neighbouring channels of a silicon sensor are grouped into clusters. The coordinates provided by Pixel clusters and SCT clusters are converted into three-dimensional space points.
     \item \textbf{Seeding and track finding.} Combinations of space points from the pixel detector and the SCT are used to form track seeds. Starting from each seed, tracks are found by adding hits consistent with the predicted trajectory. After each hit is added, the track parameters are updated through a weighted fit.
-    \item \textbf{Ambiguity resolution.} Track candidates are ranked using their fit quality, momentum and hit variables. The ranking determines the order in which candidates are used for the following steps. Candidates failing the track-quality requirements are then rejected to suppress duplicate and fake tracks. Meanwhile, candidates that share the same clusters are marked as ``shared hits''.
+    \item \textbf{Ambiguity resolution.} Track candidates are ranked using their fit quality, momentum and hit variables. The ranking determines the order in which candidates are used for the following steps. Candidates failing the track-quality requirements are then rejected to suppress duplicate and fake tracks. Meanwhile, clusters shared by more than one track candidate are marked as ``shared hits''. Each track may contain at most one shared pixel hit or two shared SCT hits from the same layer, and each hit may be used by at most two tracks.
     \item \textbf{Track fitting.} Track candidates passing the quality requirements are refitted to obtain more precise track parameters.
     \item \textbf{TRT extension.} Tracks are extended with additional TRT hits. The extended track is retained if its quality score is higher than that of the original track reconstructed using only pixel and SCT hits.
 \end{enumerate}
@@ -31,8 +31,7 @@ The following two quantities are used to test whether a track originates from th
 \end{itemize}
 
 Small absolute values of both quantities suggest that the track originates from the primary vertex.
-A large longitudinal distance indicates a track originating from another $pp$ collision.
-Prompt electron and muon candidates are therefore selected by requiring small values of both quantities, while candidates originating from a displaced vertex, for example from a $b$- or $c$-hadron decay, are selected by requiring large values of both quantities.
+Prompt electron and muon candidates are therefore selected by requiring small absolute values of both quantities. Large impact parameters can arise from pile-up or displaced decays. Displaced-track information is also used in flavour tagging.
 
 \begin{figure}[htbp]
     \centering

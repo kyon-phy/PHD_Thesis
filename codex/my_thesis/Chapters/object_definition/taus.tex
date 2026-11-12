@@ -31,10 +31,10 @@ In this analysis, baseline $\hadtau$ candidates are required to pass \texttt{Loo
 
 Electrons can be misidentified as $\hadtau$ candidates because their narrow showers and tracks are similar to the signature of a one-prong tau decay.
 They can also be misidentified as a three-prong $\hadtau$ candidate when additional tracks are incorrectly classified as tau-decay tracks in the same candidate, for example, from the conversion of a bremsstrahlung photon into an electron--positron pair.
-To suppress this background, both baseline and signal $\hadtau$ candidates are required to pass \texttt{Loose} electron rejection.
-This working point requires a minimum score from another RNN using shower and track information, including the relation between calorimeter energy and track momentum. This RNN is trained to distinguish $\hadtau$ candidates from electrons.
-The $\hadtau$ efficiencies are approximately 95\% and 98\% for one-prong and three-prong candidates, respectively.
-The corresponding electron rejection efficiencies are approximately 99.7\% and 98.8\%.
+To suppress this background, both baseline and signal $\hadtau$ candidates are required to pass \texttt{Loose} electron rejection after the tau identification.
+This working point requires a minimum score from another RNN which is trained to discriminate $\hadtau$ candidates from electrons using shower and track information, including the relation between calorimeter energy and track momentum.
+The $\hadtau$ efficiencies are approximately 95\% and 98\% for one-prong and three-prong candidates, respectively, using $\gamma^{*}\to\tau\tau$ events.
+The corresponding rejection efficiencies for electrons misidentified as $\hadtau$ candidates are approximately 99.7\% and 98.8\%, respectively, using $\zee$ events~\cite{ATLAS2022TauR22}.
 
 \subsection{Calibration}
 

@@ -7,26 +7,10 @@ The motivation and discriminating variables are introduced there. This appendix 
 \section{Study selection and distributions}
 \label{sec:app_qcd_selection}
 
-The study selection is kept loose to retain enough simulated multijet events to examine the relevant distributions.
-It requires the $\met$ trigger, exactly one $\hadtau$ candidate, no selected electron or muon, and at least one jet, as listed in Table~\ref{tab:app_qcd_preselection}.
+The event selection for the study is kept loose to retain enough simulated multijet events to examine the relevant distributions.
+It requires the $\met$ trigger, exactly one $\hadtau$ candidate, no selected electron or muon, and at least one jet, as listed in Table~\ref{tab:ch7_multijet_preselection}.
 The final SR thresholds on $\met$, $\pT^{\hadtau}$, $\mT$ and the visible invariant mass are not applied at this stage.
 No $b$-jet multiplicity is required.
-
-\begin{table}[htbp]
-    \centering
-    \caption[Loose selection for the multijet study]{Loose selection used to study the multijet suppression. This selection defines the denominator of the rejection fractions shown below.}
-    \label{tab:app_qcd_preselection}
-    \begin{tabular}{ll}
-        \toprule
-        Requirement & Selection \\
-        \midrule
-        Trigger & Lowest-threshold unprescaled $\met$ trigger \\
-        $\hadtau$ multiplicity & $N_{\hadtau}=1$ \\
-        Electron and muon veto & $N_\ell=0$ \\
-        Jet multiplicity & $N_j\geq1$ \\
-        \bottomrule
-    \end{tabular}
-\end{table}
 
 Figure~\ref{fig:app_qcd_correlations} shows the two-dimensional distributions after this selection.
 The multijet sample is concentrated at small $\minDphiJetMet$ and small $\metOverMinDphiJetPt$.
@@ -41,9 +25,9 @@ It is then used in combination with the angular requirement.
 The angular threshold is scanned while the momentum-ratio threshold is fixed at six.
 For an angular threshold $X$, the rejected fraction is defined as
 \begin{equation*}
-    \text{Rejection ratio}=\frac{N\!\left(\minDphiJetMet<X\ \text{and}\ \metOverMinDphiJetPt<6\right)}{N(\text{events after the loose selection})}.
+    \text{Rejection ratio}=\frac{N\!\left(\minDphiJetMet<X\ \text{and}\ \metOverMinDphiJetPt<6\right)}{N(\text{events after the preselection})}.
 \end{equation*}
-The rejected fraction is evaluated separately for signal and multijet events, using each sample's yield after the loose selection as its denominator.
+The rejected fraction is evaluated separately for signal and multijet events, using each sample's yield after the preselection as its denominator.
 
 Figure~\ref{fig:app_qcd_rejection_scan} shows the resulting rejection fractions.
 At $X=0.4$, approximately $86\%$ of the multijet events are rejected, while the signal loss is $3.6\%$.
@@ -52,7 +36,7 @@ Increasing the angular threshold rejects more multijet events but also drops mor
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.60\linewidth]{Figs/CH7/QCD/rejection_scan.pdf}
-    \caption[Scan of the multijet rejection threshold]{Rejected fractions of simulated signal and multijet events as a function of the threshold $X$ on $\minDphiJetMet$, with $\metOverMinDphiJetPt<6$. The red and black curves show signal loss and multijet rejection, respectively. The vertical dotted line marks the adopted threshold $X=0.4$. The loose selection in Table~\ref{tab:app_qcd_preselection} is applied to both samples.}
+    \caption[Scan of the multijet rejection threshold]{Rejected fractions of simulated signal and multijet events as a function of the threshold $X$ on $\minDphiJetMet$, with $\metOverMinDphiJetPt<6$. The red and black curves show signal loss and multijet rejection, respectively. The vertical dotted line marks the adopted threshold $X=0.4$. The preselection in Table~\ref{tab:ch7_multijet_preselection} is applied to both samples.}
     \label{fig:app_qcd_rejection_scan}
 \end{figure}
 

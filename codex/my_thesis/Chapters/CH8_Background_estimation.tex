@@ -15,18 +15,28 @@ This chapter presents the background estimation strategy, the CR and VR definiti
 \section{Background estimation strategy}
 \label{sec:ch8_strategy}
 
-To predict the background yields in the SRs accurately, dedicated CRs are used for the dominant backgrounds.
-These regions are enriched in the corresponding processes and have small signal contamination. They can be used to determine independent free normalisation factors (NFs) for the dominant backgrounds.
-During the fit to data in the CRs, each factor scales the overall simulated yield of the corresponding background, with the nuisance parameters introduced in Section~\ref{subsec:ch10_likelihood_model} varied simultaneously.
-The fitted NFs are then applied to the simulated yields in the SRs and VRs to obtain the background predictions.
-The independent NFs also allow different normalisations in the resonant and non-resonant regions, which are kinematically different and may require different corrections.
+To predict the background yields in the SRs accurately, a maximum-likelihood fit as described in Section~\ref{sec:ch10_statistical_model} is used with dedicated CRs defined for the dominant backgrounds.
+These regions are enriched with the corresponding SM background and have small signal contamination. They are used to determine free normalisation factors (NFs) for the dominant backgrounds.
 
-Although the CRs are selected to have topologies similar to those of the SRs, some differences are still expected because the signal contamination must also be kept small.
-This could introduce an additional uncertainty when extrapolating the NFs to the SRs and VRs.
-Like the other systematic uncertainties, this uncertainty is included through a constraint term when constructing the likelihood function.
-In this analysis, an additional uncertainty in the heavy-to-light-flavour ratio is assigned as discussed in Section~\ref{subsec:ch9_wjets}.
+Two fit configurations are used in this analysis as described in Section~\ref{subsec:ch10_fit_strategy}.
+A background-only fit uses data in the CRs alone to obtain the background predictions, while a signal-plus-background fit uses data in both the CRs and SRs to test the signal hypothesis.
+In both fits, NFs are determined by fitting the simulated predictions to the observed event yields.
+Each NF scales the simulated yield of the corresponding background and is varied together with the nuisance parameters.
+The NFs are also determined independently for the resonant and non-resonant regions, which means different normalisations in these regions are allowed while fitting since these regions are kinematically different and may require different corrections.
+The fitted NFs are then applied to the simulated yields to obtain the expected background yields in the SRs.
 
-The estimation strategy for each background is summarised below:
+The CRs are therefore designed to have event topologies similar to those of the SRs so that the NFs determined in the CRs can be extrapolated to the SRs with minimal uncertainty.
+On the other hand, the final states in CRs must differ from those of the SRs to keep the signal contamination small.
+For example, CRs for $\wjets$ require a light lepton instead of a $\hadtau$, and CRs for the top-quark background require an additional light lepton in place of the second $\tau$ lepton that is reconstructed as a jet in the SRs.
+Because of these differences, the NFs determined in the CRs may not describe the backgrounds in the SRs exactly, which may introduce additional uncertainties when the NFs are extrapolated to these regions.
+Like the other systematic uncertainties, these uncertainties are represented by nuisance parameters with corresponding constraint terms in the likelihood function.
+In this analysis, an additional uncertainty in the heavy-to-light-flavour ratio is assigned when extrapolating from the $b$-vetoed CRs to SRs with $b$-jets, as discussed in Section~\ref{subsec:ch9_wjets}.
+
+The VRs are used to test the background estimation strategy by comparing the observed event yields with predictions obtained using the NFs and nuisance parameters determined by the background-only fit to the CRs.
+The VR data are not included in the likelihood fit.
+These regions are therefore also designed to have a similar topology to the SRs and to have small signal contamination.
+
+The estimation strategy for each background, including the definitions of the CRs and VRs, is summarised below:
 \begin{itemize}
     \item $\wjets$ is estimated using NFs constrained by data in $\CRW$, where one light lepton (electron or muon) and no $\hadtau$ or $b$-jets are required.
     The $0b\to1b$ extrapolation is tested in $\VRW$, where one light lepton, no $\hadtau$ and one $b$-jet are required. This is explained in Section~\ref{sec:ch8_wjets}.
@@ -48,8 +58,13 @@ Four CRs are therefore defined in this analysis: $\CRW$-$\Res$ and $\CRW$-$\NonR
     \lambda_{bg} = \frac{N_{bg}^{\mathrm{CR,data}}}{N_{bg}^{\mathrm{CR,MC}}},
 \end{equation*}
 where $N_{bg}^{\mathrm{CR,data}}$ and $N_{bg}^{\mathrm{CR,MC}}$ are the observed and the predicted background event yields in the CR, respectively.
-Residual mismodelling of the small contribution from the top-quark background in $\CRW$ can be partly absorbed by a shift in $\lambda_W$, and vice versa.
-The SR, CR and VR definitions are summarised in Figure~\ref{fig:ch8_region_definition}.
+
+Regarding the top-quark ($\wjets$) contribution in $\CRW$ ($\CRTop$), it amounts to less than $2\%$ ($5\%$) of the total yield in $\CRW$ ($\CRTop$).
+Even a $50\%$ uncertainty in either contribution corresponds to a variation of less than $2.5\%$ in the total yield in the corresponding CR.
+The uncertainties in these small contributions are expected to have only a small effect on the NFs determined from the CRs.
+No additional uncertainties are therefore assigned specifically to these small contributions in the likelihood fit.
+
+The SR, CR and VR definitions are finally summarised in Figure~\ref{fig:ch8_region_definition}.
 
 \begin{figure}[htpb]
     \centering
@@ -69,7 +84,7 @@ $\mT^\ell$ and $\DphiLepMet$ are calculated using the light lepton as a proxy fo
 
 The definitions of the $\CRW$ and $\VRW$ regions are summarised in Table~\ref{tab:ch8_wcr_vrw}.
 After the background-only fit, the $\wjets$ purity is approximately $95\%$ in $\CRW$-$\NonRes$ and $82\%$ in $\CRW$-$\Res$. Diboson events are expected to contribute approximately $14\%$ in $\CRW$-$\Res$.
-The additional neutrino in a hadronic $\tau$ decay introduces kinematic differences in the $1\ell\to1\hadtau$ extrapolation. The prediction is further tested in the lower-mass $1\hadtau0\ell1b$ regions described in Section~\ref{subsec:low_mass_vr}, which check the extrapolation to events with both a $\hadtau$ and a $b$-jet.
+The additional neutrino in a hadronic $\tau$ decay introduces kinematic differences in the $1\ell\to1\hadtau$ extrapolation. The prediction is further tested in the lower-mass $1\hadtau0\ell1b$ regions described in Appendix~\ref{subsec:low_mass_vr}, which check the extrapolation to events with both a $\hadtau$ and a $b$-jet.
 
 The signal contamination is checked with samples including both hadronic and leptonic $\tau$ decays at parameter points $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.2)$ and $(2.5~\TeV,1.5,1.0)$ for the resonant and non-resonant CRs, respectively. The contamination is found to be below $1\%$ in both regions.
 
@@ -104,7 +119,7 @@ The signal contamination is checked with samples including both hadronic and lep
 The $\CRW$ $N-1$ distributions after the background-only fit are shown separately for the electron and muon channels in Figures~\ref{fig:ch8_wcr_res_e}--\ref{fig:ch8_wcr_nonres_mu}.
 There are 243 electron and 219 muon events in $\CRW$-$\Res$, and 474 electron and 398 muon events in $\CRW$-$\NonRes$.
 No clear slope is observed in the data/bkg. ratios, except in the jet-$\pT$ distribution in Figure~\ref{fig:ch8_wcr_nonres_mu}(\subref{fig:ch8_wcr_nonres_mu_jetpt}).
-The average effect of this jet-$\pT$ dependence in each region is expected to be absorbed by the independent $\wjets$ normalisation factors.
+The average effect of this jet-$\pT$ dependence in each region could be absorbed by the independent $\wjets$ normalisation factors.
 
 The difference between the data/bkg. ratios of the electron and muon channels is consistent with statistical fluctuations, as shown in Appendix~\ref{app:ch8_emu}.
 The two channels are therefore combined.
@@ -204,13 +219,12 @@ The electron and muon channels are therefore combined.
 
 The background-only fit is performed on the CRs to obtain the background normalisation factors.
 Both statistical and systematic uncertainties are included in the fit. The fit model and systematic uncertainties are described in detail in Section~\ref{sec:ch10_statistical_model} and Chapter~\ref{chapter:systematics_uncertainties}, respectively.
-The four fitted NFs are summarised in Table~\ref{tab:ch8_normalisation}.
-The difference between $\lambda_W^{\Res}$ and $\lambda_W^{\NonRes}$ is consistent with the expectation discussed in Section~\ref{sec:ch8_wjets}.
+The four fitted NFs are summarised in Table~\ref{tab:ch8_normalisation}, in which $\lambda_W^{\Res}$ and $\lambda_W^{\NonRes}$ have opposite scaling directions. This difference could arise from the jet-$\pT$ dependence of the $\wjets$ mismodelling as discussed in Section~\ref{sec:ch8_wjets}.
 The background predictions are tested in the VRs defined in Figure~\ref{fig:ch8_region_definition}.
 
 \begin{table}[htbp]
     \centering
-    \caption[Background normalisation factors from the CR fit]{Background normalisation factors from the background-only fit on CRs. Both statistical and systematic uncertainties are included in the fit.}
+    \caption[Background normalisation factors from the background-only fit]{Background normalisation factors from the background-only fit on CRs. Both statistical and systematic uncertainties are included in the fit.}
     \label{tab:ch8_normalisation}
     \begin{tabular}{lcc}
         \toprule
@@ -227,6 +241,7 @@ The background predictions are tested in the VRs defined in Figure~\ref{fig:ch8_
 
 As in the SRs, the background in $\VRW$ is dominated by $\wjets$, which contributes approximately $67\%$ ($68\%$) in the resonant (non-resonant) region after the background-only fit.
 Top-quark and diboson production contribute approximately $23\%$ ($29\%$) and $9.5\%$ ($2.9\%$), respectively.
+
 The signal contamination is checked using the samples introduced in Section~\ref{sec:ch8_wjets}.
 % Direct signal production with an electron or muon is suppressed by the small couplings to these leptons, while hadronic $\tau$ decays contribute little to the selected sample.
 The contribution from leptonic $\tau$ decays is $(1.3\pm0.1)\%$ in $\VRW$-$\Res$ and $(0.7\pm0.1)\%$ in $\VRW$-$\NonRes$, while the contribution from hadronic $\tau$ decays is negligible.
@@ -234,8 +249,8 @@ The contribution from leptonic $\tau$ decays is $(1.3\pm0.1)\%$ in $\VRW$-$\Res$
 After the background-only fit, the $\VRW$-$\Res$ yield agrees with the prediction within about $1\sigma$, while a deviation of about $2\sigma$ is observed in $\VRW$-$\NonRes$, as shown in Figures~\ref{fig:ch8_vrw_res} and~\ref{fig:ch8_vrw_nonres}.
 \input{Chapters/background_estimation/figures_vrw_\CHEightCRFigureVersion}
 
-The finer-binned $\met$ distribution in Figure~\ref{fig:ch8_vrw_met_study}(a) shows that the excess is concentrated in $425<\met<450~\GeV$. Better agreement is observed in the neighbouring intervals. 
-Within this $\met$ interval, Figure~\ref{fig:ch8_vrw_met_study}(b) shows that the excess is concentrated at $300<\pT^\ell<400~\GeV$.
+The finer-binned $\met$ distribution in Figure~\ref{fig:ch8_vrw_met_study}(\subref{fig:ch8_vrw_met_study_met}) shows that the excess is concentrated in $425<\met<450~\GeV$. Better agreement is observed in the neighbouring intervals. 
+Within this $\met$ interval, Figure~\ref{fig:ch8_vrw_met_study}(\subref{fig:ch8_vrw_met_study_lep_pt}) shows that the excess is concentrated at $300<\pT^\ell<400~\GeV$.
 Further checks using different $\met$ thresholds and additional validation regions are described in Appendix~\ref{app:ch8_vrw_excess}.
 No indication of a local detector problem is found in the $(\eta,\phi)$ distributions of the leptons and $b$-jets.
 Good agreement is also found in the additional low-mass VRs.
@@ -247,13 +262,13 @@ Since the probability of observing a $2\sigma$ deviation in one or more of the f
     \centering
     \begin{subfigure}{0.49\linewidth}
         \includegraphics[width=\linewidth]{Figs/CH8/vrw_excess_appendix/VRW_NonRes_fine_met.pdf}
-        \caption[]{$\met$ with its threshold removed}
+        \caption[]{$\met$ with its threshold removed}\label{fig:ch8_vrw_met_study_met}
     \end{subfigure}\hfill
     \begin{subfigure}{0.49\linewidth}
         \includegraphics[width=\linewidth]{Figs/CH8/vrw_excess_appendix/VRW_NonRes_local_lep_pt.pdf}
-        \caption[]{$\pT^\ell$ for $425<\met<450~\GeV$}
+        \caption[]{$\pT^\ell$ for $425<\met<450~\GeV$}\label{fig:ch8_vrw_met_study_lep_pt}
     \end{subfigure}
-    \caption[Kinematic localisation of the VRW-NonRes excess]{Left: $N-1$ $\met$ distribution in $\VRW$-$\NonRes$. Data and MC agree in most bins. Right: the leading-lepton $\pT$ distribution after applying the $\met$ range cut $425<\met<450~\GeV$, where a large discrepancy between data and the MC expectation is observed.}
+    \caption[$\met$ and lepton $\pT$ distributions in $\VRW$-$\NonRes$]{Left: $N-1$ $\met$ distribution in $\VRW$-$\NonRes$. Data and MC agree in most bins. Right: the leading-lepton $\pT$ distribution after applying the $\met$ range cut $425<\met<450~\GeV$, where a large discrepancy between data and the MC expectation is observed.}
     \label{fig:ch8_vrw_met_study}
 \end{figure}
 
@@ -262,7 +277,7 @@ Since the probability of observing a $2\sigma$ deviation in one or more of the f
 
 After the background-only fit, top-quark production contributes approximately $67\%$ and $86\%$ of the predicted background in $\VRTop$-$\Res$ and $\VRTop$-$\NonRes$, respectively, as shown in Figures~\ref{fig:ch8_vrtop_res} and~\ref{fig:ch8_vrtop_nonres}.
 Specifically, single-top and $\ttbar$ production contribute approximately $35\%$ and $32\%$ of the total background in the resonant region, respectively, while $\ttbar$ dominates the non-resonant region with a contribution of approximately $80\%$.
-The signal contamination is checked using the same samples and benchmarks as in $\VRW$. It is $(1.2\pm0.1)\%$ in $\VRTop$-$\Res$ and $(0.6\pm0.03)\%$ in $\VRTop$-$\NonRes$.
+The signal contamination is checked using the same benchmark samples as in $\VRW$. It is $(1.2\pm0.1)\%$ in $\VRTop$-$\Res$ and $(0.6\pm0.03)\%$ in $\VRTop$-$\NonRes$.
 
 After the background-only fit, the expected yields are $13.0\pm3.9$ and $30.1\pm8.1$ in $\VRTop$-$\Res$ and $\VRTop$-$\NonRes$, compared with 19 and 30 observed events, respectively. The observed yields agree with the predictions within about $1\sigma$ in both regions.
 The agreement supports the extrapolation from $\CRTop$ to final states without a light lepton.

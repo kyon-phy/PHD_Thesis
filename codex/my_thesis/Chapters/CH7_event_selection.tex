@@ -15,13 +15,13 @@ The transverse mass $\mT$ of the $\hadtau$ and $\mpt$ system is defined as
         \mT = \sqrt{2\pT^{\hadtau}\met\left[1-\cos\DphiTauMet\right]},
     \end{equation*}
 where $\DphiTauMet$ is the separation in $\phi$ between the $\hadtau$ momentum and $\mpt$.
-The variable $\mT$ is used to probe the high-energy tail of the $\tau\nu$ final state, which is particularly sensitive to non-resonant leptoquark contributions~\cite{Endo2022NonResonant}.
+The variable $\mT$ is used to probe the high-energy tail of the $\tau\nu$ final state, which is sensitive to non-resonant leptoquark contributions~\cite{Endo2022NonResonant}.
 
 The invariant masses $m_{b\hadtau}$ and $m_{j\hadtau}$ are defined as:
     \begin{equation*}
-        m_{b\hadtau}^{2} = (\boldsymbol{p}_b+\boldsymbol{p}_{\hadtau})^2, \qquad m_{j\hadtau}^{2} = (\boldsymbol{p}_{j_1}+\boldsymbol{p}_{\hadtau})^2,
+        m_{b\hadtau} = \sqrt{(\boldsymbol{p}_b+\boldsymbol{p}_{\hadtau})^2}, \qquad m_{j\hadtau} = \sqrt{(\boldsymbol{p}_{j_1}+\boldsymbol{p}_{\hadtau})^2},
     \end{equation*}
-    where $\boldsymbol{p}_b$ and $\boldsymbol{p}_{\hadtau}$ are the four-momenta of the $b$-jet and $\hadtau$, respectively, and $\boldsymbol{p}_{j_1}$ is the four-momentum of the jet with the largest $\pT$, the so-called leading jet.
+    where $\boldsymbol{p}_b$ and $\boldsymbol{p}_{\hadtau}$ are the four-momenta of the $b$-jet and $\hadtau$, respectively, and $\boldsymbol{p}_{j_1}$ is the four-momentum of the leading jet.
 These two variables are used to probe the $b$-tagged and $b$-veto SRs, respectively.
 
 \subsection{Multijet suppression and baseline selection}
@@ -29,7 +29,9 @@ These two variables are used to probe the $b$-tagged and $b$-veto SRs, respectiv
 
 Although the high $\met$ threshold rejects most multijet events, some can still enter the SRs and control regions due to the large multijet cross-section. These events typically contain a misidentified $\hadtau$ and fake $\met$ due to the poor jet resolution. Therefore, further suppression is necessary.
 
-Specifically, fake $\met$ is produced when an energetic jet is mismeasured. In this case, $\mpt$ points approximately towards that jet and it tends to be small compared with the $\pT$ of the mismeasured jet. On the other hand, in signal events, $\mpt$ from neutrinos has no such tendency.
+Specifically, fake $\met$ is produced when an energetic jet is mismeasured.
+In this case, $\mpt$ points approximately towards that jet and its magnitude tends not to be too large compared with the $\pT$ of the mismeasured jet.
+On the other hand, in signal events, $\mpt$ from neutrinos has no such tendency.
 Figure~\ref{fig:ch7_fake_met} illustrates this difference. The minimum jet--$\mpt$ separation in $\phi$ and the ratio $\metOverMinDphiJetPt$ are therefore used as discriminating variables. Here $\minDphiJetPt$ is the $\pT$ of the jet with the smallest $\DphiJetMet$.
 The $\hadtau$ candidate is also included when evaluating these two variables.
 
@@ -44,7 +46,7 @@ The $\hadtau$ candidate is also included when evaluating these two variables.
         \includegraphics[width=\linewidth]{Figs/CH7/QCD/fake_met_multijets.pdf}
         \caption{Multijet background.}
     \end{subfigure}
-    \caption[Missing momentum in signal and multijet events]{Schematic diagrams of (a) $\met$ from neutrinos in signal events and (b) fake $\met$ from a mismeasured energetic jet in multijet events.}
+    \caption[$\met$ in signal and multijet events]{Schematic diagrams of (a) $\met$ from neutrinos in signal events and (b) fake $\met$ from a mismeasured energetic jet in multijet events.}
     \label{fig:ch7_fake_met}
 \end{figure}
 
@@ -52,7 +54,26 @@ Events are retained if
 \begin{equation*}
     \minDphiJetMet\geq0.4 \quad\text{or}\quad \metOverMinDphiJetPt\geq6.
 \end{equation*}
-Figure~\ref{fig:app_qcd_correlations} shows the correlation between $\minDphiJetMet$ and $\metOverMinDphiJetPt$ for signal and multijet events after the loose preselection used in this study. Rejecting events with $\minDphiJetMet<0.4$ and $\metOverMinDphiJetPt<6$ removes approximately $86\%$ of the multijet events while retaining approximately $96.4\%$ of the signal events at $\MU=1.5~\TeV$. No simulated multijet events survive the full SR selections. The detailed study is presented in Appendix~\ref{App:QCD_bkg_study}.
+\begin{sloppypar}
+Figure~\ref{fig:app_qcd_correlations} shows the correlation between $\minDphiJetMet$ and $\metOverMinDphiJetPt$ for signal and multijet events after the preselection as listed in Table~\ref{tab:ch7_multijet_preselection}. Rejecting events with \mbox{$\minDphiJetMet<0.4$} and \mbox{$\metOverMinDphiJetPt<6$} removes approximately $86\%$ of the multijet events while retaining approximately $96.4\%$ of the signal events at $\MU=1.5~\TeV$. No simulated multijet events survive the full SR selections. The detailed study is presented in Appendix~\ref{App:QCD_bkg_study}.
+\end{sloppypar}
+
+
+\begin{table}[htbp]
+    \centering
+    \caption[Preselection for the multijet suppression study]{Preselection used to study the multijet suppression.}
+    \label{tab:ch7_multijet_preselection}
+    \begin{tabular}{ll}
+        \toprule
+        Requirement & Selection \\
+        \midrule
+        Trigger & Lowest-threshold unprescaled $\met$ trigger \\
+        $\hadtau$ multiplicity & $N_{\hadtau}=1$ \\
+        Electron and muon veto & $N_\ell=0$ \\
+        Jet multiplicity & $N_j\geq1$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \begin{figure}[htbp]
     \centering
@@ -64,11 +85,11 @@ Figure~\ref{fig:app_qcd_correlations} shows the correlation between $\minDphiJet
         \includegraphics[width=\linewidth]{Figs/CH7/QCD/DPhi_multijets.pdf}
         \caption{Multijet background.}
     \end{subfigure}
-    \caption[Variables used for multijet suppression]{Correlation between $\minDphiJetMet$ and $\metOverMinDphiJetPt$ for (a) simulated signal with $\MU=1.5~\TeV$ and (b) simulated multijet background after the loose study selection. The concentration of multijet events at small values of both variables motivates a combined requirement.}
+    \caption[Correlation of multijet suppression variables]{Correlation between $\minDphiJetMet$ and $\metOverMinDphiJetPt$ for (a) simulated signal with $\MU=1.5~\TeV$ and (b) simulated multijet background after the preselection as listed in Table~\ref{tab:ch7_multijet_preselection}. The concentration of multijet events at small values of both variables motivates a combined requirement.}
     \label{fig:app_qcd_correlations}
 \end{figure}
 
-The baseline selection is the common starting point for the SR optimisation. It includes the multijet suppression requirement and the event requirements listed below. The final SRs are obtained by applying the additional requirements determined by the optimisation to these baseline events.
+The baseline selection is the common starting point for the SR optimisation. It requires the event requirements listed below, including the multijet suppression requirement. The final SRs are obtained by applying the additional requirements determined by the optimisation to these baseline events.
 \begin{itemize}
   \item Data events are required to belong to GRLs, which contain the data-taking periods in which the relevant detector systems were operating normally.
   \item Each event is required to contain a reconstructed primary vertex satisfying the definition in Section~\ref{sec:ch6_primary_vertex}.
@@ -78,6 +99,7 @@ The baseline selection is the common starting point for the SR optimisation. It 
   \item Baseline electron/muon veto.
   \item Exactly one $b$-jet for the $\bTagSR$.
   \item At least one jet and a $b$-jet veto for the $\bVetoSR$.
+  \item Reject events with $\minDphiJetMet<0.4$ and $\metOverMinDphiJetPt<6$ to suppress multijet events.
 \end{itemize}
 
 \section[$\bTagSR$ optimisation and definition]{$\bTagSR$ optimisation and definition}
@@ -100,9 +122,9 @@ $\mT$ is used to distinguish non-resonant leptoquark exchange from the SM backgr
 A tighter $\mT$ threshold is therefore expected in $\bTagSR$-$\NonRes$ than in $\bTagSR$-$\Res$.
 The invariant mass $m_{b\hadtau}$ is used to probe resonant $U_1\to b\tau$ decays.
 The jet multiplicity is used to suppress $\ttbar$ events since they tend to have more jets than the signal events.
-Figure~\ref{fig:ch7_scan_variables} shows the distributions of $\pT^{\hadtau}$, $\mT$, $\DphiTauMet$ and $m_{b\hadtau}$. The signal and background distributions differ in all four variables, with the signal concentrated at higher $\pT^{\hadtau}$, $\mT$ and $m_{b\hadtau}$.
+Figure~\ref{fig:ch7_scan_variables} shows the distributions of cut variables for the signal and background.
 The signal has higher $\pT^{\hadtau}$ and $\mT$ than the background, and favours a back-to-back $\hadtau$ and $\mpt$ configuration.
-$\DphiTauMet$ is used to select the back-to-back $\hadtau$ and $\mpt$ configuration of the non-resonant signal, which helps suppress the top-quark background.
+$\DphiTauMet$ is therefore used to select the back-to-back $\hadtau$ and $\mpt$ configuration of the non-resonant signal.
 % On the other hand, in $\bTagSR$-$\Res$, small $\DphiTauMet$ values are favoured due to the high $\pT^b$ requirement.
 
 \begin{figure}[htpb]
@@ -121,30 +143,39 @@ $\DphiTauMet$ is used to select the back-to-back $\hadtau$ and $\mpt$ configurat
     \end{subfigure}\hfill
     \begin{subfigure}{0.48\linewidth}
         \includegraphics[width=\linewidth]{Figs/CH7/scan_variables/SR1b_baseline_m_taub.pdf}
-        \caption{$m_{b\hadtau}$}
+        \caption{$m_{b\hadtau}$}\label{fig:ch7_scan_variables_mbtau}
+    \end{subfigure}\\[0.5em]
+    \begin{subfigure}{0.48\linewidth}
+        \includegraphics[width=\linewidth]{Figs/CH7/scan_variables/SR1b_baseline_met.pdf}
+        \caption{$\met$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\linewidth}
+        \includegraphics[width=\linewidth]{Figs/CH7/scan_variables/SR1b_baseline_n_light_jets.pdf}
+        \caption{$N_j-N_b$}
     \end{subfigure}
-    \caption[Scan variables distributions]{Distributions of the scan variables after the baseline selection for background and signals. The signal at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(2.5~\TeV,2.5,1.0)$ are shown in red and purple, respectively.}
+    \caption[Distributions of the cut variables]{Distributions of the cut variables after the baseline selection for background and signals. The Y-axis shows the event yield per bin. The signals at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(2.5~\TeV,2.5,1.0)$ are shown in red and purple, respectively.}
     \label{fig:ch7_scan_variables}
 \end{figure}
 
+The signal $m_{b\hadtau}$ distribution is broad, as shown in Figure~\ref{fig:ch7_scan_variables}(\subref{fig:ch7_scan_variables_mbtau}), so a finer mass threshold scan is not expected to improve the sensitivity significantly. Therefore, the $m_{b\hadtau}$ threshold in $\bTagSR$-$\Res$ is fixed at $800~\GeV$.
 The thresholds used for the grid scan are summarised in Table~\ref{tab:ch7_scan_variables}.
-The signal $m_{b\hadtau}$ distribution is broad, as shown in Figure~\ref{fig:ch7_scan_variables}(d), so a finer mass threshold scan is not expected to improve the sensitivity significantly. Therefore, the $m_{b\hadtau}$ threshold in $\bTagSR$-$\Res$ is fixed at $800~\GeV$.
 
 \begin{table}[htbp]
     \centering
     \small
-    \caption[Scan ranges for the $\bTagSR$ optimisation]{Variable scan range for the $\bTagSR$ optimisation.}
+    \caption[Variable scan ranges for the $\bTagSR$ optimisation]{Variable scan range for the $\bTagSR$ optimisation. $m_{b\hadtau}$ is not scanned and is fixed at $800~\GeV$ for $\bTagSR$-$\Res$.}
     \label{tab:ch7_scan_variables}
     \begin{tabular}{lcc}
         \toprule
         Variable & $\bTagSR$-$\Res$ & $\bTagSR$-$\NonRes$ \\
         \midrule
         $\DphiTauMet$ & N/A & $>\{0.3,1.2,2.4,2.6\}$ \\
-        $m_{b\hadtau}$ [$\GeV$] & $>800$ & N/A \\
         $\met$ [$\GeV$] & \multicolumn{2}{c}{$>\{200,250,300,350,400,500,600\}$} \\
         $\pT^{\hadtau}$ [$\GeV$] & \multicolumn{2}{c}{$>\{200,250,300,350,400,500,600\}$} \\
         $\mT$ [$\GeV$] & \multicolumn{2}{c}{$>\{100,200,300,400,500,600,700,800,900,1000\}$} \\
         $N_j-N_b$ & \multicolumn{2}{c}{$\leq\{1,2,3\}$} \\
+        \midrule
+        $m_{b\hadtau}$ [$\GeV$] & $>800$ & N/A \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -159,11 +190,11 @@ where $s$ and $b$ are the expected signal and background event yields, $n=s+b$, 
 
 Although tighter thresholds can give a higher significance in some cases, the corresponding background yields also become very small.
 The results are then more strongly affected by the limited MC statistics, which makes the predictions unreliable.
-The background yield is therefore required to be greater than 2 events during the scan. And the relative MC statistical uncertainty on the total background yield remains below $30\%$ for the final results as shown in Tables~\ref{tab:ch7_cutflow_res} and \ref{tab:ch7_cutflow_nonres}.
+The background yield is therefore required to be greater than 2 events with an integrated luminosity of $140~\ifb$ during the scan. And the relative MC statistical uncertainty on the total background yield remains below $30\%$ for the final results.
 
-Examples of the significance as a function of the threshold are shown in Figure~\ref{fig:ch7_discriminants_with_significance}, along with the $N-1$ $m_{b\hadtau}$ and $\mT$ distributions in $\bTagSR$-$\Res$ and $\bTagSR$-$\NonRes$, respectively.\footnote{For a selection with $N$ requirements, an $N-1$ distribution is obtained by removing the requirement on the plotted variable while keeping the other $N-1$ requirements. Here, the $m_{b\hadtau}$ or $\mT$ requirement is removed.}
+Examples of the significance as a function of the threshold are shown in Figure~\ref{fig:ch7_discriminants_with_significance}, along with the $N-1$ $\met$ and $\mT$ distributions in $\bTagSR$-$\Res$ and $\bTagSR$-$\NonRes$, respectively.\footnote{For a selection with $N$ requirements, an $N-1$ distribution is obtained by removing the requirement on the plotted variable while keeping the other $N-1$ requirements. Here, the baseline selection is retained, and any additional $\met$ or $\mT$ requirement is removed.}
 For each point in the lower significance panels, $Z$ is calculated using the signal and background yields summed above the corresponding threshold. Points with $b\leq2$ are excluded from the cut choice.
-Among the points with $b>2$, the largest $Z$ is obtained at $m_{b\hadtau}>800~\GeV$ for $\bTagSR$-$\Res$ and $\mT>600~\GeV$ for $\bTagSR$-$\NonRes$.
+Among the points with $b>2$, the largest $Z$ is obtained at $\met>200~\GeV$ for $\bTagSR$-$\Res$ and $\mT>600~\GeV$ for $\bTagSR$-$\NonRes$.
 
 % \begin{figure}[htbp]
 %     \centering
@@ -176,18 +207,17 @@ Among the points with $b>2$, the largest $Z$ is obtained at $m_{b\hadtau}>800~\G
     \centering
     \captionsetup{font={small,stretch=1},skip=8pt}
     \begin{subfigure}{0.74\linewidth}
-        \includegraphics[width=\linewidth]{Figs/CH7/significance/SR1b_Res_mbtau_with_significance.pdf}
+        \includegraphics[width=\linewidth]{Figs/CH7/significance/SR1b_Res_met_with_significance.pdf}
         \caption{$\bTagSR$-$\Res$}
     \end{subfigure}\\
     \begin{subfigure}{0.74\linewidth}
         \includegraphics[width=\linewidth]{Figs/CH7/significance/SR1b_NonRes_mT_with_significance.pdf}
         \caption{$\bTagSR$-$\NonRes$}
     \end{subfigure}
-    \caption[SR1b final discriminants with significance $Z$]{$N-1$ $m_{b\hadtau}$ and $\mT$ distributions and the corresponding significance $Z$ in $\bTagSR$-$\Res$ and $\bTagSR$-$\NonRes$, respectively. $Z$ is calculated from the signal and background yields above the corresponding threshold, with $\sigma=0.30b$. Open and filled circles in the bottom panels indicate $Z$ calculated with $b\leq2$ and $b>2$, respectively. The red arrows indicate the selected thresholds. The hatched bands show the MC statistical uncertainties on the backgrounds. The signal benchmarks are $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ for $\bTagSR$-$\Res$ and $(2.5~\TeV,2.5,1.0)$ for $\bTagSR$-$\NonRes$ with $\beta_L^{33}=1$ and $\beta_R^{33}=0$. Both SRs require $\pT^{\hadtau}>200~\GeV$. The $\bTagSR$-$\Res$ additionally requires $\met>200~\GeV$, $\mT>200~\GeV$, $\pT^b>250~\GeV$ and $N_j-N_b\leq3$. The $\bTagSR$-$\NonRes$ additionally requires $\met>400~\GeV$, $50<\pT^b<250~\GeV$, $\DphiTauMet>1.2$ and $N_j-N_b\leq1$.}
+    \caption[$N-1$ $\met$ and $\mT$ distributions with significance]{$N-1$ $\met$ and $\mT$ distributions and the corresponding significance $Z$ in $\bTagSR$-$\Res$ and $\bTagSR$-$\NonRes$, respectively. $Z$ is calculated from the signal and background yields above the corresponding threshold, with $\sigma=0.30b$. Open and filled circles in the bottom panels indicate $Z$ calculated with $b\leq2$ and $b>2$, respectively. The red arrows indicate the selected thresholds. The hatched bands show the MC statistical uncertainties on the backgrounds. The signal benchmarks are $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ for $\bTagSR$-$\Res$ and $(2.5~\TeV,2.5,1.0)$ for $\bTagSR$-$\NonRes$ with $\beta_L^{33}=1$ and $\beta_R^{33}=0$. Both SRs require $\pT^{\hadtau}>200~\GeV$. The $\bTagSR$-$\Res$ additionally requires $m_{b\hadtau}>800~\GeV$, $\mT>200~\GeV$, $\pT^b>250~\GeV$ and $N_j-N_b\leq3$. The $\bTagSR$-$\NonRes$ additionally requires $\met>400~\GeV$, $50<\pT^b<250~\GeV$, $\DphiTauMet>1.2$ and $N_j-N_b\leq1$.}
     \label{fig:ch7_discriminants_with_significance}
 \end{figure}
 
-\clearpage
 \subsection[SR1b-Res definition]{$\bTagSR$-$\Res$}
 \label{subsec:ch7_sr1b_res}
 
@@ -219,7 +249,7 @@ With the $m_{b\hadtau}$ threshold fixed at $800~\GeV$, the remaining scanned cut
 The background is dominated by $W(\to\tau\nu)$+jets, which contributes approximately $64\%$.
 Approximately $16\%$ is contributed by diboson production.
 The top-quark contribution consists of $\ttbar$ ($8\%$) and single-top production ($5\%$), with the latter mainly from the $Wt$ process.
-These events are mainly from $\ttbar\to b\tau\nu\,\bar b\tau\nu$ or $Wt\to b\tau\nu\,\tau\nu$ when only one $\hadtau$ is selected and the other is misidentified as a jet.
+These events are mainly from $\ttbar\to b\tau\nu\,\bar b\tau\nu$ or $Wt\to \tau\nu\, b\tau\nu$ when only one $\hadtau$ is selected and the other is misidentified as a jet.
 A smaller contribution is provided by $Z(\to\tau\tau)$+jets, while the $Z(\to\nu\nu)$+jets contribution is negligibly small.
 
 The $N-1$ distributions in $\bTagSR$-$\Res$ are shown in Figure~\ref{fig:ch7_sr1b_res_distributions}, where the thresholds on the correlated variables $\mT$ and $\pT^{\hadtau}$ are both lowered to $100~\GeV$ to reduce statistical fluctuations.
@@ -258,7 +288,6 @@ The mass distribution is also broadened by the missing neutrino momentum and poo
     \label{fig:ch7_sr1b_res_distributions}
 \end{figure}
 
-\clearpage
 \subsection[SR1b-NonRes definition]{$\bTagSR$-$\NonRes$}
 \label{subsec:ch7_sr1b_nonres}
 
@@ -327,7 +356,6 @@ The $N-1$ distributions in $\bTagSR$-$\NonRes$ are shown in Figure~\ref{fig:ch7_
     \label{fig:ch7_sr1b_nonres_distributions}
 \end{figure}
 
-\clearpage
 \section[b-veto signal region (SR0b)]{$b$-veto signal region ($\bVetoSR$)}
 \label{sec:ch7_sr0b}
 
@@ -431,7 +459,7 @@ In the non-resonant region, the corresponding contributions are approximately $3
 The $Z\to\nu\nu$, $Z\to\tau\tau$ and diboson events have a similar topology to that in $\bTagSR$, while the top-quark background contribution is negligible.
 
 The flavour of the leading jet is examined to understand the signal contributions in $\bVetoSR$.
-The parton-ID assigned to the jet is used, where 3, 4 and 21 denote $s$ quarks, $c$ quarks and gluons, respectively.
+The parton-ID assigned to the jet is used, where 3, 4 and 21 denote $s(\bar{s})$ quarks, $c(\bar{c})$ quarks and gluons, respectively.
 The distributions for the signal at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ are shown in Figure~\ref{fig:ch7_sr0b_truth_jet_flavour}.
 
 In $\bVetoSR$-$\Res$, approximately $30\%$ of the events contain a leading $s$-jet and $60\%$ contain a leading $c$-jet. The $s$-jet contribution is produced through single leptoquark production followed by $U_1\to s\tau$ decays, which is enhanced by large $\beta_L^{23}$ and $g_U$ ($\beta_L^{33}$ is fixed to $1.0$).
@@ -451,7 +479,7 @@ The remaining events are mainly produced through $sc\to\tau\nu_\tau$ with an ISR
         \includegraphics[width=\linewidth]{Figs/CH7/truth_flavour/SR0b_NonRes_leading_jet_parton_ID.pdf}
         \caption{$\bVetoSR$-$\NonRes$.}
     \end{subfigure}
-    \caption[Leading-jet flavour in SR0b]{Leading-jet parton-ID distributions in $\bVetoSR$-$\Res$ and $\bVetoSR$-$\NonRes$, at the signal point $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$. The parton IDs 3, 4 and 21 denote $s$ quarks, $c$ quarks and gluons, respectively. Each histogram is normalised to unit area.}
+    \caption[Leading jet parton IDs in $\bVetoSR$]{Leading-jet parton-ID distributions in $\bVetoSR$-$\Res$ and $\bVetoSR$-$\NonRes$, at the signal point $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$. The parton IDs 3, 4 and 21 denote $s(\bar{s})$ quarks, $c(\bar{c})$ quarks and gluons, respectively. Each histogram is normalised to unit area.}
     \label{fig:ch7_sr0b_truth_jet_flavour}
 \end{figure}
 

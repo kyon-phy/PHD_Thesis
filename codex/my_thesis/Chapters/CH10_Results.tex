@@ -1,7 +1,7 @@
 \chapter{Statistical Method and Results}
 \label{chapter:results}
 
-This chapter presents the statistical method and results. The statistical model and hypothesis test are introduced first in Section~\ref{sec:ch10_statistical_model}. The unblinded results are then presented in Section~\ref{sec:ch10_results}, followed by the exclusion limits summarised in Section~\ref{sec:ch10_limits}. A discussion on the future improvement is presented in Section~\ref{sec:ch10_future}.
+This chapter presents the statistical method and results. The statistical model and hypothesis test are introduced first in Section~\ref{sec:ch10_statistical_model}. The results are then presented in Section~\ref{sec:ch10_results}, followed by the exclusion limits summarised in Section~\ref{sec:ch10_limits}. A discussion of future improvements is presented in Section~\ref{sec:ch10_future}.
 
 \section{Statistical method}
 \label{sec:ch10_statistical_model}
@@ -11,12 +11,12 @@ This chapter presents the statistical method and results. The statistical model 
 The likelihood model is used to test for the presence of a BSM signal. In a maximum-likelihood fit, the model parameters are determined by maximising the likelihood function. This function combines Poisson probabilities for the observed event yields in the fitted regions with constraint terms for the nuisance parameters (NPs):
 \begin{align}
  \mathcal{L}(\mu,\vec{\lambda},\vec{\gamma},\vec{\theta})
- &=\prod_{\mathrm{SR,CR}}\mathrm{Pois}\bigl(N_{\mathrm{obs}}\mid N_{\mathrm{exp}}(\vec{\lambda},\vec{\gamma},\vec{\theta})\bigr)
+ &=\prod_{\mathrm{SR,CR}}\mathrm{Pois}\bigl(N_{\mathrm{obs}}\mid N_{\mathrm{exp}}(\mu,\vec{\lambda},\vec{\gamma},\vec{\theta})\bigr)
  \nonumber\\
  &\quad\times\prod_k C_k(\theta_k)\,C_{\mathrm{MC}}(\vec{\gamma}),
  \label{eq:ch10_likelihood}
 \end{align}
-where $\mu$ is the signal strength, $\vec{\lambda}=\{\lambda_W^{\Res},\lambda_W^{\NonRes},\lambda_t^{\Res},\lambda_t^{\NonRes}\}$ contains the background normalisation factors, $\vec{\gamma}$ denotes the MC statistical NPs, and $\vec{\theta}$ denotes the NPs representing the systematic uncertainties introduced in Chapter~\ref{chapter:systematics_uncertainties}.
+where $\mu$ is the signal strength, $\vec{\lambda}=\{\lambda_W^{\Res},\lambda_W^{\NonRes},\lambda_t^{\Res},\lambda_t^{\NonRes}\}$ contains the background normalisation factors (NFs), $\vec{\gamma}$ denotes the MC statistical NPs, and $\vec{\theta}$ denotes the NPs representing the systematic uncertainties introduced in Chapter~\ref{chapter:systematics_uncertainties}.
 $C_k(\theta_k)$ is the constraint term for the corresponding systematic NP and may take a Gaussian, log-normal or Poisson form, depending on the uncertainty.
 $C_{\mathrm{MC}}(\vec{\gamma})$ is the product of the auxiliary Poisson constraints for the MC statistical NPs.
 Since only the total event yield in each region is used in the fit, the shape systematics are pruned.
@@ -31,7 +31,7 @@ The $\bTagSR$-\Res region contributes one bin to the likelihood after the $m_{b\
 
 The expected yield in each region is given by
 \begin{align}
- N_{\mathrm{exp}}(\vec{\lambda},\vec{\gamma},\vec{\theta})
+ N_{\mathrm{exp}}(\mu,\vec{\lambda},\vec{\gamma},\vec{\theta})
  &=\mu N_{\mathrm{sig}}(\vec{\gamma},\vec{\theta})
    +\sqrt{\mu}\,N_{\mathrm{int}}(\vec{\gamma},\vec{\theta})
    \nonumber\\
@@ -48,10 +48,9 @@ They are constrained by the observed yields through the Poisson terms in Eq.~\eq
 
 The finite MC sample sizes introduce statistical uncertainties in $N_W^{\mathrm{MC}}$, $N_t^{\mathrm{MC}}$ and $N_{\mathrm{others}}^{\mathrm{MC}}$, including the $Z$+jets and diboson backgrounds.
 These are represented by the NPs $\vec{\gamma}$ using the Barlow--Beeston lite prescription~\cite{Conway:2011in}, in which the MC statistical uncertainties of the simulated samples in each bin are combined and represented by one common multiplicative NP in $\vec{\gamma}$.
-It changes their contributions to $N_{\mathrm{exp}}(\vec{\lambda},\vec{\gamma},\vec{\theta})$ and has an auxiliary Poisson constraint $C_{\mathrm{MC}}(\vec{\gamma})$.
-This treatment also applies to backgrounds that are not assigned free NFs, such as the $Z$+jets and diboson processes.
+It changes their contributions to $N_{\mathrm{exp}}(\mu,\vec{\lambda},\vec{\gamma},\vec{\theta})$ and has an auxiliary Poisson constraint $C_{\mathrm{MC}}(\vec{\gamma})$.
 
-The systematic NPs $\vec{\theta}$ modify the signal and background contributions to $N_{\mathrm{exp}}(\vec{\lambda},\vec{\gamma},\vec{\theta})$ in Eq.~\eqref{eq:ch10_expected_yield}.
+The systematic NPs $\vec{\theta}$ modify the signal and background contributions to $N_{\mathrm{exp}}(\mu,\vec{\lambda},\vec{\gamma},\vec{\theta})$ in Eq.~\eqref{eq:ch10_expected_yield}.
 The constraint terms $C_k(\theta_k)$ restrict these variations according to the systematic uncertainties evaluated in Chapter~\ref{chapter:systematics_uncertainties}.
 The NFs, MC statistical NPs and systematic NPs are varied together in the fit. The fitted NF uncertainties therefore include the effects of both data statistics and the NPs.
 
@@ -65,95 +64,99 @@ The NFs, MC statistical NPs and systematic NPs are varied together in the fit. T
 % \end{align}
 % where $N_{bg}^{CR,fit}=\lambda N_{bg}^{CR,MC}$ is the fitted contribution of that background to the CR yield, and $TF$ is the simulated yield ratio defined in Eq.~\eqref{eq:ch9_transfer}.
 
-$\sqrt{\mu}$ is the parameter of interest (POI) in the analysis since the interference term is scaled by it. $\mu\geq0$ is therefore required.
-The background-only and signal-plus-background (S+B) models correspond to $\mu=0$ and $\mu>0$, respectively.
+$\sqrt{\mu}=x$ is the parameter of interest (POI) in the analysis since the interference term is scaled by it. $x\geq0$ is therefore required.
+The background-only and signal-plus-background (S+B) models correspond to $x=0$ and $x>0$, respectively.
 
 \subsection{Fit strategy}
 \label{subsec:ch10_fit_strategy}
 The following two fit configurations are used in the analysis:
 \begin{itemize} 
-  \item \textbf{Background-only fit}: The fit is performed in the CRs to obtain the background estimation without any signal assumption. It fits the four background NFs and the NPs to maximise the likelihood only in the CRs with $\mu=0$.
+  \item \textbf{Background-only fit}: The fit is performed in the CRs to obtain the background estimation without any signal assumption. It fits the four background NFs and the NPs to maximise the likelihood only in the CRs with $x=0$.
   The fitted values for NFs and NPs are used to predict the background yields in the SRs and VRs.
   This fit is also used to assess the constraints on the NPs from the CR data alone.
-  \item \textbf{S+B fit}: The fit extends the likelihood fit to the SRs and allows $\mu$ to vary to determine the best-fit value $\hat\mu$.
+  \item \textbf{S+B fit}: The fit extends the likelihood fit to the SRs and allows $x$ to vary to determine the best-fit value $\hat{x}$.
 \end{itemize}
 
 \subsection{Test statistic and NP impacts}
-The test statistic is defined using the profile-likelihood ratio.
-Profiling means that at each fixed $\mu$, the background NFs and NPs are fitted again to obtain the maximum likelihood value.
-It then compares the maximum likelihood at fixed $\mu$ with the likelihood at $\hat\mu$.
+The test statistic is defined using the profile-likelihood ratio, with the likelihood expressed as a function of $x$.
+Profiling means that at each fixed $x$, the background NFs and NPs are fitted again to obtain the maximum likelihood value.
+It then compares the maximum likelihood at fixed $x$ with the likelihood at $\hat{x}$.
 Thus,
 \begin{align*}
- q_\mu=-2\ln
- \frac{\mathcal{L}(\mu,\vec{\lambda}_{\mu},\vec{\gamma}_{\mu},\vec{\theta}_{\mu})}
-      {\mathcal{L}(\hat\mu,\hat{\vec{\lambda}},\hat{\vec{\gamma}},\hat{\vec{\theta}})},
+ q_x=-2\ln
+ \frac{\mathcal{L}(x,\vec{\lambda}_{x},\vec{\gamma}_{x},\vec{\theta}_{x})}
+      {\mathcal{L}(\hat{x},\hat{\vec{\lambda}},\hat{\vec{\gamma}},\hat{\vec{\theta}})},
 \end{align*}
-where $\hat{\vec{\lambda}}$, $\hat{\vec{\gamma}}$ and $\hat{\vec{\theta}}$ are the best-fit values of the background NFs, MC statistical NPs and systematic NPs, respectively. A large $q_\mu$ indicates poor agreement with the tested hypothesis.
+where $\hat{\vec{\lambda}}$, $\hat{\vec{\gamma}}$ and $\hat{\vec{\theta}}$ are the best-fit values of the background NFs, MC statistical NPs and systematic NPs, respectively. $q_x$ therefore has a minimum value of zero, and a large $q_x$ indicates poor agreement with the tested hypothesis.
 
-Expanding $q_\mu$ around $\hat\mu$, using $q_{\hat\mu}=0$ and neglecting higher-order terms, gives the local Gaussian approximation:
+Expanding $q_x$ around $\hat{x}$, using $q_{\hat{x}}=0$ and neglecting higher-order terms, gives the local Gaussian approximation:
 \begin{align*}
- q_\mu\simeq\frac{(\mu-\hat\mu)^2}{\sigma_\mu^2},
+ q_x\simeq\frac{(x-\hat{x})^2}{\sigma_x^2},
 \end{align*}
-where $\sigma_\mu$ is the standard deviation of $\hat\mu$.
-The total uncertainty on $\hat\mu$, $\Delta\hat\mu$, is then determined by scanning $\mu$ to find the range satisfying $q_\mu\leq1$, corresponding to one standard deviation from $\hat\mu$.
+where $\sigma_x$ is the standard deviation of $\hat{x}$.
+Within this approximation, the deviation of the fit parameter $x$ from its best-fit value can be quantified by $q_x$.
+Specifically, $q_x=0$ means that $x=\hat{x}$, while $q_x=1$ corresponds to a displacement of one standard deviation from $\hat{x}$.
+Thus, by scanning $x$ and evaluating the corresponding $q_x$ values, the $\pm1\sigma$ variations of $x$ can be obtained from the points satisfying $q_x=1$.
+The same interpretation is applied to the NPs.
 
-The contributions of each NP to the uncertainty on the fitted parameter $\sqrt{\mu}$ are estimated from the post-fit covariance matrix using a local linear approximation:
+The contributions of each NP to the uncertainty on the fitted parameter $x$ are estimated from the post-fit covariance matrix using a local linear approximation:
 \begin{align}
- \Delta(\sqrt{\mu})_{\mathrm{up}}
- &=\rho\,\sigma_{\sqrt{\mu}}^{\mathrm{up}}\sigma_{\mathrm{NP}}^{\mathrm{up}},
+ \Delta x_{\mathrm{up}}
+ &=\sigma_x^{\mathrm{up}}\rho\sigma_{\mathrm{NP}}^{\mathrm{up}},
  \nonumber\\
- \Delta(\sqrt{\mu})_{\mathrm{down}}
- &=-\rho\,\sigma_{\sqrt{\mu}}^{\mathrm{down}}\sigma_{\mathrm{NP}}^{\mathrm{down}},
+ \Delta x_{\mathrm{down}}
+ &=-\sigma_x^{\mathrm{down}}\rho\sigma_{\mathrm{NP}}^{\mathrm{down}},
  \label{eq:ch10_np_impact}
 \end{align}
-where $\sigma_{\sqrt{\mu}}^{\mathrm{up/down}}$ and $\sigma_{\mathrm{NP}}^{\mathrm{up/down}}$ are the positive magnitudes of the upper/lower post-fit uncertainties in $\sqrt{\mu}$ and the NP, respectively, and $\rho$ is their correlation coefficient.
-A larger $|\Delta(\sqrt{\mu})|$ indicates a greater impact of the NP on $\sqrt{\mu}$.
+where $\sigma_x^{\mathrm{up/down}}$ and $\sigma_{\mathrm{NP}}^{\mathrm{up/down}}$ are the positive magnitudes of the upper/lower post-fit uncertainties in $x$ and the NP, respectively, and $\rho$ is their correlation coefficient.
+A larger $|\Delta x|$ indicates a greater impact of the NP on $x$.
 
 \subsection{Hypothesis testing and CL$_{\mathrm{s}}$ method}
 Hypothesis testing is performed to determine if the observed data are consistent with the SM-only or SM+BSM scenario.
 The null hypothesis refers to the SM-only scenario, and the alternative hypothesis refers to a scenario with the leptoquark signal.
 In case no significant deviation is observed from the SM, upper limits are set by the CL$_{\mathrm{s}}$ method with the one-sided statistic
 \begin{align*}
- \tilde q_\mu=\begin{cases}
- q_\mu &\hat\mu\leq\mu,\\
- 0 &\hat\mu>\mu.
+ \tilde q_x=\begin{cases}
+ q_x &\hat{x}\leq x,\\
+ 0 &\hat{x}>x.
  \end{cases}
 \end{align*}
 
-The CL$_{\mathrm{s}}$ is defined by the probability of observing a given $\mu$ using $\tilde q_\mu$ under the S+B and background-only hypotheses~\cite{Read:2002hq}:
+The tail probabilities of $\tilde q_x$ under the tested S+B and background-only hypotheses are defined as follows~\cite{Read:2002hq}:
 \begin{align*}
- \mathrm{CL}_{s+b}&=P(\tilde q_\mu\geq\tilde q_\mu^{\mathrm{obs}}\mid\mu),&
- \mathrm{CL}_{b}&=P(\tilde q_\mu\geq\tilde q_\mu^{\mathrm{obs}}\mid0),
+ \mathrm{CL}_{s+b}&=P(\tilde q_x\geq\tilde q_x^{\mathrm{obs}}\mid x),&
+ \mathrm{CL}_{b}&=P(\tilde q_x\geq\tilde q_x^{\mathrm{obs}}\mid0),
 \end{align*}
-where $\tilde q_\mu^{\mathrm{obs}}$ is evaluated using the observed data.
+where $\tilde q_x^{\mathrm{obs}}$ is evaluated using the observed data.
 Their ratio gives the CL$_{\mathrm{s}}$:
 \begin{align*}
  \mathrm{CL}_{s}&=\frac{\mathrm{CL}_{s+b}}{\mathrm{CL}_{b}}.
 \end{align*}
 $\mathrm{CL}_{s}$ is more robust against background fluctuations compared with $\mathrm{CL}_{s+b}$.
-The upper limit on $\mu$ is then found at $\mathrm{CL}_{s}=0.05$, which corresponds to 95\% confidence level (CL).
+The upper limit on $x$ is then found at $\mathrm{CL}_{s}=0.05$, which corresponds to 95\% confidence level (CL).
 
 \subsection{Limit calculation}
 \label{subsec:ch10_limit_calculation}
 
-Two methods are applied in this analysis to calculate the upper limit on $\mu$:
+The 95\% CL upper limit is obtained using $x$ as the parameter of interest and is then converted to a limit on $\mu$ through $\mu=x^2$.
+Two methods are applied in this analysis to calculate the upper limit on $x$:
 
 \subsubtitle{Pseudo-experiments}
 The calculation uses pseudo-experiments to calculate $\mathrm{CL}_{s}$:
 \begin{enumerate}
- \item At each tested $\mu$, pseudo-datasets are generated under the S+B and background-only hypotheses, with event yields fluctuated according to their Poisson distributions.
- \item Each pseudo-dataset is fitted with $\mu$ fixed and free parameters, NFs and NPs, to calculate $\tilde q_\mu$.
- \item The fractions of pseudo-experiments with $\tilde q_\mu\geq\tilde q_\mu^{\mathrm{obs}}$ determine the $\mathrm{CL}_{s}$. The calculation is repeated across $\mu$ values, and the $\mathrm{CL}_{s}=0.05$ crossing is interpolated to obtain the upper limit.
+ \item At each tested $x$, pseudo-datasets are generated under the S+B and background-only hypotheses, with event yields fluctuated according to their Poisson distributions.
+ \item Each pseudo-dataset is fitted with $x$ fixed while floating the free parameters (NFs and NPs) to calculate $\tilde q_x$.
+ \item The fractions of pseudo-experiments with $\tilde q_x\geq\tilde q_x^{\mathrm{obs}}$ determine the $\mathrm{CL}_{s}$. The calculation is repeated across $x$ values, and the $\mathrm{CL}_{s}=0.05$ crossing is interpolated to obtain the upper limit.
 \end{enumerate}
 
 \subsubtitle{Asymptotic approximation}
 The pseudo-experiment method gives the test-statistic distributions directly, including the effects of low expected yields, at the cost of computing time.
-The asymptotic calculation instead uses analytic formulae to approximate the $\tilde q_\mu$ distributions~\cite{Cowan:2010js}.
-An Asimov dataset is constructed using the expected event yields in the SRs, with NPs and NFs obtained from the background-only fit and a signal scaled by $\mu$.
-The tail probabilities are then evaluated from these formulae, and the same $\mu$ scan is performed.
+The asymptotic calculation instead uses analytic formulae to approximate the $\tilde q_x$ distributions~\cite{Cowan:2010js}.
+An Asimov dataset is constructed using the expected event yields in the SRs, with NPs and NFs obtained from the background-only fit and a signal scaled by $x^2$.
+The tail probabilities are then evaluated from these formulae, and the same $x$ scan is performed.
 The calculation with this method is faster and avoids fluctuations from a finite number of pseudo-experiments, but the approximation can be less reliable for expected event yields of $\mathcal{O}(1)$. In this analysis the two methods agree to within a few percent. For example, the upper limit on $\gU$ at $\beta_L^{23}=1.0,\MU=3.0~\TeV$ is $2.69$ with the pseudo-experiment method and $2.66$ with the asymptotic approximation. The two values differ by about $1.1\%$.
 
-The low SR yields therefore motivate the use of pseudo-experiments for the left-handed limits ($\beta_R^{33}=0$; Section~\ref{subsec:u1_low_energy_fit}), with interference included and 10\,000 pseudo-experiments per hypothesis at each scan point. And the right-handed limits ($\beta_R^{33}=-1$; Section~\ref{subsec:u1_low_energy_fit}) in the $\bTagSR$ are calculated as a supplementary interpretation using the asymptotic approximation without interference. 
+The low SR yields therefore motivate the use of pseudo-experiments for the left-handed limits ($\beta_R^{33}=0$, see Section~\ref{subsec:u1_low_energy_fit}), with interference included and 10\,000 pseudo-experiments at each scan point. On the other hand, the right-handed limits ($\beta_R^{33}=-1$) in the $\bTagSR$ are calculated as a supplementary interpretation using the asymptotic approximation without interference. 
 
 \section{Results}
 \label{sec:ch10_results}
@@ -183,7 +186,7 @@ The post-fit yields in the CRs, VRs and SRs are summarised in Tables~\ref{tab:ch
   \begin{subfigure}{0.44\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/SR0b_NonRes_mT.pdf}\caption{}\end{subfigure}\\
   \begin{subfigure}{0.44\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/SR1b_Res_InvM.pdf}\caption{}\end{subfigure}\hfill
   \begin{subfigure}{0.44\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/SR1b_NonRes_mT.pdf}\caption{}\end{subfigure}
-  \caption[Unblinded mass and transverse-mass distributions]{N-1 distributions of (a) $m_{j\hadtau}$ in $\bVetoSR$-\Res, (b) $\mT$ in $\bVetoSR$-\NonRes, (c) $m_{b\hadtau}$ in $\bTagSR$-\Res and (d) $\mT$ in $\bTagSR$-\NonRes. The background-only fit is used for the background prediction. The signal expectations at parameter points $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(3.0~\TeV,2.5,1.0)$ are shown as red dashed lines in (a) and (c) and violet dashed lines in (b) and (d), respectively. The hatched bands show the combined statistical and systematic uncertainties. The bottom panels show the ratio of data to background prediction. Blue upward triangles indicate ratio values exceeding the displayed range. Red arrows indicate variable thresholds for the SRs. The last bin includes overflow.}
+  \caption[$N-1$ mass and $\mT$ distributions in the SRs]{N-1 distributions of (a) $m_{j\hadtau}$ in $\bVetoSR$-\Res, (b) $\mT$ in $\bVetoSR$-\NonRes, (c) $m_{b\hadtau}$ in $\bTagSR$-\Res and (d) $\mT$ in $\bTagSR$-\NonRes. The background-only fit is used for the background prediction. The signal expectations at parameter points $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(3.0~\TeV,2.5,1.0)$ are shown as red dashed lines in (a) and (c) and violet dashed lines in (b) and (d), respectively. The hatched bands show the combined statistical and systematic uncertainties. The bottom panels show the ratio of data to background prediction. Blue upward triangles indicate ratio values exceeding the displayed range. Red arrows indicate variable thresholds for the SRs. The last bin includes overflow.}
   \label{fig:ch10_sr_mass}
 \end{figure}
  
@@ -193,7 +196,7 @@ The post-fit yields in the CRs, VRs and SRs are summarised in Tables~\ref{tab:ch
    \begin{subfigure}{0.44\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/SR0b_NonRes_met.pdf}\caption{}\end{subfigure}\\
    \begin{subfigure}{0.44\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/SR1b_Res_met.pdf}\caption{}\end{subfigure}\hfill
    \begin{subfigure}{0.44\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/SR1b_NonRes_met.pdf}\caption{}\end{subfigure}
-   \caption[$\met$ distributions]{The N-1 $\met$ distributions in (a) $\bVetoSR$-\Res, (b) $\bVetoSR$-\NonRes, (c) $\bTagSR$-\Res and (d) $\bTagSR$-\NonRes before the $\met$ requirement. The background-only fit is used for the background prediction. The signal expectations at parameter points $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(3.0~\TeV,2.5,1.0)$ are shown as red dashed lines in (a) and (c) and violet dashed lines in (b) and (d), respectively. The hatched bands show the combined statistical and systematic uncertainties. The bottom panels show the ratio of data to background prediction. Blue upward triangles indicate ratio values exceeding the displayed range. Red arrows indicate variable thresholds for the SRs.}
+   \caption[$N-1$ $\met$ distributions in the SRs]{The N-1 $\met$ distributions in (a) $\bVetoSR$-\Res, (b) $\bVetoSR$-\NonRes, (c) $\bTagSR$-\Res and (d) $\bTagSR$-\NonRes before the $\met$ requirement. The background-only fit is used for the background prediction. The signal expectations at parameter points $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(3.0~\TeV,2.5,1.0)$ are shown as red dashed lines in (a) and (c) and violet dashed lines in (b) and (d), respectively. The hatched bands show the combined statistical and systematic uncertainties. The bottom panels show the ratio of data to background prediction. Blue upward triangles indicate ratio values exceeding the displayed range. Red arrows indicate variable thresholds for the SRs.}
    \label{fig:ch10_sr_met}
 \end{figure} 
 
@@ -291,7 +294,7 @@ The TES variation shifts the calibrated $\hadtau$ energies and also propagates t
 As shown in Figure~\ref{fig:ch10_cr_np_variations}, with the NFs fixed at their nominal values, the $+1\sigma$ TES detector variation increases the top-quark background yields by $11.2\%$ and $17.4\%$ in $\CRTop$-$\Res$ and $\CRTop$-$\NonRes$, respectively.
 The fit can compensate for these increases by reducing the top-quark NFs, explaining the negative correlations.
 
-Similarly, the $+1\sigma$ muon momentum-resolution variation increases the $\wjets$ yields in $\CRW$, producing negative correlations with the $\wjets$ NFs, with $|\rho|$ up to $0.52$.
+Similarly, the $+1\sigma$ muon momentum-resolution variation increases the $\wjets$ yields in $\CRW$ as shown in Figure~\ref{fig:ch10_cr_np_variations}(\subref{fig:ch10_cr_np_variations_muon}), producing negative correlations with the $\wjets$ NFs, with $|\rho|$ up to $0.52$.
 The $+1\sigma$ muon trigger-efficiency variation instead increases the MC trigger efficiency $\epsilon_{\mathrm{MC}}$ in Eq.~\eqref{eq:ch6_efficiency_sf}, resulting in a reduction of the trigger scale factor and hence the predicted $\wjets$ yields in $\CRW$.
 The fit compensates by increasing the $\wjets$ NFs, giving positive correlations of up to $0.33$.
 These correlations are included through the post-fit covariance matrix when evaluating the uncertainties in the expected background yields.
@@ -299,7 +302,7 @@ These correlations are included through the post-fit covariance matrix when eval
 \begin{figure}[htpb]
  \centering
  \includegraphics[width=\linewidth]{Figs/CH10/corr_bonly.pdf}
- \caption[Correlation matrix in the CR fit]{The correlation matrix for the unblinded background-only fit to CRs. Only NPs and NFs with an absolute correlation coefficient of at least $0.2$ with another NP or NF are shown. Entries give the correlation coefficients in percent. The signal strength is also shown and is fixed to zero in this fit.}
+ \caption[Correlation matrix for the background-only fit]{The correlation matrix for the background-only fit to CRs. Only NPs and NFs with an absolute correlation coefficient of at least $0.2$ with another NP or NF are shown. Entries give the correlation coefficients in percent. The signal strength is also shown and is fixed to zero in this fit.}
  \label{fig:ch10_corr_bonly}
 \end{figure}
 
@@ -313,13 +316,13 @@ These correlations are included through the post-fit covariance matrix when eval
   \includegraphics[width=\linewidth]{Figs/CH10/cr_np_yield_variations_muon.pdf}
   \caption{}\label{fig:ch10_cr_np_variations_muon}
  \end{subfigure}
- \caption[Effects of TES and muon NP variations on CR yields]{Changes of (a) the expected top-quark background ($\ttbar$ and single-top) yields in $\CRTop$ for TES detector variations and (b) the expected $\wjets$ yields in $\CRW$ for muon momentum-resolution and trigger-efficiency variations. Red and blue markers show the $+1\sigma$ and $-1\sigma$ variations, respectively.}
+ \caption[CR yield changes from TES and muon variations]{Changes of (a) the expected top-quark background ($\ttbar$ and single-top) yields in $\CRTop$ for TES detector variations and (b) the expected $\wjets$ yields in $\CRW$ for muon momentum-resolution and trigger-efficiency variations. Red and blue markers show the $+1\sigma$ and $-1\sigma$ variations, respectively.}
  \label{fig:ch10_cr_np_variations}
 \end{figure}
 
 
 \clearpage
-\subsection{Unblinded S+B fit}
+\subsection{Signal-plus-background fit}
 \label{subsec:ch10_sbfit}
 Given that no significant excess is observed in the four SRs, the S+B fits have been performed for various signal parameters to set upper limits.
 % The best-fit $\mu$ values are:
@@ -342,23 +345,33 @@ Given that no significant excess is observed in the four SRs, the S+B fits have 
 % at $(\MU,\gU,\beta_L^{23})=(3.0~\TeV,2.5,1.0)$.
 % The quoted uncertainties are the total fit uncertainties. The first three best-fit values lie at the $\mu=0$ boundary.
 
-Two sets of signal parameters are picked to study the NP impacts in different LQ mass regions.
+Two sets of signal parameters are picked to study the NP impacts on $x$ in different LQ mass regions.
 Figures~\ref{fig:ch10_rank_np_impacts_MLQ_1p5} and~\ref{fig:ch10_rank_np_impacts_MLQ_3p0} show the leading NP impacts at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.2)$ and $(3.0~\TeV,2.0,1.0)$, respectively, together with the pulls and post-fit uncertainties.
-The corresponding best-fit values are
+The upper and lower contributions from each NP to the uncertainty on $x$ are evaluated separately using the covariance matrix, as described in Eq.~\eqref{eq:ch10_np_impact}.
+The corresponding best-fit values of $x=\sqrt{\mu}$ and $\mu$ are
 \begin{align*}
- \hat\mu=0.35^{+2.62}_{-0.35}
+ \hat{x}&=\sqrt{\hat\mu}
+ =0.59^{+1.13}_{-0.59}
+ =0.59^{+1.09}_{-0.34}\,\mathrm{(stat)}
+       ^{+0.30}_{-0.48}\,\mathrm{(syst)},\\
+ \hat\mu&=0.35^{+2.62}_{-0.35}
  =0.35^{+2.47}_{-0.29}\,\mathrm{(stat)}
        ^{+0.45}_{-0.34}\,\mathrm{(syst)}
 \end{align*}
 at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.2)$, and
 \begin{align*}
- \hat\mu=0.66^{+1.28}_{-0.66}
+ \hat{x}&=\sqrt{\hat\mu}
+ =0.81^{+0.58}_{-0.81}
+ =0.81^{+0.17}_{-0.69}\,\mathrm{(stat)}
+       ^{+0.55}_{-0.42}\,\mathrm{(syst)},\\
+ \hat\mu&=0.66^{+1.28}_{-0.66}
  =0.66^{+0.30}_{-0.64}\,\mathrm{(stat)}
        ^{+1.21}_{-0.51}\,\mathrm{(syst)}
 \end{align*}
 at $(\MU,\gU,\beta_L^{23})=(3.0~\TeV,2.0,1.0)$.
 
-Note that the uncertainty on $\mu$ can be asymmetric because the profile likelihood need not be symmetric around its maximum. The upper and lower contributions from each NP to the uncertainty on $\sqrt{\mu}$ are evaluated separately using the covariance matrix, as described in Eq.~\eqref{eq:ch10_np_impact}.
+The requirement $x\geq0$ means that the lower uncertainty on $x$ cannot exceed its central value, which can make the upper and lower uncertainties asymmetric.
+$\mu$ is then obtained through $\mu=x^2$, which can also introduce asymmetry in the uncertainties.
 
 The data statistical uncertainty dominates for $\MU=1.5~\TeV$, while both statistical and systematic uncertainties are important for $\MU=3.0~\TeV$.
 For $\MU=1.5~\TeV$, the largest NP impact comes from the $\wjets$ heavy flavour uncertainty described in Section~\ref{subsec:ch9_wjets}, followed by the $\wjets$ QCD-scale uncertainties.
@@ -369,15 +382,15 @@ The $\wjets$ QCD scale uncertainties also affect the extrapolation from the CRs 
 
 \begin{figure}[htpb]
  \centering
- \includegraphics[width=0.90\linewidth]{Figs/CH10/rank_np_impacts_MLQ_1p5.pdf}
- \caption[NP ranking for $\MU=1.5~\TeV$]{The ranking plot of NPs for $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.2)$, using the four CRs and four SRs. NP impacts are obtained from the post-fit covariance matrix and are shown by the green bars. Black markers and horizontal error bars show the NP pulls and their post-fit uncertainties, respectively. The vertical dashed lines at $\pm1$ indicate the pre-fit $\pm1\sigma$ range. The individual NP impacts are evaluated for the fitted parameter $\sqrt{\mu}$. Most experimental systematic variations are symmetrised.}
+ \includegraphics[width=0.88\linewidth]{Figs/CH10/rank_np_impacts_MLQ_1p5.pdf}
+ \caption[NP ranking for $\MU=1.5~\TeV$]{The ranking plot of NPs for $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.2)$, using the four CRs and four SRs. NP impacts are obtained from the post-fit covariance matrix and are shown by the green bars, with their values read from the upper horizontal axis. Black markers and horizontal error bars show the NP pulls and their post-fit uncertainties, respectively, with their values read from the lower horizontal axis. The vertical dashed lines at $\pm1$ indicate the pre-fit $\pm1\sigma$ range. The individual NP impacts are evaluated for the fitted parameter $x$. Most experimental systematic variations are symmetrised.}
  \label{fig:ch10_rank_np_impacts_MLQ_1p5}
 \end{figure}
 
 \begin{figure}[htpb]
  \centering
- \includegraphics[width=0.90\linewidth]{Figs/CH10/rank_np_impacts_MLQ_3p0.pdf}
- \caption[NP ranking for $\MU=3.0~\TeV$]{The ranking plot of NPs for $(\MU,\gU,\beta_L^{23})=(3.0~\TeV,2.0,1.0)$, using the four CRs and four SRs. NP impacts are obtained from the post-fit covariance matrix and are shown by the green bars. Black markers and horizontal error bars show the NP pulls and their post-fit uncertainties, respectively. The vertical dashed lines at $\pm1$ indicate the pre-fit $\pm1\sigma$ range. The individual NP impacts are evaluated for the fitted parameter $\sqrt{\mu}$. Most experimental systematic variations are symmetrised.}
+ \includegraphics[width=0.88\linewidth]{Figs/CH10/rank_np_impacts_MLQ_3p0.pdf}
+ \caption[NP ranking for $\MU=3.0~\TeV$]{The ranking plot of NPs for $(\MU,\gU,\beta_L^{23})=(3.0~\TeV,2.0,1.0)$, using the four CRs and four SRs. NP impacts are obtained from the post-fit covariance matrix and are shown by the green bars, with their values read from the upper horizontal axis. Black markers and horizontal error bars show the NP pulls and their post-fit uncertainties, respectively, with their values read from the lower horizontal axis. The vertical dashed lines at $\pm1$ indicate the pre-fit $\pm1\sigma$ range. The individual NP impacts are evaluated for the fitted parameter $x$. Most experimental systematic variations are symmetrised.}
  \label{fig:ch10_rank_np_impacts_MLQ_3p0}
 \end{figure}
 
@@ -390,29 +403,29 @@ The $\wjets$ QCD scale uncertainties also affect the extrapolation from the CRs 
 
 This scenario corresponds to the pure-left-handed scenario in Section~\ref{subsec:u1_low_energy_fit}, with $\beta_R^{33}=0$.
 The contributions of the individual SRs are shown in Figure~\ref{fig:ch10_sr_comparison} using asymptotic calculations.
-As shown in Figure~\ref{fig:ch10_sr_comparison}(a), the resonant SRs provide the stronger sensitivity at low mass, while the non-resonant SRs become more sensitive as on-shell production is suppressed at higher mass.
+As shown in Figure~\ref{fig:ch10_sr_comparison}(\subref{fig:ch10_sr_comparison_res_nonres}), the resonant SRs provide the stronger sensitivity at low mass, while the non-resonant SRs become more sensitive as on-shell production is suppressed at higher mass.
 Their combination gives the best expected limit.
-Meanwhile, as shown in Figure~\ref{fig:ch10_sr_comparison}(b), $\bTagSR$ provides most of the sensitivity, while adding $\bVetoSR$ improves the combined limit particularly towards large $\beta_L^{23}$ and small $\gU$.
+Meanwhile, as shown in Figure~\ref{fig:ch10_sr_comparison}(\subref{fig:ch10_sr_comparison_sr0b_sr1b}), $\bTagSR$ provides most of the sensitivity, while adding $\bVetoSR$ improves the combined limit particularly towards large $\beta_L^{23}$ and small $\gU$.
 This is expected since the larger signal contribution without a $b$-jet would be enhanced by the second-generation coupling.
 These comparisons explain the role of each SR. The SR-combined exclusion limits are then obtained with pseudo-experiments.
 
 \begin{figure}[htpb]
  \centering
- \begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/compare_res_nonres.pdf}\caption{}\end{subfigure}\hfill
- \begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/compare_sr0b_sr1b.pdf}\caption{}\end{subfigure}
+ \begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/compare_res_nonres.pdf}\caption{}\label{fig:ch10_sr_comparison_res_nonres}\end{subfigure}\hfill
+ \begin{subfigure}{0.48\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/compare_sr0b_sr1b.pdf}\caption{}\label{fig:ch10_sr_comparison_sr0b_sr1b}\end{subfigure}
  \caption[Contributions of the individual signal regions to the sensitivity]{Observed (red solid line) and expected (black dashed line) 95\% CL upper limits on (a) $\gU$ as a function of $\MU$ at $\beta_L^{23}=1.0$ and (b) $\beta_L^{23}$ as a function of $\gU$ at $\MU=1.5~\TeV$. The shaded regions are favoured by $B$ anomalies at the $2\sigma$ level, converted from the $C_{LL}^{c}$ limit in Figure~\ref{fig:cll_clr_low_energy_fit} using Eq.~\eqref{eq:cll_c_approx}. The individual expected limits from the resonant and non-resonant SRs are also overlaid in (a), and those from $\bVetoSR$ and $\bTagSR$ are overlaid in (b). In this figure, limits are calculated using the asymptotic formulae rather than pseudo-experiments.}
  \label{fig:ch10_sr_comparison}
 \end{figure}
 
 Figures~\ref{fig:ch10_limits_mass} and~\ref{fig:ch10_limits_couplings} present the 95\% CL exclusions for the left-handed scenario using all four SRs.
-As summarised in Table~\ref{tab:ch10_coupling_limits_summary}, at $\MU=1.5~\TeV$, the observed (expected) upper limits on $\gU$ are approximately $2.8\ (2.8)$ for $\beta_L^{23}=0.2$, $1.13\ (1.11)$ for $\beta_L^{23}=1.0$ and $0.52\ (0.53)$ for $\beta_L^{23}=2.2$.
+As summarised in Table~\ref{tab:ch10_coupling_limits_summary}, at $\MU=1.5~\TeV$, the observed (expected) upper limits on $\gU$ are approximately\footnote{Approximate values are estimated from the observed and expected limit curves or by the linear extrapolation from the limit in $\MU$.} $2.8\ (2.8)$ for $\beta_L^{23}=0.2$, $1.13\ (1.11)$ for $\beta_L^{23}=1.0$ and $0.52\ (0.53)$ for $\beta_L^{23}=2.2$.
 At $\MU=2.5~\TeV$, the corresponding limits are approximately $4.0\ (3.9)$ for $\beta_L^{23}=0.2$, $2.30\ (2.19)$ for $\beta_L^{23}=1.0$ and $1.22\ (1.18)$ for $\beta_L^{23}=2.2$.
 The hatched regions are obtained by mapping the low-energy constraint on $C_{LL}^{c}$ shown in Figure~\ref{fig:cll_clr_low_energy_fit} through Eq.~\eqref{eq:cll_c_approx}.
 Their position will change as these measurements are updated.
 
 Figure~\ref{fig:ch10_limits_mass} shows that the sensitivity of this analysis is relatively limited at small $\beta_L^{23}$, where the upper limits on $\gU$ remain above the region favoured by the $B$ anomalies.
 The sensitivity improves as $\beta_L^{23}$ increases.
-In particular, the limits in Figure~\ref{fig:ch10_limits_mass}(c) approach the favoured region and begin to overlap with it at low mass.
+In particular, the limits in Figure~\ref{fig:ch10_limits_mass}(\subref{fig:ch10_limits_mass_beta2_2}) approach the favoured region and begin to overlap with it at low mass.
 Figure~\ref{fig:ch10_limits_couplings} illustrates the additional parameter space constrained by this analysis.
 At $\MU=1.5~\TeV$, the contribution from resonant production enhances the sensitivity, allowing part of the region favoured by the $B$ anomalies at the $2\sigma$ level to be excluded at large $\beta_L^{23}$.
 At higher masses, resonant production is increasingly suppressed, and the exclusion contours lie further from the favoured region.
@@ -422,8 +435,8 @@ These results exclude a region at large $\beta_L^{23}$ and small $\gU$ that was 
  \centering
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/limit_beta0_2.pdf}\caption{}\end{subfigure}\\
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/limit_beta1_0.pdf}\caption{}\end{subfigure}\hfill
- \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/limit_beta2_2.pdf}\caption{}\end{subfigure}
- \caption[Limits on the coupling as a function of the leptoquark mass]{Observed (red solid line) and expected (black dashed line) 95\% CL upper limits on $\gU$ as a function of $\MU$, at (a) $\beta_L^{23}=0.2$, (b) 1.0 and (c) 2.2. The shaded regions are favoured by $B$ anomalies at the $1\sigma$ and $2\sigma$ levels, converted from the $C_{LL}^{c}$ limit in Figure~\ref{fig:cll_clr_low_energy_fit} using Eq.~\eqref{eq:cll_c_approx}.}
+ \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/limit_beta2_2.pdf}\caption{}\label{fig:ch10_limits_mass_beta2_2}\end{subfigure}
+ \caption[Upper limits on $\gU$ as a function of $\MU$]{Observed (red solid line) and expected (black dashed line) 95\% CL upper limits on $\gU$ as a function of $\MU$, at (a) $\beta_L^{23}=0.2$, (b) 1.0 and (c) 2.2. The shaded regions are favoured by $B$ anomalies at the $1\sigma$ and $2\sigma$ levels, converted from the $C_{LL}^{c}$ limit in Figure~\ref{fig:cll_clr_low_energy_fit} using Eq.~\eqref{eq:cll_c_approx}.}
  \label{fig:ch10_limits_mass}
 \end{figure}
 
@@ -434,7 +447,7 @@ These results exclude a region at large $\beta_L^{23}$ and small $\gU$ that was 
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/limit_mu2000.pdf}\caption{}\end{subfigure}\\
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/limit_mu2500.pdf}\caption{}\end{subfigure}\hfill
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/limit_mu3000.pdf}\caption{}\end{subfigure}
- \caption[Exclusions in the two-coupling plane]{Observed (red solid line) and expected (black dashed line) 95\% CL upper limits on $\beta_L^{23}$ as a function of $\gU$ at (a) $\MU=1.5~\TeV$, (b) $2.0~\TeV$, (c) $2.5~\TeV$ and (d) $3.0~\TeV$. The shaded regions are favoured by $B$ anomalies at the $1\sigma$ and $2\sigma$ levels, converted from the $C_{LL}^{c}$ limit in Figure~\ref{fig:cll_clr_low_energy_fit} using Eq.~\eqref{eq:cll_c_approx}.}
+ \caption[Upper limits on $\beta_L^{23}$ as a function of $\gU$]{Observed (red solid line) and expected (black dashed line) 95\% CL upper limits on $\beta_L^{23}$ as a function of $\gU$ at (a) $\MU=1.5~\TeV$, (b) $2.0~\TeV$, (c) $2.5~\TeV$ and (d) $3.0~\TeV$. The shaded regions are favoured by $B$ anomalies at the $1\sigma$ and $2\sigma$ levels, converted from the $C_{LL}^{c}$ limit in Figure~\ref{fig:cll_clr_low_energy_fit} using Eq.~\eqref{eq:cll_c_approx}.}
  \label{fig:ch10_limits_couplings}
 \end{figure}
 
@@ -470,10 +483,11 @@ The visible cross-section limit is therefore lower for $|\beta_R^{33}|=1$ at $\M
 For the exclusion limit interpretation in the right-handed scenario, the limits are calculated with the asymptotic approximation and without interference, as specified in Section~\ref{subsec:ch10_limit_calculation}.
 The $\bVetoSR$ is also not included in the limit calculation because the interference effect is large there and not enough simulated interference samples are available for this additional interpretation.
 Figures~\ref{fig:ch10_rh_limits_mass} and~\ref{fig:ch10_rh_limits_couplings} show the 95\% CL exclusion limits.
+The hatched regions are recalculated using Eq.~\eqref{eq:cll_c_approx} with $C_{LL}^{c}$ values read from the black solid line of $C_{LR}^{c}=-C_{LL}^{c}$ in Figure~\ref{fig:cll_clr_low_energy_fit}.
 At $\MU=1.5~\TeV$, the observed (expected) upper limits on $\gU$ are $2.20\ (2.18)$, $0.84\ (0.80)$ and $0.53\ (0.51)$ for $\beta_L^{23}=0.2$, $1.0$ and $2.2$, respectively.
 At $\MU=3.0~\TeV$, the corresponding limits are approximately $4.3\ (4.2)$ for $\beta_L^{23}=0.2$, $1.98\ (1.96)$ for $\beta_L^{23}=1.0$ and $1.30\ (1.28)$ for $\beta_L^{23}=2.2$.
 Table~\ref{tab:ch10_coupling_limits_summary} summarises the limits for both scenarios.
-A similar dependence on $\gU$ and $\beta_L^{23}$ to that in the left-handed scenario is observed. Note that the hatched regions are recalculated using Eq.~\eqref{eq:cll_c_approx} with $C_{LL}^{c}$ values read from the black solid line of $C_{LR}^{c}=-C_{LL}^{c}$ in Figure~\ref{fig:cll_clr_low_energy_fit}.
+A similar dependence on $\gU$ and $\beta_L^{23}$ to that in the left-handed scenario is observed.
 
 
 \begin{figure}[htpb]
@@ -481,7 +495,7 @@ A similar dependence on $\gU$ and $\beta_L^{23}$ to that in the left-handed scen
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/rh_limit_beta0_2.pdf}\caption{}\end{subfigure}\\
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/rh_limit_beta1_0.pdf}\caption{}\end{subfigure}\hfill
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/rh_limit_beta2_2.pdf}\caption{}\end{subfigure}
- \caption[Right-handed limits on the coupling as a function of the leptoquark mass]{Observed (red solid line) and expected (black dotted line) 95\% CL upper limits on $\gU$ as a function of $\MU$ for $\beta_R^{33}=-1$, at (a) $\beta_L^{23}=0.2$, (b) 1.0 and (c) 2.2. The hatched regions are recalculated using Eq.~\eqref{eq:cll_c_approx} with $C_{LL}^{c}$ values read from the black solid line of $C_{LR}^{c}=-C_{LL}^{c}$ in Figure~\ref{fig:cll_clr_low_energy_fit}.}
+ \caption[Upper limits on $\gU$ as a function of $\MU$ for right-handed scenario]{Observed (red solid line) and expected (black dotted line) 95\% CL upper limits on $\gU$ as a function of $\MU$ for $\beta_R^{33}=-1$, at (a) $\beta_L^{23}=0.2$, (b) 1.0 and (c) 2.2. The hatched regions are recalculated using Eq.~\eqref{eq:cll_c_approx} with $C_{LL}^{c}$ values read from the black solid line of $C_{LR}^{c}=-C_{LL}^{c}$ in Figure~\ref{fig:cll_clr_low_energy_fit}.}
  \label{fig:ch10_rh_limits_mass}
 \end{figure}
 
@@ -491,7 +505,7 @@ A similar dependence on $\gU$ and $\beta_L^{23}$ to that in the left-handed scen
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/rh_limit_mu2000.pdf}\caption{}\end{subfigure}\\
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/rh_limit_mu2500.pdf}\caption{}\end{subfigure}\hfill
  \begin{subfigure}{0.47\linewidth}\includegraphics[width=\linewidth]{Figs/CH10/rh_limit_mu3000.pdf}\caption{}\end{subfigure}
- \caption[Right-handed exclusions in the two-coupling plane]{Observed (red solid line) and expected (black dotted line) 95\% CL upper limits on $\beta_L^{23}$ as a function of $\gU$ for $\beta_R^{33}=-1$ at (a) $\MU=1.5~\TeV$, (b) $2.0~\TeV$, (c) $2.5~\TeV$ and (d) $3.0~\TeV$. The hatched regions are recalculated using Eq.~\eqref{eq:cll_c_approx} with $C_{LL}^{c}$ values read from the black solid line of $C_{LR}^{c}=-C_{LL}^{c}$ in Figure~\ref{fig:cll_clr_low_energy_fit}.}
+ \caption[Upper limits on $\beta_L^{23}$ as a function of $\gU$ for right-handed scenario]{Observed (red solid line) and expected (black dotted line) 95\% CL upper limits on $\beta_L^{23}$ as a function of $\gU$ for $\beta_R^{33}=-1$ at (a) $\MU=1.5~\TeV$, (b) $2.0~\TeV$, (c) $2.5~\TeV$ and (d) $3.0~\TeV$. The hatched regions are recalculated using Eq.~\eqref{eq:cll_c_approx} with $C_{LL}^{c}$ values read from the black solid line of $C_{LR}^{c}=-C_{LL}^{c}$ in Figure~\ref{fig:cll_clr_low_energy_fit}.}
  \label{fig:ch10_rh_limits_couplings}
 \end{figure}
 
@@ -499,7 +513,9 @@ A similar dependence on $\gU$ and $\beta_L^{23}$ to that in the left-handed scen
 
 \begin{table}[htbp]
  \centering
- \captionsetup{position=bottom,skip=6pt}
+ \captionsetup{position=top,skip=6pt}
+ \caption[95\% CL upper limits on $\gU$]{Observed (expected) 95\% CL upper limits on $\gU$. The left-handed results combine $\bTagSR$ and $\bVetoSR$ using pseudo-experiments with interference included, while the right-handed results use only $\bTagSR$ and the asymptotic approximation without interference. The values are estimated from the observed and expected limit curves, and values marked with $\dagger$ are obtained by linear extrapolation of the limit curves in $\MU$.}
+ \label{tab:ch10_coupling_limits_summary}
  \begingroup
  \small
  \setstretch{1.0}
@@ -511,18 +527,16 @@ A similar dependence on $\gU$ and $\beta_L^{23}$ to that in the left-handed scen
   \toprule
   Scenario & $\MU$ [\TeV] & $\beta_L^{23}=0.2$ & $\beta_L^{23}=1.0$ & $\beta_L^{23}=2.2$ \\
   \midrule
-  \multirow{3}{*}{Left-handed} & 1.5 & $\approx2.8\ (2.8)$ & $1.13\ (1.11)$ & $0.52\ (0.53)$ \\
-   & 2.5 & $\approx4.0\ (3.9)^{\dagger}$ & $2.30\ (2.19)$ & $1.22\ (1.18)$ \\
-   & 3.0 & $\approx4.5\ (4.5)^{\dagger}$ & $2.69\ (2.57)$ & $\approx1.42\ (1.37)$ \\
+  \multirow{3}{*}{Left-handed} & 1.5 & $2.84\ (2.79)$ & $1.13\ (1.11)$ & $0.52\ (0.53)$ \\
+   & 2.5 & $4.0\ (3.9)^{\dagger}$ & $2.30\ (2.19)$ & $1.22\ (1.18)$ \\
+   & 3.0 & $4.5\ (4.5)^{\dagger}$ & $2.69\ (2.57)$ & $1.42\ (1.37)$ \\
   \midrule
   \multirow{3}{*}{Right-handed} & 1.5 & $2.20\ (2.18)$ & $0.84\ (0.80)$ & $0.53\ (0.51)$ \\
-   & 2.5 & $\approx3.6\ (3.5)^{\dagger}$ & $1.74\ (1.72)$ & $1.10\ (1.08)$ \\
-   & 3.0 & $\approx4.3\ (4.2)^{\dagger}$ & $1.98\ (1.96)$ & $1.30\ (1.28)$ \\
+   & 2.5 & $3.6\ (3.5)^{\dagger}$ & $1.74\ (1.72)$ & $1.10\ (1.08)$ \\
+   & 3.0 & $4.3\ (4.2)^{\dagger}$ & $1.98\ (1.96)$ & $1.30\ (1.28)$ \\
   \bottomrule
  \end{tabular}
  \endgroup
- \caption[Summary of coupling limits for the left- and right-handed scenarios]{Observed (expected) 95\% CL upper limits on $\gU$. The left-handed results combine $\bTagSR$ and $\bVetoSR$ using pseudo-experiments with interference included, while the right-handed results use only $\bTagSR$ and the asymptotic approximation without interference. Values preceded by $\approx$ are estimated from the nominal limit curves, and $\dagger$ marks the value estimated by linear mass extrapolation from the nominal values.}
- \label{tab:ch10_coupling_limits_summary}
 \end{table}
 
 \FloatBarrier
@@ -557,4 +571,5 @@ The magnitude of the interference compared with the pure-BSM yield is also reduc
 This optimisation was not applied in this thesis, and its potential gain should be reassessed in a future analysis.
 
 The supplementary study about the impact of the signal contamination from $\tau\tau$ production is also presented in Appendix~\ref{app:tautau_contamination}. It indicates that omitting the $\tau\tau$ signal contribution slightly underestimates the expected sensitivity by a few percent.
+A future analysis should therefore also include all relevant LQ signal contributions, including both $\tau\nu$ and $\tau\tau$ production.
 

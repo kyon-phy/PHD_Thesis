@@ -14,6 +14,7 @@ The reconstructed muon types are:
 
 \noindent CB muons are used as signal muons in this analysis, while ST and CT muons are additionally used as baseline muons.
 
+
 \subsection{Identification}
 
 Muon identification tests whether the detector hits and the ID and MS momentum measurements are consistent with a single muon trajectory.
@@ -31,12 +32,12 @@ Large values indicate poor agreement and help reject incorrectly matched candida
 Muon identification provides \texttt{Loose}, \texttt{Medium} and \texttt{Tight} working points.
 In this analysis, baseline muons are required to pass \texttt{Loose} identification while signal muons must additionally satisfy the \texttt{Medium} working point. The two working points are defined as follows:
 \begin{itemize}
-    \item \texttt{Medium}: CB muons within the ID acceptance must satisfy $S_{q/p}<7$. Outside $|\eta|<0.1$, they must also have at least two MS precision stations with at least three MDT or CSC hits each.
+    \item \texttt{Medium}: CB muons within the ID acceptance must satisfy $S_{q/p}<7$. For $|\eta|\geq0.1$, they must also have at least two MS precision stations with at least three MDT or CSC hits each.
     \item \texttt{Loose}: the same requirements as \texttt{Medium}, with additional acceptance for ST and CT muons in $|\eta|<0.1$, where MS coverage is limited.
     It also accepts additional inside-out CB muons with $\pT<7~\GeV$.
 \end{itemize}
-The typical prompt-muon reconstruction and identification efficiencies are about 99\% for \texttt{Loose} and 97\% for \texttt{Medium}.
-The corresponding representative rejection rates against light hadrons are about 99.75\% and 99.83\%, respectively~\cite{ATLAS2021MuonID}.
+The typical prompt-muon identification efficiencies are about 99\% for \texttt{Loose} and 97\% for \texttt{Medium}.
+The corresponding representative rejection rates against light hadrons are about 99.8\% and 99.8\%, respectively~\cite{ATLAS2021MuonID}.
 
 \subsection{Isolation}
 

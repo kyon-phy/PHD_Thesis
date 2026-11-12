@@ -9,7 +9,7 @@ Bremsstrahlung photons emitted in the upstream material can spread the shower en
 Both effects are treated in the reconstruction~\cite{ATLAS2019ElectronPerformance}:
 \begin{enumerate}
     \item \textbf{Topo-cluster reconstruction.} Neighbouring cells are grouped into topological clusters according to their signal significance above the expected noise~\cite{ATLAS2017TopoClusters}. Clusters with a substantial electromagnetic energy fraction are used as electron seeds.
-    \item \textbf{Track refitting and matching.} Electron-track candidates are refitted with a Gaussian-sum filter, in which a mixture of Gaussian components is used to describe radiative energy losses. The refitted tracks are extrapolated to the second layer of the EM calorimeter and matched to clusters using their differences in $\eta$ and $\phi$. If several tracks match the same cluster, the $\Delta R$ between each extrapolated track position and the cluster centre is used together with the pixel and SCT hits to rank the tracks. The track with the highest rank is selected as the primary electron track. For example, for two matched tracks with $\Delta R=0.02$ and $0.10$ to the cluster centre, the track with the smaller $\Delta R$ is preferred.
+    \item \textbf{Track refitting and matching.} Electron-track candidates are refitted with a Gaussian-sum filter, in which a mixture of Gaussian components is used to describe radiative energy losses. The refitted tracks are extrapolated to the second layer of the EM calorimeter and matched to clusters using their differences in $\eta$ and $\phi$. If several tracks match the same cluster, the $\Delta R$ between each extrapolated track position and the cluster centre is used together with the pixel and SCT hits to rank the tracks. The track with the highest rank is selected as the primary electron track. For example, for two matched tracks with $\Delta R$ of $0.02$ and $0.10$ relative to the cluster centre, the track with the smaller $\Delta R$ is preferred.
     \item \textbf{Supercluster formation.} Nearby clusters are added to the seed to recover energy from bremsstrahlung as shown in Figure~\ref{fig:ch6_electron_supercluster}. Additional clusters sharing the matched electron track can be collected over a wider region in $\phi$.
 \end{enumerate}
 
@@ -42,9 +42,9 @@ Two isolation variables are calculated using tracks and calorimeter clusters wit
 In the analysis, baseline electrons are required to pass the \texttt{Loose\_VarRad} isolation working point while signal electrons must additionally satisfy \texttt{HighPtCaloOnly}. They are defined as follows:
 \begin{itemize}
     \item \texttt{Loose\_VarRad}: the track and calorimeter isolation sums must be below 15\% and 20\% of the electron $\pT$, respectively.
-    \item \texttt{HighPtCaloOnly}: the calorimeter isolation sum is below $\max(0.015\,\pT,3.5~\GeV)$.
+    \item \texttt{HighPtCaloOnly}: the calorimeter isolation sum is below $\max(0.015\times\pT,3.5~\GeV)$.
 \end{itemize}
-At high $\et$ ($100<\et<500~\GeV$), the prompt-electron isolation efficiencies are about 99\% for \texttt{Loose\_VarRad} and 90--95\% for \texttt{HighPtCaloOnly}~\cite{ATLAS2024ElectronPhotonEfficiencies}.
+At high $\et$ ($100<\et<500~\GeV$), the prompt-electron isolation efficiencies are about 99\% for \texttt{Loose\_VarRad} and 90--95\% for \texttt{HighPtCaloOnly}~\cite{ATLAS2024ElectronPhotonEfficiencies}. The \texttt{HighPtCaloOnly} working point provides the highest background rejection among all the working points for $\et>100~\GeV$.
 
 \subsection{Calibration}
 

@@ -9,13 +9,13 @@ The Monte Carlo (MC) simulation for $pp$ collisions is presented first, followed
 MC simulation is used to model the signal and SM background processes and to predict their event yields and kinematic distributions~\cite{Buckley2011EventGenerators}.
 Event generation begins with the hard scattering (HS), an interaction between partons at short distances with a large momentum transfer.
 The incoming partons and their momentum fractions are sampled using the proton parton distribution functions (PDFs). PDFs describe the probability density for finding a parton carrying a fraction $x$ of the proton momentum, and they are extracted from fits to measurements.
-The matrix element (ME) for the HS is calculated in perturbative QCD to a fixed order. And the parton shower (PS) provides an approximate treatment of higher-order QCD radiation.
+The matrix element (ME) for the HS is calculated in perturbative QCD to a fixed order. The parton shower (PS) provides an approximate treatment of higher-order QCD radiation.
 When QCD emissions are included in both the ME and PS calculations, matching or merging is required to avoid double counting.
 After the PS, quarks and gluons form hadrons due to colour confinement.
-This process is called hadronisation and is typically modelled using phenomenological models.
-The underlying event, which arises mainly from further parton interactions and the beam remnants in the same $pp$ collision, is also simulated.
+This process is called hadronisation and is typically modelled using phenomenological models. Unstable hadrons then decay, and the resulting particles are passed through the detector simulation.
+The underlying event, which arises mainly from multiple parton interactions and the beam remnants in the same $pp$ collision, is also simulated.
 Pile-up is modelled using independently generated inelastic $pp$ collisions.
-Those events are overlaid on the HS event before event reconstruction~\cite{ATLAS2022PileupOverlay}.
+Those events are overlaid after the detector simulation and before event reconstruction~\cite{ATLAS2022PileupOverlay}.
 
 
 \section{Dataset selection}
@@ -31,7 +31,7 @@ The corresponding simulated events are then reweighted according to these values
 
 \begin{table}[htbp]
     \centering
-    \caption[Integrated luminosity and mean pile-up of the Run~2 data]{Integrated luminosity and mean pile-up $\langle\mu\rangle$ for Run~2~\cite{ATLASLumiRun2}.}
+    \caption[Run~2 integrated luminosity and mean pile-up]{Integrated luminosity and mean pile-up $\langle\mu\rangle$ for Run~2~\cite{ATLASLumiRun2}.}
     \label{tab:run2_luminosity_pileup}
     \begin{tabular}{ccc}
         \hline
@@ -69,7 +69,6 @@ The resonant single-production and non-resonant $t$-channel processes shown in F
 Other allowed contributions, including leptoquark pair production where kinematically accessible, are also retained.
 
 \textsc{Pythia} subsequently simulates the parton shower, hadronisation and the underlying event.
-The underlying event is the additional soft activity in the same proton--proton collision that does not originate from the hard scattering, arising mainly from multiple parton interactions and the proton remnants.
 Since these soft-QCD effects cannot be predicted from first principles, the corresponding model parameters are tuned to data. The A14 tune~\cite{Christiansen2025SoftQCD} provides the \textsc{Pythia}~8 parameters fitted to ATLAS $7~\TeV$ measurements, and is used together with the NNPDF2.3lo PDF set~\cite{Ball2013NNPDF23}.
 
 Since the matrix element already contains up to two additional partons while the parton shower generates further emissions, the same radiation could be produced by both calculations.
@@ -86,11 +85,11 @@ For the pure-left-handed interpretation, dedicated signal samples are generated 
 with $\beta_L^{33}=1$ and $\beta_R^{33}=0$.
 The lower boundary of the mass scan covers the region around the exclusion limits obtained from previous leptoquark pair-production searches~\cite{ATLAS2023LQBTau,CMS2021LQThirdGen}.
 For $\MU>3~\TeV$, the selected signal is dominated by non-resonant exchange, where the sensitivity is governed mainly by the ratio $\gU/\MU$.
-The primary mass scan is therefore restricted to $\MU\leq3~\TeV$.
 
 For the right-handed interpretation with $|\beta_R^{33}|=1$, one baseline sample is generated at each of the six mass points $\MU\in\{1.5,2.0,2.5,3.0,4.0,5.0\}~\TeV$ with $\gU=1$ and $\beta_L^{23}=0.2$.
 Predictions at other values of $\gU$ and $\beta_L^{23}$ are obtained from these baseline samples using corrected \textsc{MadGraph5\_aMC@NLO} internal event weights, rather than from separately generated samples at every parameter point.
-The correction includes an adjustment of the normalisation and a two-dimensional truth-level shape correction based on the leading-jet $\pT$ and $m_{b\tau}$.\footnote{These corrections are applied because the internal event weights from \textsc{MadGraph5\_aMC@NLO} were found not to be fully accurate for leptoquark production.}
+The correction includes an adjustment of the normalisation and a two-dimensional truth-level shape correction based on the leading-jet $\pT$ and $m_{b\tau}$.
+\footnote{These corrections are applied because the internal event weights from \textsc{MadGraph5\_aMC@NLO} were found not to be fully accurate when varying $\gU$ and $\beta_L^{23}$ for leptoquark production.}
 % Details of the correction and its validation are given in Appendix~\ref{app:signal_weight_correction}.
 This strategy avoids repeating event generation and detector simulation for every coupling configuration, thereby reducing the required computing resources.
 The validation shown in Figure~\ref{fig:signal_weight_validation} compares corrected predictions with an independently generated reference sample at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,0.5,0.2)$.
@@ -102,7 +101,7 @@ Correction (3) gives the best agreement with the reference sample.
     \includegraphics[width=0.48\linewidth]{Figs/CH5/truth_jetpt.png}
     \hfill
     \includegraphics[width=0.48\linewidth]{Figs/CH5/truth_mbtau.png}
-    \caption[Validation of the correction to the signal internal event weights]{The truth-level leading jet $\pT$ (left) and $m_{b\tau}$ (right) distributions at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,0.5,0.2)$.
+    \caption[Truth-level leading jet $\pT$ and $m_{b\tau}$ distributions]{The truth-level leading jet $\pT$ (left) and $m_{b\tau}$ (right) distributions at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,0.5,0.2)$.
     The black line shows the reference sample that is generated independently.
     The red dotted line shows the weighted distributions from the ``baseline'' sample at $\gU=1.0$, without any additional corrections.
     The blue dashed, green dash-dotted and magenta dash-dotted lines show corrections (1), (2) and (3), respectively.
