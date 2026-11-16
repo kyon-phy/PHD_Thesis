@@ -50,7 +50,7 @@ The estimation strategy for each background, including the definitions of the CR
     \item $\ztautau$ and diboson production are estimated directly from simulation without dedicated CRs.
     Their predicted yields are allowed to vary within conservative uncertainties in the fit.
 
-    \item The multijet background is negligible after the full SR selections, including the suppression described in Section~\ref{subsec:ch7_multijet}, as checked in Appendix~\ref{App:QCD_bkg_study}.
+    \item The multijet background is negligible after the full SR selections, including the suppression described in Section~\ref{subsec:ch7_baseline_selection}, as checked in Appendix~\ref{App:QCD_bkg_study}.
 \end{itemize}
 
 Four CRs are therefore defined in this analysis: $\CRW$-$\Res$ and $\CRW$-$\NonRes$ for $\wjets$, and $\CRTop$-$\Res$ and $\CRTop$-$\NonRes$ for the top-quark background, corresponding to the normalisation factors $\lambda_W^{\Res}$, $\lambda_W^{\NonRes}$, $\lambda_t^{\Res}$ and $\lambda_t^{\NonRes}$, respectively. They are defined as follows:
@@ -84,7 +84,7 @@ $\mT^\ell$ and $\DphiLepMet$ are calculated using the light lepton as a proxy fo
 
 The definitions of the $\CRW$ and $\VRW$ regions are summarised in Table~\ref{tab:ch8_wcr_vrw}.
 After the background-only fit, the $\wjets$ purity is approximately $95\%$ in $\CRW$-$\NonRes$ and $82\%$ in $\CRW$-$\Res$. Diboson events are expected to contribute approximately $14\%$ in $\CRW$-$\Res$.
-The additional neutrino in a hadronic $\tau$ decay introduces kinematic differences in the $1\ell\to1\hadtau$ extrapolation. The prediction is further tested in the lower-mass $1\hadtau0\ell1b$ regions described in Appendix~\ref{subsec:low_mass_vr}, which check the extrapolation to events with both a $\hadtau$ and a $b$-jet.
+The additional neutrino in a hadronic $\tau$ decay introduces kinematic differences in the $1\ell\to1\hadtau$ extrapolation. The prediction is further tested in the lower-mass $1\hadtau0\ell1b$ regions described in Appendix~\ref{app:ch8_vrw_excess}, which check the extrapolation to events with both a $\hadtau$ and a $b$-jet.
 
 The signal contamination is checked with samples including both hadronic and leptonic $\tau$ decays at parameter points $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.2)$ and $(2.5~\TeV,1.5,1.0)$ for the resonant and non-resonant CRs, respectively. The contamination is found to be below $1\%$ in both regions.
 
@@ -248,13 +248,18 @@ The contribution from leptonic $\tau$ decays is $(1.3\pm0.1)\%$ in $\VRW$-$\Res$
 
 After the background-only fit, the $\VRW$-$\Res$ yield agrees with the prediction within about $1\sigma$, while a deviation of about $2\sigma$ is observed in $\VRW$-$\NonRes$, as shown in Figures~\ref{fig:ch8_vrw_res} and~\ref{fig:ch8_vrw_nonres}.
 \input{Chapters/background_estimation/figures_vrw_\CHEightCRFigureVersion}
+\FloatBarrier
 
 The finer-binned $\met$ distribution in Figure~\ref{fig:ch8_vrw_met_study}(\subref{fig:ch8_vrw_met_study_met}) shows that the excess is concentrated in $425<\met<450~\GeV$. Better agreement is observed in the neighbouring intervals. 
 Within this $\met$ interval, Figure~\ref{fig:ch8_vrw_met_study}(\subref{fig:ch8_vrw_met_study_lep_pt}) shows that the excess is concentrated at $300<\pT^\ell<400~\GeV$.
 Further checks using different $\met$ thresholds and additional validation regions are described in Appendix~\ref{app:ch8_vrw_excess}.
 No indication of a local detector problem is found in the $(\eta,\phi)$ distributions of the leptons and $b$-jets.
+
+\begin{samepage}
 Good agreement is also found in the additional low-mass VRs.
 Since the probability of observing a $2\sigma$ deviation in one or more of the four VRs is about $17\%$ and the validation results above do not indicate any specific modelling problem, the excess is consistent with a statistical fluctuation.
+
+\end{samepage}
 
 % Following figures are from Figs/CH8/studies/; copies without the ATLAS Internal label
 % are prepared by scripts/ch8/prepare_vrw_excess_appendix.py.

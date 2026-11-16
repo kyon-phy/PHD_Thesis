@@ -1,5 +1,14 @@
 # Thesis changelog
 
+## Submission version
+
+**Date:** 2026-11-16
+
+**Git tag:** [`submission-version`](https://github.com/kyon-phy/PHD_Thesis/tree/submission-version/codex/my_thesis)
+
+- Records the submission snapshot of the thesis LaTeX sources, bibliography and referenced figures.
+- Build `codex/my_thesis/thesis.tex` to generate the PDF for this source version.
+
 ## v0.1 — 1st draft
 
 **Date:** 2026-10-06

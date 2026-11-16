@@ -2,37 +2,26 @@
 \label{chapter:event_selection}
 This chapter defines the signal regions (SRs) used to select the final states produced by the processes shown in Figure~\ref{fig:u1_taunu_target_topologies}, which contain a $\hadtau$, missing transverse momentum and jets that may include $b$-jets. Four SRs are defined according to the presence of a $b$-jet and the targeted signal topology, either resonant production or non-resonant exchange. They are denoted $\bTagSR$-\Res, $\bTagSR$-\NonRes, $\bVetoSR$-\Res and $\bVetoSR$-\NonRes.
 
-The analysis variables and baseline selection are introduced first, followed by the optimisation of the one-$b$-jet regions ($b$-tagged, $\bTagSR$) and the definition of the zero-$b$-jet regions ($b$-veto, $\bVetoSR$).
+The baseline selection is introduced first, followed by the analysis variables, the optimisation of the one-$b$-jet regions ($b$-tagged, $\bTagSR$) and the definition of the zero-$b$-jet regions ($b$-veto, $\bVetoSR$).
 
-\section{Baseline selection and variable definitions}
+\section{Baseline selection and analysis variables}
 \label{sec:ch7_baseline_selection}
 
-\subsection{Analysis variables}
-\label{subsec:ch7_variables}
-
-The transverse mass $\mT$ of the $\hadtau$ and $\mpt$ system is defined as
-    \begin{equation*}
-        \mT = \sqrt{2\pT^{\hadtau}\met\left[1-\cos\DphiTauMet\right]},
-    \end{equation*}
-where $\DphiTauMet$ is the separation in $\phi$ between the $\hadtau$ momentum and $\mpt$.
-The variable $\mT$ is used to probe the high-energy tail of the $\tau\nu$ final state, which is sensitive to non-resonant leptoquark contributions~\cite{Endo2022NonResonant}.
-
-The invariant masses $m_{b\hadtau}$ and $m_{j\hadtau}$ are defined as:
-    \begin{equation*}
-        m_{b\hadtau} = \sqrt{(\boldsymbol{p}_b+\boldsymbol{p}_{\hadtau})^2}, \qquad m_{j\hadtau} = \sqrt{(\boldsymbol{p}_{j_1}+\boldsymbol{p}_{\hadtau})^2},
-    \end{equation*}
-    where $\boldsymbol{p}_b$ and $\boldsymbol{p}_{\hadtau}$ are the four-momenta of the $b$-jet and $\hadtau$, respectively, and $\boldsymbol{p}_{j_1}$ is the four-momentum of the leading jet.
-These two variables are used to probe the $b$-tagged and $b$-veto SRs, respectively.
-
 \subsection{Multijet suppression and baseline selection}
-\label{subsec:ch7_multijet}
+\label{subsec:ch7_baseline_selection}
 
-Although the high $\met$ threshold rejects most multijet events, some can still enter the SRs and control regions due to the large multijet cross-section. These events typically contain a misidentified $\hadtau$ and fake $\met$ due to the poor jet resolution. Therefore, further suppression is necessary.
+The SR definitions in this analysis are based on the optimisation of selection thresholds on multiple variables.
+And the baseline selection is the common starting point for the SR optimisation. 
+The common choices for the baseline selection requirements are based on the signal topology and separation from the SM background. 
+Beyond that, requirements that suppress backgrounds containing the misidentified objects are also important since these backgrounds can be difficult to model with simulation. In this analysis, multijet events are one such background. Therefore, dedicated requirements to suppress multijet events need to be applied in the baseline selection.
 
-Specifically, fake $\met$ is produced when an energetic jet is mismeasured.
+Specifically, although the high $\met$ threshold required in this analysis rejects most multijet events, some can still enter the SRs due to the large multijet cross-section. These events typically contain a misidentified $\hadtau$ and fake $\met$ due to the poor jet resolution. 
+The key point of separating multijet events from signals is therefore the source of fake $\met$.
+
+Fake $\met$ can be produced when the $\pT$ of an energetic jet is underestimated.
 In this case, $\mpt$ points approximately towards that jet and its magnitude tends not to be too large compared with the $\pT$ of the mismeasured jet.
 On the other hand, in signal events, $\mpt$ from neutrinos has no such tendency.
-Figure~\ref{fig:ch7_fake_met} illustrates this difference. The minimum jet--$\mpt$ separation in $\phi$ and the ratio $\metOverMinDphiJetPt$ are therefore used as discriminating variables. Here $\minDphiJetPt$ is the $\pT$ of the jet with the smallest $\DphiJetMet$.
+Figure~\ref{fig:ch7_fake_met} illustrates this difference. The mismeasured part of the energetic jet could mimic the $\met$ from neutrinos. The minimum jet--$\mpt$ separation in $\phi$ and the ratio $\metOverMinDphiJetPt$ are therefore used as discriminating variables. Here $\minDphiJetPt$ is the $\pT$ of the jet with the smallest $\DphiJetMet$.
 The $\hadtau$ candidate is also included when evaluating these two variables.
 
 
@@ -50,7 +39,7 @@ The $\hadtau$ candidate is also included when evaluating these two variables.
     \label{fig:ch7_fake_met}
 \end{figure}
 
-Events are retained if
+As a result, events are retained if
 \begin{equation*}
     \minDphiJetMet\geq0.4 \quad\text{or}\quad \metOverMinDphiJetPt\geq6.
 \end{equation*}
@@ -89,8 +78,8 @@ Figure~\ref{fig:app_qcd_correlations} shows the correlation between $\minDphiJet
     \label{fig:app_qcd_correlations}
 \end{figure}
 
-The baseline selection is the common starting point for the SR optimisation. It requires the event requirements listed below, including the multijet suppression requirement. The final SRs are obtained by applying the additional requirements determined by the optimisation to these baseline events.
-\begin{itemize}
+The baseline selection therefore requires the event requirements listed below, including the multijet suppression requirement. The final SRs are obtained by applying the additional requirements determined by the optimisation to these baseline events.
+\begin{itemize}[itemsep=0pt,parsep=0pt]
   \item Data events are required to belong to GRLs, which contain the data-taking periods in which the relevant detector systems were operating normally.
   \item Each event is required to contain a reconstructed primary vertex satisfying the definition in Section~\ref{sec:ch6_primary_vertex}.
   \item The lowest-threshold unprescaled $\met$ trigger is used to select events with large $\met$.
@@ -102,32 +91,28 @@ The baseline selection is the common starting point for the SR optimisation. It 
   \item Reject events with $\minDphiJetMet<0.4$ and $\metOverMinDphiJetPt<6$ to suppress multijet events.
 \end{itemize}
 
-\section[$\bTagSR$ optimisation and definition]{$\bTagSR$ optimisation and definition}
-\label{sec:ch7_sr1b}
+\subsection{Analysis variables and distributions}
+\label{subsec:ch7_variables}
 
-Event selection in $\bTagSR$ is optimised using a grid scan of thresholds on variables that help separate signal from background. $\bTagSR$-$\Res$ and $\bTagSR$-$\NonRes$ are optimised separately.
-
-\subsection{Signal benchmarks and scan variables}
-\label{subsec:ch7_scan}
-
-Different signal benchmarks are used for the optimisations of each signal region. The optimisation for $\bTagSR$-$\Res$ uses $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, where on-shell production is dominant.
-For $\bTagSR$-$\NonRes$, the optimisation uses $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, where $t$-channel exchange is dominant.
-The interference is not included in the scan because its contribution is around $5$--$10\%$ of the BSM signals in the parameter range probed by the $\bTagSR$ regions.
-% As discussed in Appendix~\ref{app:signal_interference_study}. 
-The selected cut combination is therefore not expected to change significantly when the interference is included.
-
+Multiple variables are used to search for signals and separate them from SM backgrounds.
 $\pT^{\hadtau}$ and $\met$ are considered first, since energetic $\tau$ leptons and neutrinos are expected in the signal.
-The $b$-jet $\pT$ is also used. An energetic $b$-jet from the leptoquark decay is expected in the resonant process, whereas the $b$-jet is typically softer in the non-resonant process. 
-$\mT$ is used to distinguish non-resonant leptoquark exchange from the SM background.
+The transverse mass $\mT$ is used to probe the high-energy tail of the $\tau\nu$ final state, which is sensitive to non-resonant leptoquark contributions~\cite{Endo2022NonResonant}.
 A tighter $\mT$ threshold is therefore expected in $\bTagSR$-$\NonRes$ than in $\bTagSR$-$\Res$.
-The invariant mass $m_{b\hadtau}$ is used to probe resonant $U_1\to b\tau$ decays.
-The jet multiplicity is used to suppress $\ttbar$ events since they tend to have more jets than the signal events.
-Figure~\ref{fig:ch7_scan_variables} shows the distributions of cut variables for the signal and background.
-The signal has higher $\pT^{\hadtau}$ and $\mT$ than the background, and favours a back-to-back $\hadtau$ and $\mpt$ configuration.
-$\DphiTauMet$ is therefore used to select the back-to-back $\hadtau$ and $\mpt$ configuration of the non-resonant signal.
-% On the other hand, in $\bTagSR$-$\Res$, small $\DphiTauMet$ values are favoured due to the high $\pT^b$ requirement.
+The $\mT$ of the $\hadtau$ and $\mpt$ system is defined as
+\begin{equation*}
+    \mT = \sqrt{2\pT^{\hadtau}\met\left[1-\cos\DphiTauMet\right]},
+\end{equation*}
+where $\DphiTauMet$ is the separation in $\phi$ between the $\hadtau$ momentum and $\mpt$.
 
-\begin{figure}[htpb]
+The invariant masses $m_{b\hadtau}$ and $m_{j\hadtau}$ are used to probe resonant $U_1\to b\tau$ and $U_1\to s\tau$ decays in the $b$-tagged and $b$-veto SRs, respectively. They are defined as:
+    \begin{equation*}
+        m_{b\hadtau} = \sqrt{(\boldsymbol{p}_b+\boldsymbol{p}_{\hadtau})^2}, \qquad m_{j\hadtau} = \sqrt{(\boldsymbol{p}_{j_1}+\boldsymbol{p}_{\hadtau})^2},
+    \end{equation*}
+where $\boldsymbol{p}_b$ and $\boldsymbol{p}_{\hadtau}$ are the four-momenta of the $b$-jet and $\hadtau$, respectively, and $\boldsymbol{p}_{j_1}$ is the four-momentum of the leading jet.
+
+Figure~\ref{fig:ch7_scan_variables} shows the distributions of the cut variables for the signal and background after the baseline selection.
+
+\begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.48\linewidth}
         \includegraphics[width=\linewidth]{Figs/CH7/scan_variables/SR1b_baseline_tau_pt.pdf}
@@ -153,11 +138,38 @@ $\DphiTauMet$ is therefore used to select the back-to-back $\hadtau$ and $\mpt$ 
         \includegraphics[width=\linewidth]{Figs/CH7/scan_variables/SR1b_baseline_n_light_jets.pdf}
         \caption{$N_j-N_b$}
     \end{subfigure}
-    \caption[Distributions of the cut variables]{Distributions of the cut variables after the baseline selection for background and signals. The Y-axis shows the event yield per bin. The signals at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(2.5~\TeV,2.5,1.0)$ are shown in red and purple, respectively.}
+    \caption[Distributions of the cut variables]{Distributions of the cut variables after the baseline selection for background and signals. The Y-axis shows the event yield per bin. The hatched bands show the MC statistical uncertainties on the backgrounds. The signals at $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$ and $(2.5~\TeV,2.5,1.0)$ are shown in red and purple, respectively.}
     \label{fig:ch7_scan_variables}
 \end{figure}
 
-The signal $m_{b\hadtau}$ distribution is broad, as shown in Figure~\ref{fig:ch7_scan_variables}(\subref{fig:ch7_scan_variables_mbtau}), so a finer mass threshold scan is not expected to improve the sensitivity significantly. Therefore, the $m_{b\hadtau}$ threshold in $\bTagSR$-$\Res$ is fixed at $800~\GeV$.
+The $b$-jet $\pT$ is also used. An energetic $b$-jet from the leptoquark decay is expected in the resonant process, whereas the $b$-jet is typically softer in the non-resonant process. 
+
+An upper limit on the jet multiplicity is applied to further suppress the background, especially backgrounds containing a second hadronically decaying $\tau$ lepton reconstructed as a jet, such as $\ttbar$ or $Wt$.
+
+$\DphiTauMet$ is used to select the back-to-back $\hadtau$ and $\mpt$ configuration of the non-resonant signal.
+
+The signal has higher $\pT^{\hadtau}$ and $\mT$ than the background, and favours a back-to-back $\hadtau$ and $\mpt$ configuration.
+The signal $m_{b\hadtau}$ distribution is broad because of variations in the momentum carried away by the neutrino from the $\tau$ decay and poor jet reconstruction resolution.
+
+
+
+
+% On the other hand, in $\bTagSR$-$\Res$, small $\DphiTauMet$ values are favoured due to the high $\pT^b$ requirement.
+
+\section[$\bTagSR$ optimisation and definition]{$\bTagSR$ optimisation and definition}
+\label{sec:ch7_sr1b}
+
+Event selection in $\bTagSR$ is optimised using a grid scan of thresholds on variables introduced above. $\bTagSR$-$\Res$ and $\bTagSR$-$\NonRes$ are optimised separately.
+
+\subsection{Signal benchmarks and optimisation procedure}
+\label{subsec:ch7_scan}
+
+Different signal benchmarks are used for the optimisations of each signal region. The optimisation for $\bTagSR$-$\Res$ uses $(\MU,\gU,\beta_L^{23})=(1.5~\TeV,1.5,0.6)$, where on-shell production is dominant.
+For $\bTagSR$-$\NonRes$, the optimisation uses $(\MU,\gU,\beta_L^{23})=(2.5~\TeV,2.5,1.0)$, where $t$-channel exchange is dominant.
+The interference is not included in the scan because its contribution is around $5$--$10\%$ of the BSM signals in the parameter range probed by the $\bTagSR$ regions.
+% As discussed in Appendix~\ref{app:signal_interference_study}. 
+The selected cut combination is therefore not expected to change significantly when the interference is included.
+A finer mass threshold scan is also not expected to improve the sensitivity significantly due to the broad mass distribution as shown in Figure~\ref{fig:ch7_scan_variables}(\subref{fig:ch7_scan_variables_mbtau}). The $m_{b\hadtau}$ threshold in $\bTagSR$-$\Res$ is therefore fixed at $800~\GeV$.
 The thresholds used for the grid scan are summarised in Table~\ref{tab:ch7_scan_variables}.
 
 \begin{table}[htbp]
@@ -255,7 +267,6 @@ A smaller contribution is provided by $Z(\to\tau\tau)$+jets, while the $Z(\to\nu
 The $N-1$ distributions in $\bTagSR$-$\Res$ are shown in Figure~\ref{fig:ch7_sr1b_res_distributions}, where the thresholds on the correlated variables $\mT$ and $\pT^{\hadtau}$ are both lowered to $100~\GeV$ to reduce statistical fluctuations.
 
 For the $1.5~\TeV$ benchmark, the $m_{b\hadtau}$ peak is shifted to about $900~\GeV$ because the neutrino from the $\tau$ decay is not included in the reconstructed mass.
-The mass distribution is also broadened by the missing neutrino momentum and poor jet reconstruction resolution.
 
 \begin{figure}[htpb]
     \centering
@@ -366,6 +377,12 @@ In $\bVetoSR$-$\NonRes$, a leading jet with $50<\pT^{\mathrm{jet}}<250~\GeV$ is 
 No additional optimisation is applied to the $\bVetoSR$ selections.
 The final selections for all SRs are summarised in Table~\ref{tab:ch7_signal_regions}.
 
+
+
+Interference with the SM is larger in $\bVetoSR$ than in $\bTagSR$ and is evaluated at each signal parameter point.
+Its contribution reduces the pure-BSM signal yield by approximately $20\%$ at $\MU=1.5~\TeV$ and by about $30$--$40\%$ at higher masses.
+Therefore, the sum of the pure-BSM and interference contributions remains positive over the parameter region probed by this analysis.
+
 \begin{table}[htbp]
     \centering
     \small
@@ -398,10 +415,6 @@ The final selections for all SRs are summarised in Table~\ref{tab:ch7_signal_reg
         \bottomrule
     \end{tabular}
 \end{table}
-
-Interference with the SM is larger in $\bVetoSR$ than in $\bTagSR$ and is evaluated at each signal parameter point.
-Its contribution reduces the pure-BSM signal yield by approximately $20\%$ at $\MU=1.5~\TeV$ and by about $30$--$40\%$ at higher masses.
-After the final selections, the sum of the pure-BSM and interference contributions remains positive over the parameter region probed by this analysis.
 
 The cutflows of event yields in $\bVetoSR$-$\Res$ and $\bVetoSR$-$\NonRes$ are shown in Tables~\ref{tab:ch7_cutflow_sr0b_res} and~\ref{tab:ch7_cutflow_sr0b_nonres}, respectively.
 The signal yields in these tables correspond to the pure-BSM contribution.
@@ -452,7 +465,7 @@ The signal yields in these tables correspond to the pure-BSM contribution.
     }
 \end{table}
 
-The $\bVetoSR$ is dominated by $W\to\tau\nu$+jets, since vetoing $b$-jets removes much of the top-quark background while retaining $W$ production with light-flavour jets.
+Regarding the background composition, the $\bVetoSR$ is dominated by $W\to\tau\nu$+jets, since vetoing $b$-jets removes much of the top-quark background while retaining $W$ production with light-flavour jets.
 Before the fit, $W$+jets contributes approximately $72\%$ in $\bVetoSR$-$\Res$ and $84\%$ in $\bVetoSR$-$\NonRes$.
 In the resonant region, diboson production contributes about $12\%$, $Z\to\nu\nu$+jets about $9\%$, and $Z\to\tau\tau$+jets about $6\%$.
 In the non-resonant region, the corresponding contributions are approximately $3\%$, $5\%$ and $7\%$.
